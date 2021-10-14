@@ -20,15 +20,9 @@
       ],
       "settings": {
       }
-    },
-    "30515622_1634200112": {
-      "type": "powr-form-builder",
-      "settings": {
-      }
     }
   },
   "order": [
-    "main",
-    "30515622_1634200112"
+    "main"
   ]
 }
