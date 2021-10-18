@@ -1,0 +1,130 @@
+{%- comment -%}
+	底部悬浮导航
+	@Version  v1.0
+	@Author   苦行僧|2021/10/18
+{%- endcomment -%}
+
+{% assign footer_menu=section.settings.footer_menu %}
+{% assign pathArr = canonical_url | replace:"/","@"| split:"@" %}
+{% assign path3 = pathArr[3] %}
+{% assign path4 = pathArr[4] %}
+{% if path3=='account' %} {% capture path3 %}me{% endcapture%} {% endif %}
+
+{% capture cjj_current %}
+	{%- for link in footer_menu.links -%}
+		{% assign link_title = link.title | downcase | replace:" ","-" %}
+		{%- if link_title==path4 -%}
+			{{ path4 }}
+			{% break %}
+		{%- endif -%}
+	{%- endfor -%}
+{% endcapture %}
+
+{%- if cjj_current== blank -%}
+	{% capture cjj_current %}
+	{%- for link in footer_menu.links -%}
+		{% assign link_title = link.title | downcase | replace:" ","-" %}
+		{%- if link_title==path3 -%}
+			{{ path3 }}
+			{% break %}
+		{%- endif -%}
+	{%- endfor -%}
+	{% endcapture %}
+{%- endif -%}
+
+{% assign cjj_currentPage = cjj_current | lstrip |defalut:'home'%}
+
+{% if footer_menu.links.size >0 %}
+	<div class="footer-navbar-box">
+		<div class="footer-navbar hidden-lap hidden-lap-and-up">
+			<ul class="list--unstyled ">
+				{%- for link in footer_menu.links -%}
+					{% assign link_class = link.title | downcase | replace:" ","-" %}
+					<li class="{{ link_class }}"><a href="{{ link.url }}">
+							{%- render 'icon', icon: link_class -%}<br/>
+							<span class="navbar-title">{{ link.title }}</span>
+						</a></li>
+				{%- endfor -%}
+			</ul>
+		</div>
+	</div>
+{% endif %}
+
+<style>
+	.footer-navbar-box{
+		height:{{ section.settings.navbar_height }}px;
+	}
+	.footer-navbar{
+		width: 100vw;
+		height: {{ section.settings.navbar_height }}px;
+		position: fixed;
+		bottom: 0;
+		z-index: 999;
+		background-color: {{ section.settings.navbar_bgcolor }};
+		display: flex;
+		justify-content: center;
+	}
+	.footer-navbar ul{
+		display: flex;
+		flex: 1;
+	}
+	.footer-navbar li{
+		flex: 1 0 auto;
+	}
+	.footer-navbar a{
+		display: block;
+		text-align: center;
+		line-height: {{ section.settings.navbar_height|divided_by: 2}}px;
+		color: {{ section.settings.navbar_color }};
+	}
+	.footer-navbar .{{cjj_currentPage}} a{
+		color: {{ section.settings.navbar_active_color }};
+	}
+	.navbar-title{
+		display:  inline-block;
+		text-align: center;
+	}
+</style>
+
+<script>
+
+</script>
+
+{% schema %}
+{
+	"name": "footer-navbar",
+	"class":"box",
+	"settings": [
+		{
+			"type": "link_list",
+			"id":"footer_menu",
+			"label": "吸底导航",
+			"info": "菜单名请与链接名相关，如同时匹配多个则激活最精确那个，例：链接名为***.com/search/**激活search，***.com/search/new-in/** 激活new in，如需要自定义请联系前端"
+		},{
+			"type": "range",
+			"id": "navbar_height",
+			"label": "高度",
+			"unit":"px",
+			"min":20,
+			"max":100,
+			"step":1,
+			"default": 50
+		},{
+			"type": "color",
+			"id": "navbar_bgcolor",
+			"label": "背景颜色",
+			"default": "#ffffff"
+		},{
+			"type": "color",
+			"id": "navbar_color",
+			"label": "字体颜色",
+			"default": "#cccccc"
+		},{
+			"type": "color",
+			"id": "navbar_active_color",
+			"label": "激活颜色",
+			"default": "#000000"
+		}
+	]
+}
+{% endschema %}
