@@ -32,7 +32,7 @@
 	{% endcapture %}
 {%- endif -%}
 
-{% assign cjj_currentPage = cjj_current | lstrip |defalut:'home'%}
+{% assign cjj_currentPage = cjj_current | lstrip |default:'home'%}
 
 {% if footer_menu.links.size >0 %}
 	<div class="footer-navbar-box">
@@ -41,7 +41,8 @@
 				{%- for link in footer_menu.links -%}
 					{% assign link_class = link.title | downcase | replace:" ","-" %}
 					<li class="{{ link_class }}"><a href="{{ link.url }}">
-							{%- render 'icon', icon: link_class -%}<br/>
+							{% assign cjj_icon = link_class | prepend:'cjj_'%}
+							{%- render 'icon', icon: cjj_icon -%}<br/>
 							<span class="navbar-title">{{ link.title }}</span>
 						</a></li>
 				{%- endfor -%}
