@@ -5,7 +5,7 @@
 {%- endcomment -%}
 
 {% assign footer_menu=section.settings.footer_menu %}
-{% assign pathArr = canonical_url | replace:"/","@"| split:"@" %}
+{% assign pathArr = canonical_url | replace:"/","_"| split:"_" %}
 {% assign path3 = pathArr[3] %}
 {% assign path4 = pathArr[4] %}
 {%- if path3=='account' -%} {%- capture path3 -%}me{%- endcapture-%} {%- endif -%}
@@ -36,8 +36,8 @@
 {% assign cjj_currentPage = cjj_current | strip |default:'shop' %}
 
 {% if footer_menu.links.size >0 %}
-	<div class="footer-navbar-box">
-		<div class="footer-navbar hidden-lap hidden-lap-and-up">
+	<div class="footer-navbar-box hidden-lap hidden-lap-and-up">
+		<div class="footer-navbar">
 			<ul class="list--unstyled ">
 				{%- for link in footer_menu.links -%}
 					{% assign link_class = link.title | downcase | replace:" ","-" %}
