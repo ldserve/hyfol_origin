@@ -187,21 +187,12 @@
             <p class="footer__aside-title">{{ 'footer.general.we_accept' | t }}</p>
 
             <div class="payment-list">
-              {%- comment -%}
+
                 {% for type in shop.enabled_payment_types %}
-                  {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+                  {%- if type =='paypal' or type=='unionpay' or type=='visa' or type=='american_express' or type=='maestro'or type=='master' or type=='diners_club' or type=='discover'or type=='jcb'or type=='trustly' %}
+                    {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+                  {%- endif -%}
                 {% endfor %}
-              {%- endcomment -%}
-              {{ 'paypal' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'unionpay' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'visa' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'american_express' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'maestro' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'master' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'diners_club' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'discover' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'jcb' | payment_type_svg_tag: class: 'payment-list__item' }}
-              {{ 'trustly' | payment_type_svg_tag: class: 'payment-list__item' }}
             </div>
           </div>
         {%- endif -%}
