@@ -196,7 +196,7 @@
  {% if template contains 'product' %}
  'items': [{
  {% if fa_product_id == 'default' %}
- 'id': 'shopify_{{ fa_product_id_alpha2_code }}_{{ product.id }}_{{ product.variants.id }}',
+ 'id': 'shopify_{{ fa_product_id_alpha2_code }}_{{ product.id }}_{% if product.variants.first.id %}{{ product.variants.first.id }}{% else %}{{ product.variants.id }}{% endif %}',
  {% elsif fa_product_id == 'product_id' %}
  'id': '{% if product.variants.first.id %}{{ product.variants.first.id }}{% else %}{{ product.variants.id }}{% endif %}',
  {% elsif fa_product_id == 'parent_id' %}
