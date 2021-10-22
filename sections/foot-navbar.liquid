@@ -58,17 +58,20 @@
 		height: 40px;
 	}
 	#shopify-section-{{ section.id }} .footer-navbar-box{
+
 		height:104px;
 	}
 	#shopify-section-{{ section.id }} .footer-navbar{
 		width: 100vw;
-		height: 105px;
+		height: 104px;
 		position: fixed;
 		bottom: 0;
 		z-index: 999;
 		background-color: {{ section.settings.navbar_bgcolor }};
 		display: flex;
 		justify-content: center;
+		padding: 15px;
+		box-shadow: 0 -1px 10px 2px rgba(0, 0, 0, 0.1);
 	}
 	#shopify-section-{{ section.id }} .footer-navbar ul{
 		display: flex;
@@ -76,7 +79,6 @@
 	}
 	#shopify-section-{{ section.id }} .footer-navbar li{
 		flex: 1 0 auto;
-		padding: 15px 0;
 	}
 	#shopify-section-{{ section.id }} .footer-navbar a{
 		display: block;
