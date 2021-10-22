@@ -8,7 +8,8 @@
 {% assign pathArr = canonical_url | replace:"/","@"| split:"@" %}
 {% assign path3 = pathArr[3] %}
 {% assign path4 = pathArr[4] %}
-{% if path3=='account' %} {% capture path3 %}me{% endcapture%} {% endif %}
+{%- if path3=='account' -%} {%- capture path3 -%}me{%- endcapture-%} {%- endif -%}
+{%- if path4=='best-sellers' -%} {%- capture path4 -%}hot{%- endcapture-%} {%- endif -%}
 
 {% capture cjj_current %}
 	{%- for link in footer_menu.links -%}
@@ -21,18 +22,18 @@
 {% endcapture %}
 
 {%- if cjj_current== blank -%}
-	{% capture cjj_current %}
+	{%- capture cjj_current -%}
 	{%- for link in footer_menu.links -%}
-		{% assign link_title = link.title | downcase | replace:" ","-" %}
+		{%- assign link_title = link.title | downcase | replace:" ","-" -%}
 		{%- if link_title==path3 -%}
-			{{ path3 }}
-			{% break %}
+			{{- path3 -}}
+			{%- break -%}
 		{%- endif -%}
 	{%- endfor -%}
-	{% endcapture %}
+	{%- endcapture -%}
 {%- endif -%}
 
-{% assign cjj_currentPage = cjj_current | lstrip |default:'home'%}
+{% assign cjj_currentPage = cjj_current | strip |default:'shop' %}
 
 {% if footer_menu.links.size >0 %}
 	<div class="footer-navbar-box">
@@ -52,12 +53,16 @@
 {% endif %}
 
 <style>
-	.footer-navbar-box{
-		height:{{ section.settings.navbar_height }}px;
+	#shopify-section-{{ section.id }} .icon{
+		width: 40px;
+		height: 40px;
 	}
-	.footer-navbar{
+	#shopify-section-{{ section.id }} .footer-navbar-box{
+		height:104px;
+	}
+	#shopify-section-{{ section.id }} .footer-navbar{
 		width: 100vw;
-		height: {{ section.settings.navbar_height }}px;
+		height: 105px;
 		position: fixed;
 		bottom: 0;
 		z-index: 999;
@@ -65,25 +70,28 @@
 		display: flex;
 		justify-content: center;
 	}
-	.footer-navbar ul{
+	#shopify-section-{{ section.id }} .footer-navbar ul{
 		display: flex;
 		flex: 1;
 	}
-	.footer-navbar li{
+	#shopify-section-{{ section.id }} .footer-navbar li{
 		flex: 1 0 auto;
+		padding: 15px 0;
 	}
-	.footer-navbar a{
+	#shopify-section-{{ section.id }} .footer-navbar a{
 		display: block;
 		text-align: center;
-		line-height: {{ section.settings.navbar_height|divided_by: 2}}px;
+		height: 64px;
 		color: {{ section.settings.navbar_color }};
 	}
-	.footer-navbar .{{cjj_currentPage}} a{
+	#shopify-section-{{ section.id }} 	.footer-navbar .{{cjj_currentPage}} a{
 		color: {{ section.settings.navbar_active_color }};
 	}
-	.navbar-title{
+	#shopify-section-{{ section.id }} .navbar-title{
 		display:  inline-block;
 		text-align: center;
+		font-size: 24px;
+		line-height: 24px;
 	}
 </style>
 
@@ -101,15 +109,6 @@
 			"id":"footer_menu",
 			"label": "吸底导航",
 			"info": "菜单名请与链接名相关，如同时匹配多个则激活最精确那个，例：链接名为***.com/search/**激活search，***.com/search/new-in/** 激活new in，如需要自定义请联系前端"
-		},{
-			"type": "range",
-			"id": "navbar_height",
-			"label": "高度",
-			"unit":"px",
-			"min":20,
-			"max":100,
-			"step":1,
-			"default": 50
 		},{
 			"type": "color",
 			"id": "navbar_bgcolor",
