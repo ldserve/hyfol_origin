@@ -189,15 +189,13 @@
 {% assign fa_event = 'other' %}
 {% endif %}
 <script>
-  console.log("product",product);
-</script>
-<script>
   gtag('event', '{{ fa_event }}', {
  'send_to': 'AW-{{ fa_google_ads_audience_tag_id }}',
  {% if template contains 'product' or template contains 'cart' %}'value': {{ fa_product_price }},{% endif %}
  {% if template contains 'product' %}
  'items': [{
  {% if fa_product_id == 'default' %}
+       console.log("product",product);
  'id': 'shopify_{{ fa_product_id_alpha2_code }}_{{ product.id }}_{% if product.variants.first.id %}{{ product.variants.first.id }}{% else %}{{ product.variants.id }}{% endif %}',
  {% elsif fa_product_id == 'product_id' %}
  'id': '{% if product.variants.first.id %}{{ product.variants.first.id }}{% else %}{{ product.variants.id }}{% endif %}',
