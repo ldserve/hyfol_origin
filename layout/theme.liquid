@@ -188,7 +188,9 @@
 {% else %}
 {% assign fa_event = 'other' %}
 {% endif %}
- 
+<script>
+  console.log(product);
+</script>
 <script>
   gtag('event', '{{ fa_event }}', {
  'send_to': 'AW-{{ fa_google_ads_audience_tag_id }}',
