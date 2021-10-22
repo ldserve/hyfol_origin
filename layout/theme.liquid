@@ -189,7 +189,7 @@
 {% assign fa_event = 'other' %}
 {% endif %}
 <script>
-  console.log("product",`{product}`)
+  console.log("product",{{product}})
   gtag('event', '{{ fa_event }}', {
  'send_to': 'AW-{{ fa_google_ads_audience_tag_id }}',
  {% if template contains 'product' or template contains 'cart' %}'value': {{ fa_product_price }},{% endif %}
