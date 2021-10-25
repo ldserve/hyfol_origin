@@ -1,64 +1,240 @@
 <section class="container">
-	{% assign foo = true %}
-	{%- for block in section.blocks -%}
-		<input type="radio" name="table" class="input input-{{ block.settings.name }}" id="tab-{{ block.settings.name }}"
-					 {%- if foo -%}checked{%- endif -%}>
-		{% assign foo = false %}
-	{%- endfor -%}
-	<ul class="ctrl">
-		{%- for block in section.blocks -%}
-			<li><label class="{{ block.settings.name }}"
-								 for="tab-{{ block.settings.name }}">{{ block.settings.title }}</label></li>
-		{%- endfor -%}
-	</ul>
-	<div class="tab">
-		{%- for block in section.blocks -%}
-			<ul>
-				<li>
-					<a href="{{ block.settings.link1 }}">
-						{%- capture image_sizes1 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image1 -%}{%- endcapture -%}
-						{%- assign image_url1 = block.settings.image1 | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
-						<img data-src="{{ image_url1 }}" data-widths="[{{ image_sizes1 }}]" data-sizes="auto"
-								 alt="{{ block.settings.image1.alt | escape }}" class="lazyload">
-					</a>
-				</li>
-				<li>
-					<a href="{{ block.settings.link2 }}">
-						{%- capture image_sizes2 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image2 -%}{%- endcapture -%}
-						{%- assign image_url2=block.settings.image2|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
-						<img data-src="{{ image_url2 }}" data-widths="[{{ image_sizes2 }}]" data-sizes="auto"
-								 alt="{{ block.settings.image2.alt | escape }}" class="lazyload">
-					</a>
-				</li>
-				<li>
-					<a href="{{ block.settings.link3 }}">
-						{%- capture image_sizes3 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image3 -%}{%- endcapture -%}
-						{%- assign image_url3=block.settings.image3|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
-						<img data-src="{{ image_url3 }}" data-widths="[{{ image_sizes3 }}]" data-sizes="auto" alt=""
-								 class="lazyload">
-					</a>
-				</li>
-				<li>
-					<a href="{{ block.settings.link4 }}">
-						{%- capture image_sizes4 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image4 -%}{%- endcapture -%}
-						{%- assign image_url4=block.settings.image4|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
-						<img data-src="{{ image_url4 }}" data-widths="[{{ image_sizes4 }}]" data-sizes="auto" alt=""
-								 class="lazyload">
-					</a>
-				</li>
-				{% if block.settings.foot %}
-					<li class="img_footer">
-						<a href="{{ block.settings.link_foot }}">
-							{%- capture image_sizes_foot -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image_foot -%}{%- endcapture -%}
-							{%- assign image_url_foot = block.settings.image_foot | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
-							<img data-src="{{ image_url_foot }}" data-widths="[{{ image_sizes_foot }}]" data-sizes="auto"
-									 alt="{{ block.settings.image_foot.alt | escape }}" class="lazyload">
-						</a>
-					</li>
-				{% endif %}
-			</ul>
 
-		{%- endfor -%}
+	{% assign foo = true %}
+	{% if section.settings.title1 %}
+		<input type="radio" name="table" class="input input1" id="tab1" {%- if foo -%}checked{%- endif -%}>
+		{% assign foo = false %}
+	{% endif %}
+	{% if section.settings.title2 %}
+		<input type="radio" name="table" class="input input2" id="tab2" {%- if foo -%}checked{%- endif -%}>
+		{% assign foo = false %}
+	{% endif %}
+	{% if section.settings.title3 %}
+		<input type="radio" name="table" class="input input3" id="tab3" {%- if foo -%}checked{%- endif -%}>
+		{% assign foo = false %}
+	{% endif %}
+	{% if section.settings.title4 %}
+		<input type="radio" name="table" class="input input4" id="tab4" {%- if foo -%}checked{%- endif -%}>
+		{% assign foo = false %}
+	{% endif %}
+
+
+	<ul class="ctrl">
+		{% if section.settings.title1 %}
+			<li>
+				<label class="label1" for="tab1">{{ section.settings.title1 }}</label>
+			</li>
+		{% endif %}
+		{% if section.settings.title2 %}
+			<li>
+				<label class="label2" for="tab2">{{ section.settings.title2 }}</label>
+			</li>
+		{% endif %}
+		{% if section.settings.title3 %}
+			<li>
+				<label class="label3" for="tab3">{{ section.settings.title3 }}</label>
+			</li>
+		{% endif %}
+		{% if section.settings.title4 %}
+			<li>
+				<label class="label4" for="tab4">{{ section.settings.title4 }}</label>
+			</li>
+		{% endif %}
+	</ul>
+
+	<div class="tab">
+		{% if section.settings.title1 %}
+			<ul>
+				{%- for block in section.blocks -%}
+					{% if block.settings.tabs==1 %}
+						{% if block.settings.image1 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link1 }}">
+									{%- capture image_sizes1 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image1 -%}{%- endcapture -%}
+									{%- assign image_url1 = block.settings.image1 | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
+									<img data-src="{{ image_url1 }}" data-widths="[{{ image_sizes1 }}]" data-sizes="auto"
+											 alt="{{ block.settings.image1.alt | escape }}" class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image2 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+							<a href="{{ block.settings.link2 }}">
+									{%- capture image_sizes2 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image2 -%}{%- endcapture -%}
+									{%- assign image_url2=block.settings.image2|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url2 }}" data-widths="[{{ image_sizes2 }}]" data-sizes="auto"
+											 alt="{{ block.settings.image2.alt | escape }}" class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image3 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link3 }}">
+									{%- capture image_sizes3 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image3 -%}{%- endcapture -%}
+									{%- assign image_url3=block.settings.image3|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url3 }}" data-widths="[{{ image_sizes3 }}]" data-sizes="auto" alt=""
+											 class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image4 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link4 }}">
+									{%- capture image_sizes4 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image4 -%}{%- endcapture -%}
+									{%- assign image_url4=block.settings.image4|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url4 }}" data-widths="[{{ image_sizes4 }}]" data-sizes="auto" alt=""
+											 class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+				{%- endfor -%}
+			</ul>
+		{% endif %}
+		{% if section.settings.title2 %}
+			<ul>
+				{%- for block in section.blocks -%}
+					{% if block.settings.tabs==2 %}
+						{% if block.settings.image1 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link1 }}">
+									{%- capture image_sizes1 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image1 -%}{%- endcapture -%}
+									{%- assign image_url1 = block.settings.image1 | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
+									<img data-src="{{ image_url1 }}" data-widths="[{{ image_sizes1 }}]" data-sizes="auto"
+											 alt="{{ block.settings.image1.alt | escape }}" class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image2 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link2 }}">
+									{%- capture image_sizes2 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image2 -%}{%- endcapture -%}
+									{%- assign image_url2=block.settings.image2|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url2 }}" data-widths="[{{ image_sizes2 }}]" data-sizes="auto"
+											 alt="{{ block.settings.image2.alt | escape }}" class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image3 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link3 }}">
+									{%- capture image_sizes3 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image3 -%}{%- endcapture -%}
+									{%- assign image_url3=block.settings.image3|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url3 }}" data-widths="[{{ image_sizes3 }}]" data-sizes="auto" alt=""
+											 class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image4 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link4 }}">
+									{%- capture image_sizes4 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image4 -%}{%- endcapture -%}
+									{%- assign image_url4=block.settings.image4|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url4 }}" data-widths="[{{ image_sizes4 }}]" data-sizes="auto" alt=""
+											 class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+				{%- endfor -%}
+			</ul>
+		{% endif %}
+		{% if section.settings.title3 %}
+			<ul>
+				{%- for block in section.blocks -%}
+					{% if block.settings.tabs==3 %}
+						{% if block.settings.image1 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link1 }}">
+									{%- capture image_sizes1 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image1 -%}{%- endcapture -%}
+									{%- assign image_url1 = block.settings.image1 | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
+									<img data-src="{{ image_url1 }}" data-widths="[{{ image_sizes1 }}]" data-sizes="auto"
+											 alt="{{ block.settings.image1.alt | escape }}" class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image2 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link2 }}">
+									{%- capture image_sizes2 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image2 -%}{%- endcapture -%}
+									{%- assign image_url2=block.settings.image2|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url2 }}" data-widths="[{{ image_sizes2 }}]" data-sizes="auto"
+											 alt="{{ block.settings.image2.alt | escape }}" class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image3 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link3 }}">
+									{%- capture image_sizes3 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image3 -%}{%- endcapture -%}
+									{%- assign image_url3=block.settings.image3|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url3 }}" data-widths="[{{ image_sizes3 }}]" data-sizes="auto" alt=""
+											 class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image4 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link4 }}">
+									{%- capture image_sizes4 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image4 -%}{%- endcapture -%}
+									{%- assign image_url4=block.settings.image4|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url4 }}" data-widths="[{{ image_sizes4 }}]" data-sizes="auto" alt=""
+											 class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+				{%- endfor -%}
+			</ul>
+		{% endif %}
+		{% if section.settings.title4 %}
+			<ul>
+			{%- for block in section.blocks -%}
+					{% if block.settings.tabs==4 %}
+						{% if block.settings.image1 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link1 }}">
+									{%- capture image_sizes1 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image1 -%}{%- endcapture -%}
+									{%- assign image_url1 = block.settings.image1 | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
+									<img data-src="{{ image_url1 }}" data-widths="[{{ image_sizes1 }}]" data-sizes="auto"
+											 alt="{{ block.settings.image1.alt | escape }}" class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image2 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link2 }}">
+									{%- capture image_sizes2 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image2 -%}{%- endcapture -%}
+									{%- assign image_url2=block.settings.image2|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url2 }}" data-widths="[{{ image_sizes2 }}]" data-sizes="auto"
+											 alt="{{ block.settings.image2.alt | escape }}" class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image3 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link3 }}">
+									{%- capture image_sizes3 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image3 -%}{%- endcapture -%}
+									{%- assign image_url3=block.settings.image3|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url3 }}" data-widths="[{{ image_sizes3 }}]" data-sizes="auto" alt=""
+											 class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+						{% if block.settings.image4 %}
+							<li class="{{ block.settings.coums |prepend: "coum"}}">
+								<a href="{{ block.settings.link4 }}">
+									{%- capture image_sizes4 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image4 -%}{%- endcapture -%}
+									{%- assign image_url4=block.settings.image4|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+									<img data-src="{{ image_url4 }}" data-widths="[{{ image_sizes4 }}]" data-sizes="auto" alt=""
+											 class="lazyload">
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+			{%- endfor -%}
+			</ul>
+		{% endif %}
 	</div>
 </section>
 
@@ -66,7 +242,7 @@
 <style>
     #shopify-section-{{ section.id }} {
         background-color: #fff;
-				padding-bottom: 30px;
+        padding-bottom: 30px;
     }
 
     #shopify-section-{{ section.id }} .container {
@@ -84,10 +260,9 @@
 
     #shopify-section-{{ section.id }} .tab ul {
         position: absolute;
-				opacity: 0;
-				z-index: -1;
-				transform: translateY(-10px);
-				list-style: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        list-style: none;
         flex-wrap: wrap;
     }
 
@@ -96,20 +271,32 @@
         flex: 1 0 auto;
         padding: 5px;
     }
+		#shopify-section-{{ section.id }} .tab ul .coum1 {
+        width: 98%;
+    }
+		#shopify-section-{{ section.id }} .tab ul .coum2 {
+        width: 48%;
+    }
+		#shopify-section-{{ section.id }} .tab ul .coum3 {
+        width: 30%;
+    }
+		#shopify-section-{{ section.id }} .tab ul .coum4 {
+        width: 23%;
+    }
+
     #shopify-section-{{ section.id }} .tab ul .img_footer {
         width: 100%;
         flex: 1 0 auto;
     }
 
-		{%- for i in (1..section.blocks.size) -%}
+		{%- for i in (1..4) -%}
     #shopify-section-{{ section.id }} .input:nth-of-type({{ i }}):checked ~ .tab > ul:nth-child({{ i }}) {
-				display: flex;
+        display: flex;
         position: relative;
-				opacity: 1;
-				top: 0;
-				z-index: 100;
-				transform: translateY(0px);
-				transition: all 0.8s ease;
+        opacity: 1;
+        top: 0;
+        transform: translateY(0px);
+        transition: all 0.8s ease;
     }
 
     #shopify-section-{{ section.id }} .input:nth-of-type({{ i }}):checked ~ .ctrl > li:nth-child({{ i }}) > label {
@@ -144,9 +331,11 @@
         font-weight: var(--heading-font-weight);
         font-style: var(--heading-font-style);
     }
-    #shopify-section-{{ section.id }} .img_footer  {
+
+    #shopify-section-{{ section.id }} .img_footer {
         width: 100%;
     }
+
     #shopify-section-{{ section.id }} .img_footer a {
         display: inline-block;
         text-align: center;
@@ -161,21 +350,60 @@
 {
 	"name": "tab选项卡",
 	"settings": [
+		{
+			"type": "header",
+			"content": "设置选项卡标题title,最多4个切换"
+		},
+		{
+			"type": "text",
+			"id": "title1",
+			"label": "选项卡标题1"
+		},
+		{
+			"type": "text",
+			"id": "title2",
+			"label": "选项卡标题2"
+		},
+		{
+			"type": "text",
+			"id": "title3",
+			"label": "选项卡标题3"
+		},
+		{
+			"type": "text",
+			"id": "title4",
+			"label": "选项卡标题4"
+		}
 	],
 	"blocks": [
 		{
 			"type": "image",
-			"name": "选项",
+			"name": "卡片",
 			"settings": [
 				{
 					"type": "text",
-					"id": "title",
-					"label": "标题,显示在页面的切换标签名字"
+					"id": "heading",
+					"label": "备注卡片名",
+					"default": "1号卡片"
+				},{
+					"type": "range",
+					"id": "tabs",
+					"min": 1,
+					"max": 4,
+					"step": 1,
+					"unit": "号标签",
+					"label": "归属哪个标签",
+					"default": 1
 				},
 				{
-					"type": "text",
-					"id": "name",
-					"label": "页面切换的链接不能有特殊符号,跟标题一致,去除特殊符号"
+					"type": "range",
+					"id": "coums",
+					"min": 1,
+					"max": 4,
+					"step": 1,
+					"unit": "列",
+					"label": "显示几列",
+					"default": 2
 				},
 				{
 					"type": "image_picker",
@@ -216,22 +444,6 @@
 					"type": "url",
 					"id": "link4",
 					"label": "链接4"
-				},
-				{
-					"type": "checkbox",
-					"id": "foot",
-					"default": false,
-					"label": "是否显示一个底部长图"
-				},
-				{
-					"type": "image_picker",
-					"id": "image_foot",
-					"label": "底部长图"
-				},
-				{
-					"type": "url",
-					"id": "link_foot",
-					"label": "底部长图链接"
 				}
 			]
 		}
