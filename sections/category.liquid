@@ -1,0 +1,44 @@
+<section>
+
+</section>
+
+
+<style>
+	#shopify-section-{{ section.id }},
+	#shopify-section-{{ section.id }} .heading {
+	}
+	#shopify-section-{{ section.id }} {
+	}
+	.cjj img {
+		width: 100%;
+	}
+</style>
+
+
+{% schema %}
+{
+	"name": "tab选项卡",
+	"settings": [
+	],
+	"blocks": [
+		{
+			"type": "image",
+			"name": "选项",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "标题"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"category": "Image",
+			"name": "tab选项卡",
+			"settings": {}
+		}
+	]
+}
+{% endschema %}
