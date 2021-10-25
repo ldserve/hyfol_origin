@@ -1,13 +1,13 @@
 {
 	"sections":{
 		"header": {
-			"type": "no_space_box",
+			"type": "no_space_img",
 			"settings": {
 
 			}
 		},
 		"main": {
-			"type": "category",
+			"type": "cjj_tab",
 			"settings": {
 
 			}

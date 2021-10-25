@@ -1,0 +1,237 @@
+<section class="container">
+	{% assign foo = true %}
+	{%- for block in section.blocks -%}
+		<input type="radio" name="table" class="input input-{{ block.settings.name }}" id="tab-{{ block.settings.name }}"
+					 {%- if foo -%}checked{%- endif -%}>
+		{% assign foo = false %}
+	{%- endfor -%}
+	<ul class="ctrl">
+		{%- for block in section.blocks -%}
+			<li><label class="{{ block.settings.name }}"
+								 for="tab-{{ block.settings.name }}">{{ block.settings.title }}</label></li>
+		{%- endfor -%}
+	</ul>
+	<div class="tab">
+		{%- for block in section.blocks -%}
+			<ul>
+				<li>
+					<a href="{{ block.settings.link1 }}">
+						{%- capture image_sizes1 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image1 -%}{%- endcapture -%}
+						{%- assign image_url1 = block.settings.image1 | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
+						<img data-src="{{ image_url1 }}" data-widths="[{{ image_sizes1 }}]" data-sizes="auto"
+								 alt="{{ block.settings.image1.alt | escape }}" class="lazyload">
+					</a>
+				</li>
+				<li>
+					<a href="{{ block.settings.link2 }}">
+						{%- capture image_sizes2 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image2 -%}{%- endcapture -%}
+						{%- assign image_url2=block.settings.image2|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+						<img data-src="{{ image_url2 }}" data-widths="[{{ image_sizes2 }}]" data-sizes="auto"
+								 alt="{{ block.settings.image2.alt | escape }}" class="lazyload">
+					</a>
+				</li>
+				<li>
+					<a href="{{ block.settings.link3 }}">
+						{%- capture image_sizes3 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image3 -%}{%- endcapture -%}
+						{%- assign image_url3=block.settings.image3|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+						<img data-src="{{ image_url3 }}" data-widths="[{{ image_sizes3 }}]" data-sizes="auto" alt=""
+								 class="lazyload">
+					</a>
+				</li>
+				<li>
+					<a href="{{ block.settings.link4 }}">
+						{%- capture image_sizes4 -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image4 -%}{%- endcapture -%}
+						{%- assign image_url4=block.settings.image4|img_url:'1x1'|replace:'_1x1.','_{width}x.' -%}
+						<img data-src="{{ image_url4 }}" data-widths="[{{ image_sizes4 }}]" data-sizes="auto" alt=""
+								 class="lazyload">
+					</a>
+				</li>
+				{% if block.settings.foot %}
+					<li class="img_footer">
+						<a href="{{ block.settings.link_foot }}">
+							{%- capture image_sizes_foot -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: block.settings.image_foot -%}{%- endcapture -%}
+							{%- assign image_url_foot = block.settings.image_foot | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
+							<img data-src="{{ image_url_foot }}" data-widths="[{{ image_sizes_foot }}]" data-sizes="auto"
+									 alt="{{ block.settings.image_foot.alt | escape }}" class="lazyload">
+						</a>
+					</li>
+				{% endif %}
+			</ul>
+
+		{%- endfor -%}
+	</div>
+</section>
+
+
+<style>
+    #shopify-section-{{ section.id }} {
+        background-color: #fff;
+				padding-bottom: 30px;
+    }
+
+    #shopify-section-{{ section.id }} .container {
+        padding-top: 20px;
+    }
+
+    #shopify-section-{{ section.id }} ul,
+    #shopify-section-{{ section.id }} li {
+        list-style: none;
+    }
+
+    #shopify-section-{{ section.id }} .input {
+        display: none;
+    }
+
+    #shopify-section-{{ section.id }} .tab ul {
+        display: none;
+        flex-wrap: wrap;
+    }
+
+    #shopify-section-{{ section.id }} .tab ul li {
+        width: 48%;
+        flex: 1 0 auto;
+        padding: 5px;
+    }
+    #shopify-section-{{ section.id }} .tab ul .img_footer {
+        width: 100%;
+        flex: 1 0 auto;
+    }
+
+		{%- for i in (1..section.blocks.size) -%}
+    #shopify-section-{{ section.id }} .input:nth-of-type({{ i }}):checked ~ .tab > ul:nth-child({{ i }}) {
+        display: flex;
+    }
+
+    #shopify-section-{{ section.id }} .input:nth-of-type({{ i }}):checked ~ .ctrl > li:nth-child({{ i }}) > label {
+        border-bottom: 2px solid #000000;
+    }
+
+		{%- endfor -%}
+
+    #shopify-section-{{ section.id }} .ctrl {
+        width: 100%;
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .ctrl > li {
+        display: inline-block;
+        text-align: center;
+        flex: 1 0 auto;
+    }
+
+    #shopify-section-{{ section.id }} .tab a {
+        display: inline-block;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+
+    #shopify-section-{{ section.id }} .ctrl label {
+        display: inline-block;
+        padding: 0 2px 1px;
+        font-family: var(--heading-font-family);
+        font-weight: var(--heading-font-weight);
+        font-style: var(--heading-font-style);
+    }
+    #shopify-section-{{ section.id }} .img_footer  {
+        width: 100%;
+    }
+    #shopify-section-{{ section.id }} .img_footer a {
+        display: inline-block;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+
+</style>
+
+
+{% schema %}
+{
+	"name": "tab选项卡",
+	"settings": [
+	],
+	"blocks": [
+		{
+			"type": "image",
+			"name": "选项",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "标题,显示在页面的切换标签名字"
+				},
+				{
+					"type": "text",
+					"id": "name",
+					"label": "页面切换的链接不能有特殊符号,跟标题一致,去除特殊符号"
+				},
+				{
+					"type": "image_picker",
+					"id": "image1",
+					"label": "图片1"
+				},
+				{
+					"type": "url",
+					"id": "link1",
+					"label": "链接1"
+				},
+				{
+					"type": "image_picker",
+					"id": "image2",
+					"label": "图片2"
+				},
+				{
+					"type": "url",
+					"id": "link2",
+					"label": "链接2"
+				},
+				{
+					"type": "image_picker",
+					"id": "image3",
+					"label": "图片3"
+				},
+				{
+					"type": "url",
+					"id": "link3",
+					"label": "链接3"
+				},
+				{
+					"type": "image_picker",
+					"id": "image4",
+					"label": "图片4"
+				},
+				{
+					"type": "url",
+					"id": "link4",
+					"label": "链接4"
+				},
+				{
+					"type": "checkbox",
+					"id": "foot",
+					"default": false,
+					"label": "是否显示一个底部长图"
+				},
+				{
+					"type": "image_picker",
+					"id": "image_foot",
+					"label": "底部长图"
+				},
+				{
+					"type": "url",
+					"id": "link_foot",
+					"label": "底部长图链接"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"category": "Image",
+			"name": "tab选项卡",
+			"settings": {}
+		}
+	]
+}
+{% endschema %}
