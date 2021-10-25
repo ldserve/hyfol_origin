@@ -1,6 +1,6 @@
 {
 	"sections":{
-		"header": {
+		"headerImg": {
 			"type": "no_space_img",
 			"settings": {
 
@@ -14,7 +14,7 @@
 		}
 	},
 	"order": [
-		"header",
+		"headerImg",
 		"main"
 	]
 }
