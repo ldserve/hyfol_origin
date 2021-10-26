@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "cjj_tab",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
