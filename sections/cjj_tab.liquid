@@ -1,41 +1,41 @@
 <section class="container">
 
 	{% assign foo = true %}
-	{% if section.settings.title1 %}
+	{% if section.settings.title1 !=blank %}
 		<input type="radio" name="table" class="input input1" id="tab1" {%- if foo -%}checked{%- endif -%}>
 		{% assign foo = false %}
 	{% endif %}
-	{% if section.settings.title2 %}
+	{% if section.settings.title2 !=blank %}
 		<input type="radio" name="table" class="input input2" id="tab2" {%- if foo -%}checked{%- endif -%}>
 		{% assign foo = false %}
 	{% endif %}
-	{% if section.settings.title3 %}
+	{% if section.settings.title3 !=blank %}
 		<input type="radio" name="table" class="input input3" id="tab3" {%- if foo -%}checked{%- endif -%}>
 		{% assign foo = false %}
 	{% endif %}
-	{% if section.settings.title4 %}
+	{% if section.settings.title4 !=blank %}
 		<input type="radio" name="table" class="input input4" id="tab4" {%- if foo -%}checked{%- endif -%}>
 		{% assign foo = false %}
 	{% endif %}
 
 
 	<ul class="ctrl">
-		{% if section.settings.title1 %}
+		{% if section.settings.title1!=blank %}
 			<li>
 				<label class="label1" for="tab1">{{ section.settings.title1 }}</label>
 			</li>
 		{% endif %}
-		{% if section.settings.title2 %}
+		{% if section.settings.title2!=blank %}
 			<li>
 				<label class="label2" for="tab2">{{ section.settings.title2 }}</label>
 			</li>
 		{% endif %}
-		{% if section.settings.title3 %}
+		{% if section.settings.title3!=blank %}
 			<li>
 				<label class="label3" for="tab3">{{ section.settings.title3 }}</label>
 			</li>
 		{% endif %}
-		{% if section.settings.title4 %}
+		{% if section.settings.title4!=blank %}
 			<li>
 				<label class="label4" for="tab4">{{ section.settings.title4 }}</label>
 			</li>
@@ -43,7 +43,7 @@
 	</ul>
 
 	<div class="tab">
-		{% if section.settings.title1 %}
+		{% if section.settings.title1 !=blank %}
 			<ul>
 				{%- for block in section.blocks -%}
 					{% if block.settings.tabs==1 %}
@@ -91,7 +91,7 @@
 				{%- endfor -%}
 			</ul>
 		{% endif %}
-		{% if section.settings.title2 %}
+		{% if section.settings.title2 !=blank %}
 			<ul>
 				{%- for block in section.blocks -%}
 					{% if block.settings.tabs==2 %}
@@ -139,7 +139,7 @@
 				{%- endfor -%}
 			</ul>
 		{% endif %}
-		{% if section.settings.title3 %}
+		{% if section.settings.title3 !=blank %}
 			<ul>
 				{%- for block in section.blocks -%}
 					{% if block.settings.tabs==3 %}
@@ -187,7 +187,7 @@
 				{%- endfor -%}
 			</ul>
 		{% endif %}
-		{% if section.settings.title4 %}
+		{% if section.settings.title4 !=blank %}
 			<ul>
 			{%- for block in section.blocks -%}
 					{% if block.settings.tabs==4 %}
@@ -246,7 +246,7 @@
     }
 
     #shopify-section-{{ section.id }} .container {
-        padding-top: 20px;
+        padding-top: 10px;
     }
 
     #shopify-section-{{ section.id }} ul,
