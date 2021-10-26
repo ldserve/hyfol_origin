@@ -1,20 +1,90 @@
 {
-	"sections":{
-		"headerImg": {
-			"type": "no_space_img",
-			"settings": {
-
-			}
-		},
-		"main": {
-			"type": "cjj_tab",
-			"settings": {
-
-			}
-		}
-	},
-	"order": [
-		"headerImg",
-		"main"
-	]
+  "sections": {
+    "headerImg": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/01bdd805e5b7bd10761155a404cae3e0.jpg",
+        "link": "",
+        "shadow": true
+      }
+    },
+    "main": {
+      "type": "cjj_tab",
+      "blocks": {
+        "17bd2629-e272-4bb0-a463-1d497a2f2570": {
+          "type": "image",
+          "settings": {
+            "heading": "1号卡片",
+            "tabs": 1,
+            "coums": 2,
+            "image1": "shopify:\/\/shop_images\/088381154c9f75be582d51f91c61bb5d.jpg",
+            "link1": "",
+            "image2": "shopify:\/\/shop_images\/d0d44810b0b23d9e3bf623be0ac4fd45_e866aba2-24f9-44ff-acf6-ee40a1b1461d.jpg",
+            "link2": "",
+            "image3": "shopify:\/\/shop_images\/T_9733172f-d470-43a3-a8e1-962c913cc97b.jpg",
+            "link3": "",
+            "image4": "shopify:\/\/shop_images\/0f719d71e9a8a2dbb649b4f3475ebf96.jpg",
+            "link4": ""
+          }
+        },
+        "12e8a6c1-45a3-4e82-8e82-a410a3e87dc6": {
+          "type": "image",
+          "settings": {
+            "heading": "1号卡片",
+            "tabs": 1,
+            "coums": 1,
+            "image1": "shopify:\/\/shop_images\/8f55964e4063742ba9e2b4e506abbce2.jpg",
+            "link1": "",
+            "link2": "",
+            "link3": "",
+            "link4": ""
+          }
+        },
+        "060237d5-b4fb-4bcb-ab06-08acdbab06f3": {
+          "type": "image",
+          "settings": {
+            "heading": "2号卡片",
+            "tabs": 2,
+            "coums": 2,
+            "image1": "shopify:\/\/shop_images\/03_c4ecb414-270e-4867-b5ff-cb8ca6de29f7.jpg",
+            "link1": "",
+            "image2": "shopify:\/\/shop_images\/05.jpg",
+            "link2": "",
+            "image3": "shopify:\/\/shop_images\/09.jpg",
+            "link3": "",
+            "image4": "shopify:\/\/shop_images\/10.jpg",
+            "link4": ""
+          }
+        },
+        "742cc042-0ec7-4574-9e63-dbf7fabe4e41": {
+          "type": "image",
+          "settings": {
+            "heading": "1号卡片",
+            "tabs": 1,
+            "coums": 2,
+            "link1": "",
+            "link2": "",
+            "link3": "",
+            "link4": ""
+          }
+        }
+      },
+      "block_order": [
+        "17bd2629-e272-4bb0-a463-1d497a2f2570",
+        "12e8a6c1-45a3-4e82-8e82-a410a3e87dc6",
+        "060237d5-b4fb-4bcb-ab06-08acdbab06f3",
+        "742cc042-0ec7-4574-9e63-dbf7fabe4e41"
+      ],
+      "settings": {
+        "title1": "MEN'S",
+        "title2": "WOMEN'S",
+        "title3": "",
+        "title4": ""
+      }
+    }
+  },
+  "order": [
+    "headerImg",
+    "main"
+  ]
 }
