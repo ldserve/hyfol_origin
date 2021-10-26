@@ -257,6 +257,15 @@
           "mobile_logo_max_width": 130,
           "gift_card_image": "shopify:\/\/shop_images\/LOGO_69b15485-dcbc-457a-950e-e3022f370469.png"
         }
+      },
+      "foot-navbar": {
+        "type": "foot-navbar",
+        "settings": {
+          "footer_menu": "footbar_menu",
+          "navbar_bgcolor": "#ffffff",
+          "navbar_color": "#222021",
+          "navbar_active_color": "#b82928"
+        }
       }
     },
     "content_for_index": [
