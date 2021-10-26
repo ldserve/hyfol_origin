@@ -261,7 +261,7 @@
       "foot-navbar": {
         "type": "foot-navbar",
         "settings": {
-          "footer_menu": "footbar_menu",
+          "footer_menu": "",
           "navbar_bgcolor": "#ffffff",
           "navbar_color": "#222021",
           "navbar_active_color": "#b82928"
