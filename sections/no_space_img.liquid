@@ -2,8 +2,12 @@
 	#shopify-section-{{ section.id }},
 	#shopify-section-{{ section.id }} .heading {
 	}
+	{% if section.settings.shadow %}
 	#shopify-section-{{ section.id }}{
+		box-shadow: 0px 5px 5px rgba(0,0,0,0.4);
 	}
+	{% endif %}
+
 	.cjj img{
 		width: 100%;
 	}
@@ -45,10 +49,15 @@
 			"type":"image_picker",
 			"id":"web_bg_image",
 			"label":"移动端背景图片"
-		},	{
+		},{
 			"type": "url",
 			"id": "link",
 			"label": "跳转链接"
+		},{
+			"type": "checkbox",
+			"id": "shadow",
+			"label": "图片下阴影",
+			"default":false
 		}
 	],
 	"presets": [
