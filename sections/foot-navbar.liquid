@@ -37,7 +37,7 @@
 
 {% if footer_menu.links.size >0 %}
 	<div class="footer-navbar-box hidden-lap hidden-lap-and-up">
-		<div class="footer-navbar">
+		<div class="footer-navbar hidden-lap hidden-lap-and-up">
 			<ul class="list--unstyled ">
 				{%- for link in footer_menu.links -%}
 					{% assign link_class = link.title | downcase | replace:" ","-" %}
