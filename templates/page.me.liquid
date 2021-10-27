@@ -1,63 +1,59 @@
 <section>
 	<div class="header-me container">
-		{%- if customer -%}
-			<ul>
-				<li class=" text-l">Hi! {{ customer.first_name }}</li>
-				<li class=" text-r"><a href="{{ routes.account_logout_url }}">LOGOUT &gt;</a></li>
+			<ul class="no-logged">
+				<li class="text-l"><a href="{{ routes.account_login_url }}?return_url={{ routes.account_url  }}">LOGIN &gt;</a></li>
+				<li class="text-r"><a href="{{ routes.account_register_url }}">CREATE ACCOUNT&gt;</a></li>
 			</ul>
-		{%- else -%}
-			<ul>
-				<li class="text-l"><a href="{{ routes.account_login_url }}">LOGIN &gt;</a></li>
-				<li class="text-r"><a href="{{ routes.account_register_url }}">CREATE ACCOUNT &gt;</a></li>
-			</ul>
-		{%- endif -%}
 	</div>
 	<div class="order-me container">
-		<h2>My orders</h2>
-		<div>
-			<div class="icon-box">
-				<ul class="icons">
-					<li>
-						<a href="">
-							{%- render 'icon', icon: 'cjj_unpaid' -%}<br/>
-							<span>Unpaid</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							{%- render 'icon', icon: 'cjj_processing' -%}<br/>
-							<span>Processing</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							{%- render 'icon', icon: 'cjj_shipped' -%}<br/>
-							<span>Shipped</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							{%- render 'icon', icon: 'cjj_payment' -%}<br/>
-							<span>Payment</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							{%- render 'icon', icon: 'cjj_campleted' -%}<br/>
-							<span>Completed</span>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							{%- render 'icon', icon: 'cjj_post_sale' -%}<br/>
-							<span>Post-sale</span>
-						</a>
-					</li>
-				</ul>
-			</div>
+		<h2>{{- 'customer.general.orders' | t -}}</h2>
+
+		<div class="icon-box">
+			<ul class="icons">
+				<li>
+					<a href="">
+						{%- render 'icon', icon: 'cjj_all' -%}<br/>
+						<span>All</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						{%- render 'icon', icon: 'cjj_unpaid' -%}<br/>
+						<span>Unpaid</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						{%- render 'icon', icon: 'cjj_processing' -%}<br/>
+						<span>Processing</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						{%- render 'icon', icon: 'cjj_shipped' -%}<br/>
+						<span>Shipped</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						{%- render 'icon', icon: 'cjj_payment' -%}<br/>
+						<span>Payment</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						{%- render 'icon', icon: 'cjj_completed' -%}<br/>
+						<span>Completed</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						{%- render 'icon', icon: 'cjj_post_sale' -%}<br/>
+						<span>Post-sale</span>
+					</a>
+				</li>
+			</ul>
 		</div>
-	</div>
-	<div class="body-me container">
 
 	</div>
 	<div class="advert-me container">
@@ -68,103 +64,118 @@
 		</ul>
 	</div>
 </section>
-
 <style>
-    #shopify-section-footer {
-        display: none;
-    }
+	#shopify-section-footer {
+		display: none;
+	}
+	body {
+		min-height: 100vh;
+		background: #f0f0f0;
+	}
+	main ul, li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 
-    #shopify-section-{{ section.id }} ul, li {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+	.header-me {
+		background-color: #fff;
+	}
 
-    .header-me {
-        background-color: #fff;
-    }
+	.header-me .account-box {
+		height: 0;
+		overflow: hidden;
+		transition: all 0.4s ease;
+	}
+	#account-input:checked ~ .account-box {
+		height: 130px;
+		transition: all 0.4s ease;
+	}
+	.header-me .logged > .tab {
+		transition: all 0.4s ease;
+	}
+	.header-me .no-logged {
+		display: flex;
+		padding: 20px 0;
+	}
 
-    .header-me ul {
-        display: flex;
-        padding: 20px 0;
-    }
+	.header-me .no-logged li {
+		flex: 1 0 auto;
+	}
 
-    .header-me li {
-        flex: 1 0 auto;
-    }
+	.header-me .no-logged li a {
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-font-weight);
+		font-style: var(--heading-font-style);
+	}
 
-    .header-me .name {
-        text-align: center;
-    }
+	.order-me {
+		background-color: #fff;
+		margin-top: 10px;
+	}
 
-    .header-me li a {
-        font-family: var(--heading-font-family);
-        font-weight: var(--heading-font-weight);
-        font-style: var(--heading-font-style);
-    }
+	.order-me h2 {
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-font-weight);
+		font-style: var(--heading-font-style);
+		padding: 10px 0;
+	}
+	.order-me .icon-box {
+		overflow-x: scroll;
+		width: 100%;
+		padding-bottom: 10px;
+	}
 
-    .order-me {
-        background-color: #fff;
-        margin-top: 10px;
-    }
+	.order-me .icons {
+		width: 160%;
+		display: flex;
+		justify-content: space-between;
+	}
+	.order-me .icon {
+		font-size: 2em;
+	}
+	.order-me span {
+		font-size: 0.85rem;
+	}
+	.icon-box li {
+		display: inline-block;
+		text-align: center;
+	}
 
-    .order-me h2 {
-        font-family: var(--heading-font-family);
-        font-weight: var(--heading-font-weight);
-        font-style: var(--heading-font-style);
-        padding: 10px 0;
-    }
-    .order-me >div{
-				padding: 0 20px;
-		}
-    .order-me .icon-box {
-        overflow-x: scroll;
-        width: 100%;
-        padding-bottom: 10px;
-    }
+	.text-l {
+		text-align: left;
+	}
 
-    .order-me .icons {
-        width: 144%;
-        display: flex;
-        justify-content: space-between;
-    }
+	.text-r {
+		text-align: right;
+	}
+	.hidden {
+		display: none;
+	}
 
-    .icon-box li {
-        display: inline-block;
-        text-align: center;
-    }
-
-    .text-l {
-        text-align: left;
-    }
-
-    .text-r {
-        text-align: right;
-    }
-
-    .advert-me {
-        background-color: #fff;
-        margin-top: 10px;
-        min-height: 400px;
-    }
-    .advert-me ul{
-				padding:50px 20px 0;
-		}
-    .advert-me li{
-        height: 50px;
-        line-height: 50px;
-        width: 100%;
-				text-align: center;
-				margin-bottom: 10px;
-        background-color: #6D6D6D;
-		}
-		.advert-me li a{
-        font-family: var(--heading-font-family);
-        font-weight: var(--heading-font-weight);
-        font-style: var(--heading-font-style);
-        color: #ffffff;
-        text-shadow: -2px 1px 3px rgba(0,0,0,.5);
-    }
+	.advert-me {
+		background-color: #fff;
+		margin-top: 10px;
+		min-height: 400px;
+	}
+	.advert-me ul {
+		padding: 50px 20px 0;
+	}
+	.advert-me li {
+		height: 50px;
+		line-height: 50px;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 20px;
+		background-color: #707070;
+	}
+	.advert-me li a {
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-font-weight);
+		font-style: var(--heading-font-style);
+		color: #ffffff;
+		text-shadow: -2px 1px 3px rgba(0, 0, 0, .5);
+	}
 </style>
 
 <script>
