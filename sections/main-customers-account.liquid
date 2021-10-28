@@ -26,7 +26,7 @@
 
 		<div class="icon-box">
 			<ul class="icons" id="orders-list">
-				<li class="current" data-item="orders-all">
+				<li data-item="orders-all" class="current" >
 					{%- render 'icon', icon: 'cjj_all' -%}<br/>
 					<span>All</span>
 				</li>
@@ -62,8 +62,30 @@
 		{%- render 'icon', icon: 'cjj_loading' -%}
 		<span class="loading-text">&nbsp;loading...</span>
 	</div>
+	<div class="card__section" id="order_null">
+			<div class="empty-state empty-state--extra-tight">
+				<div class="empty-state__icon">
+					{%- render 'icon', icon: 'package' -%}
+					<span class="empty-state__count">0</span>
+				</div>
+				<p class="empty-state__icon-description">{{ 'customer.general.no_orders' | t }}</p>
+				<div class="empty-state__button-container">
+					<a href="{{ routes.all_products_collection_url }}"
+						 class="empty-state__button button button--primary">{{ 'customer.general.no_orders_button' | t }}</a>
+				</div>
+			</div>
+		</div>
+
 	<div class="body-me" id="body_me">
 		<!--渲染订单区域-->
+	</div>
+	<div class="post" id="post">
+		<div class="container">
+			<h3>
+				{%- render 'icon', icon: 'bi-email' -%}&nbsp;&nbsp;
+				<a href="mailto:contactus@hyfol.com" target="_blank" rel="noopener" aria-describedby="a11y-new-window-message">contactus@hyfol.com</a>
+			</h3>
+		</div>
 	</div>
 	<div class="advert-me container">
 		<ul>
@@ -306,6 +328,9 @@
 		margin-top: 10px;
 		background-color: #f0f0f0;
 	}
+	.body-me .card{
+	border: none;
+	}
 	.body-me.loading {
 		color: #666666;
 		width: 100%;
@@ -399,6 +424,17 @@
 		font-style: var(--heading-font-style);
 		color: #B82928;
 	}
+	.post{
+		background-color: #fff;
+		text-align: center;
+		min-height: 100px;
+		margin-top: 10px;
+		display: none;
+	}
+	.post h3{
+		line-height: 100px;
+		font-size: 1.3rem;
+	}
 	.icon-box li {
 		display: inline-block;
 		text-align: center;
@@ -443,17 +479,6 @@
 
   ~function () {
     let getDataFlag = false;
-    function throttle(fn, delay) {
-      let canRun = true; // 通过闭包保存一个标记
-      return function () {
-        if (!canRun) return;
-        canRun = false;
-        fn.apply(this, arguments);
-        setTimeout(() => {
-          canRun = true;
-        }, delay);
-      };
-    }
 
     function getData(url, fn) {
       if (getDataFlag) return;
@@ -473,10 +498,12 @@
 
     function loading(bool) {
       let loading = document.querySelector('#loading')
-      let box = document.querySelector('#body_me')
+      let body_me = document.querySelector('#body_me')
+      let nullbox=document.querySelector('#order_null')
       if (bool) {
         loading.style.display = 'block';
-        box.innerHTML = ''
+        body_me.innerHTML = ''
+        nullbox.style.display='none'
       } else {
         loading.style.display = 'none';
       }
@@ -484,16 +511,32 @@
 
     function upData(data) {
       loading(false);
-      let box = document.querySelector('#body_me')
-      box.innerHTML = data
+      let body_me = document.querySelector('#body_me')
+      body_me.style.display='block'
+      body_me.innerHTML = data
+			isnull()
     }
+
+    function isnull(){
+			let fag=document.querySelectorAll('.card .order-box')
+			let nullbox=document.querySelector('#order_null')
+			let body_me=document.querySelector('#body_me')
+      console.log(fag.length)
+      if(!fag.length){
+        nullbox.style.display='block'
+        body_me.style.display='none'
+			}else{
+        nullbox.style.display='none'
+			}
+		}
 
     function event() {
       let orders_list = document.querySelector("#orders-list")
       let orders_li = document.querySelectorAll("#orders-list>li")
+      let post=document.querySelector('#post');
+      let body_me = document.querySelector('#body_me')
       orders_list.onclick = (ev) => {
         let target = ev.target;
-
         if (target.tagName === "LI") {
           for (let i = 0; i < orders_li.length; i++) {
             orders_li[i].classList.remove('current')
@@ -501,18 +544,23 @@
           target.classList.add('current')
           let item = target.dataset.item;
           if (item !== 'post-sale') {
+            post.style.display='none'
             loading(true);
-            let url = '?section_id=my-' + item;
+            let url = '?section_id=my-'+ item;
             getData(url, upData)
           } else {
-            console.log('post-sale')
+            body_me.style.display='none'
+						post.style.display='block'
           }
         }
 
       }
     }
+
     function init() {
       let url = '?section_id=my-orders-all';
+      let nullbox=document.querySelector('#order_null')
+      nullbox.style.display='none'
       getData(url, upData)
     }
     event();

@@ -1,19 +1,5 @@
 <div class="card">
-	{%- if customer.orders.size == 0 -%}
-		<div class="card__section">
-			<div class="empty-state empty-state--extra-tight">
-				<div class="empty-state__icon">
-					{%- render 'icon', icon: 'package' -%}
-					<span class="empty-state__count">0</span>
-				</div>
-				<p class="empty-state__icon-description">{{ 'customer.general.no_orders' | t }}</p>
-				<div class="empty-state__button-container">
-					<a href="{{ routes.all_products_collection_url }}"
-						 class="empty-state__button button button--primary">{{ 'customer.general.no_orders_button' | t }}</a>
-				</div>
-			</div>
-		</div>
-	{%- else -%}
+	{%- if customer.orders.size !== 0 -%}
 		{%- paginate customer.orders by 8 -%}
 			{%- for order in customer.orders -%}
 				<div class="order-box">
