@@ -46,15 +46,21 @@
 						<span>Completed</span>
 					</a>
 				</li>
-				<li>
-					<a href="{{ routes.account_login_url }}?return_url={{ routes.account_url  }}">
+				<li id="post_sale">
 						{%- render 'icon', icon: 'cjj_post_sale' -%}<br/>
 						<span>Post-sale</span>
-					</a>
 				</li>
 			</ul>
 		</div>
 
+	</div>
+	<div class="post" id="post">
+		<div class="container">
+			<h3>
+				{%- render 'icon', icon: 'bi-email' -%}&nbsp;&nbsp;
+				<a href="mailto:contactus@hyfol.com" target="_blank" rel="noopener" aria-describedby="a11y-new-window-message">contactus@hyfol.com</a>
+			</h3>
+		</div>
 	</div>
 	<div class="advert-me container">
 		<ul>
@@ -131,6 +137,26 @@
 		display: flex;
 		justify-content: space-between;
 	}
+	.order-me .icons a{
+		display: inline-block;
+	}
+	.order-me .icons li{
+		cursor: pointer;
+	}
+
+
+	.post{
+		background-color: #fff;
+		text-align: center;
+		min-height: 100px;
+		margin-top: 10px;
+		display: none;
+	}
+	.post h3{
+		line-height: 100px;
+		font-size: 1.3rem;
+	}
+
 	.order-me .icon {
 		font-size: 2em;
 	}
@@ -179,5 +205,7 @@
 </style>
 
 <script>
-
+ document.querySelector("#post_sale").onclick=()=>{
+   document.querySelector('#post').style.display='block'
+ }
 </script>

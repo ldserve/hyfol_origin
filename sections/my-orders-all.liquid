@@ -1,5 +1,5 @@
 <div class="card">
-	{%- if customer.orders.size !== 0 -%}
+	{%- if customer.orders.size != 0 -%}
 		{%- paginate customer.orders by 8 -%}
 			{%- for order in customer.orders -%}
 				<div class="order-box">
