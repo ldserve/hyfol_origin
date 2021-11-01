@@ -1763,7 +1763,6 @@ table.adp-discount-table td:last-child {
             "cookie_days": 14
         },
         "discount_method": "DRAFT",
-        "products_per_collection": 3,
         "hide_paypal": true,
         "show_discount_code": false,
         "avoid_cart_quantity_adjustment": false,
@@ -1844,6 +1843,7 @@ table.adp-discount-table td:last-child {
         "entire_store_in_use": false,
         "shop" : "hyfol.myshopify.com",
         "discount_code_settings" : {"id":null,"shop":null,"inputPlacementSelector":"#appikon-discount-item","inputPlacementPosition":"AFTER","discountMode":null,"allowedCodeRegex":null},
+        "use_compare_at_price" : false
     };
     window.appikonDiscount.settings.global = {
         "env": "production",
@@ -1911,9 +1911,14 @@ table.adp-discount-table td:last-child {
         delete appikon_item[k]
     })
 
+    appikon_item["compare_at_price"] = {{item.price}};
+    {% if item.variant.compare_at_price %}
+    appikon_item["compare_at_price"] = {{item.variant.compare_at_price}};
+    {% endif %}
+
     appikon_item["collection_ids"] = [];
     {% for c in item.product.collections %}
-    appikon_item["collection_ids"].push({{c.id}})
+    appikon_item["collection_ids"].push({{c.id}});
     {% endfor %}
     window.appikon.cart.items.push(appikon_item);
     window.appikon.cart_product_ids.push(appikon_item.product_id);
@@ -2283,9 +2288,15 @@ table.adp-discount-table td:last-child {
                     n.success_note = n.success_note ? n.success_note : "";
 
                     if (n.discounted_price < n.original_price) {
-                        $(".appikon-cart-item-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.original_price_format + "</span><span class='discounted_price '>" + n.discounted_price_format + "</span>");
-                        $(".appikon-cart-item-line-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.original_line_price_format + "</span><span class='discounted_price '>" + n.discounted_line_price_format + "</span>");
-                        $(".appikon-cart-item-unit-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.original_price_format + "</span><span class='discounted_price '>" + n.discounted_price_format + "</span>");
+                        if (window.appikonDiscount.settings.use_compare_at_price === true) {
+                            $(".appikon-cart-item-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.compare_at_price_format + "</span><span class='discounted_price '>" + n.discounted_price_format + "</span>");
+                            $(".appikon-cart-item-line-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.compare_at_line_price_format + "</span><span class='discounted_price '>" + n.discounted_line_price_format + "</span>");
+                            $(".appikon-cart-item-unit-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.compare_at_price_format + "</span><span class='discounted_price '>" + n.discounted_price_format + "</span>");
+                        } else {
+                            $(".appikon-cart-item-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.original_price_format + "</span><span class='discounted_price '>" + n.discounted_price_format + "</span>");
+                            $(".appikon-cart-item-line-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.original_line_price_format + "</span><span class='discounted_price '>" + n.discounted_line_price_format + "</span>");
+                            $(".appikon-cart-item-unit-price[data-key='" + n.key + "']").html("<span class='original_price '>" + n.original_price_format + "</span><span class='discounted_price '>" + n.discounted_price_format + "</span>");
+                        }
                         $("span.discounted_price").css("font-weight", "bold");
                     } else {
                         $(".appikon-cart-item-price[data-key='" + n.key + "']").html("<span class='discounted_price '>" + n.original_price_format + "</span>");
@@ -2297,8 +2308,8 @@ table.adp-discount-table td:last-child {
                     $(".appikon-cart-item-upsell-notes[data-key='" + n.key + "']").html(n.upsell_note);
                     $(".appikon-cart-item-success-notes[data-key='" + n.key + "']").html(n.success_note);
                 }
-                if ("string" == typeof t.discounted_price_html) {
 
+                if ("string" == typeof t.discounted_price_html) {
                     if (window.appikonDiscount.settings.hide_paypal) {
                         $(".additional_checkout_buttons,.additional-checkout-button,.additional-checkout-buttons, .extra-checkout-buttons, .dynamic-checkout__content,.cart__additional_checkout, .cart-checkout-additional, #dynamic-checkout-cart").hide(), addGlobalStyle(".additional_checkout_buttons, .additional-checkout-button, .additional-checkout-buttons  {display:none !important;}");
                     }
@@ -2385,6 +2396,12 @@ table.adp-discount-table td:last-child {
             function displayCartTotals(t) {
                 $(".wholesale-original-cart-total span.wholesale-original-price").length > 0 ? $(".wholesale-original-cart-total span.wholesale-original-price").css("text-decoration", "line-through") : $(".wholesale-original-cart-total").css("text-decoration", "line-through");
                 $(".wholesale-original-cart-total").show()
+
+                if (window.appikonDiscount.settings.use_compare_at_price === true) {
+                    $("span.wholesale-original-price").html(t.compare_at_price_html);
+                } else {
+                    $("span.wholesale-original-price").html(t.original_price_html);
+                }
 
                 $(".wholesale-cart-total").html("<span class=''>" + t.discounted_price_html + "</span>");
                 var e = "";
@@ -2708,6 +2725,33 @@ table.adp-discount-table td:last-child {
                 }
             }
 
+            function addCompareAtPrice(cart) {
+                var totalCompareAtPrice = 0;
+                cart.items.forEach(function(item) {
+                    $.ajax({
+                        url: '/products/' + item.handle + '.js',
+                        dataType: 'json',
+                        async: false,
+                        success: function(product){
+                            for (const variant of product.variants) {
+                                item["compare_at_price"] = item["price"];
+                                if (variant.id == item.variant_id && variant.compare_at_price != null) {
+                                    item["compare_at_price"] = variant.compare_at_price;
+                                    break;
+                                }
+                            };
+                            const compareAtLinePrice = item["compare_at_price"] * item["quantity"];
+                            totalCompareAtPrice += compareAtLinePrice;
+                            item["compare_at_line_price"] = compareAtLinePrice;
+                        }
+                    });
+                });
+
+                cart.compare_at_total_price = totalCompareAtPrice;
+
+                return cart;
+             }
+
             function getAppikonDiscontData() {
 
                 var xhrAppiconCartRequet = $.ajax({
@@ -2716,7 +2760,8 @@ table.adp-discount-table td:last-child {
                     url: "/cart.js",
                     dataType : "json"
                 }).done(function(ajaxCartData) {
-                    processCartData(ajaxCartData);
+                    var cartWithCompareAt = addCompareAtPrice(ajaxCartData);
+                    processCartData(cartWithCompareAt);
                 }).fail(function(jqXHR, status, error) {
                     console.error("getAppikonDiscontData", error, jqXHR.responseText)
                 })
