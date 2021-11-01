@@ -9592,8 +9592,11 @@ shopify-payment-terms {
   line-height: 1.55;
 }
 
-.product-item__title {
-  margin-bottom: 12px;
+.product-item__title{
+  height: 2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .product-item__title + .product-item__vendor {
@@ -9602,7 +9605,7 @@ shopify-payment-terms {
 }
 
 .product-item__swatch-list {
-  margin: -2px 0 12px 0; /* On the collection page, we do not show more than one line */
+  margin: -2px 0 0px 0; /* On the collection page, we do not show more than one line */
   white-space: nowrap;
   overflow: hidden;
 }

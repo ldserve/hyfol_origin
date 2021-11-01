@@ -184,6 +184,11 @@
         {{ vendor }}
       {%- endif -%}
 
+
+      {%- if settings.product_price_position == 'after_title' -%}
+        {{ price_list }}
+      {%- endif -%}
+
       {%- if settings.show_color_swatch and template != 'blog' -%}
         {%- capture color_swatch -%}
           {%- capture color_name -%}{{ section.id }}-{{ product.id }}{%- endcapture -%}
@@ -232,10 +237,6 @@
             </div>
           </div>
         {%- endif -%}
-      {%- endif -%}
-
-      {%- if settings.product_price_position == 'after_title' -%}
-        {{ price_list }}
       {%- endif -%}
 
       {%- if settings.show_reviews_badge -%}
