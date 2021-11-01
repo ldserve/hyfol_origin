@@ -168,16 +168,16 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "show_announcement": false,
-          "background": "#222021",
+          "show_announcement": true,
+          "background": "#b82928",
           "text_color": "#ffffff",
-          "text": "Announce something here",
-          "text_position": "left",
+          "text": "Free Shipping on Intimates with Code:FREESHIP",
+          "text_position": "center",
           "link": "",
           "show_newsletter": false,
-          "newsletter_button": "Subscribe & Save",
-          "newsletter_title": "Newsletter",
-          "newsletter_content": "<p>A short sentence describing what someone will receive by subscribing<\/p>"
+          "newsletter_button": "",
+          "newsletter_title": "",
+          "newsletter_content": ""
         }
       },
       "popups": {
@@ -261,7 +261,6 @@
       "foot-navbar": {
         "type": "foot-navbar",
         "settings": {
-          "footer_menu": "footbar_menu",
           "navbar_bgcolor": "#ffffff",
           "navbar_color": "#222021",
           "navbar_active_color": "#b82928"

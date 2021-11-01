@@ -6,8 +6,8 @@
         "slide-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/20211014-104216.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/20211014-104228.jpg",
+            "image": "shopify:\/\/shop_images\/20211101-181422.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/03_ed27c23b-660d-4c7b-ace6-d54050aaf005.jpg",
             "show_overlay": false,
             "overlay_opacity": 30,
             "text_color": "#ffffff",
@@ -17,14 +17,14 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "button_text": "",
-            "link": "shopify:\/\/pages\/halloween"
+            "link": "shopify:\/\/collections\/hot-sale"
           }
         },
         "b802be14-3efa-471c-b64e-3dc6cc567bd7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/20211001-175106.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/20211001-175114.jpg",
+            "image": "shopify:\/\/shop_images\/20211101-181427.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/20211101-172632.jpg",
             "show_overlay": false,
             "overlay_opacity": 30,
             "text_color": "#ffffff",
@@ -36,45 +36,11 @@
             "button_text": "",
             "link": "shopify:\/\/collections\/women"
           }
-        },
-        "dadf42c0-5a35-450c-809b-ab964a4e62a5": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "Slide title",
-            "content": "Tell your story",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "Button",
-            "link": ""
-          }
-        },
-        "dd4e0d26-1fbe-40b5-91b6-6e40284abd49": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "Slide title",
-            "content": "Tell your story",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "Button",
-            "link": ""
-          }
         }
       },
       "block_order": [
         "slide-1",
-        "b802be14-3efa-471c-b64e-3dc6cc567bd7",
-        "dadf42c0-5a35-450c-809b-ab964a4e62a5",
-        "dd4e0d26-1fbe-40b5-91b6-6e40284abd49"
+        "b802be14-3efa-471c-b64e-3dc6cc567bd7"
       ],
       "settings": {
         "edge_to_edge": true,
@@ -84,433 +50,323 @@
         "cycle_speed": 4
       }
     },
-    "1631949325ac8bc36d": {
-      "type": "custom-html",
-      "settings": {
-        "title": "",
-        "html": "<div id=\"cjj_add_2021091801\">\n\t\t\t\t\t\t<!--导流区响应式,移动端1000px以下显示大图导流,隐藏与导流重复的板块-->\n\t\t\t\t\t\t<img alt=\"\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0595\/0691\/7535\/files\/21.jpg?v=1632995640\">\n\t\t\t\t\t\t<a class=\"link-base link-hoodies\" href=\"https:\/\/hyfol.myshopify.com\/collections\/hoodies\" target=\"_blank\">HOODIES<\/a>\n\t\t\t\t\t\t<a class=\"link-base link-longsleeve\" href=\"https:\/\/hyfol.myshopify.com\/collections\/long-sleeve\" target=\"_blank\">LONGSLEEVE<\/a>\n\t\t\t\t\t\t<a class=\"link-base link-shortsleeve\" href=\"https:\/\/hyfol.myshopify.com\/collections\/short-sleeve\" target=\"_blank\">SHORTSLEEVE<\/a>\n\t\t\t\t\t\t<a class=\"link-base link-bottoms\" href=\"https:\/\/hyfol.myshopify.com\/collections\/bottoms\" target=\"_blank\">BOTTOMS<\/a>\n\t\t\t\t\t\t<a class=\"link-base link-sweatshirts\" href=\"https:\/\/hyfol.myshopify.com\/collections\/sweatshirts\" target=\"_blank\">SWEATSHIRTS<\/a>\n\t\t\t\t\t\t<a class=\"link-base link-outerwear\" href=\"https:\/\/hyfol.myshopify.com\/collections\/outerwear\">OUTERWEAR<\/a>\n\t\t\t\t\t\t<a class=\"link-base link-accessories\" href=\"https:\/\/hyfol.myshopify.com\/collections\/accessories\" target=\"_blank\">ACCESSORIES<\/a>\n\t\t\t\t\t\t<style>\n\t\t\t\t\t\t\t#cjj_add_2021091801 {\n\t\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 img {\n\t\t\t\t\t\t\t\twidth: 100%;\n\t\t\t\t\t\t\t\theight: 100%;\n\t\t\t\t\t\t\t\tmargin: 0;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 .link-base {\n\t\t\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\t\t\ttext-indent: -999px;\n\t\t\t\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t\t\t\tdisplay: block;\n\t\t\t\t\t\t\t\t\/*border: 1px solid red;*\/\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 .link-hoodies {\n\t\t\t\t\t\t\t\tleft: 2.53%;\n\t\t\t\t\t\t\t\ttop: 5.58%;\n\t\t\t\t\t\t\t\twidth: 26.67%;\n\t\t\t\t\t\t\t\theight: 52.12%;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 .link-longsleeve {\n\t\t\t\t\t\t\t\tleft: 30.8%;\n\t\t\t\t\t\t\t\ttop: 5.41%;\n\t\t\t\t\t\t\t\twidth: 38%;\n\t\t\t\t\t\t\t\theight: 52.62%;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 .link-shortsleeve{\n\t\t\t\t\t\t\t\tleft: 70%;\n\t\t\t\t\t\t\t\ttop: 5.41%;\n\t\t\t\t\t\t\t\twidth: 26.8%;\n\t\t\t\t\t\t\t\theight: 25.21%;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 .link-bottoms {\n\t\t\t\t\t\t\t\tleft: 70.27%;\n\t\t\t\t\t\t\t\ttop: 33.16%;\n\t\t\t\t\t\t\t\twidth: 26.27%;\n\t\t\t\t\t\t\t\theight: 24.87%;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 .link-sweatshirts {\n\t\t\t\t\t\t\t\tleft: 2.67%;\n\t\t\t\t\t\t\t\ttop: 60.07%;\n\t\t\t\t\t\t\t\twidth: 26.53%;\n\t\t\t\t\t\t\t\theight: 33.33%;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 .link-outerwear {\n\t\t\t\t\t\t\t\tleft: 30.93%;\n\t\t\t\t\t\t\t\ttop: 59.73%;\n\t\t\t\t\t\t\t\twidth: 37.6%;\n\t\t\t\t\t\t\t\theight: 33.84%;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t#cjj_add_2021091801 .link-accessories {\n\t\t\t\t\t\t\t\tleft: 70.13%;\n\t\t\t\t\t\t\t\ttop: 59.9%;\n\t\t\t\t\t\t\t\twidth: 26.8%;\n\t\t\t\t\t\t\t\theight: 33.5%;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t@media screen and (min-width: 1000px) {\n\t\t\t\t\t\t\t\t#cjj_add_2021091801 {\n\t\t\t\t\t\t\t\t\tdisplay: none;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t@media screen and (max-width: 1000px) {\n\t\t\t\t\t\t\t\t#cjj_add_2021091801 {\n\t\t\t\t\t\t\t\t\tdisplay: block;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t#cjj_add_2021091801 img {\n\t\t\t\t\t\t\t\t\tmargin: 0;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t#shopify-section-template--15099289567391__1631859132f9ffbc78 {\n\t\t\t\t\t\t\t\t\tdisplay: none;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t#shopify-section-template--15099289567391__1631864905b64dc2d2 {\n\t\t\t\t\t\t\t\t\tdisplay: none;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t#shopify-section-template--15099289567391__1631949325ac8bc36d .section {\n\t\t\t\t\t\t\t\t\tmargin: 0;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t#shopify-section-template--15099289567391__1631949325ac8bc36d .container {\n\t\t\t\t\t\t\t\t\tpadding: 0;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t<\/style>\n\t\t\t\t\t<\/div>"
-      }
-    },
-    "1631859132f9ffbc78": {
-      "type": "mosaic",
+    "1635759577ba76b918": {
+      "type": "linkImg",
       "blocks": {
-        "1631859132f9ffbc78-0": {
-          "type": "item",
+        "b557181c-dc95-42a1-97e1-11ef73e06e75": {
+          "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/32.jpg",
-            "show_overlay": true,
-            "overlay_opacity": 38,
-            "background": "#000000",
-            "text_color": "#ffffff",
-            "title": "HOODIES",
-            "content": "",
-            "content_position": "middle_center",
-            "button_background": "#b82928",
-            "button_text_color": "#ffffff",
-            "button_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/hoodies"
+            "heading": "womentshirts1",
+            "link": "shopify:\/\/collections\/women-short-sleeve",
+            "left": 0,
+            "top": 0,
+            "width": 33,
+            "height": 91
           }
         },
-        "1631859132f9ffbc78-1": {
-          "type": "item",
+        "bfbe2e40-12f9-439e-835e-1c053083100b": {
+          "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1_66b4dbd0-d2ca-47b9-9c80-a8f7670dc745.jpg",
-            "show_overlay": true,
-            "overlay_opacity": 0,
-            "background": "#000000",
-            "text_color": "#ffffff",
-            "title": "LONG SLEEVE",
-            "content": "",
-            "content_position": "middle_center",
-            "button_background": "#b82928",
-            "button_text_color": "#ffffff",
-            "button_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/long-sleeve"
+            "heading": "womenssweatshirts1",
+            "link": "https:\/\/www.hyfol.com\/collections\/women?sort_by=best-selling&filter.p.product_type=Women%27s+Sweatshirt&filter.v.price.gte=&filter.v.price.lte=",
+            "left": 33,
+            "top": 0,
+            "width": 33,
+            "height": 91
           }
         },
-        "1631859132f9ffbc78-2": {
-          "type": "item",
+        "ae4ffa1a-0fdd-4416-bbcc-219fb0e80f49": {
+          "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/T_46ddf8f0-c34c-4176-a5df-f3630d49af56.jpg",
-            "show_overlay": true,
-            "overlay_opacity": 0,
-            "background": "#000000",
-            "text_color": "#ffffff",
-            "title": "SHIRTS",
-            "content": "",
-            "content_position": "middle_center",
-            "button_background": "#b82928",
-            "button_text_color": "#ffffff",
-            "button_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/shirts"
-          }
-        },
-        "1631859132f9ffbc78-3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1_122a852d-e02f-4d29-97ca-e31d842804f6.jpg",
-            "show_overlay": true,
-            "overlay_opacity": 0,
-            "background": "#000000",
-            "text_color": "#ffffff",
-            "title": "BOTTOMS",
-            "content": "",
-            "content_position": "middle_center",
-            "button_background": "#b82928",
-            "button_text_color": "#ffffff",
-            "button_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/bottoms"
-          }
-        },
-        "1631859132f9ffbc78-4": {
-          "type": "item",
-          "disabled": true,
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "background": "#f3f4f4",
-            "text_color": "#4f5558",
-            "title": "Your heading",
-            "content": "Tell more about your product, collection...",
-            "content_position": "top_left",
-            "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
-            "button_text": "Learn more",
-            "link": ""
+            "heading": "womenshoodies1",
+            "link": "shopify:\/\/collections\/women-hoodies",
+            "left": 66,
+            "top": 0,
+            "width": 34,
+            "height": 91
           }
         }
       },
       "block_order": [
-        "1631859132f9ffbc78-0",
-        "1631859132f9ffbc78-1",
-        "1631859132f9ffbc78-2",
-        "1631859132f9ffbc78-3",
-        "1631859132f9ffbc78-4"
+        "b557181c-dc95-42a1-97e1-11ef73e06e75",
+        "bfbe2e40-12f9-439e-835e-1c053083100b",
+        "ae4ffa1a-0fdd-4416-bbcc-219fb0e80f49"
       ],
       "settings": {
-        "section_size": "large"
+        "hidDesk": false,
+        "hidWeb": true,
+        "line": false,
+        "image": "shopify:\/\/shop_images\/PC__03.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
       }
     },
-    "1631864905b64dc2d2": {
-      "type": "mosaic",
+    "1635759941961a18e2": {
+      "type": "linkImg",
       "blocks": {
-        "1631864905b64dc2d2-0": {
-          "type": "item",
+        "20812252-d42b-4392-a13f-e9b850585153": {
+          "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/7892093cdf683ebdd8bb9b5789b0eeff.jpg",
-            "show_overlay": true,
-            "overlay_opacity": 50,
-            "background": "#000000",
-            "text_color": "#ffffff",
-            "title": "SWEATSHIRTS",
-            "content": "",
-            "content_position": "middle_center",
-            "button_background": "#b82928",
-            "button_text_color": "#ffffff",
-            "button_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/hoodies-sweatshirts"
+            "heading": "mens2",
+            "link": "shopify:\/\/collections\/mens",
+            "left": 0,
+            "top": 28,
+            "width": 32,
+            "height": 70
           }
         },
-        "1631864905b64dc2d2-1": {
-          "type": "item",
+        "d6991989-18f2-4dd6-ac03-cad62b2fa613": {
+          "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/d0d44810b0b23d9e3bf623be0ac4fd45.jpg",
-            "show_overlay": true,
-            "overlay_opacity": 50,
-            "background": "#000000",
-            "text_color": "#ffffff",
-            "title": "OUTERWEAR",
-            "content": "",
-            "content_position": "middle_center",
-            "button_background": "#b82928",
-            "button_text_color": "#ffffff",
-            "button_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/outerwear"
+            "heading": "womens2",
+            "link": "shopify:\/\/collections\/women",
+            "left": 33,
+            "top": 28,
+            "width": 33,
+            "height": 70
           }
         },
-        "1631864905b64dc2d2-2": {
-          "type": "item",
+        "b9334289-7c49-4e0a-b053-e1da8b120779": {
+          "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/93ffba1e35eaa66890c98ae0c71a52e0.jpg",
-            "show_overlay": true,
-            "overlay_opacity": 50,
-            "background": "#000000",
-            "text_color": "#ffffff",
-            "title": "ACCESSORIES",
-            "content": "",
-            "content_position": "middle_center",
-            "button_background": "#b82928",
-            "button_text_color": "#ffffff",
-            "button_text": "SHOP NOW",
-            "link": "shopify:\/\/collections\/accessories"
-          }
-        },
-        "1631864905b64dc2d2-3": {
-          "type": "item",
-          "disabled": true,
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "background": "#f3f4f4",
-            "text_color": "#4f5558",
-            "title": "Your heading",
-            "content": "Tell more about your product, collection...",
-            "content_position": "top_left",
-            "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
-            "button_text": "Learn more",
-            "link": ""
-          }
-        },
-        "1631864905b64dc2d2-4": {
-          "type": "item",
-          "disabled": true,
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "background": "#f3f4f4",
-            "text_color": "#4f5558",
-            "title": "Your heading",
-            "content": "Tell more about your product, collection...",
-            "content_position": "top_left",
-            "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
-            "button_text": "Learn more",
-            "link": ""
+            "heading": "accessories2",
+            "link": "shopify:\/\/collections\/accessories",
+            "left": 67,
+            "top": 28,
+            "width": 34,
+            "height": 70
           }
         }
       },
       "block_order": [
-        "1631864905b64dc2d2-0",
-        "1631864905b64dc2d2-1",
-        "1631864905b64dc2d2-2",
-        "1631864905b64dc2d2-3",
-        "1631864905b64dc2d2-4"
+        "20812252-d42b-4392-a13f-e9b850585153",
+        "d6991989-18f2-4dd6-ac03-cad62b2fa613",
+        "b9334289-7c49-4e0a-b053-e1da8b120779"
       ],
       "settings": {
-        "section_size": "large"
+        "hidDesk": true,
+        "hidWeb": false,
+        "line": false,
+        "image": "shopify:\/\/shop_images\/04.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
       }
     },
-    "1633082128fb3cedd5": {
-      "type": "slideshow",
+    "16357602965b96c401": {
+      "type": "linkImg",
       "blocks": {
-        "1633082128fb3cedd5-0": {
-          "type": "image",
+        "080dc183-4e43-4473-a8cc-44356cd7a4d7": {
+          "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/20211001-175106.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/20211001-181002.jpg",
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "",
-            "content": "",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "",
-            "link": "shopify:\/\/collections\/women"
+            "heading": "hoodies3",
+            "link": "shopify:\/\/collections\/hoodies",
+            "left": 3,
+            "top": 11,
+            "width": 46,
+            "height": 20
           }
         },
-        "1633082128fb3cedd5-1": {
-          "type": "image",
-          "disabled": true,
+        "946f9474-e9e3-4a48-889e-eb94b84ddae1": {
+          "type": "link",
           "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "Slide title",
-            "content": "Tell your story",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "Button",
-            "link": ""
+            "heading": "swearshirts3",
+            "link": "shopify:\/\/collections\/sweatshirts",
+            "left": 51,
+            "top": 11,
+            "width": 46,
+            "height": 20
+          }
+        },
+        "29d264b3-1358-40e5-affe-75e368b387bd": {
+          "type": "link",
+          "settings": {
+            "heading": "outerwear3",
+            "link": "shopify:\/\/collections\/outerwear",
+            "left": 3,
+            "top": 32,
+            "width": 46,
+            "height": 20
+          }
+        },
+        "f79bb545-2187-4e88-a746-7628fde4cdc0": {
+          "type": "link",
+          "settings": {
+            "heading": "longsleeve3",
+            "link": "shopify:\/\/collections\/long-sleeve",
+            "left": 51,
+            "top": 32,
+            "width": 46,
+            "height": 20
+          }
+        },
+        "b4976b7a-8ed3-4ba1-b2e3-dab9bff9b832": {
+          "type": "link",
+          "settings": {
+            "heading": "bottoms3",
+            "link": "shopify:\/\/collections\/bottoms",
+            "left": 3,
+            "top": 54,
+            "width": 46,
+            "height": 20
+          }
+        },
+        "ece75503-a9f2-4f6d-907c-52d39cda9efa": {
+          "type": "link",
+          "settings": {
+            "heading": "tshirts3",
+            "link": "shopify:\/\/collections\/short-sleeve",
+            "left": 51,
+            "top": 54,
+            "width": 46,
+            "height": 20
+          }
+        },
+        "18a3bf32-1442-48ce-95be-968b36a493ce": {
+          "type": "link",
+          "settings": {
+            "heading": "caphat3",
+            "link": "shopify:\/\/collections\/cap-hat",
+            "left": 3,
+            "top": 76,
+            "width": 46,
+            "height": 20
+          }
+        },
+        "5e431b2f-60a0-409b-b082-222b54459ccb": {
+          "type": "link",
+          "settings": {
+            "heading": "accessorises3",
+            "link": "shopify:\/\/collections\/accessories",
+            "left": 51,
+            "top": 76,
+            "width": 46,
+            "height": 20
           }
         }
       },
       "block_order": [
-        "1633082128fb3cedd5-0",
-        "1633082128fb3cedd5-1"
+        "080dc183-4e43-4473-a8cc-44356cd7a4d7",
+        "946f9474-e9e3-4a48-889e-eb94b84ddae1",
+        "29d264b3-1358-40e5-affe-75e368b387bd",
+        "f79bb545-2187-4e88-a746-7628fde4cdc0",
+        "b4976b7a-8ed3-4ba1-b2e3-dab9bff9b832",
+        "ece75503-a9f2-4f6d-907c-52d39cda9efa",
+        "18a3bf32-1442-48ce-95be-968b36a493ce",
+        "5e431b2f-60a0-409b-b082-222b54459ccb"
       ],
       "settings": {
-        "edge_to_edge": false,
-        "section_size": "preserve_ratio",
-        "carousel_effect": "slide",
-        "autoplay": true,
-        "cycle_speed": 5
+        "hidDesk": true,
+        "hidWeb": false,
+        "line": false,
+        "image": "shopify:\/\/shop_images\/05_e5a32d79-e26f-4379-9e23-f1c36cec8346.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
       }
     },
-    "1631778863404f6338": {
-      "type": "slideshow",
-      "disabled": true,
-      "blocks": {
-        "1631778863404f6338-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/750.jpg",
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "",
-            "content": "",
-            "content_position": "bottom_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "Button",
-            "link": ""
-          }
-        },
-        "1631778863404f6338-1": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "Slide title",
-            "content": "Tell your story",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "Button",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "1631778863404f6338-0",
-        "1631778863404f6338-1"
-      ],
-      "settings": {
-        "edge_to_edge": false,
-        "section_size": "large",
-        "carousel_effect": "slide",
-        "autoplay": true,
-        "cycle_speed": 5
-      }
-    },
-    "16317787727db7ce91": {
-      "type": "image-with-text-overlay",
-      "disabled": true,
-      "settings": {
-        "image": "shopify:\/\/shop_images\/03.jpg",
-        "title": "",
-        "content": "<p><br\/><\/p>",
-        "show_image_overlay": false,
-        "color": "#ffffff"
-      }
-    },
-    "163195547001cd6b34": {
-      "type": "custom-html",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "html": "<div id=\"cjj_add_2021091802\">\n\t\t\t<!--banner图片响应式-->\n\t\t\t<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0595\/0691\/7535\/files\/03.webp?v=1632827921\" alt=\"\">\n\t\t\t<style>\n\t\t\t\t#shopify-section-template--15099289567391__163195547001cd6b34{\n\t\t\t\t\tdisplay: none;\n\t\t\t\t}\n\t\t\t\t#shopify-section-template--15099289567391__163195547001cd6b34 .container {\n\t\t\t\t\tpadding: 0!important;\n\t\t\t\t}\n\t\t\t\t#shopify-section-template--15099289567391__163195547001cd6b34 section {\n\t\t\t\t\tmargin: 0 0 30px 0;\n\t\t\t\t}\n\t\t\t\t#cjj_add_2021091802 img {\n\t\t\t\t\tmargin: 0!important;\n\t\t\t\t\twidth: 100%;\n\t\t\t\t}\n\t\t\t\t@media screen and (max-width: 1000px) {\n\t\t\t\t\t#shopify-section-template--15099289567391__16317787727db7ce91 header {\n\t\t\t\t\t\tmargin-bottom: 0;\n\t\t\t\t\t}\n\t\t\t\t\t#shopify-section-template--15099289567391__1631773196e55ca308 section {\n\t\t\t\t\t\tmargin-top: 0;\n\t\t\t\t\t}\n\t\t\t\t\t#shopify-section-template--15099289567391__163195547001cd6b34{\n\t\t\t\t\t\tdisplay: block;\n\t\t\t\t\t}\n\t\t\t\t\t#shopify-section-template--15099289567391__16317787727db7ce91{\n\t\t\t\t\t\tdisplay: none;\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t<\/style>\n\t\t<\/div>"
-      }
-    },
-    "1631773196e55ca308": {
+    "16357611933da02b64": {
       "type": "collection-with-image",
       "settings": {
-        "collection": "hoodies",
-        "products_count": 28,
+        "collection": "0911-new-in",
+        "products_count": 12,
         "show_quick_buy": true,
-        "image": "shopify:\/\/shop_images\/20210928-185359.png",
-        "background": "#1b1b1b",
+        "image": "shopify:\/\/shop_images\/07.jpg",
+        "background": "#e8e8e8",
         "text_color": "#ffffff",
-        "title": "PICK YOUR SPECIAL HALLOWEEN COSTUMES",
-        "content": "Oct.01 - Oct.31",
+        "title": "",
+        "content": "",
         "button_background": "#ffffff",
-        "button_text_color": "#1b1b1b",
-        "button_text": "SHOP NOW",
-        "button_link": "https:\/\/hyfol.myshopify.com\/collections\/halloween-sale"
+        "button_text_color": "#0774d7",
+        "button_text": "",
+        "button_link": "shopify:\/\/collections\/women"
+      }
+    },
+    "1635761904108af901": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/PC__06.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/11_2bd1a08e-6837-4e2e-93c3-ff7e0a74a0ee.jpg",
+        "link": "shopify:\/\/collections\/bomber-jacket",
+        "shadow": false
       }
     },
     "featured-collection": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
-        "collection": "",
-        "title": "Featured collection",
+        "collection": "bomber-jacket",
+        "title": "",
         "products_count": 21,
         "layout": "vertical",
         "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
+        "show_quick_buy": true,
+        "link_title": "",
         "link_url": ""
       }
     },
-    "collection-list": {
-      "type": "collection-list",
-      "disabled": true,
+    "16357621407c2ec1d7": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/PC__08.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/14_7c9fb63d-4bce-42cc-9302-e62a3542c3be.jpg",
+        "link": "shopify:\/\/collections\/baseball-jacket",
+        "shadow": false
+      }
+    },
+    "1635762192013f2a0b": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "baseball-jacket",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "",
+        "link_url": ""
+      }
+    },
+    "16357629667489b3e7": {
+      "type": "linkImg",
       "blocks": {
-        "collection-1": {
-          "type": "collection",
+        "ec6c84b3-c52c-434a-9150-fe9942445926": {
+          "type": "link",
           "settings": {
-            "collection": "",
-            "link": ""
-          }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "link": ""
-          }
-        },
-        "collection-3": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "link": ""
-          }
-        },
-        "collection-4": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "link": ""
-          }
-        },
-        "collection-5": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "link": ""
-          }
-        },
-        "collection-6": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "link": ""
+            "heading": "our-story",
+            "link": "shopify:\/\/collections",
+            "left": 0,
+            "top": 0,
+            "width": 100,
+            "height": 100
           }
         }
       },
       "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3",
-        "collection-4",
-        "collection-5",
-        "collection-6"
+        "ec6c84b3-c52c-434a-9150-fe9942445926"
       ],
       "settings": {
-        "title": "Our collections",
-        "link_title": "View all",
-        "link": "shopify:\/\/collections",
-        "round_images": true,
-        "show_collection_title": true
+        "hidDesk": false,
+        "hidWeb": true,
+        "line": false,
+        "image": "shopify:\/\/shop_images\/PC__10.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
       }
     },
-    "16317883509823a977": {
+    "163577127440e8d6d7": {
       "type": "featured-collection",
       "settings": {
         "collection": "hot-sale",
         "title": "Featured collection",
-        "products_count": 18,
-        "layout": "vertical",
-        "stack_products": true,
+        "products_count": 12,
+        "layout": "horizontal",
+        "stack_products": false,
         "show_quick_buy": true,
         "link_title": "View all",
         "link_url": ""
@@ -525,37 +381,27 @@
         "text": "#ffffff"
       }
     },
-    "1631773487d26f0acf": {
+    "163576242639f4e03c": {
       "type": "recently-viewed-products",
       "settings": {
         "title": "Recently viewed",
-        "show_quick_buy": false
-      }
-    },
-    "1632388270ee915205": {
-      "type": "custom-html",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "html": "<div id=\"bgfix\">\n<!--        背景固定的视差滚动效果-->\n        <style>\n            #bgfix{\n                width: 100vw;\n                height: 100vh;\n                background: url(\"\/\/cdn.shopify.com\/s\/files\/1\/0027\/7692\/4218\/collections\/Stocksy_txp20325e509vv100_Medium_1336830-cropped_2400x.jpg?v=1569860569 2400w\") no-repeat center center;\n                background-size: cover;\n                position: fixed;\n                left: 0;\n                top: 300px;\n                z-index: -1;\n            }\n            #shopify-section-template--15099289567391__16317787727db7ce91,\n            #shopify-section-template--15099289567391__16317787727db7ce91 header{\n                background: transparent;\n            }\n            #shopify-section-template--15099289567391__16317787727db7ce91 img{\n                display: none;\n            }\n            .shopify-section,\n            #shopify-section-static-text-with-icons{\n                background: #f5f5f5;\n            }\n            .section{\n                margin: 0;\n                padding-bottom: 60px;\n            }\n            #shopify-section-template--15099289567391__1631773196e55ca308{\n                padding-top: 60px;\n            }\n        <\/style>\n        <script>\n          function scroll(startTop){\n            let scrollHeight=0;\n            let bgfix=document.getElementById('bgfix');\n            let scrollHandler=function () {\n              let scrollTop=document.documentElement.scrollTop||document.body.scrollTop;\n              let yPos=startTop-scrollTop\/6;\n              bgfix.style.top=yPos+'px';\n            }\n              let throttle = function (func, delay) {\n                  var prev = Date.now();\n                  return function() {\n                      var context = this;\n                      var args = arguments;\n                      var now = Date.now();\n                      if (now - prev >= delay) {\n                          func.apply(context, args);\n                          prev = Date.now();\n                      }\n                  }\n              }\n\n            window.addEventListener('scroll', throttle(scrollHandler, 20));\n\n          }\n          scroll(300);\n\n        <\/script>\n    <\/div>"
+        "show_quick_buy": true
       }
     }
   },
   "order": [
     "slideshow",
-    "1631949325ac8bc36d",
-    "1631859132f9ffbc78",
-    "1631864905b64dc2d2",
-    "1633082128fb3cedd5",
-    "1631778863404f6338",
-    "16317787727db7ce91",
-    "163195547001cd6b34",
-    "1631773196e55ca308",
+    "1635759577ba76b918",
+    "1635759941961a18e2",
+    "16357602965b96c401",
+    "16357611933da02b64",
+    "1635761904108af901",
     "featured-collection",
-    "collection-list",
-    "16317883509823a977",
+    "16357621407c2ec1d7",
+    "1635762192013f2a0b",
+    "16357629667489b3e7",
+    "163577127440e8d6d7",
     "newsletter",
-    "1631773487d26f0acf",
-    "1632388270ee915205"
+    "163576242639f4e03c"
   ]
 }
