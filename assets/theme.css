@@ -2471,7 +2471,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 .button--primary:hover {
-  background: rgba(var(--primary-button-background-rgb), 0.8);
+  /*background: rgba(var(--primary-button-background-rgb), 0.8);*/
 }
 
 .button--secondary {
@@ -9519,6 +9519,9 @@ shopify-payment-terms {
   background: var(--secondary-background);
   white-space: normal;
 }
+.product-item:hover .product-item__action-list {
+  opacity: 1;
+}
 
 .product-item::after {
   content: "";
@@ -9561,6 +9564,7 @@ shopify-payment-terms {
 
 .product-item__info {
   min-width: 0;
+  position: relative;
 }
 
 .product-item__price-list:first-child {
@@ -9593,7 +9597,8 @@ shopify-payment-terms {
 }
 
 .product-item__title{
-  height: 2em;
+  height: 3em;
+  line-height: 3rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -9696,7 +9701,13 @@ shopify-payment-terms {
 
 .product-item--vertical .product-item__action-list,
 .product-item--horizontal .product-item__action-list {
-  margin: 20px 0 5px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .product-item--vertical .product-item__action-button,
@@ -9719,12 +9730,12 @@ shopify-payment-terms {
 
 @media screen and (min-width: 1000px) {
   .product-item--vertical .product-item__action-list {
-    margin: 15px -5px -5px -5px;
+    /*margin: 15px -5px -5px -5px;*/
   }
 
   .product-item--vertical .product-item__action-button {
     flex: 1 0 auto;
-    margin: 5px !important;
+    /*margin: 5px !important;*/
   }
 }
 
