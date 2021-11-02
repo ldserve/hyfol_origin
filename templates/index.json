@@ -346,30 +346,6 @@
         "button_link": "shopify:\/\/collections\/women"
       }
     },
-    "1635761904108af901": {
-      "type": "no_space_img",
-      "disabled": true,
-      "settings": {
-        "bg_image": "shopify:\/\/shop_images\/PC__06.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/11_2bd1a08e-6837-4e2e-93c3-ff7e0a74a0ee.jpg",
-        "link": "shopify:\/\/collections\/bomber-jacket",
-        "shadow": false
-      }
-    },
-    "featured-collection": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "bomber-jacket",
-        "title": "",
-        "products_count": 21,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_url": ""
-      }
-    },
     "16358433881f937e14": {
       "type": "featured-collection-img",
       "settings": {
@@ -387,8 +363,26 @@
         "link_url": "shopify:\/\/collections\/bomber-jacket"
       }
     },
+    "1635843412f4572d8b": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/PC__08.jpg",
+        "web_image": "shopify:\/\/shop_images\/14_7c9fb63d-4bce-42cc-9302-e62a3542c3be.jpg",
+        "link": "shopify:\/\/collections\/baseball-jacket",
+        "collection": "baseball-jacket",
+        "title": "Baseball Jacket",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "View all",
+        "link_bg": "#994e2d",
+        "link_url": "shopify:\/\/collections\/baseball-jacket"
+      }
+    },
     "16357621407c2ec1d7": {
       "type": "no_space_img",
+      "disabled": true,
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/PC__08.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/14_7c9fb63d-4bce-42cc-9302-e62a3542c3be.jpg",
@@ -398,6 +392,7 @@
     },
     "1635762192013f2a0b": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "baseball-jacket",
         "title": "",
@@ -474,9 +469,8 @@
     "1635759941961a18e2",
     "16357602965b96c401",
     "16357611933da02b64",
-    "1635761904108af901",
-    "featured-collection",
     "16358433881f937e14",
+    "1635843412f4572d8b",
     "16357621407c2ec1d7",
     "1635762192013f2a0b",
     "16357629667489b3e7",
