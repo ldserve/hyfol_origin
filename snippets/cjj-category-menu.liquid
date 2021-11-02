@@ -1,0 +1,88 @@
+{%- comment -%}
+	头部分类菜单
+	@Version  v2.0
+	@Author   苦行僧|2021/10/18
+{%- endcomment -%}
+
+{% assign pathArr = canonical_url | replace:"/","_"| split:"_" %}
+{% assign path3 = pathArr[3] %}
+{% assign path4 = pathArr[4] %}
+
+{%- capture cjj_current -%}
+	{%- if path4=='mens' -%}
+		me
+		{% elsif path4 =='women' %}
+		women
+		{% elsif path4 =='new-in' %}
+		new-in
+		{% elsif path4 =='hot-sale' %}
+		hot-sale
+	{% else  %}
+		home
+	{% endif %}
+{%- endcapture -%}
+
+{%- assign cjj_currentPage = cjj_current | strip -%}
+
+<div class="cjj_category-menu">
+	<ul>
+		<li class="home">	<a href="{{ routes.root_url }}">HOME</a></li>
+		<li class="mens">	<a href="{{ routes.root_url }}collections/mens">MENS</a></li>
+		<li class="women">	<a href="{{ routes.root_url }}collections/women">WOMEN</a></li>
+		<li class="new-in">	<a href="{{ routes.root_url }}collections/new-in">NEW IN</a></li>
+		<li class="hot-sale">	<a href="{{ routes.root_url }}collections/hot-sale">HOT SALE</a></li>
+	</ul>
+</div>
+
+<style>
+	#shopify-section-{{ section.id }} .cjj_category-menu {
+		margin: 0 auto;
+		flex: 1 0 auto;
+	}
+	#shopify-section-{{ section.id }} .cjj_category-menu ul,
+	#shopify-section-{{ section.id }} .cjj_category-menu li {
+		list-style: none;
+		padding: 0;
+		text-align: center;
+	}
+	#shopify-section-{{ section.id }} .cjj_category-menu ul {
+		display: flex;
+		justify-content: center;
+	}
+	#shopify-section-{{ section.id }} .cjj_category-menu li {
+		display: inline-block;
+		margin: 0;
+		flex: 0 1 auto;
+	}
+	#shopify-section-{{ section.id }} .cjj_category-menu a{
+		display: block;
+		padding: 0 10px;
+		position: relative;
+	}
+	#shopify-section-{{ section.id }} .cjj_category-menu a::after{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		content: "";
+		pointer-events: none;
+		border-bottom: 2px solid;
+		opacity: 0;
+		-webkit-transform: scale(0,1);
+		transform: scale(0,1);
+		-webkit-transition: opacity 0.5s,transform 0.5s;
+		transition: opacity 0.5s,transform 0.5s;
+	}
+	#shopify-section-{{ section.id }} .cjj_category-menu li:hover a::after{
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	#shopify-section-{{ section.id }} .cjj_category-menu .{{ cjj_currentPage }} a:after{
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+
+</style>

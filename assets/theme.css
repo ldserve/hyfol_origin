@@ -5636,7 +5636,6 @@ select option {
 
 .header {
   position: relative;
-  padding: 13px 0;
   background: var(--header-background);
   color: var(--header-text-color);
   transition: margin-bottom 0.25s ease-in-out;
@@ -5660,6 +5659,9 @@ select option {
   display: inline-block;
   vertical-align: middle;
   margin-bottom: 0;
+  flex: 0 1 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .header__logo-image {
@@ -5712,7 +5714,6 @@ select option {
 .header .icon--close {
   display: block;
 }
-
 .header .icon--account {
   width: 20px;
   height: 22px;
@@ -5751,6 +5752,9 @@ select option {
     align-items: center;
     min-height: 64px;
   }
+  .header__logo{
+    flex: 1 0 auto;
+  }
 
   .header > .container {
     width: 100%;
@@ -5765,7 +5769,7 @@ select option {
 
 @media screen and (min-width: 641px) {
   .header {
-    padding: 20px 0;
+    padding: 10px 0;
   }
 
   .header__inner {
@@ -5818,6 +5822,7 @@ select option {
 
 .header__action-item-link {
   display: block;
+  vertical-align: middle;
   font-weight: var(--text-font-bolder-weight);
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 16px));
 }
@@ -5965,6 +5970,23 @@ select option {
   .header__action-item .icon--lock-2 {
     vertical-align: text-top;
   }
+
+  .header__search-bar-wrapper {
+    visibility: hidden;
+    position: absolute; /* We move it outside of the document for easier positioning for other elements */
+    padding: 10px 20px 20px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: var(--header-background);
+    z-index: -1; /* because the position is absolutely positioned it get a higher z-index, but we need to revert it to avoid any trouble */
+    transition: visibility 0.25s ease-in-out, margin-bottom 0.25s ease-in-out;
+  }
+  .header__search-bar-wrapper.is-visible {
+    visibility: visible;
+    margin-bottom: -69px;
+  }
+
 }
 
 @media screen and (min-width: 1000px) {
