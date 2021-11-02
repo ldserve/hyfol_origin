@@ -9147,7 +9147,6 @@ shopify-payment-terms {
 }
 
 .price--highlight {
-  margin-right: 0.7em;
   color: var(--product-on-sale-accent);
 }
 
@@ -9513,7 +9512,7 @@ shopify-payment-terms {
 
 .product-item {
   position: relative;
-  padding: 20px;
+  padding: 10px 10px 20px;
   min-width: 0;
   flex-shrink: 0;
   background: var(--secondary-background);
@@ -9575,6 +9574,9 @@ shopify-payment-terms {
 .product-item__price-list {
   margin-top: -5px;
   margin-bottom: -5px;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .product-item__price-list .price {
@@ -9613,6 +9615,7 @@ shopify-payment-terms {
   margin: -2px 0 0px 0; /* On the collection page, we do not show more than one line */
   white-space: nowrap;
   overflow: hidden;
+  text-align:center;
 }
 
 .product-item__price-info {
@@ -9708,12 +9711,15 @@ shopify-payment-terms {
   margin: 0;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  display: block;
+  text-align: center;
+  background-color: #ffffff;
 }
 
 .product-item--vertical .product-item__action-button,
 .product-item--horizontal .product-item__action-button {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .product-item--vertical .product-item__action-list--list-view-only,
