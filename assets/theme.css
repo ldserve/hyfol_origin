@@ -355,10 +355,9 @@ th {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  width: 30px;
   height: 50px;
   top: calc(50% - 25px);
-  border-radius: 100%;
   visibility: visible;
   background: var(--flickity-arrow-color);
   opacity: 0;
@@ -382,14 +381,14 @@ th {
 }
 
 .flickity-prev-next-button.previous {
-  left: -25px;
+  left: -15px;
 }
 .flickity-prev-next-button.previous svg {
   left: 1px;
 }
 
 .flickity-prev-next-button.next {
-  right: -25px;
+  right: -15px;
 }
 .flickity-prev-next-button.next svg {
   left: -1px;
@@ -4037,6 +4036,34 @@ img.lazyload[data-sizes=auto] {
   width: 100%;
 }
 
+.product-list--scrollable {
+  overflow: visible;
+  border: none;
+  background: transparent;
+}
+
+.product-list--scrollable .product-item {
+  border: 1px solid var(--border-color);
+}
+
+.product-list--scrollable .product-item + .product-item {
+  border-left: none;
+}
+
+.product-list--scrollable .product-item:first-child {
+  border-radius: 3px 0 0 3px;
+}
+
+.product-list--scrollable .product-item:last-child {
+  border-radius: 0 3px 3px 0;
+}
+
+.product-list--collection {
+  border: none;
+}
+
+
+
 @media screen and (max-width: 640px) {
   .product-list--scrollable::before,
   .product-list--scrollable::after {
@@ -4045,7 +4072,7 @@ img.lazyload[data-sizes=auto] {
   }
 
   .product-list--scrollable .product-item {
-    width: 62%;
+    width: 50%;
   }
 
   .product-list--collage {
@@ -4065,7 +4092,7 @@ img.lazyload[data-sizes=auto] {
   }
 
   .product-list--scrollable .product-item {
-    width: 36%;
+    width: 33.33%;
   }
 }
 
@@ -4425,11 +4452,11 @@ img.lazyload[data-sizes=auto] {
   }
 
   .collection-list .flickity-prev-next-button.previous {
-    left: -10px;
+    left: 5px;
   }
 
   .collection-list .flickity-prev-next-button.next {
-    right: -10px;
+    right: 15px;
   }
 }
 
