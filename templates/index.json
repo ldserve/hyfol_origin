@@ -209,7 +209,7 @@
         "hidDesk": true,
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/04.jpg",
+        "image": "shopify:\/\/shop_images\/04_94ace771-8d20-47f2-80b5-d4a21e5f6997.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -335,7 +335,7 @@
         "collection": "women",
         "products_count": 12,
         "show_quick_buy": true,
-        "image": "shopify:\/\/shop_images\/07.jpg",
+        "image": "shopify:\/\/shop_images\/07_cb7b4de4-9002-4404-bf7c-86bbc1b5a0ca.jpg",
         "background": "#e8e8e8",
         "text_color": "#ffffff",
         "title": "",
@@ -349,8 +349,8 @@
     "16358433881f937e14": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/PC__06.jpg",
-        "web_image": "shopify:\/\/shop_images\/11_2bd1a08e-6837-4e2e-93c3-ff7e0a74a0ee.jpg",
+        "image": "shopify:\/\/shop_images\/PC__06_61e37430-6151-412c-9990-7fbef8ee0bd8.jpg",
+        "web_image": "shopify:\/\/shop_images\/11_5f952385-4e24-4652-a831-0379b53f4ff4.jpg",
         "link": "shopify:\/\/collections\/bomber-jacket",
         "collection": "bomber-jacket",
         "title": "Flight Suit",
@@ -366,8 +366,8 @@
     "1635843412f4572d8b": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/PC__08.jpg",
-        "web_image": "shopify:\/\/shop_images\/14_7c9fb63d-4bce-42cc-9302-e62a3542c3be.jpg",
+        "image": "shopify:\/\/shop_images\/PC__08_9a36c986-fa37-4676-8d00-47e44c547b37.jpg",
+        "web_image": "shopify:\/\/shop_images\/14_fd3e6bee-e301-400e-ba26-5dd5931c91da.jpg",
         "link": "shopify:\/\/collections\/baseball-jacket",
         "collection": "baseball-jacket",
         "title": "Baseball Jacket",
@@ -402,7 +402,7 @@
         "hidDesk": false,
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/PC__10.jpg",
+        "image": "shopify:\/\/shop_images\/PC__10_e112a5e1-0972-4ab2-bf1c-f6b7c03fb785.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
