@@ -380,30 +380,6 @@
         "link_url": "shopify:\/\/collections\/baseball-jacket"
       }
     },
-    "16357621407c2ec1d7": {
-      "type": "no_space_img",
-      "disabled": true,
-      "settings": {
-        "bg_image": "shopify:\/\/shop_images\/PC__08.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/14_7c9fb63d-4bce-42cc-9302-e62a3542c3be.jpg",
-        "link": "shopify:\/\/collections\/baseball-jacket",
-        "shadow": false
-      }
-    },
-    "1635762192013f2a0b": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "baseball-jacket",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_url": ""
-      }
-    },
     "16357629667489b3e7": {
       "type": "linkImg",
       "blocks": {
@@ -471,8 +447,6 @@
     "16357611933da02b64",
     "16358433881f937e14",
     "1635843412f4572d8b",
-    "16357621407c2ec1d7",
-    "1635762192013f2a0b",
     "16357629667489b3e7",
     "163577127440e8d6d7",
     "newsletter",
