@@ -155,7 +155,7 @@
       "settings": {
         "hidDesk": false,
         "hidWeb": true,
-        "line": true,
+        "line": false,
         "image": "shopify:\/\/shop_images\/PC__02_716f8992-ae3b-4793-a059-c791532a700d.jpg",
         "tpadding": 0,
         "rpadding": 0,
