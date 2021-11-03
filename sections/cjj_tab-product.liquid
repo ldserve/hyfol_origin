@@ -1,36 +1,36 @@
 <section class="container hidden-lap hidden-lap-and-up">
 
-	{% assign foo = true %}
-	{% if section.settings.tab1 !=blank %}
+	{%- assign foo = true -%}
+	{%- if section.settings.tab1 !=blank -%}
 		<input type="radio" name="table" class="cjj_input input1" id="tab1" {%- if foo -%}checked{%- endif -%}>
-		{% assign foo = false %}
-	{% endif %}
-	{% if section.settings.tab2 !=blank %}
+		{%- assign foo = false -%}
+	{%- endif -%}
+	{%- if section.settings.tab2 !=blank -%}
 		<input type="radio" name="table" class="cjj_input input2" id="tab2" {%- if foo -%}checked{%- endif -%}>
-		{% assign foo = false %}
-	{% endif %}
-	{% if section.settings.tab3 !=blank %}
+		{%- assign foo = false -%}
+	{%- endif -%}
+	{%- if section.settings.tab3 !=blank -%}
 		<input type="radio" name="table" class="cjj_input input3" id="tab3" {%- if foo -%}checked{%- endif -%}>
-		{% assign foo = false %}
-	{% endif %}
+		{%- assign foo = false -%}
+	{%- endif -%}
 
 	<div class="cjj_header">{{ section.settings.title }}</div>
 	<ul class="ctrl">
-		{% if section.settings.tab1!=blank %}
+		{%- if section.settings.tab1!=blank -%}
 			<li>
 				<label class="label1" for="tab1">{{ section.settings.tab1 }}</label>
 			</li>
-		{% endif %}
-		{% if section.settings.tab2!=blank %}
+		{%- endif -%}
+		{%- if section.settings.tab2!=blank -%}
 			<li>
 				<label class="label2" for="tab2">{{ section.settings.tab2 }}</label>
 			</li>
-		{% endif %}
-		{% if section.settings.tab3!=blank %}
+		{%- endif -%}
+		{%- if section.settings.tab3!=blank -%}
 			<li>
 				<label class="label3" for="tab3">{{ section.settings.tab3 }}</label>
 			</li>
-		{% endif %}
+		{%- endif -%}
 	</ul>
 
 	<div class="tab">
@@ -131,29 +131,11 @@
 
 <style>
 
-	#shopify-section-{{ section.id }} .foot-btn {
-		text-align: center;
-		width: 100%;
-		padding-top: 20px;
-	}
-	#shopify-section-{{ section.id }} .foot-btn a {
-		display: inline-block;
-		padding: 5px 25px;
-		cursor: pointer;
-		font-family: var(--heading-font-family);
-		font-weight: var(--heading-font-weight);
-		font-style: var(--heading-font-style);
-		background: var(--primary-button-background);
-		color: var(--primary-button-text-color);
-		font-size: 1.1rem;
-	}
 	#shopify-section-{{ section.id }} {
 		background-color: #fff;
 		padding-bottom: 20px;
 	}
-
 	#shopify-section-{{ section.id }} .container {
-		padding-top: 10px;
 	}
 	#shopify-section-{{ section.id }} .cjj_header {
 		font-size: 2rem;
@@ -161,7 +143,6 @@
 		font-weight: 800;
 		font-style: var(--heading-font-style);
 		text-align: center;
-		padding-top: 10px;
 	}
 
 	#shopify-section-{{ section.id }} .ctrl {
@@ -198,6 +179,7 @@
 	}
 	#shopify-section-{{ section.id }} .input {
 		display: none;
+		position: absolute;
 	}
 
 	#shopify-section-{{ section.id }} .tab .product-list {
@@ -291,6 +273,22 @@
 	}
 	#shopify-section-{{ section.id }}  .product-list::before{
 		border: none;
+	}
+	#shopify-section-{{ section.id }} .foot-btn {
+		text-align: center;
+		width: 100%;
+		padding-top: 20px;
+	}
+	#shopify-section-{{ section.id }} .foot-btn a {
+		display: inline-block;
+		padding: 5px 25px;
+		cursor: pointer;
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-font-weight);
+		font-style: var(--heading-font-style);
+		background: var(--primary-button-background);
+		color: var(--primary-button-text-color);
+		font-size: 1.1rem;
 	}
 </style>
 
