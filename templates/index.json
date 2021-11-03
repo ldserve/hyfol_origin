@@ -400,7 +400,7 @@
       ],
       "settings": {
         "hidDesk": false,
-        "hidWeb": false,
+        "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/HYFOL_10.jpg",
         "tpadding": 0,
