@@ -9,8 +9,8 @@
   <div class="container container--flush">
     {%- assign collection = section.settings.collection -%}
 
-    <div class="featured-collection lazyload" {% if section.settings.image %}data-bgset="{{ section.settings.image | img_url: '1000x' }} [--lap]"{% endif %}>
-      <header class="featured-collection__header lazyload">
+    <div class="featured-collection lazyload">
+      <header class="featured-collection__header lazyload"  {% if section.settings.image %}data-bgset="{{ section.settings.image | img_url: '1000x' }} [--lap]"{% endif %}>
         {%- if section.settings.image -%}
           {%- capture supported_sizes -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: section.settings.image -%}{%- endcapture -%}
           {%- assign image_url = section.settings.image | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
