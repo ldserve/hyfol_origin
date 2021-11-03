@@ -4313,7 +4313,10 @@ img.lazyload[data-sizes=auto] {
   .featured-collection__header {
     width: 455px;
     padding: 20px 30px;
-    background-image: none !important;
+    /*background-image: none !important;*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 5px 0px;
   }
 
   .featured-collection .product-list {
