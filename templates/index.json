@@ -6,8 +6,8 @@
         "slide-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1_ae8a6e4c-5fb9-4ccb-b3ca-0d6f1e8fe620.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/03_62b4ba20-e9d1-4ca7-8213-1f43cd88d490.jpg",
+            "image": "shopify:\/\/shop_images\/HYFOL_02.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/03_a7eafa0d-6112-4b6a-9d11-fd18d3455d85.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -23,10 +23,10 @@
         "b802be14-3efa-471c-b64e-3dc6cc567bd7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/ac9f24eeadbf3b54208c46b1bc6fd272.jpg",
+            "image": "shopify:\/\/shop_images\/2_511151bb-dd75-4a31-be22-e3cf165396d8.jpg",
             "mobile_image": "shopify:\/\/shop_images\/20211101-172632.jpg",
             "show_overlay": false,
-            "overlay_opacity": 30,
+            "overlay_opacity": 0,
             "text_color": "#ffffff",
             "title": "",
             "content": "",
@@ -209,7 +209,7 @@
         "hidDesk": true,
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/04_94ace771-8d20-47f2-80b5-d4a21e5f6997.jpg",
+        "image": "shopify:\/\/shop_images\/04_e57cc513-35a2-4717-89d7-d8d93e00e5f7.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -335,7 +335,7 @@
         "collection": "women",
         "products_count": 12,
         "show_quick_buy": true,
-        "image": "shopify:\/\/shop_images\/07_cb7b4de4-9002-4404-bf7c-86bbc1b5a0ca.jpg",
+        "image": "shopify:\/\/shop_images\/07_45eb9ff1-40ab-40cd-918a-d90ae00f65ae.jpg",
         "background": "#e8e8e8",
         "text_color": "#ffffff",
         "title": "",
@@ -349,8 +349,8 @@
     "16358433881f937e14": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/PC__06_61e37430-6151-412c-9990-7fbef8ee0bd8.jpg",
-        "web_image": "shopify:\/\/shop_images\/11_5f952385-4e24-4652-a831-0379b53f4ff4.jpg",
+        "image": "shopify:\/\/shop_images\/HYFOL_06.jpg",
+        "web_image": "shopify:\/\/shop_images\/11_029e22c2-b131-423d-a172-9a287a773522.jpg",
         "link": "shopify:\/\/collections\/bomber-jacket",
         "collection": "bomber-jacket",
         "title": "Flight Suit",
@@ -366,8 +366,8 @@
     "1635843412f4572d8b": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/PC__08_9a36c986-fa37-4676-8d00-47e44c547b37.jpg",
-        "web_image": "shopify:\/\/shop_images\/14_fd3e6bee-e301-400e-ba26-5dd5931c91da.jpg",
+        "image": "shopify:\/\/shop_images\/HYFOL_08.jpg",
+        "web_image": "shopify:\/\/shop_images\/14_1855725f-b149-4bd3-9d91-de9a90b6f995.jpg",
         "link": "shopify:\/\/collections\/baseball-jacket",
         "collection": "baseball-jacket",
         "title": "Baseball Jacket",
@@ -400,9 +400,9 @@
       ],
       "settings": {
         "hidDesk": false,
-        "hidWeb": true,
+        "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/PC__10_e112a5e1-0972-4ab2-bf1c-f6b7c03fb785.jpg",
+        "image": "shopify:\/\/shop_images\/HYFOL_10.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
