@@ -346,6 +346,21 @@
         "button_link": "shopify:\/\/collections\/women"
       }
     },
+    "1635995528b96ef09c": {
+      "type": "cjj_tab-product",
+      "settings": {
+        "title": "Top Products",
+        "tab1": "Best Sales",
+        "pro1": "hot-sale",
+        "link1": "shopify:\/\/collections\/hot-sale",
+        "tab2": "New In",
+        "pro2": "new-in",
+        "link2": "shopify:\/\/collections\/new-in",
+        "tab3": "",
+        "pro3": "",
+        "link3": ""
+      }
+    },
     "16358433881f937e14": {
       "type": "featured-collection-img",
       "settings": {
@@ -445,6 +460,7 @@
     "1635759941961a18e2",
     "16357602965b96c401",
     "16357611933da02b64",
+    "1635995528b96ef09c",
     "16358433881f937e14",
     "1635843412f4572d8b",
     "16357629667489b3e7",
