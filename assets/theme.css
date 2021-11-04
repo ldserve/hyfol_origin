@@ -4229,7 +4229,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 .featured-collection__header {
-  padding: 0 var(--mobile-container-gutter) 40px var(--mobile-container-gutter);
+  padding: 0 var(--mobile-container-gutter) 20px var(--mobile-container-gutter);
 }
 
 .featured-collection__title {
@@ -4282,6 +4282,7 @@ img.lazyload[data-sizes=auto] {
     background-repeat: no-repeat;
     background-position: bottom 0 right -15px;
     background-size: 430px auto;
+    background-image: none !important;
   }
 
   .featured-collection__image-wrapper {
