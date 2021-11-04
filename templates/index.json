@@ -332,6 +332,7 @@
     },
     "16357611933da02b64": {
       "type": "collection-with-image",
+      "disabled": true,
       "settings": {
         "collection": "women",
         "products_count": 12,
