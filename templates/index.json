@@ -23,8 +23,8 @@
         "b802be14-3efa-471c-b64e-3dc6cc567bd7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/PC__02_b9ff3c9b-3b2a-4ccf-87f4-6cafff3c2fe7.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/03_28e066ec-9c21-4e05-a326-616059cbaf57.jpg",
+            "image": "shopify:\/\/shop_images\/PC__02_0016a505-c918-41ba-9b3f-ebbd89a5bca7.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/03_2a3fbac3-4b84-4216-9be4-bddf97a690a1.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -335,7 +335,7 @@
         "collection": "women",
         "products_count": 12,
         "show_quick_buy": true,
-        "image": "shopify:\/\/shop_images\/07_482cff59-99ab-440b-a77f-b99f4cdde772.jpg",
+        "image": "shopify:\/\/shop_images\/07_f802d421-ae03-463f-ba17-f46a497e7e91.jpg",
         "background": "#e8e8e8",
         "text_color": "#ffffff",
         "title": "",
