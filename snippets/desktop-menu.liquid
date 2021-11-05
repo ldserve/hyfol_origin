@@ -89,3 +89,28 @@ always visible.
     {%- endfor -%}
   </ul>
 {%- endif -%}
+<style>
+  #shopify-section-{{ section.id }} .nav-bar__linklist .nav-bar__item>a{
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .nav-bar__linklist .nav-bar__item>a:after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    pointer-events: none;
+    border-bottom: 2px solid;
+    opacity: 0;
+    -webkit-transform: scale(0,1);
+    transform: scale(0,1);
+    -webkit-transition: opacity 0.5s,transform 0.5s;
+    transition: opacity 0.5s,transform 0.5s;
+  }
+  #shopify-section-{{ section.id }} .nav-bar__linklist .nav-bar__item:hover>a:after{
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+</style>
