@@ -6,8 +6,8 @@
         "slide-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/HYFOL_02.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/03_a7eafa0d-6112-4b6a-9d11-fd18d3455d85.jpg",
+            "image": "shopify:\/\/shop_images\/0fbf5e082f963f1abb78fe936756d85e.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/1_4a6e69bf-d36a-433a-b7fb-f2db5ce7a2d7.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -24,7 +24,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/PC__02_0016a505-c918-41ba-9b3f-ebbd89a5bca7.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/03_2a3fbac3-4b84-4216-9be4-bddf97a690a1.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/2_e26d0fbe-d7fe-4e8e-bd3b-b5aeefcfc3cc.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
