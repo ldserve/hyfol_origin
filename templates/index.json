@@ -346,6 +346,25 @@
         "button_link": "shopify:\/\/collections\/women"
       }
     },
+    "16360968581831caac": {
+      "type": "slide-product",
+      "disabled": true,
+      "settings": {
+        "link": "",
+        "collection": "",
+        "products_count": 12,
+        "show_quick_buy": false,
+        "background": "#f0f0f0",
+        "title": "",
+        "content": "",
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "button_text": "",
+        "button_link": "",
+        "button_text_color": "#0774d7",
+        "button_background": "#ffffff"
+      }
+    },
     "1635995528b96ef09c": {
       "type": "cjj_tab-product",
       "settings": {
@@ -460,6 +479,7 @@
     "1635759941961a18e2",
     "16357602965b96c401",
     "16357611933da02b64",
+    "16360968581831caac",
     "1635995528b96ef09c",
     "16358433881f937e14",
     "1635843412f4572d8b",
