@@ -331,6 +331,7 @@
     },
     "16357611933da02b64": {
       "type": "collection-with-image",
+      "disabled": true,
       "settings": {
         "collection": "women",
         "products_count": 12,
@@ -348,10 +349,11 @@
     },
     "16360968581831caac": {
       "type": "slide-product",
-      "disabled": true,
       "settings": {
-        "link": "",
-        "collection": "",
+        "desk_image": "shopify:\/\/shop_images\/07_f802d421-ae03-463f-ba17-f46a497e7e91.jpg",
+        "web_image": "shopify:\/\/shop_images\/07_f802d421-ae03-463f-ba17-f46a497e7e91.jpg",
+        "link": "shopify:\/\/collections\/women",
+        "collection": "women",
         "products_count": 12,
         "show_quick_buy": false,
         "background": "#f0f0f0",
