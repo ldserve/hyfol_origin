@@ -104,7 +104,7 @@
           "logo_max_width": 140,
           "mobile_logo_max_width": 140,
           "show_locale_selector": false,
-          "show_currency_selector": false,
+          "show_currency_selector": true,
           "navigation_menu": "pc",
           "navigation_mobile_menu": "main-menu",
           "desktop_navigation_layout": "inline",
