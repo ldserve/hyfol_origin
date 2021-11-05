@@ -9777,6 +9777,7 @@ shopify-payment-terms {
 .product-item--horizontal .product-item__action-button {
   padding-left: 20px;
   padding-right: 20px;
+  white-space: nowrap;
 }
 
 .product-item--vertical .product-item__action-list--list-view-only,
