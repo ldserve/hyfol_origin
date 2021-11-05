@@ -355,7 +355,7 @@
         "link": "shopify:\/\/collections\/women",
         "collection": "women",
         "products_count": 12,
-        "show_quick_buy": false,
+        "show_quick_buy": true,
         "background": "#f0f0f0",
         "title": "",
         "content": "",
