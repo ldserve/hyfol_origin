@@ -4,6 +4,7 @@
 	@Author   苦行僧|2021/10/18
 {%- endcomment -%}
 
+
 {% assign pathArr = canonical_url | replace:"/","_"| split:"_" %}
 {% assign path3 = pathArr[3] %}
 {% assign path4 = pathArr[4] %}
@@ -25,12 +26,17 @@
 {%- assign cjj_currentPage = cjj_current | strip -%}
 
 <div class="cjj_category-menu">
-	<ul>
-		<li class="home">	<a href="{{ routes.root_url }}">HOME</a></li>
-		<li class="mens">	<a href="{{ routes.root_url }}collections/mens">MENS</a></li>
-		<li class="women">	<a href="{{ routes.root_url }}collections/women">WOMEN</a></li>
-		<li class="new-in">	<a href="{{ routes.root_url }}collections/new-in">NEW IN</a></li>
-		<li class="hot-sale">	<a href="{{ routes.root_url }}collections/hot-sale">HOT SALE</a></li>
+	<ul class="menu">
+		{%- for link in menu.links -%}
+			<li class="menu-item {{ link.title| downcase |replace:" ","-" }}">
+				<a href="{{ link.url }}">{{ link.title }}</a>
+				<ul class="mini-menu">
+					<li class="mini-menu-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+					<li class="mini-menu-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+					<li class="mini-menu-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+				</ul>
+			</li>
+		{%- endfor -%}
 	</ul>
 </div>
 
@@ -39,28 +45,29 @@
 		margin: 0 auto;
 		flex: 1 0 auto;
 	}
-	#shopify-section-{{ section.id }} .cjj_category-menu ul,
-	#shopify-section-{{ section.id }} .cjj_category-menu li {
+	#shopify-section-{{ section.id }} .cjj_category-menu .menu,
+	#shopify-section-{{ section.id }} .cjj_category-menu .menu-item {
 		list-style: none;
 		padding: 0;
 		text-align: center;
 	}
-	#shopify-section-{{ section.id }} .cjj_category-menu ul {
+	#shopify-section-{{ section.id }} .cjj_category-menu .menu {
 		display: flex;
 		justify-content: center;
 	}
-	#shopify-section-{{ section.id }} .cjj_category-menu li {
+	#shopify-section-{{ section.id }} .cjj_category-menu .menu-item {
 		display: inline-block;
 		margin: 0;
 		flex: 0 1 auto;
+		position: relative;
 	}
-	#shopify-section-{{ section.id }} .cjj_category-menu a{
+	#shopify-section-{{ section.id }} .cjj_category-menu .menu-item>a{
 		display: block;
 		padding: 0 10px;
 		position: relative;
 		font-family: var(--heading-font-family);
 	}
-	#shopify-section-{{ section.id }} .cjj_category-menu a::after{
+	#shopify-section-{{ section.id }} .cjj_category-menu .menu-item>a:after{
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -75,15 +82,20 @@
 		-webkit-transition: opacity 0.5s,transform 0.5s;
 		transition: opacity 0.5s,transform 0.5s;
 	}
-	#shopify-section-{{ section.id }} .cjj_category-menu li:hover a::after{
+	#shopify-section-{{ section.id }} .cjj_category-menu .menu-item:hover>a:after{
 		opacity: 1;
 		-webkit-transform: scale(1);
 		transform: scale(1);
 	}
-	#shopify-section-{{ section.id }} .cjj_category-menu .{{ cjj_currentPage }} a:after{
+	#shopify-section-{{ section.id }} .cjj_category-menu .{{ cjj_currentPage }}>a:after{
 		opacity: 1;
 		-webkit-transform: scale(1);
 		transform: scale(1);
 	}
-
+	#shopify-section-{{ section.id }} .mini-menu{
+		position: absolute;
+		top: 0;
+	}	#shopify-section-{{ section.id }} .mini-menu>li{
+			display: block;
+	}
 </style>

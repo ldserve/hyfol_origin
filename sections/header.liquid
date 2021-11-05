@@ -33,7 +33,6 @@
 				{%- endif -%}
 
 				{%- comment -%}---------------桌面导航按钮---------------{%- endcomment -%}
-
 				{%- if section.settings.desktop_navigation_layout == 'condensed' and navigation_menu.links.size > 0 -%}
 					<nav class="header__desktop-nav hidden-pocket">
 						<button class="header__desktop-nav-toggle" data-action="toggle-menu" aria-expanded="false"
@@ -74,9 +73,34 @@
 
 
 				{%- comment -%}---------------头部菜单---------------{%- endcomment -%}
-				<div class="cjj-category hidden-pocket">
-					{% render 'cjj-category-menu'%}
-				</div>
+				{%- comment -%}---------------导航菜单---------------{%- endcomment -%}
+				{%- if section.settings.desktop_navigation_layout == 'inline' and navigation_menu.links.size > 0 -%}
+					<nav class="nav-bar cjj-category">
+						<div class="nav-bar__inner">
+								<ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
+									{%- for link in navigation_menu.links -%}
+										<li class="nav-bar__item">
+											{%- if link.links.size == 0 -%}
+												<a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
+											{%- else -%}
+												{%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
+
+												<a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false"
+													 aria-controls="{{ index }}" aria-haspopup="true">
+													{{- link.title -}}
+													{%- render 'icon', icon: 'arrow-bottom' -%}
+													{%- render 'icon', icon: 'nav-triangle' -%}
+												</a>
+												{%- render 'desktop-menu', menu: link, index: index -%}
+											{%- endif -%}
+										</li>
+									{%- endfor -%}
+								</ul>
+							</div>
+					</nav>
+				{%- endif -%}
+
+
 				{%- comment -%}---------------搜索组件---------------{%- endcomment -%}
 
 				<div
@@ -510,35 +534,7 @@
 			</div>
 		</div>
 	</header>
-	{%- comment -%}---------------导航菜单---------------{%- endcomment -%}
-	{%- if section.settings.desktop_navigation_layout == 'inline' and navigation_menu.links.size > 0 -%}
-		<nav class="nav-bar">
-			<div class="nav-bar__inner">
-				<div class="container">
-					<ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
-						{%- for link in navigation_menu.links -%}
-							<li class="nav-bar__item">
-								{%- if link.links.size == 0 -%}
-									<a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
-								{%- else -%}
-									{%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
 
-									<a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false"
-										 aria-controls="{{ index }}" aria-haspopup="true">
-										{{- link.title -}}
-										{%- render 'icon', icon: 'arrow-bottom' -%}
-										{%- render 'icon', icon: 'nav-triangle' -%}
-									</a>
-
-									{%- render 'desktop-menu', menu: link, index: index -%}
-								{%- endif -%}
-							</li>
-						{%- endfor -%}
-					</ul>
-				</div>
-			</div>
-		</nav>
-	{%- endif -%}
 </section>
 
 <style>
@@ -588,11 +584,24 @@
 	}
 	{%- endif -%}
 	#shopify-section-{{ section.id }} .cjj-category{
-		flex: 1 0 auto;
+		flex: 1 1 auto;
+		background: none;
+		border: none;
+	}
+	#shopify-section-{{ section.id }} .cjj-category .nav-bar__linklist{
+		text-align: center;
+	}
+	#shopify-section-{{ section.id }} .cjj-category:after{
+		width: 0;
+		background: none;
+	}
+	#shopify-section-{{ section.id }} .cjj-category .nav-dropdown__item:hover{
+		background-color: var(--header-background);
 	}
 	#shopify-section-{{ section.id }} .cjj-searchico .icon--search{
 		display: inline-block;
 	}
+
 </style>
 
 <script>
@@ -607,7 +616,7 @@
 		{
 			"type": "checkbox",
 			"id": "enable_sticky_header",
-			"label": "Enable sticky header",
+			"label": "头部吸顶",
 			"default": true
 		},
 		{
@@ -617,7 +626,7 @@
 		{
 			"type": "image_picker",
 			"id": "logo",
-			"label": "Image",
+			"label": "logo图片",
 			"info": "400 x 120px .png recommended"
 		},
 		{
@@ -627,7 +636,7 @@
 			"max": 300,
 			"step": 5,
 			"unit": "px",
-			"label": "Image width",
+			"label": "logo图片宽度",
 			"default": 140
 		},
 		{
@@ -637,59 +646,59 @@
 			"max": 170,
 			"step": 5,
 			"unit": "px",
-			"label": "Mobile image width",
+			"label": "手机logo宽度",
 			"default": 100
 		},
 		{
 			"type": "header",
-			"content": "Language selector",
-			"info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+			"content": "语言选择",
+			"info": "添加一种语言,[language settings.](/admin/settings/languages)"
 		},
 		{
 			"type": "checkbox",
 			"id": "show_locale_selector",
-			"label": "Show language selector",
+			"label": "显示语言选择",
 			"default": true
 		},
 		{
 			"type": "header",
-			"content": "Currency selector",
-			"info": "To add a currency, go to your [payment settings.](/admin/settings/payments)"
+			"content": "货币选择",
+			"info": "添加一种货币,[payment settings.](/admin/settings/payments)"
 		},
 		{
 			"type": "checkbox",
 			"id": "show_currency_selector",
-			"label": "Show currency selector",
+			"label": "显示货币选择",
 			"default": true
 		},
 		{
 			"type": "header",
-			"content": "Navigation"
+			"content": "导航菜单"
 		},
 		{
 			"type": "link_list",
 			"id": "navigation_menu",
-			"label": "Menu",
+			"label": "桌面菜单",
 			"default": "main-menu"
 		},
 		{
 			"type": "link_list",
 			"id": "navigation_mobile_menu",
-			"label": "Mobile menu",
-			"info": "If none is set, the desktop menu is used."
+			"label": "手机菜单",
+			"info": "未选择则使用桌面菜单"
 		},
 		{
 			"type": "select",
 			"id": "desktop_navigation_layout",
-			"label": "Desktop layout",
+			"label": "桌面布局",
 			"options": [
 				{
 					"value": "condensed",
-					"label": "Condensed"
+					"label": "面包屑"
 				},
 				{
 					"value": "inline",
-					"label": "Inline"
+					"label": "行内"
 				},{
 					"value": "hidden",
 					"label": "隐藏"
@@ -700,66 +709,66 @@
 		{
 			"type": "select",
 			"id": "desktop_navigation_open_trigger",
-			"label": "Open dropdown on...",
+			"label": "次级导航打开方式",
 			"options": [
 				{
 					"value": "hover",
-					"label": "Hover"
+					"label": "鼠标经过展开"
 				},
 				{
 					"value": "click",
-					"label": "Click"
+					"label": "点击展开"
 				}
 			],
 			"default": "hover"
 		},
 		{
 			"type": "header",
-			"content": "Mobile navigation"
+			"content": "手机导航"
 		},
 		{
 			"type": "checkbox",
 			"id": "show_navigation_social_media",
-			"label": "Show social media",
+			"label": "显示社交媒体",
 			"default": true
 		},
 		{
 			"type": "text",
 			"id": "navigation_phone_number",
-			"label": "Phone number text"
+			"label": "电话号码"
 		},
 		{
 			"type": "text",
 			"id": "navigation_email",
-			"label": "Email"
+			"label": "邮件"
 		},
 		{
 			"type": "header",
-			"content": "Search"
+			"content": "搜索"
 		},
 		{
 			"type": "checkbox",
 			"id": "show_condensed_search",
-			"label": "Minimise search on mobile",
+			"label": "手机上显示小的搜索",
 			"default": true
 		},
 		{
 			"type": "checkbox",
 			"id": "show_search_filter",
-			"label": "Show search filter",
+			"label": "显示搜索过滤器 ",
 			"default": true,
-			"info": "Refine by product type. [Learn more](https://support.maestrooo.com/article/184-navigation-filtering-search-results-by-product-type)"
+			"info": "按产品类型划分 [Learn more](https://support.maestrooo.com/article/184-navigation-filtering-search-results-by-product-type)"
 		},
 		{
 			"type": "link_list",
 			"id": "search_menu",
-			"label": "Quick links menu",
-			"info": "Show quick links when the user hasn't type anything. This menu won't show dropdown items."
+			"label": "快速链接菜单",
+			"info": "当用户没有输入任何内容时显示快速链接。 此菜单不会显示下拉项。"
 		},
 		{
 			"type": "checkbox",
 			"id": "show_search_menu_title",
-			"label": "Show quick links title",
+			"label": "显示快速链接标题",
 			"default": true
 		}
 	],
