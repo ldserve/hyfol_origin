@@ -1,4 +1,4 @@
-<section id="cjj_bgscroll" class="container--flush lazyload"
+<section id="cjj_bgscroll" class="container--flush lazyload {% if section.settings.hidden_phone %}hidden-phone{% endif %}"
 			{% if section.settings.bgimage!=blank %}data-bgset="{{ section.settings.bgimage | img_url: '3000x' }}"{% endif %}>
 	{% if section.settings.image!=blank %}
 		<div class="cjj_content">
@@ -18,13 +18,12 @@
 		background-size: cover;
 		background-attachment: fixed;
 		text-align: right;
-
 	}
 	#shopify-section-{{ section.id }} .cjj_content{
-		width: 350px;
+		width: 500px;
 		display: inline-block;
-		margin-top: 70px;
-		margin-right: 5%;
+		margin-top: 60px;
+		margin-right: 10%;
 	}
 	#shopify-section-{{ section.id }} .cjj_content img{
 		width: 100%;
@@ -42,7 +41,6 @@
 {% if section.settings.isbgscroll %}
 <script>
   ~function () {
-    console.log(2)
     var div = document.getElementById("cjj_bgscroll");
     var visibleHeight = document.documentElement.clientHeight;
 
@@ -74,6 +72,12 @@
 			"type": "image_picker",
 			"id": "image",
 			"label": "内容图"
+		},
+		{
+			"type": "checkbox",
+			"id": "hidden_phone",
+			"label": "移动隐藏",
+			"default":true
 		},
 		{
 			"type": "checkbox",
