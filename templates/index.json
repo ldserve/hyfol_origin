@@ -416,8 +416,18 @@
         "link_url": "shopify:\/\/collections\/baseball-jacket"
       }
     },
+    "1636182255e275c0a7": {
+      "type": "bg-scroll",
+      "settings": {
+        "bgimage": "shopify:\/\/shop_images\/258_e4c08c8e-d2f2-4eac-8473-8ca696623970.jpg",
+        "image": "shopify:\/\/shop_images\/4.jpg",
+        "hidden_phone": true,
+        "isbgscroll": false
+      }
+    },
     "16357629667489b3e7": {
       "type": "linkImg",
+      "disabled": true,
       "blocks": {
         "ec6c84b3-c52c-434a-9150-fe9942445926": {
           "type": "link",
@@ -485,6 +495,7 @@
     "1635995528b96ef09c",
     "16358433881f937e14",
     "1635843412f4572d8b",
+    "1636182255e275c0a7",
     "16357629667489b3e7",
     "163577127440e8d6d7",
     "newsletter",
