@@ -9578,8 +9578,11 @@ shopify-payment-terms {
   background: var(--secondary-background);
   white-space: normal;
 }
-.product-item:hover .product-item__action-list {
-  opacity: 1;
+
+@media screen and (min-width: 641px) {
+  .product-item:hover .product-item__action-list {
+    opacity: 1;
+  }
 }
 
 .product-item::after {
