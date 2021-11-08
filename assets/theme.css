@@ -11948,11 +11948,16 @@ shopify-payment-terms {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 12px));
   border-bottom: 1px solid var(--header-border-color);
 }
-
+.announcement-bar__inner{
+  overflow: hidden;
+}
 .announcement-bar__content {
-  display: block;
+  display: inline-block;
   padding: 4px 0;
   margin-bottom: 0;
+  white-space: nowrap;
+  position: relative;
+  left: 0;
 }
 
 .announcement-bar__content--center {
@@ -11960,6 +11965,9 @@ shopify-payment-terms {
 }
 
 @media screen and (max-width: 640px) {
+  .announcement-bar__content {
+    animation: announcement 30s linear infinite;
+  }
   .announcement-bar__inner {
     text-align: center; /* Always centered on mobile no matter the setting */
   }
@@ -13908,5 +13916,15 @@ shopify-payment-terms {
   /* Auto variation */
   .value-picker--auto {
     min-width: 0;
+  }
+}
+
+/*自定义代码*/
+@keyframes announcement{
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-101%);
   }
 }
