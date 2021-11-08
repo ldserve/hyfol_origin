@@ -6034,7 +6034,7 @@ select option {
 
 @media screen and (min-width: 1280px) {
   .header__action-item {
-    padding: 0 35px;
+    /*padding: 0 35px;*/
   }
 
   .header__action-item:last-child {
@@ -7410,6 +7410,9 @@ select option {
     display: inline-block;
     margin-right: 35px;
     padding: 17px 0;
+  }
+  .nav-bar__item:last-of-type{
+    margin-right: 0;
   }
 
   .nav-bar__item--static {
