@@ -5780,9 +5780,9 @@ select option {
     flex-wrap: nowrap;
   }
 
-  .header__logo {
-    margin-right: 35px;
-  }
+  /*.header__logo {*/
+  /*  margin-right: 35px;*/
+  /*}*/
 }
 @media screen and (max-width: 999px) {
   .header__logo{
