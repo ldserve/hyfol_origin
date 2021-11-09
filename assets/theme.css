@@ -9572,7 +9572,7 @@ shopify-payment-terms {
 
 .product-item {
   position: relative;
-  padding: 10px 10px 20px;
+  padding: 10px;
   min-width: 0;
   flex-shrink: 0;
   background: var(--secondary-background);
@@ -9599,7 +9599,7 @@ shopify-payment-terms {
 
 .product-item__image-wrapper {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .product-item__image-wrapper .placeholder-svg {

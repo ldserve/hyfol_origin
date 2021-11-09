@@ -83,13 +83,16 @@
 	}
 	#shopify-section-{{ section.id }} .featured-collection {
 		background-color: {{ section.settings.background }};
-		padding: 20px 20px 0;
+		padding: 10px;
 		display: flex;
 	}
 	#shopify-section-{{ section.id }} .featured-collection_header {
 		color: {{ section.settings.text_color }};
 		width: 40%;
 		flex: 1 0 auto;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
 
 	}
 	#shopify-section-{{ section.id }} .featured-collection_header > h2 {
