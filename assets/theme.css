@@ -5882,6 +5882,7 @@ select option {
 
 .header__action-item.hidden-pocket .header__action-item-content >.header__action-item-link{
 	display:inline-block;
+  white-space: nowrap;
 }
 /*购物导航栏-END*/
 
