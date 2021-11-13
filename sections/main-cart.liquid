@@ -437,7 +437,9 @@
 
                     <div class="cart-recap__secure-payment-list payment-list payment-list--centered">
                       {% for type in shop.enabled_payment_types %}
-                        {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+                        {%- if type =='paypal' or type=='unionpay' or type=='visa' or type=='american_express' or type=='maestro'or type=='master' or type=='diners_club' or type=='discover'or type=='jcb'or type=='trustly' %}
+                          {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+                        {%- endif -%}
                       {% endfor %}
                     </div>
                   </div>
@@ -571,7 +573,11 @@
     </div>
   {%- endif -%}
 </section>
-
+<style>
+  #shopify-section-{{ section.id }} .payment-list--centered{
+    justify-content: left;
+  }
+</style>
 {% schema %}
 {
   "name": "Cart",
