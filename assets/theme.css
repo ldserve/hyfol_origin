@@ -9578,6 +9578,7 @@ shopify-payment-terms {
   flex-shrink: 0;
   background: var(--secondary-background);
   white-space: normal;
+  text-align: center;
 }
 
 @media screen and (min-width: 641px) {
