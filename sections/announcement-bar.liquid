@@ -66,9 +66,13 @@
       <div class="container">
         <div class="announcement-bar__inner">
           {%- if section.settings.link != blank -%}
-            <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text | escape }}</a>
+            <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text1 | escape }}</a>
+            <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text2 | escape }}</a>
+            <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text1 | escape }}</a>
           {%- else -%}
-            <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text | escape }}</p>
+            <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text1 | escape }}</p>
+            <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text2 | escape }}</p>
+            <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text1 | escape }}</p>
           {%- endif -%}
 
           {%- if section.settings.show_newsletter -%}
@@ -123,8 +127,14 @@
     },
     {
       "type": "text",
-      "id": "text",
-      "label": "文本",
+      "id": "text1",
+      "label": "文本1",
+      "default": "Announce something here"
+    },
+    {
+      "type": "text",
+      "id": "text2",
+      "label": "文本2",
       "default": "Announce something here"
     },
     {
