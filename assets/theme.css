@@ -14002,8 +14002,18 @@ shopify-payment-terms {
   opacity: 1;
   text-align: center;
   line-height: 40px;
+  width: 40px;
   z-index: 1;
   color: #b82928;
   font-size: 40px;
   display: none;
+  transform-style: preserve-3d;
+  perspective:50px;
+}
+.gotop svg{
+  animation: gotop 10s linear infinite;
+}
+@keyframes gotop {
+  from {transform: rotateY(0)}
+  to {transform: rotateY(360deg)}
 }
