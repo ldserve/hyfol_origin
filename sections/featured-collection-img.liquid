@@ -43,8 +43,6 @@
 
 	<div
 		class="container {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
-		<span class="cjj-ctrl cjj-prev hidden-lap hidden-lap-and-up">{%- render 'icon', icon: 'arrow-left' -%}</span>
-		<span class="cjj-ctrl cjj-next hidden-lap hidden-lap-and-up">{%- render 'icon', icon: 'arrow-right' -%}</span>
 		{%- capture product_list -%}
 		<div
 			class="product-list product-list--{{ section.settings.layout }} {% if section.settings.stack_products %}product-list--stackable{% elsif section.settings.layout == 'vertical' %}product-list--scrollable{% endif %}">
@@ -119,6 +117,8 @@
 			{%- else -%}
 				{{ product_list }}
 			{%- endif -%}
+			<span class="cjj-ctrl cjj-prev hidden-lap hidden-lap-and-up">{%- render 'icon', icon: 'arrow-left' -%}</span>
+			<span class="cjj-ctrl cjj-next hidden-lap hidden-lap-and-up">{%- render 'icon', icon: 'arrow-right' -%}</span>
 		</div>
 
 
@@ -129,8 +129,6 @@
 					 class="section__action-link link">{{ section.settings.link_title | escape }} </a>
 			</div>
 		{%- endif -%}
-
-
 
 		{%- comment -%}
 			--------------------------------------------------------------------------------------
@@ -209,7 +207,7 @@
 		width: 20px;
 		height: 40px;
 		top: calc(50% - 20px);
-		z-index: 10;
+		z-index: 1;
 		text-align: center;
 		line-height: 40px;
 		background-color: #fff;
