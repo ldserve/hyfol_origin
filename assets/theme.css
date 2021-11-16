@@ -14009,6 +14009,7 @@ shopify-payment-terms {
   display: none;
   transform-style: preserve-3d;
   perspective:50px;
+  cursor: pointer;
 }
 .gotop svg{
   animation: gotop 10s linear infinite;
