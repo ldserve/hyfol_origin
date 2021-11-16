@@ -433,7 +433,7 @@
         "show_quick_buy": true,
         "link_title": "",
         "link_bg": "#1b1b1b",
-        "link_url": "shopify:\/\/collections\/baseball-jacket"
+        "link_url": ""
       }
     },
     "1635995528b96ef09c": {
@@ -455,17 +455,17 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/HYFOL_06.jpg",
-        "web_image": "shopify:\/\/shop_images\/11_b4a88c73-13da-496b-9d95-e158378a5611.jpg",
+        "web_image": "shopify:\/\/shop_images\/5ee547d96445d9030d060143c109e4c6.jpg",
         "link": "shopify:\/\/collections\/bomber-jacket",
         "collection": "bomber-jacket",
-        "title": "Flight Suit",
+        "title": "",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": true,
-        "link_title": "View all",
+        "link_title": "",
         "link_bg": "#994e2d",
-        "link_url": "shopify:\/\/collections\/bomber-jacket"
+        "link_url": ""
       }
     },
     "1636182255e275c0a7": {
