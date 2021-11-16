@@ -34,3 +34,42 @@
  * }));
  */
 
+!function (){
+  let gotop=document.querySelector('#gotop');
+  function throttle(method,delay){
+    var timer=null;
+    return function(){
+      var context=this;
+      var args=arguments;
+      clearTimeout(timer);
+      timer=setTimeout(function(){
+        method.apply(context,args);
+      },delay);
+    }
+  }
+  function  show(){
+    if(window.scrollY>1500){
+      gotop.style.display="block";
+    }
+    if(window.scrollY<=1500){
+      gotop.style.display="none";
+    }
+  }
+  window.addEventListener('scroll',throttle(show,500))
+  gotop.onclick=function () {
+    let end=0;
+    let start=window.scrollY;
+    let step;
+    let timer=setInterval(()=>{
+     if(start>10){
+       end=start-start/10
+       window.scrollTo(0,end)
+       start=end
+     }else{
+       window.scrollTo(0,0)
+       clearInterval(timer);
+       timer=null
+     }
+    },10);
+  }
+}()

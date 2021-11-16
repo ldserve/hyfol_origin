@@ -13995,3 +13995,15 @@ shopify-payment-terms {
   }
   100%{transform: translateX(0)}
 }
+.gotop{
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  opacity: 1;
+  text-align: center;
+  line-height: 40px;
+  z-index: 1;
+  color: #b82928;
+  font-size: 40px;
+  display: none;
+}
