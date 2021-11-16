@@ -243,7 +243,7 @@
             "heading": "hoodies3",
             "link": "shopify:\/\/collections\/hoodies",
             "left": 3,
-            "top": 11,
+            "top": 13,
             "width": 46,
             "height": 20
           }
@@ -254,7 +254,7 @@
             "heading": "T-shirts",
             "link": "shopify:\/\/collections\/shirts",
             "left": 51,
-            "top": 11,
+            "top": 13,
             "width": 46,
             "height": 20
           }
@@ -265,7 +265,7 @@
             "heading": "outerwear3",
             "link": "shopify:\/\/collections\/outerwear",
             "left": 3,
-            "top": 32,
+            "top": 34,
             "width": 46,
             "height": 19
           }
@@ -276,7 +276,7 @@
             "heading": "Sweaters",
             "link": "shopify:\/\/collections\/sweater",
             "left": 51,
-            "top": 32,
+            "top": 34,
             "width": 46,
             "height": 19
           }
@@ -287,7 +287,7 @@
             "heading": "bottoms3",
             "link": "shopify:\/\/collections\/bottoms",
             "left": 3,
-            "top": 52,
+            "top": 57,
             "width": 46,
             "height": 19
           }
@@ -298,7 +298,7 @@
             "heading": "SWEATSHIRTS",
             "link": "shopify:\/\/collections\/sweatshirts",
             "left": 51,
-            "top": 52,
+            "top": 57,
             "width": 46,
             "height": 19
           }
@@ -309,7 +309,7 @@
             "heading": "caphat3",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 3,
-            "top": 72,
+            "top": 78,
             "width": 46,
             "height": 20
           }
@@ -320,7 +320,7 @@
             "heading": "JEWELRY",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 51,
-            "top": 72,
+            "top": 78,
             "width": 46,
             "height": 20
           }
@@ -340,7 +340,7 @@
         "hidDesk": true,
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/fdea182c9edb9d8ccdb8ccdae8ee2676.jpg",
+        "image": "shopify:\/\/shop_images\/W2-M__04.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -363,6 +363,40 @@
         "button_text_color": "#0774d7",
         "button_text": "",
         "button_link": "shopify:\/\/collections\/women"
+      }
+    },
+    "163703402842074b11": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/PC__05_f9f6dda5-d745-4c5a-8767-72506574b3c1.jpg",
+        "web_image": "shopify:\/\/shop_images\/20b1a7af06268b70eb5995d6c67c27f9.jpg",
+        "link": "shopify:\/\/collections\/christmas-sales",
+        "collection": "christmas-sales",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "",
+        "link_bg": "",
+        "link_url": ""
+      }
+    },
+    "16370340305dc8e943": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/PC__07.jpg",
+        "web_image": "shopify:\/\/shop_images\/2_1e127630-cad5-44a2-aa32-adc28da78304.jpg",
+        "link": "shopify:\/\/collections\/hoodies",
+        "collection": "hoodies",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "",
+        "link_bg": "",
+        "link_url": ""
       }
     },
     "16360968581831caac": {
@@ -501,6 +535,19 @@
         "title": "Recently viewed",
         "show_quick_buy": true
       }
+    },
+    "1637032020257e6626": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
     }
   },
   "order": [
@@ -509,6 +556,8 @@
     "1635759941961a18e2",
     "16357602965b96c401",
     "16357611933da02b64",
+    "163703402842074b11",
+    "16370340305dc8e943",
     "16360968581831caac",
     "1635995528b96ef09c",
     "16358433881f937e14",
@@ -517,6 +566,7 @@
     "16357629667489b3e7",
     "163577127440e8d6d7",
     "newsletter",
-    "163576242639f4e03c"
+    "163576242639f4e03c",
+    "1637032020257e6626"
   ]
 }
