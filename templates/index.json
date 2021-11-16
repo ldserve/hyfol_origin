@@ -6,8 +6,8 @@
         "slide-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/0fbf5e082f963f1abb78fe936756d85e.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/1_4a6e69bf-d36a-433a-b7fb-f2db5ce7a2d7.jpg",
+            "image": "shopify:\/\/shop_images\/PC-2.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/1_19604eed-f9f0-46d1-8168-871c2aaa62ea.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -20,11 +20,28 @@
             "link": "shopify:\/\/collections\/hot-sale"
           }
         },
+        "aebe7bef-3cfb-4e33-87c8-505e2abca1b8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/PC-3.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/3_5e3adbc5-05f3-4612-be82-e1c32baf603d.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 0,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "Button",
+            "link": ""
+          }
+        },
         "b802be14-3efa-471c-b64e-3dc6cc567bd7": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/PC__02_0016a505-c918-41ba-9b3f-ebbd89a5bca7.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/2_e26d0fbe-d7fe-4e8e-bd3b-b5aeefcfc3cc.jpg",
+            "image": "shopify:\/\/shop_images\/PC-1_11d87c70-5302-4895-a134-b5f8595eb0f0.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/2_8656c43c-d52b-497b-9141-95b36c90a762.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -40,6 +57,7 @@
       },
       "block_order": [
         "slide-1",
+        "aebe7bef-3cfb-4e33-87c8-505e2abca1b8",
         "b802be14-3efa-471c-b64e-3dc6cc567bd7"
       ],
       "settings": {
@@ -68,7 +86,7 @@
           "type": "link",
           "settings": {
             "heading": "sweatshirts1",
-            "link": "shopify:\/\/collections\/sweatshirts",
+            "link": "shopify:\/\/collections\/shirts",
             "left": 32,
             "top": 27,
             "width": 17,
@@ -89,8 +107,8 @@
         "4ff61547-5f72-4cd0-aeb5-856dc00acdb2": {
           "type": "link",
           "settings": {
-            "heading": "LONGSLEEVE",
-            "link": "shopify:\/\/collections\/long-sleeve",
+            "heading": "Sweaters",
+            "link": "shopify:\/\/collections\/sweater",
             "left": 69,
             "top": 27,
             "width": 18,
@@ -155,8 +173,8 @@
       "settings": {
         "hidDesk": false,
         "hidWeb": true,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/PC__02_716f8992-ae3b-4793-a059-c791532a700d.jpg",
+        "line": true,
+        "image": "shopify:\/\/shop_images\/PC__03_d05f163d-07d9-4353-acaa-c870dfb78949.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
