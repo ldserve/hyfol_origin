@@ -419,6 +419,23 @@
         "button_background": "#ffffff"
       }
     },
+    "1635843412f4572d8b": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/PC__09.jpg",
+        "web_image": "shopify:\/\/shop_images\/470e4b642a228aa7c8869d5b5d1b7ad8.jpg",
+        "link": "shopify:\/\/collections\/cap-hat",
+        "collection": "cap-hat",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "",
+        "link_bg": "#1b1b1b",
+        "link_url": "shopify:\/\/collections\/baseball-jacket"
+      }
+    },
     "1635995528b96ef09c": {
       "type": "cjj_tab-product",
       "settings": {
@@ -449,23 +466,6 @@
         "link_title": "View all",
         "link_bg": "#994e2d",
         "link_url": "shopify:\/\/collections\/bomber-jacket"
-      }
-    },
-    "1635843412f4572d8b": {
-      "type": "featured-collection-img",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/HYFOL_08.jpg",
-        "web_image": "shopify:\/\/shop_images\/14_1855725f-b149-4bd3-9d91-de9a90b6f995.jpg",
-        "link": "shopify:\/\/collections\/baseball-jacket",
-        "collection": "baseball-jacket",
-        "title": "Baseball Jacket",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "View all",
-        "link_bg": "#994e2d",
-        "link_url": "shopify:\/\/collections\/baseball-jacket"
       }
     },
     "1636182255e275c0a7": {
@@ -559,9 +559,9 @@
     "163703402842074b11",
     "16370340305dc8e943",
     "16360968581831caac",
+    "1635843412f4572d8b",
     "1635995528b96ef09c",
     "16358433881f937e14",
-    "1635843412f4572d8b",
     "1636182255e275c0a7",
     "16357629667489b3e7",
     "163577127440e8d6d7",
