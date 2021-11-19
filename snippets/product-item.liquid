@@ -96,7 +96,6 @@
                 {{- 'collection.product.from_price_html' | t: price_min: price_min, price_max: price_max -}}
               </span>
 
-							{%- comment -%}
 								{%- comment -%}---------------折扣前原价---------------{%- endcomment -%}
 								<span class="price price--compare">
                 <span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>
@@ -106,7 +105,7 @@
 									{{- product.compare_at_price_min | money -}}
 								{%- endif -%}
               </span>
-							{%- endcomment -%}
+
 
 						{%- else -%}
 							<span class="price price--highlight">
@@ -117,7 +116,7 @@
 									{{- product.price | money -}}
 								{%- endif -%}
               </span>
-							{%- comment -%}
+
 								{%- comment -%}---------------折扣前原价---------------{%- endcomment -%}
 								<span class="price price--compare">
                 <span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>
@@ -127,7 +126,7 @@
 									{{- product.compare_at_price | money -}}
 								{%- endif -%}
               	</span>
-							{%- endcomment -%}
+
 
 						{%- endif -%}
 						{%- elsif product.price_varies -%}
@@ -152,6 +151,11 @@
 								{{- product.price | money -}}
 							{%- endif -%}
             </span>
+					{%- endif -%}
+					{%- if settings.show_reviews_badge -%}
+						<a class="product-item__reviews-badge link" href="{{ product.url }}#product-reviews">
+							{%- render 'product-rating', product: product -%}
+						</a>
 					{%- endif -%}
 				</div>
 
@@ -264,11 +268,7 @@
 				{%- endif -%}
 			{%- endif -%}
 
-			{%- if settings.show_reviews_badge -%}
-				<a class="product-item__reviews-badge link" href="{{ product.url }}#product-reviews">
-					{%- render 'product-rating', product: product -%}
-				</a>
-			{%- endif -%}
+
 
 			{%- if settings.show_inventory_quantity and product.template_suffix != 'pre-order' -%}
 				{%- if product.available -%}

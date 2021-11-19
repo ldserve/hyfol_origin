@@ -388,9 +388,9 @@
       "include_taxes": "Tax included",
       "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link link--accented\">Shipping calculated<\/a> at checkout",
       "reviews_count": {
-        "zero": "No reviews",
-        "one": "{{ count }} review",
-        "other": "{{ count }} reviews"
+        "zero": "(0)",
+        "one": "({{ count }})",
+        "other": "({{ count }})"
       }
     },
     "labels": {
