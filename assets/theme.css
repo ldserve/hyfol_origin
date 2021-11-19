@@ -13998,31 +13998,21 @@ shopify-payment-terms {
 }
 .gotop{
   position: fixed;
-  bottom: 100px;
+  bottom: 90px;
   right: 20px;
   opacity: 1;
   text-align: center;
   line-height: 40px;
   width: 40px;
+  height: 40px;
+  border-radius: 50%;
   z-index: 1;
-  color: #b82928;
-  font-size: 40px;
+  font-size: 25px;
   display: none;
-  transform-style: preserve-3d;
-  perspective:50px;
   cursor: pointer;
-}
-.gotop svg{
-  -webkit-animation: gotop 10s linear infinite;
-          animation: gotop 10s linear infinite;
-}
-@-webkit-keyframes gotop {
-  from {transform: rotateY(0)}
-  to {transform: rotateY(360deg)}
-}
-@keyframes gotop {
-  from {transform: rotateY(0)}
-  to {transform: rotateY(360deg)}
+  background-color: #fff;
+  color: #1b1b1b;
+  box-shadow: 0px 0px 3px 0px rgba(0,0,0,.2);
 }
 .car_bar_title{
   font-weight: 800;
