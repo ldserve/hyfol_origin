@@ -7763,6 +7763,7 @@ select option {
 .line-item__price--compare {
   position: relative;
   margin-left: 20px;
+  text-decoration: line-through;
 }
 
 .line-item__price--compare::before {
