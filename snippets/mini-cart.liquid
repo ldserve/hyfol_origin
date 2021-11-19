@@ -33,11 +33,13 @@
   {%- else -%}
     <div class="mini-cart__inner">
       <div class="mini-cart__content">
-        {%- if shipping_alert != blank -%}
-          <div class="mini-cart__alert-wrapper">
-            {{- shipping_alert -}}
-          </div>
-        {%- endif -%}
+        {%- comment -%}
+          {%- if shipping_alert != blank -%}
+            <div class="mini-cart__alert-wrapper">
+              {{- shipping_alert -}}
+            </div>
+          {%- endif -%}
+        {%- endcomment -%}
 
         <div class="mini-cart__line-item-list">
           {%- for line_item in cart.items -%}
@@ -71,7 +73,7 @@
                     {%- endif -%}
                   {%- endunless -%}
 
-                  <a href="{{ line_item.url }}" class="mini-cart__product-title text--strong link">{{ line_item.title }}
+                  <a href="{{ line_item.url }}" class="mini-cart__product-title text--strong link"><span class="mini-cart_product_title">{{ line_item.product.title }}</span><span class="mini-cart_variant_title">{{ line_item.variant.title }}</span>
 <span class='booster-cart-item-success-notes' data-key='{{line_item.key}}'></span><span class='booster-cart-item-upsell-notes' data-key='{{line_item.key}}'></span></a>
 
                   {%- if line_item.selling_plan_allocation -%}
@@ -163,11 +165,12 @@
       </div>
 
       <div class="mini-cart__recap">
+        {% render 'car-bar'%}
         {%- if cart.cart_level_discount_applications != blank -%}
           {%- for discount_application in cart.cart_level_discount_applications -%}
             <div class="mini-cart__recap-price-line mini-cart__recap-price-line--highlight text--pull">
               <span>{{ discount_application.title }}</span>
-              <span>-{{ discount_application.total_allocated_amount | money }}</span>
+              <span class="d-inline-block">-{{ discount_application.total_allocated_amount | money }}</span>
             </div>
           {%- endfor -%}
         {%- endif -%}
@@ -228,4 +231,10 @@
     </div>
   {%- endif -%}
 </form>
+<style>
+  .car-bar-box{
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+  }
+</style>
 

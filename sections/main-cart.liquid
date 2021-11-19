@@ -28,24 +28,16 @@
   {%- else -%}
     <div class="container">
       <header class="page__header page__header--stack">
-        <h1 class="page__title heading h1">{{ 'cart.general.title' | t }}</h1>
-
-        {%- if settings.cart_show_free_shipping_threshold -%}
-          {%- assign threshold_in_cents = settings.cart_free_shipping_threshold | times: 100 -%}
-
-          {%- if cart.total_price >= threshold_in_cents -%}
-            <p class="page__description">{{ 'cart.general.free_shipping' | t }}</p>
-          {%- else -%}
-            {%- capture remaining_amount -%}<span><span class="wh-original-cart-total"><span class='wh-original-price'>{{ cart.total_price | minus: threshold_in_cents | abs | money }}</span></span><span class="wh-cart-total"></span><div class="additional-notes"><span class="wh-minimums-note"></span><span class="wh-extra-note"></span></div></span>{%- endcapture -%}
-            <p class="page__description">{{ 'cart.general.free_shipping_remaining_html' | t: remaining_amount: remaining_amount }}</p>
-          {%- endif -%}
-        {%- endif -%}
+        <h1 class="page__title heading h1">SHOPPING&nbsp;BAG</h1>
       </header>
     </div>
 
     <div class="cart-wrapper">
       <div class="cart-wrapper__inner">
         <div class="cart-wrapper__inner-inner">
+          <div class="container">
+            {% include 'car-bar'%}
+          </div>
           <div class="container container--flush">
             {%- comment -%}
             --------------------------------------------------------------------------------------
@@ -98,10 +90,10 @@
                               {%- endif -%}
 
                               {%- if gift_wrap_product.handle == line_item.product.handle -%}
-                                <span class="line-item__title text--strong">{{ line_item.title }}
+                                <span class="line-item__title text--strong">{{ line_item.product.title }}<br/><span class="line_item_variant_title">{{ line_item.variant.title }}</span>
 <span class='booster-cart-item-success-notes' data-key='{{line_item.key}}'></span><span class='booster-cart-item-upsell-notes' data-key='{{line_item.key}}'></span></span>
                               {%- else -%}
-                                <a href="{{ line_item.url }}" class="line-item__title link text--strong">{{ line_item.title }}
+                                <a href="{{ line_item.url }}" class="line-item__title link text--strong">{{ line_item.product.title }}<br/><span class="line_item_variant_title">{{ line_item.variant.title }}</span>
 <span class='booster-cart-item-success-notes' data-key='{{line_item.key}}'></span><span class='booster-cart-item-upsell-notes' data-key='{{line_item.key}}'></span></a>
                               {%- endif -%}
 
@@ -586,6 +578,12 @@
     {
       "type": "paragraph",
       "content": "Those settings are only applicable when the cart contains at least one product."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_car_bar",
+      "label": "显示购物车进度条",
+      "default": false
     },
     {
       "type": "checkbox",

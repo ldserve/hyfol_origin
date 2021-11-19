@@ -8,6 +8,67 @@
     "theme_support_url": "https:\/\/support.maestrooo.com\/article\/203-contact-us"
   },
   {
+    "name": "购物车进度条",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_car_bar",
+        "label": "是否显示",
+        "default": false
+      },{
+        "type": "header",
+        "content": "进度点-1"
+      },{
+        "type": "number",
+        "id": "car_bar_price1",
+        "label": "阶梯价格",
+        "info": "带两位小数点例如 200.00"
+      },{
+        "type": "text",
+        "id": "car_bar_info1",
+        "label": "阶梯信息"
+      },
+      {
+        "type": "header",
+        "content": "进度点-2"
+      },{
+        "type": "number",
+        "id": "car_bar_price2",
+        "label": "阶梯价格",
+        "info": "带两位小数点例如 200.00"
+      },{
+        "type": "text",
+        "id": "car_bar_info2",
+        "label": "阶梯信息"
+      },
+      {
+        "type": "header",
+        "content": "进度点-3"
+      },{
+        "type": "number",
+        "id": "car_bar_price3",
+        "label": "阶梯价格",
+        "info": "带两位小数点例如 200.00"
+      },{
+        "type": "text",
+        "id": "car_bar_info3",
+        "label": "阶梯信息"
+      },{
+        "type": "header",
+        "content": "进度点-4"
+      },{
+        "type": "number",
+        "id": "car_bar_price4",
+        "label": "阶梯价格",
+        "info": "带两位小数点例如 200.00"
+      },{
+        "type": "text",
+        "id": "car_bar_info4",
+        "label": "阶梯信息"
+      }
+    ]
+  },
+  {
     "name": "Colors",
     "settings": [
       {
