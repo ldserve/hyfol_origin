@@ -5,6 +5,52 @@
   }
   {%- endcapture -%}
 
+  <style>
+    .announcement-bar {
+      background: {{ section.settings.background }};
+      color: {{ section.settings.text_color }};
+    }
+    @media (max-width: 750px){
+    }
+
+    {%- capture realsize -%}
+    {{section.blocks.size| plus: 1 -}}
+    {%- endcapture -%}
+    {%- capture propsize -%}
+    {{-100| divided_by: realsize -}}
+    {%- endcapture -%}
+    {%- capture allblock -%}
+    {{-section.blocks.size| times: 4 -}}
+    {%- endcapture -%}
+
+    .announcement-animation{
+      -webkit-animation: announcement-scroll-top {{ allblock -}}s ease-out infinite;
+      animation: announcement-scroll-top {{ allblock -}}s ease-out infinite;
+    }
+    @-webkit-keyframes announcement-scroll-top {
+      0%{transform: translateY(0%)}
+    {%- for i in (1..section.blocks.size) -%}
+    {%- capture prev -%}
+    {{- i | minus:1 -}}
+    {%- endcapture -%}
+    {{ i | times: 400 | minus: 100 |divided_by: allblock }}%{transform: translateY(-{{ propsize| times:prev }}%);}
+    {{ i | times: 400 |divided_by: allblock }}%{transform: translateY(-{{ propsize| times:i }}%);}
+    {%- endfor -%}
+    }
+
+    @keyframes announcement-scroll-top {
+      0%{transform: translateY(0%)}
+    {%- for i in (1..section.blocks.size) -%}
+    {%- capture prev -%}
+    {{- i | minus:1 -}}
+    {%- endcapture -%}
+    {{ i | times: 400 | minus: 100 | divided_by: allblock }}%{transform: translateY(-{{ propsize| times:prev }}%);}
+    {{ i | times: 400 | divided_by: allblock }}%{transform: translateY(-{{ propsize| times:i }}%);}
+    {%- endfor -%}
+    }
+  </style>
+
+
   <section data-section-id="{{ section.id }}" data-section-type="announcement-bar" data-section-settings='{{ section_settings }}'>
     {%- if section.settings.show_newsletter -%}
       <div id="announcement-bar-newsletter" class="announcement-bar__newsletter hidden-phone" aria-hidden="true">
@@ -64,34 +110,30 @@
 
     <div class="announcement-bar">
       <div class="container">
-        <div class="announcement-bar__inner">
-          {%- if section.settings.link != blank -%}
-            <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text1 | escape }}</a>
-            <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text2 | escape }}</a>
-            <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text1 | escape }}</a>
-          {%- else -%}
-            <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text1 | escape }}</p>
-            <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text2 | escape }}</p>
-            <p class="announcement-bar__content announcement-bar__content--{{ section.settings.text_position }}">{{ section.settings.text1 | escape }}</p>
-          {%- endif -%}
+        <div class="announcement-bar__inner {% if section.blocks.size>1 %}announcement-animation{% endif %}">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.link != blank -%}
+              <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--center">{{ block.settings.text | escape }}{%- render "icon",icon:'arrow' -%}</a>
+            {%- else -%}
+              <p class="announcement-bar__content announcement-bar__content--center">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          {%- endfor -%}
 
-          {%- if section.settings.show_newsletter -%}
-            <button type="button" class="announcement-bar__button hidden-phone" data-action="toggle-newsletter" aria-expanded="false" aria-controls="announcement-bar-newsletter">
-              {%- render 'icon', icon: 'newsletter' -%}
-              {{- section.settings.newsletter_button | escape -}}
-            </button>
+          {%- if section.blocks.size>1 -%}
+            {%- for block in section.blocks reversed limit:1-%}
+              {%- if block.settings.link != blank -%}
+                <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--center">{{ block.settings.text | escape }}{%- render "icon",icon:'arrow' -%}</a>
+              {%- else -%}
+                <p class="announcement-bar__content announcement-bar__content--center">{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+            {%- endfor -%}
           {%- endif -%}
         </div>
       </div>
     </div>
   </section>
 
-  <style>
-    .announcement-bar {
-      background: {{ section.settings.background }};
-      color: {{ section.settings.text_color }};
-    }
-  </style>
+
 
   <script>
     {%- if section.settings.show_newsletter -%}
@@ -124,35 +166,6 @@
       "id": "text_color",
       "label": "文本颜色",
       "default": "#ffffff"
-    },
-    {
-      "type": "text",
-      "id": "text1",
-      "label": "文本1",
-      "default": "Announce something here"
-    },
-    {
-      "type": "text",
-      "id": "text2",
-      "label": "文本2",
-      "default": "Announce something here"
-    },
-    {
-      "type": "select",
-      "id": "text_position",
-      "label": "文本位置",
-      "options": [
-        {
-          "value": "left",
-          "label": "左对齐"
-        },
-        {
-          "value": "center",
-          "label": "居中"
-        }
-      ],
-      "default": "left",
-      "info": "移动设备始终居中显示"
     },
     {
       "type": "url",
@@ -194,6 +207,25 @@
       "id": "newsletter_content",
       "label": "Text",
       "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "公告栏",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Welcome to our store",
+          "label": "文本"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "链接"
+        }
+      ]
     }
   ]
 }
