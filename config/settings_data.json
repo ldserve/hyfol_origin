@@ -168,12 +168,9 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "show_announcement": true,
+          "show_announcement": false,
           "background": "#b82928",
           "text_color": "#ffffff",
-          "text1": "BUY 2 GET 20% OFF; BUY 3 GET 30% OFF",
-          "text2": "FREE SHIPPING ON ORDER OVER $39.9",
-          "text_position": "center",
           "link": "",
           "show_newsletter": false,
           "newsletter_button": "",
