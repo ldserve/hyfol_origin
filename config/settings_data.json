@@ -204,7 +204,7 @@
           "2caf8430-4f46-405e-b569-d4957d1bde1c"
         ],
         "settings": {
-          "show_announcement": false,
+          "show_announcement": true,
           "background": "#b82928",
           "text_color": "#ffffff",
           "link": "",
