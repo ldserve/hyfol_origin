@@ -3,6 +3,23 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "093dba4e-5495-47f1-a21b-0431a9d2a9fb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/PC_43206faa-24b4-4c8a-93d9-3a1fa1a22592.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/1_acd4a13d-245b-444a-b7e9-1e669bcf573f.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 0,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": ""
+          }
+        },
         "slide-1": {
           "type": "image",
           "settings": {
@@ -56,6 +73,7 @@
         }
       },
       "block_order": [
+        "093dba4e-5495-47f1-a21b-0431a9d2a9fb",
         "slide-1",
         "aebe7bef-3cfb-4e33-87c8-505e2abca1b8",
         "b802be14-3efa-471c-b64e-3dc6cc567bd7"
