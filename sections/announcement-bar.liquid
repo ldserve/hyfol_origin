@@ -24,8 +24,8 @@
     {%- endcapture -%}
 
     .announcement-animation{
-      -webkit-animation: announcement-scroll-top {{ allblock -}}s ease-out infinite;
-      animation: announcement-scroll-top {{ allblock -}}s ease-out infinite;
+      -webkit-animation: announcement-scroll-top {{section.settings.one_round -}}s ease-out infinite;
+      animation: announcement-scroll-top {{section.settings.one_round -}}s ease-out infinite;
     }
     @-webkit-keyframes announcement-scroll-top {
       0%{transform: translateY(0%)}
@@ -160,6 +160,12 @@
       "id": "background",
       "label": "背景颜色",
       "default": "#1e2d7d"
+    },
+    {
+      "type": "number",
+      "id": "one_round",
+      "label": "滚一轮的时间,单位S",
+      "default": 10
     },
     {
       "type": "color",
