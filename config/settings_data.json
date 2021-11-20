@@ -1,5 +1,12 @@
 {
   "current": {
+    "show_car_bar": true,
+    "car_bar_price1": 49,
+    "car_bar_info1": "-US$10",
+    "car_bar_price2": 69,
+    "car_bar_info2": "-US$15",
+    "car_bar_price3": 99,
+    "car_bar_info3": "-US$30",
     "heading_color": "#1b1b1b",
     "text_color": "#1b1b1b",
     "accent_color": "#1b1b1b",
