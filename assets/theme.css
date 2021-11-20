@@ -14092,7 +14092,12 @@ shopify-payment-terms {
   display: inline-block !important;
 }
 .wholesale-original-cart-total{
+
+}
+.wholesale-cart-total{
   opacity: .7;
+  text-decoration: line-through;
+  font-size: 0.8em
 }
 .mini-cart_product_title{
   display: block;
