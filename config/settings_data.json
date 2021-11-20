@@ -56,7 +56,7 @@
     "cart_empty_button_link": "",
     "cart_show_checkout_button": true,
     "cart_show_free_shipping_threshold": true,
-    "cart_free_shipping_threshold": "49",
+    "cart_free_shipping_threshold": "0",
     "social_facebook": "https:\/\/www.facebook.com\/Hyfolofficial",
     "social_twitter": "",
     "social_pinterest": "",
