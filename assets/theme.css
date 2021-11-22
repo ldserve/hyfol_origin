@@ -11990,7 +11990,7 @@ shopify-payment-terms {
 
 @media screen and (max-width: 640px) {
   .announcement-bar{
-    height: 2.1rem;
+    height: 2rem;
   }
   .announcement-bar__inner {
     text-align: center; /* Always centered on mobile no matter the setting */

@@ -6,7 +6,7 @@
       <div class="search-bar__result-products">
         {%- assign clean_terms = search.terms | split: ' AND ' | last | remove_first: '*' -%}
 
-        {%- for item in search.results limit: 3 -%}
+        {%- for item in search.results limit: 5 -%}
           <a href="{{ item.url }}" class="search-bar__result-item">
             <div class="search-bar__image-container">
               <div class="aspect-ratio aspect-ratio--square">
@@ -22,7 +22,7 @@
         {%- endfor -%}
       </div>
 
-      {%- if search.results_count > 3 -%}
+      {%- if search.results_count > 5 -%}
         <button class="search-bar__view-all" type="submit">
           {%- if settings.search_mode == 'product' -%}
             {{- 'header.search.view_products' | t -}}
