@@ -51,7 +51,7 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "button_text": "",
-            "link": "shopify:\/\/collections\/sweater"
+            "link": "shopify:\/\/collections\/sweatshirts"
           }
         },
         "b802be14-3efa-471c-b64e-3dc6cc567bd7": {
@@ -495,36 +495,6 @@
         "isbgscroll": false
       }
     },
-    "16357629667489b3e7": {
-      "type": "linkImg",
-      "disabled": true,
-      "blocks": {
-        "ec6c84b3-c52c-434a-9150-fe9942445926": {
-          "type": "link",
-          "settings": {
-            "heading": "our-story",
-            "link": "shopify:\/\/collections",
-            "left": 0,
-            "top": 0,
-            "width": 100,
-            "height": 100
-          }
-        }
-      },
-      "block_order": [
-        "ec6c84b3-c52c-434a-9150-fe9942445926"
-      ],
-      "settings": {
-        "hidDesk": false,
-        "hidWeb": true,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/HYFOL_10.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
-      }
-    },
     "163577127440e8d6d7": {
       "type": "featured-collection",
       "settings": {
@@ -582,7 +552,6 @@
     "1635995528b96ef09c",
     "16358433881f937e14",
     "1636182255e275c0a7",
-    "16357629667489b3e7",
     "163577127440e8d6d7",
     "newsletter",
     "163576242639f4e03c",
