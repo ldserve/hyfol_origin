@@ -90,8 +90,8 @@
 								{%- capture price_min -%}{{ product.price_min | money }}{%- endcapture -%}
 								{%- capture price_max -%}{{ product.price_max | money }}{%- endcapture -%}
 							{%- endif -%}
-
-							<span class="price price--highlight">
+								<div>
+								<span class="price price--highlight">
                 <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
                 {{- 'collection.product.from_price_html' | t: price_min: price_min, price_max: price_max -}}
               </span>
@@ -106,8 +106,9 @@
 								{%- endif -%}
               </span>
 
-
+								</div>
 						{%- else -%}
+							<div>
 							<span class="price price--highlight">
                 <span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>
                 {%- if settings.currency_code_enabled -%}
@@ -127,7 +128,7 @@
 								{%- endif -%}
               	</span>
 
-
+							</div>
 						{%- endif -%}
 						{%- elsif product.price_varies -%}
 						{%- if settings.currency_code_enabled -%}
