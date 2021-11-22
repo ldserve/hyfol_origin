@@ -12,7 +12,9 @@
       {%- if request.page_type == 'search' and search.terms != blank -%}
         {{ search.terms | split: ' AND ' | last | split: 'product_type:' | last }} - {{ shop.name }}
       {%- else -%}
-        {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
+        {{ page_title }}
+        {% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}
+        {% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
       {%- endif -%}
     {%- endcapture -%}
 

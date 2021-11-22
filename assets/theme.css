@@ -2551,7 +2551,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 .button-stack > .button + .button {
-  margin-top: 13px;
+  margin-top: 15px;
 }
 
 /**
