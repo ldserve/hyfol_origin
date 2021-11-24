@@ -173,9 +173,9 @@
       ShopifyXR('addModels', {{ product.media | where: 'media_type', 'model' | json }});
     </script>
   {%- endif -%}
-  <script src="{{ 'dataTrackTikTok.js' | asset_url }}" defer></script>
+ 
 </section>
-
+ <script src="{{ 'dataTrackTikTok.js' | asset_url }}" defer></script>
 {% schema %}
 {
   "name": "Featured product",
