@@ -13985,6 +13985,7 @@ shopify-payment-terms {
 .car-bar{
   width: 100%;
   padding: 30px 30px 35px 0;
+  overflow: hidden;
 }
 .car-bar .bar-inner{
   width: 100%;
@@ -14000,6 +14001,7 @@ shopify-payment-terms {
   height: 8px;
   background-color: rgb(115,100,88);
   border-radius: 5px;
+  max-width: 100% !important;
 }
 
 .car-bar .bar-item{

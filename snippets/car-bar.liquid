@@ -1,27 +1,36 @@
 {%- if settings.car_bar_price1 !=blank -%}
 	{%- assign bar_price1 = settings.car_bar_price1|times:100.00 -%}
-	{%- assign bar_max = settings.car_bar_price1|times:100.00 -%}
+	{%- assign bar_perc1 = settings.car_bar_price1|minus:settings.car_bar_price1-%}
+	{%- assign bar_max = settings.car_bar_price1-%}
 {%- endif -%}
 {%- if settings.car_bar_price2 !=blank -%}
 	{%- assign bar_price2 = settings.car_bar_price2|times:100.00 -%}
-	{%- assign bar_max = settings.car_bar_price2|times:100.00 -%}
+	{%- assign bar_perc2 = settings.car_bar_price2|minus:settings.car_bar_price1-%}
+	{%- assign bar_max = settings.car_bar_price2|minus:settings.car_bar_price1 -%}
 {%- endif -%}
 {%- if settings.car_bar_price3 !=blank -%}
 	{%- assign bar_price3 = settings.car_bar_price3|times:100.00 -%}
-	{%- assign bar_max = settings.car_bar_price3|times:100.00 -%}
+	{%- assign bar_perc3 = settings.car_bar_price3|minus:settings.car_bar_price1 -%}
+	{%- assign bar_max = settings.car_bar_price3|minus:settings.car_bar_price1-%}
 {%- endif -%}
 {%- if settings.car_bar_price4 !=blank -%}
 	{%- assign bar_price4 = settings.car_bar_price4|times:100.00 -%}
-	{%- assign bar_max = settings.car_bar_price4|times:100.00 -%}
+	{%- assign bar_perc4 = settings.car_bar_price4|minus:settings.car_bar_price1-%}
+	{%- assign bar_max = settings.car_bar_price4|minus:settings.car_bar_price1 -%}
 {%- endif -%}
 
 	{%- capture bar_current -%}
-		{%- if cart.original_total_price >= bar_max -%}
-			100
+		{%- if cart.original_total_price <=bar_price1 -%}
+				{{- cart.original_total_price|divided_by:bar_price1|times:10 -}}
 		{%- else -%}
-			{{- cart.original_total_price |times:100.00 | divided_by:bar_max -}}
+			{{- cart.original_total_price | minus:bar_price1 | divided_by:bar_max|divided_by:100|times:90.00 | plus:10-}}
 		{%- endif -%}
 	{%- endcapture -%}
+	{%- assign bar_current =bar_current|abs -%}
+
+{%- if bar_current > 100 -%}
+	{%- assign bar_current = 100 -%}
+{%- endif -%}
 
 <div class="car-bar-box">
 	<div class="car_bar_title h3 ">Bonus:</div>
@@ -125,18 +134,18 @@
 
 <style>
 	.car-bar .item1 {
-		left: {{ settings.car_bar_price1 | times:10000.00 | divided_by:bar_max }}%;
+		left: {{ bar_perc1 |times:1.00| divided_by:bar_max | times:80.00  |plus:20}}%;
 	}
 	.car-bar .item2 {
-		left: {{ settings.car_bar_price2 | times:10000.00 | divided_by:bar_max }}%;
+		left: {{ bar_perc2 |times:1.00| divided_by:bar_max | times:80.00  |plus:20}}%;
 	}
 	.car-bar .item3 {
-		left: {{ settings.car_bar_price3 | times:10000.00 | divided_by:bar_max }}%;
+		left: {{ bar_perc3 |times:1.00| divided_by:bar_max | times:80.00  |plus:20}}%;
 	}
 	.car-bar .item4 {
-		left: {{ settings.car_bar_price4 | times:10000.00 | divided_by:bar_max }}%;
+		left: {{ bar_perc4 |times:1.00| divided_by:bar_max | times:80.00  |plus:20}}%;
 	}
 	.car-bar .bar-current {
-		width: calc({{- bar_current-}}% - 10px);
+		width: {{- bar_current-}}%;
 	}
 </style>
