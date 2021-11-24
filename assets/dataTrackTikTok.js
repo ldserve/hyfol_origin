@@ -1,2 +1,2 @@
 console.log("product")
-console.log("product",{{ "product" }})
+console.log("product",{{ 'product' }})
