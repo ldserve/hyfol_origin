@@ -537,12 +537,6 @@
         "link_title": "View all",
         "link_url": ""
       }
-    },
-    "flashify_widget": {
-      "type": "flashify-widget",
-      "settings": {
-        "flashify_widget_id": "2113"
-      }
     }
   },
   "order": [
@@ -561,7 +555,6 @@
     "163577127440e8d6d7",
     "newsletter",
     "163576242639f4e03c",
-    "1637032020257e6626",
-    "flashify_widget"
+    "1637032020257e6626"
   ]
 }
