@@ -6,8 +6,8 @@
         "093dba4e-5495-47f1-a21b-0431a9d2a9fb": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/PC_1.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/65a37805a38a4b173d91151f310aefae.jpg",
+            "image": "shopify:\/\/shop_images\/PC_473d2447-4c13-4220-9fb7-a61da77eb212.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/65a37805a38a4b173d91151f310aefae_9c2c4b8b-b45e-48ea-bbc2-bf663cd30fba.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -383,6 +383,54 @@
         "button_link": "shopify:\/\/collections\/women"
       }
     },
+    "1637834057c80a8e85": {
+      "type": "slideshow",
+      "blocks": {
+        "16378340571752157f-0": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "Slide title",
+            "content": "Tell your story",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "Button",
+            "link": ""
+          }
+        },
+        "16378340571752157f-1": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "Slide title",
+            "content": "Tell your story",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "Button",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16378340571752157f-0",
+        "16378340571752157f-1"
+      ],
+      "settings": {
+        "edge_to_edge": false,
+        "section_size": "preserve_ratio",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 5
+      }
+    },
     "16370340305dc8e943": {
       "type": "featured-collection-img",
       "settings": {
@@ -537,6 +585,12 @@
         "link_title": "View all",
         "link_url": ""
       }
+    },
+    "flashify_widget": {
+      "type": "flashify-widget",
+      "settings": {
+        "flashify_widget_id": "2113"
+      }
     }
   },
   "order": [
@@ -545,6 +599,7 @@
     "1635759941961a18e2",
     "16357602965b96c401",
     "16357611933da02b64",
+    "1637834057c80a8e85",
     "16370340305dc8e943",
     "16358433881f937e14",
     "16360968581831caac",
@@ -555,6 +610,7 @@
     "163577127440e8d6d7",
     "newsletter",
     "163576242639f4e03c",
-    "1637032020257e6626"
+    "1637032020257e6626",
+    "flashify_widget"
   ]
 }

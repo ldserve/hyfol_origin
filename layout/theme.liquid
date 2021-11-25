@@ -240,9 +240,16 @@
   {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
 {% include 'editorify' %} <script>var scaaffCheck = false;</script>
 {{ 'sca_affiliate.js' | asset_url | script_tag }}
-</head>
+{% include 'flashify-common' %}</head>
 
-  <body class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}" data-instant-intensity="viewport">
+  <body class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}" data-instant-intensity="viewport"> 
+{% include 'flashify-promotion-bar' %} 
+ 
+ 
+ 
+ 
+ 
+
     {%- comment -%}Common SVG definitions that we are re-using in several places{%- endcomment -%}
     <svg class="visually-hidden">
       <linearGradient id="rating-star-gradient-half">
@@ -303,12 +310,12 @@
 <!-- **BEGIN** Hextom TMS Integration // Main Include - DO NOT MODIFY -->
     <script>
       var hextom_tms = {
-        availableLocalesById: {'fr': {'name': 'Français', 'url': 'https://www.hyfol.com/fr'}, 'de': {'name': 'Deutsch', 'url': 'https://www.hyfol.com/de'}, 'it': {'name': 'Italiano', 'url': 'https://www.hyfol.com/it'}, 'es': {'name': 'Español', 'url': 'https://www.hyfol.com/es'}, 'en': {'name': 'English', 'url': 'https://www.hyfol.com'}},
-        availableLocales: ['fr', 'de', 'it', 'es', 'en'],
+        availableLocalesById: {'fr': {'name': 'Français', 'url': 'https://www.hyfol.com/fr'}, 'de': {'name': 'Deutsch', 'url': 'https://www.hyfol.com/de'}, 'it': {'name': 'Italiano', 'url': 'https://www.hyfol.com/it'}, 'ru': {'name': 'Русский Язык', 'url': 'https://www.hyfol.com/ru'}, 'es': {'name': 'Español', 'url': 'https://www.hyfol.com/es'}, 'en': {'name': 'English', 'url': 'https://www.hyfol.com'}},
+        availableLocales: ['fr', 'de', 'it', 'ru', 'es', 'en'],
         primaryLocaleById: {'en': 'English'},
         merchantSelectedLocale: "shop_base",
         hasFlag: "yes",
-        selectorFlagMap: {'fr': 'fr', 'de': 'de', 'it': 'it', 'es': 'es', 'en': 'en'},
+        selectorFlagMap: {'fr': 'fr', 'de': 'de', 'it': 'it', 'ru': 'ru', 'es': 'es', 'en': 'en'},
         displayType: "language_name",
         fontColor: "#000000",
         backgroundColor: "#FFFFFF",
@@ -332,6 +339,9 @@
     </script>
     <script src="{{ 'tms.js' | asset_url }}" defer="defer"></script>
     <!-- **END** Hextom TMS Integration // Main Include - DO NOT MODIFY -->
+        
+        
+        
         
  {% include 'smile-initializer' %}
 
