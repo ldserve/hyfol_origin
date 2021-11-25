@@ -122,6 +122,12 @@
       "type": "editorify_section_widget",
       "settings": {
       }
+    },
+    "flashify_product_widget": {
+      "type": "flashify-product-widget",
+      "settings": {
+        "flashify_campaign_id": "2113"
+      }
     }
   },
   "order": [
@@ -129,6 +135,7 @@
     "product-recommendations",
     "recently-viewed-products",
     "alireviews-widget-95110",
-    "editorify_section_widget"
+    "editorify_section_widget",
+    "flashify_product_widget"
   ]
 }

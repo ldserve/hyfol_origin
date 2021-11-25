@@ -1,0 +1,26 @@
+{% schema %}
+    {
+        "name": "Flashify Product Widget",
+        "settings": [
+            {
+                "id": "flashify_campaign_id",
+                "type": "text",
+                "label": "Flashify Campaign ID",
+                "default": "1"
+            }
+        ],
+        "blocks": [
+          {
+            "type": "@app"
+          }
+        ]
+    }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+<div data-flashify-id="{{ section.settings.flashify_campaign_id }}" data-flashify-type="product_widget" data-current-product-id="{{ product.id }}" id="fs-product-widget" class="fs-wrapper"></div>
