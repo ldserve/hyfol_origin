@@ -1,5 +1,11 @@
 {
   "sections": {
+    "flashify_widget": {
+      "type": "flashify-widget",
+      "settings": {
+        "flashify_widget_id": "2113"
+      }
+    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -540,6 +546,7 @@
     }
   },
   "order": [
+    "flashify_widget",
     "slideshow",
     "1635759577ba76b918",
     "1635759941961a18e2",
