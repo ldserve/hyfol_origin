@@ -51,6 +51,7 @@
     {{ tracking_code }}
     {% comment %}巴西的门牌号必填{% endcomment %}
     {% if settings.brazil_house_number %}
+
         <script src="{{ 'brazil_house_number.js' | asset_url }}" defer></script>
     {% endif %}
   <script>
