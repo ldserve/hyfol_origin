@@ -365,70 +365,9 @@
         "lpadding": 0
       }
     },
-    "16357611933da02b64": {
-      "type": "collection-with-image",
-      "disabled": true,
+    "163783626314288bff": {
+      "type": "empy",
       "settings": {
-        "collection": "women",
-        "products_count": 12,
-        "show_quick_buy": true,
-        "image": "shopify:\/\/shop_images\/07_f802d421-ae03-463f-ba17-f46a497e7e91.jpg",
-        "background": "#e8e8e8",
-        "text_color": "#ffffff",
-        "title": "",
-        "content": "",
-        "button_background": "#ffffff",
-        "button_text_color": "#0774d7",
-        "button_text": "",
-        "button_link": "shopify:\/\/collections\/women"
-      }
-    },
-    "1637834057c80a8e85": {
-      "type": "slideshow",
-      "blocks": {
-        "16378340571752157f-0": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "Slide title",
-            "content": "Tell your story",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "Button",
-            "link": ""
-          }
-        },
-        "16378340571752157f-1": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "Slide title",
-            "content": "Tell your story",
-            "content_position": "middle_center",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "Button",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "16378340571752157f-0",
-        "16378340571752157f-1"
-      ],
-      "settings": {
-        "edge_to_edge": false,
-        "section_size": "preserve_ratio",
-        "carousel_effect": "slide",
-        "autoplay": true,
-        "cycle_speed": 5
       }
     },
     "16370340305dc8e943": {
@@ -598,8 +537,7 @@
     "1635759577ba76b918",
     "1635759941961a18e2",
     "16357602965b96c401",
-    "16357611933da02b64",
-    "1637834057c80a8e85",
+    "163783626314288bff",
     "16370340305dc8e943",
     "16358433881f937e14",
     "16360968581831caac",
