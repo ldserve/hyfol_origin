@@ -86,6 +86,15 @@
         "cycle_speed": 3
       }
     },
+    "16379144370948f06a": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/PC__03_5ba53545-fb7a-4171-a0ef-3b38ce0a256a.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/W3-M_-2_03.jpg",
+        "link": "",
+        "shadow": false
+      }
+    },
     "1635759577ba76b918": {
       "type": "linkImg",
       "blocks": {
@@ -540,6 +549,7 @@
   },
   "order": [
     "slideshow",
+    "16379144370948f06a",
     "1635759577ba76b918",
     "1635759941961a18e2",
     "16357602965b96c401",
