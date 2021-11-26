@@ -377,6 +377,40 @@
         "lpadding": 0
       }
     },
+    "1635843412f4572d8b": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/W2-PC_-4_09.jpg",
+        "web_image": "shopify:\/\/shop_images\/W3-M_-2_13.jpg",
+        "link": "shopify:\/\/collections\/all-from-9-9",
+        "collection": "all-from-9-9",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "",
+        "link_bg": "#1b1b1b",
+        "link_url": ""
+      }
+    },
+    "1637912993ea7868d3": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/W2_09.jpg",
+        "web_image": "shopify:\/\/shop_images\/W3-M_-2_11.jpg",
+        "link": "shopify:\/\/collections\/essential",
+        "collection": "essential",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "",
+        "link_bg": "",
+        "link_url": ""
+      }
+    },
     "16370340305dc8e943": {
       "type": "featured-collection-img",
       "settings": {
@@ -429,40 +463,6 @@
         "button_link": "",
         "button_text_color": "#0774d7",
         "button_background": "#ffffff"
-      }
-    },
-    "1635843412f4572d8b": {
-      "type": "featured-collection-img",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/W2-PC_-4_09.jpg",
-        "web_image": "shopify:\/\/shop_images\/W3-M_-2_13.jpg",
-        "link": "shopify:\/\/collections\/all-from-9-9",
-        "collection": "all-from-9-9",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_bg": "#1b1b1b",
-        "link_url": ""
-      }
-    },
-    "1637912993ea7868d3": {
-      "type": "featured-collection-img",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/W2_09.jpg",
-        "web_image": "shopify:\/\/shop_images\/W3-M_-2_11.jpg",
-        "link": "shopify:\/\/collections\/essential",
-        "collection": "essential",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_bg": "",
-        "link_url": ""
       }
     },
     "163703402842074b11": {
@@ -556,11 +556,11 @@
     "1635759577ba76b918",
     "1635759941961a18e2",
     "16357602965b96c401",
+    "1635843412f4572d8b",
+    "1637912993ea7868d3",
     "16370340305dc8e943",
     "16358433881f937e14",
     "16360968581831caac",
-    "1635843412f4572d8b",
-    "1637912993ea7868d3",
     "163703402842074b11",
     "1635995528b96ef09c",
     "1636182255e275c0a7",
