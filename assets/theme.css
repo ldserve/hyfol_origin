@@ -14115,3 +14115,13 @@ shopify-payment-terms {
   font-size: 0.85em;
   opacity: .7;
 }
+.d-flex{
+  display: flex;
+}
+
+.font-60{
+  font-size: 50px;
+}
+.pt-none{
+  padding-top: 0;
+}
