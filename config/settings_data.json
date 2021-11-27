@@ -39,7 +39,7 @@
     "heading_font": "avenir_next_n7",
     "text_font": "avenir_next_n5",
     "underline_links": true,
-    "color_swatch_config": "BLACK GREY:#212226\nArmy Green:#767153\nDark Brown:#31261b\nBrown:#31261b\nBlue:#1d304e\nGREEN:#777455\nKHAKI:#c9a680\nLEMON YELLOW:#e9bc21\nDark Red:#362326\nDARK GREEN:#4b554d",
+    "color_swatch_config": "BLACK GREY:#212226\nArmy Green:#767153\nDark Brown:#31261b\nBrown:#31261b\nBlue:#1d304e\nGREEN:#777455\nKHAKI:#c9a680\nLEMON YELLOW:#e9bc21\nDark Red:#362326\nDARK GREEN:#4b554d\nSavvy Red:#772c30\nBirch:#d3cdc1",
     "animation_image_zoom": true,
     "search_mode": "product,article",
     "show_vendor": false,
@@ -213,6 +213,7 @@
         "settings": {
           "show_announcement": true,
           "background": "#b82928",
+          "one_round": 10,
           "text_color": "#ffffff",
           "link": "",
           "show_newsletter": false,
