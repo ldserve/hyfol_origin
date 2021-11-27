@@ -38,6 +38,8 @@
         "6040b192-8f10-4ee0-8454-dafbf292b96a": {
           "type": "trust",
           "settings": {
+            "show_trustworthy": true,
+            "trustworthy_title": "Trustworthy Shopping",
             "trust_title": "Payment & Security",
             "show_payment_icons": true,
             "custom_security_badge_width": 500
