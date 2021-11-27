@@ -458,7 +458,6 @@
           "settings": {
             "background": "#1e2d7d",
             "text_color": "#ffffff",
-            "text": "Announce something here",
             "link": "",
             "newsletter_button": "Subscribe & Save",
             "newsletter_title": "Newsletter",
@@ -583,7 +582,6 @@
           "settings": {
             "background": "#3a2a2f",
             "text_color": "#ffffff",
-            "text": "Announce something here",
             "link": "",
             "newsletter_button": "Subscribe & Save",
             "newsletter_title": "Newsletter",
@@ -721,7 +719,6 @@
           "settings": {
             "background": "#222021",
             "text_color": "#ffffff",
-            "text": "Announce something here",
             "link": "",
             "newsletter_button": "Subscribe & Save",
             "newsletter_title": "Newsletter",
