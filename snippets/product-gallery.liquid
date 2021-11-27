@@ -102,7 +102,7 @@
               <div class="poa w100 z-1 bottom-0 left-0">
                 {%- capture supported_sizes_bottom -%}{%- render 'image-size', sizes: '300,500,600,700,800', image: section.settings.cjj_pro_bg_bottom -%}{%- endcapture -%}
                 {%- assign image_url_bottom = section.settings.cjj_pro_bg_bottom | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                <img class=" lazyload w100 " data-src="{{ image_url_bottom }}" data-widths="[{{ supported_sizes_bottom }}]" data-sizes="auto" alt="{{ section.settings.cjj_pro_bg_bottom_alt | escape }}">
+                <img class=" lazyload w100 v-align-b" data-src="{{ image_url_bottom }}" data-widths="[{{ supported_sizes_bottom }}]" data-sizes="auto" alt="{{ section.settings.cjj_pro_bg_bottom_alt | escape }}">
               </div>
             {%- endif -%}
 
