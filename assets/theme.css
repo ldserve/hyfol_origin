@@ -14125,3 +14125,28 @@ shopify-payment-terms {
 .pt-none{
   padding-top: 0;
 }
+.poa{
+  position: absolute;
+}
+.w100{
+  width: 100%;
+}
+.h100{
+  height: 100%;
+}
+.z-1{
+  z-index: 1;
+}
+.top-0{
+  top: 0;
+}
+.left-0 {
+  left: 0;
+}
+.bottom-0{
+  bottom: 0;
+}
+.right-0{
+  right: 0;
+}
+

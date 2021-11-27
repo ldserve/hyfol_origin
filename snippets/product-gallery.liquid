@@ -91,6 +91,21 @@
                 {%- endcase -%}
               </div>
             {%- endfor -%}
+            {%- if section.settings.cjj_pro_bg_top!=blank -%}
+              <div class="poa w100 z-1 top-0 left-0">
+                {%- capture supported_sizes_top -%}{%- render 'image-size', sizes: '300,500,600,700,800', image: section.settings.cjj_pro_bg_top -%}{%- endcapture -%}
+                {%- assign image_url_top = section.settings.cjj_pro_bg_top | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                <img class=" lazyload w100 " data-src="{{ image_url_top }}" data-widths="[{{ supported_sizes_top }}]" data-sizes="auto" alt="{{ section.settings.cjj_pro_bg_top_alt | escape }}">
+              </div>
+            {%- endif -%}
+            {%- if section.settings.cjj_pro_bg_bottom!=blank -%}
+              <div class="poa w100 z-1 bottom-0 left-0">
+                {%- capture supported_sizes_bottom -%}{%- render 'image-size', sizes: '300,500,600,700,800', image: section.settings.cjj_pro_bg_bottom -%}{%- endcapture -%}
+                {%- assign image_url_bottom = section.settings.cjj_pro_bg_bottom | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                <img class=" lazyload w100 " data-src="{{ image_url_bottom }}" data-widths="[{{ supported_sizes_bottom }}]" data-sizes="auto" alt="{{ section.settings.cjj_pro_bg_bottom_alt | escape }}">
+              </div>
+            {%- endif -%}
+
           </div>
 
           {%- comment -%}Add the "view in your space" button, which allows to show the product in customer's environment (if the device supports it){%- endcomment -%}
