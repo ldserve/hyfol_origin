@@ -13642,7 +13642,7 @@ shopify-payment-terms {
 }
 
 .rating__star {
-  color: #1b1b1b;
+  color: var(--product-review-star-color);
   width: 14px;
   height: 14px;
 }
