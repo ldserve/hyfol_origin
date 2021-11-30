@@ -26,9 +26,8 @@
 
 
 {% assign cjj_currentPage = cjj_current | strip %}
-
 	<div class="footer-navbar-box hidden-lap hidden-lap-and-up">
-		<div class="footer-navbar hidden-lap hidden-lap-and-up">
+		<div class="footer-navbar hidden-lap hidden-lap-and-up" {%- if request.page_type == "cart" -%} style="display:none !important;" {%- endif -%}>
 			<ul class="list--unstyled ">
 				<li class="shop">
 					<a href="{{ routes.root_url }}">
@@ -103,6 +102,11 @@
 		display:  inline-block;
 		text-align: center;
 	}
+	 {%- if window.theme.pageType == "cart" -%}
+#shopify-section-foot-navbar .footer-navbar{
+  display:none !important;
+}
+ {%- endif -%}
 </style>
 
 <script>
