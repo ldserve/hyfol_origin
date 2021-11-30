@@ -33,7 +33,7 @@
  *   bubbles: true
  * }));
  */
-
+/*回到顶部*/
 !function (){
   let gotop=document.querySelector('#gotop');
   function throttle(method,delay){
@@ -73,3 +73,4 @@
     },10);
   }
 }()
+

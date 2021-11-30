@@ -899,3 +899,283 @@
   ]
 }
 {% endschema %}
+
+<script>
+
+  ~function () {
+    class Product {
+      constructor(id) {
+        this.id = id;
+        this.url = '/products/' + id + '.js';
+        this.product = {};
+        this.data = {};
+        this.colors=[];
+        this.ratingColor='';
+      }
+      get_data() {
+        let url = this.url
+        return new Promise(function (resolve, reject) {
+          let xhr = null;
+          if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+          } else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP")
+          }
+          xhr.open('get', url, true);
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                resolve(JSON.parse(xhr.responseText))
+              } else {
+                reject(xhr.status)
+              }
+            }
+          }
+          xhr.send(null);
+        })
+      }
+      temp (){
+        return `
+<div class="product-item product-item--vertical  1/3--tablet-and-up 1/4--desk">
+	<div class="product-item__label-list">
+		<span
+			class="product-label product-label--on-sale">#{save}</span>
+	</div>
+	<a href="#{url}" class="product-item__image-wrapper product-item__image-wrapper--with-secondary">
+		<div class="aspect-ratio" style="padding-bottom: 100%">
+			<img class="product-item__primary-image lazyload image--fade-in" data-media-id="#{data.primary_media_id}"
+					 data-src="#{primary_media_src}" data-sizes="auto" data-widths="[200,300,400,500,600,700,800]"
+					 alt=" ">
+			<img class="product-item__secondary-image lazyload image--fade-in" data-src="#{second_media_src}"
+					 data-sizes="auto" data-widths="[200,300,400,500,600,700,800]" alt=" ">
+			<noscript>
+				<img src="#{primary_media_src}" alt="">
+			</noscript>
+		</div>
+	</a>
+	<div class="product-item__info">
+		<div class="product-item__info-inner">
+			<a href="#{url}" class="product-item__title text--strong link">#{title}</a>
+			<div class="product-item__price-list price-list">
+				<div>
+					<span class="price price--highlight">
+						<span class="visually-hidden">Sale price</span>
+						<span class="cbb-special-price skiptranslate notranslate">#{price}</span>
+					</span>
+					<span class="price price--compare">
+						<span class="visually-hidden">Regular price</span>
+            <span class="cbb-special-price skiptranslate notranslate">#{compare_at_price}</span>
+          </span>
+				</div>
+				<a class="product-item__reviews-badge link" href="#{url}#product-reviews">
+					<div class="rating">
+						<div class="rating__stars" role="img" aria-label="4.75 out of 5.0 stars">
+							<svg fill="none" focusable="false" role="presentation"
+									 class="icon icon--rating-star rating__star rating__star--full" viewBox="0 0 896 832" style="color:#{ratingColor}">
+								<path
+									d="M896 320l-313.5-40.781L448 0 313.469 279.219 0 320l230.469 208.875L171 831.938l277-148.812 277.062 148.812L665.5 528.875z"
+									fill-rule="nonzero" fill="currentColor"></path>
+							</svg>
+							<svg fill="none" focusable="false" role="presentation"
+									 class="icon icon--rating-star rating__star rating__star--full" viewBox="0 0 896 832" style="color:#{ratingColor}">
+								<path
+									d="M896 320l-313.5-40.781L448 0 313.469 279.219 0 320l230.469 208.875L171 831.938l277-148.812 277.062 148.812L665.5 528.875z"
+									fill-rule="nonzero" fill="currentColor"></path>
+							</svg>
+							<svg fill="none" focusable="false" role="presentation"
+									 class="icon icon--rating-star rating__star rating__star--full" viewBox="0 0 896 832" style="color:#{ratingColor}">
+								<path
+									d="M896 320l-313.5-40.781L448 0 313.469 279.219 0 320l230.469 208.875L171 831.938l277-148.812 277.062 148.812L665.5 528.875z"
+									fill-rule="nonzero" fill="currentColor"></path>
+							</svg>
+							<svg fill="none" focusable="false" role="presentation"
+									 class="icon icon--rating-star rating__star rating__star--full" viewBox="0 0 896 832" style="color:#{ratingColor}">
+								<path
+									d="M896 320l-313.5-40.781L448 0 313.469 279.219 0 320l230.469 208.875L171 831.938l277-148.812 277.062 148.812L665.5 528.875z"
+									fill-rule="nonzero" fill="currentColor"></path>
+							</svg>
+							<svg fill="none" focusable="false" role="presentation"
+									 class="icon icon--rating-star rating__star rating__star--full" viewBox="0 0 896 832" style="color:#{ratingColor}">
+								<path
+									d="M896 320l-313.5-40.781L448 0 313.469 279.219 0 320l230.469 208.875L171 831.938l277-148.812 277.062 148.812L665.5 528.875z"
+									fill-rule="nonzero" fill="currentColor"></path>
+							</svg>
+						</div>
+						<span class="rating__caption"></span>
+					</div>
+				</a>
+			</div>
+			<div class="product-item__swatch-list">
+				<div class="color-swatch-list">
+
+				</div>
+			</div>
+		</div>
+		<form method="post"
+					action="/cart/add"
+					id="product_form_id_#{id}_template--15421235626199__main"
+					accept-charset="UTF-8"
+					class="product-item__action-list button-stack"
+					enctype="multipart/form-data">
+			<input type="hidden" name="form_type" value="product">
+			<input type="hidden" name="utf8" value="✓">
+			<input type="hidden" name="quantity" value="1">
+			<input type="hidden" name="id" value="#{first_variants_id}">
+			<a href="#{url}" class="product-item__action-button button button--small button--primary">Choose
+				options</a>
+			<button type="button"
+							class="product-item__action-button button button--small button--ternary hidden-phone"
+							data-action="open-modal"
+							data-secondary-action="open-quick-view"
+							aria-controls="modal-quick-view-template--15421235626199__main"
+							data-product-url="#{url}">Quick view
+			</button>
+		</form>
+	</div>
+	<span class="htusb-ui-boost htusb-ui-coll-boost htusb-data"
+				data-v1="#{id}"
+				data-v2="#{handle}"
+				data-v3="#{product_type}"
+				data-v4="#{tags}"></span>
+</div>
+`
+      }
+      color_temp(){
+        return `<div class="color-swatch color-swatch--#{value_l}">
+		<input class="color-swatch__radio"
+					 type="radio"
+					 name="#{name}"
+					 id="#{id}"
+					 value="#{value}"
+					 data-variant-url="#{variantUrl}"
+					 data-media-id="#{mediaId}"
+					 data-image-url="#{imgUrl}"
+					 data-image-widths="[200,300,400,500,600,700,800]"
+					 data-image-aspect-ratio="1.0"
+					 aria-label="#{value}">
+		<label class="color-swatch__item #{class}" style="background-color: #{value_l}" for="#{id}" title="#{value}">
+			<span class="visually-hidden">#{value}</span>
+		</label>
+		<a href="#{url}" class="color-swatch__item-link">+#{num}</a>
+</div>`
+      }
+      vdom(){
+        let temp=this.temp();
+        let colorTemp=this.color_temp();
+        let str=temp.replace(/#{(\w+)}/g, (m, key)=>{
+          return this.data[key]
+        });
+        let dom=document.createElement('div')
+        dom.innerHTML=str;
+        let colorstr=''
+        for (let i = 0; i <this.colors.length; i++) {
+          colorstr+=colorTemp.replace(/#{(\w+)}/g, (m, key)=>{
+            return this.colors[i][key]
+          });
+        }
+        dom.querySelector('.color-swatch-list').innerHTML=colorstr;
+        dom.querySelector('.color-swatch__radio').setAttribute('checked','checked');
+        let max=dom.querySelectorAll('.color-swatch');
+        if(max.length>5){
+          max[4].classList.add('color-swatch--view-more')
+        }
+        return dom.querySelector('.product-item');
+      }
+      _render() {
+        let dom=this.vdom();
+        if(!this.data.compare_at_price){
+          dom.querySelector('.price--highlight').classList.remove('price--highlight')
+        }
+        document.querySelector('.product-list').prepend(dom);
+      }
+      async render() {
+        try {
+          let product = await this.get_data();
+          let data={};
+          let colors=[];
+          data.id=product.id;
+          data.handle=product.handle;
+          data.product_type=product.product_type;
+          if(product.tags){
+            let tags_re=product.tags.reverse();
+            data.tags=tags_re.join(',');
+          }else{
+            data.tags='';
+          }
+          data.url='/products/'+product.handle;
+          data.title=product.title;
+          data.primary_media_id=product.media[0].id;
+          if(product.price < product.compare_at_price){
+            data.save = 'Save '+Math.round((product.compare_at_price-product.price)*100/product.compare_at_price)+'%';
+          }else{
+            data.save=''
+          }
+          data.price='$'+(product.price/100).toFixed(2);
+          if(product.price<product.compare_at_price){
+            data.compare_at_price='$'+(product.compare_at_price/100).toFixed(2);
+          }else{
+            data.compare_at_price=''
+          }
+          data.primary_media_src=product.media[0].src.replace(/.jpg/,'_{width}x.jpg');
+          data.second_media_id=product.media[1].id;
+          data.second_media_src=product.media[1].src.replace(/.jpg/,'_{width}x.jpg');
+          data.first_variants_id=product.variants[0].id;
+          data.ratingColor=this.ratingColor;
+
+          for (let i = 0 ,max=product.options[0].values.length; i <max ;i++) {
+            let color={};
+            let variants=product.options[0].values[i];
+            color.name='template--15421235626199__main-'+product.id;
+            color.id='template--15421235626199__main-'+product.id+'-'+(i+1);
+            color.url='/products/'+product.handle;
+            color.value=variants;
+            color.num=max-i;
+            color.value_l=variants.toLocaleLowerCase();
+            color.class=color.value_l.replace('/\s/g','_');
+            for (let j = 0; j < product.variants.length; j++) {
+              let obj=product.variants[j]
+              if(obj.option1===variants){
+                color.mediaId=obj['featured_media'].id;
+                color.variantUrl='/products/'+product.handle+'?variant='+obj['featured_media'].id;
+                let imgUrl=obj['featured_media']['preview_image'].src;
+                color.imgUrl=imgUrl.replace(/.jpg/,'_{width}x.jpg');
+                break ;
+              }
+            }
+            colors.push(color)
+          }
+
+          this.product=product;
+          this.data=data;
+          this.colors=colors;
+          console.log(product)
+          console.log(colors)
+          this._render();
+        } catch (e) {
+          console.log('请求错误', e)
+        }
+      }
+    }
+    const searchURL=location.search;
+    const params=new URLSearchParams(searchURL);
+    const searchStr=Object.fromEntries(params);
+    if(searchStr.sup){
+      let sup=searchStr['sup'].split(',')
+      let color;
+      if(searchStr.color){
+        color=searchStr['color'];
+      }else{
+        color='';
+      }
+      for (let i = 0; i <sup.length; i++) {
+        let olddom=document.querySelector("a[href='/products/"+sup[i]+"']").parentNode;
+        olddom.style.display='none';
+        let demo = new Product(sup[i]);
+        demo.ratingColor=color;
+        demo.render();
+      }
+    }
+  }()
+
+
+</script>
