@@ -3,7 +3,17 @@
   "showShippingEstimator": {% if cart.item_count == 0 %}false{% else %}{{ section.settings.show_shipping_estimator | json }}{% endif %}
 }
 {%- endcapture -%}
-
+<style>
+@media screen and (max-width: 640px) {
+.c202111301{
+    position: fixed;
+    z-index: 99;
+    bottom: 50px;
+    right: 0px;
+    width: 100%;
+}
+}
+</style>
 <section data-section-id="{{ section.id }}" data-section-type="cart" data-section-settings='{{ section_settings }}' data-item-count="{{ cart.item_count }}">
   {%- if cart.item_count == 0 -%}
     <div class="container">
@@ -419,9 +429,10 @@
 
                     <input type="hidden" name="attributes[collection_products_per_page]" value="">
                     <input type="hidden" name="attributes[collection_layout]" value="">
-                    <button type="submit" name="checkout" class="cart-recap__checkout button button--primary button--full button--large">{{ 'cart.general.checkout' | t }}</button>
+                    <button type="submit" name="checkout" class="cart-recap__checkout button button--primary button--full button--large c202111301">{{ 'cart.general.checkout' | t }}</button>
                   </div>
                 </div>
+
 
                 {%- if section.settings.show_payment_icons -%}
                   <div class="cart-recap__secure-payment">
