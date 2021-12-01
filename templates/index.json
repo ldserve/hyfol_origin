@@ -376,30 +376,13 @@
         "lpadding": 0
       }
     },
-    "1635843412f4572d8b": {
+    "163703402842074b11": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/W2-PC_-4_09.jpg",
-        "web_image": "shopify:\/\/shop_images\/W3-M_-2_13.jpg",
-        "link": "shopify:\/\/collections\/all-from-9-9",
-        "collection": "all-from-9-9",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_bg": "#1b1b1b",
-        "link_url": ""
-      }
-    },
-    "1637912993ea7868d3": {
-      "type": "featured-collection-img",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/W2_09.jpg",
-        "web_image": "shopify:\/\/shop_images\/W3-M_-2_11.jpg",
-        "link": "shopify:\/\/collections\/essential",
-        "collection": "essential",
+        "image": "shopify:\/\/shop_images\/W2-PC__05_ef6ad033-1cc6-4b6e-8864-3fd32cb3823b.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__07.jpg",
+        "link": "shopify:\/\/collections\/christmas-sale",
+        "collection": "christmas-sale",
         "title": "",
         "products_count": 12,
         "layout": "vertical",
@@ -413,8 +396,8 @@
     "16370340305dc8e943": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/2_69e9566c-a06e-4c2f-b1de-9b51ab5d9a43.jpg",
-        "web_image": "shopify:\/\/shop_images\/2_6a5548f3-897a-4948-8012-bcd2197f0abd.jpg",
+        "image": "shopify:\/\/shop_images\/W2-PC__07.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__09.jpg",
         "link": "shopify:\/\/collections\/hoodies",
         "collection": "hoodies",
         "title": "",
@@ -424,6 +407,40 @@
         "show_quick_buy": true,
         "link_title": "",
         "link_bg": "",
+        "link_url": ""
+      }
+    },
+    "1637912993ea7868d3": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/W2-PC__09.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__11.jpg",
+        "link": "shopify:\/\/collections\/outerwear",
+        "collection": "outerwear",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "",
+        "link_bg": "",
+        "link_url": ""
+      }
+    },
+    "1635843412f4572d8b": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/W2-PC__11.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__13.jpg",
+        "link": "shopify:\/\/collections\/all-from-9-9",
+        "collection": "all-from-9-9",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "",
+        "link_bg": "#1b1b1b",
         "link_url": ""
       }
     },
@@ -462,23 +479,6 @@
         "button_link": "",
         "button_text_color": "#0774d7",
         "button_background": "#ffffff"
-      }
-    },
-    "163703402842074b11": {
-      "type": "featured-collection-img",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/PC__05_f9f6dda5-d745-4c5a-8767-72506574b3c1.jpg",
-        "web_image": "shopify:\/\/shop_images\/20b1a7af06268b70eb5995d6c67c27f9.jpg",
-        "link": "shopify:\/\/collections\/christmas-sale",
-        "collection": "christmas-sale",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_bg": "",
-        "link_url": ""
       }
     },
     "1635995528b96ef09c": {
@@ -555,12 +555,12 @@
     "1635759577ba76b918",
     "1635759941961a18e2",
     "16357602965b96c401",
-    "1635843412f4572d8b",
-    "1637912993ea7868d3",
+    "163703402842074b11",
     "16370340305dc8e943",
+    "1637912993ea7868d3",
+    "1635843412f4572d8b",
     "16358433881f937e14",
     "16360968581831caac",
-    "163703402842074b11",
     "1635995528b96ef09c",
     "1636182255e275c0a7",
     "163577127440e8d6d7",
