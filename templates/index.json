@@ -6,8 +6,8 @@
         "093dba4e-5495-47f1-a21b-0431a9d2a9fb": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/PC_9d488bf1-ae12-46cd-a3c3-f5e1216917b8.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/750-2_5b13ff58-5ae2-4d00-b152-4695707af0e2.jpg",
+            "image": "shopify:\/\/shop_images\/W2-PC_-4_02_8cb163ad-cffc-4f56-bfd4-0de41e75ab3f.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/M__02.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -40,7 +40,6 @@
         },
         "aebe7bef-3cfb-4e33-87c8-505e2abca1b8": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/W2_02.jpg",
             "mobile_image": "shopify:\/\/shop_images\/dc682b16439aa5602c60fe3ddb49f96e.jpg",
@@ -92,8 +91,8 @@
     "16379144370948f06a": {
       "type": "no_space_img",
       "settings": {
-        "bg_image": "shopify:\/\/shop_images\/PC__03_5ba53545-fb7a-4171-a0ef-3b38ce0a256a.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/W3-M_-2_03.jpg",
+        "bg_image": "shopify:\/\/shop_images\/W2-PC__03.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M__03.jpg",
         "link": "",
         "shadow": false
       }
@@ -204,7 +203,7 @@
         "hidDesk": false,
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/PC__04.jpg",
+        "image": "shopify:\/\/shop_images\/W2-PC__04.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -257,7 +256,7 @@
         "hidDesk": true,
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/W3-M_-2_04.jpg",
+        "image": "shopify:\/\/shop_images\/M__04.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -317,7 +316,7 @@
             "heading": "bottoms3",
             "link": "shopify:\/\/collections\/bottoms",
             "left": 3,
-            "top": 57,
+            "top": 55,
             "width": 46,
             "height": 19
           }
@@ -328,7 +327,7 @@
             "heading": "SWEATSHIRTS",
             "link": "shopify:\/\/collections\/sweatshirts",
             "left": 51,
-            "top": 57,
+            "top": 55,
             "width": 46,
             "height": 19
           }
@@ -339,7 +338,7 @@
             "heading": "caphat3",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 3,
-            "top": 78,
+            "top": 76,
             "width": 46,
             "height": 20
           }
@@ -350,7 +349,7 @@
             "heading": "JEWELRY",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 51,
-            "top": 78,
+            "top": 76,
             "width": 46,
             "height": 20
           }
@@ -370,7 +369,7 @@
         "hidDesk": true,
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/W3-M_-2_05.jpg",
+        "image": "shopify:\/\/shop_images\/M__05.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
