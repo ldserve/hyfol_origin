@@ -899,7 +899,11 @@
   ]
 }
 {% endschema %}
-
+<style>
+  .product-label--on-sale:empty{
+    display: none;
+  }
+</style>
 <script>
 
   ~function () {
@@ -1091,6 +1095,7 @@
       async render() {
         try {
           let product = await this.get_data();
+          console.log(product)
           let data={};
           let colors=[];
           data.id=product.id;
@@ -1140,7 +1145,7 @@
             color.class=color.value_l.replace('/\s/g','_');
             for (let j = 0; j < product.variants.length; j++) {
               let obj=product.variants[j]
-              if(obj.option1===variants){
+              if(obj.option1===variants && obj['featured_media']){
                 color.mediaId=obj['featured_media'].id;
                 color.variantUrl='/products/'+product.handle+'?variant='+obj['featured_media'].id;
                 let imgUrl=obj['featured_media']['preview_image'].src;
@@ -1182,6 +1187,5 @@
       }
     }
   }()
-
 
 </script>
