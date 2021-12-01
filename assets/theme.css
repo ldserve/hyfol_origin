@@ -14212,3 +14212,6 @@ shopify-payment-terms {
 .light_green{
   background-color: #bdc89e;
 }
+.product-label--on-sale:empty{
+  display: none;
+}
