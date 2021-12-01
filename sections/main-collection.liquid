@@ -1053,7 +1053,7 @@
 					 data-image-widths="[200,300,400,500,600,700,800]"
 					 data-image-aspect-ratio="1.0"
 					 aria-label="#{value}">
-		<label class="color-swatch__item #{class}" style="background-color: #{value_l}" for="#{id}" title="#{value}">
+		<label class="color-swatch__item #{class}" style="background-color: #{value}" for="#{id}" title="#{value}">
 			<span class="visually-hidden">#{value}</span>
 		</label>
 		<a href="#{url}" class="color-swatch__item-link">+#{num}</a>
@@ -1148,8 +1148,6 @@
           this.product=product;
           this.data=data;
           this.colors=colors;
-          console.log(product)
-          console.log(colors)
           this._render();
         } catch (e) {
           console.log('请求错误', e)
@@ -1159,18 +1157,20 @@
     const searchURL=location.search;
     const params=new URLSearchParams(searchURL);
     const searchStr=Object.fromEntries(params);
-    if(searchStr.sup){
-      let sup=searchStr['sup'].split(',')
+    if(searchStr.spu){
+      let spu=searchStr['spu'].split(',')
       let color;
       if(searchStr.color){
         color=searchStr['color'];
       }else{
         color='';
       }
-      for (let i = 0; i <sup.length; i++) {
-        let olddom=document.querySelector("a[href='/products/"+sup[i]+"']").parentNode;
-        olddom.style.display='none';
-        let demo = new Product(sup[i]);
+      for (let i = 0; i <spu.length; i++) {
+        let olddom=document.querySelector("a[href='/products/"+spu[i]+"']");
+        if(olddom){
+          olddom.parentNode.style.display='none';
+        }
+        let demo = new Product(spu[i]);
         demo.ratingColor=color;
         demo.render();
       }
