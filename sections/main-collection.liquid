@@ -1013,7 +1013,7 @@
 		</div>
 		<form method="post"
 					action="/cart/add"
-					id="product_form_id_#{id}_template--15421235626199__main"
+					id="product_form_id_#{id}_template--#{templateId}"
 					accept-charset="UTF-8"
 					class="product-item__action-list button-stack"
 					enctype="multipart/form-data">
@@ -1027,7 +1027,7 @@
 							class="product-item__action-button button button--small button--ternary hidden-phone"
 							data-action="open-modal"
 							data-secondary-action="open-quick-view"
-							aria-controls="modal-quick-view-template--15421235626199__main"
+							aria-controls="modal-quick-view-template--#{templateId}"
 							data-product-url="#{url}">Quick view
 			</button>
 		</form>
@@ -1117,11 +1117,17 @@
             data.compare_at_price=''
           }
           data.primary_media_src=product.media[0].src.replace(/.jpg/,'_{width}x.jpg');
-          data.second_media_id=product.media[1].id;
-          data.second_media_src=product.media[1].src.replace(/.jpg/,'_{width}x.jpg');
+          if(product.media[1]){
+            data.second_media_id=product.media[1].id;
+            data.second_media_src=product.media[1].src.replace(/.jpg/,'_{width}x.jpg');
+          }else{
+            data.second_media_id=product.media[0].id;
+            data.second_media_src=product.media[0].src.replace(/.jpg/,'_{width}x.jpg');
+          }
+
           data.first_variants_id=product.variants[0].id;
           data.ratingColor=this.ratingColor;
-
+          data.templateId=document.querySelector('.product-item .product-item__info form').getAttribute('id').split("--")[1];
           for (let i = 0 ,max=product.options[0].values.length; i <max ;i++) {
             let color={};
             let variants=product.options[0].values[i];
