@@ -907,36 +907,37 @@
 <script>
 
   ~function () {
-    class Product {
-      constructor(id) {
-        this.id = id;
-        this.url = '/products/' + id + '.js';
-        this.product = {};
-        this.data = {};
-        this.colors=[];
-        this.ratingColor='';
-      }
-      get_data() {
-        let url = this.url
-        return new Promise(function (resolve, reject) {
-          let xhr = null;
-          if (window.XMLHttpRequest) {
-            xhr = new XMLHttpRequest();
-          } else {
-            xhr = new ActiveXObject("Microsoft.XMLHTTP")
-          }
-          xhr.open('get', url, true);
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              if (xhr.status === 200) {
-                resolve(JSON.parse(xhr.responseText))
-              } else {
-                reject(xhr.status)
-              }
+    function getdata(spu){
+      return new Promise(function (resolve, reject) {
+        let xhr = null;
+        if (window.XMLHttpRequest) {
+          xhr = new XMLHttpRequest();
+        } else {
+          xhr = new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        let url='/products/' + spu + '.js';
+        xhr.open('get', url, true);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              resolve(JSON.parse(xhr.responseText))
+            } else {
+              reject(xhr.status)
             }
           }
-          xhr.send(null);
-        })
+        }
+        xhr.send(null);
+      })
+    }
+
+    class Product {
+      constructor(product,ratingColor) {
+        this.product = product;
+        this.ratingColor=ratingColor||'';
+        this.handle = product.handle;
+        this.url = '/products/' + product.handle + '.js';
+        this.el;
+        this.init();
       }
       temp (){
         return `
@@ -1057,13 +1058,13 @@
 					 data-image-widths="[200,300,400,500,600,700,800]"
 					 data-image-aspect-ratio="1.0"
 					 aria-label="#{value}">
-		<label class="color-swatch__item #{class}" style="background-color: #{value}" for="#{id}" title="#{value}">
+		<label class="color-swatch__item #{class}" for="#{id}" title="#{value}">
 			<span class="visually-hidden">#{value}</span>
 		</label>
 		<a href="#{url}" class="color-swatch__item-link">+#{num}</a>
 </div>`
       }
-      vdom(){
+      render(){
         let temp=this.temp();
         let colorTemp=this.color_temp();
         let str=temp.replace(/#{(\w+)}/g, (m, key)=>{
@@ -1085,17 +1086,8 @@
         }
         return dom.querySelector('.product-item');
       }
-      _render() {
-        let dom=this.vdom();
-        if(!this.data.compare_at_price){
-          dom.querySelector('.price--highlight').classList.remove('price--highlight')
-        }
-        document.querySelector('.product-list').prepend(dom);
-      }
-      async render() {
-        try {
-          let product = await this.get_data();
-          console.log(product)
+      init() {
+          let product =  this.product;
           let data={};
           let colors=[];
           data.id=product.id;
@@ -1136,13 +1128,13 @@
           for (let i = 0 ,max=product.options[0].values.length; i <max ;i++) {
             let color={};
             let variants=product.options[0].values[i];
-            color.name='template--15421235626199__main-'+product.id;
-            color.id='template--15421235626199__main-'+product.id+'-'+(i+1);
+            color.name='template--'+data.templateId+'-'+product.id;
+            color.id='template--'+data.templateId+'-'+product.id+'-'+(i+1);
             color.url='/products/'+product.handle;
             color.value=variants;
             color.num=max-i;
             color.value_l=variants.toLocaleLowerCase();
-            color.class=color.value_l.replace('/\s/g','_');
+            color.class=color.value_l.replace(/\s/g,'_');
             for (let j = 0; j < product.variants.length; j++) {
               let obj=product.variants[j]
               if(obj.option1===variants && obj['featured_media']){
@@ -1155,36 +1147,42 @@
             }
             colors.push(color)
           }
-
-          this.product=product;
           this.data=data;
           this.colors=colors;
-          this._render();
-        } catch (e) {
-          console.log('请求错误', e)
-        }
+
+          let newdom=this.render();
+          if(!this.data.compare_at_price){
+            newdom.querySelector('.price--highlight').classList.remove('price--highlight')
+          }
+          this.el=newdom;
+          return newdom;
       }
     }
+
+
     const searchURL=location.search;
     const params=new URLSearchParams(searchURL);
     const searchStr=Object.fromEntries(params);
     if(searchStr.spu){
-      let spu=searchStr['spu'].split(',')
-      let color;
-      if(searchStr.color){
-        color=searchStr['color'];
-      }else{
-        color='';
-      }
+      let spu=searchStr['spu'].split(',').reverse();
+      let color=searchStr.color?searchStr.color:'';
+      let promiseList=[];
       for (let i = 0; i <spu.length; i++) {
         let olddom=document.querySelector("a[href='/products/"+spu[i]+"']");
-        if(olddom){
-          olddom.parentNode.style.display='none';
-        }
-        let demo = new Product(spu[i]);
-        demo.ratingColor=color;
-        demo.render();
+        if(olddom){olddom.parentNode.style.display='none';}
+        let promiseItem=getdata(spu[i]);
+        promiseList.push(promiseItem);
       }
+      Promise.all(promiseList).then((arr)=>{
+        let fragment=document.createDocumentFragment();
+        for (let i = 0; i < arr.length; i++) {
+          let product=new Product(arr[i]);
+          fragment.prepend(product.el)
+        }
+        document.querySelector('.product-list').prepend(fragment);
+      }).catch(e=>{
+        console.log(e)
+      })
     }
   }()
 

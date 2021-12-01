@@ -14212,3 +14212,12 @@ shopify-payment-terms {
 .light_green{
   background-color: #bdc89e;
 }
+.grey{
+  background-color: grey;
+}
+.black{
+  background-color: black;
+}
+.color-swatch--view-more{
+  background-color: unset !important;
+}
