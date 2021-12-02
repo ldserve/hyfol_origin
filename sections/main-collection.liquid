@@ -1165,7 +1165,7 @@
     const searchStr=Object.fromEntries(params);
     if(searchStr.spu){
       let spu=searchStr['spu'].split(',').reverse();
-      let color=searchStr.color?searchStr.color:'';
+      var ratingColor=searchStr.color?searchStr.color:'';
       let promiseList=[];
       for (let i = 0; i <spu.length; i++) {
         let olddom=document.querySelector('a[href="/products/'+spu[i]+'"]');
@@ -1176,7 +1176,7 @@
       Promise.all(promiseList).then((arr)=>{
         let fragment=document.createDocumentFragment();
         for (let i = 0; i < arr.length; i++) {
-          let product=new Product(arr[i]);
+          let product=new Product(arr[i],ratingColor);
           fragment.prepend(product.el)
         }
         document.querySelector('.product-list').prepend(fragment);
