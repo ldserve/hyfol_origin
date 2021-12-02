@@ -1168,7 +1168,7 @@
       let color=searchStr.color?searchStr.color:'';
       let promiseList=[];
       for (let i = 0; i <spu.length; i++) {
-        let olddom=document.querySelector("a[href='/products/"+spu[i]+"']");
+        let olddom=document.querySelector('a[href="/products/'+spu[i]+'"]');
         if(olddom){olddom.parentNode.style.display='none';}
         let promiseItem=getdata(spu[i]);
         promiseList.push(promiseItem);
@@ -1180,7 +1180,7 @@
           fragment.prepend(product.el)
         }
         document.querySelector('.product-list').prepend(fragment);
-      }).catch(e=>{
+        }).catch(e=>{
         console.log(e)
       })
     }
