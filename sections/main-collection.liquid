@@ -920,9 +920,16 @@
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-              resolve(JSON.parse(xhr.responseText))
+              let data={};
+              data.code=1;
+              data.data=JSON.parse(xhr.responseText);
+              resolve(data)
             } else {
-              reject(xhr.status)
+              let data={};
+              data.code=0;
+              data.message=xhr.status;
+              data.data={};
+              resolve(data);
             }
           }
         }
@@ -1176,8 +1183,13 @@
       Promise.all(promiseList).then((arr)=>{
         let fragment=document.createDocumentFragment();
         for (let i = 0; i < arr.length; i++) {
-          let product=new Product(arr[i],ratingColor);
-          fragment.prepend(product.el)
+          if(arr[i].code){
+            let product=new Product(arr[i].data,ratingColor);
+            fragment.prepend(product.el);
+          }else{
+            let num=arr.length-i;
+            console.log(arr[i].message,'第'+num+'个参数')
+          }
         }
         document.querySelector('.product-list').prepend(fragment);
         }).catch(e=>{
