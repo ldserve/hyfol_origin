@@ -18,13 +18,13 @@
             "tabs": 1,
             "coums": 2,
             "image1": "shopify:\/\/shop_images\/01_317d541a-b457-4d9e-abce-294740207a10.jpg",
-            "link1": "https:\/\/www.hyfol.com\/collections\/hoodies-sweatshirts",
+            "link1": "shopify:\/\/collections\/long-sleeve",
             "image2": "shopify:\/\/shop_images\/03_d770f5a3-17e2-4de2-a60e-16e40dc4e249.jpg",
-            "link2": "https:\/\/www.hyfol.com\/collections\/outerwear",
+            "link2": "shopify:\/\/collections\/shorts",
             "image3": "shopify:\/\/shop_images\/06.jpg",
-            "link3": "https:\/\/www.hyfol.com\/collections\/shirts",
+            "link3": "shopify:\/\/collections\/hoodies",
             "image4": "shopify:\/\/shop_images\/07_3698cfd6-b41c-4856-aadb-2f6a705f865a.jpg",
-            "link4": "https:\/\/www.hyfol.com\/collections\/bottoms"
+            "link4": "shopify:\/\/collections\/sweatshirts"
           }
         },
         "742cc042-0ec7-4574-9e63-dbf7fabe4e41": {
