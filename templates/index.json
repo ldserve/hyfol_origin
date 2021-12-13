@@ -6,8 +6,8 @@
         "093dba4e-5495-47f1-a21b-0431a9d2a9fb": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/W2-PC_-4_02_6dd2ea9d-884f-4162-a040-f08cf95e5516.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/W3-M_-4_02.jpg",
+            "image": "shopify:\/\/shop_images\/PC__03_038c73d8-c8ec-413e-9968-97d85559b039.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/M__01_01.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -89,11 +89,20 @@
         "cycle_speed": 3
       }
     },
+    "163937456276e25a4f": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/PC__04_7573ba73-8436-4c6f-becd-819b54ee4f83.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M__01_02.jpg",
+        "link": "",
+        "shadow": false
+      }
+    },
     "16379144370948f06a": {
       "type": "no_space_img",
       "settings": {
-        "bg_image": "shopify:\/\/shop_images\/20211211-103614.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/20211211-103820.jpg",
+        "bg_image": "shopify:\/\/shop_images\/20211213-135421.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/20211213-135433.jpg",
         "link": "https:\/\/www.hyfol.com\/discount\/UNICEF",
         "shadow": false
       }
@@ -107,7 +116,7 @@
             "heading": "hodies1",
             "link": "shopify:\/\/collections\/hoodies",
             "left": 13,
-            "top": 23,
+            "top": 25,
             "width": 18,
             "height": 30
           }
@@ -118,7 +127,7 @@
             "heading": "T-Shirts",
             "link": "shopify:\/\/collections\/shirts",
             "left": 32,
-            "top": 23,
+            "top": 26,
             "width": 17,
             "height": 30
           }
@@ -129,7 +138,7 @@
             "heading": "outerwear1",
             "link": "shopify:\/\/collections\/outerwear",
             "left": 50,
-            "top": 23,
+            "top": 26,
             "width": 18,
             "height": 29
           }
@@ -140,7 +149,7 @@
             "heading": "Sweaters",
             "link": "shopify:\/\/collections\/sweater",
             "left": 69,
-            "top": 23,
+            "top": 26,
             "width": 18,
             "height": 30
           }
@@ -151,7 +160,7 @@
             "heading": "BOTTOMS",
             "link": "shopify:\/\/collections\/bottoms",
             "left": 13,
-            "top": 55,
+            "top": 60,
             "width": 18,
             "height": 28
           }
@@ -162,7 +171,7 @@
             "heading": "Sweatshirts",
             "link": "shopify:\/\/collections\/sweatshirts",
             "left": 32,
-            "top": 55,
+            "top": 60,
             "width": 17,
             "height": 28
           }
@@ -173,7 +182,7 @@
             "heading": "CAPHAT",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 50,
-            "top": 54,
+            "top": 59,
             "width": 18,
             "height": 31
           }
@@ -184,7 +193,7 @@
             "heading": "Jewelry",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 69,
-            "top": 54,
+            "top": 60,
             "width": 18,
             "height": 30
           }
@@ -204,7 +213,7 @@
         "hidDesk": false,
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/W2-PC__04.jpg",
+        "image": "shopify:\/\/shop_images\/PC__06_791bed27-d1e2-4529-9464-ae9ff77aa94d.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -552,6 +561,7 @@
   },
   "order": [
     "slideshow",
+    "163937456276e25a4f",
     "16379144370948f06a",
     "1635759577ba76b918",
     "1635759941961a18e2",
