@@ -69,8 +69,8 @@
         "2387415b-9519-418e-8c17-7ce70355de1c"
       ],
       "settings": {
-        "cjj_pro_bg_top": "shopify:\/\/shop_images\/s_01.png",
-        "cjj_pro_bg_bottom": "shopify:\/\/shop_images\/s_03.jpg",
+        "cjj_pro_bg_top": "shopify:\/\/shop_images\/800x800__01.png",
+        "cjj_pro_bg_bottom": "shopify:\/\/shop_images\/800x800__03.jpg",
         "image_size": "small",
         "enable_video_looping": false,
         "enable_image_zoom": true,
