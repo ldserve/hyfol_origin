@@ -391,8 +391,8 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__08_4468001d-a867-4eb1-8550-390356e1473f.jpg",
         "web_image": "shopify:\/\/shop_images\/M__05_18b503d4-51b3-4c67-80d7-b55aeb879ced.jpg",
-        "link": "",
-        "collection": "",
+        "link": "shopify:\/\/collections\/long-sleeve-series",
+        "collection": "long-sleeve-series",
         "title": "",
         "products_count": 12,
         "layout": "vertical",
