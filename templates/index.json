@@ -459,13 +459,13 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__16.jpg",
         "web_image": "shopify:\/\/shop_images\/M__13_50853cbc-f0f4-40d9-8e76-45f58c02dcea.jpg",
-        "link": "",
-        "collection": "",
+        "link": "shopify:\/\/collections\/pants-series",
+        "collection": "pants-series",
         "title": "",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
-        "show_quick_buy": true,
+        "show_quick_buy": false,
         "link_title": "",
         "link_bg": "#1b1b1b",
         "link_url": ""
