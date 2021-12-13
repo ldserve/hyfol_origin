@@ -280,7 +280,7 @@
           "type": "link",
           "settings": {
             "heading": "hoodies3",
-            "link": "shopify:\/\/collections\/hoodies",
+            "link": "shopify:\/\/collections\/hoodies-1",
             "left": 3,
             "top": 14,
             "width": 46,
@@ -291,7 +291,7 @@
           "type": "link",
           "settings": {
             "heading": "T-shirts",
-            "link": "shopify:\/\/collections\/shirts",
+            "link": "shopify:\/\/collections\/shirts-12-13",
             "left": 51,
             "top": 14,
             "width": 46,
@@ -302,7 +302,7 @@
           "type": "link",
           "settings": {
             "heading": "outerwear3",
-            "link": "shopify:\/\/collections\/outerwear",
+            "link": "shopify:\/\/collections\/outerwear_hyfol",
             "left": 3,
             "top": 35,
             "width": 46,
@@ -324,7 +324,7 @@
           "type": "link",
           "settings": {
             "heading": "bottoms3",
-            "link": "shopify:\/\/collections\/bottoms",
+            "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 3,
             "top": 57,
             "width": 46,
@@ -335,7 +335,7 @@
           "type": "link",
           "settings": {
             "heading": "SWEATSHIRTS",
-            "link": "shopify:\/\/collections\/sweatshirts",
+            "link": "shopify:\/\/collections\/sweatshirts-12-13",
             "left": 51,
             "top": 57,
             "width": 46,
