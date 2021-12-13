@@ -114,7 +114,7 @@
           "type": "link",
           "settings": {
             "heading": "hodies1",
-            "link": "shopify:\/\/collections\/hoodies",
+            "link": "shopify:\/\/collections\/hoodies-1",
             "left": 13,
             "top": 25,
             "width": 18,
@@ -125,7 +125,7 @@
           "type": "link",
           "settings": {
             "heading": "T-Shirts",
-            "link": "shopify:\/\/collections\/shirts",
+            "link": "shopify:\/\/collections\/shirts-12-13",
             "left": 32,
             "top": 26,
             "width": 17,
@@ -158,7 +158,7 @@
           "type": "link",
           "settings": {
             "heading": "BOTTOMS",
-            "link": "shopify:\/\/collections\/pants-12-13",
+            "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 13,
             "top": 60,
             "width": 18,
