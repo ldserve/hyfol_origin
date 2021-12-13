@@ -386,11 +386,28 @@
         "lpadding": 0
       }
     },
-    "163703402842074b11": {
+    "1639375466adf92990": {
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__08_4468001d-a867-4eb1-8550-390356e1473f.jpg",
         "web_image": "shopify:\/\/shop_images\/M__05_18b503d4-51b3-4c67-80d7-b55aeb879ced.jpg",
+        "link": "",
+        "collection": "",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "",
+        "link_bg": "",
+        "link_url": ""
+      }
+    },
+    "163703402842074b11": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/PC__10_9172a540-6a8e-40eb-936e-ce6ea28ab5bd.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__07_d49e3021-4b1d-4de6-805d-06e2ef9999f3.jpg",
         "link": "shopify:\/\/collections\/christmas-sale",
         "collection": "christmas-sale",
         "title": "",
@@ -406,8 +423,8 @@
     "16370340305dc8e943": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/W2-PC__07.jpg",
-        "web_image": "shopify:\/\/shop_images\/M__09.jpg",
+        "image": "shopify:\/\/shop_images\/PC__14.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__11_dea8fa7c-75c4-466e-8063-f2d45ab285d9.jpg",
         "link": "shopify:\/\/collections\/hoodies",
         "collection": "hoodies",
         "title": "",
@@ -423,8 +440,8 @@
     "1637912993ea7868d3": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/W2-PC__09.jpg",
-        "web_image": "shopify:\/\/shop_images\/M__11.jpg",
+        "image": "shopify:\/\/shop_images\/PC__12.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__09_e73eb3ee-5777-4df1-868f-b967b7fba6df.jpg",
         "link": "shopify:\/\/collections\/outerwear",
         "collection": "outerwear",
         "title": "",
@@ -440,10 +457,10 @@
     "1635843412f4572d8b": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/W2-PC__11.jpg",
-        "web_image": "shopify:\/\/shop_images\/M__13.jpg",
-        "link": "shopify:\/\/collections\/all-from-9-9",
-        "collection": "all-from-9-9",
+        "image": "shopify:\/\/shop_images\/PC__16.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__13_50853cbc-f0f4-40d9-8e76-45f58c02dcea.jpg",
+        "link": "",
+        "collection": "",
         "title": "",
         "products_count": 12,
         "layout": "vertical",
@@ -456,6 +473,7 @@
     },
     "16358433881f937e14": {
       "type": "featured-collection-img",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/add18d14278712d662e79a890f7f6c3c.jpg",
         "web_image": "shopify:\/\/shop_images\/7834265fc75309aed669d609d96ae2b4.jpg",
@@ -474,8 +492,8 @@
     "16360968581831caac": {
       "type": "slide-product",
       "settings": {
-        "desk_image": "shopify:\/\/shop_images\/M__15.jpg",
-        "web_image": "shopify:\/\/shop_images\/M__15.jpg",
+        "desk_image": "shopify:\/\/shop_images\/M__15_5eec2df7-80cf-4ce4-9c65-2f2724bae98e.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__15_5eec2df7-80cf-4ce4-9c65-2f2724bae98e.jpg",
         "link": "shopify:\/\/collections\/women",
         "collection": "women",
         "products_count": 12,
@@ -489,6 +507,15 @@
         "button_link": "",
         "button_text_color": "#0774d7",
         "button_background": "#ffffff"
+      }
+    },
+    "1639378018bdd37462": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/PC__18.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M__17.jpg",
+        "link": "",
+        "shadow": false
       }
     },
     "1635995528b96ef09c": {
@@ -566,12 +593,14 @@
     "1635759577ba76b918",
     "1635759941961a18e2",
     "16357602965b96c401",
+    "1639375466adf92990",
     "163703402842074b11",
     "16370340305dc8e943",
     "1637912993ea7868d3",
     "1635843412f4572d8b",
     "16358433881f937e14",
     "16360968581831caac",
+    "1639378018bdd37462",
     "1635995528b96ef09c",
     "1636182255e275c0a7",
     "163577127440e8d6d7",
