@@ -514,7 +514,7 @@
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/PC__18.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/M__17.jpg",
-        "link": "",
+        "link": "shopify:\/\/collections\/essential",
         "shadow": false
       }
     },
