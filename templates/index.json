@@ -136,7 +136,7 @@
           "type": "link",
           "settings": {
             "heading": "outerwear1",
-            "link": "shopify:\/\/collections\/outerwear",
+            "link": "shopify:\/\/collections\/outerwear_hyfol",
             "left": 50,
             "top": 26,
             "width": 18,
@@ -158,7 +158,7 @@
           "type": "link",
           "settings": {
             "heading": "BOTTOMS",
-            "link": "shopify:\/\/collections\/bottoms",
+            "link": "shopify:\/\/collections\/pants-series",
             "left": 13,
             "top": 60,
             "width": 18,
@@ -169,7 +169,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweatshirts",
-            "link": "shopify:\/\/collections\/sweatshirts",
+            "link": "",
             "left": 32,
             "top": 60,
             "width": 17,
