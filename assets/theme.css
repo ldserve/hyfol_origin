@@ -14068,10 +14068,18 @@ shopify-payment-terms {
   display: block !important;
 }
 .car_postage,
-.car_discount{
+.car_discount,
+.car_lucky {
   font-weight: 700;
 }
+.car_lucky {
+  color:#b82928;
+}
 
+.car_lucky .icon{
+  font-size: 30px;
+  margin-right: 10px;
+}
 .car_postage .icon{
   font-size: 30px;
   margin-right: 10px;
@@ -14117,6 +14125,9 @@ shopify-payment-terms {
 }
 .d-flex{
   display: flex;
+}
+.d-none{
+  display: none;
 }
 
 .font-60{

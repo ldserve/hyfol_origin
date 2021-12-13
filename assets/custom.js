@@ -73,4 +73,18 @@
     },10);
   }
 }()
+~function () {
+
+  function callback(){
+    let show=sessionStorage.getItem('luckyDog');
+    if(show==1){
+      document.querySelectorAll('.car_lucky').forEach(item=>{item.style.display='block';})
+    }
+  }
+  callback()
+  let sections= document.querySelector("#mini-cart");
+  let sections2= document.querySelector(".cart-wrapper__inner-inner");
+  const observer=new MutationObserver(callback)
+  observer.observe(sections,{childList:true,subtree:true})
+}()
 
