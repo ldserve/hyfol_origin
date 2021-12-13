@@ -55,6 +55,18 @@
     {% endif %}
   <script>
     console.log("order",{{checkout.id}})
+    ~function () {
+  		let demo =document.querySelectorAll(".reduction-code__text")
+  		if(Array.from(demo).some(item=>item.innerHTML=='UNICEF')){
+    		let sections= document.querySelector(".order-summary__sections");
+    		let ref= document.querySelector(".order-summary__section--total-lines");
+    		let newchild=document.createElement("div");
+    		newchild.innerHTML='We will donate to Unicef when you use code: UNICEF buy any items';
+    		newchild.classList.add('tips-unicef')
+    		newchild.style.paddingBottom='20px'
+    		sections.insertBefore(newchild,ref)
+  		}
+	}()
   </script>
   </body>
 </html>
