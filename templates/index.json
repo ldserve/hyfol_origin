@@ -284,7 +284,7 @@
             "left": 3,
             "top": 13,
             "width": 46,
-            "height": 20
+            "height": 19
           }
         },
         "946f9474-e9e3-4a48-889e-eb94b84ddae1": {
@@ -295,7 +295,7 @@
             "left": 51,
             "top": 13,
             "width": 46,
-            "height": 20
+            "height": 19
           }
         },
         "29d264b3-1358-40e5-affe-75e368b387bd": {
@@ -306,7 +306,7 @@
             "left": 3,
             "top": 34,
             "width": 46,
-            "height": 19
+            "height": 18
           }
         },
         "f79bb545-2187-4e88-a746-7628fde4cdc0": {
@@ -317,7 +317,7 @@
             "left": 51,
             "top": 34,
             "width": 46,
-            "height": 19
+            "height": 18
           }
         },
         "b4976b7a-8ed3-4ba1-b2e3-dab9bff9b832": {
@@ -326,7 +326,7 @@
             "heading": "bottoms3",
             "link": "shopify:\/\/collections\/bottoms",
             "left": 3,
-            "top": 55,
+            "top": 53,
             "width": 46,
             "height": 19
           }
@@ -337,7 +337,7 @@
             "heading": "SWEATSHIRTS",
             "link": "shopify:\/\/collections\/sweatshirts",
             "left": 51,
-            "top": 55,
+            "top": 53,
             "width": 46,
             "height": 19
           }
@@ -348,7 +348,7 @@
             "heading": "caphat3",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 3,
-            "top": 76,
+            "top": 73,
             "width": 46,
             "height": 20
           }
@@ -359,7 +359,7 @@
             "heading": "JEWELRY",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 51,
-            "top": 76,
+            "top": 73,
             "width": 46,
             "height": 20
           }
@@ -379,7 +379,7 @@
         "hidDesk": true,
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/M__05.jpg",
+        "image": "shopify:\/\/shop_images\/M__04_01.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -389,8 +389,8 @@
     "163703402842074b11": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/W2-PC__05_ef6ad033-1cc6-4b6e-8864-3fd32cb3823b.jpg",
-        "web_image": "shopify:\/\/shop_images\/M__07.jpg",
+        "image": "shopify:\/\/shop_images\/PC__08_4468001d-a867-4eb1-8550-390356e1473f.jpg",
+        "web_image": "shopify:\/\/shop_images\/M__05_18b503d4-51b3-4c67-80d7-b55aeb879ced.jpg",
         "link": "shopify:\/\/collections\/christmas-sale",
         "collection": "christmas-sale",
         "title": "",
