@@ -393,14 +393,14 @@
         "web_image": "shopify:\/\/shop_images\/M__05_18b503d4-51b3-4c67-80d7-b55aeb879ced.jpg",
         "link": "shopify:\/\/collections\/long-sleeve-series",
         "collection": "long-sleeve-series",
-        "title": "",
+        "title": "0000000",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": false,
         "link_title": "",
-        "link_bg": "",
-        "link_url": ""
+        "link_bg": "rgba(0,0,0,0)",
+        "link_url": "shopify:\/\/collections\/all"
       }
     },
     "163703402842074b11": {
