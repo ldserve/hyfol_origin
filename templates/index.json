@@ -100,6 +100,7 @@
     },
     "16379144370948f06a": {
       "type": "no_space_img",
+      "disabled": true,
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/20211213-135421.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/20211213-135433.jpg",
