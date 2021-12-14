@@ -8,6 +8,23 @@
     "theme_support_url": "https:\/\/support.maestrooo.com\/article\/203-contact-us"
   },
   {
+    "name": "首页雪花",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "showFlake",
+        "label": "下雪",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "flakeImg",
+        "label": "雪花图片",
+        "info": "缺省为小白点"
+      }
+    ]
+  },
+  {
     "name": "购物车进度条",
     "settings": [
       {

@@ -34,7 +34,7 @@
  * }));
  */
 /*回到顶部*/
-!function (){
+~function (){
   let gotop=document.querySelector('#gotop');
   function throttle(method,delay){
     var timer=null;
@@ -73,6 +73,8 @@
     },10);
   }
 }()
+
+/*购物车观察变化，更新是否显示赠送抽奖项链*/
 ~function () {
 
   function callback(){
