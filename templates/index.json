@@ -157,7 +157,7 @@
         "82915f86-ec2e-4e8e-a250-039d150d0a81": {
           "type": "link",
           "settings": {
-            "heading": "BOTTOMS",
+            "heading": "Bottoms",
             "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 13,
             "top": 60,
@@ -179,8 +179,8 @@
         "ec7c2a21-4ae6-4a65-bfa4-3ca59f901994": {
           "type": "link",
           "settings": {
-            "heading": "CAP&HAT",
-            "link": "https:\/\/www.hyfol.com\/collections\/cap-hat",
+            "heading": "HAT",
+            "link": "shopify:\/\/collections\/cap-hat",
             "left": 50,
             "top": 59,
             "width": 18,
