@@ -175,6 +175,7 @@
           this.lucky = obj.lucky;
           this.el=obj.el;
           this.overdueTime=obj.overdueTime||30;
+          this.tomorrow=obj.time||1;
           this.startButton=obj.el.querySelector(".lucky-start");
           this.closeButton=obj.el.querySelector(".lucky-close");
           this.luckyPlateY1Y=obj.el.querySelector(".lucky-plate-y1y");
@@ -194,15 +195,23 @@
           this.closeButton.onclick=()=>this.close();
           document.querySelector(".lucky-dog").onclick=()=>this.close();
         }
-        permission(){
+        permission(e){
           let surpriseTime=localStorage.getItem("surpriseTime");
+          let closeTime=localStorage.getItem("closeTime");
+          let now=new Date().getTime();
+          let license=true;
+          let tomorrow=true;
           if(surpriseTime){
+            console.log(1)
             let overdue=parseInt(surpriseTime)+this.overdueTime*24*3600*1000;
-            let now=new Date().getTime();
-            return now>overdue;
-          }else{
-            return true;
+            license = now > overdue;
           }
+          if(closeTime){
+            console.log(2)
+            let nexTime=parseInt(closeTime)+this.tomorrow*24*3600*1000;
+            tomorrow=now > nexTime;
+          }
+          return !!(license && tomorrow);
         }
         isOverdue(time){
           let overdue=parseInt(time)+30*24*3600*1000;
@@ -239,6 +248,7 @@
           this.plate.style.transform="rotate("+deg+"deg)";
         }
         close(){
+          localStorage.setItem("closeTime",new Date().getTime().toString());
           this.el.style.display='none';
           this.el.parentNode.removeChild(this.el);
         }
@@ -293,7 +303,8 @@
       let surp=new Surprise({
         lucky: {{ section.settings.lucky }},
         el:el,
-        overdueTime:30
+        overdueTime:30,
+				time:1
       });
       if( surp.permission()){
         el.style.display='block'
