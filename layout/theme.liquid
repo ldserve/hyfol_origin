@@ -52,6 +52,7 @@
     {% render 'css-variables' %}
 
     {{ content_for_header }}
+{% render 'globo.alsobought.script' %}
 
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
@@ -274,7 +275,7 @@
     {% section 'surprise' %}
 
     <main id="main" role="main">
-      {{ content_for_layout }}
+      <div class="globoRecommendationsTop"></div>{{ content_for_layout }}{% render 'globo.alsobought.action' %}
 <limespot></limespot>
     </main>
 
