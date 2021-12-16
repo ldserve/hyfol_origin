@@ -6,7 +6,7 @@
 			this.maxFlake=obj.maxFlake||500;
 			this.ctx=null;
 			this.flakeSize=obj.flakeSize||10;
-			this.fallSpeed=obj.fallSpeed||1;
+			this.fallSpeed=obj.fallSpeed||0.8;
 			this.imgSrc=obj.imgSrc||0;
 		}
 		start(){
