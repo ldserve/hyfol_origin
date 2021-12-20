@@ -179,6 +179,7 @@
         "blocks": {
           "ccab5dcb-d3a7-4a2e-9c0e-6699c88abf2e": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "FREE STANDARD SHIPPING ON ORDERS OVER $50",
               "link": ""
