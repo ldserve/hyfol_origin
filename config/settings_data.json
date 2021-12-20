@@ -216,7 +216,7 @@
         "settings": {
           "show_announcement": true,
           "background": "#b82928",
-          "one_round": 10,
+          "one_round": 5,
           "text_color": "#ffffff",
           "link": "",
           "show_newsletter": false,
