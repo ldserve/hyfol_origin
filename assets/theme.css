@@ -14126,6 +14126,9 @@ shopify-payment-terms {
 .d-flex{
   display: flex;
 }
+.d-flex-1 {
+  flex: 0 0 50%;
+}
 .d-none{
   display: none;
 }
