@@ -60,11 +60,11 @@
     	let demo =document.querySelectorAll(".reduction-code__text")
     	let tipel =document.querySelector(".tips-unicef");
     	let sections= document.querySelector(".order-summary__sections");
-    	if(Array.from(demo).some(item=>item.innerHTML=='UNICEF')){
+    	if(Array.from(demo).some(item=>item.innerHTML=='BLUE')){
       	  if(!tipel){
             let ref= document.querySelector(".order-summary__section--total-lines");
             let newchild=document.createElement("div");
-            newchild.innerHTML='We will donate to Unicef when you use code: UNICEF buy any items';
+            newchild.innerHTML='We will attach a gift box for you when you use this code';
        	    newchild.classList.add('tips-unicef')
        	    newchild.style.paddingBottom='20px'
        	    sections.insertBefore(newchild,ref)
