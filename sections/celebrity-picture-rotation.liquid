@@ -197,6 +197,10 @@
     #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right {
         padding:2rem;
     }
+    #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right .product-meta__title{
+        margin-right: 1rem;
+    }
+    
     #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right .modal__inner__right__bottom{
         word-wrap: break-word;
         word-break: break-all;
@@ -222,6 +226,9 @@
         font-size: 1.5rem;
         color: {{settings.accent_color}};
     }
+    #shopify-section-{{ section.id }} .modal__dialog .modal__inner__right .modal__inner__right__bottom .product-meta__share-buttons{
+        justify-content: flex-end;
+    }
     @media screen and (max-width: 641px) {
         .btn_hide--max641{
             display: none !important;
@@ -244,7 +251,7 @@
         #shopify-section-{{ section.id }} .modal__close {
             position: fixed;
             right: 1.5rem;
-            top: 1rem;
+            top: 0.5rem;
             border: 2px solid #fff;
             border-radius: 50%;
             color: #ccc;
@@ -266,11 +273,18 @@
             width: 100%;
             height: auto !important;
         }
-        #shopify-section-{{ section.id }} .modal__inner__right {
+        #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right {
             height: 45%;
             overflow-y: auto;
+            padding: 1rem;
         }
-        #shopify-section-{{ section.id }} .modal__inner__right .product-form__add-button {
+        #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right .modal__inner__right__top div:first-child{
+            flex: 0 0 40%;
+        }
+        #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right .modal__inner__right__top div:nth-child(2){
+            flex: 0 0 60%;
+        }
+        #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right .product-form__add-button {
             padding: 0 5px;
         }
         
@@ -394,15 +408,13 @@
     }
     function openForm(){
         let html = document.getElementsByTagName('html')[0]
-        console.log(html)
-        html.style.overflow="hidden"
+        html.classList.add("is-locked");
         let el = box.querySelector("#powr-form-builder__box")
         el.style.display = 'block'
     }
     function closeForm(){ 
         let html = document.getElementsByTagName('html')[0]
-        console.log(html)
-        html.style.overflow="auto"
+        html.classList.remove('is-locked')
         let el = box.querySelector("#powr-form-builder__box")
         el.style.display = 'none'
     }
@@ -459,7 +471,7 @@
                         <h5 class="product-meta__title h5">
                             <a href="${data.url}">${data.title}</a>
                         </h5>
-                        <h2 class="h1">
+                        <h2 class="h2">
                             <span>$${(data.price/100).toFixed(2)}</span>
                         </h2>
                         <button type="button" class="product-form__add-button button button--primary" ><a href="${data.url}">SHOP NOW</a></button>
@@ -475,7 +487,7 @@
                             ${dateString}
                         </span>
                     </div>
-                    <div class="h5">${textBottom}</div>
+                    <div class="h6">${textBottom}</div>
                     <div class="product-meta__share-buttons">
                         <ul class="social-media__item-list list--unstyled" role="list">
                             <li class="social-media__item social-media__item--facebook">
