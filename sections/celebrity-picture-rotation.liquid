@@ -25,7 +25,7 @@
                         data-secondary-action="open-quick-view" 
                         aria-controls="modal-quick-view-{{ section.id }}" 
                         data-product-url="{{ image_url }}"
-                        onclick="handleImg('{{forloop.index0}}','{{block.settings.pro.handle}}','{{block.settings.textBottom}}','{{image_url}}','{{block.settings.dateString}}')"
+                        onclick='handleImg("{{forloop.index0}}","{{block.settings.pro.handle}}","{{block.settings.textBottom}}","{{image_url}}","{{block.settings.dateString}}")'
                     >
                         <div class="celebrity-picture-rotation-container-item-mask"> </div>
                         {%- render 'icon', icon: 'ins-camera', class:'celebrity-picture-rotation-container-item-icon' -%}
