@@ -44,7 +44,7 @@
             </div>
         </div>
         <span class="cpr_scroller__ctrl cpr_ctrl-prev" onclick="btnClick('prev')">{%- render 'icon', icon: 'arrow-left' -%}</span>
-        <span class="cpr_scroller__ctrl cpr_ctrl-prev" onclick="btnClick('next')">{%- render 'icon', icon: 'arrow-right' -%}</span>
+        <span class="cpr_scroller__ctrl cpr_ctrl-next" onclick="btnClick('next')">{%- render 'icon', icon: 'arrow-right' -%}</span>
         <div class="powr-form__button">
             <button type="button"  class="product-form__add-button button button--primary " onclick="openForm()">BE OUR AMBASSADORS</button>
         </div>
@@ -154,7 +154,7 @@
 	#shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
 		left: 10px;
 	}
-	#shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
+	#shopify-section-{{ section.id }} .container .cpr_ctrl-next {
 		right: 10px;
 	}
 	#shopify-section-{{ section.id }} .container:hover .cpr_scroller__ctrl {
@@ -264,7 +264,7 @@
         #shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
 		    left: 15px;
         }
-        #shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
+        #shopify-section-{{ section.id }} .container .cpr_ctrl-next {
             right: 15px;
         }
         #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container-item {
@@ -388,7 +388,7 @@
     var list = content.querySelector(".scroller__inner");
     var items = content.querySelectorAll(".celebrity-picture-rotation-container-item");
     var pre = content.querySelector('.cpr_ctrl-prev');
-    var next = content.querySelector('.cpr_ctrl-prev');
+    var next = content.querySelector('.cpr_ctrl-next');
     /*当前轮播索引*/
     var carouselCurrent;
     /*获取屏幕宽度*/
