@@ -487,9 +487,9 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/2_b79a1bdc-942a-4bae-be1a-2275211eb0fb.jpg",
-            "pro": "",
-            "textBottom": "",
-            "dateString": ""
+            "pro": "t31011952cq",
+            "textBottom": "<p>1<\/p>",
+            "dateString": "2012\/12\/13"
           }
         },
         "5b40460b-b748-4e3c-b9f8-e9c975ff2028": {
@@ -539,7 +539,7 @@
       ],
       "settings": {
         "title": "#Hyfol_official",
-        "description": "<p>Show us how you match. Label your  post.@Hyfol_official<\/p>"
+        "description": "<p>Show us how you match. Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
       }
     },
     "16360968581831caac": {
