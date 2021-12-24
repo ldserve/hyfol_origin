@@ -27,6 +27,8 @@
                         data-product-url="{{ image_url }}"
                         onclick="handleImg('{{forloop.index0}}','{{block.settings.pro.handle}}','{{block.settings.textBottom}}','{{image_url}}','{{block.settings.dateString}}')"
                     >
+                        <div class="celebrity-picture-rotation-container-item-mask"> </div>
+                        {%- render 'icon', icon: 'ins-camera', class:'celebrity-picture-rotation-container-item-icon' -%}
                         {%- capture image_sizes -%}
                             {%- render 'image-size', sizes: '100,200,300,400,500,600,700,800,900,1000', image: block.settings.image -%}
                         {%- endcapture -%}
@@ -108,7 +110,6 @@
     #shopify-section-{{ section.id }} #powr-form-builder__box{
         display: none;
         position: fixed;
-        
         top: 0;
         left: 0;
         right: 0;
@@ -165,11 +166,37 @@
     }
     #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container-item {
         display: inline-block;
+        position: relative;
         width: 16.66%;
         cursor:pointer;
         box-sizing: border-box;
         text-align: center;
         padding: 0 5px;
+    }
+    #shopify-section-{{ section.id }} .celebrity-picture-rotation-container-item-mask{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #fff;
+        opacity: 0;
+    }
+    #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container-item  svg {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -20px;
+        margin-left: -20px;
+        width: 40px;
+        height: 40px;
+        opacity: 0;
+    }
+    #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container-item:hover svg{
+        opacity: 1;
+        transition: all .3s ease-in-out
+    }
+    #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container-item:hover .celebrity-picture-rotation-container-item-mask {
+        opacity: .8;
+        transition: all .3s ease-in-out
     }
     #shopify-section-{{ section.id }}  .modal__dialog--stretch {
         width: calc(100% - 160px);
