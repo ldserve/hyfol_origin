@@ -43,8 +43,8 @@
                 {%- endfor -%}
             </div>
         </div>
-        <span class="cjj_scroller__ctrl ctrl-prev" onclick="btnClick('prev')">{%- render 'icon', icon: 'arrow-left' -%}</span>
-        <span class="cjj_scroller__ctrl ctrl-next" onclick="btnClick('next')">{%- render 'icon', icon: 'arrow-right' -%}</span>
+        <span class="cpr_scroller__ctrl cpr_ctrl-prev" onclick="btnClick('prev')">{%- render 'icon', icon: 'arrow-left' -%}</span>
+        <span class="cpr_scroller__ctrl cpr_ctrl-prev" onclick="btnClick('next')">{%- render 'icon', icon: 'arrow-right' -%}</span>
         <div class="powr-form__button">
             <button type="button"  class="product-form__add-button button button--primary " onclick="openForm()">BE OUR AMBASSADORS</button>
         </div>
@@ -130,7 +130,7 @@
     #shopify-section-{{ section.id }} .celebrity-picture-rotation-container .scroller__inner {
         overflow: visible;
     }
-    #shopify-section-{{ section.id }} .container .cjj_scroller__ctrl {
+    #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl {
 		height: 50px;
 		width: 30px;
 		line-height: 50px;
@@ -148,16 +148,16 @@
 		bottom: calc(50%);
         margin-top: 25px;
 	}
-    #shopify-section-{{ section.id }} .container .cjj_scroller__ctrl:hover {
+    #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl:hover {
 		background: var(--accent-color);
 	}
-	#shopify-section-{{ section.id }} .container .ctrl-prev {
+	#shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
 		left: 10px;
 	}
-	#shopify-section-{{ section.id }} .container .ctrl-next {
+	#shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
 		right: 10px;
 	}
-	#shopify-section-{{ section.id }} .container:hover .cjj_scroller__ctrl {
+	#shopify-section-{{ section.id }} .container:hover .cpr_scroller__ctrl {
 		opacity: 1;
 		transform: scale(1.34);
     }
@@ -261,10 +261,10 @@
         .btn_hide--max641{
             display: none !important;
         }
-        #shopify-section-{{ section.id }} .container .ctrl-prev {
+        #shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
 		    left: 15px;
         }
-        #shopify-section-{{ section.id }} .container .ctrl-next {
+        #shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
             right: 15px;
         }
         #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container-item {
@@ -369,9 +369,9 @@
     }
 </style>
 <script>
-    //当前点击图片索引
+    /*当前点击图片索引*/
     let dialogCurrentIndex = Number;
-    //获取blocks
+    /*获取blocks*/
     var blocks = [];
     {%- for block in section.blocks -%}
     {%- assign image_url = block.settings.image | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
@@ -383,15 +383,15 @@
         }
         );
     {%- endfor-%}
-    var box=document.getElementById('shopify-section-{{ section.id }}')
-    var content = box.querySelector(".celebrity-picture-rotation-container")
-    var list = content.querySelector(".scroller__inner")
-    var items = content.querySelectorAll(".celebrity-picture-rotation-container-item")
-    var pre = content.querySelector('.ctrl-prev')
-    var next = content.querySelector('.ctrl-next')
-    //当前轮播索引
-    var carouselCurrent
-    //获取屏幕宽度
+    var box=document.getElementById('shopify-section-{{ section.id }}');
+    var content = box.querySelector(".celebrity-picture-rotation-container");
+    var list = content.querySelector(".scroller__inner");
+    var items = content.querySelectorAll(".celebrity-picture-rotation-container-item");
+    var pre = content.querySelector('.cpr_ctrl-prev');
+    var next = content.querySelector('.cpr_ctrl-prev');
+    /*当前轮播索引*/
+    var carouselCurrent;
+    /*获取屏幕宽度*/
     var w = window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
     if(w <= 640) {
         carouselCurrent = 1
@@ -399,8 +399,8 @@
         carouselCurrent = 3
     }else if (w > 1000 ){
         carouselCurrent = 6
-    }
-    list.style.transform = "translateX(-"+0+"px)"
+    };
+    list.style.transform = "translateX(-"+0+"px)";
     list.cssName = function (name){
         var prefixes = ['', '-ms-','-moz-', '-webkit-', '-khtml-', '-o-'],
         rcap = /-([a-z])/g,capfn = function($0,$1){
@@ -417,35 +417,35 @@
           return null;
         }
         return list.cssName(name);
-      }
+    };
     css3transition = list.cssName("transition");
-    list.style[css3transition] = "all .3s ease-in"
+    list.style[css3transition] = "all .3s ease-in";
     function btnClick(type) {
         let st  = window.getComputedStyle(list, null);
         let curTransformX =  parseFloat(st.transform.substring(6).split(',')[4])
         let itemwidth = content.querySelectorAll(".celebrity-picture-rotation-container-item")[0].offsetWidth
         if(type === 'prev'){
             if(carouselCurrent === 1 || (w > 640 && w<= 999 && carouselCurrent === 3) || w > 1000 && carouselCurrent === 6) return 
-            carouselCurrent -- 
-            list.style.transform = "translateX("+(curTransformX + itemwidth)+"px)"
+            carouselCurrent -- ;
+            list.style.transform = "translateX("+(curTransformX + itemwidth)+"px)";
         } else if( type === 'next') {
             if(carouselCurrent === blocks.length) return
-            carouselCurrent ++
-            list.style.transform = "translateX("+(curTransformX - itemwidth)+"px)"
+            carouselCurrent ++;
+            list.style.transform = "translateX("+(curTransformX - itemwidth)+"px)";
         }
-    }
+    };
     function openForm(){
         let html = document.getElementsByTagName('html')[0]
         html.classList.add("is-locked");
         let el = box.querySelector("#powr-form-builder__box")
         el.style.display = 'block'
-    }
+    };
     function closeForm(){ 
         let html = document.getElementsByTagName('html')[0]
         html.classList.remove('is-locked')
         let el = box.querySelector("#powr-form-builder__box")
         el.style.display = 'none'
-    }
+    };
     function getdata(spu){
         return new Promise(function (resolve, reject) {
           let xhr = null;
@@ -474,7 +474,7 @@
           }
           xhr.send(null);
         })
-    }
+    };
     function handleImg(index,handle,textBottom,image_url,dateString) {
         dialogCurrentIndex = Number(index)
         var modal = document.getElementById('modal-quick-view-{{ section.id }}')
@@ -532,16 +532,16 @@
                 `
                 modal.classList.remove('is-loading');
         }) 
-    }
+    };
     function changeImage(type){
         let computedIndex  = Number;
         if(type === 'prev'){
-            computedIndex = dialogCurrentIndex === 0 ? blocks.length - 1 : dialogCurrentIndex - 1
+            computedIndex = dialogCurrentIndex === 0 ? blocks.length - 1 : dialogCurrentIndex - 1;
         }else if (type === 'next'){
-            computedIndex = dialogCurrentIndex === blocks.length - 1 ? 0 : dialogCurrentIndex + 1
+            computedIndex = dialogCurrentIndex === blocks.length - 1 ? 0 : dialogCurrentIndex + 1;
         }
-        document.querySelectorAll(".celebrity-picture-rotation-container-item")[computedIndex].click()
-    }
+        document.querySelectorAll(".celebrity-picture-rotation-container-item")[computedIndex].click();
+    };
 </script>
 {% schema %}
 {
