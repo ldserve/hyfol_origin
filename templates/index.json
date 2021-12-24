@@ -15,8 +15,8 @@
         "093dba4e-5495-47f1-a21b-0431a9d2a9fb": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/312dacfa6a50a7f0702968c631fdc141_424b5c38-c872-442f-8f7a-15e01b38ed50.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/2_c2cc25d0-25bd-4b11-b5ef-e27aecd72641.jpg",
+            "image": "shopify:\/\/shop_images\/PC__03_b0fe01f9-02fb-404d-b48d-afd5cc5e915f.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/M_-2_02_01_f413a866-a0bb-4ad8-80c6-5a47ca67a346.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -26,7 +26,7 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "button_text": "",
-            "link": "https:\/\/www.hyfol.com\/discount\/BLUE"
+            "link": "https:\/\/www.hyfol.com\/collections\/hot-sale"
           }
         },
         "slide-1": {
@@ -101,9 +101,9 @@
     "163937456276e25a4f": {
       "type": "no_space_img",
       "settings": {
-        "bg_image": "shopify:\/\/shop_images\/f1e570c33f16d087ba5f850477ec1bdd.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/be5f68dc44d5ffb6dc4d3ef643932ade.jpg",
-        "link": "",
+        "bg_image": "shopify:\/\/shop_images\/PC__04_770868c3-f059-438d-98e3-94107bf1ae63.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M__01_02_c0f13372-ef1d-4a55-a283-fa2b961439e9.jpg",
+        "link": "https:\/\/www.hyfol.com\/collections\/hot-sale",
         "shadow": false
       }
     },
