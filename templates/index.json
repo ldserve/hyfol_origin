@@ -273,27 +273,6 @@
         "lpadding": 0
       }
     },
-    "1640341081da75eb09": {
-      "type": "celebrity-picture-rotation",
-      "blocks": {
-        "95f36ce0-fb54-445c-8e2b-50bd21e05c32": {
-          "type": "link",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/1_09a8137a-62db-4aae-b812-80da3f3152c3.jpg",
-            "pro": "t31011952ao",
-            "textBottom": "<p>12<\/p><p>22<\/p>",
-            "dateString": "123123"
-          }
-        }
-      },
-      "block_order": [
-        "95f36ce0-fb54-445c-8e2b-50bd21e05c32"
-      ],
-      "settings": {
-        "title": "hihihihihi1",
-        "description": "<p>hihihihihi1<\/p>"
-      }
-    },
     "16357602965b96c401": {
       "type": "linkImg",
       "blocks": {
@@ -494,7 +473,6 @@
     },
     "1640334828c8a975c8": {
       "type": "celebrity-picture-rotation",
-      "disabled": true,
       "blocks": {
         "86facf0d-8986-4ac5-9098-70c6d9b77f79": {
           "type": "link",
@@ -653,7 +631,6 @@
     "163937456276e25a4f",
     "1635759577ba76b918",
     "1635759941961a18e2",
-    "1640341081da75eb09",
     "16357602965b96c401",
     "1639375466adf92990",
     "163703402842074b11",
