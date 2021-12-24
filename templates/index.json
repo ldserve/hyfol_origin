@@ -471,22 +471,75 @@
         "link_url": ""
       }
     },
-    "16358433881f937e14": {
-      "type": "featured-collection-img",
-      "disabled": true,
+    "1640334828c8a975c8": {
+      "type": "celebrity-picture-rotation",
+      "blocks": {
+        "86facf0d-8986-4ac5-9098-70c6d9b77f79": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_451a2306-449b-4f8b-a425-3d66b8391614.jpg",
+            "pro": "t31410550aw",
+            "textBottom": "<p>Christmas morning they'll be happier with a Hyfol sweater!!<br\/>.<br\/>.<br\/>.<br\/>#hyfol #outdoors #influencer #hyfolclothes #hyfolcostumes #sweater #christmas #joy #santa #menstyle #mensfashion <\/p>",
+            "dateString": "2021\/12\/24"
+          }
+        },
+        "b80d75ad-e9f2-4fe5-b7bf-b9b01a42edf5": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_b79a1bdc-942a-4bae-be1a-2275211eb0fb.jpg",
+            "pro": "",
+            "textBottom": "",
+            "dateString": ""
+          }
+        },
+        "5b40460b-b748-4e3c-b9f8-e9c975ff2028": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_3fc76f10-69bf-475b-b891-3e9a818ed0f7.jpg",
+            "pro": "",
+            "textBottom": "",
+            "dateString": ""
+          }
+        },
+        "a7f27193-dc59-4595-97af-f1d896b9dd4e": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_9381159f-1767-4f15-a136-a9db5c71a5a5.jpg",
+            "pro": "",
+            "textBottom": "",
+            "dateString": ""
+          }
+        },
+        "06ffecf1-9bd3-426b-888e-78b127d6541d": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6.jpg",
+            "pro": "",
+            "textBottom": "",
+            "dateString": ""
+          }
+        },
+        "ff8bd3a4-f479-4f1d-b6c3-21e683b575ee": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_09a8137a-62db-4aae-b812-80da3f3152c3.jpg",
+            "pro": "",
+            "textBottom": "",
+            "dateString": ""
+          }
+        }
+      },
+      "block_order": [
+        "86facf0d-8986-4ac5-9098-70c6d9b77f79",
+        "b80d75ad-e9f2-4fe5-b7bf-b9b01a42edf5",
+        "5b40460b-b748-4e3c-b9f8-e9c975ff2028",
+        "a7f27193-dc59-4595-97af-f1d896b9dd4e",
+        "06ffecf1-9bd3-426b-888e-78b127d6541d",
+        "ff8bd3a4-f479-4f1d-b6c3-21e683b575ee"
+      ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/add18d14278712d662e79a890f7f6c3c.jpg",
-        "web_image": "shopify:\/\/shop_images\/7834265fc75309aed669d609d96ae2b4.jpg",
-        "link": "shopify:\/\/collections\/bomber-jacket",
-        "collection": "bomber-jacket",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_bg": "#994e2d",
-        "link_url": ""
+        "title": "#Hyfol_official",
+        "description": "Show us how you match. Label your  post.@Hyfol_official"
       }
     },
     "16360968581831caac": {
@@ -598,7 +651,7 @@
     "16370340305dc8e943",
     "1637912993ea7868d3",
     "1635843412f4572d8b",
-    "16358433881f937e14",
+    "1640334828c8a975c8",
     "16360968581831caac",
     "1639378018bdd37462",
     "1635995528b96ef09c",
