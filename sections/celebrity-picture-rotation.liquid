@@ -52,8 +52,8 @@
         </div>
         <script src="https://www.powr.io/powr.js?platform=shopify"></script>
         <div id="powr-form-builder__box" style="display: none;">
-            <button class="modal__close link" onclick="closeForm()"
-                            title="{{ 'general.accessibility.close' | t | escape }}">
+            <button class="powr-form-builder__box__modal__close link" onclick="closeForm()"
+                    title="{{ 'general.accessibility.close' | t | escape }}">
                 {%- render 'icon', icon: 'close' -%}
             </button>
             <div class="powr-form-builder" id="fc81a6cb_1640145481"></div>
@@ -116,9 +116,18 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgb(156,156,156);
+        background: rgba(0,0,0,.35);
         z-index: 999;
     }
+    #shopify-section-{{ section.id }} #powr-form-builder__box .powr-form-builder__box__modal__close{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        right: 50%;
+        top: 3rem;
+        transform: translate(204px,0px);
+    }
+    
     #shopify-section-{{ section.id }} #powr-form-builder__box .powr-form-builder{
         margin: 3rem auto;
         max-height: 80%;
@@ -228,6 +237,8 @@
     }
     #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right {
         padding:2rem;
+        height: 600px;
+        overflow-y: auto;        
     }
     #shopify-section-{{ section.id }} .modal__dialog .modal__inner .modal__inner__right .product-meta__title{
         margin-right: 1rem;
@@ -280,7 +291,8 @@
             width: 100%;
             height: 100%;
         }
-        #shopify-section-{{ section.id }} .modal__close {
+        #shopify-section-{{ section.id }} .modal__close, 
+        #shopify-section-{{ section.id }} #powr-form-builder__box .powr-form-builder__box__modal__close{
             position: fixed;
             right: 1.5rem;
             top: 0.5rem;
@@ -289,6 +301,7 @@
             color: #ccc;
             padding:5px;
             background-color: #fff;
+            transform: translate(0px,0px)
         }
         #shopify-section-{{ section.id }} .modal__inner{
             display: block;
