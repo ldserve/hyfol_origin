@@ -248,7 +248,7 @@
       "type": "no_space_img",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/HYFOL_05_c0b20a11-4ece-421c-a65a-8e310eff0d21.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/M_-2_05_ee7e9bad-d4d6-4495-9bac-21ba622f00bb.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M_-2_05_d3765967-e34e-4185-b14d-ee8c16990a52.jpg",
         "link": "",
         "shadow": false
       }
@@ -326,7 +326,7 @@
             "heading": "T-shirts",
             "link": "shopify:\/\/collections\/shirts-12-13",
             "left": 51,
-            "top": 38,
+            "top": 39,
             "width": 46,
             "height": 14
           }
@@ -396,6 +396,28 @@
             "width": 46,
             "height": 14
           }
+        },
+        "d05649e8-abab-4210-a4ad-f3b53421d000": {
+          "type": "link",
+          "settings": {
+            "heading": "NEW-YEAR-SALE",
+            "link": "",
+            "left": 3,
+            "top": 0,
+            "width": 46,
+            "height": 34
+          }
+        },
+        "b5f6e30f-cd2d-4ce7-9e16-f3e7fae56d18": {
+          "type": "link",
+          "settings": {
+            "heading": "Must-have-Tops",
+            "link": "",
+            "left": 51,
+            "top": 0,
+            "width": 46,
+            "height": 34
+          }
         }
       },
       "block_order": [
@@ -406,7 +428,9 @@
         "b4976b7a-8ed3-4ba1-b2e3-dab9bff9b832",
         "ece75503-a9f2-4f6d-907c-52d39cda9efa",
         "18a3bf32-1442-48ce-95be-968b36a493ce",
-        "5e431b2f-60a0-409b-b082-222b54459ccb"
+        "5e431b2f-60a0-409b-b082-222b54459ccb",
+        "d05649e8-abab-4210-a4ad-f3b53421d000",
+        "b5f6e30f-cd2d-4ce7-9e16-f3e7fae56d18"
       ],
       "settings": {
         "hidDesk": true,
