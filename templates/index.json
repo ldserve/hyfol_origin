@@ -202,7 +202,7 @@
           "type": "link",
           "settings": {
             "heading": "NEW-YEAR-SALE",
-            "link": "",
+            "link": "shopify:\/\/collections\/new-in",
             "left": 13,
             "top": 21,
             "width": 19,
@@ -213,7 +213,7 @@
           "type": "link",
           "settings": {
             "heading": "Must-have-Tops",
-            "link": "",
+            "link": "shopify:\/\/collections\/long-sleeve-series",
             "left": 33,
             "top": 21,
             "width": 19,
@@ -465,7 +465,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/HYFOL_09.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_13.jpg",
-        "link": "shopify:\/\/collections\/christmas-sale",
+        "link": "shopify:\/\/collections\/hoodies-1",
         "collection": "christmas-sale",
         "title": "",
         "products_count": 12,
