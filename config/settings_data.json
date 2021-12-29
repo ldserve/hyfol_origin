@@ -1,6 +1,6 @@
 {
   "current": {
-    "showFlake": true,
+    "showFlake": false,
     "show_car_bar": true,
     "car_bar_price1": 49,
     "car_bar_info1": "-$10",
