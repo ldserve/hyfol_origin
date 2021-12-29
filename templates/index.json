@@ -315,9 +315,9 @@
             "heading": "hoodies3",
             "link": "shopify:\/\/collections\/hoodies-1",
             "left": 3,
-            "top": 14,
+            "top": 39,
             "width": 46,
-            "height": 19
+            "height": 14
           }
         },
         "946f9474-e9e3-4a48-889e-eb94b84ddae1": {
@@ -326,9 +326,9 @@
             "heading": "T-shirts",
             "link": "shopify:\/\/collections\/shirts-12-13",
             "left": 51,
-            "top": 14,
+            "top": 38,
             "width": 46,
-            "height": 19
+            "height": 14
           }
         },
         "29d264b3-1358-40e5-affe-75e368b387bd": {
@@ -337,9 +337,9 @@
             "heading": "outerwear3",
             "link": "shopify:\/\/collections\/outerwear_hyfol",
             "left": 3,
-            "top": 35,
+            "top": 54,
             "width": 46,
-            "height": 18
+            "height": 14
           }
         },
         "f79bb545-2187-4e88-a746-7628fde4cdc0": {
@@ -348,9 +348,9 @@
             "heading": "Sweaters",
             "link": "shopify:\/\/collections\/sweater",
             "left": 51,
-            "top": 35,
+            "top": 55,
             "width": 46,
-            "height": 18
+            "height": 14
           }
         },
         "b4976b7a-8ed3-4ba1-b2e3-dab9bff9b832": {
@@ -359,9 +359,9 @@
             "heading": "bottoms3",
             "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 3,
-            "top": 57,
+            "top": 70,
             "width": 46,
-            "height": 19
+            "height": 14
           }
         },
         "ece75503-a9f2-4f6d-907c-52d39cda9efa": {
@@ -370,9 +370,9 @@
             "heading": "SWEATSHIRTS",
             "link": "shopify:\/\/collections\/sweatshirts-12-13",
             "left": 51,
-            "top": 57,
+            "top": 70,
             "width": 46,
-            "height": 19
+            "height": 14
           }
         },
         "18a3bf32-1442-48ce-95be-968b36a493ce": {
@@ -381,9 +381,9 @@
             "heading": "caphat3",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 3,
-            "top": 77,
+            "top": 86,
             "width": 46,
-            "height": 20
+            "height": 14
           }
         },
         "5e431b2f-60a0-409b-b082-222b54459ccb": {
@@ -392,9 +392,9 @@
             "heading": "JEWELRY",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 51,
-            "top": 77,
+            "top": 86,
             "width": 46,
-            "height": 20
+            "height": 14
           }
         }
       },
@@ -411,7 +411,7 @@
       "settings": {
         "hidDesk": true,
         "hidWeb": false,
-        "line": false,
+        "line": true,
         "image": "shopify:\/\/shop_images\/M_-2_07.jpg",
         "tpadding": 0,
         "rpadding": 0,
