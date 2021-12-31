@@ -3568,7 +3568,7 @@
 
         event.preventDefault(); // Prevent form to be submitted
 
-        event.stopPropagation(); // First, we switch the status of the button
+        //event.stopPropagation(); // First, we switch the status of the button
 
         target.setAttribute('disabled', 'disabled');
         document.dispatchEvent(new CustomEvent('theme:loading:start')); // Then we add the product in Ajax
