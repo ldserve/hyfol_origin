@@ -1,0 +1,46 @@
+<script type="text/javascript">
+var page_title = "OtherPage";
+switch({{request.page_type | json}}) {
+	case 'index': 
+	page_title = "HomePage";
+	break;
+	case 'product':
+	page_title = "ProductDetailPage";
+	break;
+	case 'collection':
+	page_title = "CategoryListPage";
+	break;
+	case 'cart':
+	page_title = "CartPage";
+	break;
+}
+sensors.quick('isReady',function(){
+	new sadhus_shence({
+	   container:"body",
+	   type: "mktClick",
+	   customData: function (container,el) {
+		   	var newData = {};
+		    newData.page_title = page_title;
+		    if (el.classList.contains('product-item_mktClick') && el.closest(".product-item").querySelector(".color-swatch__radio:checked")) {
+		    	newData.commodity_skuid = el.closest(".product-item").querySelector(".color-swatch__radio:checked").getAttribute("data-sku");
+		    }
+		    return newData;
+		}
+	});
+});
+// function reportExposure(node) {
+//   console.log("曝光事件")
+// }
+// 		var intersectionObserver = new IntersectionObserver(entries => {
+// 		  entries.forEach(entry => {
+// 		    if( entry.intersectionRatio > 0.5 ) {
+// 		      reportExposure(entry.target);
+// 		      intersectionObserver.unobserve(entry.target);
+// 		    }
+// 		  })
+// 		})
+// 	var nodes = document.querySelectorAll(".product-item_mktClick");
+// 	nodes.forEach(node => {
+// 	  intersectionObserver.observe(node);
+// 	});
+</script>
