@@ -1,17 +1,110 @@
 <div class="product-form__payment-container" {{ block.shopify_attributes }}>
+   {%- for ldoption in product.options_with_values -%}
+  {%- if ldoption.name == 'COLOR' or ldoption.name == 'Color' -%}
+  {%- for value in ldoption.values -%}
+
+  {%- if forloop.index == 1 -%}
+  {%- assign color = value -%}
+  {%- else -%}
+  {%- assign color = color | append: "," | append: value -%}
+  {%- endif -%}
+
+  {%- endfor -%}
+  {%- else -%}
+  {%- for value in ldoption.values -%}
+
+  {%- if forloop.index == 1 -%}
+  {%- assign size = value -%}
+  {%- else -%}
+  {%- assign size = size | append: "," | append: value -%}
+  {%- endif -%}
+  {%- endfor -%}
+  {%- endif -%}
+  {%- endfor -%}
+
+  {% for tag in product.tags %}
+  {%- if forloop.index == 1 -%}
+  {%- assign tags = tag | handleize -%}
+  {%- else -%}
+  {%- assign tagtitlie = tag | handleize -%}
+  {%- assign tags = tags | append: "," | append: tagtitlie -%}
+  {%- endif -%}
+  {% endfor %}
+
+ {%- for line_item in cart.items -%}
+ {%- if forloop.index == 1 -%}
+ {%- assign id = line_item.sku -%}
+ {%- else -%}
+ {%- assign id = id  | append: "," | append: line_item.sku  -%}
+ {%- endif  -%}
+ {%- endfor  -%}
+ 
   {%- if product.template_suffix != 'contact' -%}
     {%- if product.selected_or_first_available_variant.available -%}
       {%- if product.template_suffix == 'pre-order' -%}
         <button type="submit" class="product-form__add-button button button--primary" data-action="add-to-cart" onclick="return gtag_report_conversion();">{{ 'product.form.pre_order' | t }}</button>
       {%- else -%}
-        <button type="submit" class="product-form__add-button button button--primary" data-action="add-to-cart" onclick="return gtag_report_conversion();">{{ 'product.form.add_to_cart' | t }}</button>
+        <button type="submit" class="product-form__add-button button button--primary" 
+         data-scenable="1" data-sctype="addCart"
+         data-scdata='{"is_quick_view":"{% if template == "product.quick-view" %}1{% else %}0{% endif %}",
+							"site_category":"{{collection.title }}", 
+							"commodity_spuid": "{{product.handle}}",
+               "commodity_name": "{{product.title | handleize }}",
+							"currency_unit":"USD",
+							"commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}",
+              "commodity_size":"{{size}}",
+				      "commodity_color":"{{color}}",
+							"commodity_image_quantity":"{{product.images.size}}",
+							"commodity_description_text":{{product.description |json}},
+				      "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
+							"commodity_tag":"{{ tags }}",
+							"original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
+			      	"current_price":"{{ product.selected_or_first_available_variant.price }}",
+              "discount_price":"",
+              "compliment_commodities":"{{ id }}",
+              "bonus_name":"",
+              "bonus_amount":"",
+              "is_fbt_used":"false",
+              "is_fbt_main":"",
+              "fbt_spuid":"",
+              "fbt_skuid":"",
+              "total_original_price_fbt":"",
+              "total_current_price_fbt":"",
+              "entrance":"商品详情页"}'
+         data-action="add-to-cart" onclick="return gtag_report_conversion();">{{ 'product.form.add_to_cart' | t }}</button>
       {%- endif -%}
     {%- else -%}
       <button type="submit" class="product-form__add-button button button--disabled" disabled>{{ 'product.form.sold_out' | t }}</button>
     {%- endif -%}
 
     {%- if block.settings.show_payment_button and product.template_suffix != 'pre-order' -%}
-      {{ form | payment_button }}
+      <div data-scenable="1" data-sctype="addCart" data-scdata='{
+        "is_quick_view":"{% if template == "product.quick-view" %}1{% else %}0{% endif %}",
+							"site_category":"{{collection.title }}", 
+							"commodity_spuid": "{{product.handle}}",
+               "commodity_name": "{{product.title | handleize }}",
+							"currency_unit":"USD",
+							"commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}",
+              "commodity_size":"{{size}}",
+				      "commodity_color":"{{color}}",
+							"commodity_image_quantity":"{{product.images.size}}",
+							"commodity_description_text":{{product.description |json}},
+				      "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
+							"commodity_tag":"{{ tags }}",
+							"original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
+			      	"current_price":"{{ product.selected_or_first_available_variant.price }}",
+              "discount_price":"",
+              "compliment_commodities":"{{ id }}",
+              "bonus_name":"",
+              "bonus_amount":"",
+              "is_fbt_used":"false",
+              "is_fbt_main":"",
+              "fbt_spuid":"",
+              "fbt_skuid":"",
+              "total_original_price_fbt":"",
+              "total_current_price_fbt":"",
+                    "entrance":"Buy It NOW"}'>
+    {{ form | payment_button }}</div>
     {%- endif -%}
   {%- else -%}
     <a href="mailto:{{ shop.email }}" class="button button--primary">{{ 'product.form.contact_us' | t }}</a>
