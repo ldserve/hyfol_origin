@@ -4,9 +4,9 @@
   {%- for value in ldoption.values -%}
 
   {%- if forloop.index == 1 -%}
-  {%- assign color = value -%}
+    {%- assign color = value -%}
   {%- else -%}
-  {%- assign color = color | append: "," | append: value -%}
+    {%- assign color = color | append: "," | append: value -%}
   {%- endif -%}
 
   {%- endfor -%}
@@ -23,20 +23,20 @@
   {%- endfor -%}
 
   {% for tag in product.tags %}
-  {%- if forloop.index == 1 -%}
-  {%- assign tags = tag | handleize -%}
-  {%- else -%}
-  {%- assign tagtitlie = tag | handleize -%}
-  {%- assign tags = tags | append: "," | append: tagtitlie -%}
-  {%- endif -%}
+    {%- if forloop.index == 1 -%}
+      {%- assign tags = tag | handleize -%}
+    {%- else -%}
+      {%- assign tagtitlie = tag | handleize -%}
+      {%- assign tags = tags | append: "," | append: tagtitlie -%}
+    {%- endif -%}
   {% endfor %}
 
  {%- for line_item in cart.items -%}
- {%- if forloop.index == 1 -%}
- {%- assign id = line_item.sku -%}
- {%- else -%}
- {%- assign id = id  | append: "," | append: line_item.sku  -%}
- {%- endif  -%}
+  {%- if forloop.index == 1 -%}
+    {%- assign id = line_item.sku -%}
+  {%- else -%}
+    {%- assign id = id  | append: "," | append: line_item.sku  -%}
+  {%- endif  -%}
  {%- endfor  -%}
  
   {%- if product.template_suffix != 'contact' -%}
@@ -78,7 +78,11 @@
     {%- endif -%}
 
     {%- if block.settings.show_payment_button and product.template_suffix != 'pre-order' -%}
-      <div data-scenable="1" data-sctype="addCart" data-scdata='{
+      <div 
+      data-scenable="1" 
+      data-sctype="addCart" 
+      data-scsession='{"entrance":"quick-view结算"}'
+      data-scdata='{
         "is_quick_view":"{% if template == "product.quick-view" %}1{% else %}0{% endif %}",
 							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{product.handle}}",

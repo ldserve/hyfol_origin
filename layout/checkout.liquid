@@ -12,6 +12,8 @@
 
     {{ checkout_stylesheets }}
     {{ checkout_scripts }}
+    <script src="{{ 'shencesdk.js' | asset_url }}"></script>
+
   </head>
   <body>
     {{ skip_to_content_link }}
@@ -79,6 +81,7 @@
   observer.observe(sections,{childList:true,subtree:true})
 	}()
   </script>
+    {% section 'sc-checkout-data' %}
   </body>
 </html>
 <style>

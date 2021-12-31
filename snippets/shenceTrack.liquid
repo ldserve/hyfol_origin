@@ -1,0 +1,228 @@
+<script type="text/javascript">
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '961958401076295',
+		cookie     : true,
+		xfbml      : true,
+		version    : 'v2.9'
+	}); 
+	FB.AppEvents.logPageView();   
+};
+(function(d, s, id){
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) {return;}
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+  console.log('{{product.variants[0].metafields.my_fields.pattern}}')
+sensors.quick('isReady',function(){
+	if ({{request.page_type | json}} == 'index') {/*首页*/
+		if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == 'https://swimwear0915.myshopify.com/account/register') {//从注册页面跳转进来
+			if (Number({{customer.id}})) {
+				var isLogin = true;
+			} else {
+				var isLogin = false;
+			}
+			if (isLogin && (sessionStorage.getItem("isRegisterButtonClick") == 'true') && (!sessionStorage.getItem("isTrackRegisterResult") || (sessionStorage.getItem("isTrackRegisterResult") == 'false')) ) {
+				sessionStorage.setItem("isTrackRegisterResult", true);
+              	sensors.login("{{customer.id}}")
+				sensors.track('RegisterResult',{
+					register_email:sessionStorage.getItem("register_email"),
+					First_name:sessionStorage.getItem("First_name"),
+					Second_name:sessionStorage.getItem("Second_name"),
+					is_success:true,
+				});
+			};
+		};
+	}
+	if ({{request.page_type | json}} == 'customers/login') {/*登录页面*/
+		document.querySelector("#customer_login .form__submit").addEventListener('click', function (e) {
+                    console.log("enter")
+          	e.stopPropagation();
+  			e.preventDefault();
+		  	if (document.querySelector('#customer_login [name="customer[email]"]').value != "") {
+		  		sensors.track('LoginButtonClick');
+		  		sessionStorage.setItem("isLoginButtonClick", true);
+		  		sessionStorage.setItem("register_email", document.querySelector('#customer_login [name="customer[email]"]').value);
+		  	};
+		})
+
+		if (sessionStorage.getItem("isLoginButtonClick") == 'true') {
+			if (document.querySelectorAll("#login-form-error").length > 0) {
+				sensors.track('loginResult',{
+					register_email:sessionStorage.getItem("register_email"),
+					is_success:false,
+					fail_reason:document.querySelector("#login-form-error").outerText,
+				});
+			};
+		}
+	}
+
+	if ({{request.page_type | json}} == 'customers/account') {/*登录成功页面*/
+		if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == 'https://swimwear0915.myshopify.com/account/login') {//从登录页面跳转进来
+			if (Number({{customer.id}})) {
+				var isLogin = true;
+			} else {
+				var isLogin = false;
+			}
+			if (isLogin && (sessionStorage.getItem("isLoginButtonClick") == 'true') && (!sessionStorage.getItem("isTrackLoginResult") || (sessionStorage.getItem("isTrackLoginResult") == 'false')) ) {
+				sessionStorage.setItem("isTrackLoginResult", true);
+              	sensors.login("{{customer.id}}")
+				sensors.track('loginResult',{
+					register_email:sessionStorage.getItem("register_email"),
+					is_success:true,
+				});
+			};
+		};
+	}
+	if (document.querySelector('#account-popover .popover__link-item[href="/account/logout"]')) {
+		document.querySelector('#account-popover .popover__link-item[href="/account/logout"]').addEventListener('click', function (e) {/*退出登录重置isLoginButtonClick和isTrackLoginResult为false*/
+	  		sessionStorage.setItem("isLoginButtonClick", false);
+	  		sessionStorage.setItem("isRegisterButtonClick", false);
+	  		sessionStorage.setItem("isTrackRegisterResult", false);
+	  		sessionStorage.setItem("isTrackLoginResult", false);
+		})
+	};
+	
+	if ({{request.page_type | json}} == 'customers/register') {/*注册页面*/
+		document.querySelector("#create_customer .form__submit").addEventListener('click', function (e) {
+			sensors.track('RegisterButtonClick');
+			sessionStorage.setItem("isRegisterButtonClick", true);
+		  	sessionStorage.setItem("register_email", document.querySelector('#create_customer [name="customer[email]"]').value);
+		  	sessionStorage.setItem("First_name", document.querySelector('#create_customer [name="customer[first_name]"]').value);
+		  	sessionStorage.setItem("Second_name", document.querySelector('#create_customer [name="customer[last_name]"]').value);
+		})
+
+		if (sessionStorage.getItem("isRegisterButtonClick") == 'true') {
+			if (document.querySelectorAll("#register-form-error").length > 0) {
+				sensors.track('RegisterResult',{
+					register_email:sessionStorage.getItem("register_email"),
+					First_name:sessionStorage.getItem("First_name"),
+					Second_name:sessionStorage.getItem("Second_name"),
+					is_success:false,
+					fail_reason:document.querySelector("#register-form-error").outerText,
+				});
+			};
+		}
+	}
+	/* 陈俊斌神策埋点代码start */
+	/*Checkout事件 theme主题里面只做入口储存 start*/
+	if ({{request.page_type | json}} == 'cart'){/*购物车页面*/
+		/* main-cart */
+		new sadhus_shence({
+			container:".card__section",
+			type:"Checkout",
+			setSessionId:"sensorsCheckout"
+		})
+	}
+	/* mini-cart */
+	new sadhus_shence({
+		container:".mini-cart",
+		type:"Checkout",
+		setSessionId:"sensorsCheckout"
+	})
+	/* quickView */
+	/* quickView跟AddToCart合并 */
+	/* Checkout事件 theme主题里面只做入口储存 end */
+	/* ShareCommodity 事件 start*/
+	if ({{request.page_type | json}} === 'product'){/*product页面*/
+		let ShareCommodity = new sadhus_shence({
+			container:".product-meta",
+			type:"ShareCommodity",
+			customData: function(container,el){
+				let newData = JSON.parse(el.parentElement.getAttribute('data-scdata'))
+				let selectedEl = document.querySelector('.select-wrapper option[selected]')
+				let arr = selectedEl.innerText.split('-')
+				let _arr =  arr[0].split('/')
+      			newData.commodity_skuid = selectedEl.getAttribute('data-sku')
+				newData.commodity_colour = _arr[0]
+				newData.commodity_size = _arr[1]
+				newData.commodity_tag = newData.commodity_tag.split('-')
+				return newData 
+			},
+			callback:(el)=>{
+				ShareCommodity.updateFn();
+				sensors.setProfile({
+					last_share_time:getFormatDate()
+				})
+				let src = el.children[0].getAttribute('data-href')
+				if(src){
+					FB.ui({
+						method: 'share',
+						href: src,
+					}, function (response){
+						if(response){
+							initShareSuccess()
+						}
+					});
+
+				}
+            }
+		}) 
+		function initShareSuccess() {
+			let ShareSuccess = new sadhus_shence({
+				container:".social-media__item-list",
+				type:"ShareSuccess",
+				event:'sync',
+				customData: function(container,el){
+					let newData = JSON.parse(el.getAttribute('data-scdata'))
+					let selectedEl = document.querySelector('.select-wrapper option[selected]')
+					let arr = selectedEl.innerText.split('-')
+					let _arr =  arr[0].split('/')
+					newData.commodity_skuid = selectedEl.getAttribute('data-sku')
+					newData.commodity_colour = _arr[0]
+					newData.commodity_size = _arr[1]
+					newData.share_medium = "Facebook"
+					newData.commodity_tag = newData.commodity_tag.split('-')
+					return newData 
+				},
+				callback:()=>{
+					ShareSuccess.updateFn();
+				}
+			})  
+		}
+                                                                                               
+	}
+	/* ShareCommodity 事件 end*/
+	/* 更新用户表 start*/
+	if ({{request.page_type | json}} === 'customers/addresses'){/*product页面*/
+		let profile_set = new sadhus_shence({
+			container:"body",
+			type:"profile_set",
+			callback:(el, container)=>{
+				let inputElList = el.parentElement.querySelectorAll('input')
+				let seleceEltList = el.parentElement.querySelectorAll('select')
+				/* let traList = ["first_name" ,"last_name","company","phone","address1","address2","city","zip","default","country","province"] */
+				let data = {default_address:''}
+				let isCheckDefault = false
+				let arr = Array.from(inputElList).concat( Array.from(seleceEltList))
+				arr.map(i => {
+					/* let val = traList.find(j => {
+						return i === `address[${j}]`
+					}) */
+					if(i.name === 'address[country]'){
+						data.default_country = i.value
+					}else if(i.name === 'address[province]'){
+						data.default_state = i.value
+					}else if(i.name === 'address[city]'){
+						data.default_city = i.value
+					}else if(i.name === 'address[address1]' || i.name === 'address[address2]'){
+						data.default_address += i.value
+					}else if(i.name === 'address[zip]'){
+						data.default_postcode = i.value
+					}else if(i.name === 'address[default]'){
+						i.checked ? isCheckDefault = true : isCheckDefault = false
+					}
+				})
+				if(isCheckDefault) {
+					sensors.setProfile(data)
+				}
+				profile_set.updateFn();
+			}
+		})  
+	}
+	/* 更新用户表 end*/
+	/* 陈俊斌神策埋点代码end */
+});
+</script>

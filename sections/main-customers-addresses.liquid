@@ -287,7 +287,11 @@
             <label for="address-new[default]">{{ 'customer.addresses.set_default' | t }}</label>
           </div>
 
-          <button class="form__submit button button--primary button--full">{{ 'customer.addresses.add_address' | t }}</button>
+          <button 
+            class="form__submit button button--primary button--full"               
+            data-scenable="1"   
+            data-sctype="profile_set"
+          >{{ 'customer.addresses.add_address' | t }}</button>
         {%- endform -%}
       </div>
     </div>
@@ -437,7 +441,11 @@
             <label for="address-{{ customer.default_address.id }}[default]">{{ 'customer.addresses.set_default' | t }}</label>
           </div>
 
-          <button class="form__submit button button--primary button--full">{{ 'customer.addresses.edit_address' | t }}</button>
+          <button 
+            class="form__submit button button--primary button--full"
+            data-scenable="1"   
+            data-sctype="profile_set"
+          >{{ 'customer.addresses.edit_address' | t }}</button>
         {% endform %}
       </div>
     </div>
@@ -593,7 +601,11 @@
                 <label for="address-{{ address.id }}[default]">{{ 'customer.addresses.set_default' | t }}</label>
               </div>
 
-              <button class="form__submit button button--primary button--full">{{ 'customer.addresses.edit_address' | t }}</button>
+              <button 
+                class="form__submit button button--primary button--full"
+                data-scenable="1"   
+                data-sctype="profile_set"
+              >{{ 'customer.addresses.edit_address' | t }}</button>
             {% endform %}
           </div>
         </div>

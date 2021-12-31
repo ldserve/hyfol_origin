@@ -4,6 +4,7 @@ let addquickView=new sadhus_shence({
    container:"body",
    type:"addCart",
    sendType:"AddToCart", 
+   setSessionId:"sensorsCheckout",
    customData: function(container){/*形参为当前容器dom */
       let newData={};
       if(!{{product.metafields.my_fields.category | json}} ){

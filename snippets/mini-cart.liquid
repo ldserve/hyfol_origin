@@ -312,7 +312,13 @@
           <div class="button-group button-group--loose button-group--fit">
             <a href="{{ routes.cart_url }}" class="button button--secondary">{{ 'cart.general.view_cart' | t }}</a>
             {%- if settings.cart_show_checkout_button -%}
-              <button type="submit" name="checkout" class="button button--primary">{{ 'cart.general.checkout' | t }}</button>
+              <button 
+                type="submit" 
+                name="checkout" 
+                class="button button--primary"
+                data-scenable="1"
+                data-sctype="Checkout"
+                data-scsession='{"entrance":"立即购买"}'>{{ 'cart.general.checkout' | t }}</button>
             {%- endif -%}
           </div>
         </div>
