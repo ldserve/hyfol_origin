@@ -198,7 +198,7 @@ window.getFormatDate = function getFormatDate() {
       this.debug && console.info("收尾处理");
       this.sendEnd(el);
       this.debug && console.info("启用回调");
-      this.callback(el, this.container).bind(this);
+      this.callback(el, this.container);
     }
     sendEnd(el) {
       this.debug && console.info("关闭上报");
