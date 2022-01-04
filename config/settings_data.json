@@ -114,7 +114,7 @@
           "mobile_logo_max_width": 140,
           "show_locale_selector": false,
           "show_currency_selector": false,
-          "navigation_menu": "pc",
+          "navigation_menu": "",
           "navigation_mobile_menu": "main-menu",
           "desktop_navigation_layout": "inline",
           "desktop_navigation_open_trigger": "hover",
@@ -147,7 +147,7 @@
           "19a81811-3745-4280-bbc7-82cf671c27d7": {
             "type": "links",
             "settings": {
-              "menu": "help-center"
+              "menu": "about-hyfol"
             }
           },
           "footer-2": {
@@ -325,21 +325,7 @@
     },
     "content_for_index": [
 
-    ],
-    "blocks": {
-      "16315915848dc1f842": {
-        "type": "shopify:\/\/apps\/xo-insert-code\/blocks\/insert-code-body\/72017b12-3679-442e-b23c-5c62460717f5",
-        "disabled": false,
-        "settings": {
-        }
-      },
-      "163159158490d58b25": {
-        "type": "shopify:\/\/apps\/xo-insert-code\/blocks\/insert-code-header\/72017b12-3679-442e-b23c-5c62460717f5",
-        "disabled": false,
-        "settings": {
-        }
-      }
-    }
+    ]
   },
   "presets": {
     "Metal": {
