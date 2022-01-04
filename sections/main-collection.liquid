@@ -1175,7 +1175,7 @@
       var ratingColor=searchStr.color?searchStr.color:'';
       let promiseList=[];
       for (let i = 0; i <spu.length; i++) {
-        let olddom=document.querySelector('a[href="/products/'+spu[i]+'"]');
+        let olddom=document.querySelector('a[href="/products/'+spu[i].toLowerCase()+'"]');
         if(olddom){olddom.parentNode.style.display='none';}
         let promiseItem=getdata(spu[i]);
         promiseList.push(promiseItem);
@@ -1188,7 +1188,6 @@
             fragment.prepend(product.el);
           }else{
             let num=arr.length-i;
-            console.log(arr[i].message,'第'+num+'个参数')
           }
         }
         document.querySelector('.product-list').prepend(fragment);
