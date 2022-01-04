@@ -376,4 +376,130 @@ new sadhus_shence({
 }
 
 
+/*@Author   苦行僧|2022/1/4*/
+/*点击预测搜索产品-上报当前点击产品信息*/
+new sadhus_shence({
+  container: ".header__search-bar-wrapper",
+  type: "SearchResultClick",
+  customData: function(container){
+    let newData={};
+    let sel=container.querySelector("#search-product-type");
+    newData.key_word= container.querySelector(".search-bar__input ").value;
+    newData.key_word_classification=sel.options[sel.selectedIndex].value;
+    if(newData.key_word_classification===""){newData.key_word_classification="All categories"}
+    newData.search_type="点击自动联想内容";
+    newData.currency_unit="USD";
+    newData.result_page="";
+    return newData
+  },
+  callback:function (){
+    sensors.setProfile({ last_search_time: getFormatDate() });
+  }
+});
+/*点击预测搜索产品-上报当前所有搜索结果*/
+new sadhus_shence({
+  container: ".header__search-bar-wrapper",
+  typeName:"sctypepros",
+  dataName: "scdatapros",
+  enableName:'scenablepros',
+  type: "SearchRequest",
+  customData:function (container) {
+    let newData={};
+    let sel=container.querySelector("#search-product-type");
+    newData.key_word= container.querySelector(".search-bar__input ").value;
+    newData.key_word_classification=sel.options[sel.selectedIndex].value;
+    if(newData.key_word_classification===""){newData.key_word_classification="All categories"}
+    newData.search_type="自动联想";
+    let listStr=container.querySelector("[data-skulist]").dataset.skulist;
+    let listArr=listStr.split(',');
+    listArr.pop();
+    newData.commodity_skuid_list=listArr;
+    return newData
+  }
+});
+/*点击搜索按钮和viewall-记录session*/
+new sadhus_shence({
+  container:".header__search-bar-wrapper",
+  type:"searchjump",
+  setSessionId:"sensorsSearchRequesth",
+  customSession:function(container){
+    let newData={};
+    let sel=container.querySelector("#search-product-type");
+    newData.key_word= container.querySelector(".search-bar__input ").value;
+    newData.key_word_classification=sel.options[sel.selectedIndex].value;
+    if(newData.key_word_classification===""){newData.key_word_classification="All categories"}
+    return newData;
+  },
+  callback:function (){
+    sensors.setProfile({ last_search_time: getFormatDate() });
+  }
+});
+/*搜索结果页面*/
+{%- if request.page_type =="search" -%}
+/* 打开-默认上报-删除session，转存session用于点击上报*/
+new sadhus_shence({
+  event:"load",
+  container:".page__content .collection",
+  type:"SearchRequest",
+  getSessionId:"sensorsSearchRequesth",
+  setSessionId: "sensorsSearchResultClick",
+  delSession:true,
+  customSession:function (container) {
+    let newData={};
+    newData=JSON.parse(sessionStorage.getItem('sensorsSearchRequesth'));
+    return newData;
+  }
+});
+/*打开-默认上报-删除session，转存session用于点击上报*/
+new sadhus_shence({
+  event:"load",
+  container:".page__content .collection",
+  type:"SearchRequest",
+  getSessionId:"sensorsSearchRequesth",
+  setSessionId: "sensorsSearchResultClick",
+  delSession:true,
+  customSession:function (container) {
+    let newData={};
+    newData=JSON.parse(sessionStorage.getItem('sensorsSearchRequesth'));
+    return newData;
+  }
+});
+/*点击产品-上报产品信息*/
+new sadhus_shence({
+  container:".page__content .collection__dynamic-part",
+  type:"SearchResultClick",
+  getSessionId: "sensorsSearchResultClick",
+  customData: function(container){
+    let newData={};
+    let sel=container.querySelector("#search-product-type");
+    newData.currency_unit="USD";
+    newData.result_number=container.querySelector(".product-list--collection").dataset.resultnumber;
+    newData.result_page=container.querySelector(".sadhus_agination").dataset.resultpage;
+    let session=sessionStorage.getItem('sensorsSearchResultClick');
+    session=JSON.parse(session);
+    Object.assign(newData,session)
+    return newData
+  }
+});
+/*点击搜索按钮-记录session*/
+new sadhus_shence({
+  container:".form__connected-item",
+  type:"searchjump",
+  debug: true,
+  setSessionId:"sensorsSearchRequesth",
+  customSession:function(container){
+    let newData={};
+    let sel=container.querySelector("#search-product-type");
+    newData.key_word= container.querySelector("#search ").value;
+    newData.key_word_classification='All categories';
+    return newData;
+  },
+  callback:function (){
+    this.updateFn();
+    sensors.setProfile({ last_search_time: getFormatDate() });
+  }
+});
+{%- endif -%}
+
+
 </script>

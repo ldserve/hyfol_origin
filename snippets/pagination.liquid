@@ -1,5 +1,5 @@
 {%- if paginate.pages > 1 -%}
-  <div class="pagination">
+  <div class="pagination sadhus_agination" data-resultPage="{{ paginate.current_page }}">
     <div class="pagination__inner">
       {%- if paginate.previous -%}
         <a class="pagination__prev link" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" data-page="{{ paginate.current_page | minus: 1 }}" href="{{ paginate.previous.url }}{{ hash }}">

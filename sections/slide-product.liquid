@@ -8,12 +8,15 @@
 <section class="section" id="slide_product" data-section-id="{{ section.id }}" data-section-type="featured-collection"
 				 data-section-settings='{{ section_settings }}'>
 	<div class="container container--flush">
+		{%- assign sensorsImage =  section.settings.image | image_url | split: "?" | first -%}
+		{%- assign sensorsweb_image =  section.settings.web_image | image_url | split: "?" | first -%}
+		{%- assign mkt_material_url =  sensorsImage | append: ',' | append: sensorsweb_image -%}
 		{%- assign collection = section.settings.collection -%}
 		<div class="featured-collection lazyload">
 			<header class="featured-collection_header lazyload"
 							{% if section.settings.image %}data-bgset="{{ section.settings.image | img_url: '1000x' }}"{% endif %}>
 
-				<a href="{{ section.settings.link }}" class="featured-collection_link">
+				<a href="{{ section.settings.link }}" class="featured-collection_link"   data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 					{%- if section.settings.web_image -%}
 						{%- capture web_sizes -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: section.settings.web_image -%}{%- endcapture -%}
 						{%- assign web_image_url = section.settings.web_image | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
@@ -37,7 +40,7 @@
 
 						{%- if section.settings.button_text != blank -%}
 							<a href="{{ section.settings.button_link | default: collection.url | default: '#' }}"
-								 class="featured-collection__cta button button--floating hidden-phone">{{ section.settings.button_text }}</a>
+								 class="featured-collection__cta button button--floating hidden-phone"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>{{ section.settings.button_text }}</a>
 						{%- endif -%}
 					{%- endcomment -%}
 				</a>

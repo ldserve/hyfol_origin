@@ -6,3 +6,9 @@
 *.iml
 out
 gen
+.DS_Store
+.DS_Store?
+.idea/
+.Trashes
+ehthumbs.db
+Thumbs.db

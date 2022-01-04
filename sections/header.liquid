@@ -48,7 +48,7 @@
 				{%- comment -%}---------------logo组件---------------{%- endcomment -%}
 
 				{%- capture header_logo -%}
-					<a href="{{ routes.root_url }}" class="header__logo-link">
+					<a href="{{ routes.root_url }}" class="header__logo-link" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"0","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"logo","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 						{%- if section.settings.logo != blank -%}
 							{%- capture image_size -%}{{ section.settings.logo_max_width }}x{%- endcapture -%}
 							<span class="visually-hidden">{{ shop.name }}</span>
@@ -81,17 +81,17 @@
 									{%- for link in navigation_menu.links -%}
 										<li class="nav-bar__item">
 											{%- if link.links.size == 0 -%}
-												<a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem">{{ link.title }}</a>
+												<a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" data-scenable="1" data-sctype="mktClick"  data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ link.title | handleize}}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>{{ link.title }}</a>
 											{%- else -%}
 												{%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
 
 												<a href="{{ link.url }}" class="nav-bar__link link" data-type="menuitem" aria-expanded="false"
-													 aria-controls="{{ index }}" aria-haspopup="true">
+													 aria-controls="{{ index }}" aria-haspopup="true" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ link.title | handleize}}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 													{{- link.title -}}
 													{%- render 'icon', icon: 'arrow-bottom' -%}
 													{%- render 'icon', icon: 'nav-triangle' -%}
 												</a>
-												{%- render 'desktop-menu', menu: link, index: index -%}
+												{%- render 'desktop-menu', menu: link, index: index, menuindex: forloop.index -%}
 											{%- endif -%}
 										</li>
 									{%- endfor -%}
@@ -156,7 +156,11 @@
 								{%- endif -%}
 
 								{%- comment -%}---------------搜索提交按钮---------------{%- endcomment -%}
-								<button type="submit" class="search-bar__submit" aria-label="{{ 'header.search.submit' | t }}">
+								<button type="submit" class="search-bar__submit"
+												aria-label="{{ 'header.search.submit' | t }}"
+												data-scenable='1'
+												data-sctype="searchjump"
+												data-scsession='{"search_type":"点击搜索按钮"}'>
 									{%- render 'icon', icon: 'search' -%}
 									{%- render 'icon', icon: 'search-loader' -%}
 								</button>
@@ -327,7 +331,7 @@
 									 class="header__action-item-link header__account-icon icon-state hidden-desk"
 									 aria-label="{{ 'header.general.account' | t }}" {% if customer %}aria-controls="account-popover"
 									 aria-expanded="false"
-									 data-action="toggle-popover"{% endif %} {% if customer %}data-follow-link="phone"{% endif %}>
+									 data-action="toggle-popover"{% endif %} {% if customer %}data-follow-link="phone"{% endif %} data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"账号","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 									<span class="icon-state__primary">{%- render 'icon', icon: 'account' -%}</span>
 									<span class="icon-state__secondary">{%- render 'icon', icon: 'close' -%}</span>
 								</a>
@@ -335,7 +339,7 @@
 								<a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
 									 class="header__action-item-link hidden-pocket hidden-lap"
 									 {% if customer %}aria-controls="account-popover" aria-expanded="false"
-									 data-action="toggle-popover"{% endif %}>
+									 data-action="toggle-popover"{% endif %}  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"账号","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 									{%- if customer -%}
 										{{ 'header.general.account' | t }} {% render 'icon', icon: 'arrow-bottom' %}
 									{%- else -%}
