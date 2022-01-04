@@ -16,9 +16,10 @@ js.src = "https://connect.facebook.net/en_US/sdk.js";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 sensors.quick('isReady',function(){
-	sensors.setProfile({ latest_visit_time: getFormatDate() });//更新用户表最近一次访问时间
-	//注册事件代码
-	if ({{request.page_type | json}} == 'customers/register') {/*注册页面*/
+	sensors.setProfile({ latest_visit_time: getFormatDate() });/* 更新用户表最近一次访问时间 */
+	/* 注册事件代码 */
+	try {
+		if ({{request.page_type | json}} == 'customers/register') {/*注册页面*/
 		document.querySelector("#create_customer .form__submit").addEventListener('click', function (e) {
 			if ((document.querySelector('#create_customer [name="customer[email]"]').value != "") && (document.querySelector('#create_customer [name="customer[first_name]"]').value != "") && (document.querySelector('#create_customer [name="customer[last_name]"]').value != "") && (document.querySelector('#create_customer [name="customer[password]"]').value != "")) {
 				sensors.setProfile({ first_name: document.querySelector('#create_customer [name="customer[first_name]"]').value });
@@ -31,7 +32,7 @@ sensors.quick('isReady',function(){
 		})
 
 		if (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true') {
-			if (document.querySelectorAll("#register-form-error").length > 0) {//注册失败
+			if (document.querySelectorAll("#register-form-error").length > 0) {/* 注册失败 */
 				sessionStorage.setItem("sensorsLoginButtonClick", false);
 	  			sessionStorage.setItem("sensorsRegisterButtonClick", false);
 				sensors.track('RegisterResult',{
@@ -44,112 +45,116 @@ sensors.quick('isReady',function(){
 			};
 		}
 	}
-	//注册成功代码
-	if ({{request.page_type | json}} == 'index') {/*首页*/
-		if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == 'https://swimwear0915.myshopify.com/account/register') {//从注册页面跳转进来
-			if (Number({{customer.id}})) {
-				var isLogin = true;
-			} else {
-				var isLogin = false;
-			}
-			if (isLogin && (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true')) {
-				sensors.setOnceProfile({ signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email") });//更新用户表注册邮箱
-				sessionStorage.setItem("sensorsRegisterButtonClick", false);
-				sensors.track('RegisterResult',{
-					register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-					First_name:sessionStorage.getItem("First_name"),
-					Second_name:sessionStorage.getItem("Second_name"),
-					is_success:true,
-				});
+		/* 注册成功代码 */
+		if ({{request.page_type | json}} == 'index') {/*首页*/
+			if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == 'https://swimwear0915.myshopify.com/account/register') {/* 从注册页面跳转进来 */
+				if (Number({{customer.id}})) {
+					var isLogin = true;
+				} else {
+					var isLogin = false;
+				}
+				if (isLogin && (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true')) {
+					sensors.setOnceProfile({ signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email") });/* 更新用户表注册邮箱 */
+					sessionStorage.setItem("sensorsRegisterButtonClick", false);
+					sensors.track('RegisterResult',{
+						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
+						First_name:sessionStorage.getItem("First_name"),
+						Second_name:sessionStorage.getItem("Second_name"),
+						is_success:true,
+					});
+				};
 			};
-		};
-	}
-	//登录事件代码
-	if ({{request.page_type | json}} == 'customers/login') {/*登录页面*/
-		document.querySelector("#customer_login .form__submit").addEventListener('click', function (e) {
-		  	if ((document.querySelector('#customer_login [name="customer[email]"]').value != "") && (document.querySelector('#customer_login [name="customer[password]"]').value != "")) {
-		  		sessionStorage.setItem("sensorsLoginButtonClick", true);
-		  		sessionStorage.setItem("sensorsRegisterResultRegister_email", document.querySelector('#customer_login [name="customer[email]"]').value);
-		  	};
-		})
+		}
+		/* 登录事件代码 */
+		if ({{request.page_type | json}} == 'customers/login') {/*登录页面*/
+			document.querySelector("#customer_login .form__submit").addEventListener('click', function (e) {
+				if ((document.querySelector('#customer_login [name="customer[email]"]').value != "") && (document.querySelector('#customer_login [name="customer[password]"]').value != "")) {
+					sessionStorage.setItem("sensorsLoginButtonClick", true);
+					sessionStorage.setItem("sensorsRegisterResultRegister_email", document.querySelector('#customer_login [name="customer[email]"]').value);
+				};
+			})
 
-		if (sessionStorage.getItem("sensorsLoginButtonClick") == 'true') {
-			if (document.querySelectorAll("#login-form-error").length > 0) {//登录失败
-				sessionStorage.setItem("sensorsLoginButtonClick", false);
-	  			sessionStorage.setItem("sensorsRegisterButtonClick", false);
-				sensors.track('loginResult',{
-					register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-					is_success:false,
-					fail_reason:document.querySelector("#login-form-error").outerText,
-				});
-			};
-		}
-	}
-	//登录成功代码
-	if ({{request.page_type | json}} == 'customers/account') {/*登录成功页面*/
-		if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == 'https://swimwear0915.myshopify.com/account/login') {//从登录页面跳转进来
-			if (Number({{customer.id}})) {
-				var isLogin = true;
-			} else {
-				var isLogin = false;
+			if (sessionStorage.getItem("sensorsLoginButtonClick") == 'true') {
+				if (document.querySelectorAll("#login-form-error").length > 0) {/* 登录失败 */
+					sessionStorage.setItem("sensorsLoginButtonClick", false);
+					sessionStorage.setItem("sensorsRegisterButtonClick", false);
+					sensors.track('loginResult',{
+						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
+						is_success:false,
+						fail_reason:document.querySelector("#login-form-error").outerText,
+					});
+				};
 			}
-			if (isLogin && (sessionStorage.getItem("sensorsLoginButtonClick") == 'true')) {
-				sensors.setProfile({ latest_signup_time: getFormatDate() });//更新用户表最近一次登录时间
-				sessionStorage.setItem("sensorsLoginButtonClick", false);
-				sensors.track('loginResult',{
-					register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-					is_success:true,
-				});
+		}
+		/* 登录成功代码 */
+		if ({{request.page_type | json}} == 'customers/account') {/*登录成功页面*/
+			if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == 'https://swimwear0915.myshopify.com/account/login') {//从登录页面跳转进来
+				if (Number({{customer.id}})) {
+					var isLogin = true;
+				} else {
+					var isLogin = false;
+				}
+				if (isLogin && (sessionStorage.getItem("sensorsLoginButtonClick") == 'true')) {
+					sensors.setProfile({ latest_signup_time: getFormatDate() });/* 更新用户表最近一次登录时间 */
+					sessionStorage.setItem("sensorsLoginButtonClick", false);
+					sensors.track('loginResult',{
+						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
+						is_success:true,
+					});
+				};
 			};
+		}
+		/* 退出账号处理 */
+		if (document.querySelector('#account-popover .popover__link-item[href="/account/logout"]')) {
+			document.querySelector('#account-popover .popover__link-item[href="/account/logout"]').addEventListener('click', function (e) {/*退出登录重置sensorsLoginButtonClick和sensorsRegisterButtonClick为false*/
+				sessionStorage.setItem("sensorsLoginButtonClick", false);
+				sessionStorage.setItem("sensorsRegisterButtonClick", false);
+			})
 		};
+		
+		/* 订阅事件代码 */
+		document.querySelector('.newsletter.newsletter--compact .form__submit').addEventListener('click', function (e) {
+			if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
+				sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
+				sessionStorage.setItem("subscription_type", "官网次尾部主动订阅");
+				sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
+			}
+		});
+		document.querySelector('#footer-newsletter .form__submit').addEventListener('click', function (e) {
+			if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
+				sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
+				sessionStorage.setItem("subscription_type", "官网尾部主动订阅");
+				sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
+			}
+		});
+		document.querySelector('.popup-newsletter button[type="submit"]').addEventListener('click', function (e) {
+			if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
+				sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
+				sessionStorage.setItem("subscription_type", "首次进站弹窗订阅");
+				sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
+			}
+		});
+		if ((sessionStorage.getItem("is_footer-newsletter_form__submit_click") == 'true') && document.querySelector('#footer-newsletter .alert--success')){
+			sensors.track('SubscribptionResult',{
+				subscribe_email:sessionStorage.getItem("is_footer-newsletter_form__submit_email"),
+				subscription_type:sessionStorage.getItem("subscription_type"),
+				is_success:true,
+			});
+			sessionStorage.setItem("is_footer-newsletter_form__submit_click", false);
+		}
+		if ((sessionStorage.getItem("is_footer-newsletter_form__submit_click") == 'true') && document.querySelector('#footer-newsletter .alert--error')){
+			sensors.track('SubscribptionResult',{
+				subscribe_email:sessionStorage.getItem("is_footer-newsletter_form__submit_email"),
+				subscription_type:sessionStorage.getItem("subscription_type"),
+				is_success:false,
+				fail_reason:document.querySelector('#footer-newsletter .alert--error').outerText,
+			});
+			sessionStorage.setItem("is_footer-newsletter_form__submit_click", false);
+		}	
+	} catch (error) {
+		console.log(error)
 	}
-	//退出账号处理
-	if (document.querySelector('#account-popover .popover__link-item[href="/account/logout"]')) {
-		document.querySelector('#account-popover .popover__link-item[href="/account/logout"]').addEventListener('click', function (e) {/*退出登录重置sensorsLoginButtonClick和sensorsRegisterButtonClick为false*/
-	  		sessionStorage.setItem("sensorsLoginButtonClick", false);
-	  		sessionStorage.setItem("sensorsRegisterButtonClick", false);
-		})
-	};
 	
-	//订阅事件代码
-	document.querySelector('.newsletter.newsletter--compact .form__submit').addEventListener('click', function (e) {
-		if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
-			sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
-			sessionStorage.setItem("subscription_type", "官网次尾部主动订阅");
-			sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
-		}
-	});
-	document.querySelector('#footer-newsletter .form__submit').addEventListener('click', function (e) {
-		if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
-			sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
-			sessionStorage.setItem("subscription_type", "官网尾部主动订阅");
-			sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
-		}
-	});
-	document.querySelector('.popup-newsletter button[type="submit"]').addEventListener('click', function (e) {
-		if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
-			sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
-			sessionStorage.setItem("subscription_type", "首次进站弹窗订阅");
-			sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
-		}
-	});
-	if ((sessionStorage.getItem("is_footer-newsletter_form__submit_click") == 'true') && document.querySelector('#footer-newsletter .alert--success')){
-		sensors.track('SubscribptionResult',{
-			subscribe_email:sessionStorage.getItem("is_footer-newsletter_form__submit_email"),
-			subscription_type:sessionStorage.getItem("subscription_type"),
-			is_success:true,
-		});
-		sessionStorage.setItem("is_footer-newsletter_form__submit_click", false);
-	}
-	if ((sessionStorage.getItem("is_footer-newsletter_form__submit_click") == 'true') && document.querySelector('#footer-newsletter .alert--error')){
-		sensors.track('SubscribptionResult',{
-			subscribe_email:sessionStorage.getItem("is_footer-newsletter_form__submit_email"),
-			subscription_type:sessionStorage.getItem("subscription_type"),
-			is_success:false,
-			fail_reason:document.querySelector('#footer-newsletter .alert--error').outerText,
-		});
-		sessionStorage.setItem("is_footer-newsletter_form__submit_click", false);
-	}	
 	/* 陈俊斌神策埋点代码start */
 	/*Checkout事件 theme主题里面只做入口储存 start*/
 	if ({{request.page_type | json}} == 'cart'){/*购物车页面*/
@@ -170,6 +175,7 @@ sensors.quick('isReady',function(){
 	/* quickView跟AddToCart合并 */
 	/* Checkout事件 theme主题里面只做入口储存 end */
 	/* ShareCommodity 事件 start*/
+	console.log({{request.page_type | json}} === 'product')
 	if ({{request.page_type | json}} === 'product'){/*product页面*/
 		let ShareCommodity = new sadhus_shence({
 			container:".product-meta",
@@ -203,7 +209,8 @@ sensors.quick('isReady',function(){
 
 				}
             }
-		}) 
+		})
+		/* ShareSuccess  目前只有fackbook可以做到成功监听 */
 		function initShareSuccess() {
 			let ShareSuccess = new sadhus_shence({
 				container:".social-media__item-list",
