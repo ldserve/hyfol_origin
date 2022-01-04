@@ -141,13 +141,13 @@
           "footer-1": {
             "type": "links",
             "settings": {
-              "menu": "footer"
+              "menu": "about-hyfol"
             }
           },
           "19a81811-3745-4280-bbc7-82cf671c27d7": {
             "type": "links",
             "settings": {
-              "menu": "about-hyfol"
+              "menu": "help-center"
             }
           },
           "footer-2": {
