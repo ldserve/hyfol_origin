@@ -68,7 +68,13 @@
                 <label for="search" class="form__floating-label">{{ 'search.general.input_placeholder' | t }}</label>
               </div>
 
-              <button type="submit" class="form__connection button button--primary" aria-label="{{ 'search.general.input_placeholder' | t }}">{% render 'icon', icon: 'search' %}</button>
+              <button type="submit"
+                      class="form__connection button button--primary"
+                      aria-label="{{ 'search.general.input_placeholder' | t }}"
+                      data-scenable="1"
+                      data-sctype="searchjump"
+                      data-scsession='{"search_type":"搜索页"}'
+              >{% render 'icon', icon: 'search' %}</button>
             </div>
           </form>
 
@@ -118,7 +124,11 @@
 
               <div {% if has_filters %}class="layout__section"{% endif %}>
                 {%- if search.results_count > 0 -%}
-                  <div class="collection">
+                  <div class="collection"
+                       data-scenable="1"
+                       data-sctype="SearchRequest"
+                       data-scdata='{"result_number":"{{ search.results_count }}","commodity_skuid_list":"{%- for product in search.results -%}{{ product.handle }},{%- endfor -%}"}'
+                  >
                     <div class="card">
                       <header class="card__header card__header--tight">
                         {%- comment -%}
@@ -199,9 +209,9 @@
                           {%- assign show_as_list = true -%}
                         {%- endif -%}
 
-                        <div class="product-list product-list--collection">
+                        <div class="product-list product-list--collection" ata-resultNumber="{{ search.results_count }}">
                           {%- for product in search.results -%}
-                            {%- render 'product-item', product: product, list: show_as_list, grid_classes: grid_classes -%}
+                            {%- render 'product-item', product: product, list: show_as_list, grid_classes: grid_classes,index:forloop.index -%}
                           {%- endfor -%}
                         </div>
 
@@ -240,7 +250,13 @@
               <label for="search" class="form__floating-label">{{ 'search.general.input_placeholder' | t }}</label>
             </div>
 
-            <button type="submit" class="form__connection button button--primary" aria-label="{{ 'search.general.input_placeholder' | t }}">{% render 'icon', icon: 'search' %}</button>
+            <button type="submit"
+                    class="form__connection button button--primary"
+                    aria-label="{{ 'search.general.input_placeholder' | t }}"
+                    data-scenable="1"
+                    data-sctype="searchjump"
+                    data-scsession='{"search_type":"搜索页"}'
+            >{% render 'icon', icon: 'search' %}</button>
           </div>
         </form>
 

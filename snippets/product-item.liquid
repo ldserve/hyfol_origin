@@ -2,7 +2,11 @@
 {%- assign color_label = 'color,colour,couleur,cor,colore,farbe,색,色,カラー,färg,farve,szín,barva' | split: ',' -%}
 
 <div
-	class="product-item {% if horizontal %}product-item--horizontal{% elsif list %}product-item--list{% else %}product-item--vertical{% endif %} {% if section.id == 'blog-sidebar' %}product-item--compact{% endif %} {{ grid_classes }}">
+	class="product-item {% if horizontal %}product-item--horizontal{% elsif list %}product-item--list{% else %}product-item--vertical{% endif %} {% if section.id == 'blog-sidebar' %}product-item--compact{% endif %} {{ grid_classes }}"
+	data-scenable="1"
+	data-sctype="SearchResultClick"
+	data-scdata='{"commodity_name":"{{ product.title| handleize}}","commodity_skuid":"","commodity_spuid":"{{- product.handle| handleize -}}","commodity_image_url":"{{- product.featured_image-}}","original_price":"{{- product.compare_at_price -}}","current_price":"{{- product.price -}}","mkt_tag":"","mkt_location":"{{ index }}"}'
+>
 	{%- capture product_labels -%}
 		{%- unless hide_labels -%}
 			{%- for tag in product.tags -%}

@@ -156,7 +156,11 @@
 								{%- endif -%}
 
 								{%- comment -%}---------------搜索提交按钮---------------{%- endcomment -%}
-								<button type="submit" class="search-bar__submit" aria-label="{{ 'header.search.submit' | t }}">
+								<button type="submit" class="search-bar__submit"
+												aria-label="{{ 'header.search.submit' | t }}"
+												data-scenable='1'
+												data-sctype="searchjump"
+												data-scsession='{"search_type":"点击搜索按钮"}'>
 									{%- render 'icon', icon: 'search' -%}
 									{%- render 'icon', icon: 'search-loader' -%}
 								</button>
