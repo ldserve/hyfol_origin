@@ -178,7 +178,7 @@ sensors.quick('isReady',function(){
 	console.log({{request.page_type | json}} === 'product')
 	if ({{request.page_type | json}} === 'product'){/*product页面*/
 		let ShareCommodity = new sadhus_shence({
-			container:".product-meta",
+			container:"body",
 			type:"ShareCommodity",
 			customData: function(container,el){
 				let newData = JSON.parse(el.parentElement.getAttribute('data-scdata'))
