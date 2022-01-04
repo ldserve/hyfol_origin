@@ -189,7 +189,7 @@
               {%- endfor  -%}
                       <button class="quantity-selector__button" 
                       data-scenable="1" data-sctype="minusMinCart" data-scdata='{
-                "is_quick_view":"0",
+                "is_quick_view":0,
 							"site_category":"{{collection.title}}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
 							"commodity_skuid":"{{ line_item.sku }}",
@@ -212,7 +212,7 @@
                      data-action="decrease-quantity" data-quantity="{{ line_item.quantity | minus: 1 }}" data-line="{{ forloop.index }}" aria-label="{{ 'cart.items.decrease_quantity' | t }}" title="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon', icon: 'minus' %}</button>
                       <input aria-label="{{ 'product.form.quantity' | t }}" class="quantity-selector__value" inputmode="numeric" data-current-value="{{ line_item.quantity }}" data-line="{{ forloop.index }}" value="{{ line_item.quantity }}" size="{{ line_item.quantity | append: '' | size | at_least: 2 }}">
                       <button class="quantity-selector__button" 
-                      data-scenable="1" data-sctype="addMinCart" data-scdata='{"is_quick_view":"0",
+                      data-scenable="1" data-sctype="addMinCart" data-scdata='{"is_quick_view":0,
 							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
                "commodity_name": "{{line_item.title | handleize }}",
@@ -231,7 +231,7 @@
                     "commodity_quantity":"{{line_item.quantity | plus: 1}}",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
-                    "is_fbt_used":"0",
+                    "is_fbt_used":0,
                     "is_fbt_main":"",
                     "fbt_spuid":"",
                     "fbt_skuid":"",
@@ -245,7 +245,7 @@
                     <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" data-action="decrease-quantity" data-quantity="0" data-line="{{ forloop.index }}" class="mini-cart__quantity-remove link ld-link-item"
                     data-scenable="1"
               data-sctype="removeMinCart" data-scdata='{
-                "is_quick_view":"0",
+                "is_quick_view":0,
 							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
 							"commodity_skuid":"{{ line_item.sku }}",

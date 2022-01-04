@@ -254,7 +254,7 @@
                               data-scenable="1" 
 							data-sctype="minusMainCart"  
 							data-scdata='{
-                "is_quick_view":"0",
+                "is_quick_view":0,
 							"site_category":"{{collection.title}}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
 							"commodity_skuid":"{{ line_item.sku }}",
@@ -279,7 +279,7 @@
                               <button type="button"
                               data-scenable="1" 
 							data-sctype="addMainCart"  
-							data-scdata='{"is_quick_view":"0",
+							data-scdata='{"is_quick_view":0,
 							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
                "commodity_name": "{{line_item.title | handleize }}",
@@ -298,7 +298,7 @@
                     "commodity_quantity":"{{line_item.quantity | plus: 1}}",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
-                    "is_fbt_used":"false",
+                    "is_fbt_used":0,
                     "is_fbt_main":"",
                     "fbt_spuid":"",
                     "fbt_skuid":"",
@@ -314,7 +314,7 @@
                           <a href="{{ routes.cart_change_url }}?quantity=0&line={{ forloop.index }}" data-action="decrease-quantity" data-quantity="0" data-line="{{ forloop.index }}" class="line-item__quantity-remove link ld-link-item" data-scenable="1" 
 							data-sctype="removeMainCart"  
 							data-scdata='{
-                "is_quick_view":"0",
+                "is_quick_view":0,
 							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
 							"commodity_skuid":"{{ line_item.sku }}",
@@ -330,7 +330,7 @@
 			            	"current_price":"{{ line_item.variant.compare_at_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                   "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"0",
+                    "commodity_quantity":0,
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
                     "entrance":"购物车页" }'>{{ 'cart.items.remove' | t }}</a>

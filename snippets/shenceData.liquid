@@ -1,6 +1,8 @@
 <script>
 
-let addquickView=new sadhus_shence({
+
+if ({{ request.page_type | json }} == 'collection') {/*集合页*/
+let addQuickView=new sadhus_shence({
    container:"body",
    type:"addCart",
    sendType:"AddToCart", 
@@ -46,15 +48,13 @@ let addquickView=new sadhus_shence({
       newData.commodity_skuid=id
      return newData  /*返回值必须为{}*/
    },
-   callback:()=>{
-        sensors.setProfile({last_addtocart_time:getFormatDate()})
-        addquickView.updateFn(); 
+   callback:function(){
+       sensors.setProfile({last_addtocart_time:getFormatDate()})
+     addQuickView.updateFn();
    }
 })
-if ({{ request.page_type | json }} == 'collection') {/*集合页*/
-
 new sadhus_shence({
-      delayed:true,
+   delayed:true,
    container:".product-list.product-list--collection",
    type:"quickView",
    event:'click',
@@ -86,9 +86,9 @@ new sadhus_shence({
    type:"valueChange",
    event:'click',
    sendType:"CommodityDetail", 
-  customData: function(container){/*形参为当前容器dom */
+   customData: function(container){/*形参为当前容器dom */
       let newData={};
-              if(!{{product.metafields.my_fields.category | json}} ){
+      if(!{{product.metafields.my_fields.category | json}} ){
       newData.first_commodity=""
 		newData.second_commodity=""
 		newData.third_commodity= ""
@@ -98,7 +98,7 @@ new sadhus_shence({
 		newData.second_commodity=category.second_commodity
 		newData.third_commodity= category.third_commodity
       }
-      let data =  container.querySelector('.product-form__variants .color-swatch').getAttribute('data-scdata')
+      let data =  container.querySelector('.product-form__variants .ld-variant').getAttribute('data-scdata')
       data=JSON.parse(data)
       let id =  document.querySelector('.select-wrapper option[selected]').getAttribute('data-sku')
       newData.commodity_skuid=id
@@ -113,7 +113,7 @@ new sadhus_shence({
 if ({{ request.page_type | json }} == 'product') {/*产品页*/
  new sadhus_shence({
    delayed:true,
-   container:".variant-swatch-list",
+   container:".ld-variant-list",
    type:"valueChange",
    event:'click',
    sendType:"CommodityDetail", 
@@ -130,7 +130,7 @@ if ({{ request.page_type | json }} == 'product') {/*产品页*/
 		newData.third_commodity= category.third_commodity
       }
 
-      let data =  container.querySelector('.variant-swatch').getAttribute('data-scdata')
+      let data =  container.querySelector('.ld-variant').getAttribute('data-scdata')
       data=JSON.parse(data)
       let id =  document.querySelector('.select-wrapper option[selected]').getAttribute('data-sku')
       newData.commodity_skuid=id
@@ -207,9 +207,9 @@ let addCart=new sadhus_shence({
       newData.commodity_skuid=id
      return newData  /*返回值必须为{}*/
    },
-   callback:()=>{
+   callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
-       addCart.updateFn();
+     addCart.updateFn();
    }
 })
 }
@@ -485,7 +485,6 @@ new sadhus_shence({
 new sadhus_shence({
   container:".form__connected-item",
   type:"searchjump",
-  debug: true,
   setSessionId:"sensorsSearchRequesth",
   customSession:function(container){
     let newData={};

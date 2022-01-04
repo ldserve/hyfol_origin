@@ -19,9 +19,61 @@
   "isQuickView": {% if template == 'product.quick-view' %}true{% else %}false{% endif %}
 }
 {%- endcapture -%}
+    	{%- for ldoption in product.options_with_values -%}
+				{%- if ldoption.name == 'COLOR' or ldoption.name == 'Color' -%}
+					{%- for value in ldoption.values -%}
+
+                 {%- if forloop.index == 1 -%}
+					 {%- assign color = value  -%}
+					 	{%- else -%}
+						   {%- assign color = color  | append: "," | append: value  -%}
+		          {%- endif  -%}
+                
+					{%- endfor -%}
+				{%- else -%}
+						{%- for value in ldoption.values -%}
+                     
+                 {%- if forloop.index == 1 -%}
+					 {%- assign size = value  -%}
+					 	{%- else -%}
+						   {%- assign size = size  | append: "," | append: value  -%}
+		          {%- endif  -%}
+						{%- endfor -%}		
+				{%- endif -%}
+				{%- endfor -%}
+
+              {% for tag in product.tags %}
+              {%- if forloop.index == 1 -%}
+              {%- assign tags = tag | handleize -%}
+              {%- else -%}
+              {%- assign tagtitlie = tag | handleize -%}
+              {%- assign tags = tags | append: "," | append: tagtitlie -%}
+              {%- endif -%}
+              {% endfor %}
+                              {%- for line_item in cart.items -%}
+                      {%- if forloop.index == 1 -%}
+        					      {%- assign id = line_item.id -%}
+        				  	 	{%- else -%}
+        						    {%- assign id = id  | append: "," | append: line_item.id  -%}
+        		          {%- endif  -%}
+                {%- endfor  -%}
 <section data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
   {%- if template != 'product.quick-view' -%}
-    <div class="container container--flush">
+    <div class="container container--flush shenceDetail" data-scenable="1" 
+							data-scdata='{"is_quick_view":0,
+							"site_category":"{{collection.title }}", 
+							"commodity_spuid": "{{product.handle}}",
+               "commodity_name": "{{product.title | handleize }}",
+							"currency_unit":"USD",
+							"commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}",
+							"commodity_image_quantity":"{{product.images.size}}",
+							"commodity_description_text":{{product.description |json}},
+				            "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first }}",
+							"commodity_size":"{{size}}",
+				            "commodity_color":"{{color}}",
+							"commodity_tag":"{{tags}}",
+							"original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
+			            	"current_price":"{{ product.selected_or_first_available_variant.price }}"}'>
       <div class="page__sub-header">
         <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
           <ol class="breadcrumb__list" role="list">

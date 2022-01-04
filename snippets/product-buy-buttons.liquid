@@ -46,7 +46,7 @@
       {%- else -%}
         <button type="submit" class="product-form__add-button button button--primary" 
          data-scenable="1" data-sctype="addCart"
-         data-scdata='{"is_quick_view":"{% if template == "product.quick-view" %}1{% else %}0{% endif %}",
+         data-scdata='{"is_quick_view":{% if template == "product.quick-view" %}1{% else %}0{% endif %},
 							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{product.handle}}",
                "commodity_name": "{{product.title | handleize }}",
@@ -64,7 +64,7 @@
               "compliment_commodities":"{{ id }}",
               "bonus_name":"",
               "bonus_amount":"",
-              "is_fbt_used":"false",
+              "is_fbt_used":0,
               "is_fbt_main":"",
               "fbt_spuid":"",
               "fbt_skuid":"",
@@ -83,7 +83,7 @@
       data-sctype="addCart" 
       data-scsession='{"entrance":"quick-view结算"}'
       data-scdata='{
-        "is_quick_view":"{% if template == "product.quick-view" %}1{% else %}0{% endif %}",
+        "is_quick_view":{% if template == "product.quick-view" %}1{% else %}0{% endif %},
 							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{product.handle}}",
                "commodity_name": "{{product.title | handleize }}",
@@ -101,7 +101,7 @@
               "compliment_commodities":"{{ id }}",
               "bonus_name":"",
               "bonus_amount":"",
-              "is_fbt_used":"false",
+              "is_fbt_used":0,
               "is_fbt_main":"",
               "fbt_spuid":"",
               "fbt_skuid":"",
