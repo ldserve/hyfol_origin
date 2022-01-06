@@ -9,6 +9,7 @@
         <div class="product-gallery__carousel-wrapper">
           <div class="product-gallery__carousel {% if template != 'product.quick-view' and section.settings.enable_image_zoom %}product-gallery__carousel--zoomable{% endif %}" data-media-count="{{ product.media.size }}" data-initial-media-id="{{ selected_media.id }}">
             {%- for media in product.media -%}
+            	{{ media.alt }}
               {%- assign is_media_group = false -%}
               {%- assign is_media_filtered = false -%}
               {%- assign media_alt = media.alt -%}
