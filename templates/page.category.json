@@ -18,29 +18,29 @@
             "tabs": 1,
             "coums": 2,
             "image1": "shopify:\/\/shop_images\/01_317d541a-b457-4d9e-abce-294740207a10.jpg",
-            "link1": "shopify:\/\/collections\/long-sleeve",
+            "link1": "shopify:\/\/collections\/long-sleeve-series",
             "image2": "shopify:\/\/shop_images\/03_d770f5a3-17e2-4de2-a60e-16e40dc4e249.jpg",
-            "link2": "shopify:\/\/collections\/shorts",
+            "link2": "shopify:\/\/collections\/short-sleeve-12-13",
             "image3": "shopify:\/\/shop_images\/06.jpg",
-            "link3": "shopify:\/\/collections\/hoodies",
+            "link3": "shopify:\/\/collections\/hoodies-1",
             "image4": "shopify:\/\/shop_images\/07_3698cfd6-b41c-4856-aadb-2f6a705f865a.jpg",
-            "link4": "shopify:\/\/collections\/sweatshirts"
+            "link4": "shopify:\/\/collections\/sweatshirts-12-13"
           }
         },
         "742cc042-0ec7-4574-9e63-dbf7fabe4e41": {
           "type": "image",
           "settings": {
-            "heading": "1号卡片",
+            "heading": "2号卡片",
             "tabs": 1,
             "coums": 2,
             "image1": "shopify:\/\/shop_images\/10_9a858dd5-5d2c-4ef3-9639-6aa6bb41e1f6.jpg",
-            "link1": "shopify:\/\/collections\/bottoms",
+            "link1": "shopify:\/\/collections\/bottoms-12-13",
             "image2": "shopify:\/\/shop_images\/11_5e7c6ac1-7ed6-4d75-b7d9-e4401a45df36.jpg",
-            "link2": "shopify:\/\/collections\/outerwear",
+            "link2": "shopify:\/\/collections\/outerwear_hyfol",
             "image3": "shopify:\/\/shop_images\/14_a7088c63-fa97-4491-b7ec-16f3d63b3542.jpg",
             "link3": "shopify:\/\/collections\/sweater",
             "image4": "shopify:\/\/shop_images\/ssss_03.jpg",
-            "link4": "shopify:\/\/collections\/accessories"
+            "link4": "shopify:\/\/collections\/accessories-12-13"
           }
         },
         "12e8a6c1-45a3-4e82-8e82-a410a3e87dc6": {
@@ -59,6 +59,7 @@
         },
         "060237d5-b4fb-4bcb-ab06-08acdbab06f3": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "heading": "2号卡片",
             "tabs": 2,
