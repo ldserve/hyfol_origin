@@ -54,7 +54,9 @@ sensors.quick('isReady',function(){
 					var isLogin = false;
 				}
 				if (isLogin && (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true')) {
-					sensors.setOnceProfile({ signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email") });/* 更新用户表注册邮箱 */
+					sensors.setOnceProfile({ signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email") });/*更新用户表注册邮箱*/
+					sensors.setProfile({ first_name: sessionStorage.getItem("First_name") });/*更新用户表名字*/
+					sensors.setProfile({ last_name: sessionStorage.getItem("Second_name") });/*更新用户表姓氏*/
 					sessionStorage.setItem("sensorsRegisterButtonClick", false);
 					sensors.track('RegisterResult',{
 						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
