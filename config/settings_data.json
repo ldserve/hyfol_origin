@@ -314,7 +314,7 @@
       "surprise": {
         "type": "surprise",
         "settings": {
-          "show": true,
+          "show": false,
           "lucky": 99,
           "lucky_bg": "shopify:\/\/shop_images\/8767edd33eb57464b0c10b2bc28117ba_e56cfb04-08e8-45f2-bcec-6e0ff35b9c90.png",
           "lucky_bg2": "shopify:\/\/shop_images\/20211214-134121.png",
