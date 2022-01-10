@@ -244,71 +244,51 @@
         "lpadding": 0
       }
     },
-    "1635759941961a18e2": {
-      "type": "linkImg",
-      "blocks": {
-        "20812252-d42b-4392-a13f-e9b850585153": {
-          "type": "link",
-          "settings": {
-            "heading": "mens2",
-            "link": "shopify:\/\/collections\/mens",
-            "left": 0,
-            "top": 28,
-            "width": 32,
-            "height": 70
-          }
-        },
-        "d6991989-18f2-4dd6-ac03-cad62b2fa613": {
-          "type": "link",
-          "settings": {
-            "heading": "womens2",
-            "link": "shopify:\/\/collections\/women",
-            "left": 33,
-            "top": 28,
-            "width": 33,
-            "height": 70
-          }
-        },
-        "b9334289-7c49-4e0a-b053-e1da8b120779": {
-          "type": "link",
-          "settings": {
-            "heading": "NEWIN",
-            "link": "shopify:\/\/collections\/new-in",
-            "left": 67,
-            "top": 28,
-            "width": 34,
-            "height": 70
-          }
-        }
-      },
-      "block_order": [
-        "20812252-d42b-4392-a13f-e9b850585153",
-        "d6991989-18f2-4dd6-ac03-cad62b2fa613",
-        "b9334289-7c49-4e0a-b053-e1da8b120779"
-      ],
-      "settings": {
-        "hidDesk": true,
-        "hidWeb": false,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2_04.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
-      }
-    },
     "16357602965b96c401": {
       "type": "linkImg",
       "blocks": {
+        "0db6b071-a702-475f-b427-d4599a77da9a": {
+          "type": "link",
+          "settings": {
+            "heading": "men",
+            "link": "",
+            "left": 0,
+            "top": 9,
+            "width": 32,
+            "height": 25
+          }
+        },
+        "a4122754-203a-4350-8ed8-6dbec1b215c4": {
+          "type": "link",
+          "settings": {
+            "heading": "women",
+            "link": "",
+            "left": 34,
+            "top": 9,
+            "width": 32,
+            "height": 25
+          }
+        },
+        "fa7c78b1-1786-4397-b27d-edb7f94a6613": {
+          "type": "link",
+          "settings": {
+            "heading": "new",
+            "link": "",
+            "left": 68,
+            "top": 9,
+            "width": 32,
+            "height": 25
+          }
+        },
         "080dc183-4e43-4473-a8cc-44356cd7a4d7": {
           "type": "link",
           "settings": {
             "heading": "hoodies3",
             "link": "shopify:\/\/collections\/hoodies-1",
             "left": 3,
-            "top": 11,
+            "top": 44,
             "width": 46,
-            "height": 20
+            "height": 13
           }
         },
         "946f9474-e9e3-4a48-889e-eb94b84ddae1": {
@@ -317,9 +297,9 @@
             "heading": "T-shirts",
             "link": "shopify:\/\/collections\/shirts-12-13",
             "left": 51,
-            "top": 11,
+            "top": 44,
             "width": 46,
-            "height": 19
+            "height": 13
           }
         },
         "29d264b3-1358-40e5-affe-75e368b387bd": {
@@ -328,9 +308,9 @@
             "heading": "outerwear3",
             "link": "shopify:\/\/collections\/outerwear_hyfol",
             "left": 3,
-            "top": 32,
+            "top": 59,
             "width": 46,
-            "height": 22
+            "height": 13
           }
         },
         "f79bb545-2187-4e88-a746-7628fde4cdc0": {
@@ -339,9 +319,9 @@
             "heading": "Sweaters",
             "link": "shopify:\/\/collections\/sweater",
             "left": 51,
-            "top": 33,
+            "top": 59,
             "width": 46,
-            "height": 20
+            "height": 13
           }
         },
         "b4976b7a-8ed3-4ba1-b2e3-dab9bff9b832": {
@@ -350,9 +330,9 @@
             "heading": "bottoms3",
             "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 3,
-            "top": 57,
+            "top": 73,
             "width": 46,
-            "height": 20
+            "height": 13
           }
         },
         "ece75503-a9f2-4f6d-907c-52d39cda9efa": {
@@ -361,9 +341,9 @@
             "heading": "SWEATSHIRTS",
             "link": "shopify:\/\/collections\/sweatshirts-12-13",
             "left": 51,
-            "top": 57,
+            "top": 73,
             "width": 46,
-            "height": 20
+            "height": 13
           }
         },
         "18a3bf32-1442-48ce-95be-968b36a493ce": {
@@ -372,9 +352,9 @@
             "heading": "caphat3",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 3,
-            "top": 80,
+            "top": 87,
             "width": 46,
-            "height": 20
+            "height": 13
           }
         },
         "5e431b2f-60a0-409b-b082-222b54459ccb": {
@@ -383,9 +363,9 @@
             "heading": "JEWELRY",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 51,
-            "top": 80,
+            "top": 87,
             "width": 46,
-            "height": 20
+            "height": 13
           }
         },
         "d05649e8-abab-4210-a4ad-f3b53421d000": {
@@ -414,6 +394,9 @@
         }
       },
       "block_order": [
+        "0db6b071-a702-475f-b427-d4599a77da9a",
+        "a4122754-203a-4350-8ed8-6dbec1b215c4",
+        "fa7c78b1-1786-4397-b27d-edb7f94a6613",
         "080dc183-4e43-4473-a8cc-44356cd7a4d7",
         "946f9474-e9e3-4a48-889e-eb94b84ddae1",
         "29d264b3-1358-40e5-affe-75e368b387bd",
@@ -429,7 +412,7 @@
         "hidDesk": true,
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_06.jpg",
+        "image": "shopify:\/\/shop_images\/M_-2.0_05_2.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -836,7 +819,6 @@
     "slideshow",
     "163937456276e25a4f",
     "1635759577ba76b918",
-    "1635759941961a18e2",
     "16357602965b96c401",
     "16418022421fb24728",
     "1641802708ee6e5203",
