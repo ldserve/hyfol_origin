@@ -560,7 +560,7 @@
           "settings": {
             "heading": "outwear",
             "link": "shopify:\/\/collections\/59-9",
-            "left": 63,
+            "left": 65,
             "top": 3,
             "width": 23,
             "height": 96
@@ -673,7 +673,7 @@
           "type": "link",
           "settings": {
             "heading": "noble",
-            "link": "",
+            "link": "shopify:\/\/collections\/noble",
             "left": 4,
             "top": 81,
             "width": 30,
@@ -684,7 +684,7 @@
           "type": "link",
           "settings": {
             "heading": "cost",
-            "link": "",
+            "link": "shopify:\/\/collections\/cost-effecitve",
             "left": 36,
             "top": 81,
             "width": 30,
