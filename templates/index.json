@@ -477,6 +477,19 @@
         "lpadding": 0
       }
     },
+    "1641802708ee6e5203": {
+      "type": "linkImg",
+      "settings": {
+        "hidDesk": true,
+        "hidWeb": false,
+        "line": true,
+        "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
+      }
+    },
     "1639375466adf92990": {
       "type": "featured-collection-img",
       "settings": {
@@ -492,19 +505,6 @@
         "link_title": "",
         "link_bg": "rgba(0,0,0,0)",
         "link_url": "shopify:\/\/collections\/all"
-      }
-    },
-    "1641802708ee6e5203": {
-      "type": "linkImg",
-      "settings": {
-        "hidDesk": true,
-        "hidWeb": false,
-        "line": true,
-        "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
       }
     },
     "16417996780d2036fa": {
@@ -564,7 +564,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__09_2cc15532-c857-471c-bfa5-685b269362d1.jpg",
-        "web_image": "shopify:\/\/shop_images\/M_-2_13.jpg",
+        "web_image": "shopify:\/\/shop_images\/1_13.jpg",
         "link": "shopify:\/\/collections\/hoodies-1",
         "collection": "hoodies-1",
         "title": "",
@@ -632,8 +632,10 @@
     },
     "164179738814931472": {
       "type": "featured-collection-img",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__13.jpg",
+        "web_image": "shopify:\/\/shop_images\/1_15.jpg",
         "link": "",
         "collection": "",
         "title": "",
@@ -650,7 +652,7 @@
       "type": "no_space_img",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/PC__15.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/M_-2_19.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/1_19.jpg",
         "link": "shopify:\/\/collections\/essential",
         "shadow": false
       }
@@ -838,8 +840,8 @@
     "1635759941961a18e2",
     "16357602965b96c401",
     "16418022421fb24728",
-    "1639375466adf92990",
     "1641802708ee6e5203",
+    "1639375466adf92990",
     "16417996780d2036fa",
     "163703402842074b11",
     "164180148203ce3894",
