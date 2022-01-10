@@ -538,9 +538,9 @@
           "settings": {
             "heading": "selected",
             "link": "shopify:\/\/collections\/19-9",
-            "left": 13,
+            "left": 4,
             "top": 3,
-            "width": 23,
+            "width": 28,
             "height": 96
           }
         },
@@ -549,9 +549,9 @@
           "settings": {
             "heading": "available",
             "link": "shopify:\/\/collections\/9-9-only",
-            "left": 39,
+            "left": 36,
             "top": 3,
-            "width": 23,
+            "width": 28,
             "height": 96
           }
         },
@@ -560,9 +560,9 @@
           "settings": {
             "heading": "outwear",
             "link": "shopify:\/\/collections\/59-9",
-            "left": 65,
+            "left": 68,
             "top": 3,
-            "width": 23,
+            "width": 28,
             "height": 96
           }
         }
