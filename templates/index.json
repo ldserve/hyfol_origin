@@ -436,6 +436,47 @@
         "lpadding": 0
       }
     },
+    "16418022421fb24728": {
+      "type": "linkImg",
+      "blocks": {
+        "cd035335-e00b-42b6-aaab-cd397285f735": {
+          "type": "link",
+          "settings": {
+            "heading": "single",
+            "link": "",
+            "left": 0,
+            "top": 8,
+            "width": 50,
+            "height": 92
+          }
+        },
+        "a99cbd6c-a54e-4aad-949c-1fbe03544d8d": {
+          "type": "link",
+          "settings": {
+            "heading": "souple",
+            "link": "",
+            "left": 50,
+            "top": 8,
+            "width": 50,
+            "height": 92
+          }
+        }
+      },
+      "block_order": [
+        "cd035335-e00b-42b6-aaab-cd397285f735",
+        "a99cbd6c-a54e-4aad-949c-1fbe03544d8d"
+      ],
+      "settings": {
+        "hidDesk": true,
+        "hidWeb": false,
+        "line": false,
+        "image": "shopify:\/\/shop_images\/M_-2.0_07_dc4419fe-9744-4f24-b9e9-d2feaaba80a4.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
+      }
+    },
     "1639375466adf92990": {
       "type": "featured-collection-img",
       "settings": {
@@ -523,24 +564,6 @@
         "link_url": ""
       }
     },
-    "1635843412f4572d8b": {
-      "type": "featured-collection-img",
-      "disabled": true,
-      "settings": {
-        "image": "shopify:\/\/shop_images\/PC__11.jpg",
-        "web_image": "shopify:\/\/shop_images\/M_-2_14.jpg",
-        "link": "shopify:\/\/collections\/pants-series",
-        "collection": "pants-series",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "",
-        "link_bg": "#1b1b1b",
-        "link_url": ""
-      }
-    },
     "164180148203ce3894": {
       "type": "linkImg",
       "blocks": {
@@ -592,27 +615,6 @@
         "rpadding": 0,
         "bpadding": 0,
         "lpadding": 0
-      }
-    },
-    "16360968581831caac": {
-      "type": "slide-product",
-      "disabled": true,
-      "settings": {
-        "desk_image": "shopify:\/\/shop_images\/M_-2_16.jpg",
-        "web_image": "shopify:\/\/shop_images\/M_-2_16.jpg",
-        "link": "shopify:\/\/collections\/women",
-        "collection": "women",
-        "products_count": 12,
-        "show_quick_buy": true,
-        "background": "#f0f0f0",
-        "title": "",
-        "content": "",
-        "title_color": "#ffffff",
-        "text_color": "#ffffff",
-        "button_text": "",
-        "button_link": "",
-        "button_text_color": "#0774d7",
-        "button_background": "#ffffff"
       }
     },
     "164179738814931472": {
@@ -822,12 +824,11 @@
     "1635759577ba76b918",
     "1635759941961a18e2",
     "16357602965b96c401",
+    "16418022421fb24728",
     "1639375466adf92990",
     "16417996780d2036fa",
     "163703402842074b11",
-    "1635843412f4572d8b",
     "164180148203ce3894",
-    "16360968581831caac",
     "164179738814931472",
     "1639378018bdd37462",
     "1640334828c8a975c8",
