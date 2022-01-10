@@ -251,7 +251,7 @@
           "type": "link",
           "settings": {
             "heading": "men",
-            "link": "",
+            "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 9,
             "width": 32,
@@ -262,7 +262,7 @@
           "type": "link",
           "settings": {
             "heading": "women",
-            "link": "",
+            "link": "shopify:\/\/collections\/women",
             "left": 34,
             "top": 9,
             "width": 32,
@@ -273,7 +273,7 @@
           "type": "link",
           "settings": {
             "heading": "new",
-            "link": "",
+            "link": "shopify:\/\/collections\/new-in",
             "left": 68,
             "top": 9,
             "width": 32,
@@ -460,19 +460,6 @@
         "lpadding": 0
       }
     },
-    "1641802708ee6e5203": {
-      "type": "linkImg",
-      "settings": {
-        "hidDesk": true,
-        "hidWeb": false,
-        "line": true,
-        "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
-      }
-    },
     "1639375466adf92990": {
       "type": "featured-collection-img",
       "settings": {
@@ -488,6 +475,19 @@
         "link_title": "",
         "link_bg": "rgba(0,0,0,0)",
         "link_url": "shopify:\/\/collections\/all"
+      }
+    },
+    "1641802708ee6e5203": {
+      "type": "linkImg",
+      "settings": {
+        "hidDesk": true,
+        "hidWeb": false,
+        "line": true,
+        "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
       }
     },
     "16417996780d2036fa": {
@@ -654,7 +654,7 @@
           "type": "link",
           "settings": {
             "heading": "luxury",
-            "link": "",
+            "link": "shopify:\/\/collections\/925-sterling-silver",
             "left": 67,
             "top": 81,
             "width": 30,
@@ -886,8 +886,8 @@
     "1635759577ba76b918",
     "16357602965b96c401",
     "16418022421fb24728",
-    "1641802708ee6e5203",
     "1639375466adf92990",
+    "1641802708ee6e5203",
     "16417996780d2036fa",
     "163703402842074b11",
     "164180148203ce3894",
