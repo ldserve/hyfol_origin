@@ -3,8 +3,8 @@
     "16379144370948f06a": {
       "type": "no_space_img",
       "settings": {
-        "bg_image": "shopify:\/\/shop_images\/PC_7430b3de-1839-4d28-a19b-9906f333b817.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/94d53239037849179c79285840325f32_8f032959-9b2d-4706-878e-c19ae89734ff.jpg",
+        "bg_image": "shopify:\/\/shop_images\/PC_f97cded7-69b1-4880-b2a2-49af6b5862ba.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/94d53239037849179c79285840325f32_6735b9eb-37a5-4593-8146-51fab1a1efd7.jpg",
         "link": "",
         "shadow": false
       }
@@ -478,10 +478,10 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/1_f4f39d84-04cd-4fc3-a60d-4daa0d7f26db.jpg",
         "web_image": "shopify:\/\/shop_images\/1_09_b8dca9b3-c3fc-431a-9df0-7825bbbc4e18.jpg",
-        "link": "shopify:\/\/collections\/long-sleeve-series",
-        "collection": "long-sleeve-series",
+        "link": "shopify:\/\/collections\/clearance-sale-hyfol",
+        "collection": "",
         "title": "",
-        "products_count": 12,
+        "products_count": 4,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": false,
@@ -497,7 +497,7 @@
           "type": "link",
           "settings": {
             "heading": "selected",
-            "link": "",
+            "link": "shopify:\/\/collections\/19-9",
             "left": 13,
             "top": 3,
             "width": 23,
@@ -508,7 +508,7 @@
           "type": "link",
           "settings": {
             "heading": "available",
-            "link": "",
+            "link": "shopify:\/\/collections\/9-9-only",
             "left": 39,
             "top": 3,
             "width": 22,
@@ -519,7 +519,7 @@
           "type": "link",
           "settings": {
             "heading": "outwear",
-            "link": "",
+            "link": "shopify:\/\/collections\/59-9",
             "left": 63,
             "top": 3,
             "width": 23,
@@ -589,7 +589,7 @@
           "type": "link",
           "settings": {
             "heading": "luxury",
-            "link": "",
+            "link": "shopify:\/\/collections\/925-sterling-silver",
             "left": 67,
             "top": 63,
             "width": 31,
@@ -671,7 +671,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__13.jpg",
         "web_image": "shopify:\/\/shop_images\/1_17.jpg",
-        "link": "",
+        "link": "shopify:\/\/collections\/long-sleeve-series",
         "collection": "",
         "title": "",
         "products_count": 12,
