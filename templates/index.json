@@ -481,7 +481,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/1_f4f39d84-04cd-4fc3-a60d-4daa0d7f26db.jpg",
-        "web_image": "shopify:\/\/shop_images\/M_-2_08_ff68736f-a2a6-4bf5-b4ee-cf05c5055f80.jpg",
+        "web_image": "shopify:\/\/shop_images\/1_09_b8dca9b3-c3fc-431a-9df0-7825bbbc4e18.jpg",
         "link": "shopify:\/\/collections\/long-sleeve-series",
         "collection": "long-sleeve-series",
         "title": "",
@@ -492,6 +492,19 @@
         "link_title": "",
         "link_bg": "rgba(0,0,0,0)",
         "link_url": "shopify:\/\/collections\/all"
+      }
+    },
+    "1641802708ee6e5203": {
+      "type": "linkImg",
+      "settings": {
+        "hidDesk": true,
+        "hidWeb": false,
+        "line": true,
+        "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
       }
     },
     "16417996780d2036fa": {
@@ -826,6 +839,7 @@
     "16357602965b96c401",
     "16418022421fb24728",
     "1639375466adf92990",
+    "1641802708ee6e5203",
     "16417996780d2036fa",
     "163703402842074b11",
     "164180148203ce3894",
