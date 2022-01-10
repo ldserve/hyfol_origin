@@ -523,6 +523,7 @@
     },
     "1635843412f4572d8b": {
       "type": "featured-collection-img",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__11.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_14.jpg",
@@ -536,6 +537,59 @@
         "link_title": "",
         "link_bg": "#1b1b1b",
         "link_url": ""
+      }
+    },
+    "164180148203ce3894": {
+      "type": "linkImg",
+      "blocks": {
+        "9eb8fdf9-9293-4587-8e23-d38e3dc12577": {
+          "type": "link",
+          "settings": {
+            "heading": "noble",
+            "link": "",
+            "left": 2,
+            "top": 63,
+            "width": 31,
+            "height": 36
+          }
+        },
+        "c53cb299-0dd1-4ae1-b616-3daeee6b9195": {
+          "type": "link",
+          "settings": {
+            "heading": "cost",
+            "link": "",
+            "left": 35,
+            "top": 63,
+            "width": 31,
+            "height": 36
+          }
+        },
+        "18920e4c-dfa1-49b7-9bb9-d9a4d1446681": {
+          "type": "link",
+          "settings": {
+            "heading": "luxury",
+            "link": "",
+            "left": 67,
+            "top": 63,
+            "width": 31,
+            "height": 36
+          }
+        }
+      },
+      "block_order": [
+        "9eb8fdf9-9293-4587-8e23-d38e3dc12577",
+        "c53cb299-0dd1-4ae1-b616-3daeee6b9195",
+        "18920e4c-dfa1-49b7-9bb9-d9a4d1446681"
+      ],
+      "settings": {
+        "hidDesk": false,
+        "hidWeb": true,
+        "line": false,
+        "image": "shopify:\/\/shop_images\/PC__11_b383200e-5808-4812-9d96-039aacc07636.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
       }
     },
     "16360968581831caac": {
@@ -770,6 +824,7 @@
     "16417996780d2036fa",
     "163703402842074b11",
     "1635843412f4572d8b",
+    "164180148203ce3894",
     "16360968581831caac",
     "164179738814931472",
     "1639378018bdd37462",
