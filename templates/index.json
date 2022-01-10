@@ -575,7 +575,7 @@
       "settings": {
         "hidDesk": true,
         "hidWeb": false,
-        "line": true,
+        "line": false,
         "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
         "tpadding": 0,
         "rpadding": 0,
