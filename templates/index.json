@@ -613,6 +613,59 @@
         "lpadding": 0
       }
     },
+    "1641804617fc9f876b": {
+      "type": "linkImg",
+      "blocks": {
+        "0109fc3f-3045-4f3e-ae36-5b208519b7ac": {
+          "type": "link",
+          "settings": {
+            "heading": "noble",
+            "link": "",
+            "left": 4,
+            "top": 81,
+            "width": 30,
+            "height": 19
+          }
+        },
+        "a2f02011-1077-43e2-9ec9-7350cdf8fc03": {
+          "type": "link",
+          "settings": {
+            "heading": "cost",
+            "link": "",
+            "left": 36,
+            "top": 81,
+            "width": 30,
+            "height": 19
+          }
+        },
+        "1b1ad281-13c4-43e6-9129-4993d6f74954": {
+          "type": "link",
+          "settings": {
+            "heading": "luxury",
+            "link": "",
+            "left": 67,
+            "top": 81,
+            "width": 30,
+            "height": 19
+          }
+        }
+      },
+      "block_order": [
+        "0109fc3f-3045-4f3e-ae36-5b208519b7ac",
+        "a2f02011-1077-43e2-9ec9-7350cdf8fc03",
+        "1b1ad281-13c4-43e6-9129-4993d6f74954"
+      ],
+      "settings": {
+        "hidDesk": true,
+        "hidWeb": false,
+        "line": false,
+        "image": "shopify:\/\/shop_images\/M_-2.0_12.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
+      }
+    },
     "164179738814931472": {
       "type": "featured-collection-img",
       "settings": {
@@ -826,6 +879,7 @@
     "16417996780d2036fa",
     "163703402842074b11",
     "164180148203ce3894",
+    "1641804617fc9f876b",
     "164179738814931472",
     "1639378018bdd37462",
     "1640334828c8a975c8",
