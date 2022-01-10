@@ -436,7 +436,7 @@
         "a99cbd6c-a54e-4aad-949c-1fbe03544d8d": {
           "type": "link",
           "settings": {
-            "heading": "souple",
+            "heading": "couple",
             "link": "",
             "left": 50,
             "top": 8,
@@ -477,19 +477,6 @@
         "link_url": "shopify:\/\/collections\/all"
       }
     },
-    "1641802708ee6e5203": {
-      "type": "linkImg",
-      "settings": {
-        "hidDesk": true,
-        "hidWeb": false,
-        "line": true,
-        "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
-      }
-    },
     "16417996780d2036fa": {
       "type": "linkImg",
       "blocks": {
@@ -511,7 +498,7 @@
             "link": "shopify:\/\/collections\/9-9-only",
             "left": 39,
             "top": 3,
-            "width": 22,
+            "width": 23,
             "height": 96
           }
         },
@@ -543,6 +530,59 @@
         "lpadding": 0
       }
     },
+    "1641802708ee6e5203": {
+      "type": "linkImg",
+      "blocks": {
+        "e3b69057-594e-4b37-92e9-7cfe762b39bd": {
+          "type": "link",
+          "settings": {
+            "heading": "selected",
+            "link": "shopify:\/\/collections\/19-9",
+            "left": 13,
+            "top": 3,
+            "width": 23,
+            "height": 96
+          }
+        },
+        "f4b7db18-675d-45ad-bfcc-0c69ca394efb": {
+          "type": "link",
+          "settings": {
+            "heading": "available",
+            "link": "shopify:\/\/collections\/9-9-only",
+            "left": 39,
+            "top": 3,
+            "width": 23,
+            "height": 96
+          }
+        },
+        "40c74a64-52fa-4a6e-bac5-241c225e5c80": {
+          "type": "link",
+          "settings": {
+            "heading": "outwear",
+            "link": "shopify:\/\/collections\/59-9",
+            "left": 63,
+            "top": 3,
+            "width": 23,
+            "height": 96
+          }
+        }
+      },
+      "block_order": [
+        "e3b69057-594e-4b37-92e9-7cfe762b39bd",
+        "f4b7db18-675d-45ad-bfcc-0c69ca394efb",
+        "40c74a64-52fa-4a6e-bac5-241c225e5c80"
+      ],
+      "settings": {
+        "hidDesk": true,
+        "hidWeb": false,
+        "line": true,
+        "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
+      }
+    },
     "163703402842074b11": {
       "type": "featured-collection-img",
       "settings": {
@@ -567,7 +607,7 @@
           "type": "link",
           "settings": {
             "heading": "noble",
-            "link": "",
+            "link": "shopify:\/\/collections\/noble",
             "left": 2,
             "top": 63,
             "width": 31,
@@ -578,7 +618,7 @@
           "type": "link",
           "settings": {
             "heading": "cost",
-            "link": "",
+            "link": "shopify:\/\/collections\/cost-effecitve",
             "left": 35,
             "top": 63,
             "width": 31,
@@ -598,6 +638,7 @@
         },
         "56c265bb-7dab-46d0-ae72-3d6419e038ca": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "heading": "(´థ౪థ）σ",
             "link": "",
@@ -887,8 +928,8 @@
     "16357602965b96c401",
     "16418022421fb24728",
     "1639375466adf92990",
-    "1641802708ee6e5203",
     "16417996780d2036fa",
+    "1641802708ee6e5203",
     "163703402842074b11",
     "164180148203ce3894",
     "1641804617fc9f876b",
