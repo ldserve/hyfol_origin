@@ -479,7 +479,7 @@
         "image": "shopify:\/\/shop_images\/1_f4f39d84-04cd-4fc3-a60d-4daa0d7f26db.jpg",
         "web_image": "shopify:\/\/shop_images\/1_09_b8dca9b3-c3fc-431a-9df0-7825bbbc4e18.jpg",
         "link": "shopify:\/\/collections\/clearance-sale-hyfol",
-        "collection": "",
+        "collection": "clearance-sale-hyfol",
         "title": "",
         "products_count": 4,
         "layout": "vertical",
@@ -595,12 +595,24 @@
             "width": 31,
             "height": 36
           }
+        },
+        "56c265bb-7dab-46d0-ae72-3d6419e038ca": {
+          "type": "link",
+          "settings": {
+            "heading": "(´థ౪థ）σ",
+            "link": "",
+            "left": 0,
+            "top": 0,
+            "width": 10,
+            "height": 10
+          }
         }
       },
       "block_order": [
         "9eb8fdf9-9293-4587-8e23-d38e3dc12577",
         "c53cb299-0dd1-4ae1-b616-3daeee6b9195",
-        "18920e4c-dfa1-49b7-9bb9-d9a4d1446681"
+        "18920e4c-dfa1-49b7-9bb9-d9a4d1446681",
+        "56c265bb-7dab-46d0-ae72-3d6419e038ca"
       ],
       "settings": {
         "hidDesk": false,
@@ -672,7 +684,7 @@
         "image": "shopify:\/\/shop_images\/PC__13.jpg",
         "web_image": "shopify:\/\/shop_images\/1_17.jpg",
         "link": "shopify:\/\/collections\/long-sleeve-series",
-        "collection": "",
+        "collection": "long-sleeve-series",
         "title": "",
         "products_count": 12,
         "layout": "vertical",
