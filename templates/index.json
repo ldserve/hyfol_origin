@@ -306,7 +306,7 @@
             "heading": "hoodies3",
             "link": "shopify:\/\/collections\/hoodies-1",
             "left": 3,
-            "top": 39,
+            "top": 16,
             "width": 46,
             "height": 14
           }
@@ -390,6 +390,7 @@
         },
         "d05649e8-abab-4210-a4ad-f3b53421d000": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "heading": "NEW-YEAR-SALE",
             "link": "",
@@ -401,6 +402,7 @@
         },
         "b5f6e30f-cd2d-4ce7-9e16-f3e7fae56d18": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "heading": "Must-have-Tops",
             "link": "",
@@ -426,8 +428,8 @@
       "settings": {
         "hidDesk": true,
         "hidWeb": false,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2_07.jpg",
+        "line": true,
+        "image": "shopify:\/\/shop_images\/M_-2.0_06.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -437,7 +439,7 @@
     "1639375466adf92990": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/PC__07_8d8a3ddd-2922-4a9c-8167-7e501c0817f8.jpg",
+        "image": "shopify:\/\/shop_images\/1_f4f39d84-04cd-4fc3-a60d-4daa0d7f26db.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_08_ff68736f-a2a6-4bf5-b4ee-cf05c5055f80.jpg",
         "link": "shopify:\/\/collections\/long-sleeve-series",
         "collection": "long-sleeve-series",
