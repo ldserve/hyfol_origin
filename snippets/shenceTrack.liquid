@@ -89,7 +89,6 @@ sensors.quick('isReady',function(){
 		}
 		/* 登录成功代码 */
 		if ({{request.page_type | json}} == 'customers/account') {/*登录成功页面*/
-			if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == 'https://swimwear0915.myshopify.com/account/login') {//从登录页面跳转进来
 				if (Number({{customer.id}})) {
 					var isLogin = true;
 				} else {
@@ -103,7 +102,6 @@ sensors.quick('isReady',function(){
 						is_success:true,
 					});
 				};
-			};
 		}
 		/* 退出账号处理 */
 		if (document.querySelector('#account-popover .popover__link-item[href="/account/logout"]')) {
