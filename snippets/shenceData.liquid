@@ -437,9 +437,10 @@ new sadhus_shence({
 });
 /*搜索结果页面*/
 {%- if request.page_type =="search" -%}
-/* 打开-默认上报-删除session，转存session用于点击上报*/
+/*打开-默认上报-删除session，转存session用于点击上报*/
 new sadhus_shence({
   event:"load",
+	debug:true,
   container:".page__content .collection",
   type:"SearchRequest",
   getSessionId:"sensorsSearchRequesth",
@@ -449,19 +450,14 @@ new sadhus_shence({
     let newData={};
     newData=JSON.parse(sessionStorage.getItem('sensorsSearchRequesth'));
     return newData;
-  }
-});
-/*打开-默认上报-删除session，转存session用于点击上报*/
-new sadhus_shence({
-  event:"load",
-  container:".page__content .collection",
-  type:"SearchRequest",
-  getSessionId:"sensorsSearchRequesth",
-  setSessionId: "sensorsSearchResultClick",
-  delSession:true,
-  customSession:function (container) {
+  },
+	customData:function (el) {
     let newData={};
-    newData=JSON.parse(sessionStorage.getItem('sensorsSearchRequesth'));
+    const data=el.dataset.scdata;
+    let scdata=JSON.parse(data);
+    let listArr=scdata.commodity_skuid_list.split(',');
+    listArr.pop();
+    newData.commodity_skuid_list=listArr
     return newData;
   }
 });
@@ -483,7 +479,7 @@ new sadhus_shence({
   }
 });
 /*点击搜索按钮-记录session*/
-new sadhus_shence({
+let clickSearch= new sadhus_shence({
   container:".form__connected-item",
   type:"searchjump",
   setSessionId:"sensorsSearchRequesth",
@@ -495,7 +491,7 @@ new sadhus_shence({
     return newData;
   },
   callback:function (){
-    this.updateFn();
+    clickSearch.updateFn();
     sensors.setProfile({ last_search_time: getFormatDate() });
   }
 });
