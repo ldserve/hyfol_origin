@@ -1,24 +1,6 @@
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
 {%- assign color_label = 'color,colour,couleur,cor,colore,farbe,색,色,カラー,färg,farve,szín,barva' | split: ',' -%}
-{%- for ldoption in product.options_with_values -%}
-{%- if ldoption.name == 'COLOR' or ldoption.name == 'Color' -%}
-{%- for value in ldoption.values -%}
-{%- if forloop.index == 1 -%}
-{%- assign color = value -%}
-{%- else -%}
-{%- assign color = color | append: "," | append: value -%}
-{%- endif -%}
-{%- endfor -%}
-{%- else -%}
-{%- for value in ldoption.values -%}
-{%- if forloop.index == 1 -%}
-{%- assign size = value -%}
-{%- else -%}
-{%- assign size = size | append: "," | append: value -%}
-{%- endif -%}
-{%- endfor -%}
-{%- endif -%}
-{%- endfor -%}
+
 
 {% for tag in product.tags %}
 {%- if forloop.index == 1 -%}
@@ -84,10 +66,10 @@
                     "commodity_name": "{{product.title | handleize }}",
 							      "commodity_skuid":"{{ selected_variant.sku }}",
 							      "commodity_image_quantity":"{{product.images.size}}",
-							      "commodity_description_text":"{{product.description | handleize }}",
-				            "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
-							      "commodity_size":"{{size}}",
-				            "commodity_color":"{{color}}",
+                    "commodity_description_text":["{{product.description | handleize }}"],
+				            "commodity_description_image":"",
+							      "commodity_size":"",
+				            "commodity_color":"",
 							      "commodity_tag":"{{tags}}",
 							      "original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
 			            	"current_price":"{{ product.selected_or_first_available_variant.price }}"}'>
@@ -119,14 +101,14 @@
                       "commodity_name": "{{product.title | handleize }}",
 							        "commodity_skuid":"{{selected_variant.sku}}",
 							        "commodity_image_quantity":"{{product.images.size}}",
-							        "commodity_description_text":"{{product.description | handleize }}",
-				              "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
-							        "commodity_size":"{{size}}",
-				              "commodity_color":"{{color}}",
+							        "commodity_description_text":["{{product.description | handleize }}"],
+				              "commodity_description_image":"",
+							        "commodity_size":"",
+				              "commodity_color":"",
 							        "commodity_tag":"{{tags}}",
 							        "original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
 			      	        "current_price":"{{ product.selected_or_first_available_variant.price }}"}'>
-                      <input class="variant-swatch__radio product-form__single-selector" type="radio" name="{{ option_name }}" id="{{ variant_swatch_id }}" value="{{ value | escape }}" {% if option.selected_value == value %}checked{% endif %} data-option-position="{{ option.position }}">
+                      <input class="variant-swatch__radio product-form__single-selector" type="radio" name="{{ option_name }}" id="{{ variant_swatch_id }}" value="{{ value | escape }}" {% if option.selected_value == value %} checked { % endif %} data-option-position="{{ option.position }}">
 
                       <label class="variant-swatch__item" for="{{ variant_swatch_id }}" title="{{ value | escape }}">
                         <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: variant.image.aspect_ratio }}%">

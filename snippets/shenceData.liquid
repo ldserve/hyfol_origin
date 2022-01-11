@@ -1,6 +1,5 @@
 <script>
 
-
 if ({{ request.page_type | json }} == 'collection') {/*集合页*/
 let addQuickView=new sadhus_shence({
    container:"body",
@@ -21,30 +20,22 @@ let addQuickView=new sadhus_shence({
       }
       const value= document.querySelector('.quantity-selector--product .quantity-selector__value').value
       newData.commodity_quantity=value
-      let options = {{ product.options_with_values | json }}
-      let color=''
-      let size=''
-      if(!options){
-         console.log(options)
-      }else{
-	   options.forEach((item) => {
-		if (item.name == 'COLOR' || item.name == 'Color') {
-			color = item.values||""
-		}
-		if (item.name == 'SIZE' || item.name == 'Size') {
-			size = item.values||""
-		}
-	  })
-	  color = color.join(',')
-	  size = size.join(',')
-     newData.commodity_size=size
-	  newData.commodity_color=color
-      }
       let data =  container.querySelector('.product-form__add-button').getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
-            let id =  document.querySelector('.select-wrapper option[selected]').getAttribute('data-sku')
+      const valueSelected=document.querySelector('.select-wrapper option[selected]')
+      let id = ""
+      if(valueSelected){
+         id =  valueSelected.getAttribute('data-sku') || ""
+      }
+      const colorChecked=document.querySelector('.ld-variant-list')
+      const sizeChecked=document.querySelector('.block-swatch-list')
+      newData.commodity_color=colorChecked?colorChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
+      newData.commodity_size=sizeChecked?sizeChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
+      if(colorChecked){
+         newData.commodity_description_image=document.querySelector('.product-gallery__image.lazyloaded').getAttribute('data-zoom').split('?')[0]
+      }
       newData.commodity_skuid=id
      return newData  /*返回值必须为{}*/
    },
@@ -66,7 +57,6 @@ new sadhus_shence({
 		newData.second_commodity=""
 		newData.third_commodity= ""
       } else{
-              console.log(1);
       const category = {{product.metafields.my_fields.category| json}}
  	   newData.first_commodity=category.first_commodity
 		newData.second_commodity=category.second_commodity
@@ -112,7 +102,9 @@ new sadhus_shence({
 }
 
 if ({{ request.page_type | json }} == 'product') {/*产品页*/
- new sadhus_shence({
+   document.querySelector('.ld-variant-list')
+   if( document.querySelector('.ld-variant-list')){
+      new sadhus_shence({
    delayed:true,
    container:".ld-variant-list",
    type:"valueChange",
@@ -139,6 +131,8 @@ if ({{ request.page_type | json }} == 'product') {/*产品页*/
       return newData  /*返回值必须为{}*/
    },
 })
+   }
+ 
     
 new sadhus_shence({
    container:".shenceDetail",
@@ -159,12 +153,26 @@ new sadhus_shence({
       let data=  container.getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.commodity_tag=data.commodity_tag.split(',')
+      const valueSelected=document.querySelector('.select-wrapper option[selected]')
+      let id = ""
+      if(valueSelected){
+         id =  valueSelected.getAttribute('data-sku') || ""
+      }
+      const colorChecked=document.querySelector('.ld-variant input[checked]')
+      const sizeChecked=document.querySelector('.block-swatch input[checked]')
+      newData.commodity_color=colorChecked?colorChecked.value : ""
+      newData.commodity_size=sizeChecked?sizeChecked.value : ""
+      if(colorChecked){
+         newData.commodity_description_image = colorChecked.nextElementSibling.querySelector('img').src.split('?')[0]
+      }
       return newData  /*返回值必须为{}*/
    }
 })
 
 let addCart=new sadhus_shence({
+   delayed:true,
    container:".product-form",
+   event:"click",
    type:"addCart",
    sendType:"AddToCart", 
    customData: function(container){/*形参为当前容器dom */
@@ -181,30 +189,22 @@ let addCart=new sadhus_shence({
       }
       const value= document.querySelector('.quantity-selector--product .quantity-selector__value').value
       newData.commodity_quantity=value
-      let options = {{ product.options_with_values | json }}
-            let color=''
-      let size=''
-      if(!options){
-         console.log(options)
-      }else{
-	   options.forEach((item) => {
-		if (item.name == 'COLOR' || item.name == 'Color') {
-			color = item.values||""
-		}
-		if (item.name == 'SIZE' || item.name == 'Size') {
-			size = item.values||""
-		}
-	  })
-      }
-	  color = color.join(',')
-	  size = size.join(',')
-     newData.commodity_size=size
-	  newData.commodity_color=color
        let data =  container.querySelector('.product-form__add-button').getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
-            let id =  document.querySelector('.select-wrapper option[selected]').getAttribute('data-sku')
+      const valueSelected=document.querySelector('.select-wrapper option[selected]')
+      let id = ""
+      if(valueSelected){
+         id =  valueSelected.getAttribute('data-sku') || ""
+      }
+      const colorChecked=document.querySelector('.ld-variant-list')
+      const sizeChecked=document.querySelector('.block-swatch-list')
+      newData.commodity_color=colorChecked?colorChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
+      newData.commodity_size=sizeChecked?sizeChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
+      if(colorChecked){
+         newData.commodity_description_image=document.querySelector('.product-gallery__image.lazyloaded').getAttribute('data-zoom').split('?')[0]
+      }
       newData.commodity_skuid=id
      return newData  /*返回值必须为{}*/
    },

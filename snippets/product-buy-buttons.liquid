@@ -55,7 +55,7 @@
               "commodity_size":"{{size}}",
 				      "commodity_color":"{{color}}",
 							"commodity_image_quantity":"{{product.images.size}}",
-							"commodity_description_text":"{{product.description | handleize }}",
+              "commodity_description_text":["{{product.description | handleize }}"],
 				      "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
 							"commodity_tag":"{{ tags }}",
 							"original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
@@ -88,12 +88,12 @@
 							"commodity_spuid": "{{product.handle}}",
                "commodity_name": "{{product.title | handleize }}",
 							"currency_unit":"USD",
-							"commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}",
-              "commodity_size":"{{size}}",
-				      "commodity_color":"{{color}}",
+							"commodity_skuid":"",
+              "commodity_size":"",
+				      "commodity_color":"",
 							"commodity_image_quantity":"{{product.images.size}}",
-							"commodity_description_text":"{{product.description | handleize }}",
-				      "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
+              "commodity_description_text":["{{product.description | handleize }}"],
+				      "commodity_description_image":"",
 							"commodity_tag":"{{ tags }}",
 							"original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
 			      	"current_price":"{{ product.selected_or_first_available_variant.price }}",
@@ -107,7 +107,7 @@
               "fbt_skuid":"",
               "total_original_price_fbt":"",
               "total_current_price_fbt":"",
-                    "entrance":"Buy It NOW"}'>
+                    "entrance":"立即购买"}'>
     {{ form | payment_button }}</div>
     {%- endif -%}
   {%- else -%}
