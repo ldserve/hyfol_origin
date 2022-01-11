@@ -668,6 +668,17 @@
     "1641804617fc9f876b": {
       "type": "linkImg",
       "blocks": {
+        "cdd74f51-6721-4190-be05-46877245957f": {
+          "type": "link",
+          "settings": {
+            "heading": "lover",
+            "link": "shopify:\/\/collections\/jewelry",
+            "left": 0,
+            "top": 0,
+            "width": 100,
+            "height": 80
+          }
+        },
         "0109fc3f-3045-4f3e-ae36-5b208519b7ac": {
           "type": "link",
           "settings": {
@@ -703,6 +714,7 @@
         }
       },
       "block_order": [
+        "cdd74f51-6721-4190-be05-46877245957f",
         "0109fc3f-3045-4f3e-ae36-5b208519b7ac",
         "a2f02011-1077-43e2-9ec9-7350cdf8fc03",
         "1b1ad281-13c4-43e6-9129-4993d6f74954"
