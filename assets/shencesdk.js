@@ -42,6 +42,19 @@ function getDevice_type() {
     device_type = "mobile";
   }
 }
+function getSiteCategory(){
+  try {
+    let al = document.querySelectorAll('ol a')
+    let str = ''
+    Array.from(al).map(i => {
+      str = str + i.innerText + ';'
+    })
+    return str
+  } catch (error) {
+    console.log('没找到面包屑元素ol')
+  }
+  
+}
 getDevice_type();
 sensors.register({
   platform_type: "web",

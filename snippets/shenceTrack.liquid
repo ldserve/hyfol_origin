@@ -181,8 +181,7 @@ sensors.quick('isReady',function(){
 	/* quickView跟AddToCart合并 */
 	/* Checkout事件 theme主题里面只做入口储存 end */
 	/* ShareCommodity 事件 start*/
-	console.log({{request.page_type | json}} === 'product')
-	if ({{request.page_type | json}} === 'product'){/*product页面*/
+	if ({{request.page_type | json}} === 'product' || {{request.page_type | json}} === 'collection'){/*collection product页面*/
 		let ShareCommodity = new sadhus_shence({
 			container:"body",
 			type:"ShareCommodity",
@@ -191,8 +190,9 @@ sensors.quick('isReady',function(){
 				let selectedEl = document.querySelector('.select-wrapper option[selected]')
 				let arr = selectedEl.innerText.split('-')
 				let _arr =  arr[0].split('/')
+				newData.site_category = getSiteCategory()
       			newData.commodity_skuid = selectedEl.getAttribute('data-sku')
-				newData.commodity_colour = _arr[0]
+				newData.commodity_color = _arr[0]
 				newData.commodity_size = _arr[1]
 				newData.commodity_tag = newData.commodity_tag.split('-')
 				return newData 
@@ -228,7 +228,7 @@ sensors.quick('isReady',function(){
 					let arr = selectedEl.innerText.split('-')
 					let _arr =  arr[0].split('/')
 					newData.commodity_skuid = selectedEl.getAttribute('data-sku')
-					newData.commodity_colour = _arr[0]
+					newData.commodity_color = _arr[0]
 					newData.commodity_size = _arr[1]
 					newData.share_medium = "Facebook"
 					newData.commodity_tag = newData.commodity_tag.split('-')

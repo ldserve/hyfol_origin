@@ -35,7 +35,7 @@
         "second_commodity":"{{category.second_commodity}}",
         "third_commodity":"{{category.third_commodity}}",
         "commodity_tag":"{{commodity_tag | handleize  }}",
-        "commodity_description_text":["{{product.description | handleize }}"],
+        "commodity_description_text":"{{product.description | handleize }}",
         "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
         "original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
         "current_price":"{{ product.selected_or_first_available_variant.price }}",
@@ -48,7 +48,7 @@
         data-sctype="ShareCommodity"
         data-scdata='{"share_medium": "Facebook"}'
         class="social-media__item social-media__item--facebook">
-        <a data-href="{{ share_url }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.facebook_share' | t }}">{%- render 'icon', icon: 'facebook' -%}</a>
+        <a style="cursor: pointer;" data-href="{{ share_url }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.facebook_share' | t }}">{%- render 'icon', icon: 'facebook' -%}</a>
       </li>
 
       <li 

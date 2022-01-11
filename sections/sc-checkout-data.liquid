@@ -179,7 +179,7 @@
         {% for title in titles %}
             {% case forloop.index %}
                 {% when 1 %}
-                {% assign commodity_colour = title %}
+                {% assign commodity_color = title %}
                 {% when 2 %}
                 {% assign commodity_size = title %}
             {% endcase %}
@@ -205,7 +205,7 @@
                 "second_commodity":"{{category.second_commodity}}",
                 "third_commodity":"{{category.third_commodity}}",
                 "commodity_size":"{{commodity_size }}",
-                "commodity_colour":"{{ commodity_colour }}",
+                "commodity_color":"{{ commodity_color }}",
                 "commodity_quantity":{{line_item.quantity}},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
@@ -248,7 +248,7 @@
                 "second_commodity":"{{category.second_commodity}}",
                 "third_commodity":"{{category.third_commodity}}",
                 "commodity_size":"{{commodity_size }}",
-                "commodity_colour":"{{ commodity_colour }}",
+                "commodity_color":"{{ commodity_color }}",
                 "commodity_quantity":{{line_item.quantity}},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
@@ -292,7 +292,7 @@
                 "second_commodity":"{{category.second_commodity}}",
                 "third_commodity":"{{category.third_commodity}}",
                 "commodity_size":"{{commodity_size }}",
-                "commodity_colour":"{{ commodity_colour }}",
+                "commodity_color":"{{ commodity_color }}",
                 "commodity_quantity":{{line_item.quantity}},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
@@ -336,7 +336,7 @@
                 "second_commodity":"{{category.second_commodity}}",
                 "third_commodity":"{{category.third_commodity}}",
                 "commodity_size":"{{commodity_size }}",
-                "commodity_colour":"{{ commodity_colour }}",
+                "commodity_color":"{{ commodity_color }}",
                 "commodity_quantity":{{line_item.quantity}},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
@@ -381,7 +381,7 @@
                 "second_commodity":"{{category.second_commodity}}",
                 "third_commodity":"{{category.third_commodity}}",
                 "commodity_size":"{{commodity_size }}",
-                "commodity_colour":"{{ commodity_colour }}",
+                "commodity_color":"{{ commodity_color }}",
                 "commodity_quantity":{{line_item.quantity}},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
