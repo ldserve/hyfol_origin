@@ -603,17 +603,6 @@
     "164180148203ce3894": {
       "type": "linkImg",
       "blocks": {
-        "71e4f283-2d11-4611-bb96-5957b7d239a4": {
-          "type": "link",
-          "settings": {
-            "heading": "(´థ౪థ）σ",
-            "link": "",
-            "left": 20,
-            "top": 46,
-            "width": 46,
-            "height": 74
-          }
-        },
         "9eb8fdf9-9293-4587-8e23-d38e3dc12577": {
           "type": "link",
           "settings": {
@@ -649,7 +638,6 @@
         }
       },
       "block_order": [
-        "71e4f283-2d11-4611-bb96-5957b7d239a4",
         "9eb8fdf9-9293-4587-8e23-d38e3dc12577",
         "c53cb299-0dd1-4ae1-b616-3daeee6b9195",
         "18920e4c-dfa1-49b7-9bb9-d9a4d1446681"
