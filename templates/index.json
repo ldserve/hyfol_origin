@@ -260,7 +260,7 @@
           "type": "link",
           "settings": {
             "heading": "mens2",
-            "link": "shopify:\/\/collections\/mens",
+            "link": "shopify:\/\/collections\/hat",
             "left": 0,
             "top": 28,
             "width": 32,
@@ -449,7 +449,7 @@
         "image": "shopify:\/\/shop_images\/HYFOL_07.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_08_ff68736f-a2a6-4bf5-b4ee-cf05c5055f80.jpg",
         "link": "shopify:\/\/collections\/long-sleeve-series",
-        "collection": "mens",
+        "collection": "hat",
         "title": "",
         "products_count": 12,
         "layout": "vertical",
