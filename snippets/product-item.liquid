@@ -371,26 +371,7 @@
 					{%- else -%}
 						{%- assign quick_view_classes = 'product-item__action-button product-item__action-button--list-view-only button button--small button--ternary hidden-phone' -%}
 					{%- endif -%}
-{%- for ldoption in product.options_with_values -%}
-{%- if ldoption.name == 'COLOR' or ldoption.name == 'Color' -%}
-{%- for value in ldoption.values -%}
-{%- if forloop.index == 1 -%}
-{%- assign color = value -%}
-{%- else -%}
-{%- assign color = color | append: "," | append: value -%}
-{%- endif -%}
-{%- endfor -%}
-{%- else -%}
-{%- for value in ldoption.values -%}
-{%- if forloop.index == 1 -%}
-{%- assign size = value -%}
-{%- else -%}
-{%- assign size = size | append: "," | append: value -%}
-{%- endif -%}
-{%- endfor -%}
-{%- endif -%}
-{%- endfor -%}
-
+{%- assign tags = "" -%}
 {% for tag in product.tags %}
 {%- if forloop.index == 1 -%}
 {%- assign tags = tag | handleize -%}
@@ -403,19 +384,19 @@
 							data-scenable="1" 
 							data-sctype="quickView"  
 							data-scdata='{"is_quick_view":1,
-							"site_category":"{{collection.title | handleize }}", 
-							"commodity_spuid": "{{product.handle}}",
-							 "commodity_name": "{{product.title | handleize }}",
-							"currency_unit":"USD",
-							"commodity_skuid":"{{ product.selected_or_first_available_variant.id }}",
-							"commodity_image_quantity":"{{product.images.size}}",
-							"commodity_description_text":["{{product.description}}"],
-				            "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
-							"commodity_size":"{{size}}",
-				            "commodity_color":"{{color}}",
-							"commodity_tag":"{{tags }}",
-							"original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
-			            	"current_price":"{{ product.selected_or_first_available_variant.price }}"}' 
+							        "site_category":"{{collection.title}}", 
+							        "commodity_spuid": "{{product.handle}}",
+							        "currency_unit":"USD",
+                                    "commodity_name": "{{product.title | handleize }}",
+							        "commodity_skuid":"{{selected_variant.sku}}",
+							        "commodity_image_quantity":"{{product.images.size}}",
+							        "commodity_description_text":["{{product.description | handleize }}"],
+				                    "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
+							        "commodity_size":"",
+				                    "commodity_color":"",
+							        "commodity_tag":"{{tags}}",
+							        "original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
+			      	                "current_price":"{{ product.selected_or_first_available_variant.price }}"}' 
 									data-secondary-action="open-quick-view" aria-controls="modal-quick-view-{{ section.id }}"
 									data-product-url="{{ product.url }}">{{ 'collection.product.quick_view' | t }}</button>
 				{%- endform -%}

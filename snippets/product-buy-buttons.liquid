@@ -1,27 +1,4 @@
 <div class="product-form__payment-container" {{ block.shopify_attributes }}>
-   {%- for ldoption in product.options_with_values -%}
-  {%- if ldoption.name == 'COLOR' or ldoption.name == 'Color' -%}
-  {%- for value in ldoption.values -%}
-
-  {%- if forloop.index == 1 -%}
-    {%- assign color = value -%}
-  {%- else -%}
-    {%- assign color = color | append: "," | append: value -%}
-  {%- endif -%}
-
-  {%- endfor -%}
-  {%- else -%}
-  {%- for value in ldoption.values -%}
-
-  {%- if forloop.index == 1 -%}
-  {%- assign size = value -%}
-  {%- else -%}
-  {%- assign size = size | append: "," | append: value -%}
-  {%- endif -%}
-  {%- endfor -%}
-  {%- endif -%}
-  {%- endfor -%}
-
   {% for tag in product.tags %}
     {%- if forloop.index == 1 -%}
       {%- assign tags = tag | handleize -%}
@@ -52,8 +29,8 @@
                "commodity_name": "{{product.title | handleize }}",
 							"currency_unit":"USD",
 							"commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}",
-              "commodity_size":"{{size}}",
-				      "commodity_color":"{{color}}",
+              "commodity_size":"",
+				      "commodity_color":"",
 							"commodity_image_quantity":"{{product.images.size}}",
               "commodity_description_text":["{{product.description | handleize }}"],
 				      "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",

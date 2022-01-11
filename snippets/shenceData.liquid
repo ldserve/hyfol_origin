@@ -6,7 +6,7 @@ let addQuickView=new sadhus_shence({
    type:"addCart",
    sendType:"AddToCart", 
    setSessionId:"sensorsCheckout",
-   customData: function(container){/*形参为当前容器dom */
+   customData: function(container,el){/*形参为当前容器dom */
       let newData={};
       if(!{{product.metafields.my_fields.category | json}} ){
       newData.first_commodity=""
@@ -20,7 +20,7 @@ let addQuickView=new sadhus_shence({
       }
       const value= document.querySelector('.quantity-selector--product .quantity-selector__value').value
       newData.commodity_quantity=value
-      let data =  container.querySelector('.product-form__add-button').getAttribute('data-scdata')
+      let data =  el.getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
@@ -50,7 +50,7 @@ new sadhus_shence({
    type:"quickView",
    event:'click',
    sendType:"CommodityDetail", 
-   customData: function(container){/*形参为当前容器dom */
+   customData: function(container,el){/*形参为当前容器dom */
       let newData={};
            if(!{{product.metafields.my_fields.category | json}} ){
       newData.first_commodity=""
@@ -62,7 +62,7 @@ new sadhus_shence({
 		newData.second_commodity=category.second_commodity
 		newData.third_commodity= category.third_commodity
       }
-      let data =  container.querySelector('.openQuickView').getAttribute('data-scdata')
+      let data = el.getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.commodity_tag=data.commodity_tag.split(',')
       return newData  /*返回值必须为{}*/
@@ -77,7 +77,7 @@ new sadhus_shence({
    type:"valueChange",
    event:'click',
    sendType:"CommodityDetail", 
-   customData: function(container){/*形参为当前容器dom */
+   customData: function(container,el){/*形参为当前容器dom */
       let newData={};
       if(!{{product.metafields.my_fields.category | json}} ){
       newData.first_commodity=""
@@ -89,9 +89,20 @@ new sadhus_shence({
 		newData.second_commodity=category.second_commodity
 		newData.third_commodity= category.third_commodity
       }
-      let data =  container.querySelector('.product-form__variants .ld-variant').getAttribute('data-scdata')
+      let data = el.getAttribute('data-scdata')
       data=JSON.parse(data)
-      let id =  document.querySelector('.select-wrapper option[selected]').getAttribute('data-sku')
+      const valueSelected=document.querySelector('.select-wrapper option[selected]')
+      let id = ""
+      if(valueSelected){
+         id =  valueSelected.getAttribute('data-sku') || ""
+      }
+      const colorChecked=document.querySelector('.ld-variant-list')
+      const sizeChecked=document.querySelector('.block-swatch-list')
+      newData.commodity_color=colorChecked?colorChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
+      newData.commodity_size=sizeChecked?sizeChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
+      if(colorChecked){
+         newData.commodity_description_image=document.querySelector('.product-gallery__image.lazyloaded').getAttribute('data-zoom').split('?')[0]
+      }
       newData.commodity_skuid=id
       newData.commodity_tag=data.commodity_tag.split(',')
       return newData  /*返回值必须为{}*/
@@ -110,7 +121,7 @@ if ({{ request.page_type | json }} == 'product') {/*产品页*/
    type:"valueChange",
    event:'click',
    sendType:"CommodityDetail", 
-   customData:function (container){/*形参为当前容器dom */
+   customData:function (container,el){/*形参为当前容器dom */
       let newData={};
       if(!{{product.metafields.my_fields.category | json}} ){
       newData.first_commodity=""
@@ -123,9 +134,20 @@ if ({{ request.page_type | json }} == 'product') {/*产品页*/
 		newData.third_commodity= category.third_commodity
       }
 
-      let data =  container.querySelector('.ld-variant').getAttribute('data-scdata')
+      let data =  el.getAttribute('data-scdata')
       data=JSON.parse(data)
-      let id =  document.querySelector('.select-wrapper option[selected]').getAttribute('data-sku')
+      const valueSelected=document.querySelector('.select-wrapper option[selected]')
+      let id = ""
+      if(valueSelected){
+         id =  valueSelected.getAttribute('data-sku') || ""
+      }
+      const colorChecked=document.querySelector('.ld-variant-list')
+      const sizeChecked=document.querySelector('.block-swatch-list')
+      newData.commodity_color=colorChecked?colorChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
+      newData.commodity_size=sizeChecked?sizeChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
+      if(colorChecked){
+         newData.commodity_description_image=el.querySelector('.aspect-ratio img').src
+      }
       newData.commodity_skuid=id
       newData.commodity_tag=data.commodity_tag.split(',')
       return newData  /*返回值必须为{}*/
@@ -138,7 +160,7 @@ new sadhus_shence({
    container:".shenceDetail",
    event:'load',
    sendType:"CommodityDetail", 
-   customData: function(container){/*形参为当前容器dom */
+   customData: function(container,el){/*形参为当前容器dom */
       let newData={};
       if(!{{product.metafields.my_fields.category | json}} ){
       newData.first_commodity=""
@@ -150,7 +172,7 @@ new sadhus_shence({
 		newData.second_commodity=category.second_commodity
 		newData.third_commodity= category.third_commodity
       }
-      let data=  container.getAttribute('data-scdata')
+      let data=  el.getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.commodity_tag=data.commodity_tag.split(',')
       const valueSelected=document.querySelector('.select-wrapper option[selected]')
@@ -163,7 +185,7 @@ new sadhus_shence({
       newData.commodity_color=colorChecked?colorChecked.value : ""
       newData.commodity_size=sizeChecked?sizeChecked.value : ""
       if(colorChecked){
-         newData.commodity_description_image = colorChecked.nextElementSibling.querySelector('img').src.split('?')[0]
+         newData.commodity_description_image=document.querySelector('.product-gallery__image.lazyloaded').getAttribute('data-zoom').split('?')[0]
       }
       return newData  /*返回值必须为{}*/
    }
@@ -189,7 +211,7 @@ let addCart=new sadhus_shence({
       }
       const value= document.querySelector('.quantity-selector--product .quantity-selector__value').value
       newData.commodity_quantity=value
-       let data =  container.querySelector('.product-form__add-button').getAttribute('data-scdata')
+       let data =  el.getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
@@ -216,13 +238,13 @@ let addCart=new sadhus_shence({
 }
 
 new sadhus_shence({
-      delayed:true,
+   delayed:true,
    container:"body",
    type:"addMinCart",
    event:'click',
    sendType:"AddToCart", 
    userTabel:{last_addtocart_time:getFormatDate()},
-   customData: function(container){/*形参为当前容器dom */
+   customData: function(container,el){/*形参为当前容器dom */
      let newData={};
       if(!{{product.metafields.my_fields.category | json}} ){
       newData.first_commodity=""
@@ -234,7 +256,7 @@ new sadhus_shence({
 		newData.second_commodity=category.second_commodity
 		newData.third_commodity= category.third_commodity    
       }
-      let data=  container.querySelector('.quantity-selector__button').getAttribute('data-scdata')
+      let data=el.getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
@@ -243,7 +265,7 @@ new sadhus_shence({
 })
 
 new sadhus_shence({
-      delayed:true,
+   delayed:true,
    container:"body",
    type:"minusMinCart",
    event:'click',
@@ -269,7 +291,7 @@ new sadhus_shence({
 })
 
 new sadhus_shence({
-      delayed:true,
+   delayed:true,
    container:"body",
    type:"removeMinCart",
    event:'click',

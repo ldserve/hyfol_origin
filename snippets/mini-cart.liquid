@@ -148,28 +148,7 @@
                       {%- if line_item.variant.inventory_management and line_item.variant.inventory_policy == 'deny' and line_item.quantity == line_item.variant.inventory_quantity -%}
                         {%- assign allow_to_add_more = false -%}
                       {%- endif -%}
-        {%- for ldoption in line_item.product.options_with_values -%}
-              {%- if ldoption.name == 'COLOR' or ldoption.name == 'Color' -%}
-              {%- for value in ldoption.values -%}
 
-              {%- if forloop.index == 1 -%}
-              {%- assign color = value -%}
-              {%- else -%}
-              {%- assign color = color | append: "," | append: value -%}
-              {%- endif -%}
-
-              {%- endfor -%}
-              {%- else -%}
-              {%- for value in ldoption.values -%}
-
-              {%- if forloop.index == 1 -%}
-              {%- assign size = value -%}
-              {%- else -%}
-              {%- assign size = size | append: "," | append: value -%}
-              {%- endif -%}
-              {%- endfor -%}
-              {%- endif -%}
-              {%- endfor -%}
 
               {% for tag in line_item.product.tags %}
               {%- if forloop.index == 1 -%}
@@ -187,6 +166,7 @@
         			{%- assign id = id  | append: "," | append: line_item.sku  -%}
         		  {%- endif  -%}
               {%- endfor  -%}
+              {%- assign spec = line_item.variant.title  | split: '/'  -%}
                       <button class="quantity-selector__button" 
                       data-scenable="1" data-sctype="minusMinCart" data-scdata='{
                 "is_quick_view":0,
@@ -198,14 +178,14 @@
 							"commodity_image_quantity":"{{line_item.product.images.size}}",
 							"commodity_description_text":["{{line_item.product.description | handleize }}"],
 				      "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}",
-							"commodity_size":"{{size}}",
-				      "commodity_color":"{{color}}",
+							"commodity_size":"{{ spec.last  }}",
+				            "commodity_color":"{{ spec.first }}",
 							"commodity_tag":"{{tags }}",
-							"original_price":"{{ line_item.original_line_price }}",
-			            	"current_price":"{{ line_item.variant.compare_at_price }}",
+							"original_price":"{{ line_item.variant.compare_at_price }}",
+			            	"current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                   "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"{{line_item.quantity | minus: 1 }}",
+                    "commodity_quantity":"1",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
                     "entrance":"小购物车页" }'
@@ -221,14 +201,14 @@
 							"commodity_image_quantity":"{{line_item.product.images.size}}",
 							"commodity_description_text":["{{line_item.product.description | handleize }}"],
 				            "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}",
-							"commodity_size":"{{size}}",
-				            "commodity_color":"{{color}}",
+							"commodity_size":"{{ spec.last  }}",
+				            "commodity_color":"{{ spec.first }}",
 							"commodity_tag":"{{tags}}",
-							"original_price":"{{ line_item.original_line_price }}",
-			            	"current_price":"{{ line_item.variant.compare_at_price }}",
+							"original_price":"{{ line_item.variant.compare_at_price }}",
+			            	"current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                    "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"{{line_item.quantity | plus: 1}}",
+                    "commodity_quantity":"1",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
                     "is_fbt_used":0,
@@ -237,7 +217,7 @@
                     "fbt_skuid":"",
                     "total_original_price_fbt":"",
                     "total_current_price_fbt":"",
-                    "entrance":"mini-cart"
+                    "entrance":"小购物车页"
                     }'
                       data-action="increase-quantity" data-quantity="{{ line_item.quantity | plus: 1 }}" data-line="{{ forloop.index }}" {% if allow_to_add_more %}aria-label="{{ 'cart.items.increase_quantity' | t }}" title="{{ 'cart.items.increase_quantity' | t }}"{% else %}disabled="disabled" aria-label="{{ 'cart.items.no_more_stock' | t }}" data-tooltip="{{ 'cart.items.no_more_stock' | t }}" data-tooltip-position="bottom-left"{% endif %}>{% render 'icon', icon: 'plus' %}</button>
                     </div>
@@ -254,14 +234,14 @@
 							"commodity_image_quantity":"{{line_item.product.images.size}}",
 							"commodity_description_text":["{{line_item.product.description | handleize }}"],
 				      "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}",
-							"commodity_size":"{{size}}",
-				      "commodity_color":"{{color}}",
+							"commodity_size":"{{ spec.last  }}",
+				            "commodity_color":"{{ spec.first }}",
 							"commodity_tag":"{{line_item.product.tags | handleize }}",
-							"original_price":"{{ line_item.original_line_price }}",
-			            	"current_price":"{{ line_item.variant.compare_at_price }}",
+							"original_price":"{{ line_item.variant.compare_at_price }}",
+			            	"current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                     "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"{{line_item.quantity | minus: 1 }}",
+                    "commodity_quantity":"{{line_item.quantity}}",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
                     "entrance":"小购物车页" }'
