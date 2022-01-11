@@ -202,7 +202,7 @@
           "type": "link",
           "settings": {
             "heading": "single",
-            "link": "",
+            "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 47,
             "width": 50,
@@ -426,7 +426,7 @@
           "type": "link",
           "settings": {
             "heading": "single",
-            "link": "",
+            "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 8,
             "width": 50,
