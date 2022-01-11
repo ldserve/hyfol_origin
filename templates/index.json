@@ -125,7 +125,7 @@
           "type": "link",
           "settings": {
             "heading": "T-Shirts",
-            "link": "shopify:\/\/collections\/shirts-12-13",
+            "link": "shopify:\/\/collections\/short-sleeve",
             "left": 61,
             "top": 21,
             "width": 8,
@@ -136,7 +136,7 @@
           "type": "link",
           "settings": {
             "heading": "outerwear1",
-            "link": "shopify:\/\/collections\/outerwear_hyfol",
+            "link": "shopify:\/\/collections\/outerwear1",
             "left": 70,
             "top": 21,
             "width": 8,
@@ -147,7 +147,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweaters",
-            "link": "shopify:\/\/collections\/sweater",
+            "link": "shopify:\/\/collections\/sweaters",
             "left": 79,
             "top": 21,
             "width": 8,
@@ -158,7 +158,7 @@
           "type": "link",
           "settings": {
             "heading": "Bottoms",
-            "link": "shopify:\/\/collections\/bottoms-12-13",
+            "link": "shopify:\/\/collections\/bottoms",
             "left": 53,
             "top": 60,
             "width": 8,
@@ -169,7 +169,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweatshirts",
-            "link": "shopify:\/\/collections\/sweatshirts-12-13",
+            "link": "shopify:\/\/collections\/skull-theme",
             "left": 61,
             "top": 60,
             "width": 8,
@@ -180,7 +180,7 @@
           "type": "link",
           "settings": {
             "heading": "HAT",
-            "link": "shopify:\/\/collections\/cap-hat",
+            "link": "shopify:\/\/collections\/hat",
             "left": 70,
             "top": 60,
             "width": 8,
@@ -202,7 +202,7 @@
           "type": "link",
           "settings": {
             "heading": "NEW-YEAR-SALE",
-            "link": "shopify:\/\/collections\/new-in",
+            "link": "shopify:\/\/collections",
             "left": 13,
             "top": 21,
             "width": 19,
@@ -213,7 +213,7 @@
           "type": "link",
           "settings": {
             "heading": "Must-have-Tops",
-            "link": "shopify:\/\/collections\/long-sleeve-series",
+            "link": "shopify:\/\/collections",
             "left": 33,
             "top": 21,
             "width": 19,
