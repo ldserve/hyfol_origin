@@ -282,7 +282,7 @@
           "type": "link",
           "settings": {
             "heading": "NEWIN",
-            "link": "shopify:\/\/collections\/hoodies",
+            "link": "shopify:\/\/collections\/bottoms",
             "left": 67,
             "top": 28,
             "width": 34,
@@ -466,7 +466,7 @@
         "image": "shopify:\/\/shop_images\/HYFOL_09.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_13.jpg",
         "link": "shopify:\/\/collections\/hoodies-1",
-        "collection": "hoodies",
+        "collection": "bottoms",
         "title": "",
         "products_count": 12,
         "layout": "vertical",
