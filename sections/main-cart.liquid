@@ -250,12 +250,37 @@
               "current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                     "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"{{line_item.quantity | minus: 1 }}",
+                    "commodity_quantity":"1",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
                     "entrance":"购物车页" }'
                                data-action="decrease-quantity" data-href="{{ routes.cart_change_url }}?quantity={{ line_item.quantity | minus: 1 }}&line={{ forloop.index }}" data-quantity="{{ line_item.quantity | minus: 1 }}" data-line="{{ forloop.index }}" aria-label="{{ 'cart.items.decrease_quantity' | t }}" title="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon', icon: 'minus' %}</button>
-                              <input aria-label="{{ 'product.form.quantity' | t }}" class="quantity-selector__value" inputmode="numeric" data-current-value="{{ line_item.quantity }}" data-line="{{ forloop.index }}" value="{{ line_item.quantity }}" size="{{ line_item.quantity | append: '' | size | at_least: 2 }}">
+                              <input aria-label="{{ 'product.form.quantity' | t }}" data-scdata='{"is_quick_view":0,
+                              "site_category":"{{collection.title }}", 
+                              "commodity_spuid": "{{line_item.product.handle}}",
+                               "commodity_name": "{{line_item.title | handleize }}",
+                              "currency_unit":"USD",
+                              "commodity_skuid":"{{ line_item.sku }}",
+                              "commodity_image_quantity":"{{line_item.product.images.size}}",
+                              "commodity_description_text":["{{line_item.product.description | handleize }}"],
+                                    "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}",
+                                    "commodity_size":"{{ spec.last  }}",
+                                    "commodity_color":"{{ spec.first }}",
+                              "commodity_tag":"{{tags }}",
+                              "original_price":"{{ line_item.variant.compare_at_price }}",
+                                    "current_price":"{{ line_item.original_line_price }}",
+                                    "discount_price":"{{ line_item.final_line_price }}",
+                                  "compliment_commodities":"{{ id }}",
+                                    "commodity_quantity":"{{line_item.quantity}}",
+                                    "bonus_name":"{{ discount_title }}",
+                                    "bonus_amount":"{{ discount_amount}}",
+                                    "is_fbt_used":0,
+                                    "is_fbt_main":"",
+                                    "fbt_spuid":"",
+                                    "fbt_skuid":"",
+                                    "total_original_price_fbt":"",
+                                    "total_current_price_fbt":"",
+                                    "entrance":"购物车页" }' class="quantity-selector__value" inputmode="numeric" data-current-value="{{ line_item.quantity }}" data-line="{{ forloop.index }}" value="{{ line_item.quantity }}" size="{{ line_item.quantity | append: '' | size | at_least: 2 }}" onblur="mainBlur(this)">
                               <button type="button"
                               data-scenable="1" 
 							data-sctype="addMainCart"  
@@ -275,7 +300,7 @@
 			            	"current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                   "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"{{line_item.quantity | plus: 1}}",
+                    "commodity_quantity":"1",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
                     "is_fbt_used":0,
@@ -687,7 +712,45 @@
     const observer=new MutationObserver(callback)
     observer.observe(sections,{childList:true,subtree:true})
   }()
-
+  function mainBlur(el) {
+    const newData = JSON.parse(el.getAttribute('data-scdata'))
+    const num = (+el.value) - (+newData.commodity_quantity);
+    if (!{{product.metafields.my_fields.category | json}}) {
+      newData.first_commodity = ""
+      newData.second_commodity = ""
+      newData.third_commodity = ""
+    } else {
+      const category = {{product.metafields.my_fields.category}}
+      newData.first_commodity = category.first_commodity
+      newData.second_commodity = category.second_commodity
+      newData.third_commodity = category.third_commodity
+    }
+    if (newData.original_price) {
+      newData.original_price = Number((newData.original_price / 100).toFixed(2));
+    }
+    if (newData.current_price) {
+      newData.current_price = Number((newData.current_price / 100).toFixed(2));
+    }
+    if (newData.discount_price) {
+      newData.discount_price = Number((newData.discount_price / 100).toFixed(2));
+    }
+    if (newData.bonus_amount) {
+      newData.bonus_amount = Number((newData.bonus_amount / 100).toFixed(2));
+    }
+    newData.compliment_commodities = newData.compliment_commodities.split(',')
+    newData.commodity_tag = newData.commodity_tag.split(',')
+    newData.site_category = getSiteCategory()
+    if (num == 0) {
+      return
+    }
+    if (num > 0) {
+      newData.commodity_quantity = num
+      sensors.track('AddToCart', newData);
+    } else {
+      newData.commodity_quantity = -num
+      sensors.track('RemoveFromCart', newData);
+    }
+  }
 </script>
 {% schema %}
 {

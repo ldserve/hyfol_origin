@@ -187,6 +187,7 @@ new sadhus_shence({
       if(colorChecked){
          newData.commodity_description_image=document.querySelector('.product-gallery__image.lazyloaded').getAttribute('data-zoom').split('?')[0]
       }
+      newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
    }
 })
@@ -228,6 +229,7 @@ let addCart=new sadhus_shence({
          newData.commodity_description_image=document.querySelector('.product-gallery__image.lazyloaded').getAttribute('data-zoom').split('?')[0]
       }
       newData.commodity_skuid=id
+      newData.site_category = getSiteCategory()
      return newData  /*返回值必须为{}*/
    },
    callback:function(){
@@ -260,6 +262,7 @@ new sadhus_shence({
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
+      newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
    }
 })
@@ -286,6 +289,7 @@ new sadhus_shence({
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
+      newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
    }
 })
@@ -312,6 +316,7 @@ new sadhus_shence({
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
+      newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
    }
 })
@@ -340,6 +345,7 @@ new sadhus_shence({
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
+      newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
    }
 })
@@ -366,6 +372,7 @@ new sadhus_shence({
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
+      newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
    }
 })
@@ -392,6 +399,7 @@ new sadhus_shence({
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
       newData.commodity_tag=data.commodity_tag.split(',')
+      newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
    }
 })
