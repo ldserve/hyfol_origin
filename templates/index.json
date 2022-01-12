@@ -260,7 +260,7 @@
           "type": "link",
           "settings": {
             "heading": "mens2",
-            "link": "shopify:\/\/collections\/hat",
+            "link": "shopify:\/\/collections\/best-sellers",
             "left": 0,
             "top": 28,
             "width": 32,
@@ -271,7 +271,7 @@
           "type": "link",
           "settings": {
             "heading": "womens2",
-            "link": "shopify:\/\/collections\/outerwear1",
+            "link": "shopify:\/\/collections\/bottoms",
             "left": 33,
             "top": 28,
             "width": 33,
@@ -282,7 +282,7 @@
           "type": "link",
           "settings": {
             "heading": "NEWIN",
-            "link": "shopify:\/\/collections\/bottoms",
+            "link": "shopify:\/\/collections\/hoodies",
             "left": 67,
             "top": 28,
             "width": 34,
