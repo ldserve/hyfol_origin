@@ -324,7 +324,7 @@
           "type": "link",
           "settings": {
             "heading": "T-shirts",
-            "link": "shopify:\/\/collections\/shirts-12-13",
+            "link": "shopify:\/\/collections\/bottoms",
             "left": 51,
             "top": 39,
             "width": 46,
@@ -335,7 +335,7 @@
           "type": "link",
           "settings": {
             "heading": "outerwear3",
-            "link": "shopify:\/\/collections\/outerwear_hyfol",
+            "link": "shopify:\/\/collections\/outerwear1",
             "left": 3,
             "top": 54,
             "width": 46,
@@ -346,7 +346,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweaters",
-            "link": "shopify:\/\/collections\/sweater",
+            "link": "shopify:\/\/collections\/sweaters",
             "left": 51,
             "top": 55,
             "width": 46,
@@ -357,7 +357,7 @@
           "type": "link",
           "settings": {
             "heading": "bottoms3",
-            "link": "shopify:\/\/collections\/bottoms-12-13",
+            "link": "shopify:\/\/collections\/bottoms",
             "left": 3,
             "top": 70,
             "width": 46,
@@ -368,7 +368,7 @@
           "type": "link",
           "settings": {
             "heading": "SWEATSHIRTS",
-            "link": "shopify:\/\/collections\/sweatshirts-12-13",
+            "link": "shopify:\/\/collections\/skull-theme",
             "left": 51,
             "top": 70,
             "width": 46,
@@ -379,7 +379,7 @@
           "type": "link",
           "settings": {
             "heading": "caphat3",
-            "link": "shopify:\/\/collections\/cap-hat",
+            "link": "shopify:\/\/collections\/hat",
             "left": 3,
             "top": 86,
             "width": 46,
@@ -401,7 +401,7 @@
           "type": "link",
           "settings": {
             "heading": "NEW-YEAR-SALE",
-            "link": "",
+            "link": "shopify:\/\/collections\/short-sleeve",
             "left": 3,
             "top": 0,
             "width": 46,
