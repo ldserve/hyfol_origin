@@ -448,7 +448,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/HYFOL_07.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_08_ff68736f-a2a6-4bf5-b4ee-cf05c5055f80.jpg",
-        "link": "shopify:\/\/collections\/long-sleeve-series",
+        "link": "shopify:\/\/collections\/best-sellers",
         "collection": "hat",
         "title": "",
         "products_count": 12,
@@ -465,7 +465,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/HYFOL_09.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_13.jpg",
-        "link": "shopify:\/\/collections\/hoodies-1",
+        "link": "shopify:\/\/collections\/hoodies",
         "collection": "bottoms",
         "title": "",
         "products_count": 12,
@@ -482,7 +482,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/HYFOL_11_b1e91942-ed80-445b-b5b9-98ad4345ba2e.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_14.jpg",
-        "link": "shopify:\/\/collections\/pants-series",
+        "link": "shopify:\/\/collections\/hat",
         "collection": "outerwear1",
         "title": "",
         "products_count": 12,
@@ -499,7 +499,7 @@
       "settings": {
         "desk_image": "shopify:\/\/shop_images\/M_-2_16.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_16.jpg",
-        "link": "shopify:\/\/collections\/women",
+        "link": "shopify:\/\/collections\/jewelry",
         "collection": "hoodies",
         "products_count": 12,
         "show_quick_buy": true,
