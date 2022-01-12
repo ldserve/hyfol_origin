@@ -335,7 +335,7 @@
 			            	"current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                   "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":0,
+                    "commodity_quantity":"{{ line_item.quantity }}",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
                     "entrance":"购物车页" }'>{{ 'cart.items.remove' | t }}</a>
