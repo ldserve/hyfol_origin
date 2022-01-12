@@ -313,7 +313,7 @@
           "type": "link",
           "settings": {
             "heading": "hoodies3",
-            "link": "shopify:\/\/collections\/hoodies-1",
+            "link": "shopify:\/\/collections\/best-sellers",
             "left": 3,
             "top": 39,
             "width": 46,
@@ -412,7 +412,7 @@
           "type": "link",
           "settings": {
             "heading": "Must-have-Tops",
-            "link": "",
+            "link": "shopify:\/\/collections",
             "left": 51,
             "top": 0,
             "width": 46,
