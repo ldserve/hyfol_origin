@@ -210,7 +210,9 @@
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
-                "currency_unit": "{{ checkout.currency }}"
+                "currency_unit": "{{ checkout.currency }}",
+                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
             {% comment %} "commodity_tag":"{{commodity_tag}}",
@@ -218,8 +220,6 @@
             "supplier_id":"",
             "supplier_name":"",
             "site_category":"{{line_item.product.collections | handleize }}", 
-            "commodity_description_text":"{{line_item.product.description}}",
-            "commodity_description_image":"{{line_item.product.featured_image}}", 
             "is_fbt_used":"是否使用FBT",
             "is_fbt_main":"是否FBT主商品",
             "fbt_spuid":"FBT商品SPUID",
@@ -253,7 +253,9 @@
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
-                "currency_unit": "{{ checkout.currency }}"
+                "currency_unit": "{{ checkout.currency }}",
+                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
             {% comment %} 
@@ -262,8 +264,7 @@
             "supplier_id":"",
             "supplier_name":"",
             "site_category":"{{line_item.product.collections | handleize }}", 
-            "commodity_description_text":"{{line_item.product.description}}",
-            "commodity_description_image":"{{line_item.product.featured_image}}", 
+ 
             "is_fbt_used":"是否使用FBT",
             "is_fbt_main":"是否FBT主商品",
             "fbt_spuid":"FBT商品SPUID",
@@ -297,7 +298,9 @@
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
-                "currency_unit": "{{ checkout.currency }}"
+                "currency_unit": "{{ checkout.currency }}",
+                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
             {% comment %} 
@@ -306,8 +309,7 @@
             "supplier_id":"",
             "supplier_name":"",
             "site_category":"{{line_item.product.collections | handleize }}", 
-            "commodity_description_text":"{{line_item.product.description}}",
-            "commodity_description_image":"{{line_item.product.featured_image}}", 
+ 
             "is_fbt_used":"是否使用FBT",
             "is_fbt_main":"是否FBT主商品",
             "fbt_spuid":"FBT商品SPUID",
@@ -341,7 +343,9 @@
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
-                "currency_unit": "{{ checkout.currency }}"
+                "currency_unit": "{{ checkout.currency }}",
+                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
             {% comment %} 
@@ -350,8 +354,7 @@
             "supplier_id":"",
             "supplier_name":"",
             "site_category":"{{line_item.product.collections | handleize }}", 
-            "commodity_description_text":"{{line_item.product.description}}",
-            "commodity_description_image":"{{line_item.product.featured_image}}", 
+ 
             "is_fbt_used":"是否使用FBT",
             "is_fbt_main":"是否FBT主商品",
             "fbt_spuid":"FBT商品SPUID",
@@ -386,7 +389,9 @@
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
-                "currency_unit": "{{ checkout.currency }}"
+                "currency_unit": "{{ checkout.currency }}",
+                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
             {% comment %} 
@@ -395,8 +400,6 @@
             "supplier_id":"",
             "supplier_name":"",
             "site_category":"{{line_item.product.collections | handleize }}", 
-            "commodity_description_text":"{{line_item.product.description}}",
-            "commodity_description_image":"{{line_item.product.featured_image}}", 
             "is_fbt_used":"是否使用FBT",
             "is_fbt_main":"是否FBT主商品",
             "fbt_spuid":"FBT商品SPUID",
