@@ -211,7 +211,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_text":["{{line_item.product.description | handleize }}"],
                 "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
@@ -254,7 +254,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_text":["{{line_item.product.description | handleize }}"],
                 "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
@@ -299,7 +299,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_text":["{{line_item.product.description | handleize }}"],
                 "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
@@ -344,7 +344,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_text":["{{line_item.product.description | handleize }}"],
                 "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
@@ -390,7 +390,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":"{{line_item.product.description | handleize }}",
+                "commodity_description_text":["{{line_item.product.description | handleize }}"],
                 "commodity_description_image":"{{ line_item.image | image_url | split: "?" | first  }}"
             }'
         >
