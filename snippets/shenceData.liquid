@@ -264,6 +264,9 @@ new sadhus_shence({
       newData.commodity_tag=data.commodity_tag.split(',')
       newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
+   },
+   callback:function(){
+       sensors.setProfile({last_addtocart_time:getFormatDate()})
    }
 })
 
@@ -347,6 +350,9 @@ new sadhus_shence({
       newData.commodity_tag=data.commodity_tag.split(',')
       newData.site_category = getSiteCategory()
       return newData  /*返回值必须为{}*/
+   },
+   callback:function(){
+       sensors.setProfile({last_addtocart_time:getFormatDate()})
    }
 })
 

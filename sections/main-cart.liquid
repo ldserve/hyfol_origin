@@ -746,6 +746,7 @@
     if (num > 0) {
       newData.commodity_quantity = num
       sensors.track('AddToCart', newData);
+      sensors.setProfile({last_addtocart_time:getFormatDate()})
     } else {
       newData.commodity_quantity = -num
       sensors.track('RemoveFromCart', newData);
