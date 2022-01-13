@@ -39,21 +39,34 @@
         "button_link": "shopify:\/\/collections\/all"
       }
     },
+    "164204451252be6c62": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/IMG-6981.jpg",
+        "image_position": "right",
+        "image_width": 50,
+        "title": "Men's Comfy Multi-pocket Drawstring Waist Cargo Pants",
+        "content": "<p><strong>Description<\/strong><br\/>Product Code:T11491529CP<br\/>Fabric:Polyester ;<br\/>Fit type:Relaxed fit;<br\/>Style:Casual\/Basic;<br\/>Occasion:Outdoor\/ Daily;<br\/>Thickness:Regular;<br\/>Season:All seasons;<br\/>Number of pockets:Six pockets<br\/>Cleaning method:Machine wash\/Hand wash;<\/p>",
+        "button_text": "Our products",
+        "button_link": "shopify:\/\/collections\/all"
+      }
+    },
     "1642044103c2947c75": {
       "type": "mosaic",
       "blocks": {
         "1642044102194e192d-0": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-7030.jpg",
             "show_overlay": false,
             "overlay_opacity": 50,
             "background": "#f3f4f4",
-            "text_color": "#4f5558",
+            "text_color": "#ffffff",
             "title": "Your heading",
             "content": "Tell more about your product, collection...",
-            "content_position": "top_left",
-            "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#ffffff",
             "button_text": "Learn more",
             "link": ""
           }
@@ -61,13 +74,14 @@
         "1642044102194e192d-1": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-6975.jpg",
             "show_overlay": false,
             "overlay_opacity": 50,
             "background": "#f3f4f4",
-            "text_color": "#4f5558",
+            "text_color": "#ffffff",
             "title": "Your heading",
             "content": "Tell more about your product, collection...",
-            "content_position": "top_left",
+            "content_position": "middle_center",
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
             "button_text": "Learn more",
@@ -77,13 +91,14 @@
         "1642044102194e192d-2": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-7179.jpg",
             "show_overlay": false,
             "overlay_opacity": 50,
             "background": "#f3f4f4",
-            "text_color": "#4f5558",
+            "text_color": "#ffffff",
             "title": "Your heading",
             "content": "Tell more about your product, collection...",
-            "content_position": "top_left",
+            "content_position": "bottom_center",
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
             "button_text": "Learn more",
@@ -93,13 +108,14 @@
         "1642044102194e192d-3": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-7198.jpg",
             "show_overlay": false,
-            "overlay_opacity": 50,
+            "overlay_opacity": 45,
             "background": "#f3f4f4",
-            "text_color": "#4f5558",
+            "text_color": "#ffffff",
             "title": "Your heading",
             "content": "Tell more about your product, collection...",
-            "content_position": "top_left",
+            "content_position": "middle_center",
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
             "button_text": "Learn more",
@@ -109,15 +125,16 @@
         "1642044102194e192d-4": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-7191.jpg",
             "show_overlay": false,
             "overlay_opacity": 50,
             "background": "#f3f4f4",
-            "text_color": "#4f5558",
+            "text_color": "#ffffff",
             "title": "Your heading",
             "content": "Tell more about your product, collection...",
-            "content_position": "top_left",
+            "content_position": "middle_center",
             "button_background": "#4f5558",
-            "button_text_color": "#f3f4f4",
+            "button_text_color": "#ffffff",
             "button_text": "Learn more",
             "link": ""
           }
@@ -131,7 +148,30 @@
         "1642044102194e192d-4"
       ],
       "settings": {
-        "section_size": "medium"
+        "section_size": "large"
+      }
+    },
+    "16420451470ecfbe56": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "Your title",
+        "include_margins": true,
+        "liquid": "Hyfol cares about genuine quality and high performance that can suite your emotions when you think about fashion."
+      }
+    },
+    "16420453064b3775b9": {
+      "type": "judgeme_carousel_section",
+      "settings": {
+        "maxwidth": 1080
+      }
+    },
+    "16420454712c1ca542": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/56s.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/56s.jpg",
+        "link": "",
+        "shadow": true
       }
     }
   },
@@ -140,6 +180,10 @@
     "1642043743ac5836a3",
     "1642043620763fbc5d",
     "164204449485b42651",
-    "1642044103c2947c75"
+    "164204451252be6c62",
+    "1642044103c2947c75",
+    "16420451470ecfbe56",
+    "16420453064b3775b9",
+    "16420454712c1ca542"
   ]
 }
