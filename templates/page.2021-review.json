@@ -107,12 +107,13 @@
     "1642055655b04af49d": {
       "type": "image-with-text",
       "settings": {
+        "image": "shopify:\/\/shop_images\/IMG-7179.jpg",
         "image_position": "left",
         "image_width": 50,
-        "title": "Your title",
-        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
-        "button_text": "Our products",
-        "button_link": "shopify:\/\/collections\/all"
+        "title": "Men's Comfy Multi-pocket Drawstring Waist Cargo Pants",
+        "content": "<p><strong>Description<\/strong><\/p><p><br\/>Product Code:T11491529CP<br\/>Fabric:Polyester ;<br\/>Fit type:Relaxed fit;<br\/>Style:Casual\/Basic;<br\/>Occasion:Outdoor\/ Daily;<br\/>Thickness:Regular;<br\/>Season:All seasons;<br\/>Number of pockets:Six pockets<br\/>Cleaning method:Machine wash\/Hand wash;<\/p>",
+        "button_text": "View details",
+        "button_link": "https:\/\/www.hyfol.com\/products\/t11491529cp?_pos=1&_sid=ad2981991&_ss=r&variant=41371686076575"
       }
     },
     "16420557109109555b": {
@@ -121,12 +122,13 @@
         "16420557103c202152-0": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-7030.jpg",
             "show_overlay": false,
-            "overlay_opacity": 50,
+            "overlay_opacity": 0,
             "background": "#f3f4f4",
             "text_color": "#4f5558",
-            "title": "Your heading",
-            "content": "Tell more about your product, collection...",
+            "title": "",
+            "content": "",
             "content_position": "top_left",
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
@@ -137,12 +139,13 @@
         "16420557103c202152-1": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/ADDDD.jpg",
             "show_overlay": false,
-            "overlay_opacity": 50,
+            "overlay_opacity": 0,
             "background": "#f3f4f4",
             "text_color": "#4f5558",
-            "title": "Your heading",
-            "content": "Tell more about your product, collection...",
+            "title": "",
+            "content": "",
             "content_position": "top_left",
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
@@ -153,12 +156,13 @@
         "16420557103c202152-2": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-7191.jpg",
             "show_overlay": false,
-            "overlay_opacity": 50,
+            "overlay_opacity": 0,
             "background": "#f3f4f4",
             "text_color": "#4f5558",
-            "title": "Your heading",
-            "content": "Tell more about your product, collection...",
+            "title": "",
+            "content": "",
             "content_position": "top_left",
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
@@ -169,12 +173,13 @@
         "16420557103c202152-3": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-6975.jpg",
             "show_overlay": false,
-            "overlay_opacity": 50,
+            "overlay_opacity": 0,
             "background": "#f3f4f4",
             "text_color": "#4f5558",
-            "title": "Your heading",
-            "content": "Tell more about your product, collection...",
+            "title": "",
+            "content": "",
             "content_position": "top_left",
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
@@ -185,12 +190,13 @@
         "16420557103c202152-4": {
           "type": "item",
           "settings": {
+            "image": "shopify:\/\/shop_images\/IMG-7176.jpg",
             "show_overlay": false,
-            "overlay_opacity": 50,
+            "overlay_opacity": 0,
             "background": "#f3f4f4",
             "text_color": "#4f5558",
-            "title": "Your heading",
-            "content": "Tell more about your product, collection...",
+            "title": "",
+            "content": "",
             "content_position": "top_left",
             "button_background": "#4f5558",
             "button_text_color": "#f3f4f4",
