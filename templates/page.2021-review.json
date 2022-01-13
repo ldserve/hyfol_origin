@@ -33,7 +33,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/1_78e65d42-514d-413d-831d-39e43c70bdfd.jpg",
         "image_position": "right",
-        "image_width": 35,
+        "image_width": 50,
         "title": "Men's 100% Cotton Regular  Fit Retro American Flag  Graphic Hoodie",
         "content": "<p><strong>Description <\/strong><\/p><p>Product Code:T11611521FG<br\/>Fabric:100% Cotton ;<br\/>Fit type: Regular fit;<br\/>Style:Causal\/Basic; <br\/>Occasion:Outdoor\/ Daily;<br\/>Sleeve Length:Long sleeve;<br\/>Thickness:Thick;<br\/>Season:Spring\/Fall\/Winter;<br\/>Cleaning method:Machine wash\/Hand wash;<\/p>",
         "button_text": "View details",
@@ -45,7 +45,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/3_d4b3926a-485d-4e91-9091-3776772a7abb.jpg",
         "image_position": "left",
-        "image_width": 40,
+        "image_width": 50,
         "title": "Men's 100% Cotton Skull  Graphic Pullover  Hoodie - 18020",
         "content": "<p><strong>Description<\/strong><\/p><p>Product code: T11611521DE<br\/>Category: Hoodies <br\/>Fabric: 100% cotton, 285G fleece<br\/>Season: Fall \/ winter<br\/>Style: Casual for daily wear<br\/>Sleeve: Long sleeve<br\/>Collar: Round collar, with hood<\/p>",
         "button_text": "View details",
@@ -65,7 +65,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/4g.jpg",
         "image_position": "right",
-        "image_width": 40,
+        "image_width": 50,
         "title": "Men's 100% Cotton Regular Fit Skull Graphic Long Sleeve T-Shirt - 18023",
         "content": "<p><strong>Description<\/strong><\/p><p>Product Code: T11861820O1<\/p><p>Fabric: 100% cotton;<\/p><p>Fit type: Regular fit;<\/p><p>Style: Casual \/ Basic; <\/p><p>Occasion: Outdoor \/ Daily;<\/p><p>Sleeve Length: Long sleeve;<\/p><p>Thickness: Regular;<\/p><p>Season: Spring \/ Fall;<\/p><p>Cleaning method: Machine wash \/ Hand wash<\/p>",
         "button_text": "View details",
@@ -77,7 +77,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/2_0ed979d6-ce62-4d40-bbc0-56f2879e0972.jpg",
         "image_position": "left",
-        "image_width": 40,
+        "image_width": 50,
         "title": "Men's 100% Cotton Skull Graphic  T-Shirt – 18007",
         "content": "<p><strong>Description<\/strong><\/p><p>Product Code: T11861820NT<br\/>Fabric:100% Cotton ;<br\/>Fit type: Regular fit;<br\/>Style:Causal\/Basic; <br\/>Occasion:Outdoor\/ Daily;<br\/>Sleeve Length:Short sleeve;<br\/>Thickness:Thin;<br\/>Season:Summer;<br\/>Cleaning method:Machine wash\/Hand wash.<\/p>",
         "button_text": "View details",
@@ -89,7 +89,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/5_8ea8e4a2-1212-47cc-b6a6-fe19eb78c13b.jpg",
         "image_position": "right",
-        "image_width": 40,
+        "image_width": 50,
         "title": "Men's Route 66 Long Sleeve Graphic T-Shirt",
         "content": "<p><strong>Description<\/strong><\/p><p>Product code: T11861820MO<br\/>Fabric: 100% Cotton<br\/>Thickness: Thick<br\/>Fit type: Relaxed Fit<br\/>Cleaning method: Machine Wash<\/p>",
         "button_text": "View details",
@@ -109,7 +109,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/6_07c3cb96-3c16-4a5e-a0dd-f484eaa7689d.jpg",
         "image_position": "left",
-        "image_width": 40,
+        "image_width": 50,
         "title": "Men's Comfy Multi-pocket Drawstring Waist Cargo Pants",
         "content": "<p><strong>Description<\/strong><\/p><p>Product Code:T11491529CP<br\/>Fabric:Polyester ;<br\/>Fit type:Relaxed fit;<br\/>Style:Casual\/Basic;<br\/>Occasion:Outdoor\/ Daily;<br\/>Thickness:Regular;<br\/>Season:All seasons;<br\/>Number of pockets:Six pockets<br\/>Cleaning method:Machine wash\/Hand wash;<\/p>",
         "button_text": "View details",
@@ -213,7 +213,7 @@
         "16420557103c202152-4"
       ],
       "settings": {
-        "section_size": "large"
+        "section_size": "medium"
       }
     },
     "164205529033951c38": {
