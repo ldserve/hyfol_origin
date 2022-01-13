@@ -36,7 +36,7 @@
 
               {%- if use_recommendations -%}
                 {%- for product in recommendations.products -%}
-                  {%- render 'product-item', product: product, grid_classes: '1/4--lap 1/5--desk 1/6--wide', show_add_to_cart: section.settings.show_quick_buy -%}
+                  {%- render 'product-item', product: product, grid_classes: '1/4--lap 1/5--desk 1/6--wide', show_add_to_cart: section.settings.show_quick_buy,forloop:forloop -%}
                 {%- else -%}
                   {%- comment -%}Hide the section if there is no recommendations to show{%- endcomment -%}
                   <style>

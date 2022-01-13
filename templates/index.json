@@ -260,7 +260,7 @@
           "type": "link",
           "settings": {
             "heading": "mens2",
-            "link": "shopify:\/\/collections\/hat",
+            "link": "shopify:\/\/collections\/best-sellers",
             "left": 0,
             "top": 28,
             "width": 32,
@@ -271,7 +271,7 @@
           "type": "link",
           "settings": {
             "heading": "womens2",
-            "link": "shopify:\/\/collections\/outerwear1",
+            "link": "shopify:\/\/collections\/bottoms",
             "left": 33,
             "top": 28,
             "width": 33,
@@ -282,7 +282,7 @@
           "type": "link",
           "settings": {
             "heading": "NEWIN",
-            "link": "shopify:\/\/collections\/bottoms",
+            "link": "shopify:\/\/collections\/hoodies",
             "left": 67,
             "top": 28,
             "width": 34,
@@ -313,7 +313,7 @@
           "type": "link",
           "settings": {
             "heading": "hoodies3",
-            "link": "shopify:\/\/collections\/hoodies-1",
+            "link": "shopify:\/\/collections\/best-sellers",
             "left": 3,
             "top": 39,
             "width": 46,
@@ -324,7 +324,7 @@
           "type": "link",
           "settings": {
             "heading": "T-shirts",
-            "link": "shopify:\/\/collections\/shirts-12-13",
+            "link": "shopify:\/\/collections\/bottoms",
             "left": 51,
             "top": 39,
             "width": 46,
@@ -335,7 +335,7 @@
           "type": "link",
           "settings": {
             "heading": "outerwear3",
-            "link": "shopify:\/\/collections\/outerwear_hyfol",
+            "link": "shopify:\/\/collections\/outerwear1",
             "left": 3,
             "top": 54,
             "width": 46,
@@ -346,7 +346,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweaters",
-            "link": "shopify:\/\/collections\/sweater",
+            "link": "shopify:\/\/collections\/sweaters",
             "left": 51,
             "top": 55,
             "width": 46,
@@ -357,7 +357,7 @@
           "type": "link",
           "settings": {
             "heading": "bottoms3",
-            "link": "shopify:\/\/collections\/bottoms-12-13",
+            "link": "shopify:\/\/collections\/bottoms",
             "left": 3,
             "top": 70,
             "width": 46,
@@ -368,7 +368,7 @@
           "type": "link",
           "settings": {
             "heading": "SWEATSHIRTS",
-            "link": "shopify:\/\/collections\/sweatshirts-12-13",
+            "link": "shopify:\/\/collections\/skull-theme",
             "left": 51,
             "top": 70,
             "width": 46,
@@ -379,7 +379,7 @@
           "type": "link",
           "settings": {
             "heading": "caphat3",
-            "link": "shopify:\/\/collections\/cap-hat",
+            "link": "shopify:\/\/collections\/hat",
             "left": 3,
             "top": 86,
             "width": 46,
@@ -401,7 +401,7 @@
           "type": "link",
           "settings": {
             "heading": "NEW-YEAR-SALE",
-            "link": "",
+            "link": "shopify:\/\/collections\/short-sleeve",
             "left": 3,
             "top": 0,
             "width": 46,
@@ -412,7 +412,7 @@
           "type": "link",
           "settings": {
             "heading": "Must-have-Tops",
-            "link": "",
+            "link": "shopify:\/\/collections",
             "left": 51,
             "top": 0,
             "width": 46,
@@ -448,7 +448,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/HYFOL_07.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_08_ff68736f-a2a6-4bf5-b4ee-cf05c5055f80.jpg",
-        "link": "shopify:\/\/collections\/long-sleeve-series",
+        "link": "shopify:\/\/collections\/best-sellers",
         "collection": "hat",
         "title": "",
         "products_count": 12,
@@ -465,7 +465,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/HYFOL_09.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_13.jpg",
-        "link": "shopify:\/\/collections\/hoodies-1",
+        "link": "shopify:\/\/collections\/hoodies",
         "collection": "bottoms",
         "title": "",
         "products_count": 12,
@@ -482,7 +482,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/HYFOL_11_b1e91942-ed80-445b-b5b9-98ad4345ba2e.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_14.jpg",
-        "link": "shopify:\/\/collections\/pants-series",
+        "link": "shopify:\/\/collections\/hat",
         "collection": "outerwear1",
         "title": "",
         "products_count": 12,
@@ -499,7 +499,7 @@
       "settings": {
         "desk_image": "shopify:\/\/shop_images\/M_-2_16.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2_16.jpg",
-        "link": "shopify:\/\/collections\/women",
+        "link": "shopify:\/\/collections\/jewelry",
         "collection": "hoodies",
         "products_count": 12,
         "show_quick_buy": true,
