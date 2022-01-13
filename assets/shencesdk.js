@@ -254,6 +254,9 @@ window.getFormatDate = function getFormatDate() {
       } if (data.coupon_amount) {
         data.coupon_amount = Number((data.coupon_amount / 100).toFixed(2));
       }
+      if(data.commodity_name) {
+        data.commodity_name = data.commodity_name.replace('-',' ');
+      }
       sensors.quick('isReady', function () {
         debug && console.info("准备", sendType, data);
         sensors.track(sendType, data);
