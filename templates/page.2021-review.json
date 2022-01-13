@@ -2,7 +2,6 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
       }
     },
@@ -24,27 +23,7 @@
     "1642055251b3e62f1a": {
       "type": "no_space_img",
       "settings": {
-        "link": "",
-        "shadow": false
-      }
-    },
-    "164205525958e34b2a": {
-      "type": "no_space_img",
-      "settings": {
-        "link": "",
-        "shadow": false
-      }
-    },
-    "1642055281c5c8adf6": {
-      "type": "no_space_img",
-      "settings": {
-        "link": "",
-        "shadow": false
-      }
-    },
-    "164205529033951c38": {
-      "type": "no_space_img",
-      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/HOODIES.jpg",
         "link": "",
         "shadow": false
       }
@@ -52,7 +31,7 @@
     "16420552947647aa32": {
       "type": "image-with-text",
       "settings": {
-        "image_position": "left",
+        "image_position": "right",
         "image_width": 50,
         "title": "Your title",
         "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
@@ -66,9 +45,172 @@
         "image_position": "left",
         "image_width": 50,
         "title": "Your title",
-        "content": "<p>Use this text to share information about your brand with your customers.<br>Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
         "button_text": "Our products",
         "button_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "164205525958e34b2a": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/Shirts.jpg",
+        "link": "",
+        "shadow": false
+      }
+    },
+    "16420555844cd12c8a": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "right",
+        "image_width": 50,
+        "title": "Your title",
+        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "button_text": "Our products",
+        "button_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "1642055651a29cc87e": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Your title",
+        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "button_text": "Our products",
+        "button_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "1642055653969ade9a": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "right",
+        "image_width": 50,
+        "title": "Your title",
+        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "button_text": "Our products",
+        "button_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "1642055281c5c8adf6": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/Cargo-Pants.jpg",
+        "link": "",
+        "shadow": false
+      }
+    },
+    "1642055655b04af49d": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Your title",
+        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "button_text": "Our products",
+        "button_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "164205529033951c38": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/HYFOL_ba99916f-6ec4-4dbc-b7d6-b3c862f5e333.jpg",
+        "link": "",
+        "shadow": false
+      }
+    },
+    "16420557109109555b": {
+      "type": "mosaic",
+      "blocks": {
+        "16420557103c202152-0": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "16420557103c202152-1": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "16420557103c202152-2": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "16420557103c202152-3": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "16420557103c202152-4": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16420557103c202152-0",
+        "16420557103c202152-1",
+        "16420557103c202152-2",
+        "16420557103c202152-3",
+        "16420557103c202152-4"
+      ],
+      "settings": {
+        "section_size": "large"
       }
     }
   },
@@ -77,10 +219,15 @@
     "newsletter",
     "editorify_section_widget",
     "1642055251b3e62f1a",
-    "164205525958e34b2a",
-    "1642055281c5c8adf6",
-    "164205529033951c38",
     "16420552947647aa32",
-    "1642055307406da67b"
+    "1642055307406da67b",
+    "164205525958e34b2a",
+    "16420555844cd12c8a",
+    "1642055651a29cc87e",
+    "1642055653969ade9a",
+    "1642055281c5c8adf6",
+    "1642055655b04af49d",
+    "164205529033951c38",
+    "16420557109109555b"
   ]
 }
