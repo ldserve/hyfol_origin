@@ -66,13 +66,13 @@
               {%- if use_placeholder -%}
                 {%- include 'product-item-placeholder', product: product, show_add_to_cart: false -%}
               {%- else -%}
-                {%- include 'product-item', product: product, show_add_to_cart: false -%}
+                {%- include 'product-item', product: product, show_add_to_cart: false,forloop:forloop,first_mkt_name:{{ section.settings.title | default: collection.title | escape }} -%}
               {%- endif -%}
             {%- else -%}
               {%- if use_placeholder -%}
                 {%- include 'product-item-placeholder', product: product, horizontal: true, show_add_to_cart: false -%}
               {%- else -%}
-                {%- include 'product-item', product: product, horizontal: true, show_add_to_cart: false -%}
+                {%- include 'product-item', product: product, horizontal: true, show_add_to_cart: false,forloop:forloop,first_mkt_name:{{ section.settings.title | default: collection.title | escape }} -%}
               {%- endif -%}
             {%- endif -%}
 
