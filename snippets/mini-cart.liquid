@@ -206,7 +206,7 @@
                     "commodity_quantity":"1",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
-                    "entrance":"小购物车页" }' data-action="decrease-quantity"
+                    "entrance":"MiniCartPage" }' data-action="decrease-quantity"
                   data-quantity="{{ line_item.quantity | minus: 1 }}" data-line="{{ forloop.index }}"
                   aria-label="{{ 'cart.items.decrease_quantity' | t }}"
                   title="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon', icon: 'minus' %}</button>
@@ -235,7 +235,7 @@
                             "fbt_skuid":"",
                             "total_original_price_fbt":"",
                             "total_current_price_fbt":"",
-                            "entrance":"小购物车页"
+                            "entrance":"MiniCartPage"
                             }' inputmode="numeric" data-current-value="{{ line_item.quantity }}"
                   data-line="{{ forloop.index }}" value="{{ line_item.quantity }}"
                   size="{{ line_item.quantity | append: '' | size | at_least: 2 }}" onblur="inputBlur(this)">
@@ -264,7 +264,7 @@
                     "fbt_skuid":"",
                     "total_original_price_fbt":"",
                     "total_current_price_fbt":"",
-                    "entrance":"小购物车页"
+                    "entrance":"MiniCartPage"
                     }' data-action="increase-quantity" data-quantity="{{ line_item.quantity | plus: 1 }}"
                   data-line="{{ forloop.index }}"
                   {% if allow_to_add_more %}aria-label="{{ 'cart.items.increase_quantity' | t }}"
@@ -295,7 +295,7 @@
                     "commodity_quantity":"{{line_item.quantity}}",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
-                    "entrance":"小购物车页" }'>{{ 'cart.items.remove' | t }}</a>
+                    "entrance":"MiniCartPage" }'>{{ 'cart.items.remove' | t }}</a>
             </div>
             {%- endunless -%}
           </div>
@@ -349,7 +349,7 @@
           <a href="{{ routes.cart_url }}" class="button button--secondary">{{ 'cart.general.view_cart' | t }}</a>
           {%- if settings.cart_show_checkout_button -%}
           <button type="submit" name="checkout" class="button button--primary" data-scenable="1" data-sctype="Checkout"
-            data-scsession='{"entrance":"立即购买"}'>{{ 'cart.general.checkout' | t }}</button>
+            data-scsession='{"entrance":"MiniCartPage"}'>{{ 'cart.general.checkout' | t }}</button>
           {%- endif -%}
         </div>
       </div>

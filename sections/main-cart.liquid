@@ -253,7 +253,7 @@
                     "commodity_quantity":"1",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
-                    "entrance":"购物车页" }'
+                    "entrance":"CartPage_Checkout" }'
                                data-action="decrease-quantity" data-href="{{ routes.cart_change_url }}?quantity={{ line_item.quantity | minus: 1 }}&line={{ forloop.index }}" data-quantity="{{ line_item.quantity | minus: 1 }}" data-line="{{ forloop.index }}" aria-label="{{ 'cart.items.decrease_quantity' | t }}" title="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon', icon: 'minus' %}</button>
                               <input aria-label="{{ 'product.form.quantity' | t }}" data-scdata='{"is_quick_view":0,
                               "site_category":"{{collection.title }}", 
@@ -280,7 +280,7 @@
                                     "fbt_skuid":"",
                                     "total_original_price_fbt":"",
                                     "total_current_price_fbt":"",
-                                    "entrance":"购物车页" }' class="quantity-selector__value" inputmode="numeric" data-current-value="{{ line_item.quantity }}" data-line="{{ forloop.index }}" value="{{ line_item.quantity }}" size="{{ line_item.quantity | append: '' | size | at_least: 2 }}" onblur="mainBlur(this)">
+                                    "entrance":"CartPage_Checkout" }' class="quantity-selector__value" inputmode="numeric" data-current-value="{{ line_item.quantity }}" data-line="{{ forloop.index }}" value="{{ line_item.quantity }}" size="{{ line_item.quantity | append: '' | size | at_least: 2 }}" onblur="mainBlur(this)">
                               <button type="button"
                               data-scenable="1" 
 							data-sctype="addMainCart"  
@@ -309,7 +309,7 @@
                     "fbt_skuid":"",
                     "total_original_price_fbt":"",
                     "total_current_price_fbt":"",
-                    "entrance":"购物车页" }'
+                    "entrance":"CartPage_Checkout" }'
                                class="quantity-selector__button addCart" data-action="increase-quantity" data-href="{{ routes.cart_change_url }}?quantity={{ line_item.quantity | plus: 1 }}&line={{ forloop.index }}" data-quantity="{{ line_item.quantity | plus: 1 }}" data-line="{{ forloop.index }}" {% if allow_to_add_more %}aria-label="{{ 'cart.items.increase_quantity' | t }}" title="{{ 'cart.items.increase_quantity' | t }}"{% else %}disabled="disabled" aria-label="{{ 'cart.items.no_more_stock' | t }}" data-tooltip="{{ 'cart.items.no_more_stock' | t }}" data-tooltip-position="bottom-left"{% endif %}>{% render 'icon', icon: 'plus' %}</button>
                             </div>
                           {%- else -%}
@@ -338,7 +338,7 @@
                     "commodity_quantity":"{{ line_item.quantity }}",
                     "bonus_name":"{{ discount_title }}",
                     "bonus_amount":"{{ discount_amount}}",
-                    "entrance":"购物车页" }'>{{ 'cart.items.remove' | t }}</a>
+                    "entrance":"CartPage_Checkout" }'>{{ 'cart.items.remove' | t }}</a>
                         </td>
 
                         <td class="line-item__line-price table__cell--right hidden-phone">
@@ -547,7 +547,7 @@
 
                     <input type="hidden" name="attributes[collection_products_per_page]" value="">
                     <input type="hidden" name="attributes[collection_layout]" value="">
-                    <button data-scenable="1" data-sctype="Checkout" data-scsession='{"entrance":"购物车结算"}'   type="submit" name="checkout" class="cart-recap__checkout button button--primary button--full button--large c202111301">CHECK OUT <svg t="1638259481918" class="icon" style="margin-top: -4px;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6850" width="200" height="200"><path d="M261.072 971.66499999c30.396 31.269 79.721 31.269 110.194 1e-8l391.71799999-403.211c30.38200001-31.325 30.38200001-82.114 1e-8-113.378l-391.718-403.197c-30.466-31.32500001-79.793-31.325-110.194-1e-8-30.449 31.28000001-30.449 82.058 0 113.39000001l336.64 346.497-336.64 346.458c-30.44799999 31.325-30.44799999 82.105 0 113.445v0z" p-id="6851" fill="#ffffff"></path></svg></button>
+                    <button data-scenable="1" data-sctype="Checkout" data-scsession='{"entrance":"CartPage_Checkout"}'   type="submit" name="checkout" class="cart-recap__checkout button button--primary button--full button--large c202111301">CHECK OUT <svg t="1638259481918" class="icon" style="margin-top: -4px;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6850" width="200" height="200"><path d="M261.072 971.66499999c30.396 31.269 79.721 31.269 110.194 1e-8l391.71799999-403.211c30.38200001-31.325 30.38200001-82.114 1e-8-113.378l-391.718-403.197c-30.466-31.32500001-79.793-31.325-110.194-1e-8-30.449 31.28000001-30.449 82.058 0 113.39000001l336.64 346.497-336.64 346.458c-30.44799999 31.325-30.44799999 82.105 0 113.445v0z" p-id="6851" fill="#ffffff"></path></svg></button>
                   </div>
                 </div>
 

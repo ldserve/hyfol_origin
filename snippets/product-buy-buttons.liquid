@@ -47,7 +47,7 @@
               "fbt_skuid":"",
               "total_original_price_fbt":"",
               "total_current_price_fbt":"",
-              "entrance":"商品详情页"}'
+              "entrance":"CommodityDetailPage_AddToCart"}'
          data-action="add-to-cart" onclick="return gtag_report_conversion();">{{ 'product.form.add_to_cart' | t }}</button>
       {%- endif -%}
     {%- else -%}
@@ -58,7 +58,7 @@
       <div 
       data-scenable="1" 
       data-sctype="addCart" 
-      data-scsession='{"entrance":"quick-view结算"}'
+      data-scsession='{"entrance":"QuickView_BuyItNow"}'
       data-scdata='{
         "is_quick_view":{% if template == "product.quick-view" %}1{% else %}0{% endif %},
 							"site_category":"{{collection.title }}", 
@@ -84,7 +84,7 @@
               "fbt_skuid":"",
               "total_original_price_fbt":"",
               "total_current_price_fbt":"",
-                    "entrance":"立即购买"}'>
+                    "entrance":"QuickView_BuyItNow"}'>
     {{ form | payment_button }}</div>
     {%- endif -%}
   {%- else -%}
