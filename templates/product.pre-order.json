@@ -82,6 +82,20 @@
         "show_excerpt": false,
         "stack_mobile": false
       }
+    },
+    "16420644485349b60b": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "news",
+        "blog_posts_count": 3,
+        "title": "Blog posts",
+        "link_title": "View all",
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": false,
+        "stack_mobile": false
+      }
     }
   },
   "order": [
@@ -89,6 +103,7 @@
     "product-recommendations",
     "recently-viewed-products",
     "alireviews-widget-95111",
-    "1642064445e13a94c3"
+    "1642064445e13a94c3",
+    "16420644485349b60b"
   ]
 }
