@@ -8,10 +8,10 @@
     "1642043743ac5836a3": {
       "type": "image-with-text-overlay",
       "settings": {
-        "image": "shopify:\/\/shop_images\/12_c28bfad8-9265-4d96-8473-df6f6349633c.jpg",
-        "title": "Hoodies",
-        "content": "<p>Hoodies are one of the tops of Hyfol trending products to sell, as these items remain high demand all year round. <\/p>",
-        "show_image_overlay": true,
+        "image": "shopify:\/\/shop_images\/555.jpg",
+        "title": "",
+        "content": "",
+        "show_image_overlay": false,
         "color": "#ffffff"
       }
     },
