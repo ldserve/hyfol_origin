@@ -649,10 +649,10 @@
       "settings": {
         "title": "Top Products",
         "tab1": "Best Sales",
-        "pro1": "hot-sale",
+        "pro1": "best-sellers",
         "link1": "shopify:\/\/collections\/hot-sale",
         "tab2": "New In",
-        "pro2": "new-in",
+        "pro2": "bottoms",
         "link2": "shopify:\/\/collections\/new-in",
         "tab3": "",
         "pro3": "",
