@@ -4,9 +4,129 @@
       "type": "sca-affiliate-empty",
       "settings": {
       }
+    },
+    "1642043743ac5836a3": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/12_c28bfad8-9265-4d96-8473-df6f6349633c.jpg",
+        "title": "Hoodies",
+        "content": "<p>Hoodies are one of the tops of Hyfol trending products to sell, as these items remain high demand all year round. <\/p>",
+        "show_image_overlay": true,
+        "color": "#ffffff"
+      }
+    },
+    "1642043620763fbc5d": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/264876022_425293325960479_3963757417789339181_n.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Description",
+        "content": "<p>Product Code:T11611521FG<br\/>Fabric:100% Cotton ;<br\/>Fit type: Regular fit;<br\/>Style:Causal\/Basic; <br\/>Occasion:Outdoor\/ Daily;<br\/>Sleeve Length:Long sleeve;<br\/>Thickness:Thick;<br\/>Season:Spring\/Fall\/Winter;<br\/>Cleaning method:Machine wash\/Hand wash;<\/p>",
+        "button_text": "Our products",
+        "button_link": "shopify:\/\/collections\/hoodies"
+      }
+    },
+    "1642044103c2947c75": {
+      "type": "mosaic",
+      "blocks": {
+        "1642044102194e192d-0": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "1642044102194e192d-1": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "1642044102194e192d-2": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "1642044102194e192d-3": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        },
+        "1642044102194e192d-4": {
+          "type": "item",
+          "settings": {
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "background": "#f3f4f4",
+            "text_color": "#4f5558",
+            "title": "Your heading",
+            "content": "Tell more about your product, collection...",
+            "content_position": "top_left",
+            "button_background": "#4f5558",
+            "button_text_color": "#f3f4f4",
+            "button_text": "Learn more",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1642044102194e192d-0",
+        "1642044102194e192d-1",
+        "1642044102194e192d-2",
+        "1642044102194e192d-3",
+        "1642044102194e192d-4"
+      ],
+      "settings": {
+        "section_size": "medium"
+      }
     }
   },
   "order": [
-    "affiliate-empty"
+    "affiliate-empty",
+    "1642043743ac5836a3",
+    "1642043620763fbc5d",
+    "1642044103c2947c75"
   ]
 }
