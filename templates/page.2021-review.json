@@ -63,34 +63,37 @@
     "16420555844cd12c8a": {
       "type": "image-with-text",
       "settings": {
+        "image": "shopify:\/\/shop_images\/243447926_213052264300271_8316694019391349462_n.jpg",
         "image_position": "right",
         "image_width": 50,
-        "title": "Your title",
-        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
-        "button_text": "Our products",
-        "button_link": "shopify:\/\/collections\/all"
+        "title": "Men's 100% Cotton Regular Fit Skull Graphic Long Sleeve T-Shirt - 18023",
+        "content": "<p><strong>Description<\/strong><\/p><p>Product Code: T11861820O1<\/p><p>Fabric: 100% cotton;<\/p><p>Fit type: Regular fit;<\/p><p>Style: Casual \/ Basic; <\/p><p>Occasion: Outdoor \/ Daily;<\/p><p>Sleeve Length: Long sleeve;<\/p><p>Thickness: Regular;<\/p><p>Season: Spring \/ Fall;<\/p><p>Cleaning method: Machine wash \/ Hand wash<\/p>",
+        "button_text": "View details",
+        "button_link": "https:\/\/www.hyfol.com\/products\/t11861820o1"
       }
     },
     "1642055651a29cc87e": {
       "type": "image-with-text",
       "settings": {
+        "image": "shopify:\/\/shop_images\/MG_9462.jpg",
         "image_position": "left",
         "image_width": 50,
-        "title": "Your title",
-        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
-        "button_text": "Our products",
-        "button_link": "shopify:\/\/collections\/all"
+        "title": "Men's 100% Cotton Skull Graphic  T-Shirt – 18007",
+        "content": "<p><strong>Description<\/strong><\/p><p>Product Code: T11861820NT<br\/>Fabric:100% Cotton ;<br\/>Fit type: Regular fit;<br\/>Style:Causal\/Basic; <br\/>Occasion:Outdoor\/ Daily;<br\/>Sleeve Length:Short sleeve;<br\/>Thickness:Thin;<br\/>Season:Summer;<br\/>Cleaning method:Machine wash\/Hand wash.<\/p>",
+        "button_text": "View details",
+        "button_link": "https:\/\/www.hyfol.com\/products\/t11861820nt?"
       }
     },
     "1642055653969ade9a": {
       "type": "image-with-text",
       "settings": {
+        "image": "shopify:\/\/shop_images\/ricardo_puga_moreira_265235059_872224020108603_4107365214601562944_n.jpg",
         "image_position": "right",
         "image_width": 50,
-        "title": "Your title",
-        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
-        "button_text": "Our products",
-        "button_link": "shopify:\/\/collections\/all"
+        "title": "Men's Route 66 Long Sleeve Graphic T-Shirt",
+        "content": "<p><strong>Description<\/strong><\/p><p>Product code: T11861820MO<br\/>Fabric: 100% Cotton<br\/>Thickness: Thick<br\/>Fit type: Relaxed Fit<br\/>Cleaning method: Machine Wash<\/p>",
+        "button_text": "View details",
+        "button_link": "https:\/\/www.hyfol.com\/products\/t11861820mo"
       }
     },
     "1642055281c5c8adf6": {
