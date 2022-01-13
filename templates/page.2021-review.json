@@ -43,12 +43,13 @@
     "1642055307406da67b": {
       "type": "image-with-text",
       "settings": {
+        "image": "shopify:\/\/shop_images\/96.jpg",
         "image_position": "left",
         "image_width": 50,
-        "title": "Your title",
-        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
-        "button_text": "Our products",
-        "button_link": "shopify:\/\/collections\/all"
+        "title": "Men's 100% Cotton Skull  Graphic Pullover  Hoodie - 18020",
+        "content": "<p><strong>Description<\/strong><\/p><p>Product code: T11611521DE<br\/>Category: Hoodies <br\/>Fabric: 100% cotton, 285G fleece<br\/>Season: Fall \/ winter<br\/>Style: Casual for daily wear<br\/>Sleeve: Long sleeve<br\/>Collar: Round collar, with hood<\/p>",
+        "button_text": "View details",
+        "button_link": "https:\/\/www.hyfol.com\/products\/t11611521de"
       }
     },
     "164205525958e34b2a": {
