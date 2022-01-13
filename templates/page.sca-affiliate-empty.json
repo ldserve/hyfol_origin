@@ -19,12 +19,24 @@
       "type": "image-with-text",
       "settings": {
         "image": "shopify:\/\/shop_images\/264876022_425293325960479_3963757417789339181_n.jpg",
-        "image_position": "left",
+        "image_position": "right",
         "image_width": 50,
-        "title": "Description",
-        "content": "<p>Product Code:T11611521FG<br\/>Fabric:100% Cotton ;<br\/>Fit type: Regular fit;<br\/>Style:Causal\/Basic; <br\/>Occasion:Outdoor\/ Daily;<br\/>Sleeve Length:Long sleeve;<br\/>Thickness:Thick;<br\/>Season:Spring\/Fall\/Winter;<br\/>Cleaning method:Machine wash\/Hand wash;<\/p>",
+        "title": "Men's 100% Cotton Regular  Fit Retro American Flag  Graphic Hoodie",
+        "content": "<p><strong>Description<\/strong><\/p><p>Product Code:T11611521FG<br\/>Fabric:100% Cotton ;<br\/>Fit type: Regular fit;<br\/>Style:Causal\/Basic; <br\/>Occasion:Outdoor\/ Daily;<br\/>Sleeve Length:Long sleeve;<br\/>Thickness:Thick;<br\/>Season:Spring\/Fall\/Winter;<br\/>Cleaning method:Machine wash\/Hand wash;<\/p>",
         "button_text": "Our products",
         "button_link": "shopify:\/\/collections\/hoodies"
+      }
+    },
+    "164204449485b42651": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/96.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "title": "Men's 100% Cotton Skull  Graphic Pullover  Hoodie - 18020",
+        "content": "<p><strong>Description<\/strong><\/p><p>Product code: T11611521DE<br\/>Category: Hoodies <br\/>Fabric: 100% cotton, 285G fleece<br\/>Season: Fall \/ winter<br\/>Style: Casual for daily wear<br\/>Sleeve: Long sleeve<br\/>Collar: Round collar, with hood<\/p>",
+        "button_text": "Our products",
+        "button_link": "shopify:\/\/collections\/all"
       }
     },
     "1642044103c2947c75": {
@@ -127,6 +139,7 @@
     "affiliate-empty",
     "1642043743ac5836a3",
     "1642043620763fbc5d",
+    "164204449485b42651",
     "1642044103c2947c75"
   ]
 }
