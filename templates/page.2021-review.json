@@ -31,12 +31,13 @@
     "16420552947647aa32": {
       "type": "image-with-text",
       "settings": {
+        "image": "shopify:\/\/shop_images\/264876022_425293325960479_3963757417789339181_n_106c16e9-73ce-48da-b87b-4a5aa5252dfc.jpg",
         "image_position": "right",
         "image_width": 50,
-        "title": "Your title",
-        "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
-        "button_text": "Our products",
-        "button_link": "shopify:\/\/collections\/all"
+        "title": "Men's 100% Cotton Regular  Fit Retro American Flag  Graphic Hoodie",
+        "content": "<p><strong>Description <\/strong><\/p><p>Product Code:T11611521FG<br\/>Fabric:100% Cotton ;<br\/>Fit type: Regular fit;<br\/>Style:Causal\/Basic; <br\/>Occasion:Outdoor\/ Daily;<br\/>Sleeve Length:Long sleeve;<br\/>Thickness:Thick;<br\/>Season:Spring\/Fall\/Winter;<br\/>Cleaning method:Machine wash\/Hand wash;<\/p>",
+        "button_text": "View details",
+        "button_link": "https:\/\/www.hyfol.com\/products\/t11611521fg"
       }
     },
     "1642055307406da67b": {
@@ -108,14 +109,6 @@
         "content": "<p>Use this text to share information about your brand with your customers.<br\/>Describe a product, share announcements, or welcome customers to your store.<\/p>",
         "button_text": "Our products",
         "button_link": "shopify:\/\/collections\/all"
-      }
-    },
-    "164205529033951c38": {
-      "type": "no_space_img",
-      "settings": {
-        "bg_image": "shopify:\/\/shop_images\/HYFOL_ba99916f-6ec4-4dbc-b7d6-b3c862f5e333.jpg",
-        "link": "",
-        "shadow": false
       }
     },
     "16420557109109555b": {
@@ -212,6 +205,14 @@
       "settings": {
         "section_size": "large"
       }
+    },
+    "164205529033951c38": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/HYFOL_ba99916f-6ec4-4dbc-b7d6-b3c862f5e333.jpg",
+        "link": "",
+        "shadow": false
+      }
     }
   },
   "order": [
@@ -227,7 +228,7 @@
     "1642055653969ade9a",
     "1642055281c5c8adf6",
     "1642055655b04af49d",
-    "164205529033951c38",
-    "16420557109109555b"
+    "16420557109109555b",
+    "164205529033951c38"
   ]
 }
