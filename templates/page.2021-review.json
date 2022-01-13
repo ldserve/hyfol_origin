@@ -26,6 +26,7 @@
       "type": "no_space_img",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/13_3b911cf4-5e73-45a0-9f99-b4388f8fd053.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/1080_86e5c9c2-120b-4421-99dc-3c5887759eda.jpg",
         "link": "",
         "shadow": false
       }
@@ -34,7 +35,8 @@
       "type": "no_space_img",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/HOODIES.jpg",
-        "link": "",
+        "web_bg_image": "shopify:\/\/shop_images\/1080-1.jpg",
+        "link": "https:\/\/www.hyfol.com\/collections\/mens-hoodies",
         "shadow": false
       }
     },
@@ -66,7 +68,8 @@
       "type": "no_space_img",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/Shirts.jpg",
-        "link": "",
+        "web_bg_image": "shopify:\/\/shop_images\/1080-2.jpg",
+        "link": "https:\/\/www.hyfol.com\/collections\/mens-short-sleeve",
         "shadow": false
       }
     },
@@ -110,7 +113,8 @@
       "type": "no_space_img",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/Cargo-Pants.jpg",
-        "link": "",
+        "web_bg_image": "shopify:\/\/shop_images\/1080-3.jpg",
+        "link": "https:\/\/www.hyfol.com\/collections\/mens-pants",
         "shadow": false
       }
     },
@@ -230,6 +234,7 @@
       "type": "no_space_img",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/HYFOL_ba99916f-6ec4-4dbc-b7d6-b3c862f5e333.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/1080-4.jpg",
         "link": "",
         "shadow": false
       }
