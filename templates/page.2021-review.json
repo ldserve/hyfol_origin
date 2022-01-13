@@ -17,7 +17,16 @@
     },
     "editorify_section_widget": {
       "type": "editorify_section_widget",
+      "disabled": true,
       "settings": {
+      }
+    },
+    "1642061192a5d1a0ac": {
+      "type": "no_space_img",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/13_3b911cf4-5e73-45a0-9f99-b4388f8fd053.jpg",
+        "link": "",
+        "shadow": false
       }
     },
     "1642055251b3e62f1a": {
@@ -213,7 +222,7 @@
         "16420557103c202152-4"
       ],
       "settings": {
-        "section_size": "medium"
+        "section_size": "large"
       }
     },
     "164205529033951c38": {
@@ -229,6 +238,7 @@
     "main",
     "newsletter",
     "editorify_section_widget",
+    "1642061192a5d1a0ac",
     "1642055251b3e62f1a",
     "16420552947647aa32",
     "1642055307406da67b",
