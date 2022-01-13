@@ -48,7 +48,7 @@
               {%- else -%}
                 {%- for block in section.blocks -%}
                   {%- if block.settings.product != blank -%}
-                    {%- render 'product-item', product: block.settings.product, grid_classes: '1/4--lap 1/5--desk 1/6--wide', show_add_to_cart: section.settings.show_quick_buy,first_mkt_name:{{ section.settings.heading | escape }} -%}
+                    {%- render 'product-item', product: block.settings.product, grid_classes: '1/4--lap 1/5--desk 1/6--wide', show_add_to_cart: section.settings.show_quick_buy,forloop:forloop,first_mkt_name:{{ section.settings.heading | escape }} -%}
                   {%- endif -%}
                 {%- endfor -%}
               {%- endif -%}
