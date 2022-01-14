@@ -257,6 +257,14 @@ window.getFormatDate = function getFormatDate() {
       if(data.commodity_name) {
         data.commodity_name = data.commodity_name.replace('-',' ');
       }
+      if(data.commodity_spuid) {
+        data.commodity_spuid = data.commodity_spuid.toLocaleUpperCase()
+      }
+      if(data.compliment_commodities && data.compliment_commodities.length > 0) {
+        data.compliment_commodities.forEach(i => {
+          i = i.toLocaleUpperCase()
+        })
+      }
       sensors.quick('isReady', function () {
         debug && console.info("准备", sendType, data);
         sensors.track(sendType, data);
