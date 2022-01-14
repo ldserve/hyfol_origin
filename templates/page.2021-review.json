@@ -22,6 +22,20 @@
       "settings": {
       }
     },
+    "164214075552818667": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "hyfol-2022-1-3",
+        "blog_posts_count": 3,
+        "title": "Blog posts",
+        "link_title": "View all",
+        "show_category": true,
+        "show_author": false,
+        "show_date": true,
+        "show_excerpt": false,
+        "stack_mobile": false
+      }
+    },
     "1642061192a5d1a0ac": {
       "type": "no_space_img",
       "settings": {
@@ -238,26 +252,13 @@
         "link": "",
         "shadow": false
       }
-    },
-    "164214075552818667": {
-      "type": "blog-posts",
-      "settings": {
-        "blog": "hyfol-2022-1-3",
-        "blog_posts_count": 3,
-        "title": "Blog posts",
-        "link_title": "View all",
-        "show_category": true,
-        "show_author": false,
-        "show_date": true,
-        "show_excerpt": false,
-        "stack_mobile": false
-      }
     }
   },
   "order": [
     "main",
     "newsletter",
     "editorify_section_widget",
+    "164214075552818667",
     "1642061192a5d1a0ac",
     "1642055251b3e62f1a",
     "16420552947647aa32",
@@ -269,7 +270,6 @@
     "1642055281c5c8adf6",
     "1642055655b04af49d",
     "16420557109109555b",
-    "164205529033951c38",
-    "164214075552818667"
+    "164205529033951c38"
   ]
 }
