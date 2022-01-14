@@ -238,6 +238,20 @@
         "link": "",
         "shadow": false
       }
+    },
+    "164214075552818667": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "hyfol-2022-1-3",
+        "blog_posts_count": 3,
+        "title": "Blog posts",
+        "link_title": "View all",
+        "show_category": true,
+        "show_author": false,
+        "show_date": true,
+        "show_excerpt": false,
+        "stack_mobile": false
+      }
     }
   },
   "order": [
@@ -255,6 +269,7 @@
     "1642055281c5c8adf6",
     "1642055655b04af49d",
     "16420557109109555b",
-    "164205529033951c38"
+    "164205529033951c38",
+    "164214075552818667"
   ]
 }
