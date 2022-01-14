@@ -116,10 +116,10 @@ sensors.quick('isReady',function(){
 		/* 订阅事件代码 */
 		if (document.querySelectorAll('.newsletter.newsletter--compact .form__submit').length >0) {
 			document.querySelector('.newsletter.newsletter--compact .form__submit').addEventListener('click', function (e) {
-				if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
+				if (document.querySelector('.newsletter.newsletter--compact [name="contact[email]"]').value != "") {
 					sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
 					sessionStorage.setItem("subscription_type", "官网次尾部主动订阅");
-					sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
+					sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('.newsletter.newsletter--compact [name="contact[email]"]').value);
 				}
 			});
 		}
@@ -135,10 +135,10 @@ sensors.quick('isReady',function(){
 		}
 		if (document.querySelectorAll('.popup-newsletter button[type="submit"]').length >0) {
 			document.querySelector('.popup-newsletter button[type="submit"]').addEventListener('click', function (e) {
-				if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
+				if (document.querySelector('.popup-newsletter [name="contact[email]"]').value != "") {
 					sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
 					sessionStorage.setItem("subscription_type", "首次进站弹窗订阅");
-					sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
+					sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('.popup-newsletter [name="contact[email]"]').value);
 				}
 			});
 		}
