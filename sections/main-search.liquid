@@ -209,7 +209,7 @@
                           {%- assign show_as_list = true -%}
                         {%- endif -%}
 
-                        <div class="product-list product-list--collection" ata-resultNumber="{{ search.results_count }}">
+                        <div class="product-list product-list--collection" data-resultNumber="{{ search.results_count }}">
                           {%- for product in search.results -%}
                             {%- render 'product-item', product: product, list: show_as_list, grid_classes: grid_classes,index:forloop.index -%}
                           {%- endfor -%}
