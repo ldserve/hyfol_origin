@@ -81,7 +81,7 @@
 						{%- if use_placeholder2 -%}
 							{%- include 'product-item-placeholder', product: product2,hide_labels:true, horizontal: true, grid_classes: '1/1--tablet 1/1--lap-and-up', show_add_to_cart: false -%}
 						{%- else -%}
-							{%- include 'product-item', product: product2,hide_labels:true, horizontal: true, grid_classes: '1/1--tablet 1/1--lap-and-up', show_add_to_cart: false,first_mkt_name:section.settings.title,mkt_material_name:section.settings.tab1 -%}
+							{%- include 'product-item', product: product2,hide_labels:true, horizontal: true, grid_classes: '1/1--tablet 1/1--lap-and-up', show_add_to_cart: false,first_mkt_name:section.settings.title,mkt_material_name:section.settings.tab2 -%}
 						{%- endif -%}
 						{%- assign top=	forloop.index |prepend:'top'-%}
 						<div class="cjj_supbox {{ top }}">	{%- render 'cjj-sup', sup: top -%}</div>
@@ -111,7 +111,7 @@
 						{%- if use_placeholder3 -%}
 							{%- include 'product-item-placeholder', product: product3,hide_labels:true, horizontal: true, grid_classes: '1/1--tablet 1/1--lap-and-up', show_add_to_cart: false -%}
 						{%- else -%}
-							{%- include 'product-item', product: product3,hide_labels:true, horizontal: true, grid_classes: '1/1--tablet 1/1--lap-and-up', show_add_to_cart: false,first_mkt_name:section.settings.title,mkt_material_name:section.settings.tab1 -%}
+							{%- include 'product-item', product: product3,hide_labels:true, horizontal: true, grid_classes: '1/1--tablet 1/1--lap-and-up', show_add_to_cart: false,first_mkt_name:section.settings.title,mkt_material_name:section.settings.tab3 -%}
 						{%- endif -%}
 						{%- assign top=	forloop.index |prepend:'top'-%}
 						<div class="cjj_supbox {{ top }}">	{%- render 'cjj-sup', sup: top -%}</div>
