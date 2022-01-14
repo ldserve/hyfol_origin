@@ -255,7 +255,7 @@ window.getFormatDate = function getFormatDate() {
         data.coupon_amount = Number((data.coupon_amount / 100).toFixed(2));
       }
       if(data.commodity_name) {
-        data.commodity_name = data.commodity_name.replace('-',' ');
+        data.commodity_name = data.commodity_name.replaceAll('-',' ');
       }
       if(data.commodity_spuid) {
         data.commodity_spuid = data.commodity_spuid.toLocaleUpperCase()
