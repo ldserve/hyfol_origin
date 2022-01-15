@@ -8,10 +8,7 @@
 <section class="section" id="slide_product" data-section-id="{{ section.id }}" data-section-type="featured-collection"
 				 data-section-settings='{{ section_settings }}'>
 	<div class="container container--flush">
-		{%- assign sensorsImage =  section.settings.image | image_url | split: "?" | first -%}
-		{%- assign sensorsweb_image =  section.settings.web_image | image_url | split: "?" | first -%}
-		{%- assign mkt_material_url =  sensorsImage | append: ',' | append: sensorsweb_image -%}
-		{%- assign collection = section.settings.collection -%}
+		{%- assign mkt_material_url =  section.settings.image | image_url | split: "?" | first -%}
 		<div class="featured-collection lazyload">
 			<header class="featured-collection_header lazyload"
 							{% if section.settings.image %}data-bgset="{{ section.settings.image | img_url: '1000x' }}"{% endif %}>
