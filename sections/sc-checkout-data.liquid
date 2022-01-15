@@ -44,7 +44,15 @@
             "if_use_express_paypal":0,
             "if_use_bonus": {{if_use_bonus}},
             "bonus_name": "{{bonus_name}}",
-            "bonus_amount": "{{bonus_amount}}"
+            "bonus_amount": "{{bonus_amount}}",
+            "shipping_type":"{{checkout.shipping_method.title}}",
+            "receiver_name":"{{checkout.shipping_address.first_name}}{{checkout.shipping_address.last_name}}",
+            "receiver_phone":"{{checkout.shipping_address.phone}}",
+            "receiver_country":"{{checkout.shipping_address.country}}",
+            "receiver_state":"{{checkout.shipping_address.province}}",
+            "receiver_city":"{{checkout.shipping_address.city}}",
+            "receiver_postcode":"{{checkout.shipping_address.zip}}",
+            "receiver_address":"{{checkout.shipping_address.address1}}{{checkout.shipping_address.address2}}"
         }'
         >
         {%- comment -%}
@@ -517,9 +525,13 @@
                 event:'repeat',
                 getSessionId:"sensorsCheckout",
                 sendType:"CheckoutDetail",
-                customData: function(container){
-                    let newData = Object.assign(orderHandleSendData('detailOrder'))
+                customData: function(container,el){
+                    let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                    let newData = orderHandleSendData('detailOrder',scdata)
                     return newData 
+                },
+                callback:()=>{
+                    
                 }
             })
         }
@@ -573,7 +585,7 @@
                     enableName:'scenable2',
                     customData: function(container){
                         let scdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = Object.assign(scdata,orderHandleSendData('detailOrder'))
+                        let newData = orderHandleSendData('detailOrder',scdata)
                         return newData  
                     },
                     callback:()=>{
@@ -623,7 +635,7 @@
                     enableName:'scenable2',
                     customData: function(container){
                         let scdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = Object.assign(scdata,orderHandleSendData('detailOrder'))
+                        let newData = orderHandleSendData('detailOrder',scdata)
                         return newData
                     },
                     callback:()=>{
@@ -730,7 +742,7 @@
                     enableName:'scenable2',
                     customData: function(container){
                         let scdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = Object.assign(scdata,orderHandleSendData('detailOrder'))
+                        let newData = orderHandleSendData('detailOrder',scdata)
                         return newData  
                     },
                     callback:()=>{
@@ -807,6 +819,10 @@
         }
         function orderHandleSendData(type,sendData){
             sendData = sendData ? sendData : {}
+            sendData.order_commodity_original_amount = order_amount
+            sendData.order_amount = order_amount
+            sendData.order_commodity_quantity = quantity
+            sendData.order_discount_amount = order_discount_amount
             if(type === 'order'){
                 sendData.bonus_amount = bonus_amount
                 sendData.coupon_amount = coupon_amount
@@ -815,11 +831,8 @@
                 sendData.coupon_name = coupon_name
             }else if (type === 'detailOrder'){
                 sendData.compliment_commodities = compliment_commodities
+                sendData.discount_price = (sendData.discount_price *1) / (sendData.commodity_quantity *1)
             }
-            sendData.order_commodity_original_amount = order_amount
-            sendData.order_amount = order_amount
-            sendData.order_commodity_quantity = quantity
-            sendData.order_discount_amount = order_discount_amount
             return sendData
         }
         function paypalHandleSendData (sendData,type) {
@@ -836,7 +849,7 @@
             }else {
                 sendData.compliment_commodities = compliment_commodities,
                 sendData.order_commodity_quantity = quantity
-                
+                sendData.discount_price = (sendData.discount_price *1) / (sendData.commodity_quantity *1)
             }
             sendData.order_commodity_original_amount = order_amount
             sendData.order_amount = order_amount
@@ -879,28 +892,118 @@
                 })
             }
             return sendData
-        }         
+        }
         window.Checkout.$(document).on("page:load", function() {
           sensors.quick('isReady', function () {
+              let checkoutStep = localStorage.getItem('checkoutStep')
+              console.log('checkoutStep',checkoutStep)
               let activeText = document.querySelector('.breadcrumb__item--current').innerText
               if(activeText === 'Information'){
-                  actionCheckout()
-                  actionsInformationOrder()
+                actionCheckout()
+                actionsInformationOrder()
+                localStorage.setItem('checkoutStep','checkout');
               }else if(activeText === "Shipping"){
-                  actionsShippingOrder()
-                  let bdoVal = document.querySelector('bdo').innerText
-                  if(bdoVal && bdoVal.indexOf("@") != -1){
-                      sensors.track('SubscribptionResult', {
-                          subscribe_email:bdoVal,
-                          subscription:'checkout订阅',
-                          fail_reason:''
-                      });
-                  }
+                if(checkoutStep !== 'checkout'){
+                    /* 上报checkout*/
+                    actionCheckout()
+                    /* 上报information*/
+                    new sadhus_shence({
+                        container:"#InformationOrder",
+                        type:"InformationOrder",
+                        event:'sync',
+                        debug:true,
+                        customData: function(container,el){
+                            console.log(el)
+                            let newData = Object.assign(orderHandleSendData('order'))
+                            return newData  
+                        }
+                    })
+                    new sadhus_shence({
+                        container:'.sc-checkout-data',
+                        type:".InformationOrderDetail",
+                        event:'repeat',
+                        sendType:"InformationOrderDetail",
+                        customData: function(container,el){
+                            console.log(el)
+                            let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                            let newData = orderHandleSendData('detailOrder',scdata)
+                            return newData 
+                        },
+                        callback:()=>{
+                            
+                        }
+                    })
+                }
+                actionsShippingOrder()
+                let bdoVal = document.querySelector('bdo').innerText
+                if(bdoVal && bdoVal.indexOf("@") != -1){
+                    sensors.track('SubscribptionResult', {
+                        subscribe_email:bdoVal,
+                        subscription:'checkout订阅',
+                        fail_reason:''
+                    });
+                }
+                localStorage.setItem('checkoutStep','Shipping');
               }else if(activeText === "Payment"){
+                  if(checkoutStep !== 'Shipping'){
+                      /* 上报checkout*/
+                    actionCheckout()
+                    /* 上报information*/
+                    new sadhus_shence({
+                        container:".sc-checkout-data",
+                        type:"InformationOrder",
+                        event:'sync',
+                        customData: function(container){
+                            let newData = Object.assign(orderHandleSendData('order'))
+                            return newData  
+                        }
+                    })
+                    new sadhus_shence({
+                        container:'.sc-checkout-data',
+                        type:".InformationOrderDetail",
+                        event:'repeat',
+                        sendType:"InformationOrderDetail",
+                        customData: function(container,el){
+                            let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                            let newData = orderHandleSendData('detailOrder',scdata)
+                            return newData 
+                        },
+                        callback:()=>{
+                            
+                        }
+                    })
+                    /* 上报shipping */
+                    new sadhus_shence({
+                        container:".sc-checkout-data",
+                        type:"ShippingOrder",
+                        event:'sync',
+                        customData: function(container){
+                            let newData = Object.assign(orderHandleSendData('order'))
+                            return newData  
+                        }
+                    })
+                    new sadhus_shence({
+                        container:'.sc-checkout-data',
+                        type:".ShippingOrderDetail",
+                        event:'repeat',
+                        sendType:"ShippingOrderDetail",
+                        customData: function(container,el){
+                            let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                            let newData = orderHandleSendData('detailOrder',scdata)
+                            return newData 
+                        },
+                        callback:()=>{
+                            
+                        }
+                    })
+                  }
                   actionsCompleteOrder()
+                  localStorage.setItem('checkoutStep','Payment');
               }
               if(window.pageType === 'completeOrder'){
                   actionsPaySuccessOrder()
+                  /* 订单完成，初始化checkoutStep */
+                  localStorage.setItem('checkoutStep','checkout');
               }
               /*注册成功代码*/
               if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin  +'/account/register') {//从注册页面跳转进来
