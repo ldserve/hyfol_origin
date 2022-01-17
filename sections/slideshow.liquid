@@ -14,9 +14,7 @@
   <div {% unless section.settings.edge_to_edge %}class="container container--flush"{% endunless %}>
     <div class="slideshow slideshow--{{ section.settings.section_size | replace: '_', '-' }} {% if section.settings.edge_to_edge %}slideshow--edge2edge{% endif %}" style="color: {{ section.blocks.first.settings.text_color }}">
       {%- for block in section.blocks -%}
-          {%- assign sensorsImage =  block.settings.image | image_url | split: "?" | first -%}
-          {%- assign sensorsweb_image =  block.settings.mobile_image | image_url | split: "?" | first -%}
-          {%- assign mkt_material_url =  sensorsImage | append: ',' | append: sensorsweb_image -%}
+          {%- assign mkt_material_url =  block.settings.image | image_url | split: "?" | first -%}
         {%- if block.settings.mobile_image -%}
           {%- capture mobile_size -%}{{ block.settings.mobile_image.width | at_most: 600 }}x{{ block.settings.mobile_image.height | at_most: 800 }}{%- endcapture -%}
           {%- capture bgset -%}{{ block.settings.mobile_image | img_url: mobile_size, crop: 'center' }} [--phone] | {{ block.settings.image | img_url: '800x' }} 800w, {{ block.settings.image | img_url: '1000x' }} 1000w, {{ block.settings.image | img_url: '1200x' }} 1200w, {{ block.settings.image | img_url: '1400x' }} 1400w, {{ block.settings.image | img_url: '1600x' }} 1600w, {{ block.settings.image | img_url: '1800x' }} 1800w{%- endcapture -%}
