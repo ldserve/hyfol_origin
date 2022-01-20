@@ -509,7 +509,6 @@
         if(coupon_amount){
             if_use_coupon = 1
             coupon_code = document.querySelector('.total-line-table .reduction-code__text').innerText
-            coupon_name = document.querySelector('.total-line-table .reduction-code__text').innerText
         }
         {% for line_item in checkout.line_items %}
         quantity += ('{{line_item.quantity}}' * 1)
@@ -520,7 +519,6 @@
         })
         compliment_commodities.push('{{line_item.sku}}')
         {% endfor %} 
-        console.log('bonus_amount',bonus_amount)
         /* 优惠金额 */
         let order_discount_amount = bonus_amount + coupon_amount;
         function actionCheckout() {
