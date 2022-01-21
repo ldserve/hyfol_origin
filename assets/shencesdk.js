@@ -58,6 +58,7 @@ function getSiteCategory(){
 getDevice_type();
 sensors.register({
   platform_type: "web",
+   site_id:"000002",
   vip_level: "",
   site_name: "hyfol",
   site_type: "shopify",
