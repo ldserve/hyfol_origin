@@ -789,13 +789,13 @@
                         receiver_email  = bdoVal
                     }
                     let setProfileData = {
-                        receiver_country: obj.billing_country,
-                        receiver_state: obj.billing_state,
-                        receiver_city:obj.billing_city,
-                        receiver_address:obj.billing_address,
-                        receiver_postcode:obj.billing_postcode,
+                        receiver_country: obj.receiver_country,
+                        receiver_state: obj.receiver_state,
+                        receiver_city:obj.receiver_city,
+                        receiver_address:obj.receiver_address,
+                        receiver_postcode:obj.receiver_postcode,
                         receiver_email:receiver_email,
-                        phone_number:obj.billing_phone,
+                        phone_number:obj.receiver_phone,
                         last_order_time: getFormatDate(),
                         last_coupon_time:getFormatDate()
                     }
