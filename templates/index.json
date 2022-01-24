@@ -15,8 +15,8 @@
         "093dba4e-5495-47f1-a21b-0431a9d2a9fb": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/PC__02_696a4632-f276-42d4-a287-519666212a98.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/M_-2.0_02.jpg",
+            "image": "shopify:\/\/shop_images\/PC__02_801ffae5-f93a-4ea1-8e6b-6093db5e3aef.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/M_-2.0_02_bf9f5d64-c019-42a1-96ed-b7292bbc6bc5.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -101,8 +101,8 @@
     "163937456276e25a4f": {
       "type": "no_space_img",
       "settings": {
-        "bg_image": "shopify:\/\/shop_images\/PC__03_fb1b6a65-bd0c-4918-aeaa-bba902501745.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_04.jpg",
+        "bg_image": "shopify:\/\/shop_images\/PC__03_89cc7340-5b84-402f-9af5-c1b5a0bab021.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_04_f4477b7a-7fb8-4c4b-9590-72dcd47175ec.jpg",
         "link": "https:\/\/www.hyfol.com\/collections\/hot-sale",
         "shadow": false
       }
