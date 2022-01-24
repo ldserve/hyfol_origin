@@ -187,7 +187,6 @@
           },
           "bb83e370-bd08-4729-a769-30c30243c5b0": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "text": "$5 OFF ON ORDERS OF $49+",
               "link": ""
@@ -195,7 +194,6 @@
           },
           "eb9e88ec-0ed3-4c61-afb8-5935c5272eb7": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "text": "$20 OFF ON ORDERS OF $79+",
               "link": ""
@@ -203,23 +201,8 @@
           },
           "2caf8430-4f46-405e-b569-d4957d1bde1c": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "text": "$30 OFF ON ORDERS OF $149+",
-              "link": ""
-            }
-          },
-          "bf5c04f8-67ed-43e7-a0e1-860b397a700e": {
-            "type": "announcement",
-            "settings": {
-              "text": "10% OFF 3 PIECES",
-              "link": ""
-            }
-          },
-          "6cc1e9a3-27c3-4bcb-b923-e68feed35b91": {
-            "type": "announcement",
-            "settings": {
-              "text": "20% OFF 4 PIECES",
               "link": ""
             }
           }
@@ -228,14 +211,12 @@
           "ccab5dcb-d3a7-4a2e-9c0e-6699c88abf2e",
           "bb83e370-bd08-4729-a769-30c30243c5b0",
           "eb9e88ec-0ed3-4c61-afb8-5935c5272eb7",
-          "2caf8430-4f46-405e-b569-d4957d1bde1c",
-          "bf5c04f8-67ed-43e7-a0e1-860b397a700e",
-          "6cc1e9a3-27c3-4bcb-b923-e68feed35b91"
+          "2caf8430-4f46-405e-b569-d4957d1bde1c"
         ],
         "settings": {
           "show_announcement": true,
-          "background": "#b82928",
-          "one_round": 5,
+          "background": "#fb4544",
+          "one_round": 8,
           "text_color": "#ffffff",
           "link": "",
           "show_newsletter": false,
