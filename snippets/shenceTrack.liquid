@@ -1,288 +1,136 @@
 <script type="text/javascript">
-window.fbAsyncInit = function() {
-	FB.init({
-		appId      : '961958401076295',
-		cookie     : true,
-		xfbml      : true,
-		version    : 'v2.9'
-	}); 
-	FB.AppEvents.logPageView();   
-};
-(function(d, s, id){
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) {return;}
-js = d.createElement(s); js.id = id;
-js.src = "https://connect.facebook.net/en_US/sdk.js";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+var page_title = "OtherPage";
+switch({{request.page_type | json}}) {
+	case 'index': 
+	page_title = "HomePage";
+	break;
+	case 'product':
+	page_title = "ProductDetailPage";
+	break;
+	case 'collection':
+	page_title = "CategoryListPage";
+	break;
+	case 'cart':
+	page_title = "CartPage";
+	break;
+}
 sensors.quick('isReady',function(){
-	sensors.setProfile({ latest_visit_time: getFormatDate() });/* 更新用户表最近一次访问时间 */
-	/* 注册事件代码 */
-	try {
-		if ({{request.page_type | json}} == 'customers/register') {/*注册页面*/
-		document.querySelector("#create_customer .form__submit").addEventListener('click', function (e) {
-			if ((document.querySelector('#create_customer [name="customer[email]"]').value != "") && (document.querySelector('#create_customer [name="customer[first_name]"]').value != "") && (document.querySelector('#create_customer [name="customer[last_name]"]').value != "") && (document.querySelector('#create_customer [name="customer[password]"]').value != "")) {
-				sensors.setProfile({ first_name: document.querySelector('#create_customer [name="customer[first_name]"]').value });
-				sensors.setProfile({ last_name: document.querySelector('#create_customer [name="customer[last_name]"]').value });
-				sessionStorage.setItem("sensorsRegisterButtonClick", true);
-			  	sessionStorage.setItem("sensorsRegisterResultRegister_email", document.querySelector('#create_customer [name="customer[email]"]').value);
-			  	sessionStorage.setItem("First_name", document.querySelector('#create_customer [name="customer[first_name]"]').value);
-			  	sessionStorage.setItem("Second_name", document.querySelector('#create_customer [name="customer[last_name]"]').value);
-		  	};
-		})
-
-		if (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true') {
-			if (document.querySelectorAll("#register-form-error").length > 0) {/* 注册失败 */
-				sessionStorage.setItem("sensorsLoginButtonClick", false);
-	  			sessionStorage.setItem("sensorsRegisterButtonClick", false);
-				sensors.track('RegisterResult',{
-					register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-					First_name:sessionStorage.getItem("First_name"),
-					Second_name:sessionStorage.getItem("Second_name"),
-					is_success:false,
-					fail_reason:document.querySelector("#register-form-error").outerText,
-				});
-			};
-		}
-	}
-		/* 注册成功代码 */
-		if ({{request.page_type | json}} == 'index') {/*首页*/
-			if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin  + '/account/register') {/* 从注册页面跳转进来 */
-				if (Number({{customer.id}})) {
-					var isLogin = true;
-				} else {
-					var isLogin = false;
-				}
-				if (isLogin && (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true')) {
-					sensors.setOnceProfile({ signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email") });/*更新用户表注册邮箱*/
-					sensors.setProfile({ first_name: sessionStorage.getItem("First_name"), last_name: sessionStorage.getItem("Second_name")});/*更新用户表姓名*/
-					sessionStorage.setItem("sensorsRegisterButtonClick", false);
-                    sensors.login("{{customer.id}}")
-					sensors.track('RegisterResult',{
-						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-						First_name:sessionStorage.getItem("First_name"),
-						Second_name:sessionStorage.getItem("Second_name"),
-						is_success:true,
-					});
-				};
-			};
-		}
-		/* 登录事件代码 */
-		if ({{request.page_type | json}} == 'customers/login') {/*登录页面*/
-			document.querySelector("#customer_login .form__submit").addEventListener('click', function (e) {
-				if ((document.querySelector('#customer_login [name="customer[email]"]').value != "") && (document.querySelector('#customer_login [name="customer[password]"]').value != "")) {
-					sessionStorage.setItem("sensorsLoginButtonClick", true);
-					sessionStorage.setItem("sensorsRegisterResultRegister_email", document.querySelector('#customer_login [name="customer[email]"]').value);
-				};
-			})
-
-			if (sessionStorage.getItem("sensorsLoginButtonClick") == 'true') {
-				if (document.querySelectorAll("#login-form-error").length > 0) {/* 登录失败 */
-					sessionStorage.setItem("sensorsLoginButtonClick", false);
-					sessionStorage.setItem("sensorsRegisterButtonClick", false);
-					sensors.track('loginResult',{
-						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-						is_success:false,
-						fail_reason:document.querySelector("#login-form-error").outerText,
-					});
-				};
-			}
-		}
-		/* 登录成功代码 */
-		if ({{request.page_type | json}} == 'customers/account') {/*登录成功页面*/
-				if (Number({{customer.id}})) {
-					var isLogin = true;
-				} else {
-					var isLogin = false;
-				}
-				if (isLogin && (sessionStorage.getItem("sensorsLoginButtonClick") == 'true')) {
-					sensors.setProfile({ latest_signup_time: getFormatDate() });/* 更新用户表最近一次登录时间 */
-					sessionStorage.setItem("sensorsLoginButtonClick", false);
-                    sensors.login("{{customer.id}}")
-					sensors.track('loginResult',{
-						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-						is_success:true,
-					});
-				};
-		}
-		/* 退出账号处理 */
-		if (document.querySelector('#account-popover .popover__link-item[href="/account/logout"]')) {
-			document.querySelector('#account-popover .popover__link-item[href="/account/logout"]').addEventListener('click', function (e) {/*退出登录重置sensorsLoginButtonClick和sensorsRegisterButtonClick为false*/
-				sessionStorage.setItem("sensorsLoginButtonClick", false);
-				sessionStorage.setItem("sensorsRegisterButtonClick", false);
-			})
-		};
-		
-		/* 订阅事件代码 */
-		if (document.querySelectorAll('.newsletter.newsletter--compact .form__submit').length >0) {
-			document.querySelector('.newsletter.newsletter--compact .form__submit').addEventListener('click', function (e) {
-				if (document.querySelector('.newsletter.newsletter--compact [name="contact[email]"]').value != "") {
-					sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
-					sessionStorage.setItem("subscription_type", "官网次尾部主动订阅");
-					sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('.newsletter.newsletter--compact [name="contact[email]"]').value);
-				}
-			});
-		}
-		if (document.querySelectorAll('#footer-newsletter .form__submit').length >0) {
-			document.querySelector('#footer-newsletter .form__submit').addEventListener('click', function (e) {
-				if (document.querySelector('#footer-newsletter [name="contact[email]"]').value != "") {
-					console.log("官网尾部主动订阅")
-					sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
-					sessionStorage.setItem("subscription_type", "官网尾部主动订阅");
-					sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('#footer-newsletter [name="contact[email]"]').value);
-				}
-			});
-		}
-		if (document.querySelectorAll('.popup-newsletter button[type="submit"]').length >0) {
-			document.querySelector('.popup-newsletter button[type="submit"]').addEventListener('click', function (e) {
-				if (document.querySelector('.popup-newsletter [name="contact[email]"]').value != "") {
-					sessionStorage.setItem("is_footer-newsletter_form__submit_click", true);
-					sessionStorage.setItem("subscription_type", "首次进站弹窗订阅");
-					sessionStorage.setItem("is_footer-newsletter_form__submit_email", document.querySelector('.popup-newsletter [name="contact[email]"]').value);
-				}
-			});
-		}
-		if ((sessionStorage.getItem("is_footer-newsletter_form__submit_click") == 'true') && (document.querySelectorAll('#footer-newsletter .alert--success').length > 0)){
-			sensors.track('SubscribptionResult',{
-				subscribe_email:sessionStorage.getItem("is_footer-newsletter_form__submit_email"),
-				subscription_type:sessionStorage.getItem("subscription_type"),
-				is_success:true,
-			});
-			sessionStorage.setItem("is_footer-newsletter_form__submit_click", false);
-		}
-		if ((sessionStorage.getItem("is_footer-newsletter_form__submit_click") == 'true') && (document.querySelectorAll('#footer-newsletter .alert--error').length > 0)){
-			sensors.track('SubscribptionResult',{
-				subscribe_email:sessionStorage.getItem("is_footer-newsletter_form__submit_email"),
-				subscription_type:sessionStorage.getItem("subscription_type"),
-				is_success:false,
-				fail_reason:document.querySelector('#footer-newsletter .alert--error').outerText,
-			});
-			sessionStorage.setItem("is_footer-newsletter_form__submit_click", false);
-		}	
-	} catch (error) {
-		console.log(error)
-	}
-	
-	/* 陈俊斌神策埋点代码start */
-	/*Checkout事件 theme主题里面只做入口储存 start*/
-	if ({{request.page_type | json}} == 'cart'){/*购物车页面*/
-		/* main-cart */
-		new sadhus_shence({
-			container:".card__section",
-			type:"Checkout",
-			setSessionId:"sensorsCheckout"
-		})
-	}
-	/* mini-cart */
 	new sadhus_shence({
-		container:".mini-cart",
-		type:"Checkout",
-		setSessionId:"sensorsCheckout"
-	})
-	/* quickView */
-	/* quickView跟AddToCart合并 */
-	/* Checkout事件 theme主题里面只做入口储存 end */
-	/* ShareCommodity 事件 start*/
-	if ({{request.page_type | json}} === 'product' || {{request.page_type | json}} === 'collection'){/*collection product页面*/
-		let ShareCommodity = new sadhus_shence({
-			container:"body",
-			type:"ShareCommodity",
-			customData: function(container,el){
-				let newData = JSON.parse(el.parentElement.getAttribute('data-scdata'))
-				let selectedEl = document.querySelector('.select-wrapper option[selected]')
-				let arr = selectedEl.innerText.split('-')
-				let _arr =  arr[0].split('/')
-				newData.site_category = getSiteCategory()
-      			newData.commodity_skuid = selectedEl.getAttribute('data-sku')
-				newData.commodity_color = _arr[0]
-				newData.commodity_size = _arr[1]
-				newData.commodity_tag = newData.commodity_tag.split('-')
-				return newData 
-			},
-			callback:(el)=>{
-				ShareCommodity.updateFn();
-				sensors.setProfile({
-					last_share_time:getFormatDate()
-				})
-				let src = el.children[0].getAttribute('data-href')
-				if(src){
-					FB.ui({
-						method: 'share',
-						href: src,
-					}, function (response){
-						if(response){
-							initShareSuccess()
-						}
-					});
-
-				}
-            }
-		})
-		/* ShareSuccess  目前只有fackbook可以做到成功监听 */
-		function initShareSuccess() {
-			let ShareSuccess = new sadhus_shence({
-				container:".social-media__item-list",
-				type:"ShareSuccess",
-				event:'sync',
-				customData: function(container,el){
-					let newData = JSON.parse(el.getAttribute('data-scdata'))
-					let selectedEl = document.querySelector('.select-wrapper option[selected]')
-					let arr = selectedEl.innerText.split('-')
-					let _arr =  arr[0].split('/')
-					newData.commodity_skuid = selectedEl.getAttribute('data-sku')
-					newData.commodity_color = _arr[0]
-					newData.commodity_size = _arr[1]
-					newData.share_medium = "Facebook"
-					newData.commodity_tag = newData.commodity_tag.split('-')
-					return newData 
-				},
-				callback:()=>{
-					ShareSuccess.updateFn();
-				}
-			})  
+	   container:"body",
+	   type: "mktClick",
+	   customData: function (container,el) {
+		   	var newData = {};
+		    newData.page_title = page_title;
+		    if (el.classList.contains('product-item_mktClick') && el.closest(".product-item").querySelector(".color-swatch__radio:checked")) {
+		    	newData.commodity_skuid = el.closest(".product-item").querySelector(".color-swatch__radio:checked").getAttribute("data-sku");
+		    }
+		    return newData;
 		}
-                                                                                               
-	}
-	/* ShareCommodity 事件 end*/
-	/* 更新用户表 start*/
-	if ({{request.page_type | json}} === 'customers/addresses'){/*product页面*/
-		let profile_set = new sadhus_shence({
-			container:"body",
-			type:"profile_set",
-			callback:(el, container)=>{
-				let inputElList = el.parentElement.querySelectorAll('input')
-				let seleceEltList = el.parentElement.querySelectorAll('select')
-				/* let traList = ["first_name" ,"last_name","company","phone","address1","address2","city","zip","default","country","province"] */
-				let data = {default_address:''}
-				let isCheckDefault = false
-				let arr = Array.from(inputElList).concat( Array.from(seleceEltList))
-				arr.map(i => {
-					/* let val = traList.find(j => {
-						return i === `address[${j}]`
-					}) */
-					if(i.name === 'address[country]'){
-						data.default_country = i.value
-					}else if(i.name === 'address[province]'){
-						data.default_state = i.value
-					}else if(i.name === 'address[city]'){
-						data.default_city = i.value
-					}else if(i.name === 'address[address1]' || i.name === 'address[address2]'){
-						data.default_address += i.value
-					}else if(i.name === 'address[zip]'){
-						data.default_postcode = i.value
-					}else if(i.name === 'address[default]'){
-						i.checked ? isCheckDefault = true : isCheckDefault = false
-					}
-				})
-				if(isCheckDefault) {
-					sensors.setProfile(data)
-				}
-				profile_set.updateFn();
-			}
-		})  
-	}
-	/* 更新用户表 end*/
-	/* 陈俊斌神策埋点代码end */
-
+	});
 });
+var startExposure = function () {
+  console.log("输出startExposure");
+  var nodesLength = 0;
+  var interval = setInterval(function() {
+  	  var nodes = document.querySelectorAll(".shence_commodityView");
+  	  if (nodes.length > nodesLength) {
+  	  	nodesLength = nodes.length;
+  	  	nodes.forEach(node => {
+  	  		if (node.getAttribute("data-bindexp") == "1") {
+  	  			intersectionObserver.observe(node);
+  	  			node.setAttribute("data-bindexp","0");
+  	  		}
+		  });
+  	  } else {
+  	  	clearInterval(interval);
+  	  }
+  },1000)
+  
+}
+startExposure();
+function reportExposure(data) {
+
+	  if (data.original_price) {
+        data.original_price = Number((data.original_price / 100).toFixed(2));
+      }
+      if (data.current_price) {
+        data.current_price = Number((data.current_price / 100).toFixed(2));
+      }
+      if (data.discount_price) {
+        data.discount_price = Number((data.discount_price / 100).toFixed(2));
+      }
+      if (data.bonus_amount) {
+        data.bonus_amount = Number((data.bonus_amount / 100).toFixed(2));
+      } if (data.order_amount) {
+        data.order_amount = Number((data.order_amount / 100).toFixed(2));
+      } if (data.order_commodity_original_amount) {
+        data.order_commodity_original_amount = Number((data.order_commodity_original_amount / 100).toFixed(2));
+      } if (data.order_logistics_fee) {
+        data.order_logistics_fee = Number((data.order_logistics_fee / 100).toFixed(2));
+      } if (data.order_discount_amount) {
+        data.order_discount_amount = Number((data.order_discount_amount / 100).toFixed(2));
+      } if (data.order_actual_amount) {
+        data.order_actual_amount = Number((data.order_actual_amount / 100).toFixed(2));
+      } if (data.discount_amount) {
+        data.discount_amount = Number((data.discount_amount / 100).toFixed(2));
+      } if (data.result_number) {
+        data.result_number = Number(data.result_number);
+      } if (data.tip_amount) {
+        data.tip_amount = Number((data.tip_amount / 100).toFixed(2));
+      } if (data.coupon_amount) {
+        data.coupon_amount = Number((data.coupon_amount / 100).toFixed(2));
+      }
+      if(data.commodity_name) {
+        data.commodity_name = data.commodity_name.replaceAll('-',' ');
+      }
+      if(data.commodity_spuid) {
+        data.commodity_spuid = data.commodity_spuid.toLocaleUpperCase()
+      }
+      if(data.compliment_commodities && data.compliment_commodities.length > 0) {
+        data.compliment_commodities.forEach(i => {
+          i = i.toLocaleUpperCase()
+        })
+       }
+       	console.log("曝光事件2",data)
+      sensors.quick('isReady', function () {
+        sensors.track('commodityView',data);
+      })
+  
+}
+var options = {
+  threshold: 0.5
+}
+var intersectionObserver = new IntersectionObserver(intersectionCallback, options);
+function intersectionCallback(entries) {
+  entries.forEach(entry => {
+  	if (entry.target.getAttribute("data-expenable") == "1") {
+	    if( entry.intersectionRatio > 0.5 ) {
+	    	window.setTimeout(function () {
+	    		if (entry.intersectionRatio > 0.5 ) {
+	    		   reportExposure(JSON.parse(entry.target.getAttribute("data-scdata")));
+			      intersectionObserver.unobserve(entry.target);
+			      entry.target.setAttribute("data-expenable","0");
+			      entry.target.insertAdjacentHTML('beforeEnd', '<div style="position:absolute;top:15%;left:40%;font-size:15px;color:red;z-index:99;">已曝光</div>');
+	    		}
+	    	},1000)
+	    }
+	}
+  })
+}
+window.addEventListener("load",(event) => {	
+	document.querySelector("body").addEventListener("click",function(e) {
+		if (e.target && e.target.classList.contains("color-swatch__item")) {
+			var this_skuid = e.target.parentNode.querySelector(".color-swatch__radio").getAttribute("data-sku");
+			if (e.target.closest(".product-item")) {
+				var scdata = JSON.parse(e.target.closest(".product-item").querySelector(".product-item__image-wrapper").getAttribute("data-scdata"));
+				scdata.commodity_skuid = this_skuid;
+				reportExposure(scdata);
+				e.target.closest(".product-item").querySelectorAll(".product-item_mktClick").forEach(function (item) {
+					item.setAttribute("data-scdata",JSON.stringify(scdata));
+				})
+			}
+		}
+	})
+},false);
+
 </script>
