@@ -30,31 +30,31 @@
 		<div class="footer-navbar hidden-lap hidden-lap-and-up" {%- if request.page_type == "cart" -%} style="display:none !important;" {%- endif -%}>
 			<ul class="list--unstyled ">
 				<li class="shop">
-					<a href="{{ routes.root_url }}" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"1","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Shop","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
+					<a href="{{ routes.root_url }}" data-scenable="1" class="shence_commodityView" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"1","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Shop","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 						{%- render 'icon', icon: "cjj_shop" -%}<br/>
 						<span class="navbar-title">Shop</span>
 					</a>
 				</li>
 				<li class="category">
-					<a href="{{ routes.root_url }}pages/category" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"2","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Category","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
+					<a href="{{ routes.root_url }}pages/category" data-scenable="1" class="shence_commodityView" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"2","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Category","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 						{%- render 'icon', icon: "cjj_category" -%}<br/>
 						<span class="navbar-title">Category</span>
 					</a>
 				</li>
 				<li class="hot">
-					<a href="{{ routes.root_url }}collections/best-sellers" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"3","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Hot","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
+					<a href="{{ routes.root_url }}collections/best-sellers" data-scenable="1" class="shence_commodityView" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"3","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Hot","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 						{%- render 'icon', icon: "cjj_hot" -%}<br/>
 						<span class="navbar-title">Hot</span>
 					</a>
 				</li>
 				<li class="cart">
-					<a href="{{ routes.cart_url }}" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"4","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Cart","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
+					<a href="{{ routes.cart_url }}" data-scenable="1" class="shence_commodityView" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"4","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Cart","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 						{%- render 'icon', icon: 'cjj_cart' -%}<br/>
 						<span class="navbar-title">Cart</span>
 					</a>
 				</li>
 				<li class="me">
-					<a href="{% if customer %}{{ routes.account_url }}{% else %}/pages/me{% endif %}" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"5","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Me","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
+					<a href="{% if customer %}{{ routes.account_url }}{% else %}/pages/me{% endif %}" data-scenable="1" class="shence_commodityView" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"5","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Me","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 						{%- render 'icon', icon: 'cjj_me' -%}<br/>
 						<span class="navbar-title">Me</span>
 					</a>
