@@ -1,12 +1,12 @@
 {
   "current": {
     "showFlake": false,
-    "show_car_bar": true,
+    "show_car_bar": false,
     "car_bar_price1": 49,
-    "car_bar_info1": "-$10",
+    "car_bar_info1": "-$5",
     "car_bar_price2": 79,
     "car_bar_info2": "-$20",
-    "car_bar_price3": 129,
+    "car_bar_price3": 149,
     "car_bar_info3": "-$30",
     "brazil_house_number": true,
     "heading_color": "#1b1b1b",
@@ -187,13 +187,15 @@
           },
           "bb83e370-bd08-4729-a769-30c30243c5b0": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
-              "text": "$10 OFF ON ORDERS OF $49+",
+              "text": "$5 OFF ON ORDERS OF $49+",
               "link": ""
             }
           },
           "eb9e88ec-0ed3-4c61-afb8-5935c5272eb7": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "$20 OFF ON ORDERS OF $79+",
               "link": ""
@@ -201,8 +203,23 @@
           },
           "2caf8430-4f46-405e-b569-d4957d1bde1c": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
-              "text": "$30 OFF ON ORDERS OF $129+",
+              "text": "$30 OFF ON ORDERS OF $149+",
+              "link": ""
+            }
+          },
+          "f7871216-4fbb-4392-b4a5-25a3e8dbe911": {
+            "type": "announcement",
+            "settings": {
+              "text": "10% OFF 3 PIECES",
+              "link": ""
+            }
+          },
+          "933aa31d-00c1-44a5-8b00-66ceefe87acd": {
+            "type": "announcement",
+            "settings": {
+              "text": "20% OFF 4 PIECES",
               "link": ""
             }
           }
@@ -211,12 +228,14 @@
           "ccab5dcb-d3a7-4a2e-9c0e-6699c88abf2e",
           "bb83e370-bd08-4729-a769-30c30243c5b0",
           "eb9e88ec-0ed3-4c61-afb8-5935c5272eb7",
-          "2caf8430-4f46-405e-b569-d4957d1bde1c"
+          "2caf8430-4f46-405e-b569-d4957d1bde1c",
+          "f7871216-4fbb-4392-b4a5-25a3e8dbe911",
+          "933aa31d-00c1-44a5-8b00-66ceefe87acd"
         ],
         "settings": {
           "show_announcement": true,
           "background": "#b82928",
-          "one_round": 8,
+          "one_round": 6,
           "text_color": "#ffffff",
           "link": "",
           "show_newsletter": false,
@@ -314,7 +333,7 @@
       "surprise": {
         "type": "surprise",
         "settings": {
-          "show": true,
+          "show": false,
           "lucky": 99,
           "lucky_bg": "shopify:\/\/shop_images\/8767edd33eb57464b0c10b2bc28117ba_e56cfb04-08e8-45f2-bcec-6e0ff35b9c90.png",
           "lucky_bg2": "shopify:\/\/shop_images\/20211214-134121.png",
