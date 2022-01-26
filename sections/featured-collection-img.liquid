@@ -24,7 +24,7 @@
 		{%- assign image_url = section.settings.image | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
 		{%- assign mkt_material_url =  section.settings.image | image_url | split: "?" | first -%}
 		{%- if section.settings.link != blank -%}
-			<a href="{{ section.settings.link }}" class="header-img-cjj"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
+			<a href="{{ section.settings.link }}" class="header-img-cjj shence_commodityView"  data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>
 				<img data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto"
 						 alt="{{ section.settings.image.alt | escape }}" class="lazyload hidden-pocket">
 				<img data-src="{{ web_image_url }}" data-widths="[{{ web_sizes }}]" data-sizes="auto"
@@ -126,7 +126,7 @@
 		{%- if section.settings.link_title != blank -%}
 			<div class="action-box section--text-centered hidden-lap hidden-lap-and-up">
 				<a href="{{ section.settings.link_url | default: collection.url | default: '#' }}"
-					 class="section__action-link link"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"{{ section.settings.link_title }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>{{ section.settings.link_title | escape }} </a>
+					 class="section__action-link link shence_commodityView"  data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"{{ section.settings.link_title }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>{{ section.settings.link_title | escape }} </a>
 			</div>
 		{%- endif -%}
 
