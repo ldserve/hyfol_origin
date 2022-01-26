@@ -235,7 +235,6 @@
 							data-sctype="minusMainCart"  
 							data-scdata='{
                 "is_quick_view":0,
-							"site_category":"{{collection.title | handleize}}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
 							"commodity_skuid":"{{ line_item.sku }}",
                "commodity_name": "{{line_item.title | handleize }}",
@@ -256,7 +255,6 @@
                     "entrance":"CartPage_Checkout" }'
                                data-action="decrease-quantity" data-href="{{ routes.cart_change_url }}?quantity={{ line_item.quantity | minus: 1 }}&line={{ forloop.index }}" data-quantity="{{ line_item.quantity | minus: 1 }}" data-line="{{ forloop.index }}" aria-label="{{ 'cart.items.decrease_quantity' | t }}" title="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon', icon: 'minus' %}</button>
                               <input aria-label="{{ 'product.form.quantity' | t }}" data-scdata='{"is_quick_view":0,
-                              "site_category":"{{collection.title }}", 
                               "commodity_spuid": "{{line_item.product.handle}}",
                                "commodity_name": "{{line_item.title | handleize }}",
                               "currency_unit":"USD",
@@ -285,7 +283,6 @@
                               data-scenable="1" 
 							data-sctype="addMainCart"  
 							data-scdata='{"is_quick_view":0,
-							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
                "commodity_name": "{{line_item.title | handleize }}",
 							"currency_unit":"USD",
@@ -320,7 +317,6 @@
 							data-sctype="removeMainCart"  
 							data-scdata='{
                 "is_quick_view":0,
-							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{line_item.product.handle}}",
 							"commodity_skuid":"{{ line_item.sku }}",
                "commodity_name": "{{line_item.title | handleize }}",

@@ -24,7 +24,6 @@
         <button type="submit" class="product-form__add-button button button--primary" 
          data-scenable="1" data-sctype="addCart"
          data-scdata='{"is_quick_view":{% if template == "product.quick-view" %}1{% else %}0{% endif %},
-							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{product.handle}}",
                "commodity_name": "{{product.title | handleize }}",
 							"currency_unit":"USD",
@@ -61,7 +60,6 @@
       data-scsession='{"entrance":"QuickView_BuyItNow"}'
       data-scdata='{
         "is_quick_view":{% if template == "product.quick-view" %}1{% else %}0{% endif %},
-							"site_category":"{{collection.title }}", 
 							"commodity_spuid": "{{product.handle}}",
                "commodity_name": "{{product.title | handleize }}",
 							"currency_unit":"USD",
