@@ -28,7 +28,6 @@
 
 <title>{{- seo_page_title -}}</title>
  <script src="{{ 'shencesdk.js' | asset_url }}"></script>
- <script src="{{ 'shenceTrackExposure.js' | asset_url }}"></script>
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
@@ -112,7 +111,7 @@
 
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
-
+     <script src="{{ 'shenceTrackExposure.js' | asset_url }}"></script>
     {%- if request.page_type == 'customers/addresses' -%}
       <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
@@ -243,14 +242,6 @@
 {% include 'orichi_multi_pixel' %}</head>
 
   <body class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}" data-instant-intensity="viewport"> 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
  
