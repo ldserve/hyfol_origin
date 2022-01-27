@@ -28,6 +28,7 @@
 
 <title>{{- seo_page_title -}}</title>
  <script src="{{ 'shencesdk.js' | asset_url }}"></script>
+ <script src="{{ 'shenceTrackExposure.js' | asset_url }}"></script>
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
@@ -39,7 +40,6 @@
     {%- endif -%}
 
     {%- comment -%}Few prefech to increase performance on commonly used third-parties{%- endcomment -%}
-     {% render 'shenceTrackBanner' %}
     <link rel="preload" as="style" href="{{ 'theme.css' | asset_url }}">
     <link rel="preload" as="script" href="{{ 'theme.js' | asset_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com">
@@ -354,6 +354,7 @@
         
  {% include 'smile-initializer' %}
  {% render 'shenceTrack' %}
+ {% render 'shenceTrackBanner' %}
  {% render 'shenceData' %}
  {% render 'spurit_sct_theme_snippet' %}
 
