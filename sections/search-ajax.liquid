@@ -11,7 +11,7 @@
              class="search-bar__result-item"
              data-scenable="1"
              data-sctype="SearchResultClick"
-             data-scdata='{"commodity_spuid":"{{- item.handle| handleize -}}","commodity_image_url":"{{- item.featured_image| image_url | split: '?' | first-}}","commodity_name":"{{- item.title|replace:"'",'' -}}","original_price":"{{- item.compare_at_price -}}","current_price":"{{- item.price -}}","mkt_tag":"","result_number":"{{ forloop.length }}","mkt_location":"{{ forloop.index }}","commodity_spuid":"{{ item.handle |handleize}}","commodity_skuid":""}'
+             data-scdata='{"commodity_spuid":"{{- item.handle| handleize -}}","commodity_image_url":"{{- item.featured_image| image_url | split: '?' | first-}}","commodity_name":"{{- item.title|replace:"'",'' -}}","original_price":"{{- item.compare_at_price -}}","current_price":"{{- item.price -}}","mkt_tag":[],"result_number":"{{ forloop.length }}","mkt_location":"{{ forloop.index }}","commodity_spuid":"{{ item.handle |handleize}}","commodity_skuid":""}'
              data-scenablepros='1'
              data-sctypepros="SearchRequest"
              data-scdatapros='{"result_number":{{ forloop.length }}}'
