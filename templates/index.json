@@ -3,6 +3,7 @@
     "16379144370948f06a": {
       "type": "no_space_img",
       "settings": {
+        "sensorsName": "",
         "bg_image": "shopify:\/\/shop_images\/PC_49fd1a0a-84dd-42f1-b1c2-088121495345.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/94d53239037849179c79285840325f32_51b36fb9-c215-4426-8810-eda5ade1ae90.jpg",
         "link": "",
@@ -105,6 +106,7 @@
     "163937456276e25a4f": {
       "type": "no_space_img",
       "settings": {
+        "sensorsName": "",
         "bg_image": "shopify:\/\/shop_images\/PC__03_9846fd6d-6983-4abc-a0eb-f6f45da4d850.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_04_24083110-478f-43ca-bd5e-4908614e6c61.jpg",
         "link": "https:\/\/www.hyfol.com\/collections\/hot-sale",
@@ -803,6 +805,7 @@
     "1639378018bdd37462": {
       "type": "no_space_img",
       "settings": {
+        "sensorsName": "ESSENTIAL SERIES",
         "bg_image": "shopify:\/\/shop_images\/PC__15.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/1_19.jpg",
         "link": "shopify:\/\/collections\/essential",
