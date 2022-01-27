@@ -40,10 +40,6 @@
               "compliment_commodities":"{{ id }}",
               "bonus_name":"",
               "bonus_amount":"",
-              "is_fbt_used":0,
-              "is_fbt_main":"",
-              "total_original_price_fbt":"",
-              "total_current_price_fbt":"",
               "entrance":"CommodityDetailPage_AddToCart"}'
          data-action="add-to-cart" onclick="return gtag_report_conversion();">{{ 'product.form.add_to_cart' | t }}</button>
       {%- endif -%}
@@ -74,11 +70,7 @@
               "compliment_commodities":"{{ id }}",
               "bonus_name":"",
               "bonus_amount":"",
-              "is_fbt_used":0,
-              "is_fbt_main":"",
-              "total_original_price_fbt":"",
-              "total_current_price_fbt":"",
-                    "entrance":"QuickView_BuyItNow"}'>
+              "entrance":"QuickView_BuyItNow"}'>
     {{ form | payment_button }}</div>
     {%- endif -%}
   {%- else -%}
