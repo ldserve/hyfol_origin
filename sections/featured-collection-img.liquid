@@ -126,7 +126,7 @@
 		{%- if section.settings.link_title != blank -%}
 			<div class="action-box section--text-centered hidden-lap hidden-lap-and-up">
 				<a href="{{ section.settings.link_url | default: collection.url | default: '#' }}"
-					 class="section__action-link link shence_commodityView"  data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"{{ section.settings.link_title }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>{{ section.settings.link_title | escape }} </a>
+					 class="section__action-link link shence_commodityView"  data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>{{ section.settings.link_title | escape }} </a>
 			</div>
 		{%- endif -%}
 
