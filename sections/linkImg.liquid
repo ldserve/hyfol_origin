@@ -17,7 +17,7 @@
 		<div class="image_link {%  if section.settings.line %}line{%  endif %} ">
 			<img data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ section.settings.bg_image.alt | escape }}" class=" lazyload">
 			{%- for block in section.blocks -%}
-				<a href="{{ block.settings.link }}" class="{{ block.settings.heading }} shence_commodityView" data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"card","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"{{ block.settings.sensorsLinkName }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'></a>
+				<a href="{{ block.settings.link }}" class="{{ block.settings.heading }} shence_commodityView" data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"card","first_mkt_name":"{{ section.settings.sensorsName }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"{{ mkt_material_url }}","mkt_material_name":"{{ block.settings.sensorsLinkName }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'></a>
 			{%- endfor -%}
 		</div>
 	{%- endif -%}
@@ -59,6 +59,12 @@
 			"id":"hidDesk",
 			"label":"桌面端隐藏",
 			"default":false
+		},
+		{
+			"type":"text",
+			"id":"sensorsName",
+			"label":"组件埋点名称",
+			"info":"用于神策分析的该组件命名（必填）"
 		},
 		{
 			"type":"checkbox",
@@ -130,6 +136,12 @@
 					"default":"(´థ౪థ）σ",
 					"info":"热区名称不可重复,使用字母和数字，不能出现符号和空格！！！！"
 				},{
+					"type":"text",
+					"id":"sensorsLinkName",
+					"label":"链接埋点名称",
+					"info":"用于神策分析的该链接命名（必填）"
+				},
+				{
 					"type":"url",
 					"id":"link",
 					"label":"链接"
