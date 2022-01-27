@@ -15,6 +15,7 @@
         "093dba4e-5495-47f1-a21b-0431a9d2a9fb": {
           "type": "image",
           "settings": {
+            "sensorsName": "",
             "image": "shopify:\/\/shop_images\/PC__02_801ffae5-f93a-4ea1-8e6b-6093db5e3aef.jpg",
             "mobile_image": "shopify:\/\/shop_images\/M_-2.0_02_bf9f5d64-c019-42a1-96ed-b7292bbc6bc5.jpg",
             "show_overlay": false,
@@ -33,6 +34,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
+            "sensorsName": "",
             "image": "shopify:\/\/shop_images\/W2-PC_-4_02.jpg",
             "mobile_image": "shopify:\/\/shop_images\/b8f22e704b02fe64a2eccd052ba0ba2d.jpg",
             "show_overlay": false,
@@ -51,6 +53,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
+            "sensorsName": "",
             "image": "shopify:\/\/shop_images\/W2_02.jpg",
             "mobile_image": "shopify:\/\/shop_images\/dc682b16439aa5602c60fe3ddb49f96e.jpg",
             "show_overlay": false,
@@ -69,6 +72,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
+            "sensorsName": "",
             "image": "shopify:\/\/shop_images\/PC-1_11d87c70-5302-4895-a134-b5f8595eb0f0.jpg",
             "mobile_image": "shopify:\/\/shop_images\/2_e15c7bce-ce2a-4e38-a647-b74e349d8122.jpg",
             "show_overlay": false,
@@ -114,6 +118,7 @@
           "type": "link",
           "settings": {
             "heading": "hoodies1",
+            "sensorsLinkName": "hoodies1",
             "link": "shopify:\/\/collections\/hoodies-1",
             "left": 13,
             "top": 9,
@@ -125,6 +130,7 @@
           "type": "link",
           "settings": {
             "heading": "T-Shirts",
+            "sensorsLinkName": "T-Shirts",
             "link": "shopify:\/\/collections\/shirts-12-13",
             "left": 32,
             "top": 10,
@@ -136,6 +142,7 @@
           "type": "link",
           "settings": {
             "heading": "outerwear1",
+            "sensorsLinkName": "outerwear1",
             "link": "shopify:\/\/collections\/outerwear_hyfol",
             "left": 51,
             "top": 10,
@@ -147,6 +154,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweaters",
+            "sensorsLinkName": "Sweaters",
             "link": "shopify:\/\/collections\/sweater",
             "left": 69,
             "top": 10,
@@ -158,6 +166,7 @@
           "type": "link",
           "settings": {
             "heading": "Bottoms",
+            "sensorsLinkName": "Bottoms",
             "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 13,
             "top": 25,
@@ -169,6 +178,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweatshirts",
+            "sensorsLinkName": "Sweatshirts",
             "link": "shopify:\/\/collections\/sweatshirts-12-13",
             "left": 32,
             "top": 25,
@@ -180,6 +190,7 @@
           "type": "link",
           "settings": {
             "heading": "HAT",
+            "sensorsLinkName": "HAT",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 51,
             "top": 25,
@@ -191,6 +202,7 @@
           "type": "link",
           "settings": {
             "heading": "Jewelry",
+            "sensorsLinkName": "Jewelry",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 69,
             "top": 25,
@@ -202,6 +214,7 @@
           "type": "link",
           "settings": {
             "heading": "single",
+            "sensorsLinkName": "single",
             "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 47,
@@ -213,6 +226,7 @@
           "type": "link",
           "settings": {
             "heading": "couple",
+            "sensorsLinkName": "couple",
             "link": "shopify:\/\/collections\/couple-match",
             "left": 50,
             "top": 47,
@@ -235,6 +249,7 @@
       ],
       "settings": {
         "hidDesk": false,
+        "sensorsName": "分类",
         "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/PC__04_640102a1-fe48-47bc-9a80-4fb4d378999e.jpg",
@@ -251,6 +266,7 @@
           "type": "link",
           "settings": {
             "heading": "men",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 9,
@@ -262,6 +278,7 @@
           "type": "link",
           "settings": {
             "heading": "women",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/women",
             "left": 34,
             "top": 9,
@@ -273,6 +290,7 @@
           "type": "link",
           "settings": {
             "heading": "new",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/new-in",
             "left": 68,
             "top": 9,
@@ -284,6 +302,7 @@
           "type": "link",
           "settings": {
             "heading": "hoodies3",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/hoodies-1",
             "left": 3,
             "top": 44,
@@ -295,6 +314,7 @@
           "type": "link",
           "settings": {
             "heading": "T-shirts",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/shirts-12-13",
             "left": 51,
             "top": 44,
@@ -306,6 +326,7 @@
           "type": "link",
           "settings": {
             "heading": "outerwear3",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/outerwear_hyfol",
             "left": 3,
             "top": 59,
@@ -317,6 +338,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweaters",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/sweater",
             "left": 51,
             "top": 59,
@@ -328,6 +350,7 @@
           "type": "link",
           "settings": {
             "heading": "bottoms3",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 3,
             "top": 73,
@@ -339,6 +362,7 @@
           "type": "link",
           "settings": {
             "heading": "SWEATSHIRTS",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/sweatshirts-12-13",
             "left": 51,
             "top": 73,
@@ -350,6 +374,7 @@
           "type": "link",
           "settings": {
             "heading": "caphat3",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 3,
             "top": 87,
@@ -361,6 +386,7 @@
           "type": "link",
           "settings": {
             "heading": "JEWELRY",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 51,
             "top": 87,
@@ -373,6 +399,7 @@
           "disabled": true,
           "settings": {
             "heading": "NEW-YEAR-SALE",
+            "sensorsLinkName": "",
             "link": "",
             "left": 3,
             "top": 0,
@@ -385,6 +412,7 @@
           "disabled": true,
           "settings": {
             "heading": "Must-have-Tops",
+            "sensorsLinkName": "",
             "link": "",
             "left": 51,
             "top": 0,
@@ -410,6 +438,7 @@
       ],
       "settings": {
         "hidDesk": true,
+        "sensorsName": "",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/M_-2.0_05_2.jpg",
@@ -426,6 +455,7 @@
           "type": "link",
           "settings": {
             "heading": "single",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 8,
@@ -437,6 +467,7 @@
           "type": "link",
           "settings": {
             "heading": "couple",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/couple-match",
             "left": 50,
             "top": 8,
@@ -451,6 +482,7 @@
       ],
       "settings": {
         "hidDesk": true,
+        "sensorsName": "",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/M_-2.0_06_29b469a4-4b01-480a-b6f0-a56a71741c28.jpg",
@@ -464,6 +496,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/1_f4f39d84-04cd-4fc3-a60d-4daa0d7f26db.jpg",
+        "sensorsName": "",
         "web_image": "shopify:\/\/shop_images\/1_09_b8dca9b3-c3fc-431a-9df0-7825bbbc4e18.jpg",
         "link": "shopify:\/\/collections\/clearance-sale-hyfol",
         "collection": "clearance-sale-hyfol",
@@ -484,6 +517,7 @@
           "type": "link",
           "settings": {
             "heading": "selected",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/19-9",
             "left": 13,
             "top": 3,
@@ -495,6 +529,7 @@
           "type": "link",
           "settings": {
             "heading": "available",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/9-9-only",
             "left": 39,
             "top": 3,
@@ -506,6 +541,7 @@
           "type": "link",
           "settings": {
             "heading": "outwear",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/59-9",
             "left": 63,
             "top": 3,
@@ -521,6 +557,7 @@
       ],
       "settings": {
         "hidDesk": false,
+        "sensorsName": "",
         "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/2_d53044f0-a0ee-4cf4-9694-0cbb3b4d12e2.jpg",
@@ -537,6 +574,7 @@
           "type": "link",
           "settings": {
             "heading": "selected",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/19-9",
             "left": 4,
             "top": 3,
@@ -548,6 +586,7 @@
           "type": "link",
           "settings": {
             "heading": "available",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/9-9-only",
             "left": 36,
             "top": 3,
@@ -559,6 +598,7 @@
           "type": "link",
           "settings": {
             "heading": "outwear",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/59-9",
             "left": 68,
             "top": 3,
@@ -574,6 +614,7 @@
       ],
       "settings": {
         "hidDesk": true,
+        "sensorsName": "",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
@@ -587,6 +628,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__09_2cc15532-c857-471c-bfa5-685b269362d1.jpg",
+        "sensorsName": "",
         "web_image": "shopify:\/\/shop_images\/1_13.jpg",
         "link": "shopify:\/\/collections\/hoodies-1",
         "collection": "hoodies-1",
@@ -607,6 +649,7 @@
           "type": "link",
           "settings": {
             "heading": "lover",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 0,
             "top": 0,
@@ -618,6 +661,7 @@
           "type": "link",
           "settings": {
             "heading": "noble",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/noble",
             "left": 2,
             "top": 63,
@@ -629,6 +673,7 @@
           "type": "link",
           "settings": {
             "heading": "cost",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/cost-effecitve",
             "left": 35,
             "top": 63,
@@ -640,6 +685,7 @@
           "type": "link",
           "settings": {
             "heading": "luxury",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/925-sterling-silver",
             "left": 67,
             "top": 63,
@@ -656,6 +702,7 @@
       ],
       "settings": {
         "hidDesk": false,
+        "sensorsName": "",
         "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/PC__11_b383200e-5808-4812-9d96-039aacc07636.jpg",
@@ -672,6 +719,7 @@
           "type": "link",
           "settings": {
             "heading": "lover",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 0,
             "top": 0,
@@ -683,6 +731,7 @@
           "type": "link",
           "settings": {
             "heading": "noble",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/noble",
             "left": 4,
             "top": 81,
@@ -694,6 +743,7 @@
           "type": "link",
           "settings": {
             "heading": "cost",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/cost-effecitve",
             "left": 36,
             "top": 81,
@@ -705,6 +755,7 @@
           "type": "link",
           "settings": {
             "heading": "luxury",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/925-sterling-silver",
             "left": 67,
             "top": 81,
@@ -721,6 +772,7 @@
       ],
       "settings": {
         "hidDesk": true,
+        "sensorsName": "",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/M_-2.0_12.jpg",
@@ -734,6 +786,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__13.jpg",
+        "sensorsName": "",
         "web_image": "shopify:\/\/shop_images\/1_17.jpg",
         "link": "shopify:\/\/collections\/long-sleeve-series",
         "collection": "long-sleeve-series",
