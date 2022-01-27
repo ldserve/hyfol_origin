@@ -50,7 +50,7 @@ always visible.
 
       <li class="nav-dropdown__item {% if is_mega_menu %}has-mega-menu{% endif %}">
         {%- if link.links.size == 0 -%}
-          <a href="{{ link.url }}" class="nav-dropdown__link link shence_commodityView" data-type="menuitem" data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ menuindex }}","third_mkt_rank":"{{ forloop.index }}","mkt_material_url":"","mkt_material_name":"{{ link.title | handleize }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":""}'>{{ link.title }}</a>
+          <a href="{{ link.url }}" class="nav-dropdown__link link shence_commodityView" data-type="menuitem" data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ menuindex }}","third_mkt_rank":"{{ forloop.index }}","mkt_material_url":"","mkt_material_name":"{{ link.title | handleize }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>{{ link.title }}</a>
         {%- else -%}
           {%- capture index_nested -%}{{ index }}-{% increment nav_dropdown %}{%- endcapture -%}
           <a href="{{ link.url }}" class="nav-dropdown__link link" data-type="menuitem" aria-expanded="false" aria-controls="{{ index_nested }}" aria-haspopup="true">{{- link.title -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
