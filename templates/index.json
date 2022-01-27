@@ -496,7 +496,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/1_f4f39d84-04cd-4fc3-a60d-4daa0d7f26db.jpg",
-        "sensorsName": "",
+        "sensorsName": "CLEARANCE",
         "web_image": "shopify:\/\/shop_images\/1_09_b8dca9b3-c3fc-431a-9df0-7825bbbc4e18.jpg",
         "link": "shopify:\/\/collections\/clearance-sale-hyfol",
         "collection": "clearance-sale-hyfol",
@@ -628,7 +628,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__09_2cc15532-c857-471c-bfa5-685b269362d1.jpg",
-        "sensorsName": "",
+        "sensorsName": "YOUE GO-TO ON AND PFF JOB",
         "web_image": "shopify:\/\/shop_images\/1_13.jpg",
         "link": "shopify:\/\/collections\/hoodies-1",
         "collection": "hoodies-1",
@@ -649,7 +649,7 @@
           "type": "link",
           "settings": {
             "heading": "lover",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "lover",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 0,
             "top": 0,
@@ -661,7 +661,7 @@
           "type": "link",
           "settings": {
             "heading": "noble",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "noble",
             "link": "shopify:\/\/collections\/noble",
             "left": 2,
             "top": 63,
@@ -673,7 +673,7 @@
           "type": "link",
           "settings": {
             "heading": "cost",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "cost",
             "link": "shopify:\/\/collections\/cost-effecitve",
             "left": 35,
             "top": 63,
@@ -685,7 +685,7 @@
           "type": "link",
           "settings": {
             "heading": "luxury",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "luxury",
             "link": "shopify:\/\/collections\/925-sterling-silver",
             "left": 67,
             "top": 63,
@@ -702,7 +702,7 @@
       ],
       "settings": {
         "hidDesk": false,
-        "sensorsName": "",
+        "sensorsName": "GIFTS FOR YOUR LOVER",
         "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/PC__11_b383200e-5808-4812-9d96-039aacc07636.jpg",
@@ -786,7 +786,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__13.jpg",
-        "sensorsName": "",
+        "sensorsName": "SELL ONE PIECE EVERY",
         "web_image": "shopify:\/\/shop_images\/1_17.jpg",
         "link": "shopify:\/\/collections\/long-sleeve-series",
         "collection": "long-sleeve-series",
