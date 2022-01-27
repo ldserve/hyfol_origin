@@ -274,8 +274,6 @@
                                     "bonus_amount":"{{ discount_amount}}",
                                     "is_fbt_used":0,
                                     "is_fbt_main":"",
-                                    "fbt_spuid":"",
-                                    "fbt_skuid":"",
                                     "total_original_price_fbt":"",
                                     "total_current_price_fbt":"",
                                     "entrance":"CartPage_Checkout" }' class="quantity-selector__value" inputmode="numeric" data-current-value="{{ line_item.quantity }}" data-line="{{ forloop.index }}" value="{{ line_item.quantity }}" size="{{ line_item.quantity | append: '' | size | at_least: 2 }}" onblur="mainBlur(this)">
@@ -302,8 +300,6 @@
                     "bonus_amount":"{{ discount_amount}}",
                     "is_fbt_used":0,
                     "is_fbt_main":"",
-                    "fbt_spuid":"",
-                    "fbt_skuid":"",
                     "total_original_price_fbt":"",
                     "total_current_price_fbt":"",
                     "entrance":"CartPage_Checkout" }'
