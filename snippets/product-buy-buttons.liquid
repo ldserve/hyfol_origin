@@ -32,7 +32,7 @@
 				      "commodity_color":"",
 							"commodity_image_quantity":"{{product.images.size}}",
               "commodity_description_text":["{{product.description | handleize }}"],
-				      "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first  }}",
+				      "commodity_description_image":["{{ product.featured_image | image_url | split: "?" | first  }}"],
 							"commodity_tag":"{{ tags }}",
 							"original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
 			      	"current_price":"{{ product.selected_or_first_available_variant.price }}",

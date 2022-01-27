@@ -67,7 +67,7 @@
 							"commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}",
 							"commodity_image_quantity":"{{product.images.size}}",
               "commodity_description_text":["{{product.description | handleize }}"],
-				            "commodity_description_image":"{{ product.featured_image | image_url | split: "?" | first }}",
+				            "commodity_description_image":["{{ product.featured_image | image_url | split: "?" | first }}"],
 							"commodity_size":"{{size}}",
 				            "commodity_color":"{{color}}",
 							"commodity_tag":"{{tags}}",
