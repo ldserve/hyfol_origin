@@ -113,7 +113,7 @@
         <div class="announcement-bar__inner {% if section.blocks.size>1 %}announcement-animation{% endif %}">
           {%- for block in section.blocks -%}
             {%- if block.settings.link != blank -%}
-              <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--center">{{ block.settings.text | escape }}{%- render "icon",icon:'arrow' -%}</a>
+              <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--center shence_commodityView" data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ block.settings.text | escape }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>{{ block.settings.text | escape }}{%- render "icon",icon:'arrow' -%}</a>
             {%- else -%}
               <p class="announcement-bar__content announcement-bar__content--center">{{ block.settings.text | escape }}</p>
             {%- endif -%}
@@ -122,7 +122,7 @@
           {%- if section.blocks.size>1 -%}
             {%- for block in section.blocks reversed limit:1-%}
               {%- if block.settings.link != blank -%}
-                <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--center">{{ block.settings.text | escape }}{%- render "icon",icon:'arrow' -%}</a>
+                <a href="{{ section.settings.link }}" class="announcement-bar__content announcement-bar__content--center shence_commodityView"  data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"others","first_mkt_name":"","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ block.settings.text | escape }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>{{ block.settings.text | escape }}{%- render "icon",icon:'arrow' -%}</a>
               {%- else -%}
                 <p class="announcement-bar__content announcement-bar__content--center">{{ block.settings.text | escape }}</p>
               {%- endif -%}
