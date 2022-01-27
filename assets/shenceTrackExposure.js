@@ -1,3 +1,18 @@
+var page_title = "OtherPage";
+switch(window.theme.pageType) {
+  case 'index': 
+  page_title = "HomePage";
+  break;
+  case 'product':
+  page_title = "ProductDetailPage";
+  break;
+  case 'collection':
+  page_title = "CategoryListPage";
+  break;
+  case 'cart':
+  page_title = "CartPage";
+  break;
+}
 var startExposure = function () {
   console.log("输出startExposure");
   var nodesLength = 0;
@@ -20,7 +35,7 @@ var startExposure = function () {
 startExposure();
 function reportExposure(data) {
 
-	  if (data.original_price) {
+	   if (data.original_price) {
         data.original_price = Number((data.original_price / 100).toFixed(2));
       }
       if (data.current_price) {
@@ -61,7 +76,7 @@ function reportExposure(data) {
           i = i.toLocaleUpperCase()
         })
        }
-       	console.log("曝光事件2",data)
+       data.page_title = page_title;
       sensors.quick('isReady', function () {
         sensors.track('commodityView',data);
       })
