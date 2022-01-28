@@ -5,7 +5,7 @@
 	class="product-item {% if horizontal %}product-item--horizontal{% elsif list %}product-item--list{% else %}product-item--vertical{% endif %} {% if section.id == 'blog-sidebar' %}product-item--compact{% endif %} {{ grid_classes }}"
 	data-scenable="1"
 	data-sctype="SearchResultClick"
-	data-scdata='{"commodity_name":"{{ product.title| handleize}}","commodity_skuid":"","commodity_spuid":"{{- product.handle| handleize -}}","commodity_image_url":"{{- product.featured_image|image_url-}}","original_price":"{{- product.compare_at_price -}}","current_price":"{{- product.price -}}","mkt_tag":"","mkt_location":"{{ index }}"}'
+	data-scdata='{"commodity_name":"{{ product.title| handleize}}","commodity_skuid":"","commodity_spuid":"{{- product.handle| handleize -}}","commodity_image_url":"{{- product.featured_image|image_url-}}","original_price":"{{- product.compare_at_price -}}","current_price":"{{- product.price -}}","mkt_tag":[],"mkt_location":"{{ index }}"}'
 >
 	{%- capture product_labels -%}
 		{%- unless hide_labels -%}
@@ -158,7 +158,7 @@
             </span>
 					{%- endif -%}
 					{%- if settings.show_reviews_badge -%}
-						<a class="product-item__reviews-badge link product-item_mktClick" href="{{ product.url }}#product-reviews"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":""}'>
+						<a class="product-item__reviews-badge link product-item_mktClick" href="{{ product.url }}#product-reviews"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>
 							{%- render 'product-rating', product: product -%}
 						</a>
 					{%- endif -%}
@@ -189,9 +189,9 @@
 					{%- assign collection_for_vendor = collections[vendor_handle] -%}
 
 					{%- unless collection_for_vendor.empty? -%}
-						<a class="product-item__vendor link product-item_mktClick" href="{{ collection_for_vendor.url }}"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":""}'>{{ product.vendor }}</a>
+						<a class="product-item__vendor link product-item_mktClick" href="{{ collection_for_vendor.url }}"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>{{ product.vendor }}</a>
 						{%- else -%}
-						<a class="product-item__vendor link product-item_mktClick" href="{{ product.vendor | url_for_vendor }}"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":""}'>{{ product.vendor }}</a>
+						<a class="product-item__vendor link product-item_mktClick" href="{{ product.vendor | url_for_vendor }}"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>{{ product.vendor }}</a>
 					{%- endunless -%}
 				{%- endif -%}
 			{%- endcapture -%}
@@ -205,7 +205,7 @@
 			{%- endif -%}
 
 			<a href="{{ filtered_variant.url | default: product.url }}"
-				 class="product-item__title text--strong link product-item_mktClick" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":""}'>{{ product.title }}</a>
+				 class="product-item__title text--strong link product-item_mktClick" data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>{{ product.title }}</a>
 
 			{%- if settings.product_price_position == 'before_title' -%}
 				{{ vendor }}
@@ -257,7 +257,7 @@
 										<span class="visually-hidden">{{ value }}</span>
 									</label>
 									<a href="{{ product.url }}"
-										 class="color-swatch__item-link product-item_mktClick"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":""}'>+{{ option.values.size | minus: forloop.index0 }}</a>
+										 class="color-swatch__item-link product-item_mktClick"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>+{{ option.values.size | minus: forloop.index0 }}</a>
 								</div>
 							{%- endfor -%}
 						{%- endif -%}
@@ -333,7 +333,7 @@
 
 			{%- if product.template_suffix == 'contact' -%}
 				<div class="{{ product_form_classes }}">
-					<a href="mailto:{{ shop.email }}" class="product-item__action-button button button--small button--primary product-item_mktClick"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":""}'>
+					<a href="mailto:{{ shop.email }}" class="product-item__action-button button button--small button--primary product-item_mktClick"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>
 						{{- 'product.form.contact_us' | t -}}
 					</a>
 				</div>
@@ -359,7 +359,7 @@
 							</button>
 						{%- else -%}
 							<a href="{{ product.url }}"
-								 class="{{ quick_buy_classes }} product-item_mktClick"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":""}'>{{ 'collection.product.choose_options' | t }}</a>
+								 class="{{ quick_buy_classes }} product-item_mktClick"  data-scenable="1" data-sctype="mktClick" data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{mkt_material_name}}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize}}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>{{ 'collection.product.choose_options' | t }}</a>
 						{%- endif -%}
 					{%- else -%}
 						<button class="{{ quick_buy_classes | replace: 'button--primary', 'button--disabled' }}"
