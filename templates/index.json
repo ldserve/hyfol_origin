@@ -519,7 +519,7 @@
           "type": "link",
           "settings": {
             "heading": "selected",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "selected",
             "link": "shopify:\/\/collections\/19-9",
             "left": 13,
             "top": 3,
@@ -531,7 +531,7 @@
           "type": "link",
           "settings": {
             "heading": "available",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "available",
             "link": "shopify:\/\/collections\/9-9-only",
             "left": 39,
             "top": 3,
@@ -543,7 +543,7 @@
           "type": "link",
           "settings": {
             "heading": "outwear",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "outwear",
             "link": "shopify:\/\/collections\/59-9",
             "left": 63,
             "top": 3,
@@ -559,7 +559,7 @@
       ],
       "settings": {
         "hidDesk": false,
-        "sensorsName": "",
+        "sensorsName": "PC导流区active",
         "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/2_d53044f0-a0ee-4cf4-9694-0cbb3b4d12e2.jpg",
