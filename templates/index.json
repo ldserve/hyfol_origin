@@ -704,7 +704,7 @@
       ],
       "settings": {
         "hidDesk": false,
-        "sensorsName": "GIFTS FOR YOUR LOVER",
+        "sensorsName": "PC GIFTS FOR YOUR LOVER",
         "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/PC__11_b383200e-5808-4812-9d96-039aacc07636.jpg",
@@ -721,7 +721,7 @@
           "type": "link",
           "settings": {
             "heading": "lover",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "lover",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 0,
             "top": 0,
@@ -733,7 +733,7 @@
           "type": "link",
           "settings": {
             "heading": "noble",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "noble",
             "link": "shopify:\/\/collections\/noble",
             "left": 4,
             "top": 81,
@@ -745,7 +745,7 @@
           "type": "link",
           "settings": {
             "heading": "cost",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "cost",
             "link": "shopify:\/\/collections\/cost-effecitve",
             "left": 36,
             "top": 81,
@@ -757,7 +757,7 @@
           "type": "link",
           "settings": {
             "heading": "luxury",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "luxury",
             "link": "shopify:\/\/collections\/925-sterling-silver",
             "left": 67,
             "top": 81,
@@ -774,7 +774,7 @@
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "",
+        "sensorsName": "移动 GIFTS FOR YOUR LOVER",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/M_-2.0_12.jpg",
