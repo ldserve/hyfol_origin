@@ -333,9 +333,9 @@
       "surprise": {
         "type": "surprise",
         "settings": {
-          "show": false,
+          "show": true,
           "lucky": 99,
-          "lucky_bg": "shopify:\/\/shop_images\/8767edd33eb57464b0c10b2bc28117ba_1bd1dea0-db10-4c4b-b884-51d6d1a0c473.png",
+          "lucky_bg": "shopify:\/\/shop_images\/8767edd33eb57464b0c10b2bc28117ba_60bda3e0-9c3c-4050-8608-e6b21cf4a3fc.png",
           "lucky_bg2": "shopify:\/\/shop_images\/e851266b7a170850464990cf43256c9b.png",
           "lucky_point": "shopify:\/\/shop_images\/2aad61e1adf5f8c21c0c20ce09c71f70.png",
           "lucky_plate": "shopify:\/\/shop_images\/13b0c41eaaf08cceb8029b36ad05954b.png"
