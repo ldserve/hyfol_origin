@@ -13949,6 +13949,7 @@
 
 
               document.dispatchEvent(new CustomEvent('theme:loading:end'));
+              startExposure();
             });
           });
         } catch (e) {// Ignore the exception
