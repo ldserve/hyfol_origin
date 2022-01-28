@@ -750,21 +750,21 @@
                 },
                 callback:(el) => {
                     let obj = JSON.parse(el.getAttribute('data-scdata'))
-                    let bdoVal = document.querySelector('bdo').innerText
-                    let receiver_email = ''
-                    if(bdoVal && bdoVal.indexOf("@") != -1){
-                        receiver_email  = bdoVal
-                    }
                     let setProfileData = {
                         receiver_country: obj.receiver_country,
                         receiver_state: obj.receiver_state,
                         receiver_city:obj.receiver_city,
                         receiver_address:obj.receiver_address,
                         receiver_postcode:obj.receiver_postcode,
-                        receiver_email:receiver_email,
                         phone_number:obj.receiver_phone,
                         last_order_time: getFormatDate(),
                         last_coupon_time:getFormatDate()
+                    }
+                    let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
+                    if(bdoVal) {
+                        if(bdoVal && bdoVal.indexOf("@") != -1){
+                            setProfileData.receiver_email  = bdoVal
+                        }
                     }
                     sensors.setOnceProfile({
                         first_order_time:getFormatDate()
