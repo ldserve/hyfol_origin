@@ -877,7 +877,7 @@
           sensors.quick('isReady', function () {
               let checkoutStep = localStorage.getItem('checkoutStep')
               console.log('checkoutStep',checkoutStep)
-              let activeText = document.querySelector('.breadcrumb__item--current').innerText
+              let activeText = document.querySelector('.breadcrumb__item--current') && document.querySelector('.breadcrumb__item--current').innerText
               if(activeText === 'Information'){
                 actionCheckout()
                 actionsInformationOrder()
