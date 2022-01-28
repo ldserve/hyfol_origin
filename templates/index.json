@@ -268,7 +268,7 @@
           "type": "link",
           "settings": {
             "heading": "men",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "men",
             "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 9,
@@ -280,7 +280,7 @@
           "type": "link",
           "settings": {
             "heading": "women",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "women",
             "link": "shopify:\/\/collections\/women",
             "left": 34,
             "top": 9,
@@ -292,7 +292,7 @@
           "type": "link",
           "settings": {
             "heading": "new",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "new",
             "link": "shopify:\/\/collections\/new-in",
             "left": 68,
             "top": 9,
@@ -304,7 +304,7 @@
           "type": "link",
           "settings": {
             "heading": "hoodies3",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "hoodies3",
             "link": "shopify:\/\/collections\/hoodies-1",
             "left": 3,
             "top": 44,
@@ -316,7 +316,7 @@
           "type": "link",
           "settings": {
             "heading": "T-shirts",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "T-shirts",
             "link": "shopify:\/\/collections\/shirts-12-13",
             "left": 51,
             "top": 44,
@@ -328,7 +328,7 @@
           "type": "link",
           "settings": {
             "heading": "outerwear3",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "outerwear3",
             "link": "shopify:\/\/collections\/outerwear_hyfol",
             "left": 3,
             "top": 59,
@@ -340,7 +340,7 @@
           "type": "link",
           "settings": {
             "heading": "Sweaters",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "Sweaters",
             "link": "shopify:\/\/collections\/sweater",
             "left": 51,
             "top": 59,
@@ -352,7 +352,7 @@
           "type": "link",
           "settings": {
             "heading": "bottoms3",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "bottoms3",
             "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 3,
             "top": 73,
@@ -364,7 +364,7 @@
           "type": "link",
           "settings": {
             "heading": "SWEATSHIRTS",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "SWEATSHIRTS",
             "link": "shopify:\/\/collections\/sweatshirts-12-13",
             "left": 51,
             "top": 73,
@@ -376,7 +376,7 @@
           "type": "link",
           "settings": {
             "heading": "caphat3",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "caphat3",
             "link": "shopify:\/\/collections\/cap-hat",
             "left": 3,
             "top": 87,
@@ -388,7 +388,7 @@
           "type": "link",
           "settings": {
             "heading": "JEWELRY",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "JEWELRY",
             "link": "shopify:\/\/collections\/jewelry",
             "left": 51,
             "top": 87,
@@ -440,7 +440,7 @@
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "",
+        "sensorsName": "移动分类导流区",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/M_-2.0_05_2.jpg",
