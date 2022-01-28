@@ -333,12 +333,12 @@
       "surprise": {
         "type": "surprise",
         "settings": {
-          "show": false,
+          "show": true,
           "lucky": 99,
-          "lucky_bg": "shopify:\/\/shop_images\/8767edd33eb57464b0c10b2bc28117ba_e56cfb04-08e8-45f2-bcec-6e0ff35b9c90.png",
-          "lucky_bg2": "shopify:\/\/shop_images\/20211214-134121.png",
-          "lucky_point": "shopify:\/\/shop_images\/77bf18134614ea9983e01c507b01ddef_aab2cf24-34d1-4396-b5f8-e25cbde72444.png",
-          "lucky_plate": "shopify:\/\/shop_images\/3174c4ddaad7b687853bf5da3354c14b_b47a910a-8166-42a9-8b0f-a5330a8c5906.png"
+          "lucky_bg": "shopify:\/\/shop_images\/8767edd33eb57464b0c10b2bc28117ba_1bd1dea0-db10-4c4b-b884-51d6d1a0c473.png",
+          "lucky_bg2": "shopify:\/\/shop_images\/e851266b7a170850464990cf43256c9b.png",
+          "lucky_point": "shopify:\/\/shop_images\/2aad61e1adf5f8c21c0c20ce09c71f70.png",
+          "lucky_plate": "shopify:\/\/shop_images\/13b0c41eaaf08cceb8029b36ad05954b.png"
         }
       }
     },
