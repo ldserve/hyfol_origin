@@ -457,7 +457,7 @@
           "type": "link",
           "settings": {
             "heading": "single",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "single",
             "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 8,
@@ -469,7 +469,7 @@
           "type": "link",
           "settings": {
             "heading": "couple",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "couple",
             "link": "shopify:\/\/collections\/couple-match",
             "left": 50,
             "top": 8,
@@ -484,7 +484,7 @@
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "",
+        "sensorsName": "移动导流区single&couple",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/M_-2.0_06_29b469a4-4b01-480a-b6f0-a56a71741c28.jpg",
