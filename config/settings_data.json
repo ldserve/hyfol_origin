@@ -114,7 +114,7 @@
           "mobile_logo_max_width": 140,
           "show_locale_selector": false,
           "show_currency_selector": false,
-          "navigation_menu": "",
+          "navigation_menu": "pc",
           "navigation_mobile_menu": "main-menu",
           "desktop_navigation_layout": "inline",
           "desktop_navigation_open_trigger": "hover",
@@ -141,7 +141,7 @@
           "footer-1": {
             "type": "links",
             "settings": {
-              "menu": "about-hyfol"
+              "menu": ""
             }
           },
           "19a81811-3745-4280-bbc7-82cf671c27d7": {
