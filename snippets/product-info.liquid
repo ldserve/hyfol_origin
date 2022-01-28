@@ -72,7 +72,7 @@
             "second_commodity":"{{category.second_commodity}}",
             "third_commodity":"{{category.third_commodity}}",
             "commodity_tag":"{{commodity_tag | handleize  }}",
-            "commodity_description_text":"{{product.description | handleize }}",
+            "commodity_description_text":["{{product.description | handleize }}"],
             "commodity_description_image":["{{ product.featured_image | image_url | split: "?" | first  }}"],
             "original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
             "current_price":"{{ product.selected_or_first_available_variant.price }}",
