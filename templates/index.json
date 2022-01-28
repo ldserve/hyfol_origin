@@ -251,7 +251,7 @@
       ],
       "settings": {
         "hidDesk": false,
-        "sensorsName": "分类导流区",
+        "sensorsName": "PC分类导流区",
         "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/PC__04_640102a1-fe48-47bc-9a80-4fb4d378999e.jpg",
@@ -576,7 +576,7 @@
           "type": "link",
           "settings": {
             "heading": "selected",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "selected",
             "link": "shopify:\/\/collections\/19-9",
             "left": 4,
             "top": 3,
@@ -588,7 +588,7 @@
           "type": "link",
           "settings": {
             "heading": "available",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "available",
             "link": "shopify:\/\/collections\/9-9-only",
             "left": 36,
             "top": 3,
@@ -600,7 +600,7 @@
           "type": "link",
           "settings": {
             "heading": "outwear",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "outwear",
             "link": "shopify:\/\/collections\/59-9",
             "left": 68,
             "top": 3,
@@ -616,7 +616,7 @@
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "",
+        "sensorsName": "移动导流区active",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
