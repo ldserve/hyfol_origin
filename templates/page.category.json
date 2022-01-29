@@ -3,6 +3,7 @@
     "headerImg": {
       "type": "no_space_img",
       "settings": {
+        "sensorsName": "",
         "bg_image": "shopify:\/\/shop_images\/01bdd805e5b7bd10761155a404cae3e0.jpg",
         "link": "shopify:\/\/collections\/hotsaleinhyfol2021",
         "shadow": true
@@ -31,7 +32,7 @@
           "type": "image",
           "settings": {
             "heading": "2号卡片",
-            "tabs": 1,
+            "tabs": 2,
             "coums": 2,
             "image1": "shopify:\/\/shop_images\/10_9a858dd5-5d2c-4ef3-9639-6aa6bb41e1f6.jpg",
             "link1": "shopify:\/\/collections\/bottoms-12-13",
