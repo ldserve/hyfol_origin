@@ -504,14 +504,20 @@ new sadhus_shence({
 /*点击产品-上报产品信息*/
 new sadhus_shence({
   container:".page__content .collection__dynamic-part",
+	debug:true,
   type:"SearchResultClick",
   getSessionId: "sensorsSearchResultClick",
   customData: function(container){
     let newData={};
-    let sel=container.querySelector("#search-product-type");
     newData.currency_unit="USD";
     newData.result_number=container.querySelector(".product-list--collection").dataset.resultnumber;
-    newData.result_page=container.querySelector(".sadhus_agination").dataset.resultpage;
+    const aginationEl=container.querySelector(".sadhus_agination");
+    if(aginationEl){
+      newData.result_page=aginationEl.dataset.resultpage;
+		}else{
+      newData.result_page="1";
+		}
+
     let session=sessionStorage.getItem('sensorsSearchResultClick');
     session=JSON.parse(session);
     Object.assign(newData,session)
@@ -525,7 +531,6 @@ let clickSearch= new sadhus_shence({
   setSessionId:"sensorsSearchRequesth",
   customSession:function(container){
     let newData={};
-    let sel=container.querySelector("#search-product-type");
     newData.key_word= container.querySelector("#search ").value;
     newData.key_word_classification='All categories';
     return newData;
