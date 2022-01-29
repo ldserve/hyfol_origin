@@ -480,7 +480,7 @@ new sadhus_shence({
 {%- if request.page_type =="search" -%}
 /*打开-默认上报-删除session，转存session用于点击上报*/
 new sadhus_shence({
-  event:"load",
+  event:"sync",
   container:".page__content .collection",
   type:"SearchRequest",
   getSessionId:"sensorsSearchRequesth",
