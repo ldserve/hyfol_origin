@@ -14,28 +14,28 @@ switch(window.theme.pageType) {
   break;
 }
 var startExposure = function () {
-  console.log("输出startExposure");
   var nodesLength = 0;
   var interval = setInterval(function() {
-  	  var nodes = document.querySelectorAll(".shence_commodityView");
-  	  if (nodes.length > nodesLength) {
-  	  	nodesLength = nodes.length;
-  	  	nodes.forEach(node => {
-  	  		if (node.getAttribute("data-bindexp") == "1") {
-  	  			intersectionObserver.observe(node);
-  	  			node.setAttribute("data-bindexp","0");
-  	  		}
-		  });
-  	  } else {
-  	  	clearInterval(interval);
-  	  }
+      var nodes = document.querySelectorAll(".shence_commodityView");
+      if (nodes.length > nodesLength) {
+        nodesLength = nodes.length;
+        nodes.forEach(node => {
+          if (node.getAttribute("data-bindexp") == "1") {
+            intersectionObserver.observe(node);
+            node.setAttribute("data-bindexp","0");
+          }
+      });
+      } else {
+        clearInterval(interval);
+      }
   },1000)
   
 }
-startExposure();
+sensors.quick('isReady', function () {
+  startExposure();
+})
 function reportExposure(data) {
-
-	   if (data.original_price) {
+     if (data.original_price) {
         data.original_price = Number((data.original_price / 100).toFixed(2));
       }
       if (data.current_price) {
@@ -77,42 +77,80 @@ function reportExposure(data) {
         })
        }
        data.page_title = page_title;
-      sensors.quick('isReady', function () {
-        sensors.track('commodityView',data);
-      })
-  
+      sensors.track('commodityView',data);
 }
 var options = {
   threshold: 0.5
 }
+/* 曝光监听 */
 var intersectionObserver = new IntersectionObserver(intersectionCallback, options);
 function intersectionCallback(entries) {
   entries.forEach(entry => {
-  	if (entry.target.getAttribute("data-expenable") == "1") {
-	    if( entry.intersectionRatio > 0.5 ) {
-	    	window.setTimeout(function () {
-	    		if (entry.intersectionRatio > 0.5 ) {
-	    		   reportExposure(JSON.parse(entry.target.getAttribute("data-scdata")));
-			      intersectionObserver.unobserve(entry.target);
-			      entry.target.setAttribute("data-expenable","0");
-	    		}
-	    	},1000)
-	    }
-	}
+    if (((document.documentElement.clientWidth < 980) || ((document.documentElement.clientWidth >= 980) && !entry.target.classList.contains("nav-dropdown__link"))) && entry.target.getAttribute("data-expenable") == "1") {
+      if( entry.intersectionRatio > 0.5 ) {
+        window.setTimeout(function () {
+          if (entry.intersectionRatio > 0.5 ) {
+             reportExposure(JSON.parse(entry.target.getAttribute("data-scdata")));
+            intersectionObserver.unobserve(entry.target);
+            entry.target.setAttribute("data-expenable","0");
+            entry.target.insertAdjacentHTML('beforeEnd', '<div style="position:absolute;top:15%;left:40%;font-size:15px;color:red;z-index:99;">已曝光</div>');
+          }
+        },1000)
+      }
+    }
   })
 }
-window.addEventListener("load",(event) => {	
-	document.querySelector("body").addEventListener("click",function(e) {
-		if (e.target && e.target.classList.contains("color-swatch__item")) {
-			var this_skuid = e.target.parentNode.querySelector(".color-swatch__radio").getAttribute("data-sku");
-			if (e.target.closest(".product-item")) {
-				var scdata = JSON.parse(e.target.closest(".product-item").querySelector(".product-item__image-wrapper").getAttribute("data-scdata"));
-				scdata.commodity_skuid = this_skuid;
-				reportExposure(scdata);
-				e.target.closest(".product-item").querySelectorAll(".product-item_mktClick").forEach(function (item) {
-					item.setAttribute("data-scdata",JSON.stringify(scdata));
-				})
-			}
-		}
-	})
+/* MutationObserver监听 */
+
+// 观察器的配置（需要观察什么变动）
+const config = { attributeFilter:["aria-hidden"]};
+
+// 当观察到变动时执行的回调函数
+const MutationObservercallback = function(mutationsList, observer) {
+    for(let mutation of mutationsList) {
+        if (mutation.type == 'attributes') {
+            if (mutation.target.getAttribute("data-expenable") == "1" && mutation.target.getAttribute("aria-hidden") == "false") {
+              mutation.target.querySelectorAll(".nav-dropdown__item .shence_commodityView").forEach(commodityViewdom => {
+                if (commodityViewdom.getAttribute("data-expenable") == "1") {
+                  reportExposure(JSON.parse(commodityViewdom.getAttribute("data-scdata")));
+                  commodityViewdom.setAttribute("data-expenable","0");
+                  commodityViewdom.insertAdjacentHTML('beforeEnd', '<div style="position:absolute;top:15%;left:40%;font-size:15px;color:red;z-index:99;">已曝光</div>');
+                }
+              })
+              mutation.target.setAttribute("data-expenable","0");
+              // observer.disconnect();
+            }
+            
+        }
+    }
+};
+
+// 创建一个观察器实例并传入回调函数
+const observer = new MutationObserver(MutationObservercallback);
+
+// 以上述配置开始观察目标节点
+setTimeout(function (argument) {
+  const targetNodes = document.querySelectorAll('.nav-bar__inner .nav-dropdown');
+  targetNodes.forEach(targetNode => {
+        observer.observe(targetNode, config);
+  });
+},1000)
+
+// 之后，可停止观察
+// observer.disconnect();
+
+window.addEventListener("load",(event) => { 
+  document.querySelector("body").addEventListener("click",function(e) {
+    if (e.target && e.target.classList.contains("color-swatch__item")) {
+      var this_skuid = e.target.parentNode.querySelector(".color-swatch__radio").getAttribute("data-sku");
+      if (e.target.closest(".product-item")) {
+        var scdata = JSON.parse(e.target.closest(".product-item").querySelector(".product-item__image-wrapper").getAttribute("data-scdata"));
+        scdata.commodity_skuid = this_skuid;
+        reportExposure(scdata);
+        e.target.closest(".product-item").querySelectorAll(".product-item_mktClick").forEach(function (item) {
+          item.setAttribute("data-scdata",JSON.stringify(scdata));
+        })
+      }
+    }
+  })
 },false);
