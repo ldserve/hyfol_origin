@@ -1,3 +1,14 @@
+{% if first_time_accessed %}
+<!-- Event snippet for RL-Cart conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-319309832/2I9aCIf48eYCEIiQoZgB',
+      'transaction_id': ''
+  });
+</script>
+{% section 'cart-template' %}
+{% section 'recently-viewed-products' %}
+{% endif %}
 {%- capture section_settings -%}
 {
   "showShippingEstimator": {% if cart.item_count == 0 %}false{% else %}{{ section.settings.show_shipping_estimator | json }}{% endif %}
