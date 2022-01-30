@@ -250,7 +250,10 @@ window.getFormatDate = function getFormatDate() {
         data.discount_amount = Number((data.discount_amount / 100).toFixed(2));
       } if (data.result_number) {
         data.result_number = Number(data.result_number);
-      } if (data.tip_amount) {
+      } if(data.commodity_image_quantity) {
+        data.commodity_image_quantity = Number(data.commodity_image_quantity);
+      } 
+      if (data.tip_amount) {
         data.tip_amount = Number((data.tip_amount / 100).toFixed(2));
       } if (data.coupon_amount) {
         data.coupon_amount = Number((data.coupon_amount / 100).toFixed(2));

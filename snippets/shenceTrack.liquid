@@ -39,7 +39,7 @@ sensors.quick('isReady',function(){
 					register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
 					First_name:sessionStorage.getItem("First_name"),
 					Second_name:sessionStorage.getItem("Second_name"),
-					is_success:false,
+					is_success:0,
 					fail_reason:document.querySelector("#register-form-error").outerText,
 				});
 			};
@@ -62,7 +62,7 @@ sensors.quick('isReady',function(){
 						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
 						First_name:sessionStorage.getItem("First_name"),
 						Second_name:sessionStorage.getItem("Second_name"),
-						is_success:true,
+						is_success:1,
 					});
 				};
 			};
@@ -82,7 +82,7 @@ sensors.quick('isReady',function(){
 					sessionStorage.setItem("sensorsRegisterButtonClick", false);
 					sensors.track('loginResult',{
 						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-						is_success:false,
+						is_success:0,
 						fail_reason:document.querySelector("#login-form-error").outerText,
 					});
 				};
@@ -101,7 +101,7 @@ sensors.quick('isReady',function(){
                     sensors.login("{{customer.id}}")
 					sensors.track('loginResult',{
 						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-						is_success:true,
+						is_success:1,
 					});
 				};
 		}
@@ -146,7 +146,7 @@ sensors.quick('isReady',function(){
 			sensors.track('SubscribptionResult',{
 				subscribe_email:sessionStorage.getItem("is_footer-newsletter_form__submit_email"),
 				subscription_type:sessionStorage.getItem("subscription_type"),
-				is_success:true,
+				is_success:1,
 			});
 			sessionStorage.setItem("is_footer-newsletter_form__submit_click", false);
 		}
@@ -154,7 +154,7 @@ sensors.quick('isReady',function(){
 			sensors.track('SubscribptionResult',{
 				subscribe_email:sessionStorage.getItem("is_footer-newsletter_form__submit_email"),
 				subscription_type:sessionStorage.getItem("subscription_type"),
-				is_success:false,
+				is_success:0,
 				fail_reason:document.querySelector('#footer-newsletter .alert--error').outerText,
 			});
 			sessionStorage.setItem("is_footer-newsletter_form__submit_click", false);
