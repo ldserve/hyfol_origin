@@ -93,7 +93,6 @@ function intersectionCallback(entries) {
              reportExposure(JSON.parse(entry.target.getAttribute("data-scdata")));
             intersectionObserver.unobserve(entry.target);
             entry.target.setAttribute("data-expenable","0");
-            entry.target.insertAdjacentHTML('beforeEnd', '<div style="position:absolute;top:15%;left:40%;font-size:15px;color:red;z-index:99;">已曝光</div>');
           }
         },1000)
       }
@@ -114,7 +113,6 @@ const MutationObservercallback = function(mutationsList, observer) {
                 if (commodityViewdom.getAttribute("data-expenable") == "1") {
                   reportExposure(JSON.parse(commodityViewdom.getAttribute("data-scdata")));
                   commodityViewdom.setAttribute("data-expenable","0");
-                  commodityViewdom.insertAdjacentHTML('beforeEnd', '<div style="position:absolute;top:15%;left:40%;font-size:15px;color:red;z-index:99;">已曝光</div>');
                 }
               })
               mutation.target.setAttribute("data-expenable","0");
