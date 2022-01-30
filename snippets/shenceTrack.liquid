@@ -234,6 +234,7 @@ sensors.quick('isReady',function(){
 					newData.commodity_size = _arr[1]
 					newData.share_medium = "Facebook"
 					newData.commodity_tag = newData.commodity_tag.split('-')
+					newData.site_category = getSiteCategory()
 					return newData 
 				},
 				callback:()=>{
