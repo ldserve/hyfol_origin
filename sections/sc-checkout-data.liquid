@@ -419,10 +419,12 @@
         var InformationOrderEl = document.querySelector('#InformationOrder')
         var ShippingOrderEl = document.querySelector('#ShippingOrder')
         var CompleteOrderEl = document.querySelector('#CompleteOrder')
+        var PaySuccessOrderEl = document.querySelector('#PaySuccessOrder')
 
         var InformationOrderDetailEls = document.querySelectorAll('.InformationOrderDetail')
         var ShippingOrderDetailEls = document.querySelectorAll('.ShippingOrderDetail')
         var CompleteOrderDetailEls = document.querySelectorAll('.CompleteOrderDetail')
+        var PaySuccessOrderDetailEls = document.querySelectorAll('.PaySuccessOrderDetail')
 
         /*绑定iframe*/ 
         var IframeOnClick = {  
@@ -741,12 +743,13 @@
                 type:"PaySuccessOrder",
                 event:'sync',
                 customData: function(container){
-                    let newData = JSON.parse(sessionStorage.getItem('sensorsPaySuccessOrder')) || {}
+                    let scdata = JSON.parse(PaySuccessOrderEl.getAttribute('data-scdata'))
                     let sensorsCheckoutIf_use_express_paypal = JSON.parse(sessionStorage.getItem('sensorsCheckoutIf_use_express_paypal'))
                     if(sensorsCheckoutIf_use_express_paypal){
-                        newData.if_use_express_paypal = sensorsCheckoutIf_use_express_paypal.sensorsCheckoutIf_use_express_paypal
-                        order_commodity_original_amount:order_amount
+                        scdata.if_use_express_paypal = sensorsCheckoutIf_use_express_paypal.sensorsCheckoutIf_use_express_paypal
+                        scdata.order_commodity_original_amount = order_amount
                     }
+                    newData = Object.assign(scdata,orderHandleSendData('order'))
                     return newData  
                 },
                 callback:(el) => {
@@ -792,9 +795,10 @@
                     let sensorsCheckoutIf_use_express_paypal = JSON.parse(sessionStorage.getItem('sensorsCheckoutIf_use_express_paypal'))
                     if(sensorsCheckoutIf_use_express_paypal){
                         newData.if_use_express_paypal = sensorsCheckoutIf_use_express_paypal.sensorsCheckoutIf_use_express_paypal
-
+                        
                     }
-                    return newData 
+                    newData = orderHandleSendData('detailOrder',newData)
+                    return newData  
                 }
             })
         }
