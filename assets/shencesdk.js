@@ -20,9 +20,9 @@
 })({
   sdk_url: 'https://cdn.shopifycdn.net/s/files/1/0595/0691/7535/files/sensorsdata.min.js?v=1639989639',
   name: 'sensors',
-  server_url: 'https://data.ld-bdp.com/sa?project=default',
+  server_url: 'https://data.ld-bdp.com/sa?project=production',
   send_type: 'beacon',
-  show_log: true,
+  show_log: false,
   heatmap: {
     //是否开启点击图，default 表示开启，自动采集 $WebClick 事件，可以设置 'not_collect' 表示关闭。
     clickmap: 'default',
