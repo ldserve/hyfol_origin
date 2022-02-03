@@ -41,7 +41,7 @@
     "heading_font": "avenir_next_n7",
     "text_font": "avenir_next_n5",
     "underline_links": true,
-    "color_swatch_config": "BLACK GREY:#212226\nArmy Green:#767153\nDark Brown:#31261b\nBrown:#31261b\nBlue:#1d304e\nGREEN:#777455\nKHAKI:#c9a680\nLEMON YELLOW:#e9bc21\nDark Red:#362326\nDARK GREEN:#4b554d\nSavvy Red:#772c30\nJujube red:#772c30\nBirch:#d3cdc1\nLight Coffee:#d3cdc1\nWasabi:#518676\nFruit Green:#518676\nAqua:#265069\nLake Blue:#265069\nLight Green:#8e9293\nMint Green:#98d2c4\nLemon Yellow:\nMedium Grey:#bdc89e",
+    "color_swatch_config": "BLACK GREY:#212226\nArmy Green:#767153\nDark Brown:#31261b\nBrown:#31261b\nBlue:#1d304e\nGREEN:#777455\nKHAKI:#c9a680\nLEMON YELLOW:#e9bc21\nDark Red:#362326\nDARK GREEN:#4b554d\nSavvy Red:#772c30\nJujube red:#772c30\nBirch:#d3cdc1\nApricot Yellow：#ebc46f\nLight Coffee:#d3cdc1\nWasabi:#518676\nFruit Green:#518676\nAqua:#265069\nLake Blue:#265069\nLight Green:#8e9293\nMint Green:#98d2c4\nLemon Yellow:\nMedium Grey:#bdc89e",
     "animation_image_zoom": true,
     "search_mode": "product,article",
     "show_vendor": false,
