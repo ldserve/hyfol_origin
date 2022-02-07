@@ -392,40 +392,40 @@
 </div>
 <script>
     !function(){
-        var shippingFirstNameEl =  document.querySelector('#checkout_shipping_address_first_name')
-        var shippingLastNameEl = document.querySelector('#checkout_shipping_address_last_name')
-        var shippingPhoneEl = document.querySelector('#checkout_shipping_address_phone')
-        var shippingemailOrPhoneEl = document.querySelector('#checkout_email_or_phone')
-        var shippingcountryEl = document.querySelector('#checkout_shipping_address_country')
-        var shippingzipEl = document.querySelector('#checkout_shipping_address_zip')
-        var shippingprovinceEl = document.querySelector('#checkout_shipping_address_province')
-        var shippingcityEl = document.querySelector('#checkout_shipping_address_city')
-        var shippingaddress1El = document.querySelector('#checkout_shipping_address_address1')
-        var shippingaddress2El = document.querySelector('#checkout_shipping_address_address2')
+        var shippingFirstNameEl =  document.querySelector('#checkout_shipping_address_first_name');
+        var shippingLastNameEl = document.querySelector('#checkout_shipping_address_last_name');
+        var shippingPhoneEl = document.querySelector('#checkout_shipping_address_phone');
+        var shippingemailOrPhoneEl = document.querySelector('#checkout_email_or_phone');
+        var shippingcountryEl = document.querySelector('#checkout_shipping_address_country');
+        var shippingzipEl = document.querySelector('#checkout_shipping_address_zip');
+        var shippingprovinceEl = document.querySelector('#checkout_shipping_address_province');
+        var shippingcityEl = document.querySelector('#checkout_shipping_address_city');
+        var shippingaddress1El = document.querySelector('#checkout_shipping_address_address1');
+        var shippingaddress2El = document.querySelector('#checkout_shipping_address_address2');
 
-        var billingFirstNameEl =  document.querySelector('#checkout_billing_address_first_name')
-        var billingLastNameEl = document.querySelector('#checkout_billing_address_last_name')
-        var billingPhoneEl = document.querySelector('#checkout_billing_address_phone')
-        var billingemailOrPhoneEl = document.querySelector('#checkout_email_or_phone')
-        var billingcountryEl = document.querySelector('#checkout_billing_address_country')
-        var billingzipEl = document.querySelector('#checkout_billing_address_zip')
-        var billingprovinceEl = document.querySelector('#checkout_billing_address_province')
-        var billingcityEl = document.querySelector('#checkout_billing_address_city')
-        var billingaddress1El = document.querySelector('#checkout_billing_address_address1')
-        var billingaddress2El = document.querySelector('#checkout_billing_address_address2')
+        var billingFirstNameEl =  document.querySelector('#checkout_billing_address_first_name');
+        var billingLastNameEl = document.querySelector('#checkout_billing_address_last_name');
+        var billingPhoneEl = document.querySelector('#checkout_billing_address_phone');
+        var billingemailOrPhoneEl = document.querySelector('#checkout_email_or_phone');
+        var billingcountryEl = document.querySelector('#checkout_billing_address_country');
+        var billingzipEl = document.querySelector('#checkout_billing_address_zip');
+        var billingprovinceEl = document.querySelector('#checkout_billing_address_province');
+        var billingcityEl = document.querySelector('#checkout_billing_address_city');
+        var billingaddress1El = document.querySelector('#checkout_billing_address_address1');
+        var billingaddress2El = document.querySelector('#checkout_billing_address_address2');
 
-        var rememberMeEl = document.querySelector('#checkout_remember_me')
-        var acceptsMarketingEl = document.querySelector('#checkout_buyer_accepts_marketing')
+        var rememberMeEl = document.querySelector('#checkout_remember_me');
+        var acceptsMarketingEl = document.querySelector('#checkout_buyer_accepts_marketing');
 
-        var InformationOrderEl = document.querySelector('#InformationOrder')
-        var ShippingOrderEl = document.querySelector('#ShippingOrder')
-        var CompleteOrderEl = document.querySelector('#CompleteOrder')
-        var PaySuccessOrderEl = document.querySelector('#PaySuccessOrder')
+        var InformationOrderEl = document.querySelector('#InformationOrder');
+        var ShippingOrderEl = document.querySelector('#ShippingOrder');
+        var CompleteOrderEl = document.querySelector('#CompleteOrder');
+        var PaySuccessOrderEl = document.querySelector('#PaySuccessOrder');
 
-        var InformationOrderDetailEls = document.querySelectorAll('.InformationOrderDetail')
-        var ShippingOrderDetailEls = document.querySelectorAll('.ShippingOrderDetail')
-        var CompleteOrderDetailEls = document.querySelectorAll('.CompleteOrderDetail')
-        var PaySuccessOrderDetailEls = document.querySelectorAll('.PaySuccessOrderDetail')
+        var InformationOrderDetailEls = document.querySelectorAll('.InformationOrderDetail');
+        var ShippingOrderDetailEls = document.querySelectorAll('.ShippingOrderDetail');
+        var CompleteOrderDetailEls = document.querySelectorAll('.CompleteOrderDetail');
+        var PaySuccessOrderDetailEls = document.querySelectorAll('.PaySuccessOrderDetail');
 
         /*绑定iframe*/ 
         var IframeOnClick = {  
@@ -463,23 +463,23 @@
         /* 购物车itemList*/
         let line_items = [];
         /* skuList*/
-        let compliment_commodities = []
+        let compliment_commodities = [];
         /*订单物品总数量*/
-        let quantity = 0;mian
+        let quantity = 0;
         /* 邮费 */
-        let order_logistics_fee =  ('{{checkout.shipping_price}}' *1)
+        let order_logistics_fee =  ('{{checkout.shipping_price}}' *1);
         /* 订单画线前价格 */
         let order_amount = 0 + order_logistics_fee;
         /*商品总优惠折扣*/
-        let bonus_amount = 0 
+        let bonus_amount = 0;
         /* 优惠券金额 */
-        let coupon_amount = ('{{checkout.discounts_amount}}' *1)
-        let if_use_coupon = 0
-        let coupon_code = ''
-        let coupon_name = ''
+        let coupon_amount = ('{{checkout.discounts_amount}}' *1);
+        let if_use_coupon = 0;
+        let coupon_code = '';
+        let coupon_name = '';
         if(coupon_amount){
-            if_use_coupon = 1
-            coupon_code = document.querySelector('.total-line-table .reduction-code__text').innerText
+            if_use_coupon = 1;
+            coupon_code = document.querySelector('.total-line-table .reduction-code__text').innerText;
         }
         {% for line_item in checkout.line_items %}
         quantity += ('{{line_item.quantity}}' * 1)
