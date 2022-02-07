@@ -9,6 +9,12 @@
   {% endfor %}
 
  {%- for line_item in cart.items -%}
+  {%- assign bonus_amount = 0 -%}
+  {% assign bonus_name = ' ' %}
+  {%- for discount_allocation in line_item.line_level_discount_allocations -%}
+    {% assign bonus_amount = discount_allocation.amount %}
+    {% assign bonus_name = discount_allocation.discount_application.title %}
+  {%- endfor -%}
   {%- if forloop.index == 1 -%}
     {%- assign id = line_item.sku -%}
   {%- else -%}
@@ -38,8 +44,8 @@
 			      	"current_price":"{{ product.selected_or_first_available_variant.price }}",
               "discount_price":"",
               "compliment_commodities":"{{ id }}",
-              "bonus_name":"",
-              "bonus_amount":"",
+              "bonus_name":"{{bonus_name}}",
+              "bonus_amount":"{{bonus_amount}}",
               "entrance":"CommodityDetailPage_AddToCart"}'
          data-action="add-to-cart" onclick="return gtag_report_conversion();">{{ 'product.form.add_to_cart' | t }}</button>
       {%- endif -%}
@@ -68,8 +74,8 @@
 			      	"current_price":"{{ product.selected_or_first_available_variant.price }}",
               "discount_price":"",
               "compliment_commodities":"{{ id }}",
-              "bonus_name":"",
-              "bonus_amount":"",
+              "bonus_name":"{{bonus_name}}",
+              "bonus_amount":"{{bonus_amount}}",
               "entrance":"QuickView_BuyItNow"}'>
     {{ form | payment_button }}</div>
     {%- endif -%}

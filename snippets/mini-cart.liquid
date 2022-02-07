@@ -179,6 +179,12 @@
                 {% endfor %}
 
                 {%- for line_item in cart.items -%}
+                {%- assign bonus_amount = 0 -%}
+                {% assign bonus_name = ' ' %}
+                {%- for discount_allocation in line_item.line_level_discount_allocations -%}
+                  {% assign bonus_amount = discount_allocation.amount %}
+                  {% assign bonus_name = discount_allocation.discount_application.title %}
+                {%- endfor -%}
                 {%- if forloop.index == 1 -%}
                 {%- assign id = line_item.sku -%}
                 {%- else -%}
@@ -203,8 +209,8 @@
                     "discount_price":"{{ line_item.final_line_price }}",
                   "compliment_commodities":"{{ id }}",
                     "commodity_quantity":"1",
-                    "bonus_name":"{{ discount_title }}",
-                    "bonus_amount":"{{ discount_amount}}",
+                    "bonus_name":"{{ bonus_name }}",
+                    "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"MiniCartPage" }' data-action="decrease-quantity"
                   data-quantity="{{ line_item.quantity | minus: 1 }}" data-line="{{ forloop.index }}"
                   aria-label="{{ 'cart.items.decrease_quantity' | t }}"
@@ -225,8 +231,8 @@
                             "discount_price":"{{ line_item.final_line_price }}",
                            "compliment_commodities":"{{ id }}",
                             "commodity_quantity":"{{ line_item.quantity }}",
-                            "bonus_name":"{{ discount_title }}",
-                            "bonus_amount":"{{ discount_amount}}",
+                            "bonus_name":"{{ bonus_name }}",
+                            "bonus_amount":"{{ bonus_amount}}",
                             "entrance":"MiniCartPage"
                             }' inputmode="numeric" data-current-value="{{ line_item.quantity }}"
                   data-line="{{ forloop.index }}" value="{{ line_item.quantity }}"
@@ -247,8 +253,8 @@
                     "discount_price":"{{ line_item.final_line_price }}",
                    "compliment_commodities":"{{ id }}",
                     "commodity_quantity":"1",
-                    "bonus_name":"{{ discount_title }}",
-                    "bonus_amount":"{{ discount_amount}}",
+                    "bonus_name":"{{ bonus_name }}",
+                    "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"MiniCartPage"
                     }' data-action="increase-quantity" data-quantity="{{ line_item.quantity | plus: 1 }}"
                   data-line="{{ forloop.index }}"
@@ -277,8 +283,8 @@
                     "discount_price":"{{ line_item.final_line_price }}",
                     "compliment_commodities":"{{ id }}",
                     "commodity_quantity":"{{line_item.quantity}}",
-                    "bonus_name":"{{ discount_title }}",
-                    "bonus_amount":"{{ discount_amount}}",
+                    "bonus_name":"{{ bonus_name }}",
+                    "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"MiniCartPage" }'>{{ 'cart.items.remove' | t }}</a>
             </div>
             {%- endunless -%}

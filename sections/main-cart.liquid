@@ -71,6 +71,12 @@
                     {%- assign gift_wrap_product = section.settings.gift_wrap_product -%}
 
                     {%- for line_item in cart.items -%}
+                      {%- assign bonus_amount = 0 -%}
+                      {% assign bonus_name = ' ' %}
+                      {%- for discount_allocation in line_item.line_level_discount_allocations -%}
+                        {% assign bonus_amount = discount_allocation.amount %}
+                        {% assign bonus_name = discount_allocation.discount_application.title %}
+                      {%- endfor -%}
                       <tr class="line-item line-item--stack">
                         <td class="line-item__product-info">
                           <div class="line-item__product-info-wrapper">
@@ -250,8 +256,8 @@
                     "discount_price":"{{ line_item.final_line_price }}",
                     "compliment_commodities":"{{ id }}",
                     "commodity_quantity":"1",
-                    "bonus_name":"{{ discount_title }}",
-                    "bonus_amount":"{{ discount_amount}}",
+                    "bonus_name":"{{ bonus_name }}",
+                    "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"CartPage_Checkout" }'
                                data-action="decrease-quantity" data-href="{{ routes.cart_change_url }}?quantity={{ line_item.quantity | minus: 1 }}&line={{ forloop.index }}" data-quantity="{{ line_item.quantity | minus: 1 }}" data-line="{{ forloop.index }}" aria-label="{{ 'cart.items.decrease_quantity' | t }}" title="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon', icon: 'minus' %}</button>
                               <input aria-label="{{ 'product.form.quantity' | t }}" data-scdata='{"is_quick_view":0,
@@ -270,8 +276,8 @@
                                     "discount_price":"{{ line_item.final_line_price }}",
                                   "compliment_commodities":"{{ id }}",
                                     "commodity_quantity":"{{line_item.quantity}}",
-                                    "bonus_name":"{{ discount_title }}",
-                                    "bonus_amount":"{{ discount_amount}}",
+                                    "bonus_name":"{{ bonus_name }}",
+                                    "bonus_amount":"{{ bonus_amount}}",
                                     "entrance":"CartPage_Checkout" }' class="quantity-selector__value" inputmode="numeric" data-current-value="{{ line_item.quantity }}" data-line="{{ forloop.index }}" value="{{ line_item.quantity }}" size="{{ line_item.quantity | append: '' | size | at_least: 2 }}" onblur="mainBlur(this)">
                               <button type="button"
                               data-scenable="1" 
@@ -292,8 +298,8 @@
                     "discount_price":"{{ line_item.final_line_price }}",
                   "compliment_commodities":"{{ id }}",
                     "commodity_quantity":"1",
-                    "bonus_name":"{{ discount_title }}",
-                    "bonus_amount":"{{ discount_amount}}",
+                    "bonus_name":"{{ bonus_name }}",
+                    "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"CartPage_Checkout" }'
                                class="quantity-selector__button addCart" data-action="increase-quantity" data-href="{{ routes.cart_change_url }}?quantity={{ line_item.quantity | plus: 1 }}&line={{ forloop.index }}" data-quantity="{{ line_item.quantity | plus: 1 }}" data-line="{{ forloop.index }}" {% if allow_to_add_more %}aria-label="{{ 'cart.items.increase_quantity' | t }}" title="{{ 'cart.items.increase_quantity' | t }}"{% else %}disabled="disabled" aria-label="{{ 'cart.items.no_more_stock' | t }}" data-tooltip="{{ 'cart.items.no_more_stock' | t }}" data-tooltip-position="bottom-left"{% endif %}>{% render 'icon', icon: 'plus' %}</button>
                             </div>
@@ -320,8 +326,8 @@
                     "discount_price":"{{ line_item.final_line_price }}",
                   "compliment_commodities":"{{ id }}",
                     "commodity_quantity":"{{ line_item.quantity }}",
-                    "bonus_name":"{{ discount_title }}",
-                    "bonus_amount":"{{ discount_amount}}",
+                    "bonus_name":"{{ bonus_name }}",
+                    "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"CartPage_Checkout" }'>{{ 'cart.items.remove' | t }}</a>
                         </td>
 

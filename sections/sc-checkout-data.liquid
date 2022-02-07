@@ -11,6 +11,7 @@
     {%- endfor -%}
 {% endfor %}
 
+
 {%- for transaction in checkout.transactions -%}
     {%- assign transaction_id = transaction.id -%}
 {%- endfor -%}
@@ -464,7 +465,7 @@
         /* skuList*/
         let compliment_commodities = []
         /*订单物品总数量*/
-        let quantity = 0;
+        let quantity = 0;mian
         /* 邮费 */
         let order_logistics_fee =  ('{{checkout.shipping_price}}' *1)
         /* 订单画线前价格 */
@@ -660,20 +661,20 @@
                         let tipEl = document.querySelector('.section--tip .button-group__button--active')
                         let amountBtnEl = document.querySelector('.section--tip #section--tip--amount-btn')
                         let CustomAmountEl = document.querySelector('.section--tip #section--tip--custom-amount')
-                        if(amountBtnEl.disabled && CustomAmountEl){
+                        if(amountBtnEl.disabled && CustomAmountEl.value){
                             scdata.if_use_tip = 1
                             scdata.tip_type = 'custom'
                             scdata.tip_amount = CustomAmountEl.value * 100
                         } else {
                             if(Number(tipEl.getAttribute('value'))) {
-                                scdata.if_use_tip = 0
-                                scdata.tip_type = '0'
-                                scdata.tip_amount = 0
-                            }else {
                                 let btnContentEl = tipEl.querySelectorAll('div')[0]
                                 scdata.if_use_tip = 1
                                 scdata.tip_type = btnContentEl.innerText
-                                scdata.tip_amount = tipEl.getAttribute('value')
+                                scdata.tip_amount = (tipEl.getAttribute('value')) *100
+                            }else {
+                                scdata.if_use_tip = 0
+                                scdata.tip_type = '0'
+                                scdata.tip_amount = 0
                             }
                         }
                     } catch (error) {
@@ -710,7 +711,7 @@
                         }
                     })
                     newData = Object.assign(scdata,orderHandleSendData('order'))
-                    sessionStorage.setItem('sensorsPaySuccessOrder',JSON.stringify(newData))
+                    localStorage.setItem('sensorsPaySuccessOrder',JSON.stringify(newData))
                     return newData  
                 },
                 callback:()=>{
@@ -745,9 +746,14 @@
                 customData: function(container){
                     let scdata = JSON.parse(PaySuccessOrderEl.getAttribute('data-scdata'))
                     let sensorsCheckoutIf_use_express_paypal = JSON.parse(sessionStorage.getItem('sensorsCheckoutIf_use_express_paypal'))
+                    let sensorsPaySuccessOrder = JSON.parse(localStorage.getItem('sensorsPaySuccessOrder'))
+                    if(sensorsPaySuccessOrder && sensorsPaySuccessOrder.if_use_tip){
+                        scdata.if_use_tip = sensorsPaySuccessOrder.if_use_tip
+                        scdata.tip_type = sensorsPaySuccessOrder.tip_type
+                        scdata.tip_amount = sensorsPaySuccessOrder.tip_amount
+                    }
                     if(sensorsCheckoutIf_use_express_paypal){
                         scdata.if_use_express_paypal = sensorsCheckoutIf_use_express_paypal.sensorsCheckoutIf_use_express_paypal
-                        scdata.order_commodity_original_amount = order_amount
                     }
                     newData = Object.assign(scdata,orderHandleSendData('order'))
                     return newData  
@@ -785,19 +791,14 @@
                 type:".PaySuccessOrderDetail",
                 event:'repeat',
                 sendType:"PaySuccessOrderDetail",
-                customData: function(container){
-                    let newData={
-                        compliment_commodities: compliment_commodities,
-                        order_commodity_quantity: quantity,
-                        order_commodity_original_amount:order_amount
-
-                    };
+                customData: function(container,el){
+                    let scdata = JSON.parse(el.getAttribute('data-scdata'))
                     let sensorsCheckoutIf_use_express_paypal = JSON.parse(sessionStorage.getItem('sensorsCheckoutIf_use_express_paypal'))
                     if(sensorsCheckoutIf_use_express_paypal){
-                        newData.if_use_express_paypal = sensorsCheckoutIf_use_express_paypal.sensorsCheckoutIf_use_express_paypal
+                        scdata.if_use_express_paypal = sensorsCheckoutIf_use_express_paypal.sensorsCheckoutIf_use_express_paypal
                         
                     }
-                    newData = orderHandleSendData('detailOrder',newData)
+                    let newData = orderHandleSendData('detailOrder',scdata)
                     return newData  
                 }
             })
@@ -808,6 +809,8 @@
             sendData.order_amount = order_amount
             sendData.order_commodity_quantity = quantity
             sendData.order_discount_amount = order_discount_amount
+            /* sendData.is_fbt_main = 0
+             sendData.is_fbt_used = 0 */
             if(type === 'order'){
                 sendData.bonus_amount = bonus_amount
                 sendData.coupon_amount = coupon_amount
@@ -991,7 +994,7 @@
                   localStorage.setItem('checkoutStep','checkout');
               }
               /*注册成功代码*/
-              if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin  +'/account/register') {//从注册页面跳转进来
+              if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin  +'/account/register') {/*从注册页面跳转进来*/
                   if (Number({{customer.id}})) {
                       var isLogin = true;
                   } else {
