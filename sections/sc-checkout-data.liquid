@@ -1017,7 +1017,7 @@
                     actionsCompleteOrder()
                     localStorage.setItem('checkoutStep', 'Payment');
                 }
-                if (location.href.indexOf('thank_you') != -1 ) {
+                if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') != -1 ) {
                     actionsPaySuccessOrder()
                     /* 订单完成，初始化checkoutStep */
                     localStorage.setItem('checkoutStep', 'checkout');
