@@ -39,7 +39,7 @@
               "discount_price":"",
               "compliment_commodities":"{{ id }}",
               "bonus_name":"",
-              "bonus_amount":"",
+              "bonus_amount":0,
               "entrance":"CommodityDetailPage_AddToCart"}'
          data-action="add-to-cart" onclick="return gtag_report_conversion();">{{ 'product.form.add_to_cart' | t }}</button>
       {%- endif -%}
@@ -69,7 +69,7 @@
               "discount_price":"",
               "compliment_commodities":"{{ id }}",
               "bonus_name":"",
-              "bonus_amount":"",
+              "bonus_amount":0,
               "entrance":"QuickView_BuyItNow"}'>
     {{ form | payment_button }}</div>
     {%- endif -%}

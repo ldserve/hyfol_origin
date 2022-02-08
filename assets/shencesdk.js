@@ -20,9 +20,12 @@
 })({
   sdk_url: 'https://cdn.shopifycdn.net/s/files/1/0595/0691/7535/files/sensorsdata.min.js?v=1639989639',
   name: 'sensors',
-  server_url: 'https://data.ld-bdp.com/sa?project=production',
+  /* 正式环境地址 */
+  /* server_url: 'https://data.ld-bdp.com/sa?project=production', */
+  /* 测试环境地址 */
+  server_url: 'https://data.ld-bdp.com/sa?project=default',
   send_type: 'beacon',
-  show_log: false,
+  show_log: true,
   heatmap: {
     //是否开启点击图，default 表示开启，自动采集 $WebClick 事件，可以设置 'not_collect' 表示关闭。
     clickmap: 'default',
@@ -225,10 +228,10 @@ window.getFormatDate = function getFormatDate() {
     sendData(data) {
       let sendType = this.sendType;
       let debug = this.debug;
-      if (data.original_price) {
+      if (data.original_price || data.original_price == '') {
         data.original_price = Number((data.original_price / 100).toFixed(2));
       }
-      if (data.current_price) {
+      if (data.current_price || data.current_price == '') {
         data.current_price = Number((data.current_price / 100).toFixed(2));
       }
       if (data.discount_price) {
