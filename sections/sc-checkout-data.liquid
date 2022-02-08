@@ -801,15 +801,6 @@
                         cumulative_order: 1
                     })
                     sensors.setProfile(setProfileData)
-                    /* 储存用户提交过的orderId */
-                    debugger
-                    let reportedOrderList =  JSON.parse(localStorage.getItem('reportedOrderList'))
-                    if(reportedOrderList && reportedOrderList.length > 0 ){
-                        reportedOrderList.push(obj.order_id)
-                    }else {
-                        reportedOrderList = [obj.order_id]
-                    }
-                    localStorage.setItem('reportedOrderList', JSON.stringify(reportedOrderList))
                 }
             })
             new sadhus_shence({
@@ -1026,20 +1017,10 @@
                     actionsCompleteOrder()
                     localStorage.setItem('checkoutStep', 'Payment');
                 }
-                if (window.pageType === 'completeOrder') {
-                    let reportedOrderList = JSON.parse(localStorage.getItem('reportedOrderList'))
-                    if(reportedOrderList && reportedOrderList.length > 0){
-                       let find =  reportedOrderList.find( i => { return i === "{{ checkout.order_id }}" })
-                       if(!find) {
-                           actionsPaySuccessOrder()
-                           /* 订单完成，初始化checkoutStep */
-                           localStorage.setItem('checkoutStep', 'checkout');
-                       }
-                    } else {
-                        actionsPaySuccessOrder()
-                        /* 订单完成，初始化checkoutStep */
-                        localStorage.setItem('checkoutStep', 'checkout');
-                    }
+                if (location.href.indexOf('thank_you') != -1 ) {
+                    actionsPaySuccessOrder()
+                    /* 订单完成，初始化checkoutStep */
+                    localStorage.setItem('checkoutStep', 'checkout');
                 }
                 /*注册成功代码*/
                 if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin + '/account/register') {/*从注册页面跳转进来*/
@@ -1068,50 +1049,66 @@
             })
         });
         window.onload = function () {
-            let sections = document.querySelector(".dynamic-checkout__content");
+                let sections = document.querySelector(".dynamic-checkout__content");
+                function callback() {
+                    let payif = document.getElementsByClassName('paypalLight')[0]
+                    if (!payif) return
+                    IframeOnClick.track(payif, function (e) {
+                        sessionStorage.setItem('sensorsCheckoutIf_use_express_paypal', '{"sensorsCheckoutIf_use_express_paypal":1}')
+                        let InformationOrderScdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
+                        let InformationOrderSendData = Object.assign(InformationOrderScdata, {
+                            order_commodity_quantity: quantity,
+                            receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
+                            receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
+                            receiver_country: shippingcountryEl.value,
+                            receiver_postcode: shippingzipEl.value,
+                            receiver_state: shippingprovinceEl.value,
+                            receiver_city: shippingcityEl.value,
+                            receiver_address: shippingaddress1El.value + shippingaddress2El.value,
+                            is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
+                            is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
+                            order_commodity_original_amount: order_amount
 
-            function callback() {
-                let payif = document.getElementsByClassName('paypalLight')[0]
-                if (!payif) return
-                IframeOnClick.track(payif, function (e) {
-                    sessionStorage.setItem('sensorsCheckoutIf_use_express_paypal', '{"sensorsCheckoutIf_use_express_paypal":1}')
-                    let InformationOrderScdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
-                    let InformationOrderSendData = Object.assign(InformationOrderScdata, {
-                        order_commodity_quantity: quantity,
-                        receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
-                        receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
-                        receiver_country: shippingcountryEl.value,
-                        receiver_postcode: shippingzipEl.value,
-                        receiver_state: shippingprovinceEl.value,
-                        receiver_city: shippingcityEl.value,
-                        receiver_address: shippingaddress1El.value + shippingaddress2El.value,
-                        is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
-                        is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
-                        order_commodity_original_amount: order_amount
-
-                    })
-                    let ShippingOrderScdata = JSON.parse(ShippingOrder.getAttribute('data-scdata'))
-                    let CompleteOrderScdata = JSON.parse(CompleteOrder.getAttribute('data-scdata'))
-                    sensors.quick('isReady', function () {
-                        sensors.track('InformationOrder', paypalHandleSendData(InformationOrderSendData));
-                        sensors.track('ShippingOrder', paypalHandleSendData(ShippingOrderScdata));
-                        sensors.track('CompleteOrder', paypalHandleSendData(CompleteOrderScdata));
-                        for (let i = 0; i < line_items.length; i++) {
-                            let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
-                            sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
-                            let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
-                            sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
-                            let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
-                            sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
-                        }
-                    })
-                });
+                        })
+                        let ShippingOrderScdata = JSON.parse(ShippingOrder.getAttribute('data-scdata'))
+                        let CompleteOrderScdata = JSON.parse(CompleteOrder.getAttribute('data-scdata'))
+                        sensors.quick('isReady', function () {
+                            sensors.track('InformationOrder', paypalHandleSendData(InformationOrderSendData));
+                            for (let i = 0; i < line_items.length; i++) {
+                                let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
+                                sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
+                            }
+                            setTimeout(() => {
+                                sensors.track('ShippingOrder', paypalHandleSendData(ShippingOrderScdata));
+                                for (let i = 0; i < line_items.length; i++) {
+                                    let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
+                                    sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
+                                }
+                                console.log('ShippingOrder')
+                            }, 100)
+                            setTimeout(() => {
+                                sensors.track('CompleteOrder', paypalHandleSendData(CompleteOrderScdata));
+                                for (let i = 0; i < line_items.length; i++) {
+                                    let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
+                                    sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
+                                }
+                                console.log('CompleteOrder')
+                            }, 200)
+                            /* for (let i = 0; i < line_items.length; i++) {
+                                let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
+                                sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
+                                let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
+                                sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
+                                let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
+                                sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
+                            } */
+                        })
+                    });
+                }
+                callback();
+                const checkoutObserver = new MutationObserver(callback)
+                sections && checkoutObserver.observe(sections, { childList: true, subtree: true })
             }
-
-            callback();
-            const checkoutObserver = new MutationObserver(callback)
-            sections && checkoutObserver.observe(sections, {childList: true, subtree: true})
-        }
     }()
 </script>
 
