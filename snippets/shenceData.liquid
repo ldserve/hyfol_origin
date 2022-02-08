@@ -19,7 +19,7 @@ let addQuickView=new sadhus_shence({
 		newData.third_commodity= category.third_commodity
       }
       const value= document.querySelector('.quantity-selector--product .quantity-selector__value').value
-      newData.commodity_quantity=value
+      newData.commodity_quantity = +value
       let data =  el.getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')
@@ -46,6 +46,7 @@ let addQuickView=new sadhus_shence({
    }
 })
 new sadhus_shence({
+   debug:true,
    delayed:true,
    container:".product-list.product-list--collection",
    type:"quickView",
@@ -215,7 +216,7 @@ let addCart=new sadhus_shence({
 		newData.third_commodity= category.third_commodity
       }
       const value= document.querySelector('.quantity-selector--product .quantity-selector__value').value
-      newData.commodity_quantity=value
+      newData.commodity_quantity = +value
        let data =  el.getAttribute('data-scdata')
       data=JSON.parse(data)
       newData.compliment_commodities=data.compliment_commodities.split(',')

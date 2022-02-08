@@ -208,7 +208,7 @@
 			            	"current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                   "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"1",
+                    "commodity_quantity":1,
                     "bonus_name":"{{ bonus_name }}",
                     "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"MiniCartPage" }' data-action="decrease-quantity"
@@ -230,7 +230,7 @@
                             "current_price":"{{ line_item.original_line_price }}",
                             "discount_price":"{{ line_item.final_line_price }}",
                            "compliment_commodities":"{{ id }}",
-                            "commodity_quantity":"{{ line_item.quantity }}",
+                            "commodity_quantity":{{ line_item.quantity }},
                             "bonus_name":"{{ bonus_name }}",
                             "bonus_amount":"{{ bonus_amount}}",
                             "entrance":"MiniCartPage"
@@ -252,7 +252,7 @@
 			            	"current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                    "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"1",
+                    "commodity_quantity":1,
                     "bonus_name":"{{ bonus_name }}",
                     "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"MiniCartPage"
@@ -282,7 +282,7 @@
 			            	"current_price":"{{ line_item.original_line_price }}",
                     "discount_price":"{{ line_item.final_line_price }}",
                     "compliment_commodities":"{{ id }}",
-                    "commodity_quantity":"{{line_item.quantity}}",
+                    "commodity_quantity":{{line_item.quantity}},
                     "bonus_name":"{{ bonus_name }}",
                     "bonus_amount":"{{ bonus_amount}}",
                     "entrance":"MiniCartPage" }'>{{ 'cart.items.remove' | t }}</a>
