@@ -1,22 +1,22 @@
-{%- assign quantity = 0  -%}
-{%- assign if_use_bonus = 0  -%}
+{%- assign quantity = 0 -%}
+{%- assign if_use_bonus = 0 -%}
 {% for line_item in checkout.line_items %}
-    {%- assign unique_quantity = forloop.index -%}
-    {%- for discount_allocation in line_item.line_level_discount_allocations -%}
-        {% assign bonus_amount = discount_allocation.amount %}  
-        {% assign bonus_name = discount_allocation.discount_application.title %}  
-        {%- if line_item.line_level_discount_allocations != blank -%}
-            {%assign if_use_bonus = 1 %}
-        {% endif%}
-    {%- endfor -%}
+	{%- assign unique_quantity = forloop.index -%}
+	{%- for discount_allocation in line_item.line_level_discount_allocations -%}
+		{% assign bonus_amount = discount_allocation.amount %}
+		{% assign bonus_name = discount_allocation.discount_application.title %}
+		{%- if line_item.line_level_discount_allocations != blank -%}
+			{% assign if_use_bonus = 1 %}
+		{% endif %}
+	{%- endfor -%}
 {% endfor %}
 
 
 {%- for transaction in checkout.transactions -%}
-    {%- assign transaction_id = transaction.id -%}
+	{%- assign transaction_id = transaction.id -%}
 {%- endfor -%}
 <script>
-  window.theme = {
+    window.theme = {
         pageType: {{ request.page_type | json }},
         cartCount: {{ cart.item_count | json }},
         moneyFormat: {{ shop.money_format | json }},
@@ -27,372 +27,372 @@
         searchMode: {{ settings.search_mode | json }},
         searchUnavailableProducts: {{ settings.search_unavailable_products | json }},
         cartType: {{ settings.cart_type | json }},
-    	customer_id: "{{customer.id}}"
-      };
+        customer_id: "{{ customer.id }}"
+    };
 </script>
 <div class="sc-checkout-data"
-    data-scenable="1"
-    data-sctype="Checkout"
-    data-scdata='{
-        "checkout_id":"{{checkout.id}}",
-        "order_commodity_unique_quantity": {{unique_quantity}},
-        "order_logistics_fee": "{{checkout.shipping_price}}",
-        "order_actual_amount": "{{checkout.total_price}}",
+     data-scenable="1"
+     data-sctype="Checkout"
+     data-scdata='{
+        "checkout_id":"{{ checkout.id }}",
+        "order_commodity_unique_quantity": {{ unique_quantity }},
+        "order_logistics_fee": "{{ checkout.shipping_price }}",
+        "order_actual_amount": "{{ checkout.total_price }}",
         "currency_unit": "{{ checkout.currency }}",
-        "if_use_bonus": {{if_use_bonus}},
-        "bonus_name": "{{bonus_name}}",
-        "bonus_amount": "{{bonus_amount}}"
+        "if_use_bonus": {{ if_use_bonus }},
+        "bonus_name": "{{ bonus_name }}",
+        "bonus_amount": "{{ bonus_amount }}"
     }'
 >
-    <div 
-        id="InformationOrder"
-        data-scenable="1"
-        data-sctype="InformationOrder"
-        data-sctype2='InformationOrderDetail'
-        data-scenable2="1"
-        data-scdata='{
-            "checkout_id":"{{checkout.id}}",
-            "order_id":"{{checkout.order_id}}",
-            "order_commodity_unique_quantity": {{unique_quantity}},
-            "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-            "order_actual_amount": "{{checkout.total_price}}",
+	<div
+		id="InformationOrder"
+		data-scenable="1"
+		data-sctype="InformationOrder"
+		data-sctype2='InformationOrderDetail'
+		data-scenable2="1"
+		data-scdata='{
+            "checkout_id":"{{ checkout.id }}",
+            "order_id":"{{ checkout.order_id }}",
+            "order_commodity_unique_quantity": {{ unique_quantity }},
+            "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+            "order_actual_amount": "{{ checkout.total_price }}",
             "currency_unit": "{{ checkout.currency }}",
             "if_use_express_paypal":0,
-            "if_use_bonus": {{if_use_bonus}},
-            "bonus_name": "{{bonus_name}}",
-            "bonus_amount": "{{bonus_amount}}",
-            "shipping_type":"{{checkout.shipping_method.title}}",
-            "receiver_name":"{{checkout.shipping_address.first_name}}{{checkout.shipping_address.last_name}}",
-            "receiver_phone":"{{checkout.shipping_address.phone}}",
-            "receiver_country":"{{checkout.shipping_address.country}}",
-            "receiver_state":"{{checkout.shipping_address.province}}",
-            "receiver_city":"{{checkout.shipping_address.city}}",
-            "receiver_postcode":"{{checkout.shipping_address.zip}}",
-            "receiver_address":"{{checkout.shipping_address.address1}}{{checkout.shipping_address.address2}}"
+            "if_use_bonus": {{ if_use_bonus }},
+            "bonus_name": "{{ bonus_name }}",
+            "bonus_amount": "{{ bonus_amount }}",
+            "shipping_type":"{{ checkout.shipping_method.title }}",
+            "receiver_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "receiver_phone":"{{ checkout.shipping_address.phone }}",
+            "receiver_country":"{{ checkout.shipping_address.country }}",
+            "receiver_state":"{{ checkout.shipping_address.province }}",
+            "receiver_city":"{{ checkout.shipping_address.city }}",
+            "receiver_postcode":"{{ checkout.shipping_address.zip }}",
+            "receiver_address":"{{ checkout.shipping_address.address1 }}{{ checkout.shipping_address.address2 }}"
         }'
-        >
-        {%- comment -%}
-            if_use_coupon	是否使用DiscountCode	BOOL	
-            coupon_code	DiscountCode编码	STRING	DiscountCode唯一标识
-            coupon_name	DiscountCode名称
-            discount_amount	DiscountCode折扣金额
-        {%- endcomment -%}
-        
-    </div>
-    <div 
-        id="ShippingOrder"
-        data-scenable="1"
-        data-sctype="ShippingOrder"
-        data-sctype2='ShippingOrderDetail'
-        data-scenable2="1"
-        data-scdata='{
-            "checkout_id":"{{checkout.id}}",
-            "order_id":"{{checkout.order_id}}",
+	>
+		{%- comment -%}
+			if_use_coupon  是否使用DiscountCode  BOOL
+			coupon_code  DiscountCode编码  STRING  DiscountCode唯一标识
+			coupon_name  DiscountCode名称
+			discount_amount  DiscountCode折扣金额
+		{%- endcomment -%}
+
+	</div>
+	<div
+		id="ShippingOrder"
+		data-scenable="1"
+		data-sctype="ShippingOrder"
+		data-sctype2='ShippingOrderDetail'
+		data-scenable2="1"
+		data-scdata='{
+            "checkout_id":"{{ checkout.id }}",
+            "order_id":"{{ checkout.order_id }}",
             "if_use_express_paypal":0,
-            "order_commodity_unique_quantity": {{unique_quantity}},
-            "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-            "order_logistics_fee": "{{checkout.shipping_price}}",
-            "order_actual_amount": "{{checkout.total_price}}",
+            "order_commodity_unique_quantity": {{ unique_quantity }},
+            "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+            "order_logistics_fee": "{{ checkout.shipping_price }}",
+            "order_actual_amount": "{{ checkout.total_price }}",
             "currency_unit": "{{ checkout.currency }}",
-            "if_use_bonus": {{if_use_bonus}},
-            "bonus_name": "{{bonus_name}}",
-            "bonus_amount": "{{bonus_amount}}",
-            "shipping_type":"{{checkout.shipping_method.title}}",
-            "receiver_name":"{{checkout.shipping_address.first_name}}{{checkout.shipping_address.last_name}}",
-            "receiver_phone":"{{checkout.shipping_address.phone}}",
-            "receiver_country":"{{checkout.shipping_address.country}}",
-            "receiver_state":"{{checkout.shipping_address.province}}",
-            "receiver_postcode":"{{checkout.shipping_address.zip}}",
-            "receiver_city":"{{checkout.shipping_address.city}}",
-            "receiver_address":"{{checkout.shipping_address.address1}}{{checkout.shipping_address.address2}}"
+            "if_use_bonus": {{ if_use_bonus }},
+            "bonus_name": "{{ bonus_name }}",
+            "bonus_amount": "{{ bonus_amount }}",
+            "shipping_type":"{{ checkout.shipping_method.title }}",
+            "receiver_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "receiver_phone":"{{ checkout.shipping_address.phone }}",
+            "receiver_country":"{{ checkout.shipping_address.country }}",
+            "receiver_state":"{{ checkout.shipping_address.province }}",
+            "receiver_postcode":"{{ checkout.shipping_address.zip }}",
+            "receiver_city":"{{ checkout.shipping_address.city }}",
+            "receiver_address":"{{ checkout.shipping_address.address1 }}{{ checkout.shipping_address.address2 }}"
         }'
-        >
-        {%- comment -%}
-            if_use_coupon	是否使用DiscountCode	BOOL	
-            coupon_code	DiscountCode编码	STRING	DiscountCode唯一标识
-            coupon_name	DiscountCode名称
-            discount_amount	DiscountCode折扣金额
-        {%- endcomment -%}
-        
-    </div>
-    <div 
-        id="CompleteOrder"
-        data-scenable="1"
-        data-sctype="CompleteOrder"
-        data-sctype2='CompleteOrderDetail'
-        data-scenable2="1"
-        data-scdata='{
-            "checkout_id":"{{checkout.id}}",
-            "order_id":"{{checkout.order_id}}",
+	>
+		{%- comment -%}
+			if_use_coupon  是否使用DiscountCode  BOOL
+			coupon_code  DiscountCode编码  STRING  DiscountCode唯一标识
+			coupon_name  DiscountCode名称
+			discount_amount  DiscountCode折扣金额
+		{%- endcomment -%}
+
+	</div>
+	<div
+		id="CompleteOrder"
+		data-scenable="1"
+		data-sctype="CompleteOrder"
+		data-sctype2='CompleteOrderDetail'
+		data-scenable2="1"
+		data-scdata='{
+            "checkout_id":"{{ checkout.id }}",
+            "order_id":"{{ checkout.order_id }}",
             "if_use_express_paypal":0,
-            "order_commodity_unique_quantity": {{unique_quantity}},
-            "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-            "order_logistics_fee": "{{checkout.shipping_price}}",
-            "order_actual_amount": "{{checkout.total_price}}",
+            "order_commodity_unique_quantity": {{ unique_quantity }},
+            "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+            "order_logistics_fee": "{{ checkout.shipping_price }}",
+            "order_actual_amount": "{{ checkout.total_price }}",
             "currency_unit": "{{ checkout.currency }}",
-            "if_use_bonus": {{if_use_bonus}},
-            "bonus_name": "{{bonus_name}}",
-            "bonus_amount": "{{bonus_amount}}",
-            "shipping_type":"{{checkout.shipping_method.title}}",
-            "receiver_name":"{{checkout.shipping_address.first_name}}{{checkout.shipping_address.last_name}}",
-            "receiver_phone":"{{checkout.shipping_address.phone}}",
-            "receiver_country":"{{checkout.shipping_address.country}}",
-            "receiver_state":"{{checkout.shipping_address.province}}",
-            "receiver_city":"{{checkout.shipping_address.city}}",
-            "receiver_postcode":"{{checkout.shipping_address.zip}}",
-            "receiver_address":"{{checkout.shipping_address.address1}}{{checkout.shipping_address.address2}}",
+            "if_use_bonus": {{ if_use_bonus }},
+            "bonus_name": "{{ bonus_name }}",
+            "bonus_amount": "{{ bonus_amount }}",
+            "shipping_type":"{{ checkout.shipping_method.title }}",
+            "receiver_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "receiver_phone":"{{ checkout.shipping_address.phone }}",
+            "receiver_country":"{{ checkout.shipping_address.country }}",
+            "receiver_state":"{{ checkout.shipping_address.province }}",
+            "receiver_city":"{{ checkout.shipping_address.city }}",
+            "receiver_postcode":"{{ checkout.shipping_address.zip }}",
+            "receiver_address":"{{ checkout.shipping_address.address1 }}{{ checkout.shipping_address.address2 }}",
             "billing_address_type":"same as shipping address",
-            "billing_name":"{{checkout.shipping_address.first_name}}{{checkout.shipping_address.last_name}}",
-            "billing_phone":"{{checkout.shipping_address.phone}}",
-            "billing_country":"{{checkout.shipping_address.country}}",
-            "billing_postcode":"{{checkout.shipping_address.zip}}",
-            "billing_state":"{{checkout.shipping_address.province}}",
-            "billing_city":"{{checkout.shipping_address.city}}",
-            "billing_apartment":"{{checkout.shipping_address.street}}",
-            "billing_address":"{{checkout.shipping_address.address1}}{{checkout.shipping_address.address2}}"
+            "billing_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "billing_phone":"{{ checkout.shipping_address.phone }}",
+            "billing_country":"{{ checkout.shipping_address.country }}",
+            "billing_postcode":"{{ checkout.shipping_address.zip }}",
+            "billing_state":"{{ checkout.shipping_address.province }}",
+            "billing_city":"{{ checkout.shipping_address.city }}",
+            "billing_apartment":"{{ checkout.shipping_address.street }}",
+            "billing_address":"{{ checkout.shipping_address.address1 }}{{ checkout.shipping_address.address2 }}"
         }'
-    >
-    </div>
-    <div 
-        id="PaySuccessOrder"
-        data-scenable="1"
-        data-sctype="PaySuccessOrder"
-        data-sctype2='PaySuccessOrderDetail'
-        data-scenable2="1"
-        data-scdata='{
-            "checkout_id":"{{checkout.id}}",
-            "order_id":"{{checkout.order_id}}",
+	>
+	</div>
+	<div
+		id="PaySuccessOrder"
+		data-scenable="1"
+		data-sctype="PaySuccessOrder"
+		data-sctype2='PaySuccessOrderDetail'
+		data-scenable2="1"
+		data-scdata='{
+            "checkout_id":"{{ checkout.id }}",
+            "order_id":"{{ checkout.order_id }}",
             "if_use_express_paypal":0,
-            "transaction_id":"{{transaction_id}}",
-            "order_commodity_unique_quantity": {{unique_quantity}},
-            "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-            "order_logistics_fee": "{{checkout.shipping_price}}",
-            "order_actual_amount": "{{checkout.total_price}}",
+            "transaction_id":"{{ transaction_id }}",
+            "order_commodity_unique_quantity": {{ unique_quantity }},
+            "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+            "order_logistics_fee": "{{ checkout.shipping_price }}",
+            "order_actual_amount": "{{ checkout.total_price }}",
             "currency_unit": "{{ checkout.currency }}",
-            "if_use_bonus": {{if_use_bonus}},
-            "bonus_name": "{{bonus_name}}",
-            "bonus_amount": "{{bonus_amount}}",
-            "shipping_type":"{{checkout.shipping_method.title}}",
-            "receiver_name":"{{checkout.shipping_address.first_name}}{{checkout.shipping_address.last_name}}",
-            "receiver_phone":"{{checkout.shipping_address.phone}}",
-            "receiver_country":"{{checkout.shipping_address.country}}",
-            "receiver_state":"{{checkout.shipping_address.province}}",
-            "receiver_city":"{{checkout.shipping_address.city}}",
-            "receiver_postcode":"{{checkout.shipping_address.zip}}",
-            "receiver_address":"{{checkout.shipping_address.address1}}{{checkout.shipping_address.address2}}",
+            "if_use_bonus": {{ if_use_bonus }},
+            "bonus_name": "{{ bonus_name }}",
+            "bonus_amount": "{{ bonus_amount }}",
+            "shipping_type":"{{ checkout.shipping_method.title }}",
+            "receiver_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "receiver_phone":"{{ checkout.shipping_address.phone }}",
+            "receiver_country":"{{ checkout.shipping_address.country }}",
+            "receiver_state":"{{ checkout.shipping_address.province }}",
+            "receiver_city":"{{ checkout.shipping_address.city }}",
+            "receiver_postcode":"{{ checkout.shipping_address.zip }}",
+            "receiver_address":"{{ checkout.shipping_address.address1 }}{{ checkout.shipping_address.address2 }}",
             "billing_address_type":"same as shipping address",
-            "billing_name":"{{checkout.billing_address.first_name}}{{checkout.billing_address.last_name}}",
-            "billing_phone":"{{checkout.billing_address.phone}}",
-            "billing_country":"{{checkout.billing_address.country}}",
-            "billing_postcode":"{{checkout.billing_address.zip}}",
-            "billing_state":"{{checkout.billing_address.province}}",
-            "billing_city":"{{checkout.billing_address.city}}",
-            "billing_apartment":"{{checkout.billing_address.street}}",
-            "billing_address":"{{checkout.billing_address.address1}}{{checkout.billing_address.address2}}"
+            "billing_name":"{{ checkout.billing_address.first_name }}{{ checkout.billing_address.last_name }}",
+            "billing_phone":"{{ checkout.billing_address.phone }}",
+            "billing_country":"{{ checkout.billing_address.country }}",
+            "billing_postcode":"{{ checkout.billing_address.zip }}",
+            "billing_state":"{{ checkout.billing_address.province }}",
+            "billing_city":"{{ checkout.billing_address.city }}",
+            "billing_apartment":"{{ checkout.billing_address.street }}",
+            "billing_address":"{{ checkout.billing_address.address1 }}{{ checkout.billing_address.address2 }}"
         }'
-    >
-    </div>
-    {% for line_item in checkout.line_items %}
-        {% assign category = line_item.product.metafields.my_fields.category %}
-        {% assign titles = line_item.variant.title | split: "/" %}
-        {% for title in titles %}
-            {% case forloop.index %}
-                {% when 1 %}
-                {% assign commodity_color = title %}
-                {% when 2 %}
-                {% assign commodity_size = title %}
-            {% endcase %}
-        {%endfor%}
-        {% assign commodity_tag = line_item.product.tag | split: " " %}
-        {% assign compliment_commodities = %}
-        <div 
-            class="CheckoutDetail"
-            data-scenable="1"
-            data-sctype="CheckoutDetail"
-            data-scdata='{
-                "checkout_id":"{{checkout.id}}",
-                "order_commodity_unique_quantity": {{unique_quantity}},
-                "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-                "order_logistics_fee": "{{checkout.shipping_price}}",
-                "order_actual_amount":"{{checkout.total_price}}",
-                "commodity_spuid":"{{line_item.product.handle}}",
-                "commodity_skuid":"{{line_item.sku}}",
+	>
+	</div>
+	{% for line_item in checkout.line_items %}
+		{% assign category = line_item.product.metafields.my_fields.category %}
+		{% assign titles = line_item.variant.title | split: "/" %}
+		{% for title in titles %}
+			{% case forloop.index %}
+			{% when 1 %}
+			{% assign commodity_color = title %}
+			{% when 2 %}
+			{% assign commodity_size = title %}
+			{% endcase %}
+		{% endfor %}
+		{% assign commodity_tag = line_item.product.tag | split: " " %}
+		{% assign compliment_commodities = %}
+		<div
+			class="CheckoutDetail"
+			data-scenable="1"
+			data-sctype="CheckoutDetail"
+			data-scdata='{
+                "checkout_id":"{{ checkout.id }}",
+                "order_commodity_unique_quantity": {{ unique_quantity }},
+                "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+                "order_logistics_fee": "{{ checkout.shipping_price }}",
+                "order_actual_amount":"{{ checkout.total_price }}",
+                "commodity_spuid":"{{ line_item.product.handle }}",
+                "commodity_skuid":"{{ line_item.sku }}",
                 "commodity_name":"{{ line_item.title }}",
-                "first_commodity":"{{category.first_commodity}}",
-                "second_commodity":"{{category.second_commodity}}",
-                "third_commodity":"{{category.third_commodity}}",
-                "commodity_size":"{{commodity_size }}",
+                "first_commodity":"{{ category.first_commodity }}",
+                "second_commodity":"{{ category.second_commodity }}",
+                "third_commodity":"{{ category.third_commodity }}",
+                "commodity_size":"{{ commodity_size }}",
                 "commodity_color":"{{ commodity_color }}",
-                "commodity_quantity":{{line_item.quantity}},
+                "commodity_quantity":{{ line_item.quantity }},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{line_item.product.description | handleize }}"],
-                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first  }}"]
+                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
-        >
-            {% comment %} "commodity_tag":"{{commodity_tag}}",
-            "commodity_image_quantity":"",
-            "supplier_id":"",
-            "supplier_name":"",
-            "site_category":"{{line_item.product.collections | handleize }}", 
-            {% endcomment %}
-        </div>
-        <div 
-            class="InformationOrderDetail"
-            data-scenable="1"
-            data-sctype="InformationOrderDetail"
-            data-scdata='{
-                "checkout_id":"{{checkout.id}}",
-                "order_id":"{{checkout.order_id}}",
+		>
+			{% comment %} "commodity_tag":"{{ commodity_tag }}",
+				"commodity_image_quantity":"",
+				"supplier_id":"",
+				"supplier_name":"",
+				"site_category":"{{ line_item.product.collections | handleize }}",
+			{% endcomment %}
+		</div>
+		<div
+			class="InformationOrderDetail"
+			data-scenable="1"
+			data-sctype="InformationOrderDetail"
+			data-scdata='{
+                "checkout_id":"{{ checkout.id }}",
+                "order_id":"{{ checkout.order_id }}",
                 "if_use_express_paypal":0,
-                "order_commodity_unique_quantity": {{unique_quantity}},
-                "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-                "order_logistics_fee": "{{checkout.shipping_price}}",
-                "order_actual_amount":"{{checkout.total_price}}",
-                "commodity_spuid":"{{line_item.product.handle}}",
-                "commodity_skuid":"{{line_item.sku}}",
-                "commodity_name":"{{line_item.title | handleize }}",
-                "first_commodity":"{{category.first_commodity}}",
-                "second_commodity":"{{category.second_commodity}}",
-                "third_commodity":"{{category.third_commodity}}",
-                "commodity_size":"{{commodity_size }}",
+                "order_commodity_unique_quantity": {{ unique_quantity }},
+                "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+                "order_logistics_fee": "{{ checkout.shipping_price }}",
+                "order_actual_amount":"{{ checkout.total_price }}",
+                "commodity_spuid":"{{ line_item.product.handle }}",
+                "commodity_skuid":"{{ line_item.sku }}",
+                "commodity_name":"{{ line_item.title | handleize }}",
+                "first_commodity":"{{ category.first_commodity }}",
+                "second_commodity":"{{ category.second_commodity }}",
+                "third_commodity":"{{ category.third_commodity }}",
+                "commodity_size":"{{ commodity_size }}",
                 "commodity_color":"{{ commodity_color }}",
-                "commodity_quantity":{{line_item.quantity}},
+                "commodity_quantity":{{ line_item.quantity }},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{line_item.product.description | handleize }}"],
-                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first  }}"]
+                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
-        >
-            {% comment %} 
-            "commodity_tag":"{{commodity_tag}}",
-            "commodity_image_quantity":"",
-            "supplier_id":"",
-            "supplier_name":"",
-            "site_category":"{{line_item.product.collections | handleize }}", 
-            {% endcomment %}
-        </div>
-        <div 
-            class="ShippingOrderDetail"
-            data-scenable="1"
-            data-sctype="ShippingOrderDetail"
-            data-scdata='{
-                "checkout_id":"{{checkout.id}}",
-                "order_id":"{{checkout.order_id}}",
+		>
+			{% comment %}
+				"commodity_tag":"{{ commodity_tag }}",
+				"commodity_image_quantity":"",
+				"supplier_id":"",
+				"supplier_name":"",
+				"site_category":"{{ line_item.product.collections | handleize }}",
+			{% endcomment %}
+		</div>
+		<div
+			class="ShippingOrderDetail"
+			data-scenable="1"
+			data-sctype="ShippingOrderDetail"
+			data-scdata='{
+                "checkout_id":"{{ checkout.id }}",
+                "order_id":"{{ checkout.order_id }}",
                 "if_use_express_paypal":0,
-                "order_commodity_unique_quantity": {{unique_quantity}},
-                "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-                "order_logistics_fee": "{{checkout.shipping_price}}",
-                "order_actual_amount":"{{checkout.total_price}}",
-                "commodity_spuid":"{{line_item.product.handle}}",
-                "commodity_skuid":"{{line_item.sku}}",
-                "commodity_name":"{{line_item.title | handleize }}",
-                "first_commodity":"{{category.first_commodity}}",
-                "second_commodity":"{{category.second_commodity}}",
-                "third_commodity":"{{category.third_commodity}}",
-                "commodity_size":"{{commodity_size }}",
+                "order_commodity_unique_quantity": {{ unique_quantity }},
+                "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+                "order_logistics_fee": "{{ checkout.shipping_price }}",
+                "order_actual_amount":"{{ checkout.total_price }}",
+                "commodity_spuid":"{{ line_item.product.handle }}",
+                "commodity_skuid":"{{ line_item.sku }}",
+                "commodity_name":"{{ line_item.title | handleize }}",
+                "first_commodity":"{{ category.first_commodity }}",
+                "second_commodity":"{{ category.second_commodity }}",
+                "third_commodity":"{{ category.third_commodity }}",
+                "commodity_size":"{{ commodity_size }}",
                 "commodity_color":"{{ commodity_color }}",
-                "commodity_quantity":{{line_item.quantity}},
+                "commodity_quantity":{{ line_item.quantity }},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{line_item.product.description | handleize }}"],
-                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first  }}"]
+                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
-        >
-            {% comment %} 
-            "commodity_tag":"{{commodity_tag}}",
-            "commodity_image_quantity":"",
-            "supplier_id":"",
-            "supplier_name":"",
-            "site_category":"{{line_item.product.collections | handleize }}", 
-            {% endcomment %}
-        </div>
-        <div 
-            class="CompleteOrderDetail"
-            data-scenable="1"
-            data-sctype="CompleteOrderDetail"
-            data-scdata='{
-                "checkout_id":"{{checkout.id}}",
-                "order_id":"{{checkout.order_id}}",
+		>
+			{% comment %}
+				"commodity_tag":"{{ commodity_tag }}",
+				"commodity_image_quantity":"",
+				"supplier_id":"",
+				"supplier_name":"",
+				"site_category":"{{ line_item.product.collections | handleize }}",
+			{% endcomment %}
+		</div>
+		<div
+			class="CompleteOrderDetail"
+			data-scenable="1"
+			data-sctype="CompleteOrderDetail"
+			data-scdata='{
+                "checkout_id":"{{ checkout.id }}",
+                "order_id":"{{ checkout.order_id }}",
                 "if_use_express_paypal":0,
-                "order_commodity_unique_quantity": {{unique_quantity}},
-                "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-                "order_logistics_fee": "{{checkout.shipping_price}}",
-                "order_actual_amount":"{{checkout.total_price}}",
-                "commodity_spuid":"{{line_item.product.handle}}",
-                "commodity_skuid":"{{line_item.sku}}",
-                "commodity_name":"{{line_item.title | handleize }}",
-                "first_commodity":"{{category.first_commodity}}",
-                "second_commodity":"{{category.second_commodity}}",
-                "third_commodity":"{{category.third_commodity}}",
-                "commodity_size":"{{commodity_size }}",
+                "order_commodity_unique_quantity": {{ unique_quantity }},
+                "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+                "order_logistics_fee": "{{ checkout.shipping_price }}",
+                "order_actual_amount":"{{ checkout.total_price }}",
+                "commodity_spuid":"{{ line_item.product.handle }}",
+                "commodity_skuid":"{{ line_item.sku }}",
+                "commodity_name":"{{ line_item.title | handleize }}",
+                "first_commodity":"{{ category.first_commodity }}",
+                "second_commodity":"{{ category.second_commodity }}",
+                "third_commodity":"{{ category.third_commodity }}",
+                "commodity_size":"{{ commodity_size }}",
                 "commodity_color":"{{ commodity_color }}",
-                "commodity_quantity":{{line_item.quantity}},
+                "commodity_quantity":{{ line_item.quantity }},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{line_item.product.description | handleize }}"],
-                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first  }}"]
+                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
-        >
-            {% comment %} 
-            "commodity_tag":"{{commodity_tag}}",
-            "commodity_image_quantity":"",
-            "supplier_id":"",
-            "supplier_name":"",
-            "site_category":"{{line_item.product.collections | handleize }}", 
-            {% endcomment %}
-        </div>
-        <div 
-            class="PaySuccessOrderDetail"
-            data-scenable="1"
-            data-sctype="PaySuccessOrderDetail"
-            data-scdata='{
-                "checkout_id":"{{checkout.id}}",
-                "order_id":"{{checkout.order_id}}",
+		>
+			{% comment %}
+				"commodity_tag":"{{ commodity_tag }}",
+				"commodity_image_quantity":"",
+				"supplier_id":"",
+				"supplier_name":"",
+				"site_category":"{{ line_item.product.collections | handleize }}",
+			{% endcomment %}
+		</div>
+		<div
+			class="PaySuccessOrderDetail"
+			data-scenable="1"
+			data-sctype="PaySuccessOrderDetail"
+			data-scdata='{
+                "checkout_id":"{{ checkout.id }}",
+                "order_id":"{{ checkout.order_id }}",
                 "if_use_express_paypal":0,
-                "transaction_id":"{{transaction_id}}",
-                "order_commodity_unique_quantity": {{unique_quantity}},
-                "order_commodity_original_amount":"{{checkout.line_items_subtotal_price}}",
-                "order_logistics_fee": "{{checkout.shipping_price}}",
-                "order_actual_amount":"{{checkout.total_price}}",
-                "commodity_spuid":"{{line_item.product.handle}}",
-                "commodity_skuid":"{{line_item.sku}}",
-                "commodity_name":"{{line_item.title | handleize }}",
-                "first_commodity":"{{category.first_commodity}}",
-                "second_commodity":"{{category.second_commodity}}",
-                "third_commodity":"{{category.third_commodity}}",
-                "commodity_size":"{{commodity_size }}",
+                "transaction_id":"{{ transaction_id }}",
+                "order_commodity_unique_quantity": {{ unique_quantity }},
+                "order_commodity_original_amount":"{{ checkout.line_items_subtotal_price }}",
+                "order_logistics_fee": "{{ checkout.shipping_price }}",
+                "order_actual_amount":"{{ checkout.total_price }}",
+                "commodity_spuid":"{{ line_item.product.handle }}",
+                "commodity_skuid":"{{ line_item.sku }}",
+                "commodity_name":"{{ line_item.title | handleize }}",
+                "first_commodity":"{{ category.first_commodity }}",
+                "second_commodity":"{{ category.second_commodity }}",
+                "third_commodity":"{{ category.third_commodity }}",
+                "commodity_size":"{{ commodity_size }}",
                 "commodity_color":"{{ commodity_color }}",
-                "commodity_quantity":{{line_item.quantity}},
+                "commodity_quantity":{{ line_item.quantity }},
                 "original_price":"{{ line_item.product.selected_or_first_available_variant.compare_at_price }}",
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{line_item.product.description | handleize }}"],
-                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first  }}"]
+                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
-        >
-            {% comment %} 
-            "commodity_tag":"{{commodity_tag}}",
-            "commodity_image_quantity":"",
-            "supplier_id":"",
-            "supplier_name":"",
-            "site_category":"{{line_item.product.collections | handleize }}", 
-            {% endcomment %}
-        </div>
-    {% endfor %} 
+		>
+			{% comment %}
+				"commodity_tag":"{{ commodity_tag }}",
+				"commodity_image_quantity":"",
+				"supplier_id":"",
+				"supplier_name":"",
+				"site_category":"{{ line_item.product.collections | handleize }}",
+			{% endcomment %}
+		</div>
+	{% endfor %}
 </div>
 <script>
-    !function(){
-        var shippingFirstNameEl =  document.querySelector('#checkout_shipping_address_first_name');
+    !function () {
+        var shippingFirstNameEl = document.querySelector('#checkout_shipping_address_first_name');
         var shippingLastNameEl = document.querySelector('#checkout_shipping_address_last_name');
         var shippingPhoneEl = document.querySelector('#checkout_shipping_address_phone');
         var shippingemailOrPhoneEl = document.querySelector('#checkout_email_or_phone');
@@ -403,7 +403,7 @@
         var shippingaddress1El = document.querySelector('#checkout_shipping_address_address1');
         var shippingaddress2El = document.querySelector('#checkout_shipping_address_address2');
 
-        var billingFirstNameEl =  document.querySelector('#checkout_billing_address_first_name');
+        var billingFirstNameEl = document.querySelector('#checkout_billing_address_first_name');
         var billingLastNameEl = document.querySelector('#checkout_billing_address_last_name');
         var billingPhoneEl = document.querySelector('#checkout_billing_address_phone');
         var billingemailOrPhoneEl = document.querySelector('#checkout_email_or_phone');
@@ -427,39 +427,41 @@
         var CompleteOrderDetailEls = document.querySelectorAll('.CompleteOrderDetail');
         var PaySuccessOrderDetailEls = document.querySelectorAll('.PaySuccessOrderDetail');
 
-        /*绑定iframe*/ 
-        var IframeOnClick = {  
-            resolution: 200,  
-            iframes: [],  
-            interval: null,  
-            Iframe: function() {  
-                this.element = arguments[0];  
-                this.cb = arguments[1];   
-                this.hasTracked = false;  
-            },  
-            track: function(element, cb) {  
-                this.iframes.push(new this.Iframe(element, cb));  
-                if (!this.interval) {  
-                    var _this = this;  
-                    this.interval = setInterval(function() { _this.checkClick(); }, this.resolution);  
-                }  
-            },  
-            checkClick: function() {  
-                if (document.activeElement) {  
-                    var activeElement = document.activeElement;  
-                    for (var i in this.iframes) {  
-                        if (activeElement === this.iframes[i].element) { 
-                            if (this.iframes[i].hasTracked == false) {   
-                                this.iframes[i].cb.apply(window, []);   
-                                this.iframes[i].hasTracked = true;  
-                            }  
-                        } else {  
-                            this.iframes[i].hasTracked = false;  
-                        }  
-                    }  
-                }  
-            }  
-        }; 
+        /*绑定iframe*/
+        var IframeOnClick = {
+            resolution: 200,
+            iframes: [],
+            interval: null,
+            Iframe: function () {
+                this.element = arguments[0];
+                this.cb = arguments[1];
+                this.hasTracked = false;
+            },
+            track: function (element, cb) {
+                this.iframes.push(new this.Iframe(element, cb));
+                if (!this.interval) {
+                    var _this = this;
+                    this.interval = setInterval(function () {
+                        _this.checkClick();
+                    }, this.resolution);
+                }
+            },
+            checkClick: function () {
+                if (document.activeElement) {
+                    var activeElement = document.activeElement;
+                    for (var i in this.iframes) {
+                        if (activeElement === this.iframes[i].element) {
+                            if (this.iframes[i].hasTracked == false) {
+                                this.iframes[i].cb.apply(window, []);
+                                this.iframes[i].hasTracked = true;
+                            }
+                        } else {
+                            this.iframes[i].hasTracked = false;
+                        }
+                    }
+                }
+            }
+        };
         /* 购物车itemList*/
         let line_items = [];
         /* skuList*/
@@ -467,211 +469,215 @@
         /*订单物品总数量*/
         let quantity = 0;
         /* 邮费 */
-        let order_logistics_fee =  ('{{checkout.shipping_price}}' *1);
+        let order_logistics_fee = ('{{ checkout.shipping_price }}' * 1);
         /* 订单画线前价格 */
         let order_amount = 0 + order_logistics_fee;
         /*商品总优惠折扣*/
         let bonus_amount = 0;
         /* 优惠券金额 */
-        let coupon_amount = ('{{checkout.discounts_amount}}' *1);
+        let coupon_amount = ('{{ checkout.discounts_amount }}' * 1);
         let if_use_coupon = 0;
         let coupon_code = '';
         let coupon_name = '';
-        if(coupon_amount){
+        if (coupon_amount) {
             if_use_coupon = 1;
             coupon_code = document.querySelector('.total-line-table .reduction-code__text').innerText;
         }
-        {% for line_item in checkout.line_items %}
-        quantity += ('{{line_item.quantity}}' * 1)
-        order_amount += ('{{line_item.original_line_price}}' * 1)
-        bonus_amount += ('{{line_item.line_level_total_discount}}' * 1)
+			{% for line_item in checkout.line_items %}
+        quantity += ('{{ line_item.quantity }}' * 1)
+        order_amount += ('{{ line_item.original_line_price }}' * 1)
+        bonus_amount += ('{{ line_item.line_level_total_discount }}' * 1)
         line_items.push({
-            commodity_skuid: '{{line_item.sku}}',
+            commodity_skuid: '{{ line_item.sku }}',
         })
-        compliment_commodities.push('{{line_item.sku}}')
-        {% endfor %} 
+        compliment_commodities.push('{{ line_item.sku }}')
+			{% endfor %}
         /* 优惠金额 */
         let order_discount_amount = bonus_amount + coupon_amount;
+
         function actionCheckout() {
             new sadhus_shence({
-                container:".sc-checkout-data",
-                type:"Checkout",
-                event:'sync',
-                getSessionId:"sensorsCheckout",
-                customData: function(container){
+                container: ".sc-checkout-data",
+                type: "Checkout",
+                event: 'sync',
+                getSessionId: "sensorsCheckout",
+                customData: function (container) {
                     let newData = Object.assign(orderHandleSendData('order'))
-                    return newData  
+                    return newData
                 }
             })
             new sadhus_shence({
-                container:'.sc-checkout-data',
-                type:".CheckoutDetail",
-                event:'repeat',
-                getSessionId:"sensorsCheckout",
-                sendType:"CheckoutDetail",
-                customData: function(container,el){
+                container: '.sc-checkout-data',
+                type: ".CheckoutDetail",
+                event: 'repeat',
+                getSessionId: "sensorsCheckout",
+                sendType: "CheckoutDetail",
+                customData: function (container, el) {
                     let scdata = JSON.parse(el.getAttribute('data-scdata'))
-                    let newData = orderHandleSendData('detailOrder',scdata)
-                    return newData 
+                    let newData = orderHandleSendData('detailOrder', scdata)
+                    return newData
                 },
-                callback:()=>{
-                    
+                callback: () => {
+
                 }
             })
         }
+
         function actionsInformationOrder() {
             let continueBtn = document.querySelector('.step__footer__continue-btn')
             continueBtn.style.display = 'none'
             let target = document.querySelector("#continue_button");
-            let insertContinueBtn= document.createElement("div");
+            let insertContinueBtn = document.createElement("div");
             let _classList = continueBtn.classList.value
             insertContinueBtn.classList = _classList
             insertContinueBtn.innerHTML = continueBtn.innerHTML
             insertContinueBtn.style.float = 'right'
-            target.parentNode.insertBefore(insertContinueBtn,continueBtn);
-            insertContinueBtn.setAttribute('data-scenable','1')
-            insertContinueBtn.setAttribute('data-sctype','InformationOrder')
-            insertContinueBtn.setAttribute('data-scenable2','1')
-            insertContinueBtn.setAttribute('data-sctype2','InformationOrderDetail')
+            target.parentNode.insertBefore(insertContinueBtn, continueBtn);
+            insertContinueBtn.setAttribute('data-scenable', '1')
+            insertContinueBtn.setAttribute('data-sctype', 'InformationOrder')
+            insertContinueBtn.setAttribute('data-scenable2', '1')
+            insertContinueBtn.setAttribute('data-sctype2', 'InformationOrderDetail')
             let InformationOrder = new sadhus_shence({
-                container:".step__footer",
-                type:"InformationOrder",
-                customData: function(container){
+                container: ".step__footer",
+                type: "InformationOrder",
+                customData: function (container) {
                     let scdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
-                    let newData = Object.assign(scdata,{
+                    let newData = Object.assign(scdata, {
                         order_commodity_quantity: quantity,
                         receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
-                        receiver_phone:	shippingPhoneEl && shippingPhoneEl.value,
+                        receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
                         receiver_country: shippingcountryEl.value,
                         receiver_postcode: shippingzipEl.value,
-                        receiver_state:	shippingprovinceEl.value,
+                        receiver_state: shippingprovinceEl.value,
                         receiver_city: shippingcityEl.value,
                         receiver_address: shippingaddress1El.value + shippingaddress2El.value,
                         is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
                         is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
-                        order_commodity_original_amount:order_amount
+                        order_commodity_original_amount: order_amount
                     })
-                    if(shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1){
-                        newData.receiver_email  = shippingemailOrPhoneEl.value
+                    if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
+                        newData.receiver_email = shippingemailOrPhoneEl.value
                     }
-                    newData = Object.assign(newData,orderHandleSendData('order'))
-                    return newData  
+                    newData = Object.assign(newData, orderHandleSendData('order'))
+                    return newData
                 },
-                callback:()=>{
+                callback: () => {
                     InformationOrder.updateFn();
                 }
             })
-            for(let i = 0; i < line_items.length; i++){
+            for (let i = 0; i < line_items.length; i++) {
                 let InformationOrderDetail = new sadhus_shence({
-                    container:".step__footer",
-                    type:"InformationOrderDetail",
-                    typeName:"sctype2",
-                    enableName:'scenable2',
-                    customData: function(container){
+                    container: ".step__footer",
+                    type: "InformationOrderDetail",
+                    typeName: "sctype2",
+                    enableName: 'scenable2',
+                    customData: function (container) {
                         let scdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = orderHandleSendData('detailOrder',scdata)
-                        return newData  
+                        let newData = orderHandleSendData('detailOrder', scdata)
+                        return newData
                     },
-                    callback:()=>{
+                    callback: () => {
                         InformationOrderDetail.updateFn();
                     }
                 })
             }
-            insertContinueBtn.onclick = function() {
+            insertContinueBtn.onclick = function () {
                 continueBtn.click()
             }
         }
-        function actionsShippingOrder(){
+
+        function actionsShippingOrder() {
             let continueBtn = document.querySelector('.step__footer__continue-btn')
             continueBtn.style.display = 'none'
             let target = document.querySelector("#continue_button");
-            let insertContinueBtn= document.createElement("div");
+            let insertContinueBtn = document.createElement("div");
             let _classList = continueBtn.classList.value
             insertContinueBtn.classList = _classList
             insertContinueBtn.innerHTML = continueBtn.innerHTML
             insertContinueBtn.style.float = 'right'
-            target.parentNode.insertBefore(insertContinueBtn,continueBtn);
-            insertContinueBtn.setAttribute('data-scenable','1')
-            insertContinueBtn.setAttribute('data-sctype','ShippingOrder')
-            insertContinueBtn.setAttribute('data-scenable2','1')
-            insertContinueBtn.setAttribute('data-sctype2','ShippingOrderDetail')
+            target.parentNode.insertBefore(insertContinueBtn, continueBtn);
+            insertContinueBtn.setAttribute('data-scenable', '1')
+            insertContinueBtn.setAttribute('data-sctype', 'ShippingOrder')
+            insertContinueBtn.setAttribute('data-scenable2', '1')
+            insertContinueBtn.setAttribute('data-sctype2', 'ShippingOrderDetail')
             let ShippingOrder = new sadhus_shence({
-                container:".step__footer",
-                type:"ShippingOrder",
-                customData: function(container){
+                container: ".step__footer",
+                type: "ShippingOrder",
+                customData: function (container) {
                     let scdata = JSON.parse(ShippingOrderEl.getAttribute('data-scdata'))
-                    let bdoVal = document.querySelector('bdo').innerText
-                    if(bdoVal && bdoVal.indexOf("@") != -1){
-                        scdata.receiver_email  = bdoVal
+                    let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
+                    if (bdoVal && bdoVal.indexOf("@") != -1) {
+                        scdata.receiver_email = bdoVal
                     }
-                    newData = Object.assign(scdata,orderHandleSendData('order'))
-                    return newData  
+                    newData = Object.assign(scdata, orderHandleSendData('order'))
+                    return newData
                 },
-                callback:()=>{
+                callback: () => {
                     ShippingOrder.updateFn();
                 }
             })
-            for(let i = 0; i < line_items.length; i++){
+            for (let i = 0; i < line_items.length; i++) {
                 let ShippingOrderDetail = new sadhus_shence({
-                    container:".step__footer",
-                    type:"ShippingOrderDetail",
-                    typeName:"sctype2",
-                    enableName:'scenable2',
-                    customData: function(container){
+                    container: ".step__footer",
+                    type: "ShippingOrderDetail",
+                    typeName: "sctype2",
+                    enableName: 'scenable2',
+                    customData: function (container) {
                         let scdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = orderHandleSendData('detailOrder',scdata)
+                        let newData = orderHandleSendData('detailOrder', scdata)
                         return newData
                     },
-                    callback:()=>{
+                    callback: () => {
                         ShippingOrderDetail.updateFn();
                     }
                 })
             }
-            insertContinueBtn.onclick = function() {
+            insertContinueBtn.onclick = function () {
                 continueBtn.click()
             }
         }
-        function actionsCompleteOrder(){
+
+        function actionsCompleteOrder() {
             let continueBtn = document.querySelector('.step__footer__continue-btn')
             continueBtn.style.display = 'none'
             let target = document.querySelector("#continue_button");
-            let insertContinueBtn= document.createElement("div");
+            let insertContinueBtn = document.createElement("div");
             let _classList = continueBtn.classList.value
             insertContinueBtn.classList = _classList
             insertContinueBtn.innerHTML = continueBtn.innerHTML
             insertContinueBtn.style.float = 'right'
-            insertContinueBtn.setAttribute('data-scenable','1')
-            insertContinueBtn.setAttribute('data-sctype','CompleteOrder')
-            insertContinueBtn.setAttribute('data-scenable2','1')
-            insertContinueBtn.setAttribute('data-sctype2','CompleteOrderDetail')
-            insertContinueBtn.setAttribute('data-sctype2','CompleteOrderDetail')
-            insertContinueBtn.setAttribute('data-scsession','{"sensorsCheckoutIf_use_express_paypal":0}') 
-            target.parentNode.insertBefore(insertContinueBtn,continueBtn);
+            insertContinueBtn.setAttribute('data-scenable', '1')
+            insertContinueBtn.setAttribute('data-sctype', 'CompleteOrder')
+            insertContinueBtn.setAttribute('data-scenable2', '1')
+            insertContinueBtn.setAttribute('data-sctype2', 'CompleteOrderDetail')
+            insertContinueBtn.setAttribute('data-sctype2', 'CompleteOrderDetail')
+            insertContinueBtn.setAttribute('data-scsession', '{"sensorsCheckoutIf_use_express_paypal":0}')
+            target.parentNode.insertBefore(insertContinueBtn, continueBtn);
             let CompleteOrder = new sadhus_shence({
-                container:".step__footer",
-                type:"CompleteOrder",
-			    setSessionId:"sensorsCheckoutIf_use_express_paypal",
-                customData: function(container){
+                container: ".step__footer",
+                type: "CompleteOrder",
+                setSessionId: "sensorsCheckoutIf_use_express_paypal",
+                customData: function (container) {
                     let scdata = JSON.parse(CompleteOrderEl.getAttribute('data-scdata'))
-                    let bdoVal = document.querySelector('bdo').innerText
-                    if(bdoVal && bdoVal.indexOf("@") != -1){
-                        scdata.receiver_email  = bdoVal
+                    let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
+                    if (bdoVal && bdoVal.indexOf("@") != -1) {
+                        scdata.receiver_email = bdoVal
                     }
                     try {
                         let tipEl = document.querySelector('.section--tip .button-group__button--active')
                         let amountBtnEl = document.querySelector('.section--tip #section--tip--amount-btn')
                         let CustomAmountEl = document.querySelector('.section--tip #section--tip--custom-amount')
-                        if(amountBtnEl.disabled && CustomAmountEl.value){
+                        if (amountBtnEl.disabled && CustomAmountEl.value) {
                             scdata.if_use_tip = 1
                             scdata.tip_type = 'custom'
                             scdata.tip_amount = CustomAmountEl.value * 100
                         } else {
-                            if(Number(tipEl.getAttribute('value'))) {
+                            if (Number(tipEl.getAttribute('value'))) {
                                 let btnContentEl = tipEl.querySelectorAll('div')[0]
                                 scdata.if_use_tip = 1
                                 scdata.tip_type = btnContentEl.innerText
-                                scdata.tip_amount = (tipEl.getAttribute('value')) *100
-                            }else {
+                                scdata.tip_amount = (tipEl.getAttribute('value')) * 100
+                            } else {
                                 scdata.if_use_tip = 0
                                 scdata.tip_type = '0'
                                 scdata.tip_amount = 0
@@ -681,129 +687,151 @@
                         scdata.if_use_tip = 0
                         scdata.tip_type = '0'
                         scdata.tip_amount = 0
+                        console.log('Can not find tipEl')
                     }
-                    let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
-                    Array.from(paymentMethodInputs).map((item,index) => {
-                        if(item.checked){
-                            if(index === 0){
-                                scdata.payment_method = 'paypal'
-                                scdata.payment_type = 'paypal'
-                            }else {
-                                scdata.payment_method = 'credit card'
-                                scdata.payment_type = 'oceanpayment'
+                    try {
+                        let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
+                        Array.from(paymentMethodInputs).map((item, index) => {
+                            if (item.checked) {
+                                if (index === 0) {
+                                    scdata.payment_method = 'paypal'
+                                    scdata.payment_type = 'paypal'
+                                } else {
+                                    scdata.payment_method = 'credit card'
+                                    scdata.payment_type = 'oceanpayment'
+                                }
                             }
-                        }
-                    })
-                    let billingAddressInputs = document.querySelector('.section--billing-address').querySelectorAll('input')
-                    Array.from(billingAddressInputs).map((item,index) => {
-                        if(item.checked){
-                            if(index !== 0){
-                                scdata.billing_address_type="Use a different billing address",
-                                scdata.billing_name = billingFirstNameEl.value + billingLastNameEl.value
-                                scdata.billing_phone = billingPhoneEl.value
-                                scdata.billing_country = billingcountryEl.value
-                                scdata.billing_postcode = billingzipEl.value
-                                scdata.billing_state = billingprovinceEl.value
-                                scdata.billing_city = billingcityEl.value
-                                scdata.billing_apartment = billingaddress2El.value
-                                scdata.billing_address = billingaddress1El.value + billingaddress2El.value
+                        })
+                    } catch (error) {
+                        console.log('Can not find paymentMethodInputs')
+                    }
+                    try {
+                        let billingAddressInputs = document.querySelector('.section--billing-address').querySelectorAll('input')
+                        Array.from(billingAddressInputs).map((item, index) => {
+                            if (item.checked) {
+                                if (index !== 0) {
+                                    scdata.billing_address_type = "Use a different billing address",
+                                        scdata.billing_name = billingFirstNameEl.value + billingLastNameEl.value
+                                    scdata.billing_phone = billingPhoneEl.value
+                                    scdata.billing_country = billingcountryEl.value
+                                    scdata.billing_postcode = billingzipEl.value
+                                    scdata.billing_state = billingprovinceEl.value
+                                    scdata.billing_city = billingcityEl.value
+                                    scdata.billing_apartment = billingaddress2El.value
+                                    scdata.billing_address = billingaddress1El.value + billingaddress2El.value
+                                }
                             }
-                        }
-                    })
-                    newData = Object.assign(scdata,orderHandleSendData('order'))
-                    localStorage.setItem('sensorsPaySuccessOrder',JSON.stringify(newData))
-                    return newData  
+                        })
+                    } catch (error) {
+                        console.log('Can not find billingAddressInputs')
+                    }
+                    newData = Object.assign(scdata, orderHandleSendData('order'))
+                    localStorage.setItem('sensorsPaySuccessOrder', JSON.stringify(newData))
+                    return newData
                 },
-                callback:()=>{
+                callback: () => {
                     CompleteOrder.updateFn();
                 }
             })
-            for(let i = 0; i < line_items.length; i++){
+            for (let i = 0; i < line_items.length; i++) {
                 let CompleteOrderDetail = new sadhus_shence({
-                    container:".step__footer",
-                    type:"CompleteOrderDetail",
-                    typeName:"sctype2",
-                    enableName:'scenable2',
-                    customData: function(container){
+                    container: ".step__footer",
+                    type: "CompleteOrderDetail",
+                    typeName: "sctype2",
+                    enableName: 'scenable2',
+                    customData: function (container) {
                         let scdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = orderHandleSendData('detailOrder',scdata)
-                        return newData  
+                        let newData = orderHandleSendData('detailOrder', scdata)
+                        return newData
                     },
-                    callback:()=>{
+                    callback: () => {
                         CompleteOrderDetail.updateFn();
                     }
                 })
             }
-            insertContinueBtn.onclick = function() {
+            insertContinueBtn.onclick = function () {
                 continueBtn.click()
             }
         }
-        function actionsPaySuccessOrder(){
+
+        function actionsPaySuccessOrder() {
             let PaySuccessOrder = new sadhus_shence({
-                container:"#PaySuccessOrder",
-                type:"PaySuccessOrder",
-                event:'sync',
-                customData: function(container){
+                container: "#PaySuccessOrder",
+                type: "PaySuccessOrder",
+                event: 'sync',
+                customData: function (container) {
                     let scdata = JSON.parse(PaySuccessOrderEl.getAttribute('data-scdata'))
                     let sensorsCheckoutIf_use_express_paypal = JSON.parse(sessionStorage.getItem('sensorsCheckoutIf_use_express_paypal'))
                     let sensorsPaySuccessOrder = JSON.parse(localStorage.getItem('sensorsPaySuccessOrder'))
-                    if(sensorsPaySuccessOrder && sensorsPaySuccessOrder.if_use_tip){
+                    if (sensorsPaySuccessOrder) {
                         scdata.if_use_tip = sensorsPaySuccessOrder.if_use_tip
                         scdata.tip_type = sensorsPaySuccessOrder.tip_type
                         scdata.tip_amount = sensorsPaySuccessOrder.tip_amount
+                        scdata.payment_method = sensorsPaySuccessOrder.payment_method
+                        scdata.payment_type = sensorsPaySuccessOrder.payment_type
                     }
-                    if(sensorsCheckoutIf_use_express_paypal){
+                    if (sensorsCheckoutIf_use_express_paypal) {
                         scdata.if_use_express_paypal = sensorsCheckoutIf_use_express_paypal.sensorsCheckoutIf_use_express_paypal
                     }
-                    newData = Object.assign(scdata,orderHandleSendData('order'))
-                    return newData  
+                    newData = Object.assign(scdata, orderHandleSendData('order'))
+                    return newData
                 },
-                callback:(el) => {
+                callback: (el) => {
                     let obj = JSON.parse(el.getAttribute('data-scdata'))
                     let setProfileData = {
                         receiver_country: obj.receiver_country,
                         receiver_state: obj.receiver_state,
-                        receiver_city:obj.receiver_city,
-                        receiver_address:obj.receiver_address,
-                        receiver_postcode:obj.receiver_postcode,
-                        phone_number:obj.receiver_phone,
+                        receiver_city: obj.receiver_city,
+                        receiver_address: obj.receiver_address,
+                        receiver_postcode: obj.receiver_postcode,
+                        phone_number: obj.receiver_phone,
                         last_order_time: getFormatDate(),
-                        last_coupon_time:getFormatDate()
+                        last_coupon_time: getFormatDate()
                     }
                     let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
-                    if(bdoVal) {
-                        if(bdoVal && bdoVal.indexOf("@") != -1){
-                            setProfileData.receiver_email  = bdoVal
+                    if (bdoVal) {
+                        if (bdoVal && bdoVal.indexOf("@") != -1) {
+                            setProfileData.receiver_email = bdoVal
                         }
                     }
                     sensors.setOnceProfile({
-                        first_order_time:getFormatDate()
+                        first_order_time: getFormatDate()
                     })
                     sensors.incrementProfile({
-                        cumulative_payment:Number((obj.order_actual_amount/100).toFixed(2)),
-                        cumulative_order:1
+                        cumulative_payment: Number((obj.order_actual_amount / 100).toFixed(2)),
+                        cumulative_order: 1
                     })
                     sensors.setProfile(setProfileData)
+                    /* 储存用户提交过的orderId */
+                    debugger
+                    let reportedOrderList =  JSON.parse(localStorage.getItem('reportedOrderList'))
+                    if(reportedOrderList && reportedOrderList.length > 0 ){
+                        reportedOrderList.push(obj.order_id)
+                    }else {
+                        reportedOrderList = [obj.order_id]
+                    }
+                    localStorage.setItem('reportedOrderList', JSON.stringify(reportedOrderList))
                 }
             })
             new sadhus_shence({
-                container:'.sc-checkout-data',
-                type:".PaySuccessOrderDetail",
-                event:'repeat',
-                sendType:"PaySuccessOrderDetail",
-                customData: function(container,el){
+                container: '.sc-checkout-data',
+                type: ".PaySuccessOrderDetail",
+                event: 'repeat',
+                sendType: "PaySuccessOrderDetail",
+                customData: function (container, el) {
                     let scdata = JSON.parse(el.getAttribute('data-scdata'))
                     let sensorsCheckoutIf_use_express_paypal = JSON.parse(sessionStorage.getItem('sensorsCheckoutIf_use_express_paypal'))
-                    if(sensorsCheckoutIf_use_express_paypal){
+                    if (sensorsCheckoutIf_use_express_paypal) {
                         scdata.if_use_express_paypal = sensorsCheckoutIf_use_express_paypal.sensorsCheckoutIf_use_express_paypal
-                        
+
                     }
-                    let newData = orderHandleSendData('detailOrder',scdata)
-                    return newData  
+                    let newData = orderHandleSendData('detailOrder', scdata)
+                    return newData
                 }
             })
         }
-        function orderHandleSendData(type,sendData){
+
+        function orderHandleSendData(type, sendData) {
             sendData = sendData ? sendData : {}
             sendData.order_commodity_original_amount = order_amount
             sendData.order_amount = order_amount
@@ -811,251 +839,279 @@
             sendData.order_discount_amount = order_discount_amount
             /* sendData.is_fbt_main = 0
              sendData.is_fbt_used = 0 */
-            if(type === 'order'){
+            if (type === 'order') {
                 sendData.bonus_amount = bonus_amount
                 sendData.coupon_amount = coupon_amount
                 sendData.if_use_coupon = if_use_coupon
                 sendData.coupon_code = coupon_code
                 sendData.coupon_name = coupon_name
-            }else if (type === 'detailOrder'){
+            } else if (type === 'detailOrder') {
                 sendData.compliment_commodities = compliment_commodities
-                sendData.discount_price = (sendData.discount_price *1) / (sendData.commodity_quantity *1)
+                sendData.discount_price = (sendData.discount_price * 1) / (sendData.commodity_quantity * 1)
             }
             return sendData
         }
-        function paypalHandleSendData (sendData,type) {
+
+        function paypalHandleSendData(sendData, type) {
             sendData.if_use_express_paypal = 1
-            if(type !== 'detailOrder'){
-                if(shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1){
-                    sendData.receiver_email  = sendData.value
+            if (type !== 'detailOrder') {
+                if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
+                    sendData.receiver_email = sendData.value
                 }
                 sendData.bonus_amount = bonus_amount
                 sendData.coupon_amount = coupon_amount
                 sendData.if_use_coupon = if_use_coupon
                 sendData.coupon_code = coupon_code
                 sendData.coupon_name = coupon_name
-            }else {
+            } else {
                 sendData.compliment_commodities = compliment_commodities,
-                sendData.order_commodity_quantity = quantity
-                sendData.discount_price = (sendData.discount_price *1) / (sendData.commodity_quantity *1)
+                    sendData.order_commodity_quantity = quantity
+                sendData.discount_price = (sendData.discount_price * 1) / (sendData.commodity_quantity * 1)
             }
             sendData.order_commodity_original_amount = order_amount
             sendData.order_amount = order_amount
             sendData.order_commodity_quantity = quantity
             sendData.order_discount_amount = order_discount_amount
-            if(sendData.original_price){
-                sendData.original_price=Number((sendData.original_price/100).toFixed(2));
-            }if(sendData.current_price){
-                sendData.current_price=Number((sendData.current_price/100).toFixed(2));
-            }if(sendData.discount_price){
-                sendData.discount_price=Number((sendData.discount_price/100).toFixed(2));
-            }if(sendData.bonus_amount){
-                sendData.bonus_amount=Number((sendData.bonus_amount/100).toFixed(2));
-            }if(sendData.order_amount){
-                sendData.order_amount=Number((sendData.order_amount/100).toFixed(2));
-            }if(sendData.order_commodity_original_amount){
-                sendData.order_commodity_original_amount=Number((sendData.order_commodity_original_amount/100).toFixed(2));
-            }if(sendData.order_logistics_fee){
-                sendData.order_logistics_fee=Number((sendData.order_logistics_fee/100).toFixed(2));
-            }if(sendData.order_discount_amount){
-                sendData.order_discount_amount=Number((sendData.order_discount_amount/100).toFixed(2));
-            }if(sendData.order_actual_amount){
-                sendData.order_actual_amount=Number((sendData.order_actual_amount/100).toFixed(2));
-            }if(sendData.discount_amount){
-                sendData.discount_amount=Number((sendData.discount_amount/100).toFixed(2));
-            }if(sendData.tip_amount){
-                sendData.tip_amount=Number((sendData.tip_amount/100).toFixed(2));
-            }if(sendData.coupon_amount){
-                sendData.coupon_amount=Number((sendData.coupon_amount/100).toFixed(2));
+            if (sendData.original_price || sendData.original_price == '') {
+                sendData.original_price = Number((sendData.original_price / 100).toFixed(2));
             }
-            if(sendData.commodity_name) {
-                sendData.commodity_name = sendData.commodity_name.replaceAll('-',' ');
+            if (sendData.current_price || sendData.current_price == '') {
+                sendData.current_price = Number((sendData.current_price / 100).toFixed(2));
             }
-            if(sendData.commodity_spuid) {
+            if (sendData.discount_price) {
+                sendData.discount_price = Number((sendData.discount_price / 100).toFixed(2));
+            }
+            if (sendData.bonus_amount) {
+                sendData.bonus_amount = Number((sendData.bonus_amount / 100).toFixed(2));
+            }
+            if (sendData.order_amount) {
+                sendData.order_amount = Number((sendData.order_amount / 100).toFixed(2));
+            }
+            if (sendData.order_commodity_original_amount) {
+                sendData.order_commodity_original_amount = Number((sendData.order_commodity_original_amount / 100).toFixed(2));
+            }
+            if (sendData.order_logistics_fee) {
+                sendData.order_logistics_fee = Number((sendData.order_logistics_fee / 100).toFixed(2));
+            }
+            if (sendData.order_discount_amount) {
+                sendData.order_discount_amount = Number((sendData.order_discount_amount / 100).toFixed(2));
+            }
+            if (sendData.order_actual_amount) {
+                sendData.order_actual_amount = Number((sendData.order_actual_amount / 100).toFixed(2));
+            }
+            if (sendData.discount_amount) {
+                sendData.discount_amount = Number((sendData.discount_amount / 100).toFixed(2));
+            }
+            if (sendData.tip_amount) {
+                sendData.tip_amount = Number((sendData.tip_amount / 100).toFixed(2));
+            }
+            if (sendData.coupon_amount) {
+                sendData.coupon_amount = Number((sendData.coupon_amount / 100).toFixed(2));
+            }
+            if (sendData.commodity_name) {
+                sendData.commodity_name = sendData.commodity_name.replaceAll('-', ' ');
+            }
+            if (sendData.commodity_spuid) {
                 sendData.commodity_spuid = sendData.commodity_spuid.toLocaleUpperCase()
             }
-            if(sendData.compliment_commodities && sendData.compliment_commodities.length > 0) {
+            if (sendData.compliment_commodities && sendData.compliment_commodities.length > 0) {
                 sendData.compliment_commodities.forEach(i => {
-                i = i.toLocaleUpperCase()
+                    i = i.toLocaleUpperCase()
                 })
             }
             return sendData
         }
-        window.Checkout.$(document).on("page:load", function() {
-          sensors.quick('isReady', function () {
-              let checkoutStep = localStorage.getItem('checkoutStep')
-              console.log('checkoutStep',checkoutStep)
-              let activeText = document.querySelector('.breadcrumb__item--current') && document.querySelector('.breadcrumb__item--current').innerText
-              if(activeText === 'Information'){
-                actionCheckout()
-                actionsInformationOrder()
-                localStorage.setItem('checkoutStep','checkout');
-              }else if(activeText === "Shipping"){
-                if(checkoutStep !== 'checkout'){
-                    /* 上报checkout*/
+
+        window.Checkout.$(document).on("page:load", function () {
+            sensors.quick('isReady', function () {
+                let checkoutStep = localStorage.getItem('checkoutStep')
+                console.log('checkoutStep', checkoutStep)
+                let activeText = document.querySelector('.breadcrumb__item--current') && document.querySelector('.breadcrumb__item--current').innerText
+                if (activeText === 'Information') {
                     actionCheckout()
-                    /* 上报information*/
-                    new sadhus_shence({
-                        container:"#InformationOrder",
-                        type:"InformationOrder",
-                        event:'sync',
-                        debug:true,
-                        customData: function(container,el){
-                            console.log(el)
-                            let newData = Object.assign(orderHandleSendData('order'))
-                            return newData  
-                        }
-                    })
-                    new sadhus_shence({
-                        container:'.sc-checkout-data',
-                        type:".InformationOrderDetail",
-                        event:'repeat',
-                        sendType:"InformationOrderDetail",
-                        customData: function(container,el){
-                            console.log(el)
-                            let scdata = JSON.parse(el.getAttribute('data-scdata'))
-                            let newData = orderHandleSendData('detailOrder',scdata)
-                            return newData 
-                        },
-                        callback:()=>{
-                            
-                        }
-                    })
+                    actionsInformationOrder()
+                    localStorage.setItem('checkoutStep', 'checkout');
+                } else if (activeText === "Shipping") {
+                    if (checkoutStep !== 'checkout') {
+                        /* 上报checkout*/
+                        actionCheckout()
+                        /* 上报information*/
+                        new sadhus_shence({
+                            container: "#InformationOrder",
+                            type: "InformationOrder",
+                            event: 'sync',
+                            debug: true,
+                            customData: function (container, el) {
+                                let newData = Object.assign(orderHandleSendData('order'))
+                                return newData
+                            }
+                        })
+                        new sadhus_shence({
+                            container: '.sc-checkout-data',
+                            type: ".InformationOrderDetail",
+                            event: 'repeat',
+                            sendType: "InformationOrderDetail",
+                            customData: function (container, el) {
+                                let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                                let newData = orderHandleSendData('detailOrder', scdata)
+                                return newData
+                            },
+                            callback: () => {
+
+                            }
+                        })
+                    }
+                    actionsShippingOrder()
+                    let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
+                    if (bdoVal && bdoVal.indexOf("@") != -1) {
+                        sensors.track('SubscribptionResult', {
+                            subscribe_email: bdoVal,
+                            subscription_type: 'checkout订阅',
+                            fail_reason: ''
+                        });
+                    }
+                    localStorage.setItem('checkoutStep', 'Shipping');
+                } else if (activeText === "Payment") {
+                    if (checkoutStep !== 'Shipping') {
+                        /* 上报checkout*/
+                        actionCheckout()
+                        /* 上报information*/
+                        new sadhus_shence({
+                            container: ".sc-checkout-data",
+                            type: "InformationOrder",
+                            event: 'sync',
+                            customData: function (container) {
+                                let newData = Object.assign(orderHandleSendData('order'))
+                                return newData
+                            }
+                        })
+                        new sadhus_shence({
+                            container: '.sc-checkout-data',
+                            type: ".InformationOrderDetail",
+                            event: 'repeat',
+                            sendType: "InformationOrderDetail",
+                            customData: function (container, el) {
+                                let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                                let newData = orderHandleSendData('detailOrder', scdata)
+                                return newData
+                            },
+                            callback: () => {
+
+                            }
+                        })
+                        /* 上报shipping */
+                        new sadhus_shence({
+                            container: ".sc-checkout-data",
+                            type: "ShippingOrder",
+                            event: 'sync',
+                            customData: function (container) {
+                                let newData = Object.assign(orderHandleSendData('order'))
+                                return newData
+                            }
+                        })
+                        new sadhus_shence({
+                            container: '.sc-checkout-data',
+                            type: ".ShippingOrderDetail",
+                            event: 'repeat',
+                            sendType: "ShippingOrderDetail",
+                            customData: function (container, el) {
+                                let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                                let newData = orderHandleSendData('detailOrder', scdata)
+                                return newData
+                            },
+                            callback: () => {
+
+                            }
+                        })
+                    }
+                    actionsCompleteOrder()
+                    localStorage.setItem('checkoutStep', 'Payment');
                 }
-                actionsShippingOrder()
-                let bdoVal = document.querySelector('bdo').innerText
-                if(bdoVal && bdoVal.indexOf("@") != -1){
-                    sensors.track('SubscribptionResult', {
-                        subscribe_email:bdoVal,
-                        subscription_type:'checkout订阅',
-                        fail_reason:''
-                    });
+                if (window.pageType === 'completeOrder') {
+                    let reportedOrderList = JSON.parse(localStorage.getItem('reportedOrderList'))
+                    if(reportedOrderList && reportedOrderList.length > 0){
+                       let find =  reportedOrderList.find( i => { return i === "{{ checkout.order_id }}" })
+                       if(!find) {
+                           actionsPaySuccessOrder()
+                           /* 订单完成，初始化checkoutStep */
+                           localStorage.setItem('checkoutStep', 'checkout');
+                       }
+                    } else {
+                        actionsPaySuccessOrder()
+                        /* 订单完成，初始化checkoutStep */
+                        localStorage.setItem('checkoutStep', 'checkout');
+                    }
                 }
-                localStorage.setItem('checkoutStep','Shipping');
-              }else if(activeText === "Payment"){
-                  if(checkoutStep !== 'Shipping'){
-                      /* 上报checkout*/
-                    actionCheckout()
-                    /* 上报information*/
-                    new sadhus_shence({
-                        container:".sc-checkout-data",
-                        type:"InformationOrder",
-                        event:'sync',
-                        customData: function(container){
-                            let newData = Object.assign(orderHandleSendData('order'))
-                            return newData  
-                        }
-                    })
-                    new sadhus_shence({
-                        container:'.sc-checkout-data',
-                        type:".InformationOrderDetail",
-                        event:'repeat',
-                        sendType:"InformationOrderDetail",
-                        customData: function(container,el){
-                            let scdata = JSON.parse(el.getAttribute('data-scdata'))
-                            let newData = orderHandleSendData('detailOrder',scdata)
-                            return newData 
-                        },
-                        callback:()=>{
-                            
-                        }
-                    })
-                    /* 上报shipping */
-                    new sadhus_shence({
-                        container:".sc-checkout-data",
-                        type:"ShippingOrder",
-                        event:'sync',
-                        customData: function(container){
-                            let newData = Object.assign(orderHandleSendData('order'))
-                            return newData  
-                        }
-                    })
-                    new sadhus_shence({
-                        container:'.sc-checkout-data',
-                        type:".ShippingOrderDetail",
-                        event:'repeat',
-                        sendType:"ShippingOrderDetail",
-                        customData: function(container,el){
-                            let scdata = JSON.parse(el.getAttribute('data-scdata'))
-                            let newData = orderHandleSendData('detailOrder',scdata)
-                            return newData 
-                        },
-                        callback:()=>{
-                            
-                        }
-                    })
-                  }
-                  actionsCompleteOrder()
-                  localStorage.setItem('checkoutStep','Payment');
-              }
-              if(window.pageType === 'completeOrder'){
-                  actionsPaySuccessOrder()
-                  /* 订单完成，初始化checkoutStep */
-                  localStorage.setItem('checkoutStep','checkout');
-              }
-              /*注册成功代码*/
-              if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin  +'/account/register') {/*从注册页面跳转进来*/
-                  if (Number({{customer.id}})) {
-                      var isLogin = true;
-                  } else {
-                      var isLogin = false;
-                  }
-                  if (isLogin && (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true')) {
-                      sensors.setOnceProfile({ signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email") });/*更新用户表注册邮箱*/
-                      sensors.setProfile({ first_name: sessionStorage.getItem("First_name"), last_name: sessionStorage.getItem("Second_name")});/*更新用户表名字*/
-                      sessionStorage.setItem("sensorsRegisterButtonClick", false);
-                      sensors.track('RegisterResult',{
-                          register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
-                          First_name:sessionStorage.getItem("First_name"),
-                          Second_name:sessionStorage.getItem("Second_name"),
-                          is_success:1,
-                      });
-                  };
-              };
-          })
+                /*注册成功代码*/
+                if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin + '/account/register') {/*从注册页面跳转进来*/
+                    if (Number({{ customer.id }})) {
+                        var isLogin = true;
+                    } else {
+                        var isLogin = false;
+                    }
+                    if (isLogin && (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true')) {
+                        sensors.setOnceProfile({signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email")});/*更新用户表注册邮箱*/
+                        sensors.setProfile({
+                            first_name: sessionStorage.getItem("First_name"),
+                            last_name: sessionStorage.getItem("Second_name")
+                        });/*更新用户表名字*/
+                        sessionStorage.setItem("sensorsRegisterButtonClick", false);
+                        sensors.track('RegisterResult', {
+                            register_email: sessionStorage.getItem("sensorsRegisterResultRegister_email"),
+                            First_name: sessionStorage.getItem("First_name"),
+                            Second_name: sessionStorage.getItem("Second_name"),
+                            is_success: 1,
+                        });
+                    }
+                    ;
+                }
+                ;
+            })
         });
         window.onload = function () {
-            let sections= document.querySelector(".dynamic-checkout__content");
-            function callback(){
+            let sections = document.querySelector(".dynamic-checkout__content");
+
+            function callback() {
                 let payif = document.getElementsByClassName('paypalLight')[0]
-                if(!payif) return
-                IframeOnClick.track(payif, function(e) { 
-                    sessionStorage.setItem('sensorsCheckoutIf_use_express_paypal','{"sensorsCheckoutIf_use_express_paypal":1}')
+                if (!payif) return
+                IframeOnClick.track(payif, function (e) {
+                    sessionStorage.setItem('sensorsCheckoutIf_use_express_paypal', '{"sensorsCheckoutIf_use_express_paypal":1}')
                     let InformationOrderScdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
-                    let InformationOrderSendData = Object.assign(InformationOrderScdata,{
+                    let InformationOrderSendData = Object.assign(InformationOrderScdata, {
                         order_commodity_quantity: quantity,
                         receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
-                        receiver_phone:	shippingPhoneEl && shippingPhoneEl.value,
+                        receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
                         receiver_country: shippingcountryEl.value,
                         receiver_postcode: shippingzipEl.value,
-                        receiver_state:	shippingprovinceEl.value,
+                        receiver_state: shippingprovinceEl.value,
                         receiver_city: shippingcityEl.value,
                         receiver_address: shippingaddress1El.value + shippingaddress2El.value,
                         is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
                         is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
-                        order_commodity_original_amount:order_amount
+                        order_commodity_original_amount: order_amount
 
                     })
                     let ShippingOrderScdata = JSON.parse(ShippingOrder.getAttribute('data-scdata'))
                     let CompleteOrderScdata = JSON.parse(CompleteOrder.getAttribute('data-scdata'))
-                    sensors.quick('isReady',function(){
-                        sensors.track('InformationOrder',paypalHandleSendData(InformationOrderSendData));
-                        sensors.track('ShippingOrder',paypalHandleSendData(ShippingOrderScdata));
-                        sensors.track('CompleteOrder',paypalHandleSendData(CompleteOrderScdata));
-                        for(let i = 0; i< line_items.length; i++){
+                    sensors.quick('isReady', function () {
+                        sensors.track('InformationOrder', paypalHandleSendData(InformationOrderSendData));
+                        sensors.track('ShippingOrder', paypalHandleSendData(ShippingOrderScdata));
+                        sensors.track('CompleteOrder', paypalHandleSendData(CompleteOrderScdata));
+                        for (let i = 0; i < line_items.length; i++) {
                             let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
-                            sensors.track('InformationOrderDetail',paypalHandleSendData(InformationOrderDetailScdata,'detailOrder'));
+                            sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
                             let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
-                            sensors.track('ShippingOrderDetail',paypalHandleSendData(ShippingOrderDetailScdata,'detailOrder'));
+                            sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
                             let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
-                            sensors.track('CompleteOrderDetail',paypalHandleSendData(CompleteOrderDetailScdata,'detailOrder'));
+                            sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
                         }
                     })
                 });
             }
+
             callback();
             const checkoutObserver = new MutationObserver(callback)
-            sections && checkoutObserver.observe(sections,{childList:true,subtree:true})
+            sections && checkoutObserver.observe(sections, {childList: true, subtree: true})
         }
     }()
 </script>

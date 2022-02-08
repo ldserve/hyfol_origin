@@ -35,10 +35,10 @@ sensors.quick('isReady', function () {
   startExposure();
 })
 function reportExposure(data) {
-     if (data.original_price) {
+     if (data.original_price || data.original_price == '') {
         data.original_price = Number((data.original_price / 100).toFixed(2));
       }
-      if (data.current_price) {
+      if (data.current_price || data.current_price == '') {
         data.current_price = Number((data.current_price / 100).toFixed(2));
       }
       if (data.discount_price) {
