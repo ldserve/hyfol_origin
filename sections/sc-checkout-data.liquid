@@ -1039,10 +1039,8 @@
                             Second_name: sessionStorage.getItem("Second_name"),
                             is_success: 1,
                         });
-                    }
-                    ;
-                }
-                ;
+                    };
+                };
             })
         });
         window.onload = function () {
@@ -1083,7 +1081,6 @@
                                     let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
                                     sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
                                 }
-                                console.log('ShippingOrder')
                             }, 100)
                             setTimeout(() => {
                                 sensors.track('CompleteOrder', paypalHandleSendData(CompleteOrderScdata));
@@ -1091,7 +1088,6 @@
                                     let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
                                     sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
                                 }
-                                console.log('CompleteOrder')
                             }, 200)
                             /* for (let i = 0; i < line_items.length; i++) {
                                 let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
