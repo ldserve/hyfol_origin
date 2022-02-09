@@ -1047,10 +1047,12 @@
         });
         window.onload = function () {
                 let sections = document.querySelector(".dynamic-checkout__content");
+                console.log('window.onload')
                 function callback() {
                     let payif = document.getElementsByClassName('paypalLight')[0]
                     if (!payif) return
                     IframeOnClick.track(payif, function (e) {
+                        console.log('click payif')
                         sessionStorage.setItem('sensorsCheckoutIf_use_express_paypal', '{"sensorsCheckoutIf_use_express_paypal":1}')
                         let InformationOrderScdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
                         let InformationOrderSendData = Object.assign(InformationOrderScdata, {
