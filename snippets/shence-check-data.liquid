@@ -537,53 +537,25 @@
             insertContinueBtn.setAttribute('data-sctype', 'InformationOrder')
             insertContinueBtn.setAttribute('data-scenable2', '1')
             insertContinueBtn.setAttribute('data-sctype2', 'InformationOrderDetail')
-            let InformationOrder = new sadhus_shence({
-                container: ".step__footer",
-                type: "InformationOrder",
-                customData: function (container) {
-                    let scdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
-                    let newData = Object.assign(scdata, {
-                        order_commodity_quantity: quantity,
-                        receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
-                        receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
-                        receiver_country: shippingcountryEl.value,
-                        receiver_postcode: shippingzipEl.value,
-                        receiver_state: shippingprovinceEl.value,
-                        receiver_city: shippingcityEl.value,
-                        receiver_address: shippingaddress1El.value + shippingaddress2El.value,
-                        is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
-                        is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
-                        order_commodity_original_amount: order_amount
-                    })
-                    if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
-                        newData.receiver_email = shippingemailOrPhoneEl.value
-                    }
-                    newData = Object.assign(newData, orderHandleSendData('order'))
-                    return newData
-                },
-                callback: () => {
-                    InformationOrder.updateFn();
+            insertContinueBtn.addEventListener('click',() => {
+                let newData = {
+                    order_commodity_quantity: quantity,
+                    receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
+                    receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
+                    receiver_country: shippingcountryEl.value,
+                    receiver_postcode: shippingzipEl.value,
+                    receiver_state: shippingprovinceEl.value,
+                    receiver_city: shippingcityEl.value,
+                    receiver_address: shippingaddress1El.value + shippingaddress2El.value,
+                    is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
+                    is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
+                    order_commodity_original_amount: order_amount
                 }
-            })
-            for (let i = 0; i < line_items.length; i++) {
-                let InformationOrderDetail = new sadhus_shence({
-                    container: ".step__footer",
-                    type: "InformationOrderDetail",
-                    typeName: "sctype2",
-                    enableName: 'scenable2',
-                    customData: function (container) {
-                        let scdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = orderHandleSendData('detailOrder', scdata)
-                        return newData
-                    },
-                    callback: () => {
-                        InformationOrderDetail.updateFn();
-                    }
-                })
-            }
-            insertContinueBtn.onclick = function () {
-                continueBtn.click()
-            }
+                if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
+                    newData.receiver_email = shippingemailOrPhoneEl.value
+                }
+
+            })   
         }
 
         function actionsShippingOrder() {
@@ -942,9 +914,6 @@
                                 let scdata = JSON.parse(el.getAttribute('data-scdata'))
                                 let newData = orderHandleSendData('detailOrder', scdata)
                                 return newData
-                            },
-                            callback: () => {
-
                             }
                         })
                     }
@@ -981,9 +950,6 @@
                                 let scdata = JSON.parse(el.getAttribute('data-scdata'))
                                 let newData = orderHandleSendData('detailOrder', scdata)
                                 return newData
-                            },
-                            callback: () => {
-
                             }
                         })
                         /* 上报shipping */
@@ -1005,16 +971,13 @@
                                 let scdata = JSON.parse(el.getAttribute('data-scdata'))
                                 let newData = orderHandleSendData('detailOrder', scdata)
                                 return newData
-                            },
-                            callback: () => {
-
                             }
                         })
                     }
                     actionsCompleteOrder()
                     localStorage.setItem('checkoutStep', 'Payment');
                 }
-                if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') != -1 ) {
+                if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1 ) {
                     actionsPaySuccessOrder()
                     /* 订单完成，初始化checkoutStep */
                     localStorage.setItem('checkoutStep', 'checkout');
