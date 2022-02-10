@@ -909,8 +909,32 @@
             }
             return sendData
         }
-
-        window.Checkout.$(document).on("page:load", function () {
+        function removeHref () {
+            let list = Checkout.$('.breadcrumb__item--current').nextAll()
+            console.log('list',list)
+            if(list && list.length > 0){
+                for (let i = 0; i < list.length; i++){
+                    if(list[i].querySelector('a')){
+                        list[i].querySelector('a').removeAttribute('href')
+                    }
+                }
+            }
+        }
+        function sendError (){
+            if(document.title.indexOf('Error') > -1){
+                let ErrorInformationList = []
+                let errorEls = document.querySelectorAll('.field__message--error')
+                if(errorEls && errorEls.length > 0){
+                    for (let i = 0; i < errorEls.length; i++){
+                        ErrorInformationList.push(errorEls[i].innerHTML ||errorEls[i].innerText)
+                    }
+                }
+                sensors.track('ErrorInformation', {ErrorInformationList:ErrorInformationList});
+            }
+        }
+        Checkout.$(document).on("page:load", function () {
+            removeHref()
+            sendError()
             sensors.quick('isReady', function () {
                 let checkoutStep = localStorage.getItem('checkoutStep')
                 console.log('checkoutStep', checkoutStep)
