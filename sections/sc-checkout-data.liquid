@@ -911,7 +911,6 @@
         }
         function removeHref () {
             let list = Checkout.$('.breadcrumb__item--current').nextAll()
-            console.log('list',list)
             if(list && list.length > 0){
                 for (let i = 0; i < list.length; i++){
                     if(list[i].querySelector('a')){
@@ -932,9 +931,21 @@
                 sensors.track('ErrorInformation', {ErrorInformationList:ErrorInformationList});
             }
         }
+        function hideExpressCheckout () {
+            let shownEls =  document.querySelectorAll('.shown-if-js')
+            if(shownEls && shownEls.length > 0 ) {
+                for (var i = 0; i < shownEls.length; i++){
+                    if(shownEls[i].querySelector('.dynamic-checkout')){
+                        console.log(shownEls[i])
+                        shownEls[i].style.display = 'none'
+                    }
+                }
+            }
+        }
         Checkout.$(document).on("page:load", function () {
             removeHref()
             sendError()
+            hideExpressCheckout()
             sensors.quick('isReady', function () {
                 let checkoutStep = localStorage.getItem('checkoutStep')
                 console.log('checkoutStep', checkoutStep)
