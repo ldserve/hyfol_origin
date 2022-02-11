@@ -6,8 +6,6 @@
       'transaction_id': ''
   });
 </script>
-{% section 'cart-template' %}
-{% section 'recently-viewed-products' %}
 {% endif %}
 <form method="post" action="{{ routes.cart_url }}" id="mini-cart" class="mini-cart" aria-hidden="true"
   novalidate="novalidate" data-item-count="{{ cart.item_count }}">
