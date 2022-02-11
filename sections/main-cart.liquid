@@ -737,6 +737,11 @@
       newData.commodity_quantity = num
       sensors.track('AddToCart', newData);
       sensors.setProfile({last_addtocart_time:getFormatDate()})
+      pintrk('track', 'addtocart', {
+value: 100,
+order_quantity: 1,
+currency: 'USD'
+});
     } else {
       newData.commodity_quantity = -num
       sensors.track('RemoveFromCart', newData);
