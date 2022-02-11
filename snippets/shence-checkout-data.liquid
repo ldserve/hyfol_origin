@@ -518,95 +518,58 @@
                     return newData
                 },
                 callback: () => {
-
                 }
             })
+
         }
 
         function actionsInformationOrder() {
-            let continueBtn = document.querySelector('.step__footer__continue-btn')
-            continueBtn.style.display = 'none'
-            let target = document.querySelector("#continue_button");
-            let insertContinueBtn = document.createElement("div");
-            let _classList = continueBtn.classList.value
-            insertContinueBtn.classList = _classList
-            insertContinueBtn.innerHTML = continueBtn.innerHTML
-            insertContinueBtn.style.float = 'right'
-            target.parentNode.insertBefore(insertContinueBtn, continueBtn);
-            insertContinueBtn.setAttribute('data-scenable', '1')
-            insertContinueBtn.setAttribute('data-sctype', 'InformationOrder')
-            insertContinueBtn.setAttribute('data-scenable2', '1')
-            insertContinueBtn.setAttribute('data-sctype2', 'InformationOrderDetail')
-            insertContinueBtn.addEventListener('click',() => {
-                let newData = {
-                    order_commodity_quantity: quantity,
-                    receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
-                    receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
-                    receiver_country: shippingcountryEl.value,
-                    receiver_postcode: shippingzipEl.value,
-                    receiver_state: shippingprovinceEl.value,
-                    receiver_city: shippingcityEl.value,
-                    receiver_address: shippingaddress1El.value + shippingaddress2El.value,
-                    is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
-                    is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
-                    order_commodity_original_amount: order_amount
+            new sadhus_shence({
+                container: "#InformationOrder",
+                type: "InformationOrder",
+                event: 'sync',
+                customData: function (container, el) {
+                    let newData = Object.assign(orderHandleSendData('order'))
+                    return newData
                 }
-                if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
-                    newData.receiver_email = shippingemailOrPhoneEl.value
-                }
-
-            })   
-        }
-
-        function actionsShippingOrder() {
-            let continueBtn = document.querySelector('.step__footer__continue-btn')
-            continueBtn.style.display = 'none'
-            let target = document.querySelector("#continue_button");
-            let insertContinueBtn = document.createElement("div");
-            let _classList = continueBtn.classList.value
-            insertContinueBtn.classList = _classList
-            insertContinueBtn.innerHTML = continueBtn.innerHTML
-            insertContinueBtn.style.float = 'right'
-            target.parentNode.insertBefore(insertContinueBtn, continueBtn);
-            insertContinueBtn.setAttribute('data-scenable', '1')
-            insertContinueBtn.setAttribute('data-sctype', 'ShippingOrder')
-            insertContinueBtn.setAttribute('data-scenable2', '1')
-            insertContinueBtn.setAttribute('data-sctype2', 'ShippingOrderDetail')
-            let ShippingOrder = new sadhus_shence({
-                container: ".step__footer",
-                type: "ShippingOrder",
-                customData: function (container) {
-                    let scdata = JSON.parse(ShippingOrderEl.getAttribute('data-scdata'))
-                    let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
-                    if (bdoVal && bdoVal.indexOf("@") != -1) {
-                        scdata.receiver_email = bdoVal
-                    }
-                    newData = Object.assign(scdata, orderHandleSendData('order'))
+            })
+            new sadhus_shence({
+                container: '.sc-checkout-data',
+                type: ".InformationOrderDetail",
+                event: 'repeat',
+                sendType: "InformationOrderDetail",
+                customData: function (container, el) {
+                    let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                    let newData = orderHandleSendData('detailOrder', scdata)
                     return newData
                 },
                 callback: () => {
-                    ShippingOrder.updateFn();
+
                 }
             })
-            for (let i = 0; i < line_items.length; i++) {
-                let ShippingOrderDetail = new sadhus_shence({
-                    container: ".step__footer",
-                    type: "ShippingOrderDetail",
-                    typeName: "sctype2",
-                    enableName: 'scenable2',
-                    customData: function (container) {
-                        let scdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = orderHandleSendData('detailOrder', scdata)
-                        return newData
-                    },
-                    callback: () => {
-                        ShippingOrderDetail.updateFn();
-                    }
-                })
-            }
-            insertContinueBtn.onclick = function () {
-                continueBtn.click()
-            }
+        }
+
+        function actionsShippingOrder() {
+            new sadhus_shence({
+                container: ".sc-checkout-data",
+                type: "ShippingOrder",
+                event: 'sync',
+                customData: function (container) {
+                    let newData = Object.assign(orderHandleSendData('order'))
+                    return newData
+                }
+            })
+            new sadhus_shence({
+                container: '.sc-checkout-data',
+                type: ".ShippingOrderDetail",
+                event: 'repeat',
+                sendType: "ShippingOrderDetail",
+                customData: function (container, el) {
+                    let scdata = JSON.parse(el.getAttribute('data-scdata'))
+                    let newData = orderHandleSendData('detailOrder', scdata)
+                    return newData
+                }
+            })
         }
 
         function actionsCompleteOrder() {
@@ -721,6 +684,8 @@
                 })
             }
             insertContinueBtn.onclick = function () {
+                debugger
+                setTimeout(console.log(11111),3000)
                 continueBtn.click()
             }
         }
@@ -882,42 +847,48 @@
             return sendData
         }
 
-        window.Checkout.$(document).on("page:load", function () {
+        function removeHref () {
+            let list = Checkout.$('.breadcrumb__item--current').nextAll()
+            if(list && list.length > 0){
+                for (let i = 0; i < list.length; i++){
+                    if(list[i].querySelector('a')){
+                        list[i].querySelector('a').removeAttribute('href')
+                    }
+                }
+            }
+        }
+        function sendError (){
+            if(document.title.indexOf('Error') > -1){
+                let ErrorInformationList = []
+                let errorEls = document.querySelectorAll('.field__message--error')
+                if(errorEls && errorEls.length > 0){
+                    for (let i = 0; i < errorEls.length; i++){
+                        ErrorInformationList.push(errorEls[i].innerHTML ||errorEls[i].innerText)
+                    }
+                }
+                sensors.track('ErrorInformation', {ErrorInformationList:ErrorInformationList});
+            }
+        }
+        Checkout.$(document).on("page:load", function () {
+            removeHref()
+            sendError()
             sensors.quick('isReady', function () {
                 let checkoutStep = localStorage.getItem('checkoutStep')
                 console.log('checkoutStep', checkoutStep)
                 let activeText = document.querySelector('.breadcrumb__item--current') && document.querySelector('.breadcrumb__item--current').innerText
-                if (activeText.indexOf('Information') > -1) {
+                if (activeText && activeText.indexOf('Information') > -1) {
                     actionCheckout()
-                    actionsInformationOrder()
                     localStorage.setItem('checkoutStep', 'checkout');
-                } else if (activeText.indexOf( "Shipping") > -1) {
+                    console.error('上报checkout')
+                } else if (activeText && activeText.indexOf( "Shipping") > -1) {
                     if (checkoutStep !== 'checkout') {
                         /* 上报checkout*/
                         actionCheckout()
-                        /* 上报information*/
-                        new sadhus_shence({
-                            container: "#InformationOrder",
-                            type: "InformationOrder",
-                            event: 'sync',
-                            customData: function (container, el) {
-                                let newData = Object.assign(orderHandleSendData('order'))
-                                return newData
-                            }
-                        })
-                        new sadhus_shence({
-                            container: '.sc-checkout-data',
-                            type: ".InformationOrderDetail",
-                            event: 'repeat',
-                            sendType: "InformationOrderDetail",
-                            customData: function (container, el) {
-                                let scdata = JSON.parse(el.getAttribute('data-scdata'))
-                                let newData = orderHandleSendData('detailOrder', scdata)
-                                return newData
-                            }
-                        })
+                        console.error('上报checkout')
                     }
-                    actionsShippingOrder()
+                    /* 上报information*/
+                    actionsInformationOrder()
+                    console.error('上报InformationOrder')
                     let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
                     if (bdoVal && bdoVal.indexOf("@") != -1) {
                         sensors.track('SubscribptionResult', {
@@ -927,57 +898,23 @@
                         });
                     }
                     localStorage.setItem('checkoutStep', 'Shipping');
-                } else if (activeText.indexOf("Payment") > -1 ) {
+                } else if (activeText && activeText.indexOf("Payment") > -1 ) {
                     if (checkoutStep !== 'Shipping') {
                         /* 上报checkout*/
                         actionCheckout()
+                        console.error('上报checkout')
                         /* 上报information*/
-                        new sadhus_shence({
-                            container: ".sc-checkout-data",
-                            type: "InformationOrder",
-                            event: 'sync',
-                            customData: function (container) {
-                                let newData = Object.assign(orderHandleSendData('order'))
-                                return newData
-                            }
-                        })
-                        new sadhus_shence({
-                            container: '.sc-checkout-data',
-                            type: ".InformationOrderDetail",
-                            event: 'repeat',
-                            sendType: "InformationOrderDetail",
-                            customData: function (container, el) {
-                                let scdata = JSON.parse(el.getAttribute('data-scdata'))
-                                let newData = orderHandleSendData('detailOrder', scdata)
-                                return newData
-                            }
-                        })
-                        /* 上报shipping */
-                        new sadhus_shence({
-                            container: ".sc-checkout-data",
-                            type: "ShippingOrder",
-                            event: 'sync',
-                            customData: function (container) {
-                                let newData = Object.assign(orderHandleSendData('order'))
-                                return newData
-                            }
-                        })
-                        new sadhus_shence({
-                            container: '.sc-checkout-data',
-                            type: ".ShippingOrderDetail",
-                            event: 'repeat',
-                            sendType: "ShippingOrderDetail",
-                            customData: function (container, el) {
-                                let scdata = JSON.parse(el.getAttribute('data-scdata'))
-                                let newData = orderHandleSendData('detailOrder', scdata)
-                                return newData
-                            }
-                        })
+                        actionsInformationOrder()
+                        console.error('上报InformationOrder')
                     }
+                    /* 上报shipping */
+                    actionsShippingOrder()
+                    console.error('上报ShippingOrder')
                     actionsCompleteOrder()
                     localStorage.setItem('checkoutStep', 'Payment');
+                    console.error('按钮绑定CompleteOrder')
                 }
-                if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1 ) {
+                if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1)  {
                     actionsPaySuccessOrder()
                     /* 订单完成，初始化checkoutStep */
                     localStorage.setItem('checkoutStep', 'checkout');
@@ -1002,73 +939,71 @@
                             Second_name: sessionStorage.getItem("Second_name"),
                             is_success: 1,
                         });
-                    }
-                    ;
-                }
-                ;
+                    };
+                };
             })
         });
         window.onload = function () {
-                let sections = document.querySelector(".dynamic-checkout__content");
-                function callback() {
-                    let payif = document.getElementsByClassName('paypalLight')[0]
-                    if (!payif) return
-                    IframeOnClick.track(payif, function (e) {
-                        sessionStorage.setItem('sensorsCheckoutIf_use_express_paypal', '{"sensorsCheckoutIf_use_express_paypal":1}')
-                        let InformationOrderScdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
-                        let InformationOrderSendData = Object.assign(InformationOrderScdata, {
-                            order_commodity_quantity: quantity,
-                            receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
-                            receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
-                            receiver_country: shippingcountryEl.value,
-                            receiver_postcode: shippingzipEl.value,
-                            receiver_state: shippingprovinceEl.value,
-                            receiver_city: shippingcityEl.value,
-                            receiver_address: shippingaddress1El.value + shippingaddress2El.value,
-                            is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
-                            is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
-                            order_commodity_original_amount: order_amount
+            let sections = document.querySelector(".dynamic-checkout__content");
+            console.log('window.onload')
+            function callback() {
+                let payif = document.getElementsByClassName('paypalLight')[0]
+                if (!payif) return
+                IframeOnClick.track(payif, function (e) {
+                    console.log('click payif')
+                    sessionStorage.setItem('sensorsCheckoutIf_use_express_paypal', '{"sensorsCheckoutIf_use_express_paypal":1}')
+                    let InformationOrderScdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
+                    let InformationOrderSendData = Object.assign(InformationOrderScdata, {
+                        order_commodity_quantity: quantity,
+                        receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
+                        receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
+                        receiver_country: shippingcountryEl.value,
+                        receiver_postcode: shippingzipEl.value,
+                        receiver_state: shippingprovinceEl.value,
+                        receiver_city: shippingcityEl.value,
+                        receiver_address: shippingaddress1El.value + shippingaddress2El.value,
+                        is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
+                        is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
+                        order_commodity_original_amount: order_amount
 
-                        })
-                        let ShippingOrderScdata = JSON.parse(ShippingOrder.getAttribute('data-scdata'))
-                        let CompleteOrderScdata = JSON.parse(CompleteOrder.getAttribute('data-scdata'))
-                        sensors.quick('isReady', function () {
-                            sensors.track('InformationOrder', paypalHandleSendData(InformationOrderSendData));
+                    })
+                    let ShippingOrderScdata = JSON.parse(ShippingOrder.getAttribute('data-scdata'))
+                    let CompleteOrderScdata = JSON.parse(CompleteOrder.getAttribute('data-scdata'))
+                    sensors.quick('isReady', function () {
+                        sensors.track('InformationOrder', paypalHandleSendData(InformationOrderSendData));
+                        for (let i = 0; i < line_items.length; i++) {
+                            let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
+                            sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
+                        }
+                        setTimeout(() => {
+                            sensors.track('ShippingOrder', paypalHandleSendData(ShippingOrderScdata));
                             for (let i = 0; i < line_items.length; i++) {
-                                let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
-                                sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
-                            }
-                            setTimeout(() => {
-                                sensors.track('ShippingOrder', paypalHandleSendData(ShippingOrderScdata));
-                                for (let i = 0; i < line_items.length; i++) {
-                                    let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
-                                    sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
-                                }
-                                console.log('ShippingOrder')
-                            }, 100)
-                            setTimeout(() => {
-                                sensors.track('CompleteOrder', paypalHandleSendData(CompleteOrderScdata));
-                                for (let i = 0; i < line_items.length; i++) {
-                                    let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
-                                    sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
-                                }
-                                console.log('CompleteOrder')
-                            }, 200)
-                            /* for (let i = 0; i < line_items.length; i++) {
-                                let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
-                                sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
                                 let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
                                 sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
+                            }
+                        }, 100)
+                        setTimeout(() => {
+                            sensors.track('CompleteOrder', paypalHandleSendData(CompleteOrderScdata));
+                            for (let i = 0; i < line_items.length; i++) {
                                 let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
                                 sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
-                            } */
-                        })
-                    });
-                }
-                callback();
-                const checkoutObserver = new MutationObserver(callback)
-                sections && checkoutObserver.observe(sections, { childList: true, subtree: true })
+                            }
+                        }, 200)
+                        /* for (let i = 0; i < line_items.length; i++) {
+														let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
+														sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
+														let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
+														sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
+														let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
+														sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
+												} */
+                    })
+                });
             }
+            callback();
+            const checkoutObserver = new MutationObserver(callback)
+            sections && checkoutObserver.observe(sections, { childList: true, subtree: true })
+        }
     }()
 </script>
 
