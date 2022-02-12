@@ -684,8 +684,6 @@
                 })
             }
             insertContinueBtn.onclick = function () {
-                debugger
-                setTimeout(console.log(11111),3000)
                 continueBtn.click()
             }
         }
@@ -869,26 +867,37 @@
                 sensors.track('ErrorInformation', {ErrorInformationList:ErrorInformationList});
             }
         }
+        function hideExpressCheckout () {
+            let shownEls =  document.querySelectorAll('.shown-if-js')
+            if(shownEls && shownEls.length > 0 ) {
+                for (var i = 0; i < shownEls.length; i++){
+                    if(shownEls[i].querySelector('.dynamic-checkout')){
+                        shownEls[i].style.display = 'none'
+                    }
+                }
+            }
+        }
         Checkout.$(document).on("page:load", function () {
             removeHref()
             sendError()
+            hideExpressCheckout()
             sensors.quick('isReady', function () {
                 let checkoutStep = localStorage.getItem('checkoutStep')
-                console.log('checkoutStep', checkoutStep)
+                console.warn('checkoutStep', checkoutStep)
                 let activeText = document.querySelector('.breadcrumb__item--current') && document.querySelector('.breadcrumb__item--current').innerText
                 if (activeText && activeText.indexOf('Information') > -1) {
                     actionCheckout()
-                    localStorage.setItem('checkoutStep', 'checkout');
-                    console.error('上报checkout')
+                    localStorage.setItem('checkoutStep', 'Information');
+                    console.warn('上报checkout')
                 } else if (activeText && activeText.indexOf( "Shipping") > -1) {
-                    if (checkoutStep !== 'checkout') {
+                    if (checkoutStep !== 'Information') {
                         /* 上报checkout*/
                         actionCheckout()
-                        console.error('上报checkout')
+                        console.warn('上报checkout')
                     }
                     /* 上报information*/
                     actionsInformationOrder()
-                    console.error('上报InformationOrder')
+                    console.warn('上报InformationOrder')
                     let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
                     if (bdoVal && bdoVal.indexOf("@") != -1) {
                         sensors.track('SubscribptionResult', {
@@ -902,17 +911,17 @@
                     if (checkoutStep !== 'Shipping') {
                         /* 上报checkout*/
                         actionCheckout()
-                        console.error('上报checkout')
+                        console.warn('上报checkout')
                         /* 上报information*/
                         actionsInformationOrder()
-                        console.error('上报InformationOrder')
+                        console.warn('上报InformationOrder')
                     }
                     /* 上报shipping */
                     actionsShippingOrder()
-                    console.error('上报ShippingOrder')
+                    console.warn('上报ShippingOrder')
                     actionsCompleteOrder()
                     localStorage.setItem('checkoutStep', 'Payment');
-                    console.error('按钮绑定CompleteOrder')
+                    console.warn('按钮绑定CompleteOrder')
                 }
                 if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1)  {
                     actionsPaySuccessOrder()
