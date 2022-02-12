@@ -525,15 +525,14 @@
         }
 				function handeleInfomationBtn (){
             let continueBtn = document.querySelector('#continue_button')
-						console.log(continueBtn)
-            let sensorsInformationOrder = {
-                is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
-                is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0
-						}
-            if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") !== -1) {
-                sensorsInformationOrder.receiver_email = shippingemailOrPhoneEl.value
-            }
             continueBtn.addEventListener('click',() => {
+                let sensorsInformationOrder = {
+                    is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
+                    is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0
+                }
+                if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") !== -1) {
+                    sensorsInformationOrder.receiver_email = shippingemailOrPhoneEl.value
+                }
                 localStorage.setItem('sensorsInformationOrder',JSON.stringify(sensorsInformationOrder));
             })
         }
@@ -542,6 +541,7 @@
                 container: "#InformationOrder",
                 type: "InformationOrder",
                 event: 'sync',
+                getSessionId: "sensorsInformationOrder",
                 customData: function (container, el) {
                     let newData = Object.assign(orderHandleSendData('order'))
                     return newData
@@ -568,7 +568,6 @@
                 container: "#ShippingOrder",
                 type: "ShippingOrder",
                 event: 'sync',
-		            debug:true,
                 customData: function (container) {
                     let newData = Object.assign(orderHandleSendData('order'))
                     return newData
@@ -642,7 +641,7 @@
                         let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
                         Array.from(paymentMethodInputs).map((item, index) => {
                             if (item.checked) {
-                                if (index === 0) {
+                                if(item.closest('.content-box__row').querySelector('img').getAttribute('alt') === 'PayPal'){
                                     scdata.payment_method = 'paypal'
                                     scdata.payment_type = 'paypal'
                                 } else {
@@ -652,7 +651,18 @@
                             }
                         })
                     } catch (error) {
-                        console.log('Can not find paymentMethodInputs')
+                        let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
+                        Array.from(paymentMethodInputs).map((item, index) => {
+                            if (item.checked) {
+                                if (index === 0) {
+                                    scdata.payment_method = 'paypal'
+                                    scdata.payment_type = 'paypal'
+                                } else {
+                                    scdata.payment_method = 'credit card'
+                                    scdata.payment_type = 'oceanpayment'
+                                }
+                            }
+                        })
                     }
                     try {
                         let billingAddressInputs = document.querySelector('.section--billing-address').querySelectorAll('input')
@@ -778,6 +788,10 @@
             sendData.order_commodity_quantity = quantity
             sendData.order_discount_amount = order_discount_amount
             if (type === 'order') {
+                let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
+                if (bdoVal && bdoVal.indexOf("@") !== -1) {
+                    sendData.receiver_email = bdoVal
+                }
                 sendData.bonus_amount = bonus_amount
                 sendData.coupon_amount = coupon_amount
                 sendData.if_use_coupon = if_use_coupon

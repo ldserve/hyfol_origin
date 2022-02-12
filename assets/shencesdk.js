@@ -196,8 +196,8 @@ window.getFormatDate = function getFormatDate() {
       this.debug && console.info("自定义追加数据", customData);
       Object.assign(data, customData)
       this.debug && console.info("追加数据");
-      if (this.getSessionId && sessionStorage.getItem(this.getSessionId)) {
-        let sessionData = JSON.parse(sessionStorage.getItem(this.getSessionId));
+      if (this.getSessionId && sessionStorage.getItem(this.getSessionId) || this.getSessionId && localStorage.getItem(this.getSessionId)) {
+        let sessionData = JSON.parse(sessionStorage.getItem(this.getSessionId)) || JSON.parse(localStorage.getItem(this.getSessionId));
         Object.assign(data, sessionData)
       } else if (this.getSessionId) {
         this.debug && console.info("session为空，清空所有数据");
