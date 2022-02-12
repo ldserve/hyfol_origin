@@ -158,8 +158,29 @@
 <!-- 根据上文步骤4， 修改product_id(default / product_id / sku) -->
 {% assign fa_product_id = 'default' %}
  
- 
-
+<!-- Pinterest 网站声明 -->
+<meta name="p:domain_verify" content="cbb185202f36b626478a123f1f821626"/>
+<!-- Pinterest Tag -->
+<script>
+!function(e){if(!window.pintrk){window.pintrk = function () {
+window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+  n=window.pintrk;n.queue=[],n.version="3.0";var
+  t=document.createElement("script");t.async=!0,t.src=e;var
+  r=document.getElementsByTagName("script")[0];
+  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+pintrk('load', '2614456934829', {em: '<user_email_address>'});
+pintrk('page');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt=""
+  src="https://ct.pinterest.com/v3/?event=init&tid=2614456934829&pd[em]=<hashed_email_address>&noscript=1" />
+</noscript>
+<script>
+pintrk('track', 'pagevisit', {
+property: 'Athleta'
+});
+</script>
+<!-- end Pinterest Tag -->
 <!-- 请勿修改以下内容 -->
 <!-- Global site tag (gtag.js) - Ads. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-319309832"></script>
@@ -169,6 +190,18 @@
   gtag('js', new Date());
   gtag('config', 'AW-319309832');
 </script>
+{% if template contains 'product' or template contains 'collection' or template contains 'index' or template contains 'search' %}
+<script>
+  gtag('event', 'page_view', {
+    'send_to': 'AW-319309832',
+    'ecomm_pagetype': '{% if template contains 'collection' %}category{% elsif template contains 'product' %}product{% elsif template contains 'search' %}searchresults{% elsif template contains 'index' %}home{% endif %}',
+    {% if template contains 'product' %}
+    'ecomm_prodid': 'shopify_US_{{ product.id }}_{{ product.variants.first.id }}',
+    'ecomm_totalvalue': '{{ product.price_min | money_without_currency | remove: ","}}',
+    {% endif %}
+  });
+</script>
+{% endif %}
 <!-- Global site tag (gtag.js) - Ads. -->
 {% if fa_prices_with_decimal_separator == true %}
   {% if template contains 'product' %}

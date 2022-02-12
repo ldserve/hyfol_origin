@@ -42,6 +42,11 @@ let addQuickView=new sadhus_shence({
    },
    callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
+       pintrk('track', 'addtocart', {
+value: 100,
+order_quantity: 1,
+currency: 'USD'
+});
      addQuickView.updateFn();
    }
 })
@@ -239,6 +244,11 @@ let addCart=new sadhus_shence({
    },
    callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
+       pintrk('track', 'addtocart', {
+value: 100,
+order_quantity: 1,
+currency: 'USD'
+});
      addCart.updateFn();
    }
 })
@@ -272,6 +282,11 @@ new sadhus_shence({
    },
    callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
+       pintrk('track', 'addtocart', {
+value: 100,
+order_quantity: 1,
+currency: 'USD'
+});
    }
 })
 
@@ -358,6 +373,11 @@ new sadhus_shence({
    },
    callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
+       pintrk('track', 'addtocart', {
+value: 100,
+order_quantity: 1,
+currency: 'USD'
+});
    }
 })
 

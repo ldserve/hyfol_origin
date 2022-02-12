@@ -1,3 +1,12 @@
+{% if first_time_accessed %}
+<!-- Event snippet for RL-Cart conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-319309832/2I9aCIf48eYCEIiQoZgB',
+      'transaction_id': ''
+  });
+</script>
+{% endif %}
 <form method="post" action="{{ routes.cart_url }}" id="mini-cart" class="mini-cart" aria-hidden="true"
   novalidate="novalidate" data-item-count="{{ cart.item_count }}">
   <input type="hidden" name="attributes[collection_products_per_page]" value="">
@@ -406,6 +415,11 @@
       newData.commodity_quantity = num
       sensors.track('AddToCart', newData);
       sensors.setProfile({last_addtocart_time:getFormatDate()})
+      pintrk('track', 'addtocart', {
+value: 100,
+order_quantity: 1,
+currency: 'USD'
+});
     } else {
       newData.commodity_quantity = -num
       sensors.track('RemoveFromCart', newData);
