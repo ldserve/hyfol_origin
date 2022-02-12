@@ -518,11 +518,25 @@
                     return newData
                 },
                 callback: () => {
+
                 }
             })
-
+           
         }
-
+				function handeleInfomationBtn (){
+            let continueBtn = document.querySelector('#continue_button')
+						console.log(continueBtn)
+            let sensorsInformationOrder = {
+                is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
+                is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0
+						}
+            if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") !== -1) {
+                sensorsInformationOrder.receiver_email = shippingemailOrPhoneEl.value
+            }
+            continueBtn.addEventListener('click',() => {
+                localStorage.setItem('sensorsInformationOrder',JSON.stringify(sensorsInformationOrder));
+            })
+        }
         function actionsInformationOrder() {
             new sadhus_shence({
                 container: "#InformationOrder",
@@ -551,9 +565,10 @@
 
         function actionsShippingOrder() {
             new sadhus_shence({
-                container: ".sc-checkout-data",
+                container: "#ShippingOrder",
                 type: "ShippingOrder",
                 event: 'sync',
+		            debug:true,
                 customData: function (container) {
                     let newData = Object.assign(orderHandleSendData('order'))
                     return newData
@@ -886,10 +901,13 @@
                 console.warn('checkoutStep', checkoutStep)
                 let activeText = document.querySelector('.breadcrumb__item--current') && document.querySelector('.breadcrumb__item--current').innerText
                 if (activeText && activeText.indexOf('Information') > -1) {
+                    handeleInfomationBtn()
+                    if(checkoutStep === 'Information') return
                     actionCheckout()
                     localStorage.setItem('checkoutStep', 'Information');
                     console.warn('上报checkout')
                 } else if (activeText && activeText.indexOf( "Shipping") > -1) {
+                    if (checkoutStep === 'Shipping') return
                     if (checkoutStep !== 'Information') {
                         /* 上报checkout*/
                         actionCheckout()
@@ -908,6 +926,11 @@
                     }
                     localStorage.setItem('checkoutStep', 'Shipping');
                 } else if (activeText && activeText.indexOf("Payment") > -1 ) {
+                    if(checkoutStep === 'Payment') {
+                        actionsCompleteOrder()
+                        console.warn('按钮绑定CompleteOrder')
+		                    return
+                    }
                     if (checkoutStep !== 'Shipping') {
                         /* 上报checkout*/
                         actionCheckout()
@@ -926,7 +949,7 @@
                 if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1)  {
                     actionsPaySuccessOrder()
                     /* 订单完成，初始化checkoutStep */
-                    localStorage.setItem('checkoutStep', 'checkout');
+                    localStorage.setItem('checkoutStep', 'Checkout');
                 }
                 /*注册成功代码*/
                 if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin + '/account/register') {/*从注册页面跳转进来*/
