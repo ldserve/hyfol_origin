@@ -426,7 +426,8 @@
         var ShippingOrderDetailEls = document.querySelectorAll('.ShippingOrderDetail');
         var CompleteOrderDetailEls = document.querySelectorAll('.CompleteOrderDetail');
         var PaySuccessOrderDetailEls = document.querySelectorAll('.PaySuccessOrderDetail');
-
+        /* 初始化一个空的sensorsInformationOrder 以防sadhus_shence删除数据 */
+        localStorage.setItem('sensorsInformationOrder',JSON.stringify({is_save_information:1,is_subscribe:1}));
         /*绑定iframe*/
         var IframeOnClick = {
             resolution: 200,
@@ -587,6 +588,8 @@
         }
 
         function actionsCompleteOrder() {
+            let btnList = document.querySelectorAll('.step__footer__continue-btn')
+		        if(btnList && btnList.length > 2) return
             let continueBtn = document.querySelector('.step__footer__continue-btn')
             continueBtn.style.display = 'none'
             let target = document.querySelector("#continue_button");
@@ -940,10 +943,31 @@
                     }
                     localStorage.setItem('checkoutStep', 'Shipping');
                 } else if (activeText && activeText.indexOf("Payment") > -1 ) {
+                    document.querySelector('body').addEventListener('click', () => {
+                        setTimeout(()=>{
+                            actionsCompleteOrder()
+		                        console.log(1)
+                        },8000)
+                    })
+                    // let paymentBody = document.querySelector(".main");
+                    // function paymentBodyCb (mutationsList, observer) {
+                    //     for(let mutation of mutationsList) {
+                    //         if (mutation.type === 'childList') {
+                    //             console.log(mutation)
+                    //             console.log('A child node has been added or removed.');
+                    //         }
+                    //         else if (mutation.type === 'attributes') {
+                    //             console.log('The ' + mutation.attributeName + ' attribute was modified.');
+                    //         }
+                    //     }
+                    //     actionsCompleteOrder()
+                    // }
+                    // const paymentBodyObserver = new MutationObserver(paymentBodyCb)
+                    // paymentBody && paymentBodyObserver.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
                     if(checkoutStep === 'Payment') {
                         actionsCompleteOrder()
                         console.warn('按钮绑定CompleteOrder')
-		                    return
+                        return
                     }
                     if (checkoutStep !== 'Shipping') {
                         /* 上报checkout*/
@@ -957,8 +981,8 @@
                     actionsShippingOrder()
                     console.warn('上报ShippingOrder')
                     actionsCompleteOrder()
-                    localStorage.setItem('checkoutStep', 'Payment');
                     console.warn('按钮绑定CompleteOrder')
+                    localStorage.setItem('checkoutStep', 'Payment');
                 }
                 if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1)  {
                     actionsPaySuccessOrder()
