@@ -588,9 +588,7 @@
         }
 
         function actionsCompleteOrder() {
-            let btnList = document.querySelectorAll('.step__footer__continue-btn')
-		        if(btnList && btnList.length > 2) return
-            let continueBtn = document.querySelector('.step__footer__continue-btn')
+            let continueBtn = document.querySelector('.shown-if-js .step__footer__continue-btn')
             continueBtn.style.display = 'none'
             let target = document.querySelector("#continue_button");
             let insertContinueBtn = document.createElement("div");
@@ -943,32 +941,18 @@
                     }
                     localStorage.setItem('checkoutStep', 'Shipping');
                 } else if (activeText && activeText.indexOf("Payment") > -1 ) {
-                    document.querySelector('body').addEventListener('click', () => {
-                        setTimeout(()=>{
-                            actionsCompleteOrder()
-		                        console.log(1)
-                        },8000)
-                    })
-                    // let paymentBody = document.querySelector(".main");
-                    // function paymentBodyCb (mutationsList, observer) {
-                    //     for(let mutation of mutationsList) {
-                    //         if (mutation.type === 'childList') {
-                    //             console.log(mutation)
-                    //             console.log('A child node has been added or removed.');
-                    //         }
-                    //         else if (mutation.type === 'attributes') {
-                    //             console.log('The ' + mutation.attributeName + ' attribute was modified.');
-                    //         }
-                    //     }
-                    //     actionsCompleteOrder()
-                    // }
-                    // const paymentBodyObserver = new MutationObserver(paymentBodyCb)
-                    // paymentBody && paymentBodyObserver.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
-                    if(checkoutStep === 'Payment') {
-                        actionsCompleteOrder()
-                        console.warn('按钮绑定CompleteOrder')
-                        return
+                    let paymentBody = document.querySelector(".main");
+                    function paymentBodyCb (mutationsList, observer) {
+                        if(mutationsList && mutationsList.length > 0 ){
+                            let btnList = document.querySelectorAll('.shown-if-js .step__footer__continue-btn')
+                            if(btnList && btnList.length < 2) {
+                                actionsCompleteOrder()
+                            }
+                        }
                     }
+                    const observer = new MutationObserver(paymentBodyCb)
+                    observer.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
+                    if (checkoutStep === 'Payment') return
                     if (checkoutStep !== 'Shipping') {
                         /* 上报checkout*/
                         actionCheckout()
