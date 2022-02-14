@@ -406,7 +406,6 @@
         var billingFirstNameEl = document.querySelector('#checkout_billing_address_first_name');
         var billingLastNameEl = document.querySelector('#checkout_billing_address_last_name');
         var billingPhoneEl = document.querySelector('#checkout_billing_address_phone');
-        var billingemailOrPhoneEl = document.querySelector('#checkout_email_or_phone');
         var billingcountryEl = document.querySelector('#checkout_billing_address_country');
         var billingzipEl = document.querySelector('#checkout_billing_address_zip');
         var billingprovinceEl = document.querySelector('#checkout_billing_address_province');
@@ -425,7 +424,6 @@
         var InformationOrderDetailEls = document.querySelectorAll('.InformationOrderDetail');
         var ShippingOrderDetailEls = document.querySelectorAll('.ShippingOrderDetail');
         var CompleteOrderDetailEls = document.querySelectorAll('.CompleteOrderDetail');
-        var PaySuccessOrderDetailEls = document.querySelectorAll('.PaySuccessOrderDetail');
         /* 初始化一个空的sensorsInformationOrder 以防sadhus_shence删除数据 */
         localStorage.setItem('sensorsInformationOrder',JSON.stringify({is_save_information:1,is_subscribe:1}));
         /*绑定iframe*/
@@ -452,7 +450,7 @@
                     var activeElement = document.activeElement;
                     for (var i in this.iframes) {
                         if (activeElement === this.iframes[i].element) {
-                            if (this.iframes[i].hasTracked == false) {
+                            if (this.iframes[i].hasTracked === false) {
                                 this.iframes[i].cb.apply(window, []);
                                 this.iframes[i].hasTracked = true;
                             }
@@ -588,14 +586,11 @@
         }
 
         function actionsCompleteOrder() {
-            let btnList = document.querySelectorAll('.step__footer__continue-btn')
-		        if(btnList && btnList.length > 2) return
-            let continueBtn = document.querySelector('.step__footer__continue-btn')
+            let continueBtn = document.querySelector('.shown-if-js .step__footer__continue-btn')
             continueBtn.style.display = 'none'
             let target = document.querySelector("#continue_button");
             let insertContinueBtn = document.createElement("div");
-            let _classList = continueBtn.classList.value
-            insertContinueBtn.classList = _classList
+            insertContinueBtn.classList = continueBtn.classList.value
             insertContinueBtn.innerHTML = continueBtn.innerHTML
             insertContinueBtn.style.float = 'right'
             insertContinueBtn.setAttribute('data-scenable', '1')
@@ -943,31 +938,18 @@
                     }
                     localStorage.setItem('checkoutStep', 'Shipping');
                 } else if (activeText && activeText.indexOf("Payment") > -1 ) {
-                    document.querySelector('body').addEventListener('click', () => {
-                        setTimeout(()=>{
-                            actionsCompleteOrder()
-                        },8000)
-                    })
-                    // let paymentBody = document.querySelector(".main");
-                    // function paymentBodyCb (mutationsList, observer) {
-                    //     for(let mutation of mutationsList) {
-                    //         if (mutation.type === 'childList') {
-                    //             console.log(mutation)
-                    //             console.log('A child node has been added or removed.');
-                    //         }
-                    //         else if (mutation.type === 'attributes') {
-                    //             console.log('The ' + mutation.attributeName + ' attribute was modified.');
-                    //         }
-                    //     }
-                    //     actionsCompleteOrder()
-                    // }
-                    // const paymentBodyObserver = new MutationObserver(paymentBodyCb)
-                    // paymentBody && paymentBodyObserver.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
-                    if(checkoutStep === 'Payment') {
-                        actionsCompleteOrder()
-                        console.warn('按钮绑定CompleteOrder')
-                        return
+                    let paymentBody = document.querySelector(".main");
+                    function paymentBodyCb (mutationsList, observer) {
+                        if(mutationsList && mutationsList.length > 0 ){
+                            let btnList = document.querySelectorAll('.shown-if-js .step__footer__continue-btn')
+                            if(btnList && btnList.length < 2) {
+                                actionsCompleteOrder()
+                            }
+                        }
                     }
+                    const observer = new MutationObserver(paymentBodyCb)
+                    observer.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
+                    if (checkoutStep === 'Payment') return
                     if (checkoutStep !== 'Shipping') {
                         /* 上报checkout*/
                         actionCheckout()
@@ -1014,12 +996,10 @@
         });
         window.onload = function () {
             let sections = document.querySelector(".dynamic-checkout__content");
-            console.log('window.onload')
             function callback() {
                 let payif = document.getElementsByClassName('paypalLight')[0]
                 if (!payif) return
                 IframeOnClick.track(payif, function (e) {
-                    console.log('click payif')
                     sessionStorage.setItem('sensorsCheckoutIf_use_express_paypal', '{"sensorsCheckoutIf_use_express_paypal":1}')
                     let InformationOrderScdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
                     let InformationOrderSendData = Object.assign(InformationOrderScdata, {
@@ -1036,8 +1016,8 @@
                         order_commodity_original_amount: order_amount
 
                     })
-                    let ShippingOrderScdata = JSON.parse(ShippingOrder.getAttribute('data-scdata'))
-                    let CompleteOrderScdata = JSON.parse(CompleteOrder.getAttribute('data-scdata'))
+                    let ShippingOrderScdata = JSON.parse(ShippingOrderEl.getAttribute('data-scdata'))
+                    let CompleteOrderScdata = JSON.parse(CompleteOrderEl.getAttribute('data-scdata'))
                     sensors.quick('isReady', function () {
                         sensors.track('InformationOrder', paypalHandleSendData(InformationOrderSendData));
                         for (let i = 0; i < line_items.length; i++) {
