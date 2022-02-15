@@ -514,10 +514,10 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC_-2_06_6d45602b-2c97-480e-a4a0-160557beb14c.jpg",
-        "sensorsName": "clearance",
+        "sensorsName": "Bottoms",
         "web_image": "shopify:\/\/shop_images\/M_-2.0_07_36ca6d20-126d-45ff-bede-e01e59ba9838.jpg",
-        "link": "shopify:\/\/collections\/clearance-sale-hyfol",
-        "collection": "clearance-sale-hyfol",
+        "link": "shopify:\/\/collections\/bottoms-12-13",
+        "collection": "bottoms-12-13",
         "title": "",
         "products_count": 4,
         "layout": "vertical",
@@ -525,7 +525,7 @@
         "show_quick_buy": false,
         "link_title": "",
         "link_bg": "rgba(0,0,0,0)",
-        "link_url": "shopify:\/\/collections\/all"
+        "link_url": "shopify:\/\/collections\/bottoms-12-13"
       }
     },
     "163703402842074b11": {
@@ -534,8 +534,8 @@
         "image": "shopify:\/\/shop_images\/PC_-2_08_63a32756-c2e6-4520-9fd0-f5144422581f.jpg",
         "sensorsName": "your go-to on and off job",
         "web_image": "shopify:\/\/shop_images\/M_-2.0_09_7e261561-9515-44b0-b54a-42dbb10e1cae.jpg",
-        "link": "shopify:\/\/collections\/hoodies-1",
-        "collection": "hoodies-1",
+        "link": "shopify:\/\/collections\/clearance-sale-hyfol",
+        "collection": "clearance-sale-hyfol",
         "title": "",
         "products_count": 12,
         "layout": "vertical",
@@ -543,7 +543,7 @@
         "show_quick_buy": true,
         "link_title": "",
         "link_bg": "",
-        "link_url": ""
+        "link_url": "shopify:\/\/collections\/clearance-sale-hyfol"
       }
     },
     "16417996780d2036fa": {
@@ -663,11 +663,11 @@
     "1644909300ae8809ce": {
       "type": "slide-product",
       "settings": {
-        "sensorsName": "",
+        "sensorsName": "Women",
         "desk_image": "shopify:\/\/shop_images\/M_-2.0_13_97ceafd1-f4d3-4bbf-b49f-4d22a72268db.jpg",
         "web_image": "shopify:\/\/shop_images\/M_-2.0_13_e7bcd299-1cd5-4654-adea-1abad8e9b223.jpg",
-        "link": "",
-        "collection": "",
+        "link": "shopify:\/\/collections\/women",
+        "collection": "women",
         "products_count": 12,
         "show_quick_buy": false,
         "background": "#f0f0f0",
@@ -676,7 +676,7 @@
         "title_color": "#ffffff",
         "text_color": "#ffffff",
         "button_text": "SHOP NOW",
-        "button_link": "",
+        "button_link": "shopify:\/\/collections\/women",
         "button_text_color": "#0774d7",
         "button_background": "#ffffff"
       }
