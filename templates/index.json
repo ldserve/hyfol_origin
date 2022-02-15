@@ -17,8 +17,8 @@
           "type": "image",
           "settings": {
             "sensorsName": "up to 20% off",
-            "image": "shopify:\/\/shop_images\/PC_-2_02.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/M_-2.0_02_4ec915a7-880b-4a99-bc70-70c1d1b462f5.jpg",
+            "image": "shopify:\/\/shop_images\/PC_-2_02_0733944e-f6e0-4be3-8538-82a2aa3df983.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/M_-2.0_02_5605ab31-eb5c-4619-a0f7-76b55445ca5c.jpg",
             "show_overlay": false,
             "overlay_opacity": 0,
             "text_color": "#ffffff",
@@ -107,8 +107,8 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "10% 3pieces 20% 4pieces",
-        "bg_image": "shopify:\/\/shop_images\/PC__03_9846fd6d-6983-4abc-a0eb-f6f45da4d850.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_04_24083110-478f-43ca-bd5e-4908614e6c61.jpg",
+        "bg_image": "shopify:\/\/shop_images\/PC_-2_03_b8a8fd37-d2fa-426b-b3c4-d76974a71eaf.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_03_6be52e45-9c9d-4ab7-9ccb-ce87532cb572.jpg",
         "link": "https:\/\/www.hyfol.com\/collections\/hot-sale",
         "shadow": false
       }
@@ -254,7 +254,7 @@
         "sensorsName": "PC分类导流区",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/PC__04_640102a1-fe48-47bc-9a80-4fb4d378999e.jpg",
+        "image": "shopify:\/\/shop_images\/PC_-2_04_6faac9c1-267a-4100-81ac-da2244b853be.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -443,7 +443,7 @@
         "sensorsName": "移动分类导流区",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_05_2.jpg",
+        "image": "shopify:\/\/shop_images\/M_-2.0_04_ebac42ae-77a7-4f37-bef9-89885835c260.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -487,7 +487,7 @@
         "sensorsName": "移动导流区single&couple",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_06_29b469a4-4b01-480a-b6f0-a56a71741c28.jpg",
+        "image": "shopify:\/\/shop_images\/M_-2.0_05_e90739c2-38a3-457c-9852-7edc6e732d0c.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -497,9 +497,9 @@
     "1639375466adf92990": {
       "type": "featured-collection-img",
       "settings": {
-        "image": "shopify:\/\/shop_images\/1_f4f39d84-04cd-4fc3-a60d-4daa0d7f26db.jpg",
+        "image": "shopify:\/\/shop_images\/PC_-2_06_6d45602b-2c97-480e-a4a0-160557beb14c.jpg",
         "sensorsName": "clearance",
-        "web_image": "shopify:\/\/shop_images\/1_09_b8dca9b3-c3fc-431a-9df0-7825bbbc4e18.jpg",
+        "web_image": "shopify:\/\/shop_images\/M_-2.0_07_36ca6d20-126d-45ff-bede-e01e59ba9838.jpg",
         "link": "shopify:\/\/collections\/clearance-sale-hyfol",
         "collection": "clearance-sale-hyfol",
         "title": "",
@@ -510,6 +510,24 @@
         "link_title": "",
         "link_bg": "rgba(0,0,0,0)",
         "link_url": "shopify:\/\/collections\/all"
+      }
+    },
+    "163703402842074b11": {
+      "type": "featured-collection-img",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/PC_-2_08_63a32756-c2e6-4520-9fd0-f5144422581f.jpg",
+        "sensorsName": "your go-to on and off job",
+        "web_image": "shopify:\/\/shop_images\/M_-2.0_09_7e261561-9515-44b0-b54a-42dbb10e1cae.jpg",
+        "link": "shopify:\/\/collections\/hoodies-1",
+        "collection": "hoodies-1",
+        "title": "",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "",
+        "link_bg": "",
+        "link_url": ""
       }
     },
     "16417996780d2036fa": {
@@ -562,7 +580,7 @@
         "sensorsName": "PC导流区active",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/2_d53044f0-a0ee-4cf4-9694-0cbb3b4d12e2.jpg",
+        "image": "shopify:\/\/shop_images\/PC_-2_10_a8b1ed20-ab6e-4f1e-87fb-51c4e9a8d8db.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -619,173 +637,37 @@
         "sensorsName": "移动导流区active",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/1_11_d20a8576-e6e6-4831-b252-f44bf88b8950.jpg",
+        "image": "shopify:\/\/shop_images\/M_-2.0_11_3e19d4fe-fbad-4f00-9fa9-e7b95646438e.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
         "lpadding": 0
       }
     },
-    "163703402842074b11": {
-      "type": "featured-collection-img",
+    "1644909300ae8809ce": {
+      "type": "slide-product",
       "settings": {
-        "image": "shopify:\/\/shop_images\/PC__09_2cc15532-c857-471c-bfa5-685b269362d1.jpg",
-        "sensorsName": "your go-to on and off job",
-        "web_image": "shopify:\/\/shop_images\/1_13.jpg",
-        "link": "shopify:\/\/collections\/hoodies-1",
-        "collection": "hoodies-1",
-        "title": "",
+        "sensorsName": "",
+        "desk_image": "shopify:\/\/shop_images\/M_-2.0_13_97ceafd1-f4d3-4bbf-b49f-4d22a72268db.jpg",
+        "web_image": "shopify:\/\/shop_images\/M_-2.0_13_e7bcd299-1cd5-4654-adea-1abad8e9b223.jpg",
+        "link": "",
+        "collection": "",
         "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_bg": "",
-        "link_url": ""
-      }
-    },
-    "164180148203ce3894": {
-      "type": "linkImg",
-      "blocks": {
-        "606223a3-b2ab-4a9b-bba5-d59d81d9d002": {
-          "type": "link",
-          "settings": {
-            "heading": "lover",
-            "sensorsLinkName": "lover",
-            "link": "shopify:\/\/collections\/jewelry",
-            "left": 0,
-            "top": 0,
-            "width": 100,
-            "height": 59
-          }
-        },
-        "9eb8fdf9-9293-4587-8e23-d38e3dc12577": {
-          "type": "link",
-          "settings": {
-            "heading": "noble",
-            "sensorsLinkName": "noble",
-            "link": "shopify:\/\/collections\/noble",
-            "left": 2,
-            "top": 63,
-            "width": 31,
-            "height": 36
-          }
-        },
-        "c53cb299-0dd1-4ae1-b616-3daeee6b9195": {
-          "type": "link",
-          "settings": {
-            "heading": "cost",
-            "sensorsLinkName": "cost",
-            "link": "shopify:\/\/collections\/cost-effecitve",
-            "left": 35,
-            "top": 63,
-            "width": 31,
-            "height": 36
-          }
-        },
-        "18920e4c-dfa1-49b7-9bb9-d9a4d1446681": {
-          "type": "link",
-          "settings": {
-            "heading": "luxury",
-            "sensorsLinkName": "luxury",
-            "link": "shopify:\/\/collections\/925-sterling-silver",
-            "left": 67,
-            "top": 63,
-            "width": 31,
-            "height": 36
-          }
-        }
-      },
-      "block_order": [
-        "606223a3-b2ab-4a9b-bba5-d59d81d9d002",
-        "9eb8fdf9-9293-4587-8e23-d38e3dc12577",
-        "c53cb299-0dd1-4ae1-b616-3daeee6b9195",
-        "18920e4c-dfa1-49b7-9bb9-d9a4d1446681"
-      ],
-      "settings": {
-        "hidDesk": false,
-        "sensorsName": "PC GIFTS FOR YOUR LOVER",
-        "hidWeb": true,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/PC__11_b383200e-5808-4812-9d96-039aacc07636.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
-      }
-    },
-    "1641804617fc9f876b": {
-      "type": "linkImg",
-      "blocks": {
-        "cdd74f51-6721-4190-be05-46877245957f": {
-          "type": "link",
-          "settings": {
-            "heading": "lover",
-            "sensorsLinkName": "lover",
-            "link": "shopify:\/\/collections\/jewelry",
-            "left": 0,
-            "top": 0,
-            "width": 100,
-            "height": 80
-          }
-        },
-        "0109fc3f-3045-4f3e-ae36-5b208519b7ac": {
-          "type": "link",
-          "settings": {
-            "heading": "noble",
-            "sensorsLinkName": "noble",
-            "link": "shopify:\/\/collections\/noble",
-            "left": 4,
-            "top": 81,
-            "width": 30,
-            "height": 19
-          }
-        },
-        "a2f02011-1077-43e2-9ec9-7350cdf8fc03": {
-          "type": "link",
-          "settings": {
-            "heading": "cost",
-            "sensorsLinkName": "cost",
-            "link": "shopify:\/\/collections\/cost-effecitve",
-            "left": 36,
-            "top": 81,
-            "width": 30,
-            "height": 19
-          }
-        },
-        "1b1ad281-13c4-43e6-9129-4993d6f74954": {
-          "type": "link",
-          "settings": {
-            "heading": "luxury",
-            "sensorsLinkName": "luxury",
-            "link": "shopify:\/\/collections\/925-sterling-silver",
-            "left": 67,
-            "top": 81,
-            "width": 30,
-            "height": 19
-          }
-        }
-      },
-      "block_order": [
-        "cdd74f51-6721-4190-be05-46877245957f",
-        "0109fc3f-3045-4f3e-ae36-5b208519b7ac",
-        "a2f02011-1077-43e2-9ec9-7350cdf8fc03",
-        "1b1ad281-13c4-43e6-9129-4993d6f74954"
-      ],
-      "settings": {
-        "hidDesk": true,
-        "sensorsName": "移动 GIFTS FOR YOUR LOVER",
-        "hidWeb": false,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_12.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
+        "show_quick_buy": false,
+        "background": "#f0f0f0",
+        "title": "HYFOL WOMEN",
+        "content": "Tell more about your product, Tell more about your product，Tell more about your product，Tell more about your product",
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "button_text": "SHOP NOW",
+        "button_link": "",
+        "button_text_color": "#0774d7",
+        "button_background": "#ffffff"
       }
     },
     "164179738814931472": {
       "type": "featured-collection-img",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/PC__13.jpg",
         "sensorsName": "SELL 1 PIECE EVERY MINUTE",
@@ -806,8 +688,8 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "ESSENTIAL SERIES",
-        "bg_image": "shopify:\/\/shop_images\/PC__15.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/1_19.jpg",
+        "bg_image": "shopify:\/\/shop_images\/PC_-2_12_591734ac-1fce-4b9d-92a2-7fab8e84b447.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_15_2742dd73-722b-4901-8777-bd69cd512996.jpg",
         "link": "shopify:\/\/collections\/essential",
         "shadow": false
       }
@@ -995,11 +877,10 @@
     "16357602965b96c401",
     "16418022421fb24728",
     "1639375466adf92990",
+    "163703402842074b11",
     "16417996780d2036fa",
     "1641802708ee6e5203",
-    "163703402842074b11",
-    "164180148203ce3894",
-    "1641804617fc9f876b",
+    "1644909300ae8809ce",
     "164179738814931472",
     "1639378018bdd37462",
     "1640334828c8a975c8",
