@@ -28,7 +28,7 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "button_text": "",
-            "link": "https:\/\/www.hyfol.com\/collections\/hot-sale"
+            "link": "shopify:\/\/collections\/new-in"
           }
         },
         "slide-1": {
@@ -214,6 +214,7 @@
         },
         "e06a92ee-b22e-40dd-a9b5-f18e23e34cea": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "heading": "single",
             "sensorsLinkName": "single",
@@ -226,6 +227,7 @@
         },
         "7e12e4ba-e10b-4c47-8796-82bf63a0d4d6": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "heading": "couple",
             "sensorsLinkName": "couple",
@@ -234,6 +236,19 @@
             "top": 47,
             "width": 51,
             "height": 53
+          }
+        },
+        "5ff30606-105e-4121-ab2a-cbf9aa871d8c": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "heading": "(´థ౪థ）σ",
+            "sensorsLinkName": "",
+            "link": "",
+            "left": 0,
+            "top": 0,
+            "width": 10,
+            "height": 10
           }
         }
       },
@@ -247,7 +262,8 @@
         "ec7c2a21-4ae6-4a65-bfa4-3ca59f901994",
         "bfb10946-ebb1-4c51-8782-46643aa327fc",
         "e06a92ee-b22e-40dd-a9b5-f18e23e34cea",
-        "7e12e4ba-e10b-4c47-8796-82bf63a0d4d6"
+        "7e12e4ba-e10b-4c47-8796-82bf63a0d4d6",
+        "5ff30606-105e-4121-ab2a-cbf9aa871d8c"
       ],
       "settings": {
         "hidDesk": false,
