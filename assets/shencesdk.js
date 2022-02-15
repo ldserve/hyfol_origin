@@ -70,17 +70,26 @@ sensors.register({
 sensors.quick('autoTrack');
 sensors.use('PageLeave');
 window.getFormatDate = function getFormatDate() {
-  let date = new Date
-  let timestamp = date.getTime()
-  timestamp = timestamp + 8 * 60 * 60
-  date = new Date(parseInt(timestamp))
-  let Y = date.getFullYear();
-  let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-  let D = date.getDate() < 10 ? ('0' + date.getDate()) : date.getDate();
-  let h = date.getHours() < 10 ? ('0' + date.getHours()) : date.getHours();
-  let m = date.getMinutes() < 10 ? ('0' + date.getMinutes()) : date.getMinutes();
-  let s = date.getSeconds() < 10 ? ('0' + date.getSeconds()) : date.getSeconds();
-  return Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
+    //获得当前运行环境时间
+    let d = new Date();
+    let currentDate = new Date();
+    let tmpHours = currentDate.getHours();
+    //算得时区
+    let time_zone = -d.getTimezoneOffset() / 60;
+    if (time_zone < 0) {
+        time_zone = Math.abs(time_zone) + 8;
+        currentDate.setHours(tmpHours + time_zone);
+    } else {
+        time_zone -= 8;
+        currentDate.setHours(tmpHours - time_zone);
+    }
+    let Y = currentDate.getFullYear();
+    let M = (currentDate.getMonth() + 1 < 10 ? '0' + (currentDate.getMonth() + 1) : currentDate.getMonth() + 1);
+    let D = currentDate.getDate() < 10 ? ('0' + currentDate.getDate()) : currentDate.getDate();
+    let h = currentDate.getHours() < 10 ? ('0' + currentDate.getHours()) : currentDate.getHours();
+    let m = currentDate.getMinutes() < 10 ? ('0' + currentDate.getMinutes()) : currentDate.getMinutes();
+    let s = currentDate.getSeconds() < 10 ? ('0' + currentDate.getSeconds()) : currentDate.getSeconds();
+    return Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
 }
 /*
  *@Version  v5.0
