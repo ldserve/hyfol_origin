@@ -471,6 +471,7 @@
       "blocks": {
         "cd035335-e00b-42b6-aaab-cd397285f735": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "heading": "single",
             "sensorsLinkName": "single",
@@ -483,6 +484,7 @@
         },
         "a99cbd6c-a54e-4aad-949c-1fbe03544d8d": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "heading": "couple",
             "sensorsLinkName": "couple",
@@ -500,7 +502,7 @@
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "移动导流区single&couple",
+        "sensorsName": "HAWAII",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/M_-2.0_05_e90739c2-38a3-457c-9852-7edc6e732d0c.jpg",
