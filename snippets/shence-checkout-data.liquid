@@ -62,7 +62,7 @@
             "bonus_name": "{{ bonus_name }}",
             "bonus_amount": "{{ bonus_amount }}",
             "shipping_type":"{{ checkout.shipping_method.title }}",
-            "receiver_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "receiver_name":"{{ checkout.shipping_address.first_name }} {{ checkout.shipping_address.last_name }}",
             "receiver_phone":"{{ checkout.shipping_address.phone }}",
             "receiver_country":"{{ checkout.shipping_address.country }}",
             "receiver_state":"{{ checkout.shipping_address.province }}",
@@ -98,7 +98,7 @@
             "bonus_name": "{{ bonus_name }}",
             "bonus_amount": "{{ bonus_amount }}",
             "shipping_type":"{{ checkout.shipping_method.title }}",
-            "receiver_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "receiver_name":"{{ checkout.shipping_address.first_name }} {{ checkout.shipping_address.last_name }}",
             "receiver_phone":"{{ checkout.shipping_address.phone }}",
             "receiver_country":"{{ checkout.shipping_address.country }}",
             "receiver_state":"{{ checkout.shipping_address.province }}",
@@ -134,7 +134,7 @@
             "bonus_name": "{{ bonus_name }}",
             "bonus_amount": "{{ bonus_amount }}",
             "shipping_type":"{{ checkout.shipping_method.title }}",
-            "receiver_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "receiver_name":"{{ checkout.shipping_address.first_name }} {{ checkout.shipping_address.last_name }}",
             "receiver_phone":"{{ checkout.shipping_address.phone }}",
             "receiver_country":"{{ checkout.shipping_address.country }}",
             "receiver_state":"{{ checkout.shipping_address.province }}",
@@ -142,7 +142,7 @@
             "receiver_postcode":"{{ checkout.shipping_address.zip }}",
             "receiver_address":"{{ checkout.shipping_address.address1 }}{{ checkout.shipping_address.address2 }}",
             "billing_address_type":"same as shipping address",
-            "billing_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "billing_name":"{{ checkout.shipping_address.first_name }} {{ checkout.shipping_address.last_name }}",
             "billing_phone":"{{ checkout.shipping_address.phone }}",
             "billing_country":"{{ checkout.shipping_address.country }}",
             "billing_postcode":"{{ checkout.shipping_address.zip }}",
@@ -173,7 +173,7 @@
             "bonus_name": "{{ bonus_name }}",
             "bonus_amount": "{{ bonus_amount }}",
             "shipping_type":"{{ checkout.shipping_method.title }}",
-            "receiver_name":"{{ checkout.shipping_address.first_name }}{{ checkout.shipping_address.last_name }}",
+            "receiver_name":"{{ checkout.shipping_address.first_name }} {{ checkout.shipping_address.last_name }}",
             "receiver_phone":"{{ checkout.shipping_address.phone }}",
             "receiver_country":"{{ checkout.shipping_address.country }}",
             "receiver_state":"{{ checkout.shipping_address.province }}",
@@ -181,7 +181,7 @@
             "receiver_postcode":"{{ checkout.shipping_address.zip }}",
             "receiver_address":"{{ checkout.shipping_address.address1 }}{{ checkout.shipping_address.address2 }}",
             "billing_address_type":"same as shipping address",
-            "billing_name":"{{ checkout.billing_address.first_name }}{{ checkout.billing_address.last_name }}",
+            "billing_name":"{{ checkout.billing_address.first_name }} {{ checkout.billing_address.last_name }}",
             "billing_phone":"{{ checkout.billing_address.phone }}",
             "billing_country":"{{ checkout.billing_address.country }}",
             "billing_postcode":"{{ checkout.billing_address.zip }}",
@@ -668,7 +668,7 @@
                             if (item.checked) {
                                 if (index !== 0) {
                                     scdata.billing_address_type = "Use a different billing address",
-                                    scdata.billing_name = billingFirstNameEl.value + billingLastNameEl.value
+                                    scdata.billing_name = billingFirstNameEl.value + ' ' + billingLastNameEl.value
                                     scdata.billing_phone = billingPhoneEl.value
                                     scdata.billing_country = billingcountryEl.value
                                     scdata.billing_postcode = billingzipEl.value
@@ -1004,7 +1004,7 @@
                     let InformationOrderScdata = JSON.parse(InformationOrderEl.getAttribute('data-scdata'))
                     let InformationOrderSendData = Object.assign(InformationOrderScdata, {
                         order_commodity_quantity: quantity,
-                        receiver_name: shippingFirstNameEl.value + shippingLastNameEl.value,
+                        receiver_name: shippingFirstNameEl.value + ' ' + shippingLastNameEl.value,
                         receiver_phone: shippingPhoneEl && shippingPhoneEl.value,
                         receiver_country: shippingcountryEl.value,
                         receiver_postcode: shippingzipEl.value,
