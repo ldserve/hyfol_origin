@@ -472,9 +472,9 @@
         "cd035335-e00b-42b6-aaab-cd397285f735": {
           "type": "link",
           "settings": {
-            "heading": "hawaii",
-            "sensorsLinkName": "Hawaii",
-            "link": "shopify:\/\/collections\/hawaiian-style",
+            "heading": "hawall",
+            "sensorsLinkName": "single",
+            "link": "shopify:\/\/collections\/mens",
             "left": 0,
             "top": 8,
             "width": 100,
@@ -692,7 +692,7 @@
       "settings": {
         "sensorsName": "ESSENTIAL SERIES",
         "bg_image": "shopify:\/\/shop_images\/PC_-2_12_591734ac-1fce-4b9d-92a2-7fab8e84b447.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_15_2742dd73-722b-4901-8777-bd69cd512996.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_15_08740ada-eb8f-42e4-8baa-f822b94efe25.jpg",
         "link": "shopify:\/\/collections\/essential",
         "shadow": false
       }
