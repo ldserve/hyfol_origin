@@ -472,9 +472,9 @@
         "cd035335-e00b-42b6-aaab-cd397285f735": {
           "type": "link",
           "settings": {
-            "heading": "hawall",
-            "sensorsLinkName": "single",
-            "link": "shopify:\/\/collections\/mens",
+            "heading": "hawaii",
+            "sensorsLinkName": "Hawaii",
+            "link": "shopify:\/\/collections\/hawaiian-style",
             "left": 0,
             "top": 8,
             "width": 100,
@@ -487,7 +487,7 @@
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "移动导流区single&couple",
+        "sensorsName": "Hawaii",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/M_-2.0_05_e90739c2-38a3-457c-9852-7edc6e732d0c.jpg",
@@ -519,7 +519,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC_-2_08_63a32756-c2e6-4520-9fd0-f5144422581f.jpg",
-        "sensorsName": "your go-to on and off job",
+        "sensorsName": "CLearance",
         "web_image": "shopify:\/\/shop_images\/M_-2.0_09_7e261561-9515-44b0-b54a-42dbb10e1cae.jpg",
         "link": "shopify:\/\/collections\/clearance-sale-hyfol",
         "collection": "clearance-sale-hyfol",
