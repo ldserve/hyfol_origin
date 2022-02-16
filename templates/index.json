@@ -461,9 +461,9 @@
             "sensorsLinkName": "Hawaii",
             "link": "shopify:\/\/collections\/hawaiian-style",
             "left": 0,
-            "top": 8,
+            "top": 1,
             "width": 100,
-            "height": 92
+            "height": 100
           }
         }
       },
@@ -475,7 +475,7 @@
         "sensorsName": "Hawaii",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_05_e90739c2-38a3-457c-9852-7edc6e732d0c.jpg",
+        "image": "shopify:\/\/shop_images\/saint-patrick.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
