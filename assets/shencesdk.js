@@ -45,19 +45,6 @@ function getDevice_type() {
     device_type = "mobile";
   }
 }
-function getSiteCategory(){
-  try {
-    let al = document.querySelectorAll('ol a')
-    let str = ''
-    Array.from(al).map(i => {
-      str = str + i.innerText + ';'
-    })
-    return str
-  } catch (error) {
-    console.log('没找到面包屑元素ol')
-  }
-  
-}
 getDevice_type();
 sensors.register({
   platform_type: "web",
@@ -69,6 +56,19 @@ sensors.register({
 });
 sensors.quick('autoTrack');
 sensors.use('PageLeave');
+function getSiteCategory(){
+    try {
+        let al = document.querySelectorAll('ol a')
+        let str = ''
+        Array.from(al).map(i => {
+            str = str + i.innerText + ';'
+        })
+        return str
+    } catch (error) {
+        console.log('没找到面包屑元素ol')
+    }
+
+}
 window.getFormatDate = function getFormatDate() {
     //获得当前运行环境时间
     let d = new Date();
