@@ -46,6 +46,7 @@
 			<div class="featured-collection_content">
 				<div class="cjj_scroller" id="cjj_scroller">
 					<div class="product-list" style="left: 0">
+						{%- assign collection = section.settings.collection -%}
 						{%- unless collection == blank -%}
 							{%- for product in collection.products limit: section.settings.products_count -%}
 								<div class="list-item">

@@ -214,14 +214,13 @@
         },
         "e06a92ee-b22e-40dd-a9b5-f18e23e34cea": {
           "type": "link",
-          "disabled": true,
           "settings": {
-            "heading": "single",
-            "sensorsLinkName": "single",
-            "link": "shopify:\/\/collections\/mens",
+            "heading": "Hawaii",
+            "sensorsLinkName": "Hawaii",
+            "link": "shopify:\/\/collections\/hawaiian-style",
             "left": 0,
             "top": 47,
-            "width": 50,
+            "width": 100,
             "height": 53
           }
         },
@@ -237,19 +236,6 @@
             "width": 51,
             "height": 53
           }
-        },
-        "5ff30606-105e-4121-ab2a-cbf9aa871d8c": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "heading": "(´థ౪థ）σ",
-            "sensorsLinkName": "",
-            "link": "",
-            "left": 0,
-            "top": 0,
-            "width": 10,
-            "height": 10
-          }
         }
       },
       "block_order": [
@@ -262,15 +248,14 @@
         "ec7c2a21-4ae6-4a65-bfa4-3ca59f901994",
         "bfb10946-ebb1-4c51-8782-46643aa327fc",
         "e06a92ee-b22e-40dd-a9b5-f18e23e34cea",
-        "7e12e4ba-e10b-4c47-8796-82bf63a0d4d6",
-        "5ff30606-105e-4121-ab2a-cbf9aa871d8c"
+        "7e12e4ba-e10b-4c47-8796-82bf63a0d4d6"
       ],
       "settings": {
         "hidDesk": false,
         "sensorsName": "PC分类导流区",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/PC_-2_04_6faac9c1-267a-4100-81ac-da2244b853be.jpg",
+        "image": "shopify:\/\/shop_images\/PC_-2_04_5362e93a-f172-4173-b1b6-78a22634a8e5.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -472,13 +457,13 @@
         "cd035335-e00b-42b6-aaab-cd397285f735": {
           "type": "link",
           "settings": {
-            "heading": "hawall",
-            "sensorsLinkName": "single",
-            "link": "shopify:\/\/collections\/mens",
+            "heading": "hawaii",
+            "sensorsLinkName": "Hawaii",
+            "link": "shopify:\/\/collections\/hawaiian-style",
             "left": 0,
-            "top": 8,
+            "top": 1,
             "width": 100,
-            "height": 92
+            "height": 100
           }
         }
       },
@@ -487,10 +472,10 @@
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "移动导流区single&couple",
+        "sensorsName": "Hawaii",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_05_e90739c2-38a3-457c-9852-7edc6e732d0c.jpg",
+        "image": "shopify:\/\/shop_images\/saint-patrick.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -519,7 +504,7 @@
       "type": "featured-collection-img",
       "settings": {
         "image": "shopify:\/\/shop_images\/PC_-2_08_63a32756-c2e6-4520-9fd0-f5144422581f.jpg",
-        "sensorsName": "your go-to on and off job",
+        "sensorsName": "CLearance",
         "web_image": "shopify:\/\/shop_images\/M_-2.0_09_7e261561-9515-44b0-b54a-42dbb10e1cae.jpg",
         "link": "shopify:\/\/collections\/clearance-sale-hyfol",
         "collection": "clearance-sale-hyfol",
