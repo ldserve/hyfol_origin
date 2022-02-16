@@ -907,7 +907,7 @@
         Checkout.$(document).on("page:load", function () {
             removeHref()
             sendError()
-            hideExpressCheckout()
+            /* hideExpressCheckout() */
             sensors.quick('isReady', function () {
                 let checkoutStep = localStorage.getItem('checkoutStep')
                 console.warn('checkoutStep', checkoutStep)
