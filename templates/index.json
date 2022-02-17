@@ -28,7 +28,7 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "button_text": "",
-            "link": "shopify:\/\/collections\/new-in"
+            "link": "shopify:\/\/collections\/hawaiian-style"
           }
         },
         "slide-1": {
@@ -215,7 +215,7 @@
         "e06a92ee-b22e-40dd-a9b5-f18e23e34cea": {
           "type": "link",
           "settings": {
-            "heading": "Hawaii",
+            "heading": "saint patrick",
             "sensorsLinkName": "saint patrick",
             "link": "shopify:\/\/collections\/saint-patrick",
             "left": 0,
