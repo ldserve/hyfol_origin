@@ -42,11 +42,8 @@ let addQuickView=new sadhus_shence({
    },
    callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
-       pintrk('track', 'addtocart', {
-value: 100,
-order_quantity: 1,
-currency: 'USD'
-});
+       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
+      pintrk("track","addtocart",{value:100,order_quantity:1,currency:"USD"});
      addQuickView.updateFn();
    }
 })
@@ -244,11 +241,8 @@ let addCart=new sadhus_shence({
    },
    callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
-       pintrk('track', 'addtocart', {
-value: 100,
-order_quantity: 1,
-currency: 'USD'
-});
+       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
+      pintrk("track","addtocart",{value:100,order_quantity:1,currency:"USD"});
      addCart.updateFn();
    }
 })
@@ -282,11 +276,8 @@ new sadhus_shence({
    },
    callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
-       pintrk('track', 'addtocart', {
-value: 100,
-order_quantity: 1,
-currency: 'USD'
-});
+       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
+      pintrk("track","addtocart",{value:100,order_quantity:1,currency:"USD"});
    }
 })
 
@@ -373,11 +364,8 @@ new sadhus_shence({
    },
    callback:function(){
        sensors.setProfile({last_addtocart_time:getFormatDate()})
-       pintrk('track', 'addtocart', {
-value: 100,
-order_quantity: 1,
-currency: 'USD'
-});
+       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
+      pintrk("track","addtocart",{value:100,order_quantity:1,currency:"USD"});
    }
 })
 
