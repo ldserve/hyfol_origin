@@ -681,7 +681,9 @@
                         console.log('Can not find billingAddressInputs')
                     }
                     newData = Object.assign(scdata, orderHandleSendData('order'))
-                    localStorage.setItem('sensorsPaySuccessOrder', JSON.stringify(newData))
+                    let sendJavaNewData = paypalHandleSendData(scdata, orderHandleSendData('order'))
+                    sendJavaNewData.if_use_express_paypal = 0
+                    localStorage.setItem('sensorsPaySuccessOrder', JSON.stringify(sendJavaNewData))
                     return newData
                 },
                 callback: () => {
@@ -698,7 +700,9 @@
                     customData: function (container) {
                         let scdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
                         let newData = orderHandleSendData('detailOrder', scdata)
-                        CompleteOrderDetailArr.push(newData)
+		                    let sendJavaNewData = paypalHandleSendData(scdata,'detailOrder')
+                        sendJavaNewData.if_use_express_paypal = 0
+                        CompleteOrderDetailArr.push(sendJavaNewData)
                         return newData
                     },
                     callback: () => {
@@ -712,7 +716,7 @@
                                 paySuccessData: PaySuccessOrder,
                                 paySuccessDetailDataList: CompleteOrderDetailArr,
                                 profileIncrementData: {
-                                    cumulative_payment: Number((PaySuccessOrder.order_actual_amount / 100).toFixed(2)),
+                                    cumulative_payment: PaySuccessOrder.order_actual_amount,
                                     cumulative_order: 1
                                 },
                                 profileSetData: {
@@ -729,56 +733,8 @@
                                     first_order_time: getFormatDate()
                                 }
                             }
-                            if (sendData.original_price || sendData.original_price == '') {
-                                sendData.original_price = Number((sendData.original_price / 100).toFixed(2));
-                            }
-                            if (sendData.current_price || sendData.current_price == '') {
-                                sendData.current_price = Number((sendData.current_price / 100).toFixed(2));
-                            }
-                            if (sendData.discount_price) {
-                                sendData.discount_price = Number((sendData.discount_price / 100).toFixed(2));
-                            }
-                            if (sendData.bonus_amount) {
-                                sendData.bonus_amount = Number((sendData.bonus_amount / 100).toFixed(2));
-                            }
-                            if (sendData.order_amount) {
-                                sendData.order_amount = Number((sendData.order_amount / 100).toFixed(2));
-                            }
-                            if (sendData.order_commodity_original_amount) {
-                                sendData.order_commodity_original_amount = Number((sendData.order_commodity_original_amount / 100).toFixed(2));
-                            }
-                            if (sendData.order_logistics_fee) {
-                                sendData.order_logistics_fee = Number((sendData.order_logistics_fee / 100).toFixed(2));
-                            }
-                            if (sendData.order_discount_amount) {
-                                sendData.order_discount_amount = Number((sendData.order_discount_amount / 100).toFixed(2));
-                            }
-                            if (sendData.order_actual_amount) {
-                                sendData.order_actual_amount = Number((sendData.order_actual_amount / 100).toFixed(2));
-                            }
-                            if (sendData.discount_amount) {
-                                sendData.discount_amount = Number((sendData.discount_amount / 100).toFixed(2));
-                            }
-                            if (sendData.tip_amount) {
-                                sendData.tip_amount = Number((sendData.tip_amount / 100).toFixed(2));
-                            }
-                            if (sendData.coupon_amount) {
-                                sendData.coupon_amount = Number((sendData.coupon_amount / 100).toFixed(2));
-                            }
-                            if (sendData.commodity_name) {
-                                sendData.commodity_name = sendData.commodity_name.replaceAll('-', ' ');
-                            }
-                            if (sendData.commodity_spuid) {
-                                sendData.commodity_spuid = sendData.commodity_spuid.toLocaleUpperCase()
-                            }
-                            if (sendData.compliment_commodities && sendData.compliment_commodities.length > 0) {
-                                sendData.compliment_commodities.forEach(i => {
-                                    i = i.toLocaleUpperCase()
-                                })
-                            }
-                            console.log(sendData)
                             postData('https://api.leandow-technology.com//api/sensorsAnalytics/reportPaySuccessOrder', sendData)
-		                        console.log(1)
+                            alert(JSON.stringify(sendData))
                             continueBtn.click()
                         }
                     }
@@ -880,7 +836,7 @@
         function paypalHandleSendData(sendData, type) {
             sendData.if_use_express_paypal = 1
             if (type !== 'detailOrder') {
-                if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
+                if (shippingemailOrPhoneEl && shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
                     sendData.receiver_email = sendData.value
                 }
                 sendData.bonus_amount = bonus_amount
@@ -889,8 +845,8 @@
                 sendData.coupon_code = coupon_code
                 sendData.coupon_name = coupon_name
             } else {
-                sendData.compliment_commodities = compliment_commodities,
-                    sendData.order_commodity_quantity = quantity
+                sendData.compliment_commodities = compliment_commodities
+		            sendData.order_commodity_quantity = quantity
                 sendData.discount_price = (sendData.discount_price * 1) / (sendData.commodity_quantity * 1)
             }
             sendData.order_commodity_original_amount = order_amount
@@ -1059,6 +1015,7 @@
                             last_name: sessionStorage.getItem("Second_name")
                         });/*更新用户表名字*/
                         sessionStorage.setItem("sensorsRegisterButtonClick", false);
+                        sensors.login("{{checkout.customer.id}}")
                         sensors.track('RegisterResult', {
                             register_email: sessionStorage.getItem("sensorsRegisterResultRegister_email"),
                             First_name: sessionStorage.getItem("First_name"),
