@@ -681,7 +681,7 @@
                         console.log('Can not find billingAddressInputs')
                     }
                     newData = Object.assign(scdata, orderHandleSendData('order'))
-                    let sendJavaOrderNewData = paypalHandleSendData(scdata, orderHandleSendData('order'))
+                    let sendJavaOrderNewData = paypalHandleSendData(JSON.parse(JSON.stringify(scdata)), orderHandleSendData('order'))
                     sendJavaOrderNewData.if_use_express_paypal = 0
                     localStorage.setItem('sensorsPaySuccessOrder', JSON.stringify(sendJavaOrderNewData))
                     return newData
@@ -718,7 +718,7 @@
                     customData: function (container) {
                         let scdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
                         let newData = orderHandleSendData('detailOrder', scdata)
-                        let sendJavaDetailNewData = paypalHandleSendData(scdata,'detailOrder')
+                        let sendJavaDetailNewData = paypalHandleSendData(JSON.parse(JSON.stringify(scdata)),'detailOrder')
                         sendJavaDetailNewData.if_use_express_paypal = 0
                         CompleteOrderDetailArr.push(Object.assign(sendJavaDetailNewData,properties))
                         return newData
@@ -726,7 +726,6 @@
                     callback: () => {
                         CompleteOrderDetail.updateFn();
                         if( i === (line_items.length - 1)) {
-                            console.error(i)
                             let PaySuccessOrder = JSON.parse(localStorage.getItem('sensorsPaySuccessOrder'))
                             let sendData = {
                                 distinctId: properties._distinct_id,
@@ -735,7 +734,7 @@
                                 isLogin:!!"{{checkout.customer.id}}",
                                 paySuccessDetailDataList: CompleteOrderDetailArr,
                                 profileIncrementData: {
-                                    cumulative_payment: PaySuccessOrder.order_actual_amount,
+                                    cumulative_payment: Number((PaySuccessOrder.order_actual_amount).toFixed(2)),
                                     cumulative_order: 1
                                 },
                                 profileSetData: {
@@ -756,9 +755,8 @@
                                 anonymousId: sensors.quick('getAnonymousID'),
                                 registerId: "{{checkout.customer.id}}"
                             })
-                            postData('https://api-dev.leandow-technology.com/api/api/sensorsAnalytics/reportPaySuccessOrder', sendData)
-                            alert(JSON.stringify(sendData))
-                           /* continueBtn.click()*/
+                            postData('https://api-dev.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData)
+                            continueBtn.click()
                         }
                     }
                 })
@@ -837,7 +835,7 @@
             let ua = navigator.userAgent.toLowerCase();
             let re =/(msie|firefox|chrome|opera|version).*?([\d.]+)/;
             let m = ua.match(re);
-            Sys.browser = m[1].replace(/version/, "'safari");
+            Sys.browser = m[1].replace(/version/, "safari");
             Sys.ver = m[2];
             return Sys;
         }
@@ -970,9 +968,7 @@
             removeHref()
             sendError()
             /* hideExpressCheckout() */
-            console.log(1111,CompleteOrderDetailEls)
             sensors.quick('isReady', function () {
-                console.log(CompleteOrderDetailEls)
                 let checkoutStep = localStorage.getItem('checkoutStep')
                 console.warn('checkoutStep', checkoutStep)
                 let activeText = document.querySelector('.breadcrumb__item--current') && document.querySelector('.breadcrumb__item--current').innerText
@@ -1007,7 +1003,6 @@
                     if(mutationsList && mutationsList.length > 0 ){
                         let btnList = document.querySelectorAll('.shown-if-js .step__footer__continue-btn')
                         if(btnList && btnList.length < 2) {
-                            console.log(btnList.length)
                             actionsCompleteOrder()
                         }
                     }
