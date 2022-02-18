@@ -1,3 +1,4 @@
+<script src="{{ 'request.js' | asset_url }}"></script>
 <script type="text/javascript">
 window.fbAsyncInit = function() {
 	FB.init({
@@ -57,7 +58,11 @@ sensors.quick('isReady',function(){
 					sensors.setOnceProfile({ signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email") });/*更新用户表注册邮箱*/
 					sensors.setProfile({ first_name: sessionStorage.getItem("First_name"), last_name: sessionStorage.getItem("Second_name")});/*更新用户表姓名*/
 					sessionStorage.setItem("sensorsRegisterButtonClick", false);
-                    sensors.login("{{customer.id}}")
+          sensors.login("{{customer.id}}")
+          postData('https://api.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
+              anonymousId: sensors.quick('getAnonymousID'),
+              registerId: "{{customer.id}}"
+          })
 					sensors.track('RegisterResult',{
 						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
 						First_name:sessionStorage.getItem("First_name"),
@@ -98,7 +103,11 @@ sensors.quick('isReady',function(){
 				if (isLogin && (sessionStorage.getItem("sensorsLoginButtonClick") == 'true')) {
 					sensors.setProfile({ latest_signup_time: getFormatDate() });/* 更新用户表最近一次登录时间 */
 					sessionStorage.setItem("sensorsLoginButtonClick", false);
-                    sensors.login("{{customer.id}}")
+          sensors.login("{{customer.id}}")
+          postData('https://api.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
+              anonymousId: sensors.quick('getAnonymousID'),
+              registerId: "{{customer.id}}"
+          })
 					sensors.track('loginResult',{
 						register_email:sessionStorage.getItem("sensorsRegisterResultRegister_email"),
 						is_success:1,

@@ -30,6 +30,7 @@
         customer_id: "{{ customer.id }}"
     };
 </script>
+<script src="{{ 'request.js' | asset_url }}"></script>
 <div class="sc-checkout-data"
      data-scenable="1"
      data-sctype="Checkout"
@@ -388,7 +389,7 @@
 				"site_category":"{{ line_item.product.collections | handleize }}",
 			{% endcomment %}
 		</div>
-	{% endfor %}
+{% endfor %}
 </div>
 <script>
     !function () {
@@ -520,9 +521,9 @@
 
                 }
             })
-           
+
         }
-				function handeleInfomationBtn (){
+        function handeleInfomationBtn (){
             let continueBtn = document.querySelector('#continue_button')
             continueBtn.addEventListener('click',() => {
                 let sensorsInformationOrder = {
@@ -555,9 +556,6 @@
                     let scdata = JSON.parse(el.getAttribute('data-scdata'))
                     let newData = orderHandleSendData('detailOrder', scdata)
                     return newData
-                },
-                callback: () => {
-
                 }
             })
         }
@@ -668,7 +666,7 @@
                             if (item.checked) {
                                 if (index !== 0) {
                                     scdata.billing_address_type = "Use a different billing address",
-                                    scdata.billing_name = billingFirstNameEl.value + ' ' + billingLastNameEl.value
+                                        scdata.billing_name = billingFirstNameEl.value + ' ' + billingLastNameEl.value
                                     scdata.billing_phone = billingPhoneEl.value
                                     scdata.billing_country = billingcountryEl.value
                                     scdata.billing_postcode = billingzipEl.value
@@ -683,14 +681,35 @@
                         console.log('Can not find billingAddressInputs')
                     }
                     newData = Object.assign(scdata, orderHandleSendData('order'))
-                    localStorage.setItem('sensorsPaySuccessOrder', JSON.stringify(newData))
+                    let sendJavaOrderNewData = paypalHandleSendData(JSON.parse(JSON.stringify(scdata)), orderHandleSendData('order'))
+                    sendJavaOrderNewData.if_use_express_paypal = 0
+                    localStorage.setItem('sensorsPaySuccessOrder', JSON.stringify(sendJavaOrderNewData))
                     return newData
                 },
                 callback: () => {
                     CompleteOrder.updateFn();
                 }
             })
-            for (let i = 0; i < line_items.length; i++) {
+            let CompleteOrderDetailArr = []
+            let webObj = getBrowserInfo()
+/*              $manufacturer	字符串	设备制造商
+            $model	字符串	设备型号
+            $os	字符串	操作系统
+            $os_version	字符串	操作系统版本*/
+            let properties = sensors.getPresetProperties()
+        /*   var md = new MobileDetect(window.navigator.userAgent);*/
+            /*console.log(md)*/
+            properties.$browser = webObj.browser
+            properties.$browser_version = webObj.ver
+/*              properties.$manufacturer = md.vendor
+            properties.$model = md.model()
+            properties.$os = md.os()
+            properties.$os_version = md.version('Webkit')*/
+            properties.$title = undefined
+            properties.$url = undefined
+            properties.$url_path = undefined
+            console.log(properties)
+            for (let i = 0; i < CompleteOrderDetailEls.length; i++) {
                 let CompleteOrderDetail = new sadhus_shence({
                     container: ".step__footer",
                     type: "CompleteOrderDetail",
@@ -699,15 +718,48 @@
                     customData: function (container) {
                         let scdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
                         let newData = orderHandleSendData('detailOrder', scdata)
+                        let sendJavaDetailNewData = paypalHandleSendData(JSON.parse(JSON.stringify(scdata)),'detailOrder')
+                        sendJavaDetailNewData.if_use_express_paypal = 0
+                        CompleteOrderDetailArr.push(Object.assign(sendJavaDetailNewData,properties))
                         return newData
                     },
                     callback: () => {
                         CompleteOrderDetail.updateFn();
+                        if( i === (line_items.length - 1)) {
+                            let PaySuccessOrder = JSON.parse(localStorage.getItem('sensorsPaySuccessOrder'))
+                            let sendData = {
+                                distinctId: properties._distinct_id,
+                                checkoutId: PaySuccessOrder.checkout_id,
+                                paySuccessData: Object.assign(PaySuccessOrder,properties),
+                                isLogin:!!"{{checkout.customer.id}}",
+                                paySuccessDetailDataList: CompleteOrderDetailArr,
+                                profileIncrementData: {
+                                    cumulative_payment: Number((PaySuccessOrder.order_actual_amount).toFixed(2)),
+                                    cumulative_order: 1
+                                },
+                                profileSetData: {
+                                    receiver_country: PaySuccessOrder.receiver_country,
+                                    receiver_state: PaySuccessOrder.receiver_state,
+                                    receiver_city: PaySuccessOrder.receiver_city,
+                                    receiver_address: PaySuccessOrder.receiver_address,
+                                    receiver_postcode: PaySuccessOrder.receiver_postcode,
+                                    phone_number: PaySuccessOrder.receiver_phone,
+                                    last_order_time: getFormatDate(),
+                                    last_coupon_time: PaySuccessOrder.if_use_coupon ? getFormatDate() : undefined
+                                },
+                                profileSetOnceData: {
+                                    first_order_time: getFormatDate()
+                                }
+                            }
+                            postData('https://api-dev.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
+                                anonymousId: sensors.quick('getAnonymousID'),
+                                registerId: "{{checkout.customer.id}}"
+                            })
+                            postData('https://api-dev.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData)
+                            continueBtn.click()
+                        }
                     }
                 })
-            }
-            insertContinueBtn.onclick = function () {
-                continueBtn.click()
             }
         }
 
@@ -778,7 +830,15 @@
                 }
             })
         }
-
+        function getBrowserInfo(){
+            let Sys = {};
+            let ua = navigator.userAgent.toLowerCase();
+            let re =/(msie|firefox|chrome|opera|version).*?([\d.]+)/;
+            let m = ua.match(re);
+            Sys.browser = m[1].replace(/version/, "safari");
+            Sys.ver = m[2];
+            return Sys;
+        }
         function orderHandleSendData(type, sendData) {
             sendData = sendData ? sendData : {}
             sendData.order_commodity_original_amount = order_amount
@@ -805,7 +865,7 @@
         function paypalHandleSendData(sendData, type) {
             sendData.if_use_express_paypal = 1
             if (type !== 'detailOrder') {
-                if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
+                if (shippingemailOrPhoneEl && shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
                     sendData.receiver_email = sendData.value
                 }
                 sendData.bonus_amount = bonus_amount
@@ -814,8 +874,8 @@
                 sendData.coupon_code = coupon_code
                 sendData.coupon_name = coupon_name
             } else {
-                sendData.compliment_commodities = compliment_commodities,
-                    sendData.order_commodity_quantity = quantity
+                sendData.compliment_commodities = compliment_commodities
+                sendData.order_commodity_quantity = quantity
                 sendData.discount_price = (sendData.discount_price * 1) / (sendData.commodity_quantity * 1)
             }
             sendData.order_commodity_original_amount = order_amount
@@ -938,18 +998,18 @@
                     }
                     localStorage.setItem('checkoutStep', 'Shipping');
                 } else if (activeText && activeText.indexOf("Payment") > -1 ) {
-                    let paymentBody = document.querySelector(".main");
-                    function paymentBodyCb (mutationsList, observer) {
-                        if(mutationsList && mutationsList.length > 0 ){
-                            let btnList = document.querySelectorAll('.shown-if-js .step__footer__continue-btn')
-                            if(btnList && btnList.length < 2) {
-                                actionsCompleteOrder()
-                            }
+                let paymentBody = document.querySelector(".main");
+                function paymentBodyCb (mutationsList, observer) {
+                    if(mutationsList && mutationsList.length > 0 ){
+                        let btnList = document.querySelectorAll('.shown-if-js .step__footer__continue-btn')
+                        if(btnList && btnList.length < 2) {
+                            actionsCompleteOrder()
                         }
                     }
-                    const observer = new MutationObserver(paymentBodyCb)
-                    observer.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
-                    if (checkoutStep === 'Payment') return
+                }
+                const observer = new MutationObserver(paymentBodyCb)
+                observer.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
+                if (checkoutStep === 'Payment') return
                     if (checkoutStep !== 'Shipping') {
                         /* 上报checkout*/
                         actionCheckout()
@@ -965,25 +1025,26 @@
                     console.warn('按钮绑定CompleteOrder')
                     localStorage.setItem('checkoutStep', 'Payment');
                 }
-                if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1)  {
-                    actionsPaySuccessOrder()
-                    /* 订单完成，初始化checkoutStep */
-                    localStorage.setItem('checkoutStep', 'Checkout');
-                }
+                /*if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1)  {
+										actionsPaySuccessOrder()
+										/!* 订单完成，初始化checkoutStep *!/
+										localStorage.setItem('checkoutStep', 'Checkout');
+								}*/
                 /*注册成功代码*/
-                if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url == location.origin + '/account/register') {/*从注册页面跳转进来*/
+                if (window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url === location.origin + '/account/register' || window.SensorsDataWebJSSDKPlugin.PageLeave.current_page_url ===  location.origin + '/challenge') {/*从注册页面跳转进来*/
                     if (Number({{ customer.id }})) {
                         var isLogin = true;
                     } else {
                         var isLogin = false;
                     }
-                    if (isLogin && (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true')) {
+                    if (isLogin && (sessionStorage.getItem("sensorsRegisterButtonClick") == 'true' || sessionStorage.setItem("sensorsLoginButtonClick" == 'true'))) {
                         sensors.setOnceProfile({signup_email: sessionStorage.getItem("sensorsRegisterResultRegister_email")});/*更新用户表注册邮箱*/
                         sensors.setProfile({
                             first_name: sessionStorage.getItem("First_name"),
                             last_name: sessionStorage.getItem("Second_name")
                         });/*更新用户表名字*/
                         sessionStorage.setItem("sensorsRegisterButtonClick", false);
+                        sensors.login("{{checkout.customer.id}}")
                         sensors.track('RegisterResult', {
                             register_email: sessionStorage.getItem("sensorsRegisterResultRegister_email"),
                             First_name: sessionStorage.getItem("First_name"),
@@ -1055,4 +1116,6 @@
         }
     }()
 </script>
+
+
 
