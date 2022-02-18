@@ -751,11 +751,11 @@
                                     first_order_time: getFormatDate()
                                 }
                             }
-                            postData('https://api-dev.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
+                            postData('https://api.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
                                 anonymousId: sensors.quick('getAnonymousID'),
                                 registerId: "{{checkout.customer.id}}"
                             })
-                            postData('https://api-dev.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData)
+                            postData('https://api.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData)
                             continueBtn.click()
                         }
                     }
