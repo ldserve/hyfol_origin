@@ -48,7 +48,9 @@ function ajax_method(url,data,method,success) {
             // ajax.responseText;
 
             // 如果说 外面可以传入一个 function 作为参数 success
-            success(ajax.responseText);
+            if(success){
+                success(ajax.responseText);
+            }
         }
     }
 
