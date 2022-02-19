@@ -23,7 +23,7 @@
   /* 正式环境地址 */
   server_url: 'https://data.ld-bdp.com/sa?project=production',
   /* 测试环境地址 */
-  /*server_url: 'https://data.ld-bdp.com/sa?project=default',*/
+  /*server_url: 'https://data.ld-bdp.com/sa?project=default', */
   send_type: 'beacon',
   show_log: false,
   heatmap: {

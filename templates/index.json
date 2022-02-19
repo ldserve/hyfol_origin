@@ -212,29 +212,16 @@
             "height": 13
           }
         },
-        "e06a92ee-b22e-40dd-a9b5-f18e23e34cea": {
+        "be5b130b-4a11-4f9c-96ce-ea49ff060bf6": {
           "type": "link",
           "settings": {
-            "heading": "saint patrick",
-            "sensorsLinkName": "saint patrick",
-            "link": "shopify:\/\/collections\/saint-patrick",
+            "heading": "saint",
+            "sensorsLinkName": "saint",
+            "link": "shopify:\/\/collections\/hot-sale-hawaiian-shirts-shorts-for-men",
             "left": 0,
             "top": 47,
             "width": 100,
-            "height": 53
-          }
-        },
-        "7e12e4ba-e10b-4c47-8796-82bf63a0d4d6": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "heading": "couple",
-            "sensorsLinkName": "couple",
-            "link": "shopify:\/\/collections\/couple-match",
-            "left": 50,
-            "top": 47,
-            "width": 51,
-            "height": 53
+            "height": 52
           }
         }
       },
@@ -247,8 +234,7 @@
         "4138a4eb-9261-42d2-82d3-87bea0d3f10c",
         "ec7c2a21-4ae6-4a65-bfa4-3ca59f901994",
         "bfb10946-ebb1-4c51-8782-46643aa327fc",
-        "e06a92ee-b22e-40dd-a9b5-f18e23e34cea",
-        "7e12e4ba-e10b-4c47-8796-82bf63a0d4d6"
+        "be5b130b-4a11-4f9c-96ce-ea49ff060bf6"
       ],
       "settings": {
         "hidDesk": false,
