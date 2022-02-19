@@ -755,8 +755,10 @@
                                 anonymousId: sensors.quick('getAnonymousID'),
                                 registerId: "{{checkout.customer.id}}"
                             },'post')
-                            ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
-                            continueBtn.click()
+                          	ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
+														setTimeout(()=>{
+                              continueBtn.click()
+														},1000)
                         }
                     }
                 })
