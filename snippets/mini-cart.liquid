@@ -414,7 +414,7 @@
       sensors.track('AddToCart', newData);
       sensors.setProfile({last_addtocart_time:getFormatDate()})
       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
-      pintrk("track","addtocart",{value:100,order_quantity:1,currency:"USD"});
+      pintrk("track","addtocart",{value:newData.current_price,order_quantity:newData.commodity_quantity,currency:"USD"});
     } else {
       newData.commodity_quantity = -num
       sensors.track('RemoveFromCart', newData);
