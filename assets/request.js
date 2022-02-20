@@ -30,24 +30,13 @@ function ajax_method(url,data,method,success) {
             // 如果有值 从send发送
             ajax.send(JSON.stringify(data));
         }else{
-            // 木有值 直接发送即可
             ajax.send();
         }
     }
 
     // 注册事件
     ajax.onreadystatechange = function () {
-        // 在事件中 获取数据 并修改界面显示
         if (ajax.readyState===4&&ajax.status===200) {
-            // console.log(ajax.responseText);
-
-            // 将 数据 让 外面可以使用
-            // return ajax.responseText;
-
-            // 当 onreadystatechange 调用时 说明 数据回来了
-            // ajax.responseText;
-
-            // 如果说 外面可以传入一个 function 作为参数 success
             if(success){
                 success(ajax.responseText);
             }
