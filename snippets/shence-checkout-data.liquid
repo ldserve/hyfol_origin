@@ -756,14 +756,16 @@
                     first_order_time: getFormatDate()
                 }
             }
-            ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
-                anonymousId: sensors.quick('getAnonymousID'),
-                registerId: "{{checkout.customer.id}}"
-            },'post')
-            ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
-            insertContinueBtn.addEventListener('click', function (event) {
-                continueBtn.click()
-            }, false)
+            insertContinueBtn.addEventListener('click', throttle(function (event) {
+                ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
+                    anonymousId: sensors.quick('getAnonymousID'),
+                    registerId: "{{checkout.customer.id}}"
+                },'post')
+                ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
+                setTimeout(()=>{
+                    continueBtn.click()
+                },1000)
+            }, 100))
         }
 
         function actionsPaySuccessOrder() {
