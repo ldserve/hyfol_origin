@@ -39,7 +39,7 @@ let addQuickView=new sadhus_shence({
       }
       newData.commodity_skuid=id
       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
-      pintrk("track","addtocart",{value:data.current_price,order_quantity:+value,currency:"USD"});
+      pintrk("track","addtocart",{value:data.current_price,order_quantity:+value,currency:"USD",line_items:[{product_id:id}]});
      return newData  /*返回值必须为{}*/
    },
    callback:function(){
@@ -238,7 +238,7 @@ let addCart=new sadhus_shence({
       newData.commodity_skuid=id
       newData.site_category = getSiteCategory()
       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
-      pintrk("track","addtocart",{value:data.current_price,order_quantity:+value,currency:"USD"});
+      pintrk("track","addtocart",{value:data.current_price,order_quantity:+value,currency:"USD",line_items:[{product_id:id}]});
      return newData  /*返回值必须为{}*/
    },
    callback:function(){
@@ -273,7 +273,7 @@ new sadhus_shence({
       newData.commodity_tag=data.commodity_tag.split(',')
       newData.site_category = getSiteCategory()
       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
-      pintrk("track","addtocart",{value:data.current_price,order_quantity:1,currency:"USD"});
+      pintrk("track","addtocart",{value:data.current_price,order_quantity:1,currency:"USD",line_items:[{product_id:data.commodity_spuid}]});
       return newData  /*返回值必须为{}*/
    },
    callback:function(){
@@ -361,7 +361,7 @@ new sadhus_shence({
       newData.commodity_tag=data.commodity_tag.split(',')
       newData.site_category = getSiteCategory()
       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
-      pintrk("track","addtocart",{value:data.current_price,order_quantity:1,currency:"USD"});
+      pintrk("track","addtocart",{value:data.current_price,order_quantity:1,currency:"USD",line_items:[{product_id:data.commodity_spuid}]});
       return newData  /*返回值必须为{}*/
    },
    callback:function(){
