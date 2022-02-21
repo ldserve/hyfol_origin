@@ -389,7 +389,7 @@
 				"site_category":"{{ line_item.product.collections | handleize }}",
 			{% endcomment %}
 		</div>
-{% endfor %}
+	{% endfor %}
 </div>
 <script>
     !function () {
@@ -690,6 +690,25 @@
                     CompleteOrder.updateFn();
                 }
             })
+            let CompleteOrderDetailArr = []
+            let webObj = getBrowserInfo()
+            /*              $manufacturer	字符串	设备制造商
+												$model	字符串	设备型号
+												$os	字符串	操作系统
+												$os_version	字符串	操作系统版本*/
+            let properties = sensors.getPresetProperties()
+            /*   var md = new MobileDetect(window.navigator.userAgent);*/
+            /*console.log(md)*/
+            properties.$browser = webObj.browser
+            properties.$browser_version = webObj.ver
+            /*              properties.$manufacturer = md.vendor
+												properties.$model = md.model()
+												properties.$os = md.os()
+												properties.$os_version = md.version('Webkit')*/
+            properties.$title = undefined
+            properties.$url = undefined
+            properties.$url_path = undefined
+            console.log(properties)
             for (let i = 0; i < CompleteOrderDetailEls.length; i++) {
                 let CompleteOrderDetail = new sadhus_shence({
                     container: ".step__footer",
@@ -699,73 +718,51 @@
                     customData: function (container) {
                         let scdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
                         let newData = orderHandleSendData('detailOrder', scdata)
+                        let sendJavaDetailNewData = paypalHandleSendData(JSON.parse(JSON.stringify(scdata)),'detailOrder')
+                        sendJavaDetailNewData.if_use_express_paypal = 0
+                        CompleteOrderDetailArr.push(Object.assign(sendJavaDetailNewData,properties))
                         return newData
                     },
                     callback: () => {
                         CompleteOrderDetail.updateFn();
+                        if( i === (line_items.length - 1)) {
+                            let PaySuccessOrder = JSON.parse(localStorage.getItem('sensorsPaySuccessOrder'))
+                            let sendData = {
+                                distinctId: properties._distinct_id,
+                                checkoutId: PaySuccessOrder.checkout_id,
+                                paySuccessData: Object.assign(PaySuccessOrder,properties),
+                                isLogin:!!"{{checkout.customer.id}}",
+                                paySuccessDetailDataList: CompleteOrderDetailArr,
+                                profileIncrementData: {
+                                    cumulative_payment: Number((PaySuccessOrder.order_actual_amount).toFixed(2)),
+                                    cumulative_order: 1
+                                },
+                                profileSetData: {
+                                    receiver_country: PaySuccessOrder.receiver_country,
+                                    receiver_state: PaySuccessOrder.receiver_state,
+                                    receiver_city: PaySuccessOrder.receiver_city,
+                                    receiver_address: PaySuccessOrder.receiver_address,
+                                    receiver_postcode: PaySuccessOrder.receiver_postcode,
+                                    phone_number: PaySuccessOrder.receiver_phone,
+                                    last_order_time: getFormatDate(),
+                                    last_coupon_time: PaySuccessOrder.if_use_coupon ? getFormatDate() : undefined
+                                },
+                                profileSetOnceData: {
+                                    first_order_time: getFormatDate()
+                                }
+                            }
+                            ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
+                                anonymousId: sensors.quick('getAnonymousID'),
+                                registerId: "{{checkout.customer.id}}"
+                            },'post')
+                            ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
+                            setTimeout(()=>{
+                                continueBtn.click()
+                            },1000)
+                        }
                     }
                 })
             }
-
-            let webObj = getBrowserInfo()
-            /*              $manufacturer	字符串	设备制造商
-                        $model	字符串	设备型号
-                        $os	字符串	操作系统
-                        $os_version	字符串	操作系统版本*/
-            let properties = sensors.getPresetProperties()
-            properties.$browser = webObj.browser
-            properties.$browser_version = webObj.ver
-            /*              properties.$manufacturer = md.vendor
-                        properties.$model = md.model()
-                        properties.$os = md.os()
-                        properties.$os_version = md.version('Webkit')*/
-            properties.$title = undefined
-            properties.$url = undefined
-            properties.$url_path = undefined
-            console.log(properties)
-            let CompleteOrderDetailArr = []
-            console.log(CompleteOrderDetailArr)
-            for (let i = 0; i < CompleteOrderDetailEls.length; i++) {
-                let scdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
-                let sendJavaDetailNewData = paypalHandleSendData(scdata,'detailOrder')
-                sendJavaDetailNewData.if_use_express_paypal = 0
-                CompleteOrderDetailArr.push(Object.assign(sendJavaDetailNewData,properties))
-            }
-            let PaySuccessOrder = JSON.parse(localStorage.getItem('sensorsPaySuccessOrder'))
-            let sendData = {
-                distinctId: properties._distinct_id,
-                checkoutId: PaySuccessOrder.checkout_id,
-                paySuccessData: Object.assign(PaySuccessOrder,properties),
-                isLogin:!!"{{checkout.customer.id}}",
-                paySuccessDetailDataList: CompleteOrderDetailArr,
-                profileIncrementData: {
-                    cumulative_payment: Number((PaySuccessOrder.order_actual_amount).toFixed(2)),
-                    cumulative_order: 1
-                },
-                profileSetData: {
-                    receiver_country: PaySuccessOrder.receiver_country,
-                    receiver_state: PaySuccessOrder.receiver_state,
-                    receiver_city: PaySuccessOrder.receiver_city,
-                    receiver_address: PaySuccessOrder.receiver_address,
-                    receiver_postcode: PaySuccessOrder.receiver_postcode,
-                    phone_number: PaySuccessOrder.receiver_phone,
-                    last_order_time: getFormatDate(),
-                    last_coupon_time: PaySuccessOrder.if_use_coupon ? getFormatDate() : undefined
-                },
-                profileSetOnceData: {
-                    first_order_time: getFormatDate()
-                }
-            }
-            insertContinueBtn.addEventListener('click', throttle(function (event) {
-                ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
-                    anonymousId: sensors.quick('getAnonymousID'),
-                    registerId: "{{checkout.customer.id}}"
-                },'post')
-                ajax_method('https://api.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
-                setTimeout(()=>{
-                    continueBtn.click()
-                },1000)
-            }, 100))
         }
 
         function actionsPaySuccessOrder() {
@@ -834,19 +831,6 @@
                     return newData
                 }
             })
-        }
-        function throttle(fn,wait){
-            var timer = null;
-            return function(){
-                var context = this;
-                var args = arguments;
-                if(!timer){
-                    timer = setTimeout(function(){
-                        fn.apply(context,args);
-                        timer = null;
-                    },wait)
-                }
-            }
         }
         function getBrowserInfo(){
             let Sys = {};
@@ -1016,18 +1000,18 @@
                     }
                     localStorage.setItem('checkoutStep', 'Shipping');
                 } else if (activeText && activeText.indexOf("Payment") > -1 ) {
-                let paymentBody = document.querySelector(".main");
-                function paymentBodyCb (mutationsList, observer) {
-                    if(mutationsList && mutationsList.length > 0 ){
-                        let btnList = document.querySelectorAll('.shown-if-js .step__footer__continue-btn')
-                        if(btnList && btnList.length < 2) {
-                            actionsCompleteOrder()
+                    let paymentBody = document.querySelector(".main");
+                    function paymentBodyCb (mutationsList, observer) {
+                        if(mutationsList && mutationsList.length > 0 ){
+                            let btnList = document.querySelectorAll('.shown-if-js .step__footer__continue-btn')
+                            if(btnList && btnList.length < 2) {
+                                actionsCompleteOrder()
+                            }
                         }
                     }
-                }
-                const observer = new MutationObserver(paymentBodyCb)
-                observer.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
-                if (checkoutStep === 'Payment') return
+                    const observer = new MutationObserver(paymentBodyCb)
+                    observer.observe(paymentBody,{ attributes: true, childList: true, subtree: true })
+                    if (checkoutStep === 'Payment') return
                     if (checkoutStep !== 'Shipping') {
                         /* 上报checkout*/
                         actionCheckout()
