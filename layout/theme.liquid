@@ -177,7 +177,10 @@ pintrk('page');
 </noscript>
 <script>
 pintrk('track', 'pagevisit', {
-property: 'Athleta'
+property: 'Athleta',
+line_items: [
+{
+  product_id: '{{product.handle}}'
 });
 </script>
 <!-- end Pinterest Tag -->
