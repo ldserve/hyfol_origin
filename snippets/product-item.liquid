@@ -394,6 +394,7 @@
 							        "commodity_size":"",
 				                    "commodity_color":"",
 							        "commodity_tag":"{{tags}}",
+									"commodity_type":"{{product.type | handleize}}",
 							        "original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
 			      	                "current_price":"{{ product.selected_or_first_available_variant.price }}"}' 
 									data-secondary-action="open-quick-view" aria-controls="modal-quick-view-{{ section.id }}"
