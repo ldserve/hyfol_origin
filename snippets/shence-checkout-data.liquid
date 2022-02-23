@@ -480,13 +480,7 @@
         let bonus_amount = 0;
         /* 优惠券金额 */
         let coupon_amount = ('{{ checkout.discounts_amount }}' * 1);
-        let if_use_coupon = 0;
-        let coupon_code = '';
-        let coupon_name = '';
-        if (coupon_amount) {
-            if_use_coupon = 1;
-            coupon_code = document.querySelector('.total-line-table .reduction-code__text').innerText;
-        }
+
 			{% for line_item in checkout.line_items %}
         quantity += ('{{ line_item.quantity }}' * 1)
         order_amount += ('{{ line_item.original_line_price }}' * 1)
@@ -496,8 +490,7 @@
         })
         compliment_commodities.push('{{ line_item.sku }}')
 			{% endfor %}
-        /* 优惠金额 */
-        let order_discount_amount = bonus_amount + coupon_amount;
+
 
         function actionCheckout() {
             new sadhus_shence({
@@ -560,9 +553,6 @@
                     let scdata = JSON.parse(el.getAttribute('data-scdata'))
                     let newData = orderHandleSendData('detailOrder', scdata)
                     return newData
-                },
-                callback: () => {
-
                 }
             })
         }
@@ -589,8 +579,130 @@
                 }
             })
         }
-
+        function getProperties() {
+            /*
+              $browser 字符串 浏览器名称
+              $browser_version 字符串 浏览器版本
+	            $manufacturer	字符串	设备制造商
+							$model	字符串	设备型号
+							$os	字符串	操作系统
+							$os_version	字符串	操作系统版本
+						*/
+            let properties = sensors.getPresetProperties()
+            /*   var md = new MobileDetect(window.navigator.userAgent);*/
+            /* console.log(md) */
+            properties.$browser = detector.browser.name
+            properties.$browser_version = detector.browser.fullVersion
+            properties.$manufacturer = detector.device.name === 'iphone' ? 'Apple' : undefined
+						properties.$model =  detector.device.name
+						properties.$os = detector.os.name === 'iPhone OS' ? 'iOS' : detector.os.name
+						properties.$os_version = detector.os.version
+            properties.$title = undefined
+            properties.$url = undefined
+            properties.$url_path = undefined
+            return properties
+        }
+        function getCompleteOrderData(){
+            console.log(detector)
+            let scdata = JSON.parse(CompleteOrderEl.getAttribute('data-scdata'))
+            let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
+            if (bdoVal && bdoVal.indexOf("@") !== -1) {
+                scdata.receiver_email = bdoVal
+            }
+            try {
+                let tipEl = document.querySelector('.section--tip .button-group__button--active')
+                let amountBtnEl = document.querySelector('.section--tip #section--tip--amount-btn')
+                let CustomAmountEl = document.querySelector('.section--tip #section--tip--custom-amount')
+                if (amountBtnEl.disabled && CustomAmountEl.value) {
+                    scdata.if_use_tip = 1
+                    scdata.tip_type = 'custom'
+                    scdata.tip_amount = CustomAmountEl.value * 100
+                } else {
+                    if (Number(tipEl.getAttribute('value'))) {
+                        let btnContentEl = tipEl.querySelectorAll('div')[0]
+                        scdata.if_use_tip = 1
+                        scdata.tip_type = btnContentEl.innerText
+                        scdata.tip_amount = (tipEl.getAttribute('value')) * 100
+                    } else {
+                        scdata.if_use_tip = 0
+                        scdata.tip_type = '0'
+                        scdata.tip_amount = 0
+                    }
+                }
+            } catch (error) {
+                scdata.if_use_tip = 0
+                scdata.tip_type = '0'
+                scdata.tip_amount = 0
+                console.log('Can not find tipEl')
+            }
+            try {
+                let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
+                Array.from(paymentMethodInputs).map((item, index) => {
+                    if (item.checked) {
+                        if(item.closest('.content-box__row').querySelector('img').getAttribute('alt') === 'PayPal'){
+                            scdata.payment_method = 'paypal'
+                            scdata.payment_type = 'paypal'
+                        } else {
+                            scdata.payment_method = 'credit card'
+                            scdata.payment_type = 'oceanpayment'
+                        }
+                    }
+                })
+            } catch (error) {
+                let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
+                Array.from(paymentMethodInputs).map((item, index) => {
+                    if (item.checked) {
+                        if (index === 0) {
+                            scdata.payment_method = 'paypal'
+                            scdata.payment_type = 'paypal'
+                        } else {
+                            scdata.payment_method = 'credit card'
+                            scdata.payment_type = 'oceanpayment'
+                        }
+                    }
+                })
+            }
+            try {
+                let billingAddressInputs = document.querySelector('.section--billing-address').querySelectorAll('input')
+                Array.from(billingAddressInputs).map((item, index) => {
+                    if (item.checked) {
+                        if (index !== 0) {
+                            scdata.billing_address_type = "Use a different billing address"
+                            scdata.billing_name = billingFirstNameEl.value + ' ' + billingLastNameEl.value
+                            scdata.billing_phone = billingPhoneEl.value
+                            scdata.billing_country = billingcountryEl.value
+                            scdata.billing_postcode = billingzipEl.value
+                            scdata.billing_state = billingprovinceEl.value
+                            scdata.billing_city = billingcityEl.value
+                            scdata.billing_apartment = billingaddress2El.value
+                            scdata.billing_address = billingaddress1El.value + billingaddress2El.value
+                        }
+                    }
+                })
+            } catch (error) {
+                console.log('Can not find billingAddressInputs')
+            }
+            let sendJavaOrderNewData = {}
+            let properties = getProperties()
+            sendJavaOrderNewData = Object.assign(properties,paypalHandleSendData(scdata,'order'))
+            sendJavaOrderNewData.if_use_express_paypal = 0
+            let CompleteOrderDetailArr = []
+            for (let i = 0; i < CompleteOrderDetailEls.length; i++) {
+                let sendJavaDetailNewData = paypalHandleSendData(JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata')),'detailOrder')
+                sendJavaDetailNewData = Object.assign(properties,sendJavaDetailNewData)
+                sendJavaDetailNewData.if_use_express_paypal = 0
+                CompleteOrderDetailArr.push(sendJavaDetailNewData)
+            }
+            return {
+                sendJavaOrderObj:sendJavaOrderNewData,
+                sendJavaOrderDetailArr:CompleteOrderDetailArr
+            }
+        }
         function actionsCompleteOrder() {
+            ajax_method('https://api-dev.leandow-technology.com/api/sensorsAnalytics/trackSignUp', {
+                anonymousId: sensors.quick('getAnonymousID'),
+                registerId: "{{checkout.customer.id}}"
+            },'post')
             let continueBtn = document.querySelector('.shown-if-js .step__footer__continue-btn')
             continueBtn.style.display = 'none'
             let target = document.querySelector("#continue_button");
@@ -598,122 +710,40 @@
             insertContinueBtn.classList = continueBtn.classList.value
             insertContinueBtn.innerHTML = continueBtn.innerHTML
             insertContinueBtn.style.float = 'right'
-            insertContinueBtn.setAttribute('data-scenable', '1')
-            insertContinueBtn.setAttribute('data-sctype', 'CompleteOrder')
-            insertContinueBtn.setAttribute('data-scenable2', '1')
-            insertContinueBtn.setAttribute('data-sctype2', 'CompleteOrderDetail')
-            insertContinueBtn.setAttribute('data-scsession', '{"sensorsCheckoutIf_use_express_paypal":0}')
-            target.parentNode.insertBefore(insertContinueBtn, continueBtn);
-            let CompleteOrder = new sadhus_shence({
-                container: ".step__footer",
-                type: "CompleteOrder",
-                setSessionId: "sensorsCheckoutIf_use_express_paypal",
-                customData: function (container) {
-                    let scdata = JSON.parse(CompleteOrderEl.getAttribute('data-scdata'))
-                    let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
-                    if (bdoVal && bdoVal.indexOf("@") != -1) {
-                        scdata.receiver_email = bdoVal
-                    }
-                    try {
-                        let tipEl = document.querySelector('.section--tip .button-group__button--active')
-                        let amountBtnEl = document.querySelector('.section--tip #section--tip--amount-btn')
-                        let CustomAmountEl = document.querySelector('.section--tip #section--tip--custom-amount')
-                        if (amountBtnEl.disabled && CustomAmountEl.value) {
-                            scdata.if_use_tip = 1
-                            scdata.tip_type = 'custom'
-                            scdata.tip_amount = CustomAmountEl.value * 100
-                        } else {
-                            if (Number(tipEl.getAttribute('value'))) {
-                                let btnContentEl = tipEl.querySelectorAll('div')[0]
-                                scdata.if_use_tip = 1
-                                scdata.tip_type = btnContentEl.innerText
-                                scdata.tip_amount = (tipEl.getAttribute('value')) * 100
-                            } else {
-                                scdata.if_use_tip = 0
-                                scdata.tip_type = '0'
-                                scdata.tip_amount = 0
-                            }
-                        }
-                    } catch (error) {
-                        scdata.if_use_tip = 0
-                        scdata.tip_type = '0'
-                        scdata.tip_amount = 0
-                        console.log('Can not find tipEl')
-                    }
-                    try {
-                        let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
-                        Array.from(paymentMethodInputs).map((item, index) => {
-                            if (item.checked) {
-                                if(item.closest('.content-box__row').querySelector('img').getAttribute('alt') === 'PayPal'){
-                                    scdata.payment_method = 'paypal'
-                                    scdata.payment_type = 'paypal'
-                                } else {
-                                    scdata.payment_method = 'credit card'
-                                    scdata.payment_type = 'oceanpayment'
-                                }
-                            }
-                        })
-                    } catch (error) {
-                        let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
-                        Array.from(paymentMethodInputs).map((item, index) => {
-                            if (item.checked) {
-                                if (index === 0) {
-                                    scdata.payment_method = 'paypal'
-                                    scdata.payment_type = 'paypal'
-                                } else {
-                                    scdata.payment_method = 'credit card'
-                                    scdata.payment_type = 'oceanpayment'
-                                }
-                            }
-                        })
-                    }
-                    try {
-                        let billingAddressInputs = document.querySelector('.section--billing-address').querySelectorAll('input')
-                        Array.from(billingAddressInputs).map((item, index) => {
-                            if (item.checked) {
-                                if (index !== 0) {
-                                    scdata.billing_address_type = "Use a different billing address"
-		                                scdata.billing_name = billingFirstNameEl.value + ' ' + billingLastNameEl.value
-                                    scdata.billing_phone = billingPhoneEl.value
-                                    scdata.billing_country = billingcountryEl.value
-                                    scdata.billing_postcode = billingzipEl.value
-                                    scdata.billing_state = billingprovinceEl.value
-                                    scdata.billing_city = billingcityEl.value
-                                    scdata.billing_apartment = billingaddress2El.value
-                                    scdata.billing_address = billingaddress1El.value + billingaddress2El.value
-                                }
-                            }
-                        })
-                    } catch (error) {
-                        console.log('Can not find billingAddressInputs')
-                    }
-                    newData = Object.assign(scdata, orderHandleSendData('order'))
-                    localStorage.setItem('sensorsPaySuccessOrder', JSON.stringify(newData))
-                    return newData
-                },
-                callback: () => {
-                    CompleteOrder.updateFn();
-                }
-            })
-            for (let i = 0; i < line_items.length; i++) {
-                let CompleteOrderDetail = new sadhus_shence({
-                    container: ".step__footer",
-                    type: "CompleteOrderDetail",
-                    typeName: "sctype2",
-                    enableName: 'scenable2',
-                    customData: function (container) {
-                        let scdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
-                        let newData = orderHandleSendData('detailOrder', scdata)
-                        return newData
+            target.parentNode.insertBefore(insertContinueBtn, continueBtn)
+            insertContinueBtn.addEventListener('click',() => {
+		            let data = getCompleteOrderData()
+                let sendData = {
+                    distinctId: data.sendJavaOrderObj._distinct_id,
+                    checkoutId: data.sendJavaOrderObj.checkout_id,
+                    paySuccessData: data.sendJavaOrderObj,
+                    completeOrderData:data.sendJavaOrderObj,
+                    isLogin:!!"{{checkout.customer.id}}",
+                    paySuccessDetailDataList: data.sendJavaOrderDetailArr,
+                    completeOrderDetailDateList: data.sendJavaOrderDetailArr,
+                    profileIncrementData: {
+                        cumulative_payment: Number((data.sendJavaOrderObj.order_actual_amount).toFixed(2)),
+                        cumulative_order: 1
                     },
-                    callback: () => {
-                        CompleteOrderDetail.updateFn();
+                    profileSetData: {
+                        receiver_country: data.sendJavaOrderObj.receiver_country,
+                        receiver_state: data.sendJavaOrderObj.receiver_state,
+                        receiver_city: data.sendJavaOrderObj.receiver_city,
+                        receiver_address: data.sendJavaOrderObj.receiver_address,
+                        receiver_postcode: data.sendJavaOrderObj.receiver_postcode,
+                        phone_number: data.sendJavaOrderObj.receiver_phone,
+                        last_order_time: getFormatDate(),
+                        last_coupon_time: data.sendJavaOrderObj.if_use_coupon ? getFormatDate() : undefined
+                    },
+                    profileSetOnceData: {
+                        first_order_time: getFormatDate()
                     }
-                })
-            }
-            insertContinueBtn.onclick = function () {
-                continueBtn.click()
-            }
+                }
+                ajax_method('https://api-dev.leandow-technology.com/api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
+            })
+            insertContinueBtn.addEventListener('click',() => {
+                //continueBtn.click()
+            })
         }
 
         function actionsPaySuccessOrder() {
@@ -783,54 +813,121 @@
                 }
             })
         }
+        function ajax_method(url,data,method,success) {
+            let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+            ajax.open(method,url);
+            ajax.setRequestHeader("Content-type","application/json");
+            ajax.setRequestHeader("siteValue","leandowTest");
+            if (data) {
+                ajax.send(JSON.stringify(data));
+            }else{
+                ajax.send();
+            }
+            ajax.onreadystatechange = function () {
+                if ( ajax.readyState === 2) {
+                    if(success){
+                        success(ajax);
+                    }
+                }
+            }
 
+        }
+
+        function removeHref () {
+            let list = Checkout.$('.breadcrumb__item--current').nextAll()
+            if(list && list.length > 0){
+                for (let i = 0; i < list.length; i++){
+                    if(list[i].querySelector('a')){
+                        list[i].querySelector('a').removeAttribute('href')
+                    }
+                }
+            }
+        }
+        function sendError (){
+            if(document.title.indexOf('Error') > -1){
+                let ErrorInformationList = []
+                let errorEls = document.querySelectorAll('.field__message--error')
+                if(errorEls && errorEls.length > 0){
+                    for (let i = 0; i < errorEls.length; i++){
+                        ErrorInformationList.push(errorEls[i].innerHTML ||errorEls[i].innerText)
+                    }
+                }
+                sensors.track('ErrorInformation', {ErrorInformationList:ErrorInformationList});
+            }
+        }
         function orderHandleSendData(type, sendData) {
             sendData = sendData ? sendData : {}
             sendData.order_commodity_original_amount = order_amount
             sendData.order_amount = order_amount
             sendData.order_commodity_quantity = quantity
-            sendData.order_discount_amount = order_discount_amount
+
             if (type === 'order') {
                 let bdoVal = document.querySelector('bdo') && document.querySelector('bdo').innerText
                 if (bdoVal && bdoVal.indexOf("@") !== -1) {
                     sendData.receiver_email = bdoVal
                 }
                 sendData.bonus_amount = bonus_amount
-                sendData.coupon_amount = coupon_amount
-                sendData.if_use_coupon = if_use_coupon
-                sendData.coupon_code = coupon_code
-                sendData.coupon_name = coupon_name
+                try{
+                    let couponBox =  document.querySelector('.total-line-table .total-line--reduction');
+                    let coupon_amount = couponBox.querySelector('.order-summary__emphasis').getAttribute('data-checkout-discount-amount-target')
+                    if (coupon_amount) {
+                        sendData.coupon_name = ''
+                        sendData.coupon_amount = coupon_amount
+                        sendData.if_use_coupon = 1;
+                        sendData.coupon_code = couponBox.querySelector('.reduction-code__text').innerText;
+                    }
+                } catch (err){
+                    sendData.coupon_name = ''
+                    sendData.coupon_amount = 0
+                    sendData.if_use_coupon = 1;
+                    sendData.coupon_code = ''
+                    console.log('Can not find couponBox')
+                }
             } else if (type === 'detailOrder') {
                 sendData.compliment_commodities = compliment_commodities
                 sendData.discount_price = (sendData.discount_price * 1) / (sendData.commodity_quantity * 1)
             }
+            /* 优惠金额 */
+            sendData.order_discount_amount = sendData.bonus_amount + sendData.coupon_amount;
             return sendData
         }
 
         function paypalHandleSendData(sendData, type) {
             sendData.if_use_express_paypal = 1
-            if (type !== 'detailOrder') {
-                if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
-                    sendData.receiver_email = sendData.value
-                }
-                sendData.bonus_amount = bonus_amount
-                sendData.coupon_amount = coupon_amount
-                sendData.if_use_coupon = if_use_coupon
-                sendData.coupon_code = coupon_code
-                sendData.coupon_name = coupon_name
-            } else {
-                sendData.compliment_commodities = compliment_commodities,
-                    sendData.order_commodity_quantity = quantity
-                sendData.discount_price = (sendData.discount_price * 1) / (sendData.commodity_quantity * 1)
-            }
             sendData.order_commodity_original_amount = order_amount
             sendData.order_amount = order_amount
             sendData.order_commodity_quantity = quantity
-            sendData.order_discount_amount = order_discount_amount
-            if (sendData.original_price || sendData.original_price === '') {
+            if (type !== 'detailOrder') {
+                if (shippingemailOrPhoneEl && shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") != -1) {
+                    sendData.receiver_email = sendData.value
+                }
+                sendData.bonus_amount = bonus_amount
+                try{
+                    let couponBox =  document.querySelector('.total-line-table .total-line--reduction');
+                    let coupon_amount = couponBox.querySelector('.order-summary__emphasis').getAttribute('data-checkout-discount-amount-target')
+                    if (coupon_amount) {
+                        sendData.coupon_name = ''
+                        sendData.coupon_amount = coupon_amount
+                        sendData.if_use_coupon = 1;
+                        sendData.coupon_code = couponBox.querySelector('.reduction-code__text').innerText;
+                    }
+                } catch (err){
+                    sendData.coupon_name = ''
+                    sendData.coupon_amount = 0
+                    sendData.if_use_coupon = 1;
+                    sendData.coupon_code = ''
+                    console.log('Can not find couponBox')
+                }
+            } else {
+                sendData.compliment_commodities = compliment_commodities
+                sendData.discount_price = (sendData.discount_price * 1) / (sendData.commodity_quantity * 1)
+            }
+            /* 优惠金额 */
+            sendData.order_discount_amount = sendData.bonus_amount + sendData.coupon_amount;
+            if (sendData.original_price || sendData.original_price == '') {
                 sendData.original_price = Number((sendData.original_price / 100).toFixed(2));
             }
-            if (sendData.current_price || sendData.current_price === '') {
+            if (sendData.current_price || sendData.current_price == '') {
                 sendData.current_price = Number((sendData.current_price / 100).toFixed(2));
             }
             if (sendData.discount_price) {
@@ -876,29 +973,7 @@
             }
             return sendData
         }
-
-        function removeHref () {
-            let list = Checkout.$('.breadcrumb__item--current').nextAll()
-            if(list && list.length > 0){
-                for (let i = 0; i < list.length; i++){
-                    if(list[i].querySelector('a')){
-                        list[i].querySelector('a').removeAttribute('href')
-                    }
-                }
-            }
-        }
-        function sendError (){
-            if(document.title.indexOf('Error') > -1){
-                let ErrorInformationList = []
-                let errorEls = document.querySelectorAll('.field__message--error')
-                if(errorEls && errorEls.length > 0){
-                    for (let i = 0; i < errorEls.length; i++){
-                        ErrorInformationList.push(errorEls[i].innerHTML ||errorEls[i].innerText)
-                    }
-                }
-                sensors.track('ErrorInformation', {ErrorInformationList:ErrorInformationList});
-            }
-        }
+        
         function hideExpressCheckout () {
             let shownEls =  document.querySelectorAll('.shown-if-js')
             if(shownEls && shownEls.length > 0 ) {
@@ -949,6 +1024,7 @@
                             let btnList = document.querySelectorAll('.shown-if-js .step__footer__continue-btn')
                             if(btnList && btnList.length < 2) {
                                 actionsCompleteOrder()
+                                console.warn('按钮绑定CompleteOrder')
                             }
                         }
                     }
@@ -960,18 +1036,21 @@
                         actionCheckout()
                         console.warn('上报checkout')
                         /* 上报information*/
-                        actionsInformationOrder()
-                        console.warn('上报InformationOrder')
+                        setTimeout(() => {
+                            actionsInformationOrder()
+                            console.warn('上报InformationOrder')
+                        },400)
                     }
-                    /* 上报shipping */
-                    actionsShippingOrder()
-                    console.warn('上报ShippingOrder')
+                    setTimeout(() => {
+		                  actionsShippingOrder()
+		                  console.warn('上报ShippingOrder')
+                    },800)
                     actionsCompleteOrder()
                     console.warn('按钮绑定CompleteOrder')
                     sessionStorage.setItem('checkoutStep', 'Payment');
                 }
                 if (window.pageType === 'completeOrder' && location.href.indexOf('thank_you') > -1)  {
-                    actionsPaySuccessOrder()
+										actionsPaySuccessOrder()
 										/* 订单完成，初始化checkoutStep */
 										sessionStorage.setItem('checkoutStep', 'Checkout');
 								}
@@ -1020,7 +1099,6 @@
                         is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
                         is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0,
                         order_commodity_original_amount: order_amount
-
                     })
                     let ShippingOrderScdata = JSON.parse(ShippingOrderEl.getAttribute('data-scdata'))
                     let CompleteOrderScdata = JSON.parse(CompleteOrderEl.getAttribute('data-scdata'))
@@ -1036,14 +1114,14 @@
                                 let ShippingOrderDetailScdata = JSON.parse(ShippingOrderDetailEls[i].getAttribute('data-scdata'))
                                 sensors.track('ShippingOrderDetail', paypalHandleSendData(ShippingOrderDetailScdata, 'detailOrder'));
                             }
-                        }, 100)
+                        }, 400)
                         setTimeout(() => {
                             sensors.track('CompleteOrder', paypalHandleSendData(CompleteOrderScdata));
                             for (let i = 0; i < line_items.length; i++) {
                                 let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
                                 sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
                             }
-                        }, 200)
+                        }, 800)
                         /* for (let i = 0; i < line_items.length; i++) {
 														let InformationOrderDetailScdata = JSON.parse(InformationOrderDetailEls[i].getAttribute('data-scdata'))
 														sensors.track('InformationOrderDetail', paypalHandleSendData(InformationOrderDetailScdata, 'detailOrder'));
