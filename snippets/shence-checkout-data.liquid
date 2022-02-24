@@ -887,9 +887,10 @@
             removeHref()
             sendError()
             /* hideExpressCheckout() */
-            let properties = getProperties()
-		        console.log(properties)
+
             sensors.quick('isReady', function () {
+                let properties = getProperties()
+                console.log(properties)
                 let checkoutStep = sessionStorage.getItem('checkoutStep')
                 console.warn('checkoutStep', checkoutStep)
                 let activeText = document.querySelector('.breadcrumb__item--current') && document.querySelector('.breadcrumb__item--current').innerText
