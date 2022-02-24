@@ -887,6 +887,8 @@
             removeHref()
             sendError()
             /* hideExpressCheckout() */
+            let properties = getProperties()
+		        console.log(properties)
             sensors.quick('isReady', function () {
                 let checkoutStep = sessionStorage.getItem('checkoutStep')
                 console.warn('checkoutStep', checkoutStep)
