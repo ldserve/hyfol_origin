@@ -417,7 +417,7 @@
         "title": "SAINT PATRICK",
         "products_count": 50,
         "layout": "vertical",
-        "stack_products": true,
+        "stack_products": false,
         "show_quick_buy": true,
         "link_title": "View all",
         "link_bg": "",
