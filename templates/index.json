@@ -424,6 +424,22 @@
         "link_url": "shopify:\/\/collections\/saint-patrick"
       }
     },
+    "1645699029d3be6ede": {
+      "type": "featured-collection-img",
+      "settings": {
+        "sensorsName": "",
+        "link": "",
+        "collection": "hot-sale",
+        "title": "",
+        "products_count": 27,
+        "layout": "horizontal",
+        "stack_products": false,
+        "show_quick_buy": true,
+        "link_title": "View all",
+        "link_bg": "",
+        "link_url": ""
+      }
+    },
     "1639375466adf92990": {
       "type": "featured-collection-img",
       "disabled": true,
@@ -460,122 +476,6 @@
         "link_title": "",
         "link_bg": "",
         "link_url": "shopify:\/\/collections\/clearance-sale-hyfol"
-      }
-    },
-    "16417996780d2036fa": {
-      "type": "linkImg",
-      "disabled": true,
-      "blocks": {
-        "751b0c5a-d124-4213-ad02-1fffb8f80f28": {
-          "type": "link",
-          "settings": {
-            "heading": "selected",
-            "sensorsLinkName": "selected",
-            "link": "shopify:\/\/collections\/19-9",
-            "left": 13,
-            "top": 3,
-            "width": 23,
-            "height": 96
-          }
-        },
-        "6b0fa7ed-aa52-44a9-9e1a-ece5ca9dda8f": {
-          "type": "link",
-          "settings": {
-            "heading": "available",
-            "sensorsLinkName": "available",
-            "link": "shopify:\/\/collections\/9-9-only",
-            "left": 39,
-            "top": 3,
-            "width": 23,
-            "height": 96
-          }
-        },
-        "39cec07f-bc73-43f7-af82-ae7dd5271717": {
-          "type": "link",
-          "settings": {
-            "heading": "outwear",
-            "sensorsLinkName": "outwear",
-            "link": "shopify:\/\/collections\/59-9",
-            "left": 63,
-            "top": 3,
-            "width": 23,
-            "height": 96
-          }
-        }
-      },
-      "block_order": [
-        "751b0c5a-d124-4213-ad02-1fffb8f80f28",
-        "6b0fa7ed-aa52-44a9-9e1a-ece5ca9dda8f",
-        "39cec07f-bc73-43f7-af82-ae7dd5271717"
-      ],
-      "settings": {
-        "hidDesk": false,
-        "sensorsName": "PC导流区active",
-        "hidWeb": true,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/PC_-2_10_a8b1ed20-ab6e-4f1e-87fb-51c4e9a8d8db.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
-      }
-    },
-    "1641802708ee6e5203": {
-      "type": "linkImg",
-      "disabled": true,
-      "blocks": {
-        "e3b69057-594e-4b37-92e9-7cfe762b39bd": {
-          "type": "link",
-          "settings": {
-            "heading": "selected",
-            "sensorsLinkName": "selected",
-            "link": "shopify:\/\/collections\/19-9",
-            "left": 4,
-            "top": 3,
-            "width": 28,
-            "height": 96
-          }
-        },
-        "f4b7db18-675d-45ad-bfcc-0c69ca394efb": {
-          "type": "link",
-          "settings": {
-            "heading": "available",
-            "sensorsLinkName": "available",
-            "link": "shopify:\/\/collections\/9-9-only",
-            "left": 36,
-            "top": 3,
-            "width": 28,
-            "height": 96
-          }
-        },
-        "40c74a64-52fa-4a6e-bac5-241c225e5c80": {
-          "type": "link",
-          "settings": {
-            "heading": "outwear",
-            "sensorsLinkName": "outwear",
-            "link": "shopify:\/\/collections\/59-9",
-            "left": 68,
-            "top": 3,
-            "width": 28,
-            "height": 96
-          }
-        }
-      },
-      "block_order": [
-        "e3b69057-594e-4b37-92e9-7cfe762b39bd",
-        "f4b7db18-675d-45ad-bfcc-0c69ca394efb",
-        "40c74a64-52fa-4a6e-bac5-241c225e5c80"
-      ],
-      "settings": {
-        "hidDesk": true,
-        "sensorsName": "移动导流区active",
-        "hidWeb": false,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_11_3e19d4fe-fbad-4f00-9fa9-e7b95646438e.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
       }
     },
     "1644909300ae8809ce": {
@@ -813,10 +713,9 @@
     "1635759577ba76b918",
     "16418022421fb24728",
     "16456958617c78dc63",
+    "1645699029d3be6ede",
     "1639375466adf92990",
     "163703402842074b11",
-    "16417996780d2036fa",
-    "1641802708ee6e5203",
     "1644909300ae8809ce",
     "164179738814931472",
     "1639378018bdd37462",
