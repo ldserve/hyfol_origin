@@ -416,7 +416,7 @@
         "collection": "saint-patrick",
         "title": "SAINT PATRICK",
         "products_count": 50,
-        "layout": "vertical",
+        "layout": "horizontal",
         "stack_products": false,
         "show_quick_buy": true,
         "link_title": "View all",
