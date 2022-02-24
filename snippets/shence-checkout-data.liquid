@@ -216,7 +216,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_text":["{{ line_item.product.description | handleize | slice: 0, 100 }}"],
                 "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"],
                 "entrance":""
             }'
@@ -248,7 +248,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_text":["{{ line_item.product.description | handleize | slice: 0, 100 }}"],
                 "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
 		>
@@ -279,7 +279,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_text":["{{ line_item.product.description | handleize | slice: 0, 100 }}"],
                 "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
 		>
@@ -310,7 +310,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_text":["{{ line_item.product.description | handleize | slice: 0, 100 }}"],
                 "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
 		>
@@ -343,7 +343,7 @@
                 "current_price":"{{ line_item.product.selected_or_first_available_variant.price }}",
                 "discount_price":"{{ line_item.final_line_price }}",
                 "currency_unit": "{{ checkout.currency }}",
-                "commodity_description_text":["{{ line_item.product.description | handleize }}"],
+                "commodity_description_text":["{{ line_item.product.description | handleize | slice: 0, 100 }}"],
                 "commodity_description_image":["{{ line_item.image | image_url | split: "?" | first }}"]
             }'
 		>
@@ -657,16 +657,6 @@
         }
 
         function actionsCompleteOrder() {
-            let baseUrl
-            if(location.host.indexOf('hyfol') > -1){
-                baseUrl = 'https://api.leandow-technology.com/'
-            }else if(location.host.indexOf('leandowtest') > -1){
-                baseUrl = 'https://api-dev.leandow-technology.com/'
-            }
-            ajax_method(baseUrl+'api/sensorsAnalytics/trackSignUp', {
-                anonymousId: sensors.quick('getAnonymousID'),
-                registerId: "{{checkout.customer.id}}"
-            },'post')
             let continueBtn = document.querySelector('.shown-if-js .step__footer__continue-btn')
             let target = document.querySelector("#continue_button");
             let insertContinueBtn = document.createElement("div");
@@ -680,10 +670,8 @@
                     distinctId: data.sendJavaOrderObj._distinct_id,
                     checkoutId: data.sendJavaOrderObj.checkout_id,
                     paySuccessData: data.sendJavaOrderObj,
-                    completeOrderData:data.sendJavaOrderObj,
                     isLogin:!!"{{checkout.customer.id}}",
                     paySuccessDetailDataList: data.sendJavaOrderDetailArr,
-                    completeOrderDetailDateList: data.sendJavaOrderDetailArr,
                     profileIncrementData: {
                         cumulative_payment: Number((data.sendJavaOrderObj.order_actual_amount).toFixed(2)),
                         cumulative_order: 1
@@ -702,33 +690,36 @@
                         first_order_time: getFormatDate()
                     }
                 }
-               ajax_method(baseUrl+'api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
+                ajax_method('api/sensorsAnalytics/trackSignUp', {
+                    anonymousId: sensors.quick('getAnonymousID'),
+                    registerId: "{{checkout.customer.id}}"
+                },'post')
+                ajax_method('api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
             },true)
-
         }
 
         function ajax_method(url,data,method,success) {
-            let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-            ajax.open(method,url);
-            let siteValue
+            let baseUrl
+		        let siteValue
             if(location.host.indexOf('hyfol') > -1){
-                siteValue = "hyfol"
+                baseUrl = 'https://api.leandow-technology.com/'
+		            siteValue = 'hyfol'
             }else if(location.host.indexOf('leandowtest') > -1){
+                baseUrl = 'https://api-dev.leandow-technology.com/'
                 siteValue = 'leandowTest'
             }
-            ajax.setRequestHeader("Content-type","application/json");
-            ajax.setRequestHeader("siteValue",siteValue);
-            if (data) {
-                ajax.send(JSON.stringify(data));
-            }else{
-                ajax.send();
-            }
-            ajax.onreadystatechange = function () {
-                if ( ajax.readyState === 2) {
-                    if(success){
-                        success(ajax);
-                    }
+            data.siteValue = siteValue
+            if (typeof navigator !== 'object' || typeof navigator.sendBeacon !== 'function') {
+                let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+                ajax.open(method, baseUrl + url);
+                ajax.setRequestHeader("Content-type","text/plain;charset=UTF-8");
+                if (data) {
+                    ajax.send(JSON.stringify(data));
+                }else{
+                    ajax.send();
                 }
+            } else {
+                navigator.sendBeacon( baseUrl + url, JSON.stringify(data))
             }
 
         }
@@ -743,6 +734,7 @@
                 }
             }
         }
+
         function sendError (){
             if(document.title.indexOf('Error') > -1){
                 let ErrorInformationList = []
@@ -774,16 +766,16 @@
                 let couponBox =  document.querySelector('.total-line-table .total-line--reduction');
                 let coupon_amount = couponBox.querySelector('.order-summary__emphasis').getAttribute('data-checkout-discount-amount-target')
                 if (coupon_amount) {
-                    sendData.coupon_name = ''
-                    sendData.coupon_amount = coupon_amount *1
+                    sendData.coupon_name = '';
+                    sendData.coupon_amount = coupon_amount *1;
                     sendData.if_use_coupon = 1;
                     sendData.coupon_code = couponBox.querySelector('.reduction-code__text').innerText;
                 }
             } catch (err){
-                sendData.coupon_name = ''
-                sendData.coupon_amount = 0
+                sendData.coupon_name = '';
+                sendData.coupon_amount = 0;
                 sendData.if_use_coupon = 0;
-                sendData.coupon_code = ''
+                sendData.coupon_code = '';
                 console.log('Can not find couponBox')
             }
             /* 优惠金额 */
@@ -809,16 +801,16 @@
                 let couponBox =  document.querySelector('.total-line-table .total-line--reduction');
                 let coupon_amount = couponBox.querySelector('.order-summary__emphasis').getAttribute('data-checkout-discount-amount-target')
                 if (coupon_amount) {
-                    sendData.coupon_name = ''
-                    sendData.coupon_amount = coupon_amount * 1
+                    sendData.coupon_name = '';
+                    sendData.coupon_amount = coupon_amount * 1;
                     sendData.if_use_coupon = 1;
                     sendData.coupon_code = couponBox.querySelector('.reduction-code__text').innerText;
                 }
             } catch (err){
-                sendData.coupon_name = ''
-                sendData.coupon_amount = 0
-                sendData.if_use_coupon = 1;
-                sendData.coupon_code = ''
+                sendData.coupon_name = '';
+                sendData.coupon_amount = 0;
+                sendData.if_use_coupon = 0;
+                sendData.coupon_code = '';
                 console.log('Can not find couponBox')
             }
             /* 优惠金额 */
