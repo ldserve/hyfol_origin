@@ -661,6 +661,7 @@
             let target = document.querySelector("#continue_button");
             let insertContinueBtn = document.createElement("div");
             insertContinueBtn.className = 'actions_complete_order'
+            insertContinueBtn.innerHTML = 123123
             target.parentNode.insertBefore(insertContinueBtn, continueBtn)
             insertContinueBtn.appendChild(target)
             insertContinueBtn.addEventListener('click',() => {
@@ -720,6 +721,7 @@
                     ajax.send();
                 }
             } else {
+                navigator.sendBeacon( baseUrl + url, JSON.stringify(data))
                 let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
                 ajax.open(method, baseUrl + url);
                 ajax.setRequestHeader("Content-type","text/plain;charset=UTF-8");
@@ -728,7 +730,6 @@
                 }else{
                     ajax.send();
                 }
-                navigator.sendBeacon( baseUrl + url, JSON.stringify(data))
             }
 
         }
