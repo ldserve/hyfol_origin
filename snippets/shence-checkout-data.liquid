@@ -663,6 +663,7 @@
             insertContinueBtn.className = 'actions_complete_order'
             target.parentNode.insertBefore(insertContinueBtn, continueBtn)
             insertContinueBtn.appendChild(target)
+		        insertContinueBtn.innerHTML = 1322313
             insertContinueBtn.addEventListener('click',() => {
 		            let data = getCompleteOrderData()
 		            let sendData = {}
