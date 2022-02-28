@@ -2,7 +2,7 @@
 {%- comment %}
 Hey there! This snippet is managed by Vitals (https://vitals.co).
 This file will be automatically updated and any manual changes will be lost.
-Last updated: Mon, 28 Feb 2022 09:18:47 +0000
+Last updated: Mon, 28 Feb 2022 09:41:44 +0000
 {% endcomment -%}
 {% if product %}
 <script data-ver="9" id="vtls-product-data">
@@ -11,7 +11,7 @@ var vitals_product_data={"id": {{ product.id | json }}, "available": {{ product.
 {% endif %}
 
 
-
+        <script id="vtls-localization-data">            window.vitalsDependencies = window.vitalsDependencies || {};            window.vitalsDependencies.countryCurrencies  = [{% for country in localization.available_countries %} { currency: "{{country.currency.iso_code}}", country: "{{country.iso_code}}" }, {% endfor %}];        </script>
 {{ shop.metafields.vitals["setupScript"] }}
 <script src="https://appsolve.io{{ content_for_header | split: 'appsolve.io' | last | split: '"' | first | replace: '\u0026' : '&' | replace: '\/' : '/' }}" async></script>
 {% endif %}
