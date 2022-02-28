@@ -888,7 +888,6 @@
             removeHref()
             sendError()
             /* hideExpressCheckout() */
-
             sensors.quick('isReady', function () {
                 let properties = getProperties()
                 console.log(properties)
@@ -953,12 +952,14 @@
                 }
                 if (window.pageType === 'completeOrder')  {
                     let sendData = JSON.parse(localStorage.getItem('sendJavaData'))
-                    ajax_method('api/sensorsAnalytics/trackSignUp', {
-                        anonymousId: sensors.quick('getAnonymousID'),
-                        registerId: "{{checkout.customer.id}}"
-                    },'post')
-                    sendData.isSendCompleteOrder = false
-                    ajax_method('api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
+		                if(sendData) {
+                        ajax_method('api/sensorsAnalytics/trackSignUp', {
+                            anonymousId: sensors.quick('getAnonymousID'),
+                            registerId: "{{checkout.customer.id}}"
+                        },'post')
+                        sendData.isSendCompleteOrder = false
+                        ajax_method('api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
+                    }
                     sessionStorage.setItem('checkoutStep', 'Checkout');
 								}
                 /*注册成功代码*/
