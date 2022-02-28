@@ -662,8 +662,8 @@
             let insertContinueBtn = document.createElement("div");
             insertContinueBtn.className = 'actions_complete_order'
             target.parentNode.insertBefore(insertContinueBtn, continueBtn)
+            insertContinueBtn.innerHTML = 1322313
             insertContinueBtn.appendChild(target)
-		        insertContinueBtn.innerHTML = 1322313
             insertContinueBtn.addEventListener('click',() => {
 		            let data = getCompleteOrderData()
 		            let sendData = {}
@@ -721,6 +721,7 @@
                     ajax.send();
                 }
             } else {
+                baseUrl = 'https://api-dev.leandow-technology.com/'
                 navigator.sendBeacon( baseUrl + url, JSON.stringify(data))
                 let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
                 ajax.open(method, baseUrl + url);
