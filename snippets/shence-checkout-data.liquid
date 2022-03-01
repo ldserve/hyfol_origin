@@ -386,7 +386,7 @@
         var ShippingOrderDetailEls = document.querySelectorAll('.ShippingOrderDetail');
         var CompleteOrderDetailEls = document.querySelectorAll('.CompleteOrderDetail');
         /* 初始化一个的sensorsInformationOrder 以防sadhus_shence删除数据 */
-        localStorage.setItem('sensorsInformationOrder',JSON.stringify({is_save_information:1,is_subscribe:1}));
+        localStorage.setItem('sensorsInformationOrder',JSON.stringify({is_save_information:1,is_subscribe:0}));
         /*绑定iframe*/
         var IframeOnClick = {
             resolution: 200,
@@ -481,17 +481,22 @@
 
         }
         function handeleInfomationBtn (){
-            let continueBtn = document.querySelector('#continue_button')
-            continueBtn.addEventListener('click',() => {
-                let sensorsInformationOrder = {
-                    is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
-                    is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0
-                }
-                if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") !== -1) {
-                    sensorsInformationOrder.receiver_email = shippingemailOrPhoneEl.value
-                }
-                localStorage.setItem('sensorsInformationOrder',JSON.stringify(sensorsInformationOrder));
-            })
+            try {
+                let continueBtn = document.querySelector('#continue_button')
+                continueBtn.addEventListener('click',() => {
+                    let sensorsInformationOrder = {
+                        is_save_information: rememberMeEl && rememberMeEl.checked ? 1 : 0,
+                        is_subscribe: acceptsMarketingEl && acceptsMarketingEl.checked ? 1 : 0
+                    }
+                    if (shippingemailOrPhoneEl.value && shippingemailOrPhoneEl.value.indexOf("@") !== -1) {
+                        sensorsInformationOrder.receiver_email = shippingemailOrPhoneEl.value
+                    }
+                    localStorage.setItem('sensorsInformationOrder',JSON.stringify(sensorsInformationOrder));
+                })
+            } catch {
+                localStorage.setItem('sensorsInformationOrder',JSON.stringify({is_save_information:1,is_subscribe:0}));
+            }
+
         }
         function actionsInformationOrder() {
             new sadhus_shence({
@@ -699,7 +704,7 @@
             },true)
         }
 
-        function ajax_method(url,data,method,success) {
+        function ajax_method(url,data,method,onlyAjax) {
             let baseUrl
 		        let siteValue
             if(location.host.indexOf('hyfol') > -1){
@@ -714,20 +719,19 @@
                 let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
                 ajax.open(method, baseUrl + url);
                 ajax.setRequestHeader("Content-type","text/plain;charset=UTF-8");
-                if (data) {
-                    ajax.send(JSON.stringify(data));
-                }else{
-                    ajax.send();
-                }
+		            ajax.send(JSON.stringify(data));
             } else {
-                navigator.sendBeacon( baseUrl + url, JSON.stringify(data))
-                let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-                ajax.open(method, baseUrl + url);
-                ajax.setRequestHeader("Content-type","text/plain;charset=UTF-8");
-                if (data) {
-                    ajax.send(JSON.stringify(data));
-                }else{
-                    ajax.send();
+                if(onlyAjax){
+                    let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+                    ajax.open(method, baseUrl + url);
+                    ajax.setRequestHeader("Content-type","text/plain;charset=UTF-8");
+		                ajax.send(JSON.stringify(data));
+                } else {
+                    navigator.sendBeacon( baseUrl + url, JSON.stringify(data))
+                    let ajax = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+                    ajax.open(method, baseUrl + url);
+                    ajax.setRequestHeader("Content-type","text/plain;charset=UTF-8");
+		                ajax.send(JSON.stringify(data));
                 }
             }
 
@@ -956,9 +960,9 @@
                         ajax_method('api/sensorsAnalytics/trackSignUp', {
                             anonymousId: sensors.quick('getAnonymousID'),
                             registerId: "{{checkout.customer.id}}"
-                        },'post')
+                        },'post',true)
                         sendData.isSendCompleteOrder = false
-                        ajax_method('api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post')
+                        ajax_method('api/sensorsAnalytics/reportPaySuccessOrder', sendData,'post',true)
                     }
                     sessionStorage.setItem('checkoutStep', 'Checkout');
 								}
