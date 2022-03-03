@@ -386,7 +386,9 @@
         var ShippingOrderDetailEls = document.querySelectorAll('.ShippingOrderDetail');
         var CompleteOrderDetailEls = document.querySelectorAll('.CompleteOrderDetail');
         /* 初始化一个的sensorsInformationOrder 以防sadhus_shence删除数据 */
-        localStorage.setItem('sensorsInformationOrder',JSON.stringify({is_save_information:1,is_subscribe:0}));
+		    if(!localStorage.getItem('sensorsInformationOrder')){
+            localStorage.setItem('sensorsInformationOrder',JSON.stringify({is_save_information:1,is_subscribe:0}));
+        }
         /*绑定iframe*/
         var IframeOnClick = {
             resolution: 200,
@@ -595,6 +597,9 @@
                 scdata.if_use_tip = 0
                 scdata.tip_type = '0'
                 scdata.tip_amount = 0
+                sensors.track('ErrorInformation', {ErrorInformationList: [
+                        'Can not find tipEl'
+                    ]});
                 console.log('Can not find tipEl')
             }
             try {
@@ -642,6 +647,9 @@
                     }
                 })
             } catch (error) {
+                sensors.track('ErrorInformation', {ErrorInformationList: [
+                        'Can not find billingAddressInputs'
+                    ]});
                 console.log('Can not find billingAddressInputs')
             }
             let sendJavaOrderNewData = {}
@@ -710,7 +718,7 @@
             if(location.host.indexOf('hyfol') > -1){
                 baseUrl = 'https://api.leandow-technology.com/'
 		            siteValue = 'hyfol'
-            }else if(location.host.indexOf('leandowtest') > -1){
+            }else if(location.host.indexOf('leandowtest') > -1 ){
                 baseUrl = 'https://api-dev.leandow-technology.com/'
                 siteValue = 'leandowTest'
             }
