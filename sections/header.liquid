@@ -48,7 +48,9 @@
 				{%- comment -%}---------------logo组件---------------{%- endcomment -%}
 
 				{%- capture header_logo -%}
-					<a href="{{ routes.root_url }}" class="header__logo-link shence_commodityView" data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"0","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"logo","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
+					<a href="{{ routes.root_url }}" class="header__logo-link shence_commodityView" data-scenable="1"
+						 data-expenable="1" data-bindexp="1" data-sctype="mktClick"
+						 data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"0","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"logo","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
 						{%- if section.settings.logo != blank -%}
 							{%- capture image_size -%}{{ section.settings.logo_max_width }}x{%- endcapture -%}
 							<span class="visually-hidden">{{ shop.name }}</span>
@@ -77,26 +79,31 @@
 				{%- if section.settings.desktop_navigation_layout == 'inline' and navigation_menu.links.size > 0 -%}
 					<nav class="nav-bar cjj-category">
 						<div class="nav-bar__inner">
-								<ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
-									{%- for link in navigation_menu.links -%}
-										<li class="nav-bar__item">
-											{%- if link.links.size == 0 -%}
-												<a href="{{ link.url }}" class="nav-bar__link link shence_commodityView" data-type="menuitem" data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick"  data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ link.title | handleize}}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>{{ link.title }}</a>
-											{%- else -%}
-												{%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
+							<ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
+								{%- for link in navigation_menu.links -%}
+									<li class="nav-bar__item">
+										{%- if link.links.size == 0 -%}
+											<a href="{{ link.url }}" class="nav-bar__link link shence_commodityView" data-type="menuitem"
+												 data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick"
+												 data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ link.title | handleize }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>{{ link.title }}</a>
+										{%- else -%}
+											{%- capture index -%}desktop-menu-0-{{ forloop.index }}{%- endcapture -%}
 
-												<a href="{{ link.url }}" class="nav-bar__link link shence_commodityView" data-type="menuitem" aria-expanded="false"
-													 aria-controls="{{ index }}" aria-haspopup="true" data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ link.title | handleize}}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
-													{{- link.title -}}
-													{%- render 'icon', icon: 'arrow-bottom' -%}
-													{%- render 'icon', icon: 'nav-triangle' -%}
-												</a>
-												{%- render 'desktop-menu', menu: link, index: index, menuindex: forloop.index -%}
-											{%- endif -%}
-										</li>
-									{%- endfor -%}
-								</ul>
-							</div>
+											<a href="{{ link.url }}" class="nav-bar__link link shence_commodityView" data-type="menuitem"
+												 aria-expanded="false"
+												 aria-controls="{{ index }}" aria-haspopup="true" data-scenable="1" data-expenable="1"
+												 data-bindexp="1" data-sctype="mktClick"
+												 data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ link.title | handleize }}","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
+												{{- link.title -}}
+												{%- render 'icon', icon: 'arrow-bottom' -%}
+												{%- render 'icon', icon: 'nav-triangle' -%}
+											</a>
+											{%- render 'desktop-menu', menu: link, index: index, menuindex: forloop.index -%}
+										{%- endif -%}
+									</li>
+								{%- endfor -%}
+							</ul>
+						</div>
 					</nav>
 				{%- endif -%}
 
@@ -300,11 +307,11 @@
 					{%- comment -%}---------------搜索按钮---------------{%- endcomment -%}
 					{%- if section.settings.show_condensed_search -%}
 						<div class="header__action-item">
-						<div class="header__action-item-content cjj-searchico">
-							<a class="header__action-item-link" href="{{ routes.search_url }}" data-action="toggle-search"
-								 aria-expanded="false"
-								 aria-label="{{ 'header.search.open_search' | t }}">{% render 'icon', icon: 'search' %}</a>
-						</div>
+							<div class="header__action-item-content cjj-searchico">
+								<a class="header__action-item-link" href="{{ routes.search_url }}" data-action="toggle-search"
+									 aria-expanded="false"
+									 aria-label="{{ 'header.search.open_search' | t }}">{% render 'icon', icon: 'search' %}</a>
+							</div>
 						</div>
 					{%- endif -%}
 
@@ -331,7 +338,9 @@
 									 class="header__action-item-link header__account-icon icon-state hidden-desk shence_commodityView"
 									 aria-label="{{ 'header.general.account' | t }}" {% if customer %}aria-controls="account-popover"
 									 aria-expanded="false"
-									 data-action="toggle-popover"{% endif %} {% if customer %}data-follow-link="phone"{% endif %} data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"账号","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
+									 data-action="toggle-popover"{% endif %} {% if customer %}data-follow-link="phone"{% endif %}
+									 data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick"
+									 data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"账号","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
 									<span class="icon-state__primary">{%- render 'icon', icon: 'account' -%}</span>
 									<span class="icon-state__secondary">{%- render 'icon', icon: 'close' -%}</span>
 								</a>
@@ -339,7 +348,9 @@
 								<a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
 									 class="header__action-item-link hidden-pocket hidden-lap shence_commodityView"
 									 {% if customer %}aria-controls="account-popover" aria-expanded="false"
-									 data-action="toggle-popover"{% endif %}  data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"账号","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
+									 data-action="toggle-popover"{% endif %} data-scenable="1" data-expenable="1" data-bindexp="1"
+									 data-sctype="mktClick"
+									 data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"账号","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
 									{%- if customer -%}
 										{{ 'header.general.account' | t }} {% render 'icon', icon: 'arrow-bottom' %}
 									{%- else -%}
@@ -517,10 +528,12 @@
 							 {% if settings.cart_type != 'page' and template != 'cart' %}aria-controls="mini-cart"
 							 aria-expanded="false" data-action="toggle-mini-cart"{% endif %} data-no-instant>
 							<div class="header__action-item-content">
+
 								<div class="header__cart-icon icon-state" aria-expanded="false">
                   <span class="icon-state__primary">
                     {%- render 'icon', icon: 'cart' -%}
                     <span class="header__cart-count">{{ cart.item_count }}</span>
+										<span class="header__cart__time_reserved">20:00</span>
                   </span>
 									<span class="icon-state__secondary">{%- render 'icon', icon: 'close' -%}</span>
 								</div>
@@ -542,308 +555,315 @@
 </section>
 
 <style>
-	:root {
-		--header-is-sticky: {% if section.settings.enable_sticky_header %}1{% else %}0{% endif %};
-		--header-inline-navigation: {% if section.settings.desktop_navigation_layout == 'inline' %}1{% else %}0{% endif %};
-	}
+  :root {
+    --header-is-sticky: {% if section.settings.enable_sticky_header %}1{% else %}0{% endif %};
+    --header-inline-navigation: {% if section.settings.desktop_navigation_layout == 'inline' %}1{% else %}0{% endif %};
+  }
 
-	#shopify-section-{{ section.id }} {
-		position: relative;
-		z-index: 5;
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    z-index: 5;
 
 	{%- if section.settings.enable_sticky_header -%} position: -webkit-sticky;
-		position: sticky;
-		top: 0;
+    position: sticky;
+    top: 0;
 	{%- endif -%}
-	}
+  }
 
 	{%- if section.settings.logo -%}
-	.header__logo-image {
-		max-width: {{ section.settings.mobile_logo_max_width }}px !important;
-	}
+  .header__logo-image {
+    max-width: {{ section.settings.mobile_logo_max_width }}px !important;
+  }
 
-	@media screen and (min-width: 641px) {
-		.header__logo-image {
-			max-width: {{ section.settings.logo_max_width }}px !important;
-		}
-	}
+  @media screen and (min-width: 641px) {
+    .header__logo-image {
+      max-width: {{ section.settings.logo_max_width }}px !important;
+    }
+  }
+
 	{%- endif -%}
 
 	{%- if settings.header_background == settings.secondary_background -%}
-	.search-bar__top {
-		box-shadow: 1px 1px var(--header-border-color) inset, -1px -1px var(--header-border-color) inset;
-	}
+  .search-bar__top {
+    box-shadow: 1px 1px var(--header-border-color) inset, -1px -1px var(--header-border-color) inset;
+  }
 
-	@media screen and (min-width: 1000px) {
-		/* This allows to reduce the padding if header background is the same as secondary background to avoid space that is too big */
-		.header:not(.header--condensed) {
-			padding-bottom: 0;
-		}
-	}
+  @media screen and (min-width: 1000px) {
+    /* This allows to reduce the padding if header background is the same as secondary background to avoid space that is too big */
+    .header:not(.header--condensed) {
+      padding-bottom: 0;
+    }
+  }
+
 	{%- else -%}
-	@media screen and (min-width: 1000px) {
-		.search-bar.is-expanded .search-bar__top {
-			box-shadow: 0 -1px var(--border-color) inset;
-		}
-	}
+  @media screen and (min-width: 1000px) {
+    .search-bar.is-expanded .search-bar__top {
+      box-shadow: 0 -1px var(--border-color) inset;
+    }
+  }
+
 	{%- endif -%}
-	#shopify-section-{{ section.id }} .cjj-category{
-		flex: 1 1 auto;
-		background: none;
-		border: none;
-	}
-	#shopify-section-{{ section.id }} .cjj-category .nav-bar__linklist{
-		text-align: center;
-	}
-	#shopify-section-{{ section.id }} .cjj-category:after{
-		width: 0;
-		background: none;
-	}
-	#shopify-section-{{ section.id }} .cjj-category .nav-dropdown__item:hover{
-		background-color: var(--header-background);
-	}
-	#shopify-section-{{ section.id }} .cjj-searchico .icon--search{
-		display: inline-block;
-	}
+  #shopify-section-{{ section.id }} .cjj-category {
+    flex: 1 1 auto;
+    background: none;
+    border: none;
+  }
+
+  #shopify-section-{{ section.id }} .cjj-category .nav-bar__linklist {
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .cjj-category:after {
+    width: 0;
+    background: none;
+  }
+
+  #shopify-section-{{ section.id }} .cjj-category .nav-dropdown__item:hover {
+    background-color: var(--header-background);
+  }
+
+  #shopify-section-{{ section.id }} .cjj-searchico .icon--search {
+    display: inline-block;
+  }
 
 </style>
 
 <script>
-  document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
+    document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
 </script>
 
 {% schema %}
-{
+	{
 	"name": "Header",
 	"class": "shopify-section__header",
 	"settings": [
-		{
-			"type": "checkbox",
-			"id": "enable_sticky_header",
-			"label": "头部吸顶",
-			"default": true
-		},
-		{
-			"type": "header",
-			"content": "Logo"
-		},
-		{
-			"type": "image_picker",
-			"id": "logo",
-			"label": "logo图片",
-			"info": "400 x 120px .png recommended"
-		},
-		{
-			"type": "range",
-			"id": "logo_max_width",
-			"min": 50,
-			"max": 300,
-			"step": 5,
-			"unit": "px",
-			"label": "logo图片宽度",
-			"default": 140
-		},
-		{
-			"type": "range",
-			"id": "mobile_logo_max_width",
-			"min": 50,
-			"max": 170,
-			"step": 5,
-			"unit": "px",
-			"label": "手机logo宽度",
-			"default": 100
-		},
-		{
-			"type": "header",
-			"content": "语言选择",
-			"info": "添加一种语言,[language settings.](/admin/settings/languages)"
-		},
-		{
-			"type": "checkbox",
-			"id": "show_locale_selector",
-			"label": "显示语言选择",
-			"default": true
-		},
-		{
-			"type": "header",
-			"content": "货币选择",
-			"info": "添加一种货币,[payment settings.](/admin/settings/payments)"
-		},
-		{
-			"type": "checkbox",
-			"id": "show_currency_selector",
-			"label": "显示货币选择",
-			"default": true
-		},
-		{
-			"type": "header",
-			"content": "导航菜单"
-		},
-		{
-			"type": "link_list",
-			"id": "navigation_menu",
-			"label": "桌面菜单",
-			"default": "main-menu"
-		},
-		{
-			"type": "link_list",
-			"id": "navigation_mobile_menu",
-			"label": "手机菜单",
-			"info": "未选择则使用桌面菜单"
-		},
-		{
-			"type": "select",
-			"id": "desktop_navigation_layout",
-			"label": "桌面布局",
-			"options": [
-				{
-					"value": "condensed",
-					"label": "面包屑"
-				},
-				{
-					"value": "inline",
-					"label": "行内"
-				},{
-					"value": "hidden",
-					"label": "隐藏"
-				}
-			],
-			"default": "condensed"
-		},
-		{
-			"type": "select",
-			"id": "desktop_navigation_open_trigger",
-			"label": "次级导航打开方式",
-			"options": [
-				{
-					"value": "hover",
-					"label": "鼠标经过展开"
-				},
-				{
-					"value": "click",
-					"label": "点击展开"
-				}
-			],
-			"default": "hover"
-		},
-		{
-			"type": "header",
-			"content": "手机导航"
-		},
-		{
-			"type": "checkbox",
-			"id": "show_navigation_social_media",
-			"label": "显示社交媒体",
-			"default": true
-		},
-		{
-			"type": "text",
-			"id": "navigation_phone_number",
-			"label": "电话号码"
-		},
-		{
-			"type": "text",
-			"id": "navigation_email",
-			"label": "邮件"
-		},
-		{
-			"type": "header",
-			"content": "搜索"
-		},
-		{
-			"type": "checkbox",
-			"id": "show_condensed_search",
-			"label": "手机上显示小的搜索",
-			"default": true
-		},
-		{
-			"type": "checkbox",
-			"id": "show_search_filter",
-			"label": "显示搜索过滤器 ",
-			"default": true,
-			"info": "按产品类型划分 [Learn more](https://support.maestrooo.com/article/184-navigation-filtering-search-results-by-product-type)"
-		},
-		{
-			"type": "link_list",
-			"id": "search_menu",
-			"label": "快速链接菜单",
-			"info": "当用户没有输入任何内容时显示快速链接。 此菜单不会显示下拉项。"
-		},
-		{
-			"type": "checkbox",
-			"id": "show_search_menu_title",
-			"label": "显示快速链接标题",
-			"default": true
-		}
+	{
+	"type": "checkbox",
+	"id": "enable_sticky_header",
+	"label": "头部吸顶",
+	"default": true
+	},
+	{
+	"type": "header",
+	"content": "Logo"
+	},
+	{
+	"type": "image_picker",
+	"id": "logo",
+	"label": "logo图片",
+	"info": "400 x 120px .png recommended"
+	},
+	{
+	"type": "range",
+	"id": "logo_max_width",
+	"min": 50,
+	"max": 300,
+	"step": 5,
+	"unit": "px",
+	"label": "logo图片宽度",
+	"default": 140
+	},
+	{
+	"type": "range",
+	"id": "mobile_logo_max_width",
+	"min": 50,
+	"max": 170,
+	"step": 5,
+	"unit": "px",
+	"label": "手机logo宽度",
+	"default": 100
+	},
+	{
+	"type": "header",
+	"content": "语言选择",
+	"info": "添加一种语言,[language settings.](/admin/settings/languages)"
+	},
+	{
+	"type": "checkbox",
+	"id": "show_locale_selector",
+	"label": "显示语言选择",
+	"default": true
+	},
+	{
+	"type": "header",
+	"content": "货币选择",
+	"info": "添加一种货币,[payment settings.](/admin/settings/payments)"
+	},
+	{
+	"type": "checkbox",
+	"id": "show_currency_selector",
+	"label": "显示货币选择",
+	"default": true
+	},
+	{
+	"type": "header",
+	"content": "导航菜单"
+	},
+	{
+	"type": "link_list",
+	"id": "navigation_menu",
+	"label": "桌面菜单",
+	"default": "main-menu"
+	},
+	{
+	"type": "link_list",
+	"id": "navigation_mobile_menu",
+	"label": "手机菜单",
+	"info": "未选择则使用桌面菜单"
+	},
+	{
+	"type": "select",
+	"id": "desktop_navigation_layout",
+	"label": "桌面布局",
+	"options": [
+	{
+	"value": "condensed",
+	"label": "面包屑"
+	},
+	{
+	"value": "inline",
+	"label": "行内"
+	},{
+	"value": "hidden",
+	"label": "隐藏"
+	}
+	],
+	"default": "condensed"
+	},
+	{
+	"type": "select",
+	"id": "desktop_navigation_open_trigger",
+	"label": "次级导航打开方式",
+	"options": [
+	{
+	"value": "hover",
+	"label": "鼠标经过展开"
+	},
+	{
+	"value": "click",
+	"label": "点击展开"
+	}
+	],
+	"default": "hover"
+	},
+	{
+	"type": "header",
+	"content": "手机导航"
+	},
+	{
+	"type": "checkbox",
+	"id": "show_navigation_social_media",
+	"label": "显示社交媒体",
+	"default": true
+	},
+	{
+	"type": "text",
+	"id": "navigation_phone_number",
+	"label": "电话号码"
+	},
+	{
+	"type": "text",
+	"id": "navigation_email",
+	"label": "邮件"
+	},
+	{
+	"type": "header",
+	"content": "搜索"
+	},
+	{
+	"type": "checkbox",
+	"id": "show_condensed_search",
+	"label": "手机上显示小的搜索",
+	"default": true
+	},
+	{
+	"type": "checkbox",
+	"id": "show_search_filter",
+	"label": "显示搜索过滤器 ",
+	"default": true,
+	"info": "按产品类型划分 [Learn more](https://support.maestrooo.com/article/184-navigation-filtering-search-results-by-product-type)"
+	},
+	{
+	"type": "link_list",
+	"id": "search_menu",
+	"label": "快速链接菜单",
+	"info": "当用户没有输入任何内容时显示快速链接。 此菜单不会显示下拉项。"
+	},
+	{
+	"type": "checkbox",
+	"id": "show_search_menu_title",
+	"label": "显示快速链接标题",
+	"default": true
+	}
 	],
 	"blocks": [
-		{
-			"type": "mega_menu",
-			"name": "Mega menu",
-			"settings": [
-				{
-					"type": "text",
-					"id": "menu_item",
-					"label": "Menu item",
-					"info": "Enter menu item to apply a mega menu dropdown. [Learn more](https://support.maestrooo.com/article/180-navigation-enabling-and-configuring-mega-navigation)."
-				},
-				{
-					"type": "header",
-					"content": "Image 1"
-				},
-				{
-					"type": "image_picker",
-					"id": "image_1",
-					"label": "Image",
-					"info": "600 x 400px .jpg recommended"
-				},
-				{
-					"type": "text",
-					"id": "image_1_heading",
-					"label": "Heading",
-					"default": "Your image"
-				},
-				{
-					"type": "text",
-					"id": "image_1_text",
-					"label": "Text",
-					"default": "Tell your story"
-				},
-				{
-					"type": "url",
-					"id": "image_1_link",
-					"label": "Link"
-				},
-				{
-					"type": "header",
-					"content": "Image 2"
-				},
-				{
-					"type": "image_picker",
-					"id": "image_2",
-					"label": "Image",
-					"info": "600 x 400px .jpg recommended"
-				},
-				{
-					"type": "text",
-					"id": "image_2_heading",
-					"label": "Heading",
-					"default": "Your image"
-				},
-				{
-					"type": "text",
-					"id": "image_2_text",
-					"label": "Text",
-					"default": "Tell your story"
-				},
-				{
-					"type": "url",
-					"id": "image_2_link",
-					"label": "Link"
-				}
-			]
-		}
+	{
+	"type": "mega_menu",
+	"name": "Mega menu",
+	"settings": [
+	{
+	"type": "text",
+	"id": "menu_item",
+	"label": "Menu item",
+	"info": "Enter menu item to apply a mega menu dropdown. [Learn more](https://support.maestrooo.com/article/180-navigation-enabling-and-configuring-mega-navigation)."
+	},
+	{
+	"type": "header",
+	"content": "Image 1"
+	},
+	{
+	"type": "image_picker",
+	"id": "image_1",
+	"label": "Image",
+	"info": "600 x 400px .jpg recommended"
+	},
+	{
+	"type": "text",
+	"id": "image_1_heading",
+	"label": "Heading",
+	"default": "Your image"
+	},
+	{
+	"type": "text",
+	"id": "image_1_text",
+	"label": "Text",
+	"default": "Tell your story"
+	},
+	{
+	"type": "url",
+	"id": "image_1_link",
+	"label": "Link"
+	},
+	{
+	"type": "header",
+	"content": "Image 2"
+	},
+	{
+	"type": "image_picker",
+	"id": "image_2",
+	"label": "Image",
+	"info": "600 x 400px .jpg recommended"
+	},
+	{
+	"type": "text",
+	"id": "image_2_heading",
+	"label": "Heading",
+	"default": "Your image"
+	},
+	{
+	"type": "text",
+	"id": "image_2_text",
+	"label": "Text",
+	"default": "Tell your story"
+	},
+	{
+	"type": "url",
+	"id": "image_2_link",
+	"label": "Link"
+	}
 	]
-}
+	}
+	]
+	}
 {% endschema %} 
  {% include 'alireviews_aggregateRating' %}

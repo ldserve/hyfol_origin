@@ -5893,8 +5893,8 @@ select option {
 .header__cart-count {
   display: inline-flex;
   position: absolute;
-  right: -14px;
-  top: -7px;
+  right: 0;
+  top: 2px;
   align-items: center;
   justify-content: center;
   height: 20px;
@@ -5902,19 +5902,37 @@ select option {
   padding: 4px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 12px));
   font-weight: var(--text-font-bolder-weight);
+  /* text-align: center; */
+  /* background: var(--header-accent-color); */
+  color: #000000;
+  transition: transform .35s ease-in-out;
+  will-change: transform;
+  transform: scale(.7);
+  z-index: 1;
+}
+.header__cart__time_reserved{
+  display: none;
+  position: absolute;
+  right: -18px;
+  top: -16px;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  min-width: 18px;
+  padding: 4px;
+  font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 12px));
+  font-weight: var(--text-font-bolder-weight);
   text-align: center;
   background: var(--header-accent-color);
   color: var(--secondary-background);
   border-radius: 1.75em;
-  transition: transform 0.35s ease-in-out;
   will-change: transform;
-  transform: scale(1.01);
   z-index: 1;
+  transform: scale(0.8);
 }
-
 .header__cart-toggle[aria-expanded=true] .header__cart-count,
 .header__cart-toggle:hover .header__cart-count {
-  transform: scale(1.2);
+  transform: scale(1);
 }
 
 @media screen and (max-width: 640px) {
@@ -9329,10 +9347,13 @@ shopify-payment-terms {
 .color-swatch__item {
   position: relative;
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
-  background-size: cover;
+  background-position: 50% 37%;
+  background-clip: border-box;
+  background-size: 100px;
+  background-origin: border-box;
 }
 
 .color-swatch__item svg {
