@@ -2026,8 +2026,6 @@
                     }
                 }).then(function (content) {
                     content.text().then(function (html) {
-                        console.log(content);
-
                         // We extract the data-item-count from the returned element
                         var myDiv = document.createElement('div');
                         myDiv.innerHTML = html;
@@ -13768,7 +13766,6 @@
                         modal.querySelector('.modal__inner').innerHTML = content;
                         modal.classList.remove('is-loading'); // Register a new section to power the JS
 
-                        console.log(modal.querySelector('[data-section-type="product"]'));
                         var modalProductSection = new ProductSection(modal.querySelector('[data-section-type="product"]')); // We set a listener so we can cleanup on close
 
                         var doCleanUp = function doCleanUp() {
