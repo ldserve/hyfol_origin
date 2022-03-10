@@ -77,7 +77,7 @@ window.handleCartTimeReserved = function handleCartTimeReserved() {
             window.cartTimeReserved = setInterval(function () {
                 if (maxtime >= 1) {
                     let minutes = Math.floor(maxtime / 60);
-                    let seconds = Math.floor(maxtime % 60);
+                    let seconds = Math.floor(maxtime % 60) <= 9 ? '0' + Math.floor(maxtime % 60) : Math.floor(maxtime % 60)
                     headerBox.innerHTML = minutes + ":" + seconds
                     mainCartBoxText ? mainCartBoxText.innerHTML = minutes + ":" + seconds : ''
                     headerBox.style.display = 'inline-flex'
