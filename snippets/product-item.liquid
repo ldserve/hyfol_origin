@@ -252,9 +252,9 @@
 												 value="{{ value | escape }}" {% if value_to_match == value %}checked="checked"{% endif %}
 												 data-variant-url="{{ variant_for_value.url }}" data-sku="{{ variant_for_value.sku }}" {% if variant_for_value.featured_media %}data-media-id="{{ variant_for_value.featured_media.id }}" data-image-url="{{ image_url }}" data-image-widths="[{{ supported_sizes }}]" data-image-aspect-ratio="{{ variant_for_value.featured_media.preview_image.aspect_ratio }}"{% endif %}
 												 aria-label="{{ value | escape }}">
-									<label class="color-swatch__item" for="{{ color_id }}" 
-												 style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: downcased_value %}"
-												 title="{{ value | escape }}">
+									<label class="color-swatch__item" for="{{ color_id }}"
+									       style='background-image: url("{{ variant_for_value.featured_media | img_url: '300x300' }}")'
+									       title="{{ value | escape }}">
 										<span class="visually-hidden">{{ value }}</span>
 									</label>
 									<a href="{{ product.url }}"

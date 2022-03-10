@@ -118,13 +118,12 @@
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
-    <script src="{{ 'theme.js' | asset_url }}" defer></script>
-    <script src="{{ 'custom.js' | asset_url }}" defer></script>
+		<script src="{{ 'custom.js' | asset_url }}" defer></script>
+		<script src="{{ 'theme.js' | asset_url }}" defer></script>
 
-    {%- if settings.showFlake  and request.page_type =='index' -%}
-      <script src="{{ 'xuehua.js' | asset_url }}" defer></script>
+	  {%- if settings.showFlake  and request.page_type =='index' -%}
+	    <script src="{{ 'xuehua.js' | asset_url }}" defer></script>
     {%- endif -%}
-
     {%- if request.page_type != 'cart' -%}
       <script>
         (function () {
