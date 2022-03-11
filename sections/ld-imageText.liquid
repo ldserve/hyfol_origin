@@ -1,16 +1,10 @@
 <div class="instagram-section card-{{section.id}} ">
   <div class="ld-imageText">
     {% assign link = section.settings.link.url %}
-    <div class="PC">
-      <img class="lazyload img_item" srcset="{%- if section.settings.image.width >= 550 -%}{{ section.settings.image | img_url: '550x' }} 550w,{%- endif -%}
-                      {%- if section.settings.image.width >= 720 -%}{{ section.settings.image | img_url: '720x' }} 720w,{%- endif -%}
-                      {%- if section.settings.image.width >= 990 -%}{{ section.settings.image | img_url: '990x' }} 990w,{%- endif -%}
-                      {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | img_url: '1100x' }} 1100w,{%- endif -%}
-                      {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}
-                      {%- if section.settings.image.width >= 2200 -%}{{ section.settings.image | img_url: '2200x' }} 2200w,{%- endif -%}
-                      {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | img_url: '3000x' }} 3000w,{%- endif -%}
-                      {{ section.settings.image | img_url: 'master' }} {{ section.settings.image.width }}w"
-        src="{{ section.settings.image | img_url: '1500x' }}" data-sizes="auto" />
+    {%- capture supported_sizes -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: section.settings.image -%}{%- endcapture -%}
+    <div class="PC">    
+        <img data-src="{{ section.settings.image | img_url: '1500x' }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto"
+						 alt="{{ section.settings.image.alt | escape }}" class="lazyload  img_item">
         <a class="ins_item link" data-account-id="{{ forloop.index0 }}" href="{{link}}"></a>
     </div>
     <div class="title">
@@ -20,21 +14,36 @@
       {% if section.settings.subtitle %}
       <button class="title-big-title">{{section.settings.subtitle}}</button>
       {% endif %}
+      {% if section.settings.show %}
+      <div class="newsletter newsletter--compact">
+        {%- form 'customer', id: newsletter_id, class: 'form newsletter__form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="alert alert--success">{{ 'home_page.newsletter.success' | t }}</p>
+          {%- else -%}
+            {%- if form.errors -%}
+              <p class="alert alert--error">{{ form.errors.messages['email'] }}</p>
+            {%- endif -%}
+  
+            <input type="hidden" name="contact[tags]" value="newsletter">
+  
+            <div class="form__input-wrapper form__input-wrapper--labelled">
+              <input type="email" name="contact[email]" class="form__field form__field--text form__field--borderless" aria-label="{{ 'home_page.newsletter.input' | t }}" required>
+              <label for="newsletter[contact][email]" class="form__floating-label">{{ 'home_page.newsletter.input' | t }}</label>
+            </div>
+  
+            <button type="submit" class="form__submit form__submit--tight button button--primary button--full">{{ 'home_page.newsletter.submit' | t }}</button>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+      {% else %}
       {% if section.settings.button %}
       <div class="btn">{{section.settings.button}}</div>
       {% endif %}
+      {% endif %}
     </div>
     <div class="mobile">
-      <img class="lazyload img_item" srcset="{%- if block.settings.mobile_image.width >= 550 -%}{{ block.settings.mobile_image | img_url: '550x' }} 550w,{%- endif -%}
-                      {%- if section.settings.mobile_image.width >= 720 -%}{{ section.settings.mobile_image | img_url: '720x' }} 720w,{%- endif -%}
-                      {%- if section.settings.mobile_image.width >= 990 -%}{{ section.settings.mobile_image | img_url: '990x' }} 990w,{%- endif -%}
-                      {%- if section.settings.mobile_image.width >= 1100 -%}{{ section.settings.mobile_image | img_url: '1100x' }} 1100w,{%- endif -%}
-                      {%- if section.settings.mobile_image.width >= 1500 -%}{{ section.settings.mobile_image | img_url: '1500x' }} 1500w,{%- endif -%}
-                      {%- if section.settings.mobile_image.width >= 2200 -%}{{ section.settings.mobile_image | img_url: '2200x' }} 2200w,{%- endif -%}
-                      {%- if section.settings.mobile_image.width >= 3000 -%}{{ section.settings.mobile_image | img_url: '3000x' }} 3000w,{%- endif -%}
-                      {{ section.settings.mobile_image | img_url: 'master' }} {{ section.settings.mobile_image.width }}w"
-        src="{{ section.settings.mobile_image | img_url: '1500x' }}" data-sizes="auto" />
-
+        <img data-src="{{ section.settings.mobile_image | img_url: '1500x' }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto"
+        alt="{{ section.settings.image.alt | escape }}" class="lazyload  img_item">
       <a class="ins_item link" data-account-id="{{ forloop.index0 }}"href="{{link}}"> </a>
     </div>
   </div>
@@ -56,6 +65,12 @@
     flex-flow: column;
     align-items:{{section.settings.text_align}};
   }
+
+  /* #shopify-section-{{ section.id }} .ld-imageText .newsletter {
+    position: absolute;
+    top: {{section.settings.news_text_top}}%;
+    left: {{section.settings.news_text_left}}%;
+  } */
 
   #shopify-section-{{ section.id }} .ld-imageText .title .btn {
     width: 180px;
@@ -93,6 +108,24 @@
       top: 0;
       left: 0;
     }
+
+    #shopify-section-{{ section.id }} .form__field {
+      height: 40px;
+      width: {{section.settings.input_width}};
+    }
+    #shopify-section-{{ section.id }} .form__floating-label{
+      line-height: 40px;
+    }
+    #shopify-section-{{ section.id }} .button--full {
+    width: 80%;
+    margin: 0px auto;
+    height: 40px;
+    line-height: 40px;
+    border: 1.5px #fff solid;
+}
+#shopify-section-{{ section.id }} .form__submit--tight{
+  margin-top: 40px;
+}
   /*移动样式*/
   @media (max-width: 767.98px) {
     #shopify-section-{{ section.id }} .ld-imageText .PC {
@@ -162,6 +195,12 @@
 "label": "按钮"
 },
 {
+  "type": "checkbox",
+  "id": "show",
+  "label": "是否显示邮箱",
+  "default": false
+},
+{
 "type": "range",
 "id": "text_top",
 "min": 0,
@@ -199,6 +238,25 @@
   "label": "m端文字布局left",
   "default": 0
   },
+  {
+    "type": "range",
+    "id": "news_text_top",
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "unit": "%",
+    "label": "邮箱文字布局top",
+    "default": 0
+    }, {
+    "type": "range",
+    "id": "news_text_left",
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "unit": "%",
+    "label": "邮箱文字布局left",
+    "default": 0
+    },
 {
   "type": "range",
   "id": "title_size",
@@ -277,6 +335,30 @@
     ],
     "default": "center",
     "label": "标题文字靠齐方式"
+  },
+  {
+    "type": "select",
+    "id": "input_width",
+    "options": [
+    {
+      "value": "100px",
+      "label": "100px"
+    },
+      {
+        "value": "200px",
+        "label": "200px"
+      },
+      {
+        "value": "300px",
+        "label": "300px"
+      },
+      {
+        "value": "500px",
+        "label": "500px"
+      }
+    ],
+    "default": "300px",
+    "label": "邮箱输入框宽度"
   },
 {
   "type": "color",
