@@ -45,10 +45,21 @@
 					</nav>
 				{%- endif -%}
 
-				{%- comment -%}---------------logo组件---------------{%- endcomment -%}
+				{%- comment -%}---------------搜索按钮---------------{%- endcomment -%}
+				{%- if section.settings.show_condensed_search -%}
+					<div class="header__action-item hidden-tablet-and-up"  >
+						<div class="header__action-item-content"></div>
+						<div class="header__action-item-content cjj-searchico">
+							<a class="header__action-item-link" href="{{ routes.search_url }}" data-action="toggle-search"
+								 aria-expanded="false"
+								 aria-label="{{ 'header.search.open_search' | t }}">{% render 'icon', icon: 'search' %}</a>
+						</div>
+					</div>
+				{%- endif -%}
 
+				{%- comment -%}---------------logo组件---------------{%- endcomment -%}
 				{%- capture header_logo -%}
-					<a href="{{ routes.root_url }}" class="header__logo-link shence_commodityView" data-scenable="1"
+					<a href="{{ routes.root_url }}" class="header__logo-link shence_commodityView hidden-tablet-and-up" data-scenable="1"
 						 data-expenable="1" data-bindexp="1" data-sctype="mktClick"
 						 data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"0","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"logo","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
 						{%- if section.settings.logo != blank -%}
@@ -65,7 +76,6 @@
 						{%- endif -%}
 					</a>
 				{%- endcapture -%}
-
 				{%- comment -%}---------------logo渲染---------------{%- endcomment -%}
 				{%- if request.page_type == 'index' -%}
 					<h1 class="header__logo">{{ header_logo }}</h1>
@@ -73,11 +83,36 @@
 					<div class="header__logo">{{ header_logo }}</div>
 				{%- endif -%}
 
-
 				{%- comment -%}---------------头部菜单---------------{%- endcomment -%}
+
 				{%- comment -%}---------------导航菜单---------------{%- endcomment -%}
 				{%- if section.settings.desktop_navigation_layout == 'inline' and navigation_menu.links.size > 0 -%}
 					<nav class="nav-bar cjj-category">
+						{%- comment -%}---------------logo组件---------------{%- endcomment -%}
+						{%- capture header_logo -%}
+							<a href="{{ routes.root_url }}" class="header__logo-link shence_commodityView" data-scenable="1"
+								 data-expenable="1" data-bindexp="1" data-sctype="mktClick"
+								 data-scdata='{"mkt_type":"bar","first_mkt_name":"顶部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"0","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"logo","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
+								{%- if section.settings.logo != blank -%}
+									{%- capture image_size -%}{{ section.settings.logo_max_width }}x{%- endcapture -%}
+									<span class="visually-hidden">{{ shop.name }}</span>
+									<img class="header__logo-image"
+											 style="max-width: {{ section.settings.logo_max_width }}px"
+											 width="{{ section.settings.logo.width }}"
+											 height="{{ section.settings.logo.height }}"
+											 src="{{ section.settings.logo | img_url: image_size, scale: 2 }}"
+											 alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+								{%- else -%}
+									<span class="header__logo-text">{{ shop.name }}</span>
+								{%- endif -%}
+							</a>
+						{%- endcapture -%}
+						{%- comment -%}---------------logo渲染---------------{%- endcomment -%}
+						{%- if request.page_type == 'index' -%}
+							<h1 class="header__logo">{{ header_logo }}</h1>
+						{%- else -%}
+							<div class="header__logo">{{ header_logo }}</div>
+						{%- endif -%}
 						<div class="nav-bar__inner">
 							<ul class="nav-bar__linklist list--unstyled" data-type="menu" role="list">
 								{%- for link in navigation_menu.links -%}
@@ -306,15 +341,16 @@
 
 					{%- comment -%}---------------搜索按钮---------------{%- endcomment -%}
 					{%- if section.settings.show_condensed_search -%}
-						<div class="header__action-item">
+						<div class="header__action-item hidden-phone">
 							<div class="header__action-item-content cjj-searchico">
 								<a class="header__action-item-link" href="{{ routes.search_url }}" data-action="toggle-search"
 									 aria-expanded="false"
-									 aria-label="{{ 'header.search.open_search' | t }}">{% render 'icon', icon: 'search' %}</a>
+									 aria-label="{{ 'header.search.open_search' | t }}">
+									{% render 'icon', icon: 'search' %}
+								</a>
 							</div>
 						</div>
 					{%- endif -%}
-
 					{%- comment -%}-------------登录按钮-----------------{%- endcomment -%}
 					{%- if shop.customer_accounts_enabled -%}
 						{%- comment -%}
@@ -324,7 +360,7 @@
 							in case Shopify changes their mind in the future, but from what we have heard the change is here to stay
 						{%- endcomment -%}
 
-						<div class="header__action-item header__action-item--account hidden-phone hidden-pocket">
+						<div class="header__action-item header__action-item--account">
 							{%- if customer -%}
 								<span
 									class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.welcome' | t: first_name: customer.first_name | truncate: 20 }}</span>
@@ -617,11 +653,11 @@
     width: 0;
     background: none;
   }
-
-  #shopify-section-{{ section.id }} .cjj-category .nav-dropdown__item:hover {
-    background-color: var(--header-background);
-  }
-
+	{%- comment -%}
+		#shopify-section-{{ section.id }} .cjj-category .nav-dropdown__item:hover {
+			background-color: var(--header-background);
+		}
+	{%- endcomment -%}
   #shopify-section-{{ section.id }} .cjj-searchico .icon--search {
     display: inline-block;
   }
@@ -629,6 +665,7 @@
 </style>
 
 <script>
+
     document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
 </script>
 

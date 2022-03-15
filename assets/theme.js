@@ -6767,7 +6767,7 @@
         // prev/next buttons
         (function (window, factory) {
             // universal module definition
-
+            console.log(module);
             /* jshint strict: false */
             if (module.exports) {
                 // CommonJS

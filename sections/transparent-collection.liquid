@@ -10,16 +10,7 @@
 	{%- assign collection = section.settings.collection -%}
 
 	<div class="container">
-		<header class="section__header">
-			<div class="section__header-stack">
-				<h2 class="section__title heading h3">{{ section.settings.title | default: collection.title | escape }}</h2>
-			</div>
-
-			{%- if section.settings.link_title != blank -%}
-				<a href="{{ section.settings.link_url | default: collection.url | default: '#' }}"
-					 class="section__action-link link">{{ section.settings.link_title | escape }} {% render 'icon', icon: 'tail-right' %}</a>
-			{%- endif -%}
-		</header>
+				<h2 class="section__title heading h3 section--text-centered">{{ section.settings.title | default: collection.title | escape }}</h2>
 	</div>
 
 	<div class="container {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
@@ -46,15 +37,15 @@
 			{%- endif -%}
 
 			{%- if use_placeholder -%}
-				{%- include 'product-item-placeholder', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy -%}
+				{%- include 'product-item-placeholder', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy,only_show_transparent: true -%}
 			{%- else -%}
-				{%- include 'product-item', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy,forloop:forloop,first_mkt_name:'Featured collection' -%}
+				{%- include 'product-item', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.title }}' -%}
 			{%- endif -%}
 			{%- elsif section.settings.layout == 'horizontal' -%}
 			{%- if use_placeholder -%}
-				{%- include 'product-item-placeholder', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false -%}
+				{%- include 'product-item-placeholder', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false,only_show_transparent: true -%}
 			{%- else -%}
-				{%- include 'product-item', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false,forloop:forloop,first_mkt_name:'Featured collection' -%}
+				{%- include 'product-item', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.title }}' -%}
 			{%- endif -%}
 		{%- else -%}
 		{%- assign mod = forloop.index0 | modulo: 3 -%}
@@ -123,7 +114,7 @@
 
 {% schema %}
 	{
-	"name": "Featured collection",
+	"name": "首页透明集合",
 	"settings": [
 	{
 	"type": "collection",

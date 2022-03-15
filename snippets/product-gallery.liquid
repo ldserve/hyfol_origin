@@ -151,18 +151,18 @@
                     {%- endif -%}
 
                     {%- assign media_group_parts = alt_parts.last | split: '_' -%}
-
                     {%- for option in product.options -%}
                       {%- assign downcase_option = option | downcase -%}
                       {%- assign downcase_group_option = media_group_parts.first | strip | downcase -%}
-
+											{% if downcase_group_option == 'transparent' %}
+												{% assign is_transparent = true %}
+											{% endif %}
                       {%- if downcase_option == downcase_group_option -%}
                         {%- assign option_setting = 'option' | append: forloop.index -%}
                         {%- assign option_value = product.selected_or_first_available_variant[option_setting] | downcase -%}
 
                         {%- assign downcase_group_value = media_group_parts.last | strip | downcase -%}
                         {%- assign media_variant_ids = media.variants | map: 'id' -%}
-
                         {%- if option_value != downcase_group_value -%}
                           {%- unless media_variant_ids contains product.selected_or_first_available_variant.id -%}
                             {%- assign is_media_filtered = true -%}
@@ -173,22 +173,23 @@
                       {%- endif -%}
                     {%- endfor -%}
                   {%- endif -%}
+									{% if is_transparent != true %}
+										<a href="{{ media | img_url: '1024x' }}" rel="noopener" class="product-gallery__thumbnail {% if media.id == selected_media.id %}is-nav-selected{% endif %} {% if is_media_filtered %}is-filtered{% endif %}" data-media-id="{{ media.id }}" {% if is_media_group %}data-group-name="{{ media_group_parts.first | strip | downcase | escape }}" data-group-value="{{ media_group_parts.last | strip | downcase | escape }}"{% endif %}>
+											{%- comment -%}Based on the type of media, we have to add an icon as per Shopify rules{%- endcomment -%}
 
-                  <a href="{{ media | img_url: '1024x' }}" rel="noopener" class="product-gallery__thumbnail {% if media.id == selected_media.id %}is-nav-selected{% endif %} {% if is_media_filtered %}is-filtered{% endif %}" data-media-id="{{ media.id }}" {% if is_media_group %}data-group-name="{{ media_group_parts.first | strip | downcase | escape }}" data-group-value="{{ media_group_parts.last | strip | downcase | escape }}"{% endif %}>
-                    {%- comment -%}Based on the type of media, we have to add an icon as per Shopify rules{%- endcomment -%}
+											{%- case media.media_type -%}
+											{%- when 'model' -%}
+												<span class="product-gallery__thumbnail-badge">{% render 'icon', icon: 'media-model-badge' %}</span>
 
-                    {%- case media.media_type -%}
-                      {%- when 'model' -%}
-                        <span class="product-gallery__thumbnail-badge">{% render 'icon', icon: 'media-model-badge' %}</span>
+											{%- when 'video' or 'external_video' -%}
+												<span class="product-gallery__thumbnail-badge">{% render 'icon', icon: 'media-video-badge' %}</span>
+											{%- endcase -%}
 
-                      {%- when 'video' or 'external_video' -%}
-                        <span class="product-gallery__thumbnail-badge">{% render 'icon', icon: 'media-video-badge' %}</span>
-                    {%- endcase -%}
-
-                    <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: media.preview_image.aspect_ratio }}%">
-                      <img class="image--fade-in lazyload" data-src="{{ media | img_url: '130x' }}" alt="{{ media_alt | escape }}">
-                    </div>
-                  </a>
+											<div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: media.preview_image.aspect_ratio }}%">
+												<img class="image--fade-in lazyload" data-src="{{ media | img_url: '130x' }}" alt="{{ media_alt | escape }}">
+											</div>
+										</a>
+									{% endif %}
                 {%- endfor -%}
               </div>
             </div>
