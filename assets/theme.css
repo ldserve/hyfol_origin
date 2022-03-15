@@ -9346,13 +9346,10 @@ shopify-payment-terms {
 .color-swatch__item {
   position: relative;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
-  background-position: 50% 37%;
-  background-clip: border-box;
-  background-size: 100px;
-  background-origin: border-box;
+  background-size: cover;
 }
 
 .color-swatch__item svg {
