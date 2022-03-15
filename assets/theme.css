@@ -355,11 +355,10 @@ th {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
+  width: 40px;
   height: 50px;
   top: calc(50% - 25px);
   visibility: visible;
-  background: var(--flickity-arrow-color);
   opacity: 0;
   transition: all 0.2s ease-in-out;
   transform: scale(0.7);
@@ -372,7 +371,8 @@ th {
   position: relative;
   width: 15px;
   height: 15px;
-  fill: var(--secondary-background);
+  fill: #1b1b1b;
+  transform: scale(1.5);
   vertical-align: middle;
 }
 .flickity-prev-next-button[disabled] {
@@ -4099,7 +4099,7 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (min-width: 641px) {
   .product-list {
-    background: var(--secondary-background);
+    background: var(--background);
     border-radius: 3px;
     border: none;
   }
@@ -5677,7 +5677,8 @@ select option {
 
 .header__mobile-nav {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 4px;
+  margin-top: 2px;
 }
 
 .header__desktop-nav {
@@ -5719,6 +5720,10 @@ select option {
 .header .icon--close {
   display: block;
 }
+.header .icon--home {
+  width: 27px;
+  height: 24px;
+}
 .header .icon--account {
   width: 20px;
   height: 22px;
@@ -5755,7 +5760,7 @@ select option {
   .header {
     display: flex;
     align-items: center;
-    min-height: 64px;
+    min-height: 50px;
   }
   .header__logo{
     flex: 1 0 auto;
@@ -9664,6 +9669,7 @@ shopify-payment-terms {
   text-align: center;
   white-space: nowrap;
   display: block;
+  font-weight: 550;
 }
 
 @media screen and (min-width: 1000px){
@@ -10752,7 +10758,7 @@ shopify-payment-terms {
   }
 }
 .section {
-  margin: 50px 0;
+  margin: 15px 0;
 }
 
 .section--tight {
@@ -10766,7 +10772,7 @@ shopify-payment-terms {
 }
 
 .section--isolated.section--tight {
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .section--text-centered {
@@ -10815,11 +10821,11 @@ shopify-payment-terms {
 
 @media screen and (min-width: 641px) {
   .section {
-    margin: 60px 0;
+    margin: 20px 0;
   }
 
   .section--tight {
-    margin: 40px 0;
+    margin: 20px 0;
   }
 
   .section--isolated {
@@ -11995,7 +12001,6 @@ shopify-payment-terms {
 }
 .announcement-bar__content {
   display: inline-block;
-  padding: 4px 0;
   margin-bottom: 0;
   white-space: nowrap;
   position: relative;
@@ -12010,7 +12015,7 @@ shopify-payment-terms {
 
 @media screen and (max-width: 640px) {
   .announcement-bar{
-    height: 2rem;
+    height: 1.5rem;
   }
   .announcement-bar__inner {
     text-align: center; /* Always centered on mobile no matter the setting */

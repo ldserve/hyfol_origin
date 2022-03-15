@@ -4,7 +4,21 @@
 	"layout": {{ section.settings.layout | json }}
 	}
 {%- endcapture -%}
-
+<style>
+  #shopify-section-{{ section.id }} div::-webkit-scrollbar { width: 0 !important }
+  #shopify-section-{{ section.id }} .point-item {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+		margin-right: 20px;
+		background: #FFFFFF;
+  }
+  #shopify-section-{{ section.id }} .point-item--active {
+    background: #000;
+  }
+</style>
 <section class="section" data-section-id="{{ section.id }}" data-section-type="featured-collection"
 				 data-section-settings='{{ section_settings }}'>
 	{%- assign collection = section.settings.collection -%}
@@ -83,6 +97,9 @@
 					<div class="scroller__inner">
 						{{ product_list }}
 					</div>
+					<div class="page-point section--text-centered">
+
+					</div>
 				</div>
 			{%- else -%}
 				{{ product_list }}
@@ -111,7 +128,102 @@
 		</div>
 	</div>
 </section>
+<script>
+    function ready(fn){
+        if(document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', function() {
+                document.removeEventListener('DOMContentLoaded',arguments.callee, false);
+                fn();
+            }, false);
+        }
+        // 如果IE
+        else if(document.attachEvent) {
+            // 确保当页面是在iframe中加载时，事件依旧会被安全触发
+            document.attachEvent('onreadystatechange', function() {
+                if(document.readyState == 'complete') {
+                    document.detachEvent('onreadystatechange', arguments.callee);
+                    fn();
+                }
+            });
 
+            // 如果是IE且页面不在iframe中时，轮询调用doScroll 方法检测DOM是否加载完毕
+            if(document.documentElement.doScroll && typeof window.frameElement === "undefined") {
+                try{
+                    document.documentElement.doScroll('left');
+                }
+                catch(error){
+                    return setTimeout(arguments.callee, 20);
+                };
+                fn();
+            }
+        }
+    }
+
+    ready(() => {
+        let box =document.getElementById('shopify-section-{{ section.id }}');
+        let scrollerInner = box.querySelector('.scroller__inner')
+        let flickitySlider =  box.querySelector('.flickity-slider');
+        let itemList = box.querySelectorAll(".product-item");
+        let pagePoint = box.querySelector('.page-point')
+        // let itemWidth = window.getComputedStyle(itemList[0],null).getPropertyValue("width");
+        let itemWidth = itemList[0].offsetWidth
+        let clientWidth = window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
+        let onePageOfCount ;
+        if(clientWidth <= 640) {
+            onePageOfCount = 2
+        }else if(clientWidth > 641 && clientWidth<= 999){
+            onePageOfCount = 3
+        }else if(clientWidth > 1000 && clientWidth<= 1279){
+            onePageOfCount = 4
+        }else if(clientWidth > 1280 && clientWidth<= 1440){
+            onePageOfCount = 5
+        }else if (clientWidth > 1440 ){
+            onePageOfCount = 6
+        }
+        let pointCount = Math.ceil(itemList.length * itemWidth / clientWidth)
+				let curStep = 0
+				function drawPoint () {
+            for (let i = 0; i < pointCount ; i++) {
+								let pointItem = document.createElement('span')
+                pointItem.classList = i === 0  ? 'point-item point-item--active':'point-item'
+                pagePoint.appendChild(pointItem)
+            }
+				}
+        function  activePoint() {
+            let pointItem = pagePoint.querySelectorAll('span')
+            let previousBtn = box.querySelector('.previous')
+            let nextBtn = box.querySelector('.next')
+            if(nextBtn){
+                previousBtn.addEventListener('click',() =>{
+                    curStep --
+                    for (let i = 0; i < pointItem.length; i++){
+                        pointItem[i].className = "point-item"
+                    }
+                    pointItem[curStep].classList = 'point-item point-item--active'
+                })
+                nextBtn.addEventListener('click',() =>{
+                    curStep ++
+                    for (let i = 0; i < pointItem.length; i++){
+                        pointItem[i].className = "point-item"
+                    }
+                    pointItem[curStep].classList = 'point-item point-item--active'
+                })
+								return
+            }
+            scrollerInner.onscroll=function(){
+                let scrollDistance = Math.ceil((scrollerInner.scrollLeft )/ clientWidth)
+                for (var i = 0; i < pointItem.length; i++){
+                    pointItem[i].className = "point-item"
+                }
+                pointItem[scrollDistance].classList = 'point-item point-item--active'
+            }
+
+				}
+        drawPoint()
+        activePoint()
+    })
+
+</script>
 {% schema %}
 	{
 	"name": "首页透明集合",
