@@ -12576,14 +12576,35 @@
                                 }
                             }
                         });
+                        this.flickityDot = new flickityFade(this.productGalleryElement, {
+                            accessibility: false,
+                            prevNextButtons: false,
+                            pageDots: false,
+                            adaptiveHeight: true,
+                            draggable: !Responsive.matchesBreakpoint('supports-hover'),
+                            fade: this.options['galleryTransitionEffect'] === 'fade',
+                            cellSelector: '.dot-item:not(.is-filtered)',
+                            initialIndex: initialIndex,
+                            on: {
+                                ready: function ready() {
+                                    // Remove the pre-set height (that was used to pre-allocate the space) so that it can react properly to
+                                    // changes of height.
+                                    setTimeout(function () {
+                                        _this2.productGalleryElement.style.height = null;
+                                    }, 1000);
+                                }
+                            }
+                        });
                     }
                 } // If there are thumbnails, we need to synchronize the thumbnails
 
 
                 this.productThumbnailsListElement = this.element.querySelector('.product-gallery__thumbnail-list');
+                this.dotThumbnailsListElement = this.element.querySelector('.dot');
                 this.delegateElement.on('click', '.product-gallery__thumbnail', this._onThumbnailClicked.bind(this));
 
                 if (this.productThumbnailsListElement && this.flickityInstance) {
+                    console.log(this.productThumbnailsListElement);
                     this.productThumbnailsCellsElements = this.productThumbnailsListElement.querySelectorAll('.product-gallery__thumbnail');
                     this.flickityInstance.on('select', this._onGallerySlideChanged.bind(this));
 
@@ -12591,6 +12612,21 @@
                         this.flickityInstance.on('select', this._onGallerySlideSettled.bind(this));
                     } else {
                         this.flickityInstance.on('settle', this._onGallerySlideSettled.bind(this));
+                    }
+
+                    this._onGallerySlideChanged(false); // We call it once initially to force adjust the thumbnails
+
+                    this._onGallerySlideSettled();
+                }
+
+                if (this.productThumbnailsListElement && this.flickityDot) {
+                    this.dotThumbnailsCellsElements = this.dotThumbnailsListElement.querySelectorAll('.dot-item');
+                    this.flickityDot.on('select', this._onGallerySlideChanged.bind(this));
+
+                    if (this.options['galleryTransitionEffect'] === 'fade') {
+                        this.flickityDot.on('select', this._onGallerySlideSettled.bind(this));
+                    } else {
+                        this.flickityDot.on('settle', this._onGallerySlideSettled.bind(this));
                     }
 
                     this._onGallerySlideChanged(false); // We call it once initially to force adjust the thumbnails
@@ -12721,7 +12757,17 @@
                 });
                 previousNavElement.classList.remove('is-nav-selected');
                 newNavElement.classList.add('is-nav-selected'); // We animate to move the selected nav item
+                this.dotThumbnailsCellsElements.forEach(function (item) {
+                    if (item.classList.contains('is-selected')) {
+                        previousDotElement = item;
+                    }
 
+                    if (item.getAttribute('data-media-id') === _this5.flickityInstance.selectedElement.getAttribute('data-media-id')) {
+                        newDotElement = item;
+                    }
+                });
+                previousDotElement.classList.remove('is-selected');
+                newDotElement.classList.add('is-selected'); // We animate to move the selected nav item
                 if (Responsive.matchesBreakpoint('pocket')) {
                     var scrollX = newNavElement.offsetLeft - (this.productThumbnailsListElement.parentNode.clientWidth - newNavElement.clientWidth) / 2;
                     this.productThumbnailsListElement.parentNode.scrollTo({

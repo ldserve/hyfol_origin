@@ -107,7 +107,11 @@
             {%- endif -%}
 
           </div>
-
+          <div class="dot">
+            {%- for media in product.media -%}
+              <div class="dot-item {% if media.id == selected_media.id %}is-selected{% endif %} {% if is_media_filtered %}is-filtered{% endif %}" data-media-id="{{ media.id }}"></div>
+            {% endfor %}
+          </div>
           {%- comment -%}Add the "view in your space" button, which allows to show the product in customer's environment (if the device supports it){%- endcomment -%}
           {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
 
@@ -117,13 +121,13 @@
             </button>
           {%- endif -%}
 
-          {%- if template != 'product.quick-view' and section.settings.enable_image_zoom -%}
+          <!-- {%- if template != 'product.quick-view' and section.settings.enable_image_zoom -%}
             <span class="product-gallery__zoom-notice">
               {% render 'icon', icon: 'zoom' %}
               <span class="hidden-pocket">{{ 'product.general.zoom' | t }}</span>
               <span class="hidden-lap-and-up">{{ 'product.general.zoom_mobile' | t }}</span>
             </span>
-          {%- endif -%}
+          {%- endif -%} -->
         </div>
 
         {%- if show_thumbnails_if_one_media -%}
@@ -174,7 +178,7 @@
                     {%- endfor -%}
                   {%- endif -%}
 
-                  <a href="{{ media | img_url: '1024x' }}" rel="noopener" class="product-gallery__thumbnail {% if media.id == selected_media.id %}is-nav-selected{% endif %} {% if is_media_filtered %}is-filtered{% endif %}" data-media-id="{{ media.id }}" {% if is_media_group %}data-group-name="{{ media_group_parts.first | strip | downcase | escape }}" data-group-value="{{ media_group_parts.last | strip | downcase | escape }}"{% endif %}>
+                  <a href="{{ media | img_url: '1024x' }}" rel="noopener" class="product-gallery__thumbnail  {% if media.id == selected_media.id %}is-nav-selected{% endif %} {% if is_media_filtered %}is-filtered{% endif %}" data-media-id="{{ media.id }}" {% if is_media_group %}data-group-name="{{ media_group_parts.first | strip | downcase | escape }}" data-group-value="{{ media_group_parts.last | strip | downcase | escape }}"{% endif %}>
                     {%- comment -%}Based on the type of media, we have to add an icon as per Shopify rules{%- endcomment -%}
 
                     {%- case media.media_type -%}
