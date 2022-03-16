@@ -256,14 +256,14 @@
     "164742840342fb9213": {
       "type": "featured-collection",
       "settings": {
-        "collection": "",
+        "collection": "tactical-club",
         "title": "Featured collection",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": false,
         "link_title": "View all",
-        "link_url": ""
+        "link_url": "shopify:\/\/collections\/tactical-club"
       }
     },
     "1647424215f34c4fad": {
