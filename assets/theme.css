@@ -5793,6 +5793,7 @@ select option {
 @media screen and (max-width: 999px) {
   .header__logo{
     flex: 1 0 auto;
+    transform: translateX(15px);
   }
 }
 @media screen and (min-width: 1000px) {
@@ -5828,7 +5829,12 @@ select option {
 }
 
 .header__action-item {
-  padding: 0 9px;
+  padding: 0 3px;
+}
+@media screen and (min-width: 641px) {
+  .header__action-item {
+    padding: 0 9px;
+  }
 }
 .header__action-item:last-child {
   padding-right: 4px; /* Last item is the cart, and we use a small padding to accommodate the presence of the cart item count */
@@ -11759,8 +11765,6 @@ shopify-payment-terms {
   }
 
   .scroller__inner {
-    padding-bottom: 20px;
-    margin-bottom: -20px;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
