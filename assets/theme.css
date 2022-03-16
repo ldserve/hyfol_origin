@@ -6007,6 +6007,8 @@ select option {
 @media screen and (min-width: 1280px) {
   .header__logo {
     margin-right: 40px;
+    margin-bottom: 10px;
+
   }
 
   .header__desktop-nav {
