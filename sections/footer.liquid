@@ -1,7 +1,14 @@
 <footer class="footer" data-section-id="{{ section.id }}" data-section-type="footer" role="contentinfo">
   <div >
     <div class="footer__wrapper">
-      {%- if section.blocks.size > 0 -%}
+			{%- capture pc_supported_sizes -%}{%- render 'image-size', sizes: '800,900,1000,1100,1200,1300,1400,1600,1800,2000,2200,2400,2600', image:  section.settings.image_pc -%}{%- endcapture -%}
+			{%- assign pc_image_url = section.settings.image_pc | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+			{%- capture mobile_supported_sizes -%}{%- render 'image-size', sizes: '300,400,5000,600,700,800,900,1000', image:  section.settings.image_mobile -%}{%- endcapture -%}
+			{%- assign mobile_image_url = section.settings.image_mobile | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
+
+			<img class="slideshow__image lazyload image--fade-in hidden-phone" data-src="{{ pc_image_url }}" data-widths="[{{ pc_supported_sizes }}]" data-sizes="auto">
+			<img class="slideshow__image lazyload image--fade-in hidden-tablet-and-up" data-src="{{ mobile_image_url }}" data-widths="[{{ mobile_supported_sizes }}]" data-sizes="auto">
+			{%- if section.blocks.size > 0 -%}
       <div class="footer-top ">
         <div class="footer__block-list container">
           {%- for block in section.blocks -%}
@@ -204,6 +211,16 @@
 {
   "name": "Footer",
   "settings": [
+		{
+			"type":"image_picker",
+			"id":"image_pc",
+			"label":"PC图片"
+		},
+		{
+			"type":"image_picker",
+			"id":"image_mobile",
+			"label":"mobile图片"
+		},
     {
       "type": "checkbox",
       "id": "show_social_media",
