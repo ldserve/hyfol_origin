@@ -22,7 +22,7 @@
 		</header>
 	</div>
 
-	<div class="container {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
+	<div class="indexContainer {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
 		{%- capture product_list -%}
 		<div
 			class="product-list product-list--{{ section.settings.layout }} {% if section.settings.stack_products %}product-list--stackable{% elsif section.settings.layout == 'vertical' %}product-list--scrollable{% endif %}">
