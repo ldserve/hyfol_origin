@@ -5405,11 +5405,11 @@ select option {
   padding: 10px 0 30px 0;
   border-top: var(--footer-border);
   background-color: var(--footer-background-color);
-  color: var(--footer-body-text-color);
+  color: #fff;
 }
 
 .footer a:hover {
-  color: var(--footer-accent-color);
+  color: #fff;
 }
 
 .footer__block-list {
@@ -5433,6 +5433,8 @@ select option {
      -moz-user-select: text;
       -ms-user-select: text;
           user-select: text;
+          border-bottom: 1px #fff solid;
+          color: #fff;
 }
 
 .footer__linklist {
@@ -5453,7 +5455,7 @@ select option {
 .footer__aside {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 12px));
 }
 
@@ -5492,11 +5494,13 @@ select option {
 }
 
 .footer .select-button {
-  background: var(--footer-background-color);
-  color: var(--footer-body-text-color);
-  border-color: rgba(var(--footer-body-text-color-rgb), 0.5);
+  background: #1b1b1b;
+  color: #ffffff;
+  border-color: #fff;
 }
-
+.footer-bottom {
+  background-color: #000;
+}
 @media screen and (max-width: 640px) {
   .footer__block-item {
     margin-right: calc(-1 * var(--mobile-container-gutter));
@@ -5539,18 +5543,22 @@ select option {
   }
 
   .footer__wrapper {
-    padding: 50px 0;
+    /* padding: 50px 0; */
     border-top: var(--footer-border);
   }
-
+  .footer-top {
+    background-color: #1c1c1c;
+}
   .footer__block-list {
     flex-direction: row;
-    margin: -20px -35px;
+    margin: 0px auto;
+    padding: 35px 0px;
   }
 
   .footer__block-item {
     flex: 0 0 50%;
-    padding: 20px 35px;
+    padding: 20px 25px;
+    margin-right: 12%;
   }
 
   .footer__block-item--newsletter {
@@ -5574,8 +5582,9 @@ select option {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 60px;
+    /* margin-top: 60px; */
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
+    padding: 50px 0px 30px;
   }
 
   .footer__aside-item {
@@ -5611,6 +5620,7 @@ select option {
 
   .footer__aside {
     align-items: flex-start;
+    padding: 50px 0px 30px;
   }
 
   .footer__aside-item--copyright {
@@ -11514,7 +11524,7 @@ shopify-payment-terms {
 .social-media__item svg {
   width: 28px;
   height: 28px;
-  opacity: 0.4;
+  /* opacity: 0; */
   transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;
   will-change: opacity;
 }
