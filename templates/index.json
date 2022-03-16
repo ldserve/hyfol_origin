@@ -249,7 +249,8 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/abcf5cfc64a285e43a89f2bba8d414b3_44335f37-4450-48b1-adac-0e341c4b26e2.jpg",
+        "bg_image": "shopify:\/\/shop_images\/abcf5cfc64a285e43a89f2bba8d414b3_875e7804-9ed3-42c0-a951-3281022b24ff.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/06fa5a8dfa2d76ec7a3d6e9c0b410b0f.jpg",
         "link": "",
         "shadow": false
       }
