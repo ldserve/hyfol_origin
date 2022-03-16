@@ -5967,7 +5967,9 @@ select option {
   .header>.container {
     width: 100%;
   }
-
+  .header>.indexContainer {
+    width: 100%;
+  }
   /* On mobile, if the search is expanded by default, we must add extra margin to the header element to prevent the search to
      overlap the rest of the content */
   .header--search-expanded {
