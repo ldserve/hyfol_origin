@@ -109,9 +109,9 @@
         ],
         "settings": {
           "enable_sticky_header": true,
-          "logo": "shopify:\/\/shop_images\/LOGO_1f7fbc6d-0ad7-4b89-be0a-517e665db4cd.png",
-          "logo_max_width": 170,
-          "mobile_logo_max_width": 140,
+          "logo": "shopify:\/\/shop_images\/hyfol_2.0_1.png",
+          "logo_max_width": 85,
+          "mobile_logo_max_width": 70,
           "show_locale_selector": false,
           "show_currency_selector": false,
           "navigation_menu": "pc",
