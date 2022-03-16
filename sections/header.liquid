@@ -87,7 +87,7 @@
 
 				{%- comment -%}---------------导航菜单---------------{%- endcomment -%}
 				{%- if section.settings.desktop_navigation_layout == 'inline' and navigation_menu.links.size > 0 -%}
-					<nav class="nav-bar cjj-category">
+					<nav class="nav-bar cjj-category" style="transform: translateX(72px)">
 						{%- comment -%}---------------logo组件---------------{%- endcomment -%}
 						{%- capture header_logo -%}
 							<a href="{{ routes.root_url }}" class="header__logo-link shence_commodityView" data-scenable="1"
