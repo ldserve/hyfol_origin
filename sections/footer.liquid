@@ -5,9 +5,12 @@
 			{%- assign pc_image_url = section.settings.image_pc | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 			{%- capture mobile_supported_sizes -%}{%- render 'image-size', sizes: '300,400,5000,600,700,800,900,1000', image:  section.settings.image_mobile -%}{%- endcapture -%}
 			{%- assign mobile_image_url = section.settings.image_mobile | img_url: '1x1'| replace: '_1x1.', '_{width}x.' -%}
-
-			<img class="slideshow__image lazyload image--fade-in hidden-phone" data-src="{{ pc_image_url }}" data-widths="[{{ pc_supported_sizes }}]" data-sizes="auto">
-			<img class="slideshow__image lazyload image--fade-in hidden-tablet-and-up" data-src="{{ mobile_image_url }}" data-widths="[{{ mobile_supported_sizes }}]" data-sizes="auto">
+			{% if section.settings.image_pc != blank %}
+				<img class="slideshow__image lazyload image--fade-in hidden-phone" data-src="{{ pc_image_url }}" data-widths="[{{ pc_supported_sizes }}]" data-sizes="auto">
+			{% endif %}
+			{% if section.settings.image_mobile != blank %}
+				<img class="slideshow__image lazyload image--fade-in hidden-tablet-and-up" data-src="{{ mobile_image_url }}" data-widths="[{{ mobile_supported_sizes }}]" data-sizes="auto">
+			{% endif %}
 			{%- if section.blocks.size > 0 -%}
       <div class="footer-top ">
         <div class="footer__block-list container">
