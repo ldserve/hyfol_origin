@@ -236,7 +236,7 @@
           "show_announcement": true,
           "background": "#bfb28b",
           "one_round": 6,
-          "text_color": "#ffffff",
+          "text_color": "#222021",
           "link": "",
           "show_newsletter": false,
           "newsletter_button": "",
