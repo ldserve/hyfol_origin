@@ -7631,6 +7631,7 @@
 
 
             var proto = Flickity.prototype;
+            console.log(proto);
             Flickity.createMethods.push('_createFade');
 
             proto._createFade = function () {
@@ -7662,6 +7663,7 @@
 
 
             proto.onSelectFade = function () {
+                console.log(11111111);
                 // in case of resize, keep fadeIndex within current count
                 this.fadeIndex = Math.min(this.prevSelectedIndex, this.slides.length - 1);
                 this.prevSelectedIndex = this.selectedIndex;
@@ -12523,6 +12525,7 @@
                 var _this2 = this;
 
                 this.productGalleryElement = this.element.querySelector('.product-gallery__carousel');
+    
                 this.productGalleryCellsElements = this.productGalleryElement ? this.productGalleryElement.querySelectorAll('.product-gallery__carousel-item') : [];
 
                 if (this.productGalleryElement) {
@@ -12576,61 +12579,29 @@
                                 }
                             }
                         });
-                        this.flickityDot = new flickityFade(this.productGalleryElement, {
-                            accessibility: false,
-                            prevNextButtons: false,
-                            pageDots: false,
-                            adaptiveHeight: true,
-                            draggable: !Responsive.matchesBreakpoint('supports-hover'),
-                            fade: this.options['galleryTransitionEffect'] === 'fade',
-                            cellSelector: '.dot-item:not(.is-filtered)',
-                            initialIndex: initialIndex,
-                            on: {
-                                ready: function ready() {
-                                    // Remove the pre-set height (that was used to pre-allocate the space) so that it can react properly to
-                                    // changes of height.
-                                    setTimeout(function () {
-                                        _this2.productGalleryElement.style.height = null;
-                                    }, 1000);
-                                }
-                            }
-                        });
                     }
                 } // If there are thumbnails, we need to synchronize the thumbnails
 
 
                 this.productThumbnailsListElement = this.element.querySelector('.product-gallery__thumbnail-list');
-                this.dotThumbnailsListElement = this.element.querySelector('.dot');
                 this.delegateElement.on('click', '.product-gallery__thumbnail', this._onThumbnailClicked.bind(this));
+                this.delegateElement.on('click', '.dot-item', this._onThumbnailClicked.bind(this));
+                this.dotThumbnailsListElement = this.element.querySelector('.dot');
 
                 if (this.productThumbnailsListElement && this.flickityInstance) {
-                    console.log(this.productThumbnailsListElement);
                     this.productThumbnailsCellsElements = this.productThumbnailsListElement.querySelectorAll('.product-gallery__thumbnail');
+                    this.dotThumbnailsCellsElements = this.dotThumbnailsListElement.querySelectorAll('.dot-item');
                     this.flickityInstance.on('select', this._onGallerySlideChanged.bind(this));
-
+                    this.flickityDot.on('select', this._onGallerySlideChanged.bind(this));
                     if (this.options['galleryTransitionEffect'] === 'fade') {
                         this.flickityInstance.on('select', this._onGallerySlideSettled.bind(this));
-                    } else {
-                        this.flickityInstance.on('settle', this._onGallerySlideSettled.bind(this));
-                    }
-
-                    this._onGallerySlideChanged(false); // We call it once initially to force adjust the thumbnails
-
-                    this._onGallerySlideSettled();
-                }
-
-                if (this.productThumbnailsListElement && this.flickityDot) {
-                    this.dotThumbnailsCellsElements = this.dotThumbnailsListElement.querySelectorAll('.dot-item');
-                    this.flickityDot.on('select', this._onGallerySlideChanged.bind(this));
-
-                    if (this.options['galleryTransitionEffect'] === 'fade') {
                         this.flickityDot.on('select', this._onGallerySlideSettled.bind(this));
                     } else {
+                        this.flickityInstance.on('settle', this._onGallerySlideSettled.bind(this));
                         this.flickityDot.on('settle', this._onGallerySlideSettled.bind(this));
                     }
 
                     this._onGallerySlideChanged(false); // We call it once initially to force adjust the thumbnails
-
 
                     this._onGallerySlideSettled();
                 }
@@ -12746,7 +12717,9 @@
                 var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
                 var previousNavElement = null,
                     newNavElement = null;
-                this.productThumbnailsCellsElements.forEach(function (item) {
+                    var previousDotElement = null,
+                    newDotElement = null;
+                    this.productThumbnailsCellsElements.forEach(function (item) {
                     if (item.classList.contains('is-nav-selected')) {
                         previousNavElement = item;
                     }

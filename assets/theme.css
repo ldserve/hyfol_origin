@@ -8701,6 +8701,7 @@ select option {
   border: 1px #000 solid;
   border-radius: 6px;
   margin: 0px 10px;
+  cursor: pointer;
 }
 
 .dot-item.is-selected {
