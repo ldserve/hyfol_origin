@@ -204,8 +204,8 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/360f844e7bb810da95861fb65c5c8def.jpg",
+        "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_6442ebb7-6f57-4c0d-9fef-5130f2eca02d.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/360f844e7bb810da95861fb65c5c8def_646ce675-a6ae-436d-8618-138bbc35266a.jpg",
         "link": "",
         "shadow": false
       }
@@ -404,6 +404,7 @@
     },
     "newsletter": {
       "type": "newsletter",
+      "disabled": true,
       "settings": {
         "title": "NEWSLETTER",
         "content": "<p>Never miss any HYFOL new fashion!<\/p>",
@@ -413,6 +414,7 @@
     },
     "16474263170c1e9e3f": {
       "type": "transparent-collection",
+      "disabled": true,
       "settings": {
         "collection": "",
         "title": "Featured collection",
