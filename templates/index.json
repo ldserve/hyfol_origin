@@ -227,7 +227,8 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1.jpg",
+        "bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1_788a00dc-6754-4e97-98b1-759aa4a984d5.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1_e9a5882e-6b29-4954-a203-633ed8b2f9ae.jpg",
         "link": "",
         "shadow": false
       }
