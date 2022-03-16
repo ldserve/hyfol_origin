@@ -10,16 +10,9 @@
 	{%- assign collection = section.settings.collection -%}
 
 	<div class="indexContainer">
-		<header class="section__header">
-			<div class="section__header-stack">
-				<h2 class="section__title heading h3">{{ section.settings.title | default: collection.title | escape }}</h2>
-			</div>
-
-			{%- if section.settings.link_title != blank -%}
-				<a href="{{ section.settings.link_url | default: collection.url | default: '#' }}"
-					 class="section__action-link link">{{ section.settings.link_title | escape }} {% render 'icon', icon: 'tail-right' %}</a>
-			{%- endif -%}
-		</header>
+		<div class="container">
+			<h2 class="section__title heading h3 section--text-centered">{{ section.settings.title | default: collection.title | escape }}</h2>
+		</div>>
 	</div>
 
 	<div class="indexContainer {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
