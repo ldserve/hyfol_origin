@@ -33,8 +33,22 @@
         "cycle_speed": 5
       }
     },
+    "1647427327de6998b8": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "2022-3-10-new-in",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": "shopify:\/\/collections\/2022-3-10-new-in"
+      }
+    },
     "16474248460d0593be": {
       "type": "transparent-collection",
+      "disabled": true,
       "settings": {
         "collection": "skull-madman",
         "title": "Featured collection",
@@ -186,6 +200,86 @@
         "lpadding": 0
       }
     },
+    "164742408779389987": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/360f844e7bb810da95861fb65c5c8def.jpg",
+        "link": "",
+        "shadow": false
+      }
+    },
+    "164742743258bb982a": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "american-flag",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": "https:\/\/www.hyfol.com\/collections\/american-flag"
+      }
+    },
+    "16474280605793ac57": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1.jpg",
+        "link": "",
+        "shadow": false
+      }
+    },
+    "16474280927d0dff69": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "skull-madman",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "1647428400b9292564": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "link": "",
+        "shadow": false
+      }
+    },
+    "164742840342fb9213": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "1647424215f34c4fad": {
+      "type": "transparent-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "skull-madman",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
     "1640334828c8a975c8": {
       "type": "celebrity-picture-rotation",
       "blocks": {
@@ -316,19 +410,10 @@
         "text": "#1b1b1b"
       }
     },
-    "164742408779389987": {
-      "type": "no_space_img",
-      "settings": {
-        "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner.jpg",
-        "link": "",
-        "shadow": false
-      }
-    },
-    "1647424215f34c4fad": {
+    "16474263170c1e9e3f": {
       "type": "transparent-collection",
       "settings": {
-        "collection": "skull-madman",
+        "collection": "",
         "title": "Featured collection",
         "products_count": 12,
         "layout": "vertical",
@@ -341,12 +426,19 @@
   },
   "order": [
     "16474236687749dfbd",
+    "1647427327de6998b8",
     "16474248460d0593be",
     "16474250424edba623",
     "164742631051d4db44",
+    "164742408779389987",
+    "164742743258bb982a",
+    "16474280605793ac57",
+    "16474280927d0dff69",
+    "1647428400b9292564",
+    "164742840342fb9213",
+    "1647424215f34c4fad",
     "1640334828c8a975c8",
     "newsletter",
-    "164742408779389987",
-    "1647424215f34c4fad"
+    "16474263170c1e9e3f"
   ]
 }
