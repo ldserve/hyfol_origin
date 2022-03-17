@@ -95,8 +95,8 @@
             "link": "shopify:\/\/collections\/pants-12-13",
             "left": 0,
             "top": 50,
-            "width": 50,
-            "height": 50
+            "width": 49,
+            "height": 48
           }
         },
         "6defe89d-34bf-47d9-a1f2-91004d693ed8": {
@@ -122,7 +122,7 @@
         "hidDesk": false,
         "sensorsName": "",
         "hidWeb": true,
-        "line": false,
+        "line": true,
         "image": "shopify:\/\/shop_images\/pc_9fc19970-6004-4783-907a-6cbc8b91ae20.jpg",
         "tpadding": 0,
         "rpadding": 0,
