@@ -26,11 +26,11 @@
 				 data-section-settings='{{ section_settings }}'>
 	{%- assign collection = section.settings.collection -%}
 
-	<div class="container">
+	<div class="indexContainer">
 				<h2 class="section__title heading h3 section--text-centered">{{ section.settings.title | default: collection.title | escape }}</h2>
 	</div>
 
-	<div class="container {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
+	<div class="indexContainer {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
 		{%- capture product_list -%}
 		<div
 			class="product-list product-list--{{ section.settings.layout }} {% if section.settings.stack_products %}product-list--stackable{% elsif section.settings.layout == 'vertical' %}product-list--scrollable{% endif %}">
@@ -229,7 +229,7 @@
 </script>
 {% schema %}
 	{
-	"name": "transparent-collection",
+	"name": "首页透明集合",
 	"settings": [
 	{
 	"type": "collection",
@@ -301,7 +301,7 @@
 	"presets": [
 	{
 	"category": "Collection",
-	"name": "Featured collection",
+	"name": "首页透明集合",
 	"settings": {}
 	}
 	]
