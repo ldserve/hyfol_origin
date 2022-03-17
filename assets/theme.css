@@ -2601,7 +2601,7 @@ img.lazyload[data-sizes=auto] {
 
 .card__header {
   position: relative;
-  padding: 20px 20px 0 20px;
+  padding: 20px 0px;
 }
 
 .card__header--flex {
@@ -2630,10 +2630,13 @@ img.lazyload[data-sizes=auto] {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 20px));
 }
 
-.card__section,
 .card__collapsible-button {
   position: relative;
-  padding: 20px;
+  padding: 20px 0px;
+}
+.card__section{
+  position: relative;
+  padding-bottom: 20px;
 }
 
 .card__collapsible-button {
@@ -2671,7 +2674,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 .card__collapsible-content {
-  padding: 0 20px 20px 20px;
+  padding-bottom: 30px;
 }
 
 .card__separator {
@@ -2744,15 +2747,6 @@ img.lazyload[data-sizes=auto] {
     /* border: 1px solid var(--border-color); */
   }
 
-  .card__header {
-    padding: 30px 30px 0 30px;
-  }
-
-  .card__section,
-  .card__collapsible-button {
-    padding: 30px;
-  }
-
   .card__section + .card__section::before {
     width: 100%;
   }
@@ -2765,10 +2759,6 @@ img.lazyload[data-sizes=auto] {
 
   .card__subtitle {
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
-  }
-
-  .card__collapsible-content {
-    padding: 0 30px 30px 30px;
   }
 
   .card__separator {
@@ -5612,6 +5602,7 @@ select option {
 
   .footer__aside {
     align-items: flex-start;
+    padding: 50px 0 80px;
   }
 
   .footer__aside-item--copyright {
@@ -8758,7 +8749,7 @@ background: #fff;
     position: relative;
     z-index: 1;
     margin: -6px 0 -2px -3px; /* negative to align the top edge to the featured image */
-    max-height: 580px;
+    max-height: 575px;
     /* width: 96px;  */
     overflow: auto;
     -ms-overflow-style: none; /* IE 11 */
@@ -11802,6 +11793,10 @@ shopify-payment-terms {
   }
 }
 
+  label.spr-icon {
+    min-width: 28px !important;
+    min-height: 26px !important;
+}
 @media screen and (min-width: 641px) and (max-width: 999px) {
   .scroller {
     margin: 0 calc(-1 * var(--desktop-container-gutter));
@@ -14303,4 +14298,39 @@ shopify-payment-terms {
 }
 .fr {
   float: right;
+}
+.slider-box.shipping-body {
+  background-color: #e1ddda;
+  padding-bottom: 15px;
+}
+/* .slider-box-content {
+  justify-content: space-around;
+  text-align: center;
+} */
+.jcsa{
+  justify-content: space-around;
+}
+.tac{
+  text-align: center;
+}
+.border-l{
+  border-left: 1px solid #000;
+}
+.border-r{
+  border-right: 1px solid #000;
+}
+.slider-item{
+  flex: 1;
+}
+.slider-box-content {
+  padding: 15px;
+}
+.shipping-header {
+  margin-bottom: 10px;
+}
+
+.shipping-header .icon {
+  height: 28px;
+  width: 28px;
+  margin-right: 10px;
 }
