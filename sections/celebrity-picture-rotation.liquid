@@ -95,7 +95,7 @@
     #shopify-section-{{ section.id }} {
 		overflow: hidden;
 	}
-    #shopify-section-{{ section.id }} .container{
+    #shopify-section-{{ section.id }} .indexContainer{
         position: relative;
 	}
     #shopify-section-{{ section.id }}  .celebrity-picture-rotation-title,
@@ -142,7 +142,7 @@
     #shopify-section-{{ section.id }} .celebrity-picture-rotation-container .scroller__inner {
         overflow: visible;
     }
-    #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl {
+    #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl {
 		height: 50px;
 		width: 40px;
 		line-height: 50px;
@@ -157,16 +157,16 @@
 			transform: scale(1);
 			bottom: calc(42%);
 	}
-    #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl:hover {
+    #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl:hover {
 		background: var(--accent-color);
 	}
-	#shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
+	#shopify-section-{{ section.id }} .indexContainer .cpr_ctrl-prev {
 		left: 10px;
 	}
-	#shopify-section-{{ section.id }} .container .cpr_ctrl-next {
+	#shopify-section-{{ section.id }} .indexContainer .cpr_ctrl-next {
 		right: 10px;
 	}
-	#shopify-section-{{ section.id }} .container:hover .cpr_scroller__ctrl {
+	#shopify-section-{{ section.id }} .indexContainer:hover .cpr_scroller__ctrl {
 		opacity: 1;
     }
     #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container {
@@ -271,13 +271,13 @@
         justify-content: flex-end;
     }
     @media screen and (max-width: 641px) {
-        #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl {
+        #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl {
             opacity: 1;
         }
-        #shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
+        #shopify-section-{{ section.id }} .indexContainer .cpr_ctrl-prev {
 		    left: 15px;
         }
-        #shopify-section-{{ section.id }} .container .cpr_ctrl-next {
+        #shopify-section-{{ section.id }} .indexContainer .cpr_ctrl-next {
             right: 15px;
         }
         #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container-item {
@@ -347,7 +347,7 @@
         }
     }
     @media screen and (min-width: 641px) and (max-width: 999px) {
-        #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl {
+        #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl {
             opacity: 1;
             transform: scale(1.2);
         }
