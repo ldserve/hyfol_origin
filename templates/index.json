@@ -35,6 +35,7 @@
     },
     "1647427327de6998b8": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "2022-3-10-new-in",
         "title": "NEW IN",
@@ -48,7 +49,6 @@
     },
     "16474248460d0593be": {
       "type": "transparent-collection",
-      "disabled": true,
       "settings": {
         "collection": "skull-madman",
         "title": "Featured collection",
