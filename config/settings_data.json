@@ -165,6 +165,8 @@
           "footer-2"
         ],
         "settings": {
+          "image_pc": "shopify:\/\/shop_images\/02_b0ee7601-7f74-4e63-b887-32858921bffd.jpg",
+          "image_mobile": "shopify:\/\/shop_images\/02_7a9ad221-0061-464b-ada0-79d8f03da4c1.jpg",
           "show_social_media": true,
           "show_payment_icons": true,
           "show_locale_selector": true,
