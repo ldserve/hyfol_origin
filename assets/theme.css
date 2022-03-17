@@ -3129,7 +3129,7 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (max-width: 640px) {
   .mini-cart .icon--nav-triangle-borderless {
-    right: 24px;
+    right: 15px;
   }
 
   .mini-cart__content {
