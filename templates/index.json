@@ -427,17 +427,6 @@
         "link_title": "View all",
         "link_url": ""
       }
-    },
-    "1647431410c853b0ed": {
-      "type": "no_space_img",
-      "disabled": true,
-      "settings": {
-        "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/02_b0ee7601-7f74-4e63-b887-32858921bffd.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/02_7a9ad221-0061-464b-ada0-79d8f03da4c1.jpg",
-        "link": "",
-        "shadow": false
-      }
     }
   },
   "order": [
@@ -455,7 +444,6 @@
     "1647424215f34c4fad",
     "1640334828c8a975c8",
     "newsletter",
-    "16474263170c1e9e3f",
-    "1647431410c853b0ed"
+    "16474263170c1e9e3f"
   ]
 }
