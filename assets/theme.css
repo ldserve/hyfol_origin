@@ -3149,7 +3149,7 @@ img.lazyload[data-sizes=auto] {
 
     .mini-cart__recap,
     .mini-cart__content--empty {
-      padding-bottom: max(25px, env(safe-area-inset-bottom, 0px) + 25px);
+      padding-bottom: max(25px, env(safe-area-inset-bottom, 0px) + 100px);
     }
   }
 }
@@ -6135,7 +6135,7 @@ select option {
   display: none;
   position: absolute;
   right: -18px;
-  top: -16px;
+  top: -13px;
   align-items: center;
   justify-content: center;
   height: 18px;
