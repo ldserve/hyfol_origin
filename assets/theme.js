@@ -6767,7 +6767,7 @@
         // prev/next buttons
         (function (window, factory) {
             // universal module definition
-
+            console.log(module);
             /* jshint strict: false */
             if (module.exports) {
                 // CommonJS
@@ -7631,7 +7631,6 @@
 
 
             var proto = Flickity.prototype;
-            console.log(proto);
             Flickity.createMethods.push('_createFade');
 
             proto._createFade = function () {
@@ -7663,7 +7662,6 @@
 
 
             proto.onSelectFade = function () {
-                console.log(11111111);
                 // in case of resize, keep fadeIndex within current count
                 this.fadeIndex = Math.min(this.prevSelectedIndex, this.slides.length - 1);
                 this.prevSelectedIndex = this.selectedIndex;
@@ -12486,12 +12484,13 @@
                                     // Now we compare the value: if it's the same or that the image is part of the variant we keep it, otherwise we filter it
                                     if (newVariant["option".concat(optionIndex + 1)].toLowerCase() === cell.getAttribute('data-group-value') || newVariant['featured_media'] && newVariant['featured_media']['id'] === parseInt(cell.getAttribute('data-media-id'))) {
                                         cell.classList.remove('is-filtered');
-
                                         _this.productThumbnailsCellsElements[imageIndex].classList.remove('is-filtered');
+                                        _this.dotThumbnailsCellsElements[imageIndex].classList.remove('is-filtered');
                                     } else {
                                         cell.classList.add('is-filtered');
 
                                         _this.productThumbnailsCellsElements[imageIndex].classList.add('is-filtered');
+                                        _this.dotThumbnailsCellsElements[imageIndex].classList.add('is-filtered');
                                     }
                                 }
                             });
@@ -12525,7 +12524,6 @@
                 var _this2 = this;
 
                 this.productGalleryElement = this.element.querySelector('.product-gallery__carousel');
-    
                 this.productGalleryCellsElements = this.productGalleryElement ? this.productGalleryElement.querySelectorAll('.product-gallery__carousel-item') : [];
 
                 if (this.productGalleryElement) {
@@ -12587,21 +12585,19 @@
                 this.delegateElement.on('click', '.product-gallery__thumbnail', this._onThumbnailClicked.bind(this));
                 this.delegateElement.on('click', '.dot-item', this._onThumbnailClicked.bind(this));
                 this.dotThumbnailsListElement = this.element.querySelector('.dot');
-
                 if (this.productThumbnailsListElement && this.flickityInstance) {
                     this.productThumbnailsCellsElements = this.productThumbnailsListElement.querySelectorAll('.product-gallery__thumbnail');
                     this.dotThumbnailsCellsElements = this.dotThumbnailsListElement.querySelectorAll('.dot-item');
                     this.flickityInstance.on('select', this._onGallerySlideChanged.bind(this));
-                    this.flickityDot.on('select', this._onGallerySlideChanged.bind(this));
+
                     if (this.options['galleryTransitionEffect'] === 'fade') {
                         this.flickityInstance.on('select', this._onGallerySlideSettled.bind(this));
-                        this.flickityDot.on('select', this._onGallerySlideSettled.bind(this));
                     } else {
                         this.flickityInstance.on('settle', this._onGallerySlideSettled.bind(this));
-                        this.flickityDot.on('settle', this._onGallerySlideSettled.bind(this));
                     }
 
                     this._onGallerySlideChanged(false); // We call it once initially to force adjust the thumbnails
+
 
                     this._onGallerySlideSettled();
                 }
@@ -12730,6 +12726,7 @@
                 });
                 previousNavElement.classList.remove('is-nav-selected');
                 newNavElement.classList.add('is-nav-selected'); // We animate to move the selected nav item
+
                 this.dotThumbnailsCellsElements.forEach(function (item) {
                     if (item.classList.contains('is-selected')) {
                         previousDotElement = item;
@@ -12740,8 +12737,8 @@
                     }
                 });
                 previousDotElement.classList.remove('is-selected');
-                newDotElement.classList.add('is-selected'); // We animate to move the selected nav item
-                if (Responsive.matchesBreakpoint('pocket')) {
+                newDotElement.classList.add('is-selected'); // We ani
+                 if (Responsive.matchesBreakpoint('pocket')) {
                     var scrollX = newNavElement.offsetLeft - (this.productThumbnailsListElement.parentNode.clientWidth - newNavElement.clientWidth) / 2;
                     this.productThumbnailsListElement.parentNode.scrollTo({
                         left: scrollX,

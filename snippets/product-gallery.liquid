@@ -107,16 +107,20 @@
             {%- endif -%}
 
           </div>
-
-          <div class="scroller">
-            <div class="scroller__inner">
-              <div class="dot">
-                {%- for media in product.media -%}
-                  <div class="dot-item {% if media.id == selected_media.id %}is-selected{% endif %} {% if is_media_filtered %}is-filtered{% endif %}" data-media-id="{{ media.id }}"></div>
-                {% endfor %}
-              </div>
-            </div>
+          {% if selected_media.alt==product.title %}
+          <div class="dot" style="display: none;">
+            {%- for media in product.media -%}
+              <div class="dot-item {% if media.id == selected_media.id %}is-selected{% endif %} {% if media.alt != selected_media.alt %}is-filtered{% endif %}" data-media-id="{{ media.id }}"></div>
+            {% endfor %}
           </div>
+          {% else %}
+          <div class="dot">
+            {%- for media in product.media -%}
+              <div class="dot-item {% if media.id == selected_media.id %}is-selected{% endif %} {% if media.alt != selected_media.alt %}is-filtered{% endif %}" data-media-id="{{ media.id }}"></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+              
           {%- comment -%}Add the "view in your space" button, which allows to show the product in customer's environment (if the device supports it){%- endcomment -%}
           {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
 
