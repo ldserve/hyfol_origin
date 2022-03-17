@@ -51,7 +51,7 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "skull-madman",
-        "title": "Featured collection",
+        "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -201,6 +201,19 @@
         "lpadding": 0
       }
     },
+    "1647424215f34c4fad": {
+      "type": "transparent-collection",
+      "settings": {
+        "collection": "skull-madman",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
     "164742408779389987": {
       "type": "no_space_img",
       "settings": {
@@ -248,19 +261,6 @@
         "shadow": false
       }
     },
-    "16474280927d0dff69": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "skull-madman",
-        "title": "SKULL MADMAN",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": ""
-      }
-    },
     "1647428400b9292564": {
       "type": "no_space_img",
       "settings": {
@@ -282,20 +282,6 @@
         "show_quick_buy": false,
         "link_title": "View all",
         "link_url": "shopify:\/\/collections\/tactical-club"
-      }
-    },
-    "1647424215f34c4fad": {
-      "type": "transparent-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "skull-madman",
-        "title": "Featured collection",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": ""
       }
     },
     "1640334828c8a975c8": {
@@ -435,14 +421,13 @@
     "16474248460d0593be",
     "16474250424edba623",
     "164742631051d4db44",
+    "1647424215f34c4fad",
     "164742408779389987",
     "16474263170c1e9e3f",
     "164742743258bb982a",
     "16474280605793ac57",
-    "16474280927d0dff69",
     "1647428400b9292564",
     "164742840342fb9213",
-    "1647424215f34c4fad",
     "1640334828c8a975c8",
     "newsletter"
   ]
