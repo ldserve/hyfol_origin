@@ -3129,7 +3129,7 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (max-width: 640px) {
   .mini-cart .icon--nav-triangle-borderless {
-    right: 24px;
+    right: 15px;
   }
 
   .mini-cart__content {
@@ -3149,7 +3149,7 @@ img.lazyload[data-sizes=auto] {
 
     .mini-cart__recap,
     .mini-cart__content--empty {
-      padding-bottom: max(25px, env(safe-area-inset-bottom, 0px) + 25px);
+      padding-bottom: max(25px, env(safe-area-inset-bottom, 0px) + 100px);
     }
   }
 }
@@ -3213,7 +3213,7 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (min-width: 1280px) {
   .mini-cart .icon--nav-triangle-borderless {
-    right: 58px;
+    right: 23px;
   }
 }
 
