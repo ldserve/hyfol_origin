@@ -6033,7 +6033,7 @@ select option {
 }
 
 .header__action-item {
-  padding: 0 3px;
+  padding: 0 4px;
 }
 
 @media screen and (min-width: 641px) {
