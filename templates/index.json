@@ -118,7 +118,6 @@
     },
     "164742631051d4db44": {
       "type": "linkImg",
-      "disabled": true,
       "blocks": {
         "1b4a5d11-2c92-45bb-b788-8a362446a835": {
           "type": "link",
@@ -180,7 +179,7 @@
         "sensorsName": "",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/pc_72df4ec2-2841-466f-847c-cf32b34e0181.jpg",
+        "image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_bc690ba2-1496-48fc-9082-00a68961d3f5.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
