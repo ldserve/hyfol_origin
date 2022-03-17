@@ -9035,7 +9035,8 @@ shopify-payment-terms {
 
   .product-form__payment-container > * {
     flex: none;
-    width: calc(50% - 18px);
+    /* width: calc(50% - 18px); */
+    width: 100%;
     margin: 9px;
   }
 }
@@ -11889,8 +11890,10 @@ shopify-payment-terms {
   top: calc(50% - 5px);
   width: 10px;
   height: 10px;
+} 
+[aria-expanded=true] span.card-arrow .icon {
+  transform: rotate(180deg);
 }
-
 .plus-button::before,
 .plus-button::after {
   position: absolute;

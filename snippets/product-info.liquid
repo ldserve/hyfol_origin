@@ -55,7 +55,9 @@
                 {%- if block.settings.display_mode == 'collapse' -%}
                   <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
                     <span class="card__title heading h3">{{ 'product.general.description' | t }}</span>
-                    <span class="plus-button plus-button--large"></span>
+                    <span class="card-arrow">
+                      {%- render 'icon', icon: 'arrow-bottom' -%}
+                    </span>
                   </div>
 
                   <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
