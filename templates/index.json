@@ -211,8 +211,22 @@
         "shadow": false
       }
     },
+    "16474263170c1e9e3f": {
+      "type": "transparent-collection",
+      "settings": {
+        "collection": "patriot",
+        "title": "PATRIOT LEAGUE",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
     "164742743258bb982a": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "american-flag",
         "title": "PATRIOT LEAGUE",
@@ -413,20 +427,6 @@
         "background": "#f0f0f0",
         "text": "#1b1b1b"
       }
-    },
-    "16474263170c1e9e3f": {
-      "type": "transparent-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "",
-        "title": "Featured collection",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": ""
-      }
     }
   },
   "order": [
@@ -436,6 +436,7 @@
     "16474250424edba623",
     "164742631051d4db44",
     "164742408779389987",
+    "16474263170c1e9e3f",
     "164742743258bb982a",
     "16474280605793ac57",
     "16474280927d0dff69",
@@ -443,7 +444,6 @@
     "164742840342fb9213",
     "1647424215f34c4fad",
     "1640334828c8a975c8",
-    "newsletter",
-    "16474263170c1e9e3f"
+    "newsletter"
   ]
 }
