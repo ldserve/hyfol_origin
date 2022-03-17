@@ -122,8 +122,8 @@
         "hidDesk": false,
         "sensorsName": "",
         "hidWeb": true,
-        "line": true,
-        "image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_a08a5c8d-8f33-46bb-b1a1-511b06c01d82.jpg",
+        "line": false,
+        "image": "shopify:\/\/shop_images\/3_02.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -132,6 +132,7 @@
     },
     "164742631051d4db44": {
       "type": "linkImg",
+      "disabled": true,
       "blocks": {
         "1b4a5d11-2c92-45bb-b788-8a362446a835": {
           "type": "link",
@@ -193,7 +194,7 @@
         "sensorsName": "",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f.jpg",
+        "image": "shopify:\/\/shop_images\/pc_72df4ec2-2841-466f-847c-cf32b34e0181.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
