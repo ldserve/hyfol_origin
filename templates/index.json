@@ -33,20 +33,6 @@
         "cycle_speed": 5
       }
     },
-    "1647427327de6998b8": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "2022-3-10-new-in",
-        "title": "NEW IN",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": "shopify:\/\/collections\/2022-3-10-new-in"
-      }
-    },
     "16474248460d0593be": {
       "type": "transparent-collection",
       "settings": {
@@ -201,19 +187,6 @@
         "lpadding": 0
       }
     },
-    "1647424215f34c4fad": {
-      "type": "transparent-collection",
-      "settings": {
-        "collection": "skull-madman",
-        "title": "Featured collection",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": ""
-      }
-    },
     "164742408779389987": {
       "type": "no_space_img",
       "settings": {
@@ -224,7 +197,7 @@
         "shadow": false
       }
     },
-    "16474263170c1e9e3f": {
+    "1647424215f34c4fad": {
       "type": "transparent-collection",
       "settings": {
         "collection": "patriot",
@@ -237,20 +210,6 @@
         "link_url": ""
       }
     },
-    "164742743258bb982a": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "american-flag",
-        "title": "PATRIOT LEAGUE",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": "https:\/\/www.hyfol.com\/collections\/american-flag"
-      }
-    },
     "16474280605793ac57": {
       "type": "no_space_img",
       "settings": {
@@ -259,6 +218,19 @@
         "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-banner.jpg",
         "link": "shopify:\/\/collections\/skull",
         "shadow": false
+      }
+    },
+    "1647497707f35ea4d8": {
+      "type": "transparent-collection",
+      "settings": {
+        "collection": "skull-madman",
+        "title": "SKULL MADMAN",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
       }
     },
     "1647428400b9292564": {
@@ -271,8 +243,8 @@
         "shadow": false
       }
     },
-    "164742840342fb9213": {
-      "type": "featured-collection",
+    "1647498064c408cfd6": {
+      "type": "transparent-collection",
       "settings": {
         "collection": "tactical-club",
         "title": "TACTICAL CLUB",
@@ -281,7 +253,7 @@
         "stack_products": false,
         "show_quick_buy": false,
         "link_title": "View all",
-        "link_url": "shopify:\/\/collections\/tactical-club"
+        "link_url": ""
       }
     },
     "1640334828c8a975c8": {
@@ -417,17 +389,15 @@
   },
   "order": [
     "16474236687749dfbd",
-    "1647427327de6998b8",
     "16474248460d0593be",
     "16474250424edba623",
     "164742631051d4db44",
-    "1647424215f34c4fad",
     "164742408779389987",
-    "16474263170c1e9e3f",
-    "164742743258bb982a",
+    "1647424215f34c4fad",
     "16474280605793ac57",
+    "1647497707f35ea4d8",
     "1647428400b9292564",
-    "164742840342fb9213",
+    "1647498064c408cfd6",
     "1640334828c8a975c8",
     "newsletter"
   ]
