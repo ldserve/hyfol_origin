@@ -69,7 +69,9 @@
         "2387415b-9519-418e-8c17-7ce70355de1c"
       ],
       "settings": {
-        "image_size": "small",
+        "cjj_pro_bg_top": "shopify:\/\/shop_images\/HYFOL__01_1bb32e8e-02c9-4457-a790-ac938c66c36f.jpg",
+        "cjj_pro_bg_bottom": "shopify:\/\/shop_images\/HYFOL__03_cbe3652b-5a71-4d33-9ac9-2defb56a1b5d.jpg",
+        "image_size": "medium",
         "enable_video_looping": false,
         "enable_image_zoom": true,
         "zoom_effect": "outside",

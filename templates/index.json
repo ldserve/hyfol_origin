@@ -17,8 +17,8 @@
             "content_position": "middle_left",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
-            "button_text": "Button",
-            "link": ""
+            "button_text": "",
+            "link": "shopify:\/\/collections\/new-in"
           }
         }
       },
@@ -33,25 +33,11 @@
         "cycle_speed": 5
       }
     },
-    "1647427327de6998b8": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "2022-3-10-new-in",
-        "title": "NEW IN",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": "shopify:\/\/collections\/2022-3-10-new-in"
-      }
-    },
     "16474248460d0593be": {
       "type": "transparent-collection",
-      "disabled": true,
       "settings": {
         "collection": "skull-madman",
-        "title": "Featured collection",
+        "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -132,7 +118,6 @@
     },
     "164742631051d4db44": {
       "type": "linkImg",
-      "disabled": true,
       "blocks": {
         "1b4a5d11-2c92-45bb-b788-8a362446a835": {
           "type": "link",
@@ -207,21 +192,21 @@
         "sensorsName": "",
         "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_59d20867-9da8-423a-8cf1-2859ba329c41.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/360f844e7bb810da95861fb65c5c8def_31505a07-18ad-4b41-a218-f76e78377dd1.jpg",
-        "link": "",
+        "link": "shopify:\/\/collections\/american-flag",
         "shadow": false
       }
     },
-    "164742743258bb982a": {
-      "type": "featured-collection",
+    "1647424215f34c4fad": {
+      "type": "transparent-collection",
       "settings": {
-        "collection": "american-flag",
+        "collection": "patriot",
         "title": "PATRIOT LEAGUE",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": false,
         "link_title": "View all",
-        "link_url": "https:\/\/www.hyfol.com\/collections\/american-flag"
+        "link_url": ""
       }
     },
     "16474280605793ac57": {
@@ -230,12 +215,12 @@
         "sensorsName": "",
         "bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1_812a2537-398d-4a71-8f04-06d63e853cdd.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-banner.jpg",
-        "link": "",
+        "link": "shopify:\/\/collections\/skull",
         "shadow": false
       }
     },
-    "16474280927d0dff69": {
-      "type": "featured-collection",
+    "1647497707f35ea4d8": {
+      "type": "transparent-collection",
       "settings": {
         "collection": "skull-madman",
         "title": "SKULL MADMAN",
@@ -253,29 +238,15 @@
         "sensorsName": "",
         "bg_image": "shopify:\/\/shop_images\/abcf5cfc64a285e43a89f2bba8d414b3_868bc9e5-5d62-49b5-b476-b312bd443c2a.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/06fa5a8dfa2d76ec7a3d6e9c0b410b0f_5207367b-e24b-4ab6-a10c-9e30ccde165c.jpg",
-        "link": "",
+        "link": "shopify:\/\/collections\/camou",
         "shadow": false
       }
     },
-    "164742840342fb9213": {
-      "type": "featured-collection",
+    "1647498064c408cfd6": {
+      "type": "transparent-collection",
       "settings": {
         "collection": "tactical-club",
         "title": "TACTICAL CLUB",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": "shopify:\/\/collections\/tactical-club"
-      }
-    },
-    "1647424215f34c4fad": {
-      "type": "transparent-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "skull-madman",
-        "title": "Featured collection",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -413,37 +384,20 @@
         "background": "#f0f0f0",
         "text": "#1b1b1b"
       }
-    },
-    "16474263170c1e9e3f": {
-      "type": "transparent-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "",
-        "title": "Featured collection",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": ""
-      }
     }
   },
   "order": [
     "16474236687749dfbd",
-    "1647427327de6998b8",
     "16474248460d0593be",
     "16474250424edba623",
     "164742631051d4db44",
     "164742408779389987",
-    "164742743258bb982a",
-    "16474280605793ac57",
-    "16474280927d0dff69",
-    "1647428400b9292564",
-    "164742840342fb9213",
     "1647424215f34c4fad",
+    "16474280605793ac57",
+    "1647497707f35ea4d8",
+    "1647428400b9292564",
+    "1647498064c408cfd6",
     "1640334828c8a975c8",
-    "newsletter",
-    "16474263170c1e9e3f"
+    "newsletter"
   ]
 }
