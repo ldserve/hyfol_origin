@@ -12353,7 +12353,6 @@ shopify-payment-terms {
   display: block;
   font-weight: var(--text-font-bolder-weight);
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 12px));
-  border-bottom: 1px solid var(--header-border-color);
   height: 2.7rem;
   overflow: hidden;
 }
