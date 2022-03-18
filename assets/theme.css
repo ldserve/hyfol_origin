@@ -317,6 +317,7 @@ th {
   list-style: none;
   text-align: center;
   line-height: 0;
+  bottom: -50px;
 }
 
 .flickity-rtl .flickity-page-dots {
@@ -325,16 +326,19 @@ th {
 
 .flickity-page-dots .dot {
   position: relative;
+  left: 0;
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin: 0 5px;
-  background: rgba(var(--text-color-rgb), 0.8);
-  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  margin: 0px 5px;
+  /* background: rgba(var(--text-color-rgb),.8); */
+  /* border-radius: 100%; */
+  line-height: 25px;
   cursor: pointer;
   transform: scale(1);
   will-change: transform;
-  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: background .2s ease-in-out,transform .2s ease-in-out;
+  color: #000;
 }
 .flickity-page-dots .dot::before {
   position: absolute;
@@ -346,8 +350,9 @@ th {
 }
 
 .flickity-page-dots .dot.is-selected {
-  transform: scale(1.35);
+  /* transform: scale(1.35); */
   background: var(--heading-color);
+  color: #fff;
 }
 
 /* prev/next buttons */
@@ -1835,6 +1840,9 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (max-width: 999px) {
+  .product-gallery .scroller{
+    display: none !important;
+  }
   .scroller .block-list {
     white-space: nowrap;
     flex-flow: row nowrap;
@@ -2724,13 +2732,17 @@ img.lazyload[data-sizes=auto] {
   .card--collapsed {
     margin-top: -18px !important;
     border-top: none !important;
-    box-shadow: 0 -1px var(--secondary-background); /* allows to hide the border of the previous card */
+    /* box-shadow: 0 -1px var(--secondary-background); allows to hide the border of the previous card */
   }
 
   .card--collapsed .card__header,
   .card--collapsed .card__section {
     padding-top: 0;
   }
+
+  .card__header {
+    margin-top: 20px;
+}
 }
 
 @media screen and (min-width: 641px) and (max-width: 999px) {

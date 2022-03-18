@@ -7017,6 +7017,7 @@
                 for (var i = length; i < max; i++) {
                     var dot = document.createElement('li');
                     dot.className = 'dot';
+                    dot.innerText=i+1
                     dot.setAttribute('aria-label', 'Page dot ' + (i + 1));
                     fragment.appendChild(dot);
                     newDots.push(dot);
@@ -15334,7 +15335,7 @@
 
             this._fetchProducts();
 
-            this._attachListeners();
+            // this._attachListeners();
         }
 
         _createClass(RecentlyViewedProductsSection, [{
@@ -15388,7 +15389,7 @@
 
                         _this.flickityInstance = new js(_this.element.querySelector('.product-list'), {
                             watchCSS: true,
-                            pageDots: false,
+                            pageDots: true,
                             prevNextButtons: true,
                             contain: true,
                             groupCells: true,

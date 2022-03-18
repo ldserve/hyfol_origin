@@ -307,7 +307,17 @@ line_items: [
 
     <main id="main" role="main">
       <div class="globoRecommendationsTop"></div>{{ content_for_layout }}{% render 'globo.alsobought.action' %}
-<limespot></limespot>
+      <limespot></limespot>
+      <div class="product-block-list__item product-block-list__item--reviews container" >
+        <span id="product-reviews" class="anchor"></span>
+
+        <div class="card">
+          <div class="card__section">
+            {%- assign reviews_count = product.metafields.spr.reviews | split: '<meta itemprop="reviewCount" content="' | last | split: '">' | first | times: 1 -%}
+            <div id="shopify-product-reviews" class="spr-reviews {% if reviews_count > 0 %}spr-reviews--has-reviews{% endif %}" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
+          </div>
+        </div>
+      </div>
     </main>
 
     {% section 'static-text-with-icons' %}
