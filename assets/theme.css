@@ -322,7 +322,7 @@ th {
   list-style: none;
   text-align: center;
   line-height: 0;
-  bottom: -50px;
+  bottom: -60px;
 }
 
 .flickity-rtl .flickity-page-dots {
@@ -14830,4 +14830,10 @@ shopify-payment-terms {
   height: 28px;
   width: 28px;
   margin-right: 10px;
+}
+
+@media screen and (min-width:1000px) {
+  .pb-80{
+    padding-bottom: 80px;
+  }
 }
