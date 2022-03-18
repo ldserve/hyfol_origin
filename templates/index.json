@@ -350,6 +350,7 @@
         },
         "43abfc06-8518-48d6-acd2-b22d0835bde0": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/14_fdfda8be-9ded-4502-92ee-4a530520970d.jpg",
             "pro": "t11611521ji",
