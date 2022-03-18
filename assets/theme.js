@@ -7017,12 +7017,12 @@
                 for (var i = length; i < max; i++) {
                     var dot = document.createElement('li');
                     dot.className = 'dot';
-                    dot.innerText=i+1
+                    dot.innerHTML=`<span>${i+1}</span>`
+                    // dot.innerText=i+1
                     dot.setAttribute('aria-label', 'Page dot ' + (i + 1));
                     fragment.appendChild(dot);
                     newDots.push(dot);
                 }
-
                 this.holder.appendChild(fragment);
                 this.dots = this.dots.concat(newDots);
             };
