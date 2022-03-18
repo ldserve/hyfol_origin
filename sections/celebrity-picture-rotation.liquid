@@ -1,7 +1,7 @@
 
 
 <section class="section">
-    <div class="container">
+    <div class="indexContainer">
         {%- if section.settings.title != blank -%}
             <div class="celebrity-picture-rotation-title h1 aaa"> 
                 {{ section.settings.title}}
@@ -45,8 +45,8 @@
                 {%- endfor -%}
             </div>
         </div>
-        <span class="cpr_scroller__ctrl cpr_ctrl-prev" onclick="btnClick('prev')">{%- render 'icon', icon: 'arrow-left' -%}</span>
-        <span class="cpr_scroller__ctrl cpr_ctrl-next" onclick="btnClick('next')">{%- render 'icon', icon: 'arrow-right' -%}</span>
+        <span class="cpr_scroller__ctrl flickity-prev-next-button cpr_ctrl-prev" onclick="btnClick('prev')">{%- render 'icon', icon: 'arrow-left' -%}</span>
+        <span class="cpr_scroller__ctrl flickity-prev-next-button cpr_ctrl-next" onclick="btnClick('next')">{%- render 'icon', icon: 'arrow-right' -%}</span>
         <div class="powr-form__button">
             <button type="button"  class="product-form__add-button button button--primary " onclick="openForm()">BE OUR AMBASSADORS</button>
         </div>
@@ -94,10 +94,8 @@
 <style lang="scss">
     #shopify-section-{{ section.id }} {
 		overflow: hidden;
-        background-color: {{settings.footer_background_color}};
-        
 	}
-    #shopify-section-{{ section.id }} .container{
+    #shopify-section-{{ section.id }} .indexContainer{
         position: relative;
 	}
     #shopify-section-{{ section.id }}  .celebrity-picture-rotation-title,
@@ -144,35 +142,32 @@
     #shopify-section-{{ section.id }} .celebrity-picture-rotation-container .scroller__inner {
         overflow: visible;
     }
-    #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl {
+    #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl {
 		height: 50px;
-		width: 30px;
+		width: 40px;
 		line-height: 50px;
 		cursor: pointer;
-		color: var(--secondary-background);
-		background: var(--flickity-arrow-color);
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		transition: all .2s ease-in-out;
-		transform: scale(.7);
 		z-index: 1;
 		opacity: 0;
 		position: absolute;
-		bottom: calc(42%);
+			transform: scale(1);
+			bottom: calc(42%);
 	}
-    #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl:hover {
+    #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl:hover {
 		background: var(--accent-color);
 	}
-	#shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
+	#shopify-section-{{ section.id }} .indexContainer .cpr_ctrl-prev {
 		left: 10px;
 	}
-	#shopify-section-{{ section.id }} .container .cpr_ctrl-next {
+	#shopify-section-{{ section.id }} .indexContainer .cpr_ctrl-next {
 		right: 10px;
 	}
-	#shopify-section-{{ section.id }} .container:hover .cpr_scroller__ctrl {
+	#shopify-section-{{ section.id }} .indexContainer:hover .cpr_scroller__ctrl {
 		opacity: 1;
-		transform: scale(1.34);
     }
     #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container {
         text-align: center;
@@ -276,14 +271,13 @@
         justify-content: flex-end;
     }
     @media screen and (max-width: 641px) {
-        #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl {
+        #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl {
             opacity: 1;
-            transform: scale(1.2);
         }
-        #shopify-section-{{ section.id }} .container .cpr_ctrl-prev {
+        #shopify-section-{{ section.id }} .indexContainer .cpr_ctrl-prev {
 		    left: 15px;
         }
-        #shopify-section-{{ section.id }} .container .cpr_ctrl-next {
+        #shopify-section-{{ section.id }} .indexContainer .cpr_ctrl-next {
             right: 15px;
         }
         #shopify-section-{{ section.id }}  .celebrity-picture-rotation-container-item {
@@ -353,7 +347,7 @@
         }
     }
     @media screen and (min-width: 641px) and (max-width: 999px) {
-        #shopify-section-{{ section.id }} .container .cpr_scroller__ctrl {
+        #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl {
             opacity: 1;
             transform: scale(1.2);
         }
