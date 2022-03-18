@@ -429,7 +429,7 @@
       "settings": {
         "sensorsName": "",
         "link": "",
-        "collection": "hot-sale",
+        "collection": "best-sellers-1",
         "title": "",
         "products_count": 27,
         "layout": "horizontal",
@@ -656,8 +656,8 @@
       "settings": {
         "title": "Top Products",
         "tab1": "Best Sales",
-        "pro1": "hot-sale",
-        "link1": "shopify:\/\/collections\/hot-sale",
+        "pro1": "best-sellers-1",
+        "link1": "shopify:\/\/collections\/best-sellers-1",
         "tab2": "New In",
         "pro2": "new-in",
         "link2": "shopify:\/\/collections\/new-in",
@@ -678,7 +678,7 @@
     "163577127440e8d6d7": {
       "type": "featured-collection",
       "settings": {
-        "collection": "hot-sale",
+        "collection": "best-sellers-1",
         "title": "Featured collection",
         "products_count": 12,
         "layout": "horizontal",
