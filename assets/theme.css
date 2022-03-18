@@ -356,6 +356,18 @@ th {
 }
 
 /* prev/next buttons */
+
+@media screen and (min-width: 700px) {
+  .slideshow .previous[aria-label="Previous"]{
+  opacity: 0.8;
+  background-color: #fff;
+  left: 10px;
+}
+.slideshow .next[aria-label="Next"]{
+  opacity: 0.8;
+  background-color: #fff;
+  right: 10px;
+} }
 .flickity-prev-next-button {
   position: absolute;
   display: inline-flex;

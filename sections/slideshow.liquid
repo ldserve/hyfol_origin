@@ -1,7 +1,7 @@
 {%- capture section_settings -%}
 {
   "autoPlay": {{ section.settings.autoplay | json }},
-  "prevNextButtons": false,
+  "prevNextButtons": true,
   "pageDots": {% if section.blocks.size > 1 %}true{% else %}false{% endif %},
   "setGallerySize": {% if section.settings.section_size == 'preserve_ratio' %}true{% else %}false{% endif %},
   "adaptiveHeight": {% if section.settings.section_size == 'preserve_ratio' %}true{% else %}false{% endif %},
