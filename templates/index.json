@@ -7,8 +7,8 @@
           "type": "image",
           "settings": {
             "sensorsName": "",
-            "image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_c9438576-06a2-46b0-8b8f-4cda54de145d.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_banner_b87a6c9a-b3ff-49ab-ab04-a2d585fd8b52.jpg",
+            "image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_banner_2713fcc5-4ae0-4fdb-a911-bcf314fa3f63.jpg",
             "show_overlay": false,
             "overlay_opacity": 30,
             "text_color": "#ffffff",
@@ -18,7 +18,7 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "button_text": "",
-            "link": "shopify:\/\/collections\/new-in"
+            "link": "shopify:\/\/collections\/new-in-1"
           }
         }
       },
@@ -36,7 +36,7 @@
     "16474248460d0593be": {
       "type": "transparent-collection",
       "settings": {
-        "collection": "skull-madman",
+        "collection": "new-collection",
         "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
@@ -109,7 +109,7 @@
         "sensorsName": "",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/3_02.jpg",
+        "image": "shopify:\/\/shop_images\/pc_a3224c9b-60e1-4276-a72c-b1ce1b88a9aa.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -179,7 +179,7 @@
         "sensorsName": "",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/pc_72df4ec2-2841-466f-847c-cf32b34e0181.jpg",
+        "image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_bc690ba2-1496-48fc-9082-00a68961d3f5.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -189,7 +189,7 @@
     "164742408779389987": {
       "type": "no_space_img",
       "settings": {
-        "sensorsName": "",
+        "sensorsName": "PATRIOT LEAGUE",
         "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_59d20867-9da8-423a-8cf1-2859ba329c41.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/360f844e7bb810da95861fb65c5c8def_31505a07-18ad-4b41-a218-f76e78377dd1.jpg",
         "link": "shopify:\/\/collections\/american-flag",
@@ -212,7 +212,7 @@
     "16474280605793ac57": {
       "type": "no_space_img",
       "settings": {
-        "sensorsName": "",
+        "sensorsName": "SKULL MADMAN",
         "bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1_812a2537-398d-4a71-8f04-06d63e853cdd.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-banner.jpg",
         "link": "shopify:\/\/collections\/skull",
@@ -235,7 +235,7 @@
     "1647428400b9292564": {
       "type": "no_space_img",
       "settings": {
-        "sensorsName": "",
+        "sensorsName": "TACTICAL CLUB",
         "bg_image": "shopify:\/\/shop_images\/abcf5cfc64a285e43a89f2bba8d414b3_868bc9e5-5d62-49b5-b476-b312bd443c2a.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/06fa5a8dfa2d76ec7a3d6e9c0b410b0f_5207367b-e24b-4ab6-a10c-9e30ccde165c.jpg",
         "link": "shopify:\/\/collections\/camou",

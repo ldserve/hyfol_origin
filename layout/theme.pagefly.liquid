@@ -5,7 +5,8 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 <!doctype html>
 
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>
+  <head>{% render 'pagefly-head' %}
+    
 {% include 'limespot' %}
 {% include 'kiwiSizing' %}
     <meta charset="utf-8">
@@ -31,7 +32,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
   <!-- /Avada Size Chart Script -->
 
 <title>{{- seo_page_title -}}</title>
-
+ <script src="{{ 'shencesdk.js' | asset_url }}"></script>
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
@@ -56,6 +57,7 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
     {% render 'css-variables' %}
 
     {{ content_for_header }}
+{% render 'globo.alsobought.script' %}
 
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
 
@@ -114,15 +116,18 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
-
+     <script src="{{ 'shenceTrackExposure.js' | asset_url }}"></script>
     {%- if request.page_type == 'customers/addresses' -%}
       <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
       <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
-    <script src="{{ 'theme.js' | asset_url }}" defer></script>
-    <script src="{{ 'custom.js' | asset_url }}" defer></script>
+		<script src="{{ 'custom.js' | asset_url }}" defer></script>
+		<script src="{{ 'theme.js' | asset_url }}" defer></script>
 
+	  {%- if settings.showFlake  and request.page_type =='index' -%}
+	    <script src="{{ 'xuehua.js' | asset_url }}" defer></script>
+    {%- endif -%}
     {%- if request.page_type != 'cart' -%}
       <script>
         (function () {
@@ -156,17 +161,54 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
 <!-- 根据上文步骤4， 修改product_id(default / product_id / sku) -->
 {% assign fa_product_id = 'default' %}
  
- 
-
+<!-- Pinterest 网站声明 -->
+<meta name="p:domain_verify" content="cbb185202f36b626478a123f1f821626"/>
+<!-- Pinterest Tag -->
+<script>
+!function(e){if(!window.pintrk){window.pintrk = function () {
+window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+  n=window.pintrk;n.queue=[],n.version="3.0";var
+  t=document.createElement("script");t.async=!0,t.src=e;var
+  r=document.getElementsByTagName("script")[0];
+  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+pintrk('load', '2614456934829', {em: '<user_email_address>'});
+pintrk('page');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt=""
+  src="https://ct.pinterest.com/v3/?event=init&tid=2614456934829&pd[em]=<hashed_email_address>&noscript=1" />
+</noscript>
+<!-- pinterest 页面访问事件 -->
+<script>
+pintrk('track', 'pagevisit', {
+property: 'Athleta',
+line_items: [
+{product_id: '{{product.selected_or_first_available_variant.id}}'}
+]
+});
+</script>
+<!-- end Pinterest Tag -->
 <!-- 请勿修改以下内容 -->
 <!-- Global site tag (gtag.js) - Ads. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-{{ fa_google_ads_audience_tag_id }}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-319309832"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-{{ fa_google_ads_audience_tag_id }}');
+  gtag('config', 'AW-319309832');
 </script>
+{% if template contains 'product' or template contains 'collection' or template contains 'index' or template contains 'search' %}
+<script>
+  gtag('event', 'page_view', {
+    'send_to': 'AW-319309832',
+    'ecomm_pagetype': '{% if template contains 'collection' %}category{% elsif template contains 'product' %}product{% elsif template contains 'search' %}searchresults{% elsif template contains 'index' %}home{% endif %}',
+    {% if template contains 'product' %}
+    'ecomm_prodid': 'shopify_US_{{ product.id }}_{{ product.variants.first.id }}',
+    'ecomm_totalvalue': '{{ product.price_min | money_without_currency | remove: ","}}',
+    {% endif %}
+  });
+</script>
+{% endif %}
 <!-- Global site tag (gtag.js) - Ads. -->
 {% if fa_prices_with_decimal_separator == true %}
   {% if template contains 'product' %}
@@ -236,8 +278,9 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
   {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
 {% include 'editorify' %} <script>var scaaffCheck = false;</script>
 {{ 'sca_affiliate.js' | asset_url | script_tag }}
-{% include 'flashify-common' %}  <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/Uvydd1n19EiPP-rKXC4RYQ" async></script>
-	{% render 'vitals-loader' %}
+{% include 'flashify-common' %}{% include 'dexter' %}
+
+{% include 'orichi_multi_pixel' %}	{% render 'vitals-loader' %}
 
 </head>
 
