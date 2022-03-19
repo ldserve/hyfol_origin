@@ -51,7 +51,7 @@
     "discount_mode": "percentage",
     "product_price_position": "after_title",
     "product_image_size": "natural",
-    "show_color_swatch": false,
+    "show_color_swatch": true,
     "show_inventory_quantity": false,
     "low_inventory_threshold": 19,
     "cart_type": "drawer",
@@ -165,8 +165,8 @@
           "footer-2"
         ],
         "settings": {
-          "image_pc": "shopify:\/\/shop_images\/02_b0ee7601-7f74-4e63-b887-32858921bffd.jpg",
-          "image_mobile": "shopify:\/\/shop_images\/02_7a9ad221-0061-464b-ada0-79d8f03da4c1.jpg",
+          "image_pc": "shopify:\/\/shop_images\/pc_ecfe5778-d580-4833-8bee-b9f6f4548022.jpg",
+          "image_mobile": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_2c9ca8a0-6113-4191-ae0c-6322137f3c6a.jpg",
           "show_social_media": true,
           "show_payment_icons": true,
           "show_locale_selector": true,
