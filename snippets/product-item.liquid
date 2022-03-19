@@ -109,7 +109,9 @@
 				{%- assign image_url = primary_media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 				<div
 					class="aspect-ratio {% if settings.product_image_size != 'natural' %}aspect-ratio--{{ settings.product_image_size }}{% endif %}"
-					style="padding-bottom: {{ 100.0 | divided_by: primary_media.preview_image.aspect_ratio }}%">
+					style="
+						padding-bottom: {{ 100.0 | divided_by: primary_media.preview_image.aspect_ratio }}%;
+						background-color: #fff;">
 					<img class="product-item__primary-image lazyload image--fade-in" data-media-id="{{ primary_media.id }}"
 							 data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]"
 							 alt="{{ primary_media.alt | escape }}">
@@ -130,8 +132,68 @@
 		</a>
 	{%- endif -%}
 
-	<div class="product-item__info">
-		<a href="{{ product.url }}" style="position: absolute;top: 0;right: 0;left: 0;bottom: 0;"></a>
+	<div class="product-item__info" style="background-color: {% if only_show_transparent %} #efebe7 {% endif %}">
+		{%- if settings.show_color_swatch and template != 'blog' and only_show_transparent != true -%}
+			{%- capture color_swatch -%}
+				{%- capture color_name -%}{{ section.id }}-{{ product.id }}{%- endcapture -%}
+
+				{%- for option in product.options_with_values -%}
+					{%- assign downcased_option = option.name | downcase -%}
+
+					{%- if color_label contains downcased_option -%}
+						{%- assign variant_option = 'option' | append: forloop.index -%}
+						{%- assign value_to_match = filtered_variant[variant_option] | default: option.selected_value -%}
+
+						{%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
+
+						{%- for value in option.values -%}
+							{%- assign downcased_value = value | downcase -%}
+							{%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
+
+							{%- for variant in product.variants -%}
+								{%- if variant[variant_option] == value -%}
+									{%- assign variant_for_value = variant -%}
+									{%- break -%}
+								{%- endif -%}
+							{%- endfor -%}
+
+							<div
+								class="color-swatch color-swatch--white">
+								{%- if variant_for_value.featured_media -%}
+									{%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,300,400,500,600,700,800', image: variant_for_value.featured_media.preview_image -%}{%- endcapture -%}
+									{%- assign image_url = variant_for_value.featured_media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+								{%- endif -%}
+
+								<input class="color-swatch__radio" type="radio" name="{{ color_name }}" id="{{ color_id }}"
+											 value="{{ value | escape }}" {% if value_to_match == value %}checked="checked"{% endif %}
+											 data-variant-url="{{ variant_for_value.url }}"
+											 data-sku="{{ variant_for_value.sku }}" {% if variant_for_value.featured_media %}data-media-id="{{ variant_for_value.featured_media.id }}" data-image-url="{{ image_url }}" data-image-widths="[{{ supported_sizes }}]" data-image-aspect-ratio="{{ variant_for_value.featured_media.preview_image.aspect_ratio }}"{% endif %}
+											 aria-label="{{ value | escape }}">
+								<label class="color-swatch__item" for="{{ color_id }}"
+											 style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: downcased_value %}"
+											 title="{{ value | escape }}">
+									<span class="visually-hidden">{{ value }}</span>
+								</label>
+								<a href="{{ product.url }}"
+									 class="color-swatch__item-link product-item_mktClick" data-scenable="1" data-sctype="mktClick"
+									 data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ mkt_material_name }}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize }}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>+{{ option.values.size | minus: forloop.index0 }}</a>
+							</div>
+						{%- endfor -%}
+					{%- endif -%}
+				{%- endfor -%}
+			{%- endcapture -%}
+
+
+				<div class="product-item__swatch-list">
+					{%- if color_swatch != blank -%}
+							<div class="color-swatch-list">
+								{{ color_swatch }}
+							</div>
+					{%- endif -%}
+				</div>
+
+		{%- endif -%}
+		<a href="{{ product.url }}" style="position: absolute;top: 70px;right: 0;left: 0;bottom: 0;"></a>
 		<div class="product-item__info-inner">
 			{%- capture price_list -%}
 				<div class="product-item__price-list price-list">
@@ -272,66 +334,6 @@
 			{%- if settings.product_price_position == 'after_title' -%}
 				{{ price_list }}
 			{%- endif -%}
-
-			{%- if settings.show_color_swatch and template != 'blog' and only_show_transparent != true -%}
-				{%- capture color_swatch -%}
-					{%- capture color_name -%}{{ section.id }}-{{ product.id }}{%- endcapture -%}
-
-					{%- for option in product.options_with_values -%}
-						{%- assign downcased_option = option.name | downcase -%}
-
-						{%- if color_label contains downcased_option -%}
-							{%- assign variant_option = 'option' | append: forloop.index -%}
-							{%- assign value_to_match = filtered_variant[variant_option] | default: option.selected_value -%}
-
-							{%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
-
-							{%- for value in option.values -%}
-								{%- assign downcased_value = value | downcase -%}
-								{%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
-
-								{%- for variant in product.variants -%}
-									{%- if variant[variant_option] == value -%}
-										{%- assign variant_for_value = variant -%}
-										{%- break -%}
-									{%- endif -%}
-								{%- endfor -%}
-
-								<div
-									class="color-swatch {% if downcased_value == 'white' or downcased_value == 'blanc' %}color-swatch--white{% endif %}">
-									{%- if variant_for_value.featured_media -%}
-										{%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,300,400,500,600,700,800', image: variant_for_value.featured_media.preview_image -%}{%- endcapture -%}
-										{%- assign image_url = variant_for_value.featured_media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-									{%- endif -%}
-
-									<input class="color-swatch__radio" type="radio" name="{{ color_name }}" id="{{ color_id }}"
-												 value="{{ value | escape }}" {% if value_to_match == value %}checked="checked"{% endif %}
-												 data-variant-url="{{ variant_for_value.url }}"
-												 data-sku="{{ variant_for_value.sku }}" {% if variant_for_value.featured_media %}data-media-id="{{ variant_for_value.featured_media.id }}" data-image-url="{{ image_url }}" data-image-widths="[{{ supported_sizes }}]" data-image-aspect-ratio="{{ variant_for_value.featured_media.preview_image.aspect_ratio }}"{% endif %}
-												 aria-label="{{ value | escape }}">
-									<label class="color-swatch__item" for="{{ color_id }}"
-												 style="{% render 'color-swatch-style', color_swatch_config: color_swatch_config, value: downcased_value %}"
-												 title="{{ value | escape }}">
-										<span class="visually-hidden">{{ value }}</span>
-									</label>
-									<a href="{{ product.url }}"
-										 class="color-swatch__item-link product-item_mktClick" data-scenable="1" data-sctype="mktClick"
-										 data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ mkt_material_name }}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize }}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>+{{ option.values.size | minus: forloop.index0 }}</a>
-								</div>
-							{%- endfor -%}
-						{%- endif -%}
-					{%- endfor -%}
-				{%- endcapture -%}
-
-				{%- if color_swatch != blank -%}
-					<div class="product-item__swatch-list">
-						<div class="color-swatch-list">
-							{{ color_swatch }}
-						</div>
-					</div>
-				{%- endif -%}
-			{%- endif -%}
-
 
 
 			{%- if settings.show_inventory_quantity and product.template_suffix != 'pre-order' -%}

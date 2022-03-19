@@ -24,10 +24,11 @@
 {%- endcapture -%}
 
 
+{% if section.settings.is_show %}
 
-{% assign cjj_currentPage = cjj_current | strip %}
+	{% assign cjj_currentPage = cjj_current | strip %}
 	<div class="footer-navbar-box hidden-lap hidden-lap-and-up">
-		<div class="footer-navbar hidden-lap hidden-lap-and-up" {%- if request.page_type == "cart" -%} style="display:none !important;" {%- endif -%}>
+		<div class="footer-navbar hidden-lap hidden-lap-and-up" {%- if request.page_type == "cart" or request.page_type == "product" -%} style="display:none !important;" {%- endif -%}>
 			<ul class="list--unstyled ">
 				<li class="shop">
 					<a href="{{ routes.root_url }}" data-scenable="1" class="shence_commodityView" data-expenable="1" data-bindexp="1" data-sctype="mktClick" data-scdata='{"mkt_type":"bar","first_mkt_name":"底部导航","first_mkt_id":"{{ section.id }}","second_mkt_rank":"1","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"Shop","commodity_spuid":"","commodity_skuid":"","commodity_name":"","original_price":"","current_price":"","currency_unit":"","mkt_tag":[]}'>
@@ -62,6 +63,7 @@
 			</ul>
 		</div>
 	</div>
+{% endif %}
 
 
 <style>
@@ -117,7 +119,14 @@
 {
 	"name": "底部悬浮导航",
 	"class":"box",
-	"settings": [{
+	"settings": [
+	{
+		"type": "checkbox",
+		"id": "is_show",
+		"label": "是否展示底部导航",
+		"default": false
+	},
+	{
 			"type": "color",
 			"id": "navbar_bgcolor",
 			"label": "背景颜色",

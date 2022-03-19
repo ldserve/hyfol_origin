@@ -2869,7 +2869,7 @@
                         var currentWidth = swatchList.clientWidth,
                             maxAllowedWidth = parseInt(Math.min(currentWidth, 200)); // A single swatch takes 30px, so let's figure out how many we can fit completely
 
-                        var maxFit = Math.floor(maxAllowedWidth / 30); // Now, we add a special class to the one after "maxFit"
+                        var maxFit = Math.floor(maxAllowedWidth / 45); // Now, we add a special class to the one after "maxFit"
 
                         fastdom.mutate(function () {
                             var colorSwatches = swatchList.querySelectorAll('.color-swatch'); // For each, we reset the attributes if needed
@@ -7017,11 +7017,12 @@
                 for (var i = length; i < max; i++) {
                     var dot = document.createElement('li');
                     dot.className = 'dot';
+                    dot.innerHTML=`<span>${i+1}</span>`
+                    // dot.innerText=i+1
                     dot.setAttribute('aria-label', 'Page dot ' + (i + 1));
                     fragment.appendChild(dot);
                     newDots.push(dot);
                 }
-
                 this.holder.appendChild(fragment);
                 this.dots = this.dots.concat(newDots);
             };
@@ -12484,12 +12485,13 @@
                                     // Now we compare the value: if it's the same or that the image is part of the variant we keep it, otherwise we filter it
                                     if (newVariant["option".concat(optionIndex + 1)].toLowerCase() === cell.getAttribute('data-group-value') || newVariant['featured_media'] && newVariant['featured_media']['id'] === parseInt(cell.getAttribute('data-media-id'))) {
                                         cell.classList.remove('is-filtered');
-
                                         _this.productThumbnailsCellsElements[imageIndex].classList.remove('is-filtered');
+                                        _this.dotThumbnailsCellsElements[imageIndex].classList.remove('is-filtered');
                                     } else {
                                         cell.classList.add('is-filtered');
 
                                         _this.productThumbnailsCellsElements[imageIndex].classList.add('is-filtered');
+                                        _this.dotThumbnailsCellsElements[imageIndex].classList.add('is-filtered');
                                     }
                                 }
                             });
@@ -12582,9 +12584,11 @@
 
                 this.productThumbnailsListElement = this.element.querySelector('.product-gallery__thumbnail-list');
                 this.delegateElement.on('click', '.product-gallery__thumbnail', this._onThumbnailClicked.bind(this));
-
+                this.delegateElement.on('click', '.dot-item', this._onThumbnailClicked.bind(this));
+                this.dotThumbnailsListElement = this.element.querySelector('.dot');
                 if (this.productThumbnailsListElement && this.flickityInstance) {
                     this.productThumbnailsCellsElements = this.productThumbnailsListElement.querySelectorAll('.product-gallery__thumbnail');
+                    this.dotThumbnailsCellsElements = this.dotThumbnailsListElement.querySelectorAll('.dot-item');
                     this.flickityInstance.on('select', this._onGallerySlideChanged.bind(this));
 
                     if (this.options['galleryTransitionEffect'] === 'fade') {
@@ -12710,7 +12714,9 @@
                 var animate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
                 var previousNavElement = null,
                     newNavElement = null;
-                this.productThumbnailsCellsElements.forEach(function (item) {
+                    var previousDotElement = null,
+                    newDotElement = null;
+                    this.productThumbnailsCellsElements.forEach(function (item) {
                     if (item.classList.contains('is-nav-selected')) {
                         previousNavElement = item;
                     }
@@ -12722,7 +12728,18 @@
                 previousNavElement.classList.remove('is-nav-selected');
                 newNavElement.classList.add('is-nav-selected'); // We animate to move the selected nav item
 
-                if (Responsive.matchesBreakpoint('pocket')) {
+                this.dotThumbnailsCellsElements.forEach(function (item) {
+                    if (item.classList.contains('is-selected')) {
+                        previousDotElement = item;
+                    }
+
+                    if (item.getAttribute('data-media-id') === _this5.flickityInstance.selectedElement.getAttribute('data-media-id')) {
+                        newDotElement = item;
+                    }
+                });
+                previousDotElement.classList.remove('is-selected');
+                newDotElement.classList.add('is-selected'); // We ani
+                 if (Responsive.matchesBreakpoint('pocket')) {
                     var scrollX = newNavElement.offsetLeft - (this.productThumbnailsListElement.parentNode.clientWidth - newNavElement.clientWidth) / 2;
                     this.productThumbnailsListElement.parentNode.scrollTo({
                         left: scrollX,
@@ -15199,7 +15216,7 @@
                 if (!this.options['stackable']) {
                     this.flickityInstance = new js(this.element.querySelector('.product-list'), {
                         watchCSS: true,
-                        pageDots: false,
+                        pageDots: true,
                         prevNextButtons: true,
                         contain: true,
                         groupCells: true,
@@ -15318,7 +15335,7 @@
 
             this._fetchProducts();
 
-            this._attachListeners();
+            // this._attachListeners();
         }
 
         _createClass(RecentlyViewedProductsSection, [{
@@ -15372,7 +15389,7 @@
 
                         _this.flickityInstance = new js(_this.element.querySelector('.product-list'), {
                             watchCSS: true,
-                            pageDots: false,
+                            pageDots: true,
                             prevNextButtons: true,
                             contain: true,
                             groupCells: true,
