@@ -59,6 +59,43 @@
                 {%- endfor  -%}
 <section data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
   {%- if template != 'product.quick-view' -%}
+		<div class="page__sub-header">
+			<nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
+				<ol class="breadcrumb__list" role="list">
+					<li class="breadcrumb__item">
+						<a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
+					</li>
+
+					<li class="breadcrumb__item">
+						{%- if collection -%}
+							<a class="breadcrumb__link link" href="{{ collection.url }}">{{ collection.title }}</a> {%- render 'icon', icon: 'arrow-right' -%}
+						{%- else -%}
+							<a class="breadcrumb__link link" href="{{ routes.all_products_collection_url }}">{{- 'collection.general.all_products' | t -}}</a> {%- render 'icon', icon: 'arrow-right' -%}
+						{%- endif -%}
+					</li>
+
+					<li class="breadcrumb__item">
+						<span class="breadcrumb__link" aria-current="page">{{ product.title | truncate: 40 }}</span>
+					</li>
+				</ol>
+			</nav>
+
+			{%- if collection.previous_product or collection.next_product -%}
+				<div class="page__navigation">
+					{%- if collection.previous_product -%}
+						<span class="page__navigation-item page__navigation-item--prev">
+                <a href="{{ collection.previous_product.url }}" class="link" rel="prev">{%- render 'icon', icon: 'arrow-left' -%} {{- 'product.general.previous_product' | t -}}</a>
+              </span>
+					{%- endif -%}
+
+					{%- if collection.next_product -%}
+						<span class="page__navigation-item page__navigation-item--next">
+                <a href="{{ collection.next_product.url }}" class="link" rel="next">{{- 'product.general.next_product' | t -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
+              </span>
+					{%- endif -%}
+				</div>
+			{%- endif -%}
+		</div>
     <div class="container container--flush shenceDetail" data-scenable="1" 
 							data-scdata='{"is_quick_view":0,
 							"commodity_spuid": "{{product.handle}}",
@@ -74,43 +111,6 @@
               "commodity_type":"{{product.type | handleize}}",
 							"original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
 			            	"current_price":"{{ product.selected_or_first_available_variant.price }}"}'>
-      <div class="page__sub-header">
-        <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
-          <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item">
-              <a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
-            </li>
-
-            <li class="breadcrumb__item">
-              {%- if collection -%}
-                <a class="breadcrumb__link link" href="{{ collection.url }}">{{ collection.title }}</a> {%- render 'icon', icon: 'arrow-right' -%}
-              {%- else -%}
-                <a class="breadcrumb__link link" href="{{ routes.all_products_collection_url }}">{{- 'collection.general.all_products' | t -}}</a> {%- render 'icon', icon: 'arrow-right' -%}
-              {%- endif -%}
-            </li>
-
-            <li class="breadcrumb__item">
-              <span class="breadcrumb__link" aria-current="page">{{ product.title | truncate: 40 }}</span>
-            </li>
-          </ol>
-        </nav>
-
-        {%- if collection.previous_product or collection.next_product -%}
-          <div class="page__navigation">
-            {%- if collection.previous_product -%}
-              <span class="page__navigation-item page__navigation-item--prev">
-                <a href="{{ collection.previous_product.url }}" class="link" rel="prev">{%- render 'icon', icon: 'arrow-left' -%} {{- 'product.general.previous_product' | t -}}</a>
-              </span>
-            {%- endif -%}
-
-            {%- if collection.next_product -%}
-              <span class="page__navigation-item page__navigation-item--next">
-                <a href="{{ collection.next_product.url }}" class="link" rel="next">{{- 'product.general.next_product' | t -}} {%- render 'icon', icon: 'arrow-right' -%}</a>
-              </span>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      </div>
 
       <div class="product-block-list product-block-list--{{ section.settings.image_size }}">
         <div class="product-block-list__wrapper">

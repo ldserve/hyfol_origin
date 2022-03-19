@@ -37,27 +37,27 @@
   "gridClasses": {{ grid_classes | json }}
 }
 {%- endcapture -%}
+<div class="indexContainer page__sub-header">
+	<nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
+		<ol class="breadcrumb__list" role="list">
+			<li class="breadcrumb__item">
+				<a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
+			</li>
 
+			<li class="breadcrumb__item">
+				<a class="breadcrumb__link link" href="{{ collection.url }}" aria-current="page">
+					{%- if collection.handle == 'all' -%}
+						{{- 'collection.general.all_products' | t -}}
+					{%- else -%}
+						{{- collection.title -}}
+					{%- endif -%}
+				</a>
+			</li>
+		</ol>
+	</nav>
+</div>
 <section data-section-id="{{ section.id }}" data-section-type="collection" data-section-settings='{{ section_settings }}'>
-	<div class="indexContainer page__sub-header">
-		<nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
-			<ol class="breadcrumb__list" role="list">
-				<li class="breadcrumb__item">
-					<a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
-				</li>
 
-				<li class="breadcrumb__item">
-					<a class="breadcrumb__link link" href="{{ collection.url }}" aria-current="page">
-						{%- if collection.handle == 'all' -%}
-							{{- 'collection.general.all_products' | t -}}
-						{%- else -%}
-							{{- collection.title -}}
-						{%- endif -%}
-					</a>
-				</li>
-			</ol>
-		</nav>
-	</div>
 	<div class="container container--flush">
 
     <div {% if has_filters %}class="layout"{% endif %}>

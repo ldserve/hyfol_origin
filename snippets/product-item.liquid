@@ -183,13 +183,15 @@
 				{%- endfor -%}
 			{%- endcapture -%}
 
-			{%- if color_swatch != blank -%}
+
 				<div class="product-item__swatch-list">
-					<div class="color-swatch-list">
-						{{ color_swatch }}
-					</div>
+					{%- if color_swatch != blank -%}
+							<div class="color-swatch-list">
+								{{ color_swatch }}
+							</div>
+					{%- endif -%}
 				</div>
-			{%- endif -%}
+
 		{%- endif -%}
 		<a href="{{ product.url }}" style="position: absolute;top: 70px;right: 0;left: 0;bottom: 0;"></a>
 		<div class="product-item__info-inner">
