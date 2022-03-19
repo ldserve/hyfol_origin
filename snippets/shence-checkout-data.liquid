@@ -801,6 +801,7 @@
             }
             /* 优惠金额 */
             sendData.order_discount_amount = sendData.bonus_amount + sendData.coupon_amount;
+          	sendData.bonus_amount = bonus_amount ? bonus_amount : 0
             return sendData
         }
 
@@ -836,6 +837,7 @@
             }
             /* 优惠金额 */
             sendData.order_discount_amount = sendData.bonus_amount + sendData.coupon_amount;
+          	sendData.bonus_amount = bonus_amount ? bonus_amount : 0
             if (sendData.original_price || sendData.original_price == '') {
                 sendData.original_price = Number((sendData.original_price / 100).toFixed(2));
             }

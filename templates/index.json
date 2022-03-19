@@ -1,533 +1,258 @@
 {
   "sections": {
-    "16379144370948f06a": {
-      "type": "no_space_img",
-      "settings": {
-        "sensorsName": "shipping info",
-        "bg_image": "shopify:\/\/shop_images\/PC_49fd1a0a-84dd-42f1-b1c2-088121495345.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/94d53239037849179c79285840325f32_51b36fb9-c215-4426-8810-eda5ade1ae90.jpg",
-        "link": "",
-        "shadow": false
-      }
-    },
-    "slideshow": {
+    "16474236687749dfbd": {
       "type": "slideshow",
       "blocks": {
-        "093dba4e-5495-47f1-a21b-0431a9d2a9fb": {
+        "16474236686ae800c9-0": {
           "type": "image",
           "settings": {
-            "sensorsName": "up to 20% off",
-            "image": "shopify:\/\/shop_images\/PC_-2_02_0733944e-f6e0-4be3-8538-82a2aa3df983.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/M_-2.0_02_5605ab31-eb5c-4619-a0f7-76b55445ca5c.jpg",
+            "sensorsName": "",
+            "image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_banner_2713fcc5-4ae0-4fdb-a911-bcf314fa3f63.jpg",
             "show_overlay": false,
-            "overlay_opacity": 0,
+            "overlay_opacity": 30,
             "text_color": "#ffffff",
             "title": "",
             "content": "",
-            "content_position": "middle_center",
+            "content_position": "middle_left",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "button_text": "",
-            "link": "shopify:\/\/collections\/hawaiian-style"
+            "link": "shopify:\/\/collections\/new-in-1"
           }
         }
       },
       "block_order": [
-        "093dba4e-5495-47f1-a21b-0431a9d2a9fb"
+        "16474236686ae800c9-0"
       ],
       "settings": {
         "edge_to_edge": true,
         "section_size": "preserve_ratio",
         "carousel_effect": "slide",
         "autoplay": true,
-        "cycle_speed": 3
+        "cycle_speed": 5
       }
     },
-    "163937456276e25a4f": {
-      "type": "no_space_img",
+    "16474248460d0593be": {
+      "type": "transparent-collection",
       "settings": {
-        "sensorsName": "10% 3pieces 20% 4pieces",
-        "bg_image": "shopify:\/\/shop_images\/PC_-2_03_b8a8fd37-d2fa-426b-b3c4-d76974a71eaf.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_03_6be52e45-9c9d-4ab7-9ccb-ce87532cb572.jpg",
-        "link": "https:\/\/www.hyfol.com\/collections\/hot-sale",
-        "shadow": false
+        "collection": "new-collection",
+        "title": "NEW IN",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
       }
     },
-    "16357602965b96c401": {
+    "16474250424edba623": {
       "type": "linkImg",
       "blocks": {
-        "0db6b071-a702-475f-b427-d4599a77da9a": {
+        "ff6f97b8-1adb-4a65-93e8-533754b197fc": {
           "type": "link",
           "settings": {
-            "heading": "men",
-            "sensorsLinkName": "men",
-            "link": "shopify:\/\/collections\/mens",
+            "heading": "shirt",
+            "sensorsLinkName": "",
+            "link": "shopify:\/\/collections\/shirts",
             "left": 0,
-            "top": 9,
-            "width": 32,
-            "height": 25
+            "top": 1,
+            "width": 49,
+            "height": 48
           }
         },
-        "a4122754-203a-4350-8ed8-6dbec1b215c4": {
+        "342f71ba-d412-42c7-a286-e1b97c3dc993": {
           "type": "link",
           "settings": {
-            "heading": "women",
-            "sensorsLinkName": "women",
-            "link": "shopify:\/\/collections\/women",
-            "left": 34,
-            "top": 9,
-            "width": 32,
-            "height": 25
-          }
-        },
-        "fa7c78b1-1786-4397-b27d-edb7f94a6613": {
-          "type": "link",
-          "settings": {
-            "heading": "new",
-            "sensorsLinkName": "new",
-            "link": "shopify:\/\/collections\/new-in",
-            "left": 68,
-            "top": 9,
-            "width": 32,
-            "height": 25
-          }
-        },
-        "080dc183-4e43-4473-a8cc-44356cd7a4d7": {
-          "type": "link",
-          "settings": {
-            "heading": "hoodies3",
-            "sensorsLinkName": "hoodies3",
-            "link": "shopify:\/\/collections\/hoodies-1",
-            "left": 3,
-            "top": 44,
-            "width": 46,
-            "height": 13
-          }
-        },
-        "946f9474-e9e3-4a48-889e-eb94b84ddae1": {
-          "type": "link",
-          "settings": {
-            "heading": "T-shirts",
-            "sensorsLinkName": "T-shirts",
-            "link": "shopify:\/\/collections\/shirts-12-13",
+            "heading": "t-shirts",
+            "sensorsLinkName": "",
+            "link": "shopify:\/\/collections\/1102t-shirts",
             "left": 51,
-            "top": 44,
-            "width": 46,
-            "height": 13
+            "top": 1,
+            "width": 53,
+            "height": 49
           }
         },
-        "29d264b3-1358-40e5-affe-75e368b387bd": {
+        "9ff77147-50cf-4ea6-a2e8-88372aa19d4a": {
           "type": "link",
           "settings": {
-            "heading": "outerwear3",
-            "sensorsLinkName": "outerwear3",
+            "heading": "pants",
+            "sensorsLinkName": "",
+            "link": "shopify:\/\/collections\/pants-12-13",
+            "left": 0,
+            "top": 50,
+            "width": 49,
+            "height": 48
+          }
+        },
+        "6defe89d-34bf-47d9-a1f2-91004d693ed8": {
+          "type": "link",
+          "settings": {
+            "heading": "out",
+            "sensorsLinkName": "",
             "link": "shopify:\/\/collections\/outerwear_hyfol",
-            "left": 3,
-            "top": 59,
-            "width": 46,
-            "height": 13
-          }
-        },
-        "f79bb545-2187-4e88-a746-7628fde4cdc0": {
-          "type": "link",
-          "settings": {
-            "heading": "Sweaters",
-            "sensorsLinkName": "Sweaters",
-            "link": "shopify:\/\/collections\/sweater",
-            "left": 51,
-            "top": 59,
-            "width": 46,
-            "height": 13
-          }
-        },
-        "b4976b7a-8ed3-4ba1-b2e3-dab9bff9b832": {
-          "type": "link",
-          "settings": {
-            "heading": "bottoms3",
-            "sensorsLinkName": "bottoms3",
-            "link": "shopify:\/\/collections\/bottoms-12-13",
-            "left": 3,
-            "top": 73,
-            "width": 46,
-            "height": 13
-          }
-        },
-        "ece75503-a9f2-4f6d-907c-52d39cda9efa": {
-          "type": "link",
-          "settings": {
-            "heading": "SWEATSHIRTS",
-            "sensorsLinkName": "SWEATSHIRTS",
-            "link": "shopify:\/\/collections\/sweatshirts-12-13",
-            "left": 51,
-            "top": 73,
-            "width": 46,
-            "height": 13
-          }
-        },
-        "18a3bf32-1442-48ce-95be-968b36a493ce": {
-          "type": "link",
-          "settings": {
-            "heading": "caphat3",
-            "sensorsLinkName": "caphat3",
-            "link": "shopify:\/\/collections\/cap-hat",
-            "left": 3,
-            "top": 87,
-            "width": 46,
-            "height": 13
-          }
-        },
-        "5e431b2f-60a0-409b-b082-222b54459ccb": {
-          "type": "link",
-          "settings": {
-            "heading": "JEWELRY",
-            "sensorsLinkName": "JEWELRY",
-            "link": "shopify:\/\/collections\/jewelry",
-            "left": 51,
-            "top": 87,
-            "width": 46,
-            "height": 13
-          }
-        },
-        "d05649e8-abab-4210-a4ad-f3b53421d000": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "heading": "NEW-YEAR-SALE",
-            "sensorsLinkName": "",
-            "link": "",
-            "left": 3,
-            "top": 0,
-            "width": 46,
-            "height": 34
-          }
-        },
-        "b5f6e30f-cd2d-4ce7-9e16-f3e7fae56d18": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "heading": "Must-have-Tops",
-            "sensorsLinkName": "",
-            "link": "",
-            "left": 51,
-            "top": 0,
-            "width": 46,
-            "height": 34
+            "left": 50,
+            "top": 51,
+            "width": 57,
+            "height": 47
           }
         }
       },
       "block_order": [
-        "0db6b071-a702-475f-b427-d4599a77da9a",
-        "a4122754-203a-4350-8ed8-6dbec1b215c4",
-        "fa7c78b1-1786-4397-b27d-edb7f94a6613",
-        "080dc183-4e43-4473-a8cc-44356cd7a4d7",
-        "946f9474-e9e3-4a48-889e-eb94b84ddae1",
-        "29d264b3-1358-40e5-affe-75e368b387bd",
-        "f79bb545-2187-4e88-a746-7628fde4cdc0",
-        "b4976b7a-8ed3-4ba1-b2e3-dab9bff9b832",
-        "ece75503-a9f2-4f6d-907c-52d39cda9efa",
-        "18a3bf32-1442-48ce-95be-968b36a493ce",
-        "5e431b2f-60a0-409b-b082-222b54459ccb",
-        "d05649e8-abab-4210-a4ad-f3b53421d000",
-        "b5f6e30f-cd2d-4ce7-9e16-f3e7fae56d18"
-      ],
-      "settings": {
-        "hidDesk": true,
-        "sensorsName": "移动分类导流区",
-        "hidWeb": false,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_04_ebac42ae-77a7-4f37-bef9-89885835c260.jpg",
-        "tpadding": 0,
-        "rpadding": 0,
-        "bpadding": 0,
-        "lpadding": 0
-      }
-    },
-    "1635759577ba76b918": {
-      "type": "linkImg",
-      "blocks": {
-        "b557181c-dc95-42a1-97e1-11ef73e06e75": {
-          "type": "link",
-          "settings": {
-            "heading": "hoodies1",
-            "sensorsLinkName": "hoodies1",
-            "link": "shopify:\/\/collections\/hoodies-1",
-            "left": 13,
-            "top": 9,
-            "width": 18,
-            "height": 14
-          }
-        },
-        "bfbe2e40-12f9-439e-835e-1c053083100b": {
-          "type": "link",
-          "settings": {
-            "heading": "T-Shirts",
-            "sensorsLinkName": "T-Shirts",
-            "link": "shopify:\/\/collections\/shirts-12-13",
-            "left": 32,
-            "top": 10,
-            "width": 18,
-            "height": 13
-          }
-        },
-        "ae4ffa1a-0fdd-4416-bbcc-219fb0e80f49": {
-          "type": "link",
-          "settings": {
-            "heading": "outerwear1",
-            "sensorsLinkName": "outerwear1",
-            "link": "shopify:\/\/collections\/outerwear_hyfol",
-            "left": 51,
-            "top": 10,
-            "width": 17,
-            "height": 13
-          }
-        },
-        "4ff61547-5f72-4cd0-aeb5-856dc00acdb2": {
-          "type": "link",
-          "settings": {
-            "heading": "Sweaters",
-            "sensorsLinkName": "Sweaters",
-            "link": "shopify:\/\/collections\/sweater",
-            "left": 69,
-            "top": 10,
-            "width": 18,
-            "height": 13
-          }
-        },
-        "82915f86-ec2e-4e8e-a250-039d150d0a81": {
-          "type": "link",
-          "settings": {
-            "heading": "Bottoms",
-            "sensorsLinkName": "Bottoms",
-            "link": "shopify:\/\/collections\/bottoms-12-13",
-            "left": 13,
-            "top": 25,
-            "width": 18,
-            "height": 13
-          }
-        },
-        "4138a4eb-9261-42d2-82d3-87bea0d3f10c": {
-          "type": "link",
-          "settings": {
-            "heading": "Sweatshirts",
-            "sensorsLinkName": "Sweatshirts",
-            "link": "shopify:\/\/collections\/sweatshirts-12-13",
-            "left": 32,
-            "top": 25,
-            "width": 18,
-            "height": 13
-          }
-        },
-        "ec7c2a21-4ae6-4a65-bfa4-3ca59f901994": {
-          "type": "link",
-          "settings": {
-            "heading": "HAT",
-            "sensorsLinkName": "HAT",
-            "link": "shopify:\/\/collections\/cap-hat",
-            "left": 51,
-            "top": 25,
-            "width": 17,
-            "height": 13
-          }
-        },
-        "bfb10946-ebb1-4c51-8782-46643aa327fc": {
-          "type": "link",
-          "settings": {
-            "heading": "Jewelry",
-            "sensorsLinkName": "Jewelry",
-            "link": "shopify:\/\/collections\/jewelry",
-            "left": 69,
-            "top": 25,
-            "width": 18,
-            "height": 13
-          }
-        },
-        "be5b130b-4a11-4f9c-96ce-ea49ff060bf6": {
-          "type": "link",
-          "settings": {
-            "heading": "saint",
-            "sensorsLinkName": "saint",
-            "link": "shopify:\/\/collections\/saint-patrick",
-            "left": 0,
-            "top": 47,
-            "width": 100,
-            "height": 52
-          }
-        }
-      },
-      "block_order": [
-        "b557181c-dc95-42a1-97e1-11ef73e06e75",
-        "bfbe2e40-12f9-439e-835e-1c053083100b",
-        "ae4ffa1a-0fdd-4416-bbcc-219fb0e80f49",
-        "4ff61547-5f72-4cd0-aeb5-856dc00acdb2",
-        "82915f86-ec2e-4e8e-a250-039d150d0a81",
-        "4138a4eb-9261-42d2-82d3-87bea0d3f10c",
-        "ec7c2a21-4ae6-4a65-bfa4-3ca59f901994",
-        "bfb10946-ebb1-4c51-8782-46643aa327fc",
-        "be5b130b-4a11-4f9c-96ce-ea49ff060bf6"
+        "ff6f97b8-1adb-4a65-93e8-533754b197fc",
+        "342f71ba-d412-42c7-a286-e1b97c3dc993",
+        "9ff77147-50cf-4ea6-a2e8-88372aa19d4a",
+        "6defe89d-34bf-47d9-a1f2-91004d693ed8"
       ],
       "settings": {
         "hidDesk": false,
-        "sensorsName": "PC分类导流区",
+        "sensorsName": "",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/PC_-2_04_5362e93a-f172-4173-b1b6-78a22634a8e5.jpg",
+        "image": "shopify:\/\/shop_images\/pc_a3224c9b-60e1-4276-a72c-b1ce1b88a9aa.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
         "lpadding": 0
       }
     },
-    "16418022421fb24728": {
+    "164742631051d4db44": {
       "type": "linkImg",
       "blocks": {
-        "cd035335-e00b-42b6-aaab-cd397285f735": {
+        "1b4a5d11-2c92-45bb-b788-8a362446a835": {
           "type": "link",
           "settings": {
-            "heading": "SAINT PATRICK",
-            "sensorsLinkName": "Saint Patrick",
-            "link": "shopify:\/\/collections\/saint-patrick",
+            "heading": "shrit",
+            "sensorsLinkName": "",
+            "link": "shopify:\/\/collections\/shirts",
             "left": 0,
-            "top": 1,
-            "width": 100,
-            "height": 100
+            "top": 2,
+            "width": 48,
+            "height": 48
+          }
+        },
+        "f25304d2-8088-49e0-837b-c140d87d31d8": {
+          "type": "link",
+          "settings": {
+            "heading": "t-shirts",
+            "sensorsLinkName": "",
+            "link": "shopify:\/\/collections\/1102t-shirts",
+            "left": 50,
+            "top": 2,
+            "width": 53,
+            "height": 48
+          }
+        },
+        "312647ac-1ad0-4158-af07-2abbd19d8a97": {
+          "type": "link",
+          "settings": {
+            "heading": "pants",
+            "sensorsLinkName": "",
+            "link": "shopify:\/\/collections\/pants-12-13",
+            "left": 0,
+            "top": 51,
+            "width": 50,
+            "height": 46
+          }
+        },
+        "e34c6701-d51d-4b6b-b3c3-dbdb091ce635": {
+          "type": "link",
+          "settings": {
+            "heading": "outwears",
+            "sensorsLinkName": "",
+            "link": "shopify:\/\/collections\/outerwear_hyfol",
+            "left": 52,
+            "top": 51,
+            "width": 50,
+            "height": 47
           }
         }
       },
       "block_order": [
-        "cd035335-e00b-42b6-aaab-cd397285f735"
+        "1b4a5d11-2c92-45bb-b788-8a362446a835",
+        "f25304d2-8088-49e0-837b-c140d87d31d8",
+        "312647ac-1ad0-4158-af07-2abbd19d8a97",
+        "e34c6701-d51d-4b6b-b3c3-dbdb091ce635"
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "Hawaii",
+        "sensorsName": "",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/M_-2.0_05_134775d6-740a-43b4-b243-bac9af95b511.jpg",
+        "image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_bc690ba2-1496-48fc-9082-00a68961d3f5.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
         "lpadding": 0
       }
     },
-    "16456958617c78dc63": {
-      "type": "featured-collection-img",
-      "settings": {
-        "sensorsName": "首页商品楼层",
-        "link": "",
-        "collection": "saint-patrick",
-        "title": "SAINT PATRICK",
-        "products_count": 50,
-        "layout": "horizontal",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "View all",
-        "link_bg": "",
-        "link_url": "shopify:\/\/collections\/saint-patrick"
-      }
-    },
-    "1645699029d3be6ede": {
-      "type": "featured-collection-img",
-      "settings": {
-        "sensorsName": "",
-        "link": "",
-        "collection": "best-sellers-1",
-        "title": "",
-        "products_count": 27,
-        "layout": "horizontal",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "View all",
-        "link_bg": "",
-        "link_url": ""
-      }
-    },
-    "1639375466adf92990": {
-      "type": "featured-collection-img",
-      "disabled": true,
-      "settings": {
-        "image": "shopify:\/\/shop_images\/PC_-2_06_6d45602b-2c97-480e-a4a0-160557beb14c.jpg",
-        "sensorsName": "Bottoms",
-        "web_image": "shopify:\/\/shop_images\/M_-2.0_07_36ca6d20-126d-45ff-bede-e01e59ba9838.jpg",
-        "link": "shopify:\/\/collections\/bottoms-12-13",
-        "collection": "bottoms-12-13",
-        "title": "",
-        "products_count": 4,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "",
-        "link_bg": "rgba(0,0,0,0)",
-        "link_url": "shopify:\/\/collections\/bottoms-12-13"
-      }
-    },
-    "163703402842074b11": {
-      "type": "featured-collection-img",
-      "disabled": true,
-      "settings": {
-        "image": "shopify:\/\/shop_images\/PC_-2_08_63a32756-c2e6-4520-9fd0-f5144422581f.jpg",
-        "sensorsName": "CLearance",
-        "web_image": "shopify:\/\/shop_images\/M_-2.0_09_7e261561-9515-44b0-b54a-42dbb10e1cae.jpg",
-        "link": "shopify:\/\/collections\/clearance-sale-hyfol",
-        "collection": "clearance-sale-hyfol",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "",
-        "link_bg": "",
-        "link_url": "shopify:\/\/collections\/clearance-sale-hyfol"
-      }
-    },
-    "1644909300ae8809ce": {
-      "type": "slide-product",
-      "disabled": true,
-      "settings": {
-        "sensorsName": "Women",
-        "desk_image": "shopify:\/\/shop_images\/M_-2.0_13_97ceafd1-f4d3-4bbf-b49f-4d22a72268db.jpg",
-        "web_image": "shopify:\/\/shop_images\/M_-2.0_13_e7bcd299-1cd5-4654-adea-1abad8e9b223.jpg",
-        "link": "shopify:\/\/collections\/women",
-        "collection": "women",
-        "products_count": 12,
-        "show_quick_buy": false,
-        "background": "#f0f0f0",
-        "title": "HYFOL WOMEN",
-        "content": "Tell more about your product, Tell more about your product，Tell more about your product，Tell more about your product",
-        "title_color": "#ffffff",
-        "text_color": "#ffffff",
-        "button_text": "SHOP NOW",
-        "button_link": "shopify:\/\/collections\/women",
-        "button_text_color": "#0774d7",
-        "button_background": "#ffffff"
-      }
-    },
-    "164179738814931472": {
-      "type": "featured-collection-img",
-      "disabled": true,
-      "settings": {
-        "image": "shopify:\/\/shop_images\/PC__13.jpg",
-        "sensorsName": "SELL 1 PIECE EVERY MINUTE",
-        "web_image": "shopify:\/\/shop_images\/1_17.jpg",
-        "link": "shopify:\/\/collections\/long-sleeve-series",
-        "collection": "long-sleeve-series",
-        "title": "",
-        "products_count": 12,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_bg": "",
-        "link_url": ""
-      }
-    },
-    "1639378018bdd37462": {
+    "164742408779389987": {
       "type": "no_space_img",
-      "disabled": true,
       "settings": {
-        "sensorsName": "ESSENTIAL SERIES",
-        "bg_image": "shopify:\/\/shop_images\/PC_-2_12_591734ac-1fce-4b9d-92a2-7fab8e84b447.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/M_-2.0_15_08740ada-eb8f-42e4-8baa-f822b94efe25.jpg",
-        "link": "shopify:\/\/collections\/essential",
+        "sensorsName": "PATRIOT LEAGUE",
+        "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_59d20867-9da8-423a-8cf1-2859ba329c41.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/360f844e7bb810da95861fb65c5c8def_31505a07-18ad-4b41-a218-f76e78377dd1.jpg",
+        "link": "shopify:\/\/collections\/american-flag",
         "shadow": false
+      }
+    },
+    "1647424215f34c4fad": {
+      "type": "transparent-collection",
+      "settings": {
+        "collection": "patriot",
+        "title": "PATRIOT LEAGUE",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "16474280605793ac57": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "SKULL MADMAN",
+        "bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1_812a2537-398d-4a71-8f04-06d63e853cdd.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-banner.jpg",
+        "link": "shopify:\/\/collections\/skull",
+        "shadow": false
+      }
+    },
+    "1647497707f35ea4d8": {
+      "type": "transparent-collection",
+      "settings": {
+        "collection": "skull-madman",
+        "title": "SKULL MADMAN",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "1647428400b9292564": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "TACTICAL CLUB",
+        "bg_image": "shopify:\/\/shop_images\/abcf5cfc64a285e43a89f2bba8d414b3_868bc9e5-5d62-49b5-b476-b312bd443c2a.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/06fa5a8dfa2d76ec7a3d6e9c0b410b0f_5207367b-e24b-4ab6-a10c-9e30ccde165c.jpg",
+        "link": "shopify:\/\/collections\/camou",
+        "shadow": false
+      }
+    },
+    "1647498064c408cfd6": {
+      "type": "transparent-collection",
+      "settings": {
+        "collection": "tactical-club",
+        "title": "TACTICAL CLUB",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
       }
     },
     "1640334828c8a975c8": {
@@ -545,8 +270,8 @@
         "b80d75ad-e9f2-4fe5-b7bf-b9b01a42edf5": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2_b79a1bdc-942a-4bae-be1a-2275211eb0fb.jpg",
-            "pro": "t11011528ab",
+            "image": "shopify:\/\/shop_images\/8_a5cb6830-467e-4a9a-a4f2-1e6182273e55.jpg",
+            "pro": "sp2111271bbr",
             "textBottom": "<p>FREEDOM MUST BE BOON NOT CURSE❗️\u000bLIBERTY IS THE FUNDAMENTAL ACHIEVEMENT other achievements are surplus❗️\u000bDon’t let your FREEDOM to be Compromised! In the name of culture\/country\/creed\/etc…❗️\u000bso, STAND AGAINST ALL ODDS❗️\u000bBe LOYAL TO FREEDOM, even if you are BETRAYED❗️<\/p><p>\u000b.<\/p><p>\u000b.<\/p><p>\u000b.<\/p><p>\u000b<\/p><p>#hyfol\u000b#influencer #bemotivated #adventure #menstyle #mensfashion #armystyle #freedom #rambostyle #attitude #usa #shirts #americanflag #veteransday #route66 #modelinglifestyle #badass #lifestyleblogger #personaldevelopment #likeforlikes #dappermen #understandingfreedom<\/p>",
             "dateString": "2012\/12\/13"
           }
@@ -554,17 +279,26 @@
         "9bf31d7f-3fb1-4d0e-b11e-c6596da950ca": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/11_804c379c-1b82-47f6-beb4-7cfff9b65a4d.jpg",
-            "pro": "t11611521he",
+            "image": "shopify:\/\/shop_images\/banner2_2dae8071-dcc9-4fc2-852e-343b38f68dea.jpg",
+            "pro": "t11861820ns",
             "textBottom": "<p>fashion is my language!<\/p><p>.<br\/>.<br\/>.<br\/>#Hyfol #influencer #fashion<\/p>",
             "dateString": "2021\/11\/24"
+          }
+        },
+        "06ffecf1-9bd3-426b-888e-78b127d6541d": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/265779975_316897913617064_8265931383150740065_n.jpg",
+            "pro": "t11861820qq",
+            "textBottom": "<p>GOD, FAMILY, COUNTRY<br\/>Those what we are trust!<\/p><p>.<br\/>.<br\/>.<br\/>#hyfol #outdoors #influencer #hyfolclothes #hyfolcostumes #jacket #christmas #god #family #country #menstyle #mensfashion<\/p>",
+            "dateString": ""
           }
         },
         "8c78d780-3e9c-4eb7-baf6-e5b2b8193e26": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/13.jpg",
-            "pro": "t11861820rh",
+            "image": "shopify:\/\/shop_images\/4_25479784-8aa3-449d-b315-015e792101d3.jpg",
+            "pro": "t11711820b3",
             "textBottom": "<p>Until you’re fighting, you’re the winner. @hyfol_official thank you for a collab 📸🇺🇸🔥🔥<\/p><p>.<br\/>.<br\/>.<br\/>#hyfol #bodybuilding #influencer #outdoors #adventure #menstyle #mensfashion #army #family #country #freedom #trust #attitude #usa #american #americanflag #gym #fitness #abs #fitnessmodel #gymmotivation #body #photography #classicphysique #poznan #poland #gymlife #photooftheday #fit #gymlover<\/p>",
             "dateString": "2021\/12\/20"
           }
@@ -576,15 +310,6 @@
             "pro": "t11861820nh",
             "textBottom": "<p>Fashion can be purchased but styling is all upon you.<br\/>.\u000b<\/p><p>.\u000b<\/p><p>.\u000b<\/p><p>#hyfol #influencer <\/p>",
             "dateString": "2021\/11\/20"
-          }
-        },
-        "06ffecf1-9bd3-426b-888e-78b127d6541d": {
-          "type": "link",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/10_7d0f068f-2b9e-4750-bac7-0b2dee15d630.jpg",
-            "pro": "t11861820o1",
-            "textBottom": "<p>GOD, FAMILY, COUNTRY<br\/>Those what we are trust!<\/p><p>.<br\/>.<br\/>.<br\/>#hyfol #outdoors #influencer #hyfolclothes #hyfolcostumes #jacket #christmas #god #family #country #menstyle #mensfashion<\/p>",
-            "dateString": ""
           }
         },
         "5b40460b-b748-4e3c-b9f8-e9c975ff2028": {
@@ -625,6 +350,7 @@
         },
         "43abfc06-8518-48d6-acd2-b22d0835bde0": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/14_fdfda8be-9ded-4502-92ee-4a530520970d.jpg",
             "pro": "t11611521ji",
@@ -637,9 +363,9 @@
         "86facf0d-8986-4ac5-9098-70c6d9b77f79",
         "b80d75ad-e9f2-4fe5-b7bf-b9b01a42edf5",
         "9bf31d7f-3fb1-4d0e-b11e-c6596da950ca",
+        "06ffecf1-9bd3-426b-888e-78b127d6541d",
         "8c78d780-3e9c-4eb7-baf6-e5b2b8193e26",
         "ff8bd3a4-f479-4f1d-b6c3-21e683b575ee",
-        "06ffecf1-9bd3-426b-888e-78b127d6541d",
         "5b40460b-b748-4e3c-b9f8-e9c975ff2028",
         "5e61e2fc-71f1-4708-a703-8381e514b09a",
         "5e7e1760-3e06-4252-93d6-914ab33bf1c7",
@@ -651,43 +377,6 @@
         "description": "<p>Show us how you match. Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
       }
     },
-    "1635995528b96ef09c": {
-      "type": "cjj_tab-product",
-      "settings": {
-        "title": "Top Products",
-        "tab1": "Best Sales",
-        "pro1": "best-sellers-1",
-        "link1": "shopify:\/\/collections\/best-sellers-1",
-        "tab2": "New In",
-        "pro2": "new-in",
-        "link2": "shopify:\/\/collections\/new-in",
-        "tab3": "",
-        "pro3": "",
-        "link3": ""
-      }
-    },
-    "1636182255e275c0a7": {
-      "type": "bg-scroll",
-      "settings": {
-        "bgimage": "shopify:\/\/shop_images\/258_e4c08c8e-d2f2-4eac-8473-8ca696623970.jpg",
-        "image": "shopify:\/\/shop_images\/4.jpg",
-        "hidden_phone": true,
-        "isbgscroll": false
-      }
-    },
-    "163577127440e8d6d7": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "best-sellers-1",
-        "title": "Featured collection",
-        "products_count": 12,
-        "layout": "horizontal",
-        "stack_products": false,
-        "show_quick_buy": true,
-        "link_title": "View all",
-        "link_url": ""
-      }
-    },
     "newsletter": {
       "type": "newsletter",
       "settings": {
@@ -696,34 +385,20 @@
         "background": "#f0f0f0",
         "text": "#1b1b1b"
       }
-    },
-    "163576242639f4e03c": {
-      "type": "recently-viewed-products",
-      "settings": {
-        "title": "Recently viewed",
-        "show_quick_buy": true
-      }
     }
   },
   "order": [
-    "16379144370948f06a",
-    "slideshow",
-    "163937456276e25a4f",
-    "16357602965b96c401",
-    "1635759577ba76b918",
-    "16418022421fb24728",
-    "16456958617c78dc63",
-    "1645699029d3be6ede",
-    "1639375466adf92990",
-    "163703402842074b11",
-    "1644909300ae8809ce",
-    "164179738814931472",
-    "1639378018bdd37462",
+    "16474236687749dfbd",
+    "16474248460d0593be",
+    "16474250424edba623",
+    "164742631051d4db44",
+    "164742408779389987",
+    "1647424215f34c4fad",
+    "16474280605793ac57",
+    "1647497707f35ea4d8",
+    "1647428400b9292564",
+    "1647498064c408cfd6",
     "1640334828c8a975c8",
-    "1635995528b96ef09c",
-    "1636182255e275c0a7",
-    "163577127440e8d6d7",
-    "newsletter",
-    "163576242639f4e03c"
+    "newsletter"
   ]
 }

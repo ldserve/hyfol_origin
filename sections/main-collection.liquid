@@ -39,26 +39,26 @@
 {%- endcapture -%}
 
 <section data-section-id="{{ section.id }}" data-section-type="collection" data-section-settings='{{ section_settings }}'>
-  <div class="container container--flush">
-    <div class="page__sub-header">
-      <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
-        <ol class="breadcrumb__list" role="list">
-          <li class="breadcrumb__item">
-            <a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
-          </li>
+	<div class="indexContainer page__sub-header">
+		<nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
+			<ol class="breadcrumb__list" role="list">
+				<li class="breadcrumb__item">
+					<a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
+				</li>
 
-          <li class="breadcrumb__item">
-            <a class="breadcrumb__link link" href="{{ collection.url }}" aria-current="page">
-              {%- if collection.handle == 'all' -%}
-                {{- 'collection.general.all_products' | t -}}
-              {%- else -%}
-                {{- collection.title -}}
-              {%- endif -%}
-            </a>
-          </li>
-        </ol>
-      </nav>
-    </div>
+				<li class="breadcrumb__item">
+					<a class="breadcrumb__link link" href="{{ collection.url }}" aria-current="page">
+						{%- if collection.handle == 'all' -%}
+							{{- 'collection.general.all_products' | t -}}
+						{%- else -%}
+							{{- collection.title -}}
+						{%- endif -%}
+					</a>
+				</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="container container--flush">
 
     <div {% if has_filters %}class="layout"{% endif %}>
       {%- comment -%}
@@ -260,20 +260,38 @@
 
       {%- paginate collection.products by items_per_page -%}
         <div {% if has_filters %}class="layout__section"{% endif %}>
-          <div class="collection">
+					{%- unless collection.template_suffix == 'brand' -%}
+						{%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 -%}
+							{%- if section.settings.collection_image_size == 'preserve_ratio' -%}
+								{%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000, 1200, 1400, 1600', image: collection.image -%}{%- endcapture -%}
+								{%- assign image_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+								<div class="collection__image-wrapper collection__image-wrapper--preserve-ratio hidden-lap-and-up">
+									<div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: collection.image.aspect_ratio }}%">
+										<img class="lazyload image--fade-in" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]" alt="{{ collection.image.alt | escape }}">
+									</div>
+								</div>
+							{%- else -%}
+								<div class="collection__image-wrapper collection__image-wrapper--{{ section.settings.collection_image_size }}" style="background-image: url({{ collection.image | img_url: '1x1' }})">
+									<div class="collection__image lazyload image--fade-in" data-bgset="{{ collection.image | img_url: '600x' }} 600w, {{ collection.image | img_url: '800x' }} 800w, {{ collection.image | img_url: '1000x' }} 1000w, {{ collection.image | img_url: '1200x' }} 1200w, {{ collection.image | img_url: '1500x' }} 1500w"></div>
+								</div>
+							{%- endif -%}
+						{%- endif -%}
+					{%- endunless -%}
+          <div class="container collection">
             {%- unless collection.template_suffix == 'brand' -%}
               {%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 -%}
                 {%- if section.settings.collection_image_size == 'preserve_ratio' -%}
                   {%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000, 1200, 1400, 1600', image: collection.image -%}{%- endcapture -%}
                   {%- assign image_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                  <div class="collection__image-wrapper collection__image-wrapper--preserve-ratio">
+                  <div class="collection__image-wrapper collection__image-wrapper--preserve-ratio hidden-phone">
                     <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: collection.image.aspect_ratio }}%">
                       <img class="lazyload image--fade-in" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]" alt="{{ collection.image.alt | escape }}">
                     </div>
                   </div>
                 {%- else -%}
-                  <div class="collection__image-wrapper collection__image-wrapper--{{ section.settings.collection_image_size }}" style="background-image: url({{ collection.image | img_url: '1x1' }})">
+                  <div class="collection__image-wrapper collection__image-wrapper--{{ section.settings.collection_image_maxsize }}" style="background-image: url({{ collection.image | img_url: '1x1' }})">
                     <div class="collection__image lazyload image--fade-in" data-bgset="{{ collection.image | img_url: '600x' }} 600w, {{ collection.image | img_url: '800x' }} 800w, {{ collection.image | img_url: '1000x' }} 1000w, {{ collection.image | img_url: '1200x' }} 1200w, {{ collection.image | img_url: '1500x' }} 1500w"></div>
                   </div>
                 {%- endif -%}
@@ -330,7 +348,7 @@
                           {%- assign offset = paginate.current_offset | plus: 1 -%}
                           {%- assign page_size = paginate.current_offset | plus: paginate.page_size | at_most: paginate.items -%}
 
-                          <p class="collection__products-count text--small hidden-lap-and-up">{{ 'collection.general.products_count' | t: count: collection.all_products_count }}</p>
+                          <p class="collection__products-count text--small ">{{ 'collection.general.products_count' | t: count: collection.all_products_count }}</p>
                           <p class="collection__products-count text--small hidden-pocket hidden-desk">{{ 'collection.general.showing_count' | t: offset: offset, page_size: page_size, count: paginate.items }}</p>
                         </div>
                       </div>
@@ -368,12 +386,12 @@
                       </button>
                     {%- endif -%}
 
-                    <div class="collection__toolbar-item collection__toolbar-item--count hidden-pocket">
-                      {%- assign offset = paginate.current_offset | plus: 1 -%}
-                      {%- assign page_size = paginate.current_offset | plus: paginate.page_size | at_most: paginate.items -%}
-
-                      <span class="collection__showing-count hidden-pocket hidden-lap">{{ 'collection.general.showing_count' | t: offset: offset, page_size: page_size, count: paginate.items }}</span>
-
+										<div class="collection__toolbar-item collection__toolbar-item--count hidden-pocket">
+											{%- assign offset = paginate.current_offset | plus: 1 -%}
+											{%- assign page_size = paginate.current_offset | plus: paginate.page_size | at_most: paginate.items -%}
+											{%- comment -%}
+												<span class="collection__showing-count hidden-phone hidden-pocket hidden-lap">{{ 'collection.general.showing_count' | t: offset: offset, page_size: page_size, count: paginate.items }}</span>
+											{%- endcomment -%}
                       <div class="value-picker-wrapper">
                         <button class="value-picker-button" aria-haspopup="true" aria-expanded="false" aria-controls="display-by-selector" data-action="open-value-picker">
                           <span class="hidden-phone">{{ 'collection.general.display' | t }}: {{ 'collection.general.page_size' | t: page_size: paginate.page_size }}</span><!--
@@ -907,6 +925,20 @@
 <script>
 
   ~function () {
+      // 处理布局
+      let productList = document.querySelector('.product-list')
+      let clientWidth = window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
+      if(clientWidth <= 640) {
+         let productItem = document.querySelectorAll('.product-item')
+          for (let i = 0; i < productItem.length; i++) {
+							if(i % 2 !== 0){
+                  console.log(i);
+                  productItem[i].style.paddingRight = '0'
+							}
+          }
+      }else {
+          productList.style.width = '101%'
+			}
     function getdata(spu){
       return new Promise(function (resolve, reject) {
         let xhr = null;
@@ -1088,8 +1120,9 @@
         dom.querySelector('.color-swatch-list').innerHTML=colorstr;
         dom.querySelector('.color-swatch__radio').setAttribute('checked','checked');
         let max=dom.querySelectorAll('.color-swatch');
-        if(max.length>5){
-          max[4].classList.add('color-swatch--view-more')
+        if(max.length>4){
+            console.log(max.length)
+          max[3].classList.add('color-swatch--view-more')
         }
         return dom.querySelector('.product-item');
       }

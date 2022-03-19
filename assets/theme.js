@@ -2869,7 +2869,7 @@
                         var currentWidth = swatchList.clientWidth,
                             maxAllowedWidth = parseInt(Math.min(currentWidth, 200)); // A single swatch takes 30px, so let's figure out how many we can fit completely
 
-                        var maxFit = Math.floor(maxAllowedWidth / 30); // Now, we add a special class to the one after "maxFit"
+                        var maxFit = Math.floor(maxAllowedWidth / 45); // Now, we add a special class to the one after "maxFit"
 
                         fastdom.mutate(function () {
                             var colorSwatches = swatchList.querySelectorAll('.color-swatch'); // For each, we reset the attributes if needed
@@ -6767,7 +6767,7 @@
         // prev/next buttons
         (function (window, factory) {
             // universal module definition
-
+            console.log(module);
             /* jshint strict: false */
             if (module.exports) {
                 // CommonJS
