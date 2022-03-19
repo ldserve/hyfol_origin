@@ -1436,6 +1436,9 @@ body:not(.is-tabbing) textarea:focus {
   .container--unflush {
     padding: 0 var(--mobile-container-gutter);
   }
+  .container.container--flush.shenceDetail {
+    padding-bottom: 0px;
+}
 }
 
 @media screen and (min-width: 641px) {
@@ -2943,7 +2946,7 @@ img.lazyload[data-sizes=auto] {
   .shenceDetail .card__section,
   .shenceDetail .card__collapsible-button {
     padding: 20px 0px;
-}
+  }
   .card__section+.card__section::before {
     width: 100%;
   }
@@ -9086,21 +9089,20 @@ select option {
   /* justify-content: center; */
   align-items: center;
   position: absolute;
-  bottom: 40px;
+  bottom: 6px;
   /* margin: 0 auto; */
   left: 50%;
   transform: translateX(-50%);
   z-index: 99;
 }
 .dot-item {
-  width: 12px;
-  height: 12px;
-  /* background: #fff; */
+  width: 6px;
+  height: 6px;
   border: 1px #000 solid;
   border-radius: 6px;
-  margin: 0px 10px;
+  margin: 0 3px;
   cursor: pointer;
-background: #fff;
+  background: #fff;
 }
 
 .dot-item.is-selected {
@@ -11289,6 +11291,9 @@ shopify-payment-terms {
 
 .section__title {
   margin-bottom: 0;
+  color: #5d5e5f;
+    text-transform: uppercase;
+    font-size: 20px;
 }
 
 .section__action-link {
@@ -14939,7 +14944,7 @@ shopify-payment-terms {
   margin-bottom: 10px;
 }
 
-.shipping-header .icon {
+.card__title .icon {
   height: 28px;
   width: 28px;
   margin-right: 10px;
@@ -14957,9 +14962,6 @@ shopify-payment-terms {
 }
 
 @media screen and (max-width:640px) {
-  h1.product-meta__title.heading.h1.hidden-lap-and-up.tac {
-  padding-bottom: 5px;
-  }
   .card__section{
     padding-bottom: 0;
   }
@@ -14976,6 +14978,36 @@ shopify-payment-terms {
   .product-form__payment-container{
     padding-bottom: 0px;
   }
+
+  .block-swatch__item{
+    padding: 6px 8px 7px;
+  }
+  .product-form__option {
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .shenceDetail .card__section,
+  .shenceDetail .card__collapsible-button {
+    padding: 10px 0px;
+  }
+  .shenceDetail .card__header{
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+  .slider-box.shipping-body{
+    font-size: 12px;
+  }
+  .card__separator{
+    margin: 0px;
+  }
+  .card{
+    margin-bottom: 0px;
+  }
+  h1.hidden-lap-and-up.tac {
+    font-size: 20px;
+    margin-bottom: 0px;
+    margin-top: -10px;
+}
 }
 @media screen and (max-width:999px) {
   .ks-chart-container.sizing-chart-container.ks-container-with-modal{
