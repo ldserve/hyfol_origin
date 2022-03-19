@@ -28,7 +28,9 @@ body {
   margin: 0;
   background-color: #edece6;
 }
-
+body::-webkit-scrollbar {
+  display: none !important;
+}
 [hidden] {
   display: none !important;
 }
@@ -9809,8 +9811,8 @@ shopify-payment-terms {
 .color-swatch__item {
   position: relative;
   display: block;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   background-size: cover;
 }
@@ -10196,9 +10198,9 @@ shopify-payment-terms {
   white-space: nowrap;
   overflow: hidden;
   text-align: left;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   border-bottom: 2px solid var(--border-color);
-  min-height: 72px;
+  min-height: 62px;
 }
 
 

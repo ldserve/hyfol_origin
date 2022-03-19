@@ -131,8 +131,14 @@
         "show_quick_buy": true
       }
     },
+    "16476891022bcaf9d0": {
+      "type": "ld-write",
+      "settings": {
+      }
+    },
     "alireviews-widget-95110": {
       "type": "alireviews-widget-95110",
+      "disabled": true,
       "settings": {
       }
     },
@@ -146,6 +152,7 @@
     "main",
     "product-recommendations",
     "recently-viewed-products",
+    "16476891022bcaf9d0",
     "alireviews-widget-95110",
     "editorify_section_widget"
   ]

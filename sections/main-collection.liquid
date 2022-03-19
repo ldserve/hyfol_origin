@@ -58,7 +58,7 @@
 </div>
 <section data-section-id="{{ section.id }}" data-section-type="collection" data-section-settings='{{ section_settings }}'>
 
-	<div class="container">
+	<div>
 
     <div {% if has_filters %}class="layout"{% endif %}>
       {%- comment -%}
@@ -278,7 +278,7 @@
 							{%- endif -%}
 						{%- endif -%}
 					{%- endunless -%}
-          <div class="container collection">
+          <div class="collection container">
             {%- unless collection.template_suffix == 'brand' -%}
               {%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 -%}
                 {%- if section.settings.collection_image_size == 'preserve_ratio' -%}
@@ -315,7 +315,7 @@
               </div>
             {%- else -%}
               <div class="collection__dynamic-part card {% if collection.products_count == 0 %}clearfix{% endif %}">
-                <header class="card__header {% unless collection.template_suffix == 'brand' %}card__header--tight{% endunless %}">
+                <header class="card__header {% unless collection.template_suffix == 'brand' %}card__header--tight{% endunless %}" style="margin-top:0;padding-bottom: 0">
                   {%- comment -%}
                   IMPLEMENTATION NOTE: unfortunately I was forced to add a lot of extra div (collection__meta, collection__meta-inner, collection__header-inner,...)
                                        to be able to accommodate with the brand related layout which make things more complicated...
@@ -929,13 +929,14 @@
       let productList = document.querySelector('.product-list')
       let clientWidth = window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
       if(clientWidth <= 640) {
-         let productItem = document.querySelectorAll('.product-item')
-          for (let i = 0; i < productItem.length; i++) {
-							if(i % 2 !== 0){
-                  console.log(i);
-                  productItem[i].style.paddingRight = '0'
-							}
-          }
+        //  let productItem = document.querySelectorAll('.product-item')
+        //   for (let i = 0; i < productItem.length; i++) {
+				// 			if(i % 2 !== 0){
+        //           console.log(i);
+        //           productItem[i].style.paddingRight = '0'
+				// 			}
+        //   }
+        productList.style.width = '102%'
       }else {
           productList.style.width = '101%'
 			}
