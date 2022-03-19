@@ -363,7 +363,7 @@ display: none;
 
 /* prev/next buttons */
 .recently-viewed-products-placeholder .flickity-page-dots{
-  bottom: -60px;
+  bottom: -80px;
 }
 .recently-viewed-products-placeholder .flickity-page-dots .dot{
   position: relative;
@@ -390,7 +390,7 @@ display: none;
   display: block;
   }
 .product-recommendations  .flickity-page-dots{
-  bottom: -60px;
+  bottom: -80px;
 }
 .product-recommendations  .flickity-page-dots .dot{
   position: relative;
