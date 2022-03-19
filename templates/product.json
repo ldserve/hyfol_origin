@@ -140,6 +140,11 @@
       "type": "editorify_section_widget",
       "settings": {
       }
+    },
+    "16476891022bcaf9d0": {
+      "type": "ld-write",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -147,6 +152,7 @@
     "product-recommendations",
     "recently-viewed-products",
     "alireviews-widget-95110",
-    "editorify_section_widget"
+    "editorify_section_widget",
+    "16476891022bcaf9d0"
   ]
 }
