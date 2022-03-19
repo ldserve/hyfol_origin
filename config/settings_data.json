@@ -183,7 +183,7 @@
             "type": "announcement",
             "disabled": true,
             "settings": {
-              "text": "FREE STANDARD SHIPPING ON ORDERS OVER $50",
+              "text": "10% OFF 3 PIECES | 20% OFF $ PIECES | FREE STANDARD SHIPPING ON ORDERS OVER $60",
               "link": ""
             }
           },
@@ -327,6 +327,7 @@
       "foot-navbar": {
         "type": "foot-navbar",
         "settings": {
+          "is_show": false,
           "navbar_bgcolor": "#ffffff",
           "navbar_color": "#222021",
           "navbar_active_color": "#b82928"
