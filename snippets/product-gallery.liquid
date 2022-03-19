@@ -1,6 +1,12 @@
 {%- if product.media.size > 0 -%}
   {%- assign show_thumbnails_if_one_media = true -%}
-
+  {%- if template.name == 'product' and template != 'product.quick-view' -%}
+      <h1 class="product-meta__title heading h1 hidden-lap-and-up tac">{{ product.title }}</h1>
+    {%- else -%}
+      <h3 class="product-meta__title heading h2 hidden-lap-and-up tac">
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </h3>
+    {%- endif -%}
   <div class="card">
     <div class="card__section card__section--tight">
       <div class="product-gallery {% if show_thumbnails_if_one_media %}product-gallery--with-thumbnails{% endif %}">

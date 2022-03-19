@@ -1430,7 +1430,7 @@ body:not(.is-tabbing) textarea:focus {
 
 @media screen and (max-width: 640px) {
   .container--flush {
-    padding: 0;
+    padding: 20px;
   }
 
   .container--unflush {
@@ -2955,7 +2955,7 @@ img.lazyload[data-sizes=auto] {
 
   .card__separator {
     width: 100%;
-    margin: 24px 0;
+    margin: 10px 0;
   }
 
   .card__header--tight {
@@ -9310,6 +9310,7 @@ background: #fff;
 
 .product-form__option {
   margin-bottom: 23px;
+  position: relative;
 }
 
 .no-js .product-form__option:not(.no-js) {
@@ -9667,6 +9668,7 @@ shopify-payment-terms {
 .price {
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 24px));
   color: #1b1b1b;
+  margin-bottom: 10px;
 }
 
 .price--highlight {
@@ -14932,4 +14934,44 @@ shopify-payment-terms {
   .pb-80{
     padding-bottom: 80px;
   }
+  .ks-chart-container.sizing-chart-container.ks-container-with-modal{
+    position: absolute;
+    right: -62%;
+    top: 0px;
+  }
+}
+
+@media screen and (max-width:640px) {
+  h1.product-meta__title.heading.h1.hidden-lap-and-up.tac {
+  padding-bottom: 5px;
+  }
+  .card__section{
+    padding-bottom: 0;
+  }
+  .product-form__payment-container .button{
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: 16;
+    justify-content: center;
+    line-height: 55px;
+  }
+  .product-form__payment-container{
+    padding-bottom: 0px;
+  }
+}
+@media screen and (max-width:999px) {
+  .ks-chart-container.sizing-chart-container.ks-container-with-modal{
+    position: absolute;
+    right: -62%;
+    top: 0px;
+  }
+  }
+  .ks-chart-modal-button>span.with-icon .kiwi-svg, .ks-chart-modal-link.with-icon .kiwi-svg{
+    display: none !important;
+  } 
+  span._ks_text {
+    text-transform: uppercase;
 }
