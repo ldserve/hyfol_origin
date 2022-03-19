@@ -2612,6 +2612,7 @@ img.lazyload[data-sizes=auto] {
   font-weight: var(--text-font-bolder-weight);
   font-size: var(--base-text-font-size);
   cursor: pointer;
+  text-transform: uppercase;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
 
@@ -2852,6 +2853,7 @@ img.lazyload[data-sizes=auto] {
 
 .card__collapsible-content {
   padding-bottom: 30px;
+  font-size: 14px;
 }
 
 .card__separator {
@@ -2938,7 +2940,10 @@ img.lazyload[data-sizes=auto] {
   .card__collapsible-button {
     padding: 30px;
   }
-
+  .shenceDetail .card__section,
+  .shenceDetail .card__collapsible-button {
+    padding: 20px 0px;
+}
   .card__section+.card__section::before {
     width: 100%;
   }
@@ -9081,7 +9086,7 @@ select option {
   /* justify-content: center; */
   align-items: center;
   position: absolute;
-  bottom: 0px;
+  bottom: 40px;
   /* margin: 0 auto; */
   left: 50%;
   transform: translateX(-50%);
@@ -9135,22 +9140,12 @@ background: #fff;
   }
 }
 
-@media screen and (min-width: 1450px) {
-  .product-gallery__thumbnail {
-    width: 93%;
-  }
-}
-@media screen and (max-width: 1449px) {
-  .product-gallery__thumbnail {
-    width: 86%;
-  }
-}
 @media screen and (min-width: 1000px) {
   .product-gallery__thumbnail-list {
     position: relative;
     z-index: 1;
     margin: -6px 0 -2px -3px; /* negative to align the top edge to the featured image */
-    max-height: 532px;
+    max-height: 573px;
     /* width: 96px;  */
     overflow: auto;
     -ms-overflow-style: none;
@@ -9169,7 +9164,27 @@ background: #fff;
     margin: 2px 4px;
   }
 }
-
+@media screen and (min-width: 1450px) {
+  .product-gallery__thumbnail {
+    width: 93%;
+  }
+  .product-gallery__thumbnail-list{
+    max-height: 573px;
+  }
+}
+@media screen and (max-width: 1449px) {
+  .product-gallery__thumbnail {
+    width: 96%;
+  }
+  .product-gallery__thumbnail-list{
+    max-height: 500px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .product-gallery__thumbnail-list{
+    max-height: 430px;
+  }
+}
 /**
  * --------------------------------------------------------------------
  * PRODUCT META
@@ -9429,14 +9444,13 @@ shopify-payment-terms {
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin: -9px;
   }
 
   .product-form__payment-container>* {
     flex: none;
     /* width: calc(50% - 18px); */
     width: 100%;
-    margin: 9px;
+    margin: 25px 0px;
   }
 }
 
