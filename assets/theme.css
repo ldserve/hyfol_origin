@@ -2771,9 +2771,9 @@ img.lazyload[data-sizes=auto] {
 .card {
   position: relative;
   margin-bottom: 18px;
-  background:#edece6;
-  /* border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color); */
+  background: var(--background);
+  /*border-top: 1px solid var(--border-color);*/
+  /*border-bottom: 1px solid var(--border-color);*/
 }
 
 .card__header {
@@ -2802,7 +2802,6 @@ img.lazyload[data-sizes=auto] {
 
 .card__title--small {
   margin-bottom: 10px;
-  margin-top: -2px;
   /* Those kind of micro-adjustments rules are not really beautiful, but it's here to satisfy need of pixel perfect... */
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 20px));
 }
@@ -2928,7 +2927,16 @@ img.lazyload[data-sizes=auto] {
   .card {
     margin-bottom: 30px;
     border-radius: 3px;
-    /* border: 1px solid var(--border-color); */
+    /*border: 1px solid var(--border-color);*/
+  }
+
+  .card__header {
+    padding: 30px 30px 0 0;
+  }
+
+  .card__section,
+  .card__collapsible-button {
+    padding: 30px;
   }
 
   .card__section+.card__section::before {
@@ -2955,7 +2963,6 @@ img.lazyload[data-sizes=auto] {
   }
 
   .card__section--tight {
-    padding: 20px 25px;
   }
 
   .card__section--tight .card__separator {
@@ -3589,12 +3596,13 @@ img.lazyload[data-sizes=auto] {
   margin-bottom: 5px;
 }
 
-.collection__meta {
-  margin-bottom: 12px;
+.collection__meta-inner {
+  display: flex;
+  align-items: center;
 }
 
 .collection__description {
-  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .collection__brand-logo-wrapper {
@@ -3615,8 +3623,9 @@ img.lazyload[data-sizes=auto] {
 }
 
 .collection__products-count {
-  margin-bottom: 18px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
+  margin-left: 20px;
+  margin-bottom: 0;
 }
 
 .collection__toolbar {
@@ -3624,10 +3633,8 @@ img.lazyload[data-sizes=auto] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 22px;
-  padding: 0 var(--mobile-container-gutter);
   box-shadow: 0 1px var(--border-color), 0 -1px var(--border-color);
-  background: var(--secondary-background);
+  background: var(--background);
   z-index: 3;
 }
 
@@ -3720,7 +3727,7 @@ img.lazyload[data-sizes=auto] {
   }
 
   .collection__toolbar {
-    padding: 0 30px;
+    /*padding: 0 30px;*/
     font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
   }
 
@@ -3750,7 +3757,6 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (min-width: 1000px) {
   .collection__toolbar:not(.collection__toolbar--bordered) {
-    margin-top: -12px;
     box-shadow: 0 1px var(--border-color);
   }
 
@@ -3773,7 +3779,7 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (min-width: 1280px) {
   .collection__title {
-    margin-bottom: 12px;
+    /*margin-bottom: 12px;*/
   }
 
   .collection__description {
@@ -3995,11 +4001,7 @@ img.lazyload[data-sizes=auto] {
 @media screen and (min-width: 1000px) {
   .collection__filter-group {
     padding: 6px 0;
-    border-bottom: 0;
-  }
-
-  .collection__filter-group-name {
-    justify-content: flex-start;
+    border-bottom: 1px solid #ccc;
   }
 
   /* Linklist */
@@ -4380,7 +4382,6 @@ img.lazyload[data-sizes=auto] {
     width: 100%;
     height: calc(100% + 0px);
     /* This solves an issue on Safari, where 100% does not always work - likely a pixel rounding issue - */
-    border: 1px solid var(--border-color);
     z-index: 1;
     pointer-events: none;
     border-radius: 3px;
@@ -8506,8 +8507,9 @@ select option {
 /* Page sub-header is a small text container that is typically used to hold breadcrumbs and other secondary info (only on tablet and up) */
 .page__sub-header {
   display: none;
-  margin: 23px 0;
+  margin-bottom: 40px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
+  background-color: rgb(42,42,42);
 }
 
 /* Page description must be contained within a page__header, and has less spacing than page__content */
@@ -8605,6 +8607,7 @@ select option {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: var(--secondary-background);
   }
 
   .page__sub-header+.page__header {
@@ -9764,9 +9767,11 @@ shopify-payment-terms {
  */
 
 .color-swatch-list {
-  margin: -2px -6px 0 -6px;
+  margin: -2px -4px 0;
   /* We have to take into account the box-shadow and inner spacing added when an element is active */
   padding-left: 4px;
+  padding-top: 4px;
+  text-align: center;
 }
 
 .color-swatch {
@@ -9786,8 +9791,8 @@ shopify-payment-terms {
 .color-swatch__item {
   position: relative;
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   background-size: cover;
 }
@@ -9826,16 +9831,26 @@ shopify-payment-terms {
   margin-left: 14px;
 }
 
+/*.color-swatch__radio:checked+.color-swatch__item::after,*/
+/*.color-swatch__button.is-selected .color-swatch__item::after {*/
+/*  position: absolute;*/
+/*  content: "";*/
+/*  width: calc(100% + 2px);*/
+/*  height: calc(100% + 7px);*/
+/*  top: -1px;*/
+/*  left: -1px;*/
+/*  border: 2px solid #1b1b1b;*/
+/*  border-bottom: 7px solid #1b1b1b;*/
+/*}*/
 .color-swatch__radio:checked+.color-swatch__item::after,
 .color-swatch__button.is-selected .color-swatch__item::after {
   position: absolute;
   content: "";
-  width: calc(100% + 8px);
-  height: calc(100% + 8px);
-  top: -4px;
-  left: -4px;
-  border-radius: 3px;
-  border: 2px solid var(--accent-color);
+  width: calc(100% + 0px);
+  height: calc(100% + 11px);
+  top: 0;
+  left: 0px;
+  border-bottom: 4px solid #1b1b1b;
 }
 
 .color-swatch__button.is-selected .color-swatch__label {
@@ -9844,7 +9859,7 @@ shopify-payment-terms {
 }
 
 .color-swatch--white .color-swatch__item {
-  box-shadow: 0 0 0 1px var(--form-border-color) inset;
+  box-shadow: 0 0 0 1px #ccc;
 }
 
 /* The view more is used on listing, to restrict the number of displayed swatches */
@@ -10036,10 +10051,10 @@ shopify-payment-terms {
 
 .product-item {
   position: relative;
-  padding: 10px;
+  padding: 0 10px 10px 0;
   min-width: 0;
   flex-shrink: 0;
-  background: var(--secondary-background);
+  background: var(--background);
   white-space: normal;
   text-align: center;
 }
@@ -10068,7 +10083,6 @@ shopify-payment-terms {
 
 .product-item__image-wrapper {
   display: block;
-  margin-bottom: 10px;
 }
 
 .product-item__image-wrapper .placeholder-svg {
@@ -10096,6 +10110,8 @@ shopify-payment-terms {
 .product-item__info {
   min-width: 0;
   position: relative;
+  padding: 10px;
+  background: var(--secondary-background);
 }
 
 .product-item__price-list:first-child {
@@ -10127,6 +10143,7 @@ shopify-payment-terms {
   display: inline-block;
   margin-top: 5px;
   margin-bottom: 5px;
+  font-size: 16px!important;
 }
 
 .product-item__vendor {
@@ -10143,8 +10160,8 @@ shopify-payment-terms {
 }
 
 .product-item__title {
-  height: 3em;
-  line-height: 3rem;
+  height: 2em;
+  line-height: 2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -10161,6 +10178,8 @@ shopify-payment-terms {
   white-space: nowrap;
   overflow: hidden;
   text-align: left;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .product-item__price-info {
@@ -10251,7 +10270,7 @@ shopify-payment-terms {
 .product-item--vertical .product-item__action-list,
 .product-item--horizontal .product-item__action-list {
   position: absolute;
-  top: 0;
+  bottom: 10px;
   left: 0;
   width: 100%;
   margin: 0;
@@ -10279,6 +10298,10 @@ shopify-payment-terms {
 .product-item--vertical .product-item__action-button--list-view-only+.product-item__action-button,
 .product-item--horizontal .product-item__action-button--list-view-only+.product-item__action-button {
   margin-top: 0;
+  background: #1b1b1b;
+  color: #FFFFFF;
+  width: 100%;
+  line-height: 50px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -10335,6 +10358,8 @@ shopify-payment-terms {
   .product-item--horizontal,
   .product-item--list {
     width: 100% !important;
+    background-color: var(--secondary-background);
+    margin-bottom: 10px;
   }
 
   .product-list--collection .product-item__label-list,
@@ -10382,6 +10407,7 @@ shopify-payment-terms {
     width: 100% !important;
     align-items: center;
     padding-right: 25px;
+    background:var(--secondary-background)
   }
 
   .product-item--list .product-item__title {
@@ -12810,6 +12836,7 @@ shopify-payment-terms {
   display: flex;
   align-items: center;
   list-style: none;
+  padding-left: 20px;
 }
 
 .breadcrumb__list svg {
@@ -14131,6 +14158,7 @@ shopify-payment-terms {
 .price-range__input {
   flex: 1 0 0;
   min-width: 0;
+  background-color: #fff;
   /* Required for Firefox */
 }
 
