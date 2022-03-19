@@ -278,7 +278,7 @@ line_items: [
 
 {% include 'orichi_multi_pixel' %}	{% render 'vitals-loader' %}
 
-</head>
+{% include "omega_multi_pixel" %} </head>
 
   <body class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}" data-instant-intensity="viewport"> 
  
