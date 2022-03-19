@@ -1,7 +1,18 @@
 {
   "sections": {
+    "16476930731e3b7419": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_banner_2713fcc5-4ae0-4fdb-a911-bcf314fa3f63.jpg",
+        "link": "https:\/\/www.hyfol.com\/collections\/new-in-1",
+        "shadow": false
+      }
+    },
     "16474236687749dfbd": {
       "type": "slideshow",
+      "disabled": true,
       "blocks": {
         "16474236686ae800c9-0": {
           "type": "image",
@@ -388,6 +399,7 @@
     }
   },
   "order": [
+    "16476930731e3b7419",
     "16474236687749dfbd",
     "16474248460d0593be",
     "16474250424edba623",
