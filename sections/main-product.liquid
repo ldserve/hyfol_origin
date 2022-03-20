@@ -1,7 +1,11 @@
 {%- assign shipping_estimator_block = section.blocks | where: 'type', 'shipping_estimator' | first -%}
 {%- assign variant_selector_block = section.blocks | where: 'type', 'variant_selector' | first -%}
 {%- assign buy_buttons_block = section.blocks | where: 'type', 'buy_buttons' | first -%}
-
+<style>
+  #shopify-section-{{ section.id }} .color-swatch-list {
+    text-align: unset;
+  }
+</style>
 {%- capture section_settings -%}
 {
   "showShippingEstimator": {% if template == 'product.quick-view' or product.available == false or shipping_estimator_block == blank %}false{% else %}true{% endif %},
