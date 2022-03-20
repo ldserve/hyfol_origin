@@ -14958,8 +14958,8 @@ shopify-payment-terms {
   }
   .ks-chart-container.sizing-chart-container.ks-container-with-modal{
     position: absolute;
-    right: -62%;
-    top: 0px;
+    top: 0;
+    text-align: right;
   }
 }
 
@@ -15014,8 +15014,8 @@ shopify-payment-terms {
 @media screen and (max-width:999px) {
   .ks-chart-container.sizing-chart-container.ks-container-with-modal{
     position: absolute;
-    right: -62%;
-    top: 0px;
+    top: 0;
+    text-align: right;
   }
   }
   .ks-chart-modal-button>span.with-icon .kiwi-svg, .ks-chart-modal-link.with-icon .kiwi-svg{

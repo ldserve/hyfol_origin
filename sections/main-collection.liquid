@@ -56,9 +56,27 @@
 		</ol>
 	</nav>
 </div>
+{%- unless collection.template_suffix == 'brand' -%}
+	{%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 -%}
+		{%- if section.settings.collection_image_size == 'preserve_ratio' -%}
+			{%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000, 1200, 1400, 1600', image: collection.image -%}{%- endcapture -%}
+			{%- assign image_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+			<div class="collection__image-wrapper collection__image-wrapper--preserve-ratio hidden-tablet-and-up">
+				<div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: collection.image.aspect_ratio }}%">
+					<img class="lazyload image--fade-in" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]" alt="{{ collection.image.alt | escape }}">
+				</div>
+			</div>
+		{%- else -%}
+			<div class="collection__image-wrapper collection__image-wrapper--{{ section.settings.collection_image_size }}" style="background-image: url({{ collection.image | img_url: '1x1' }})">
+				<div class="collection__image lazyload image--fade-in" data-bgset="{{ collection.image | img_url: '600x' }} 600w, {{ collection.image | img_url: '800x' }} 800w, {{ collection.image | img_url: '1000x' }} 1000w, {{ collection.image | img_url: '1200x' }} 1200w, {{ collection.image | img_url: '1500x' }} 1500w"></div>
+			</div>
+		{%- endif -%}
+	{%- endif -%}
+{%- endunless -%}
 <section data-section-id="{{ section.id }}" data-section-type="collection" data-section-settings='{{ section_settings }}'>
 
-	<div>
+	<div class="container">
 
     <div {% if has_filters %}class="layout"{% endif %}>
       {%- comment -%}
@@ -260,25 +278,7 @@
 
       {%- paginate collection.products by items_per_page -%}
         <div {% if has_filters %}class="layout__section"{% endif %}>
-					{%- unless collection.template_suffix == 'brand' -%}
-						{%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 -%}
-							{%- if section.settings.collection_image_size == 'preserve_ratio' -%}
-								{%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000, 1200, 1400, 1600', image: collection.image -%}{%- endcapture -%}
-								{%- assign image_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-								<div class="collection__image-wrapper collection__image-wrapper--preserve-ratio hidden-lap-and-up">
-									<div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: collection.image.aspect_ratio }}%">
-										<img class="lazyload image--fade-in" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]" alt="{{ collection.image.alt | escape }}">
-									</div>
-								</div>
-							{%- else -%}
-								<div class="collection__image-wrapper collection__image-wrapper--{{ section.settings.collection_image_size }}" style="background-image: url({{ collection.image | img_url: '1x1' }})">
-									<div class="collection__image lazyload image--fade-in" data-bgset="{{ collection.image | img_url: '600x' }} 600w, {{ collection.image | img_url: '800x' }} 800w, {{ collection.image | img_url: '1000x' }} 1000w, {{ collection.image | img_url: '1200x' }} 1200w, {{ collection.image | img_url: '1500x' }} 1500w"></div>
-								</div>
-							{%- endif -%}
-						{%- endif -%}
-					{%- endunless -%}
-          <div class="collection container">
+          <div class="collection">
             {%- unless collection.template_suffix == 'brand' -%}
               {%- if section.settings.show_collection_image and collection.image and collection.all_products_count > 0 -%}
                 {%- if section.settings.collection_image_size == 'preserve_ratio' -%}
