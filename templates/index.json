@@ -2,6 +2,7 @@
   "sections": {
     "16476930731e3b7419": {
       "type": "no_space_img",
+      "disabled": true,
       "settings": {
         "sensorsName": "",
         "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
@@ -12,7 +13,6 @@
     },
     "16474236687749dfbd": {
       "type": "slideshow",
-      "disabled": true,
       "blocks": {
         "16474236686ae800c9-0": {
           "type": "image",
