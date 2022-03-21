@@ -366,7 +366,7 @@
     ]
   },
   {
-    "name": "Color swatch",
+    "name": "颜色配置",
     "settings": [
       {
         "type": "textarea",
