@@ -64,7 +64,7 @@
           "type": "link",
           "settings": {
             "heading": "shirt",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "shirt",
             "link": "shopify:\/\/collections\/shirts",
             "left": 0,
             "top": 1,
