@@ -64,7 +64,7 @@
           "type": "link",
           "settings": {
             "heading": "shirt",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "shirt",
             "link": "shopify:\/\/collections\/shirts",
             "left": 0,
             "top": 1,
@@ -76,8 +76,8 @@
           "type": "link",
           "settings": {
             "heading": "t-shirts",
-            "sensorsLinkName": "",
-            "link": "shopify:\/\/collections\/1102t-shirts",
+            "sensorsLinkName": "t-shirts",
+            "link": "shopify:\/\/collections\/short-sleeve",
             "left": 51,
             "top": 1,
             "width": 53,
@@ -88,7 +88,7 @@
           "type": "link",
           "settings": {
             "heading": "pants",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "pants",
             "link": "shopify:\/\/collections\/pants-12-13",
             "left": 0,
             "top": 50,
@@ -99,9 +99,9 @@
         "6defe89d-34bf-47d9-a1f2-91004d693ed8": {
           "type": "link",
           "settings": {
-            "heading": "out",
-            "sensorsLinkName": "",
-            "link": "shopify:\/\/collections\/outerwear_hyfol",
+            "heading": "Sets",
+            "sensorsLinkName": "sets",
+            "link": "shopify:\/\/collections\/special-sets",
             "left": 50,
             "top": 51,
             "width": 57,
@@ -120,7 +120,7 @@
         "sensorsName": "pc分类导流区",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/pc_02f3639c-25fb-4938-bc3a-b37c99def9d9.jpg",
+        "image": "shopify:\/\/shop_images\/pc_36d59ea8-83f8-4e53-8d3c-7665feceec0e.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -133,8 +133,8 @@
         "1b4a5d11-2c92-45bb-b788-8a362446a835": {
           "type": "link",
           "settings": {
-            "heading": "shrit",
-            "sensorsLinkName": "",
+            "heading": "shirt",
+            "sensorsLinkName": "shirt",
             "link": "shopify:\/\/collections\/shirts",
             "left": 0,
             "top": 2,
@@ -146,8 +146,8 @@
           "type": "link",
           "settings": {
             "heading": "t-shirts",
-            "sensorsLinkName": "",
-            "link": "shopify:\/\/collections\/1102t-shirts",
+            "sensorsLinkName": "t-shirts",
+            "link": "shopify:\/\/collections\/short-sleeve",
             "left": 50,
             "top": 2,
             "width": 53,
@@ -158,7 +158,7 @@
           "type": "link",
           "settings": {
             "heading": "pants",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "pants",
             "link": "shopify:\/\/collections\/pants-12-13",
             "left": 0,
             "top": 51,
@@ -169,9 +169,9 @@
         "e34c6701-d51d-4b6b-b3c3-dbdb091ce635": {
           "type": "link",
           "settings": {
-            "heading": "outwears",
-            "sensorsLinkName": "",
-            "link": "shopify:\/\/collections\/outerwear_hyfol",
+            "heading": "Sets",
+            "sensorsLinkName": "Sets",
+            "link": "shopify:\/\/collections\/special-sets",
             "left": 52,
             "top": 51,
             "width": 50,
@@ -190,7 +190,7 @@
         "sensorsName": "mobile分类导流区",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/02_8e1c96af-80d6-4e51-b342-b2f81ba94886.jpg",
+        "image": "shopify:\/\/shop_images\/02_9bd93c84-92e2-428f-ac33-9112900e741a.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -396,6 +396,16 @@
         "background": "#f0f0f0",
         "text": "#1b1b1b"
       }
+    },
+    "1647854386e21e1092": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/pc_ecfe5778-d580-4833-8bee-b9f6f4548022.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_2c9ca8a0-6113-4191-ae0c-6322137f3c6a.jpg",
+        "link": "",
+        "shadow": false
+      }
     }
   },
   "order": [
@@ -411,6 +421,7 @@
     "1647428400b9292564",
     "1647498064c408cfd6",
     "1640334828c8a975c8",
-    "newsletter"
+    "newsletter",
+    "1647854386e21e1092"
   ]
 }
