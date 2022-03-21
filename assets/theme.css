@@ -14917,7 +14917,7 @@ shopify-payment-terms {
 }
 .slider-box.shipping-body {
   background-color: #e1ddda;
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
   font-size: 14px;
 }
 /* .slider-box-content {
@@ -14936,6 +14936,9 @@ shopify-payment-terms {
 .border-r{
   border-right: 1px solid #000;
 }
+.fz-12{
+  font-size: 12px;
+}
 .slider-item{
   flex: 1;
 }
@@ -14945,13 +14948,29 @@ shopify-payment-terms {
 .shipping-header {
   margin-bottom: 10px;
 }
-
-.card__title .icon {
+.shipping-header.gift {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+.shipping-header .icon {
   height: 28px;
   width: 28px;
   margin-right: 10px;
 }
-
+.shipping-header .icon--ny_gift {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+.slider-item-top{
+  width: 230px;
+}
+.card__title .icon {
+  margin-right: 10px;
+  width: 22px;
+  height: 22px;
+  /* color: #000; */
+}
 @media screen and (min-width:1000px) {
   .pb-80{
     padding-bottom: 80px;
@@ -15009,6 +15028,12 @@ shopify-payment-terms {
     font-size: 20px;
     margin-bottom: 0px;
     margin-top: -10px;
+}
+.slider-item-top{
+  width: 160px;
+}
+.slider-box {
+  font-size: 12px;
 }
 }
 @media screen and (max-width:999px) {
