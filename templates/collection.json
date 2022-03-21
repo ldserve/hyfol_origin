@@ -25,10 +25,21 @@
         "title": "Recently viewed",
         "show_quick_buy": true
       }
+    },
+    "1647854450d982388c": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/pc_ecfe5778-d580-4833-8bee-b9f6f4548022.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_2c9ca8a0-6113-4191-ae0c-6322137f3c6a.jpg",
+        "link": "",
+        "shadow": false
+      }
     }
   },
   "order": [
     "main",
-    "recently-viewed-products"
+    "recently-viewed-products",
+    "1647854450d982388c"
   ]
 }
