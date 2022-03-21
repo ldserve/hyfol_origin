@@ -170,7 +170,7 @@
           "type": "link",
           "settings": {
             "heading": "Sets",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "Sets",
             "link": "shopify:\/\/collections\/special-sets",
             "left": 52,
             "top": 51,
