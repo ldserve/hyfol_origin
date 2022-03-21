@@ -9811,8 +9811,8 @@ shopify-payment-terms {
 .color-swatch__item {
   position: relative;
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
   background-size: cover;
 }
@@ -9906,8 +9906,8 @@ shopify-payment-terms {
 }
 
 .color-swatch-list--large .color-swatch__item {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 
 /** Stack list variation **/
