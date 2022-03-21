@@ -182,31 +182,14 @@
           "ccab5dcb-d3a7-4a2e-9c0e-6699c88abf2e": {
             "type": "announcement",
             "settings": {
-              "text": "10% OFF 3 PIECES | 20% OFF 4 PIECES | FREE STANDARD SHIPPING ON ORDERS OVER $60",
-              "link": ""
-            }
-          },
-          "bb83e370-bd08-4729-a769-30c30243c5b0": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "$5 OFF ON ORDERS OF $49+",
-              "link": ""
-            }
-          },
-          "eb9e88ec-0ed3-4c61-afb8-5935c5272eb7": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "$20 OFF ON ORDERS OF $79+",
+              "text": "10% OFF 3 PIECES | 20% OFF 4 PIECES",
               "link": ""
             }
           },
           "2caf8430-4f46-405e-b569-d4957d1bde1c": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
-              "text": "$30 OFF ON ORDERS OF $149+",
+              "text": "FREE STANDARD SHIPPING ON ORDERS OVER $60",
               "link": ""
             }
           },
@@ -229,8 +212,6 @@
         },
         "block_order": [
           "ccab5dcb-d3a7-4a2e-9c0e-6699c88abf2e",
-          "bb83e370-bd08-4729-a769-30c30243c5b0",
-          "eb9e88ec-0ed3-4c61-afb8-5935c5272eb7",
           "2caf8430-4f46-405e-b569-d4957d1bde1c",
           "f7871216-4fbb-4392-b4a5-25a3e8dbe911",
           "933aa31d-00c1-44a5-8b00-66ceefe87acd"
@@ -238,7 +219,7 @@
         "settings": {
           "show_announcement": true,
           "background": "#bfb28b",
-          "one_round": 6,
+          "one_round": 5,
           "text_color": "#222021",
           "link": "",
           "show_newsletter": false,
