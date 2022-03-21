@@ -5774,7 +5774,7 @@ select option {
     padding-bottom: 40px;
   }
   .footer__block-item {
-    flex: 0 0 80%;
+    flex: unset;
     padding: 20px 25px;
     margin-right: 12%;
 }
@@ -9371,7 +9371,6 @@ select option {
 }
 
 .product-form__info-content {
-  display: table-cell;
   width: 100%;
 }
 
@@ -14992,20 +14991,23 @@ shopify-payment-terms {
   .card__section{
     padding-bottom: 0;
   }
-  .product-form__payment-container .button{
-    display: flex;
+  .product-form__payment-container {
+    display: block;
     width: 100%;
     position: fixed;
     bottom: 0px;
     right: 0px;
     z-index: 16;
-    justify-content: center;
+    text-align: center;
     line-height: 55px;
+    background-color: var(--background);
   }
   .product-form__payment-container{
     padding-bottom: 0px;
   }
-
+  .product-form__payment-container .product-form__add-button {
+    width: 70%;
+  }
   .block-swatch__item{
     padding: 6px 8px 7px;
   }
