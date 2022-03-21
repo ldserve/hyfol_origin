@@ -117,7 +117,7 @@
       ],
       "settings": {
         "hidDesk": false,
-        "sensorsName": "",
+        "sensorsName": "pc分类导流区",
         "hidWeb": true,
         "line": false,
         "image": "shopify:\/\/shop_images\/pc_a3224c9b-60e1-4276-a72c-b1ce1b88a9aa.jpg",
@@ -187,7 +187,7 @@
       ],
       "settings": {
         "hidDesk": true,
-        "sensorsName": "",
+        "sensorsName": "mobile分类导流区",
         "hidWeb": false,
         "line": false,
         "image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_bc690ba2-1496-48fc-9082-00a68961d3f5.jpg",
