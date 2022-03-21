@@ -76,7 +76,7 @@
           "type": "link",
           "settings": {
             "heading": "t-shirts",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "t-shirts",
             "link": "shopify:\/\/collections\/1102t-shirts",
             "left": 51,
             "top": 1,
@@ -88,7 +88,7 @@
           "type": "link",
           "settings": {
             "heading": "pants",
-            "sensorsLinkName": "",
+            "sensorsLinkName": "pants",
             "link": "shopify:\/\/collections\/pants-12-13",
             "left": 0,
             "top": 50,
