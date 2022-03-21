@@ -396,6 +396,16 @@
         "background": "#f0f0f0",
         "text": "#1b1b1b"
       }
+    },
+    "1647854386e21e1092": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/pc_ecfe5778-d580-4833-8bee-b9f6f4548022.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_2c9ca8a0-6113-4191-ae0c-6322137f3c6a.jpg",
+        "link": "",
+        "shadow": false
+      }
     }
   },
   "order": [
@@ -411,6 +421,7 @@
     "1647428400b9292564",
     "1647498064c408cfd6",
     "1640334828c8a975c8",
-    "newsletter"
+    "newsletter",
+    "1647854386e21e1092"
   ]
 }
