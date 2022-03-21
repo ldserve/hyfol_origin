@@ -52,7 +52,7 @@
             <div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
               {%- if block.settings.display_mode == 'collapse' -%}
                 <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                  <span class="card__title">Delivery</span>
+                  <span class="card__title">{%- render:'icon',icon:'cjj_postage' -%} Delivery</span>
                   <span class="card-arrow">
                     {%- render 'icon', icon: 'arrow-bottom' -%}
                   </span>
@@ -61,7 +61,7 @@
                 <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
                   <div class="card__collapsible-content">
                     <div class="rte text--pull">
-                      <div class="shipping-header">{%- render:'icon',icon:'cjj_postage' -%} Shipping fee </div>
+                      <div class="shipping-header"> Shipping Fee </div>
                       <div class="slider-box shipping-body">
                         <div class="slider-box-content ">
                           <div class="slider-item d-flex ">
@@ -82,7 +82,7 @@
                           </div>
                           <div class="slider-item d-flex ">
                             <div class="slider-item-top">
-                              Purchase over <strong>$60</strong>
+                              Purchase  <strong>over $60</strong>
                             </div>
                             <div class="slider-item-bottom">
                              <strong>FREE</strong>
@@ -92,7 +92,7 @@
                       </div>
                     </div>
                     <div class="rte text--pull">
-                      <div class="shipping-header">{%- render:'icon',icon:'ny_gift' -%} Time </div>
+                      <div class="shipping-header">Time </div>
                       <div class="slider-box shipping-body">
                         <div>
                           Estimated delivery time to US/EU is <strong>7-14</strong> business days
@@ -103,12 +103,12 @@
                 </div>
               {%- else -%}
                 <div class="card__header">
-                  <h2 class="card__title">Delivery</h2>
+                  <h2 class="card__title">{%- render:'icon',icon:'cjj_postage' -%}  Delivery</h2>
                 </div>
   
                 <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
                   <div class="rte text--pull">
-                    <div class="shipping-header">{%- render:'icon',icon:'cjj_postage' -%} Shipping fee</div>
+                    <div class="shipping-header">Shipping Fee</div>
                     <div class="slider-box shipping-body">
                       <div class="slider-box-content ">
                         <div class="slider-item d-flex ">
@@ -129,7 +129,7 @@
                         </div>
                         <div class="slider-item d-flex ">
                           <div class="slider-item-top">
-                            Purchase over <strong>$60</strong>
+                            Purchase <strong>over $60</strong>
                           </div>
                           <div class="slider-item-bottom">
                            <strong>FREE</strong>
@@ -137,7 +137,7 @@
                         </div>
                       </div>
                     </div>
-                   <div class="shipping-header gift">{%- render:'icon',icon:'ny_gift' -%} Time </div>
+                   <div class="shipping-header gift">Time </div>
                    <div class="slider-box">
                      <div>
                        Estimated delivery time to US/EU is <strong>7-14</strong> business days

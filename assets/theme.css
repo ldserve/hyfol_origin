@@ -14943,7 +14943,13 @@ shopify-payment-terms {
   flex: 1;
 }
 .slider-box-content {
-  padding: 15px;
+  padding: 15px 15px 15px 40px;
+}
+.slider-box-content div{
+  color: #5a5a5a;
+}
+.slider-box-content strong{
+  color: #1b1b1b;
 }
 .shipping-header {
   margin-bottom: 10px;
@@ -15016,7 +15022,7 @@ shopify-payment-terms {
     padding-bottom: 10px;
   }
   .slider-box.shipping-body{
-    font-size: 12px;
+    font-size: 14px;
   }
   .card__separator{
     margin: 0px;
