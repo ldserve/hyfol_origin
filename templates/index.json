@@ -157,9 +157,9 @@
         "312647ac-1ad0-4158-af07-2abbd19d8a97": {
           "type": "link",
           "settings": {
-            "heading": "Bottoms",
-            "sensorsLinkName": "Bottoms",
-            "link": "shopify:\/\/collections\/bottoms-12-13",
+            "heading": "tees",
+            "sensorsLinkName": "tees",
+            "link": "shopify:\/\/collections\/tees",
             "left": 0,
             "top": 51,
             "width": 50,
@@ -189,7 +189,7 @@
         "hidDesk": true,
         "sensorsName": "mobile分类导流区",
         "hidWeb": false,
-        "line": true,
+        "line": false,
         "image": "shopify:\/\/shop_images\/94d53239037849179c79285840325f32_1cbbf02c-2d36-402f-8667-52594214d27f.jpg",
         "tpadding": 0,
         "rpadding": 0,
