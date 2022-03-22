@@ -10182,7 +10182,7 @@ shopify-payment-terms {
   height: 2em;
   line-height: 2rem;
   overflow: hidden;
-  text-overflow: fade;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -10267,7 +10267,8 @@ shopify-payment-terms {
 
 @media screen and (min-width: 641px) {
   .product-item__title {
-    font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));
+    /*font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 14px));*/
+    font-size: 14px;
   }
 
   .product-item--vertical .price:not(.price--compare),
@@ -10418,9 +10419,16 @@ shopify-payment-terms {
   }
 
   .product-item__title {
-    height: 2em;
-    line-height: 2rem;
+    height: 3.2em;
+    line-height: 1.2rem;
     font-size: 12px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: unset;
   }
 }
 
