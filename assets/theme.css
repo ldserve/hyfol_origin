@@ -9383,6 +9383,22 @@ select option {
   margin-top: 0;
 }
 
+.icon-color{
+  color: #bfbfbf !important;
+  
+}
+
+.product-discount{
+   border-bottom:1px solid rgb(204, 204, 204);
+   width: 100%;
+}
+.product-discount-left{
+  margin-left: 5px;
+}
+.product-discount-icon{
+  font-size: 20px;
+}
+
 shopify-payment-terms {
   display: block;
   margin-top: 8px;
