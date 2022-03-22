@@ -15031,6 +15031,7 @@ shopify-payment-terms {
     text-align: center;
     line-height: 55px;
     background-color: var(--background);
+    border-top: 2px solid var(--border-color);
   }
   .product-form__payment-container{
     padding-bottom: 0px;
