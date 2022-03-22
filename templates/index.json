@@ -75,9 +75,9 @@
         "342f71ba-d412-42c7-a286-e1b97c3dc993": {
           "type": "link",
           "settings": {
-            "heading": "t-shirts",
-            "sensorsLinkName": "t-shirts",
-            "link": "shopify:\/\/collections\/short-sleeve",
+            "heading": "bottoms",
+            "sensorsLinkName": "bottoms",
+            "link": "shopify:\/\/collections\/bottoms-12-13",
             "left": 51,
             "top": 1,
             "width": 53,
@@ -119,8 +119,8 @@
         "hidDesk": false,
         "sensorsName": "pc分类导流区",
         "hidWeb": true,
-        "line": false,
-        "image": "shopify:\/\/shop_images\/pc_36d59ea8-83f8-4e53-8d3c-7665feceec0e.jpg",
+        "line": true,
+        "image": "shopify:\/\/shop_images\/pc_57c39fb4-b80e-4f4d-9266-7d426b04d527.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
