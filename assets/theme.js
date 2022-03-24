@@ -4934,7 +4934,7 @@
 
             utils.extend(proto, EvEmitter.prototype);
 
-            proto._create = function () {
+            proto._create = function () {  
                 // add id for Flickity.data
                 var id = this.guid = ++GUID;
                 this.element.flickityGUID = id; // expando
@@ -5679,13 +5679,14 @@
                     return;
                 }
 
-                var afterContent = getComputedStyle(this.element, ':after').content; // activate if :after { content: 'flickity' }
+                // var afterContent = getComputedStyle(this.element, ':after').content; // activate if :after { content: 'flickity' }
 
-                if (afterContent.indexOf('flickity') != -1) {
-                    this.activate();
-                } else {
-                    this.deactivate();
-                }
+                // if (afterContent.indexOf('flickity') != -1) {
+                //     this.activate();
+                // } else {
+                //     this.deactivate();
+                // }
+                this.activate();
             }; // ----- keydown ----- //
             // go previous/next if left/right keys pressed
 
@@ -6767,7 +6768,6 @@
         // prev/next buttons
         (function (window, factory) {
             // universal module definition
-            console.log(module);
             /* jshint strict: false */
             if (module.exports) {
                 // CommonJS
@@ -7573,7 +7573,6 @@
      */
         (function (window, factory) {
             // universal module definition
-
             /* jshint strict: false */
             if (module.exports) {
                 // CommonJS
@@ -18198,7 +18197,7 @@
                     return _matchesMedia(media);
                 };
 
-                var getCandidate = function getCandidate(elem) {
+                var getCandidate = function  (elem) {
                     var sources, i, len, source, srces, src, width;
                     source = elem;
                     createSrcset(source, true);
