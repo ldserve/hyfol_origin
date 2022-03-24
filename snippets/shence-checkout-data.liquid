@@ -616,18 +616,23 @@
                     }
                 })
             } catch (error) {
-                let paymentMethodInputs = document.querySelector('.section--payment-method').querySelectorAll('input')
-                Array.from(paymentMethodInputs).map((item, index) => {
-                    if (item.checked) {
-                        if (index === 0) {
-                            scdata.payment_method = 'paypal'
-                            scdata.payment_type = 'paypal'
-                        } else {
-                            scdata.payment_method = 'credit card'
-                            scdata.payment_type = 'oceanpayment'
+                let paymentMethodInputs = document.querySelector('.section--payment-method') && document.querySelector('.section--payment-method').querySelectorAll('input')
+                if(paymentMethodInputs){
+                    Array.from(paymentMethodInputs).map((item, index) => {
+                        if (item.checked) {
+                            if (index === 0) {
+                                scdata.payment_method = 'paypal'
+                                scdata.payment_type = 'paypal'
+                            } else {
+                                scdata.payment_method = 'credit card'
+                                scdata.payment_type = 'oceanpayment'
+                            }
                         }
-                    }
-                })
+                    })
+                } else {
+                    scdata.payment_method = 'paypal'
+                    scdata.payment_type = 'paypal'
+                }
             }
             try {
                 let billingAddressInputs = document.querySelector('.section--billing-address').querySelectorAll('input')
@@ -1038,11 +1043,38 @@
                             }
                         }, 400)
                         setTimeout(() => {
-                            sensors.track('CompleteOrder', paypalHandleSendData(CompleteOrderScdata));
-                            for (let i = 0; i < line_items.length; i++) {
-                                let CompleteOrderDetailScdata = JSON.parse(CompleteOrderDetailEls[i].getAttribute('data-scdata'))
-                                sensors.track('CompleteOrderDetail', paypalHandleSendData(CompleteOrderDetailScdata, 'detailOrder'));
+                            let data = getCompleteOrderData()
+                            let sendData = {}
+                            sendData = {
+                                distinctId: data.sendJavaOrderObj._distinct_id,
+                                checkoutId: data.sendJavaOrderObj.checkout_id,
+                                paySuccessData: data.sendJavaOrderObj,
+                                isLogin: !!"{{ checkout.customer.id }}",
+                                paySuccessDetailDataList: data.sendJavaOrderDetailArr,
+                                profileIncrementData: {
+                                    cumulative_payment: Number((data.sendJavaOrderObj.order_actual_amount).toFixed(2)),
+                                    cumulative_order: 1
+                                },
+                                profileSetData: {
+                                    receiver_country: data.sendJavaOrderObj.receiver_country,
+                                    receiver_state: data.sendJavaOrderObj.receiver_state,
+                                    receiver_city: data.sendJavaOrderObj.receiver_city,
+                                    receiver_address: data.sendJavaOrderObj.receiver_address,
+                                    receiver_postcode: data.sendJavaOrderObj.receiver_postcode,
+                                    phone_number: data.sendJavaOrderObj.receiver_phone,
+                                    last_order_time: getFormatDate(),
+                                    last_coupon_time: data.sendJavaOrderObj.if_use_coupon ? getFormatDate() : undefined
+                                },
+                                profileSetOnceData: {
+                                    first_order_time: getFormatDate()
+                                }
                             }
+                            localStorage.setItem('sendJavaData', JSON.stringify(sendData))
+                            ajax_method('api/sensorsAnalytics/trackSignUp', {
+                                anonymousId: sensors.quick('getAnonymousID'),
+                                registerId: "{{ checkout.customer.id }}"
+                            }, 'post')
+                            ajax_method('api/sensorsAnalytics/reportPaySuccessOrder', sendData, 'post')
                         }, 800)
                     })
                 });
