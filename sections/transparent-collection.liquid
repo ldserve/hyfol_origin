@@ -21,14 +21,16 @@
   #shopify-section-{{ section.id }} .point-item--active {
     background: #000;
   }
+ 
 </style>
 <section class="section" data-section-id="{{ section.id }}" data-section-type="featured-collection"
 				 data-section-settings='{{ section_settings }}'>
 	{%- assign collection = section.settings.collection -%}
-
+{%- if section.settings.title !=blank -%}
 	<div class="indexContainer">
-				<h2 class="section__title heading h3 section--text-centered">{{ section.settings.title | default: collection.title | escape }}</h2>
+	<h2 class="section__title heading h3 section--text-centered">{{ section.settings.title | default: collection.title | escape }}</h2>
 	</div>
+{%- endif -%}
 
 	<div class="indexContainer {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
 		{%- capture product_list -%}
