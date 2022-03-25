@@ -6,7 +6,7 @@
         "sensorsName": "banner",
         "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_banner_2713fcc5-4ae0-4fdb-a911-bcf314fa3f63.jpg",
-        "link": "https:\/\/www.hyfol.com\/collections\/new-in-1",
+        "link": "shopify:\/\/collections\/lets-go-out",
         "shadow": false
       }
     },
@@ -47,7 +47,7 @@
     "16474248460d0593be": {
       "type": "transparent-collection",
       "settings": {
-        "collection": "new-collection",
+        "collection": "new-in-1",
         "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
