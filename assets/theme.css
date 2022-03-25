@@ -4268,7 +4268,17 @@ img.lazyload[data-sizes=auto] {
   border: none;
 }
 
-
+  /* This needs to be done instead of applying a border to the product-list to fix a z-index issue with the product labels */
+  .product-list::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: calc(100% + 0px);
+    /* This solves an issue on Safari, where 100% does not always work - likely a pixel rounding issue - */
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 3px;
+  }
 
 @media screen and (max-width: 640px) {
   /*.product-list--scrollable::before,*/
@@ -4385,17 +4395,7 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (min-width: 1000px) {
 
-  /* This needs to be done instead of applying a border to the product-list to fix a z-index issue with the product labels */
-  .product-list::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: calc(100% + 0px);
-    /* This solves an issue on Safari, where 100% does not always work - likely a pixel rounding issue - */
-    z-index: 1;
-    pointer-events: none;
-    border-radius: 3px;
-  }
+
 
   .product-list--scrollable::after {
     content: "flickity";
@@ -4534,9 +4534,9 @@ img.lazyload[data-sizes=auto] {
     margin-bottom: 0;
   }
 
-  .featured-collection .product-list::before {
+  /* .featured-collection .product-list::before {
     display: none;
-  }
+  } */
 
   /* This code is absolutely ugly and hacky, but due to rounding errors on Chrome, sometimes everything is shifted by 1px,
      and designer couldn't tolerate it. I've found this hack which basically adds a box-shadow to "cover" artificially
@@ -12309,14 +12309,27 @@ shopify-payment-terms {
     margin: 0 !important;
   }
 
-  .scroller__inner {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    -ms-scroll-snap-type: x mandatory;
-    scroll-snap-type: x mandatory;
+ .product-recommendations .scroller__inner,
+ .recently-viewed-products-placeholder .scroller__inner
+  {
     white-space: nowrap;
+    padding-bottom: 30px;
   }
+  .recently-viewed-products-placeholder .flickity-page-dots {
+    bottom: -35px;
+}
+.flickity-prev-next-button.next svg {
+  left: -10px;
+}
+.flickity-prev-next-button.previous svg {
+  left: 4px;
+}
+.flickity-prev-next-button {
+  opacity: 1;
+}
+.product-recommendations .flickity-page-dots {
+  bottom: -35px;
+}
 }
 
   label.spr-icon {
