@@ -1,9 +1,9 @@
 {%- if product.media.size > 0 -%}
   {%- assign show_thumbnails_if_one_media = true -%}
   {%- if template.name == 'product' and template != 'product.quick-view' -%}
-      <h1 class=" hidden-lap-and-up tac">{{ product.title }}</h1>
+      <h1 class="heading hidden-lap-and-up tac">{{ product.title }}</h1>
     {%- else -%}
-      <h3 class=" h2 hidden-lap-and-up tac">
+      <h3 class="heading h2 hidden-lap-and-up tac">
         <a href="{{ product.url }}">{{ product.title }}</a>
       </h3>
     {%- endif -%}
@@ -11,7 +11,6 @@
     <div class="card__section card__section--tight">
       <div class="product-gallery {% if show_thumbnails_if_one_media %}product-gallery--with-thumbnails{% endif %}">
         {%- assign selected_media = product.selected_variant.featured_media | default: product.featured_media -%}
-
         <div class="product-gallery__carousel-wrapper">
           <div class="product-gallery__carousel {% if template != 'product.quick-view' and section.settings.enable_image_zoom %}product-gallery__carousel--zoomable{% endif %}" data-media-count="{{ product.media.size }}" data-initial-media-id="{{ selected_media.id }}">
             {%- for media in product.media -%}
@@ -61,11 +60,20 @@
               <div class="product-gallery__carousel-item {% if media.id == selected_media.id %}is-selected{% endif %} {% if is_media_filtered %}is-filtered{% endif %}" tabindex="-1" data-media-id="{{ media.id }}" data-media-type="{{ media.media_type | escape }}" {% if media.media_type == 'external_video' %}data-media-host="{{ media.host | escape }}" data-video-id="{{ media.external_id | escape }}"{% endif %} {% if is_media_group %}data-group-name="{{ media_group_parts.first | strip | downcase | escape }}" data-group-value="{{ media_group_parts.last | strip | downcase | escape }}"{% endif %}>
                 {%- case media.media_type -%}
                   {%- when 'image' -%}
+									{%- comment -%}
+										{% for tag in product.tags %}
+												{% if tag contains '#' %}
+													{% assign tagName = tag | split: '#' %}
+													<span class="product-gallery-tag"> {{ tagName[1] }}</span>
+												{% endif %}
+											{% endfor %}
+									{%- endcomment -%}
                     <div class="product-gallery__size-limiter" style="max-width: {{ media.width }}px">
                       {%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000,1100,1200', image: media -%}{%- endcapture -%}
                       {%- assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                      <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
+											
+											<div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
                         <img class="product-gallery__image lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" data-zoom="{{ media | img_url: '1600x' }}" data-zoom-width="{{ media.width | at_most: 1600 }}" alt="{{ media_alt | escape }}">
 
                         <noscript>
@@ -97,13 +105,13 @@
                 {%- endcase -%}
               </div>
             {%- endfor -%}
-            {%- if section.settings.cjj_pro_bg_top!=blank -%}
+<!--             {%- if section.settings.cjj_pro_bg_top!=blank -%}
               <div class="poa w100 z-1 top-0 left-0">
                 {%- capture supported_sizes_top -%}{%- render 'image-size', sizes: '300,500,600,700,800', image: section.settings.cjj_pro_bg_top -%}{%- endcapture -%}
                 {%- assign image_url_top = section.settings.cjj_pro_bg_top | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                 <img class=" lazyload w100 " data-src="{{ image_url_top }}" data-widths="[{{ supported_sizes_top }}]" data-sizes="auto" alt="{{ section.settings.cjj_pro_bg_top_alt | escape }}">
               </div>
-            {%- endif -%}
+            {%- endif -%} -->
             {%- if section.settings.cjj_pro_bg_bottom!=blank -%}
               <div class="poa w100 z-1 bottom-0 left-0">
                 {%- capture supported_sizes_bottom -%}{%- render 'image-size', sizes: '300,500,600,700,800', image: section.settings.cjj_pro_bg_bottom -%}{%- endcapture -%}

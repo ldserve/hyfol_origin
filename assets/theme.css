@@ -8948,8 +8948,14 @@ select option {
 .product-gallery__carousel-item {
   width: 100%;
   /* padding: 0 20px; */
+  position: revert;
 }
-
+.product-gallery__carousel-item .product-gallery-tag {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  z-index: 2;
+}
 .product-gallery__carousel-item--hidden {
   visibility: hidden;
 }
@@ -15104,4 +15110,11 @@ shopify-payment-terms {
   } 
   span._ks_text {
     text-transform: uppercase;
+}
+.product-gallery__carousel-wrapper .sellpoint {
+  background: url('https://cdn.shopifycdn.net/s/files/1/0595/0691/7535/files/HYFOL__01_610c5772-2811-4b0c-b3e5-4e280233f51c.jpg?v=1648017960') center center;
+  background-size: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
 }

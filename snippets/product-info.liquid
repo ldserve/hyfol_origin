@@ -25,7 +25,10 @@
         {%- case block.type -%}
           {%- when 'product_meta' -%}
             {%- render 'product-meta', product: product, block: block -%}
-
+		
+    		{%- when 'product_sellpoint' -%}
+            	{%- render 'product-sellpoint', product: product, block: block -%}
+    
           {%- when 'variant_selector' -%}
             {%- render 'product-variant-selector', product: product, form: form, block: block -%}
 
