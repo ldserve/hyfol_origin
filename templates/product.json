@@ -17,6 +17,7 @@
           "settings": {
             "selector_mode": "block",
             "color_mode": "color",
+            "show_promotion": true,
             "show_quantity_selector": false,
             "show_taxes_included": false,
             "show_inventory_quantity": false,
@@ -84,7 +85,7 @@
         "2387415b-9519-418e-8c17-7ce70355de1c"
       ],
       "settings": {
-        "cjj_pro_bg_top": "shopify:\/\/shop_images\/HYFOL__01_e1c835c6-94a2-4fbe-9b17-fb2566dec9cc.jpg",
+        "cjj_pro_bg_top": "shopify:\/\/shop_images\/HYFOL__01_b3e71f0c-87eb-4b3e-83be-f1ba04de0b79.jpg",
         "image_size": "medium",
         "enable_video_looping": false,
         "enable_image_zoom": true,
@@ -146,6 +147,16 @@
       "type": "editorify_section_widget",
       "settings": {
       }
+    },
+    "1647854489fe39e68b": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/banner_93fd4064-f9ff-4e58-bebd-a95649e1f6bf.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/banner_79991416-2e65-4807-a094-84bfaa61285b.jpg",
+        "link": "",
+        "shadow": false
+      }
     }
   },
   "order": [
@@ -154,6 +165,7 @@
     "recently-viewed-products",
     "16476891022bcaf9d0",
     "alireviews-widget-95110",
-    "editorify_section_widget"
+    "editorify_section_widget",
+    "1647854489fe39e68b"
   ]
 }

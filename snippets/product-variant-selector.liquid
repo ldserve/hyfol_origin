@@ -10,10 +10,12 @@
 {%- assign tags = tags | append: "," | append: tagtitlie -%}
 {%- endif -%}
 {% endfor %}
-<div class="product-form__info-item">
-  <!-- <span class="product-form__info-title text--strong">{{ 'product.form.price' | t }}:</span> -->
-
-  <div class="product-form__info-content" role="region" aria-live="polite">
+<div  class="procut-discount">
+	{%- comment -%}
+		<span class="product-form__info-title text--strong">{{ 'product.form.price' | t }}:</span>
+	{%- endcomment -%}
+	
+  <div role="region" aria-live="polite">
     <div class="price-list">
       {%- if selected_variant.compare_at_price > selected_variant.price -%}
         <span class="price price--highlight">
@@ -47,6 +49,23 @@
         </span>
       {%- endif -%}
     </div>
+    
+    {% if block.settings.show_promotion %}
+		<div class="product-discount">
+      <div>
+        
+      {% render "icon" , icon: 'lable_icon1' %}
+      <span  class="product-discount-left"><strong>10% </strong>off <strong>3</strong> pieces</span> | <strong>20% </strong>off <strong>4</strong> pieces</span>
+
+      </div>
+     <div >
+       <span>
+      {% render "icon" , icon: 'cjj_postage' %} 
+      </span >
+         <span  class="product-discount-left">Free Shipping On Order <strong>Over $60</strong> </span>
+     </div>
+		</div>
+	{% endif %}
 
     <div class="product-form__price-info" style="display: {% if selected_variant.unit_price_measurement %}block{% else %}none{% endif %}">
       <div class="unit-price-measurement">

@@ -8,12 +8,23 @@
         <a class="ins_item link" data-account-id="{{ forloop.index0 }}" href="{{link}}"></a>
     </div>
     <div class="title">
+      <!-- 当切换到邮箱时显示这两个title -->
+      {% if section.settings.show %}
+      <button class="title-item-email">{{section.settings.title}}</button>
+      <button class="title-big-title-email">{{section.settings.subtitle}}</button>
+      {% else %}
+           <!-- 正常标题 -->
       {% if section.settings.title %}
       <button class="title-item">{{section.settings.title}}</button>
       {% endif %}
       {% if section.settings.subtitle %}
       <button class="title-big-title">{{section.settings.subtitle}}</button>
       {% endif %}
+
+      {% endif %}
+
+    
+       <!-- 如果把是否显示邮箱改为真则显示一下内容 -->
       {% if section.settings.show %}
       <div class="newsletter newsletter--compact">
         {%- form 'customer', id: newsletter_id, class: 'form newsletter__form' -%}
@@ -72,6 +83,10 @@
     left: {{section.settings.news_text_left}}%;
   } */
 
+    #shopify-section-{{ section.id }} .ld-imageText .newsletter {
+    margin-top:0px;
+  }
+
   #shopify-section-{{ section.id }} .ld-imageText .title .btn {
     width: 180px;
     height: 50px;
@@ -87,8 +102,22 @@
     font-weight: {{section.settings.text_style}};
   }
 
+  #shopify-section-{{ section.id }} .ld-imageText .title .title-item-email {
+    font-size: {{section.settings.title_size}}vw;
+    color: {{section.settings.text_color}};
+    font-weight: {{section.settings.text_style}};
+  }
+
   #shopify-section-{{ section.id }} .ld-imageText .title .title-big-title {
     font-size: {{section.settings.sub_title_size}}px;
+    color: {{section.settings.text_color}};
+    font-weight: {{section.settings.text_style}};
+    position: relative;
+    bottom:{{section.settings.sub_title_top}}px;
+  }
+
+  #shopify-section-{{ section.id }} .ld-imageText .title .title-big-title-email {
+    font-size: {{section.settings.sub_title_size}}vw;
     color: {{section.settings.text_color}};
     font-weight: {{section.settings.text_style}};
     position: relative;
@@ -126,8 +155,48 @@
 #shopify-section-{{ section.id }} .form__submit--tight{
   margin-top: 40px;
 }
+
+#shopify-section-{{ section.id }} .form__field--borderless {
+      width: 100% !important;
+      left: 50% !important;
+      height: 40px !important;
+     
+ 
+    }
+    #shopify-section-{{ section.id }} .form__floating-label {
+       width: 100%;
+       line-height: 40px !important;
+ 
+    }
   /*移动样式*/
   @media (max-width: 767.98px) {
+    #shopify-section-{{ section.id }} .button--full{
+       height: 25px !important;
+       line-height: 25px !important;
+    }
+    /* form__submit form__submit--tight button button--primary  */
+    #shopify-section-{{ section.id }} .ld-imageText .title .title-item-email {
+    font-size: 6vw;
+    color: {{section.settings.text_color}};
+    font-weight: {{section.settings.text_style}};
+  }
+
+  
+  #shopify-section-{{ section.id }} .ld-imageText .title .title-big-title-email {
+    font-size: 3vw;
+    color: {{section.settings.text_color}};
+    font-weight: {{section.settings.text_style}};
+    position: relative;
+    bottom:{{section.settings.sub_title_top}}px;
+  }
+
+    #shopify-section-{{ section.id }}  .form__submit--tight{
+       margin-top: 15px !important;
+       
+    }
+    #shopify-section-{{ section.id }} .form__input-wrapper{
+      margin-bottom: -5px !important;
+    }
     #shopify-section-{{ section.id }} .ld-imageText .PC {
       display: none;
     }
@@ -135,8 +204,23 @@
       display: block;
     }
     #shopify-section-{{ section.id }} .ld-imageText .title {
-    top: {{section.settings.m_text_top}}%;
-    left: {{section.settings.m_text_left}}%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%);
+    }
+    #shopify-section-{{ section.id }} .form__field--borderless {
+      width: 100% !important;
+      left: 50% !important;
+      height: 25px !important;
+     
+ 
+    }
+    #shopify-section-{{ section.id }} .form__floating-label {
+       text-align: center;
+       left: 0px !important;
+       width: 100%;
+       line-height: 25px !important;
+ 
     }
   }
 
@@ -265,7 +349,7 @@
   "step": 1,
   "unit": "px",
   "label": "一级标题标题文字大小",
-  "default": 12
+  "default": 6
   }, {
   "type": "range",
   "id": "sub_title_size",
@@ -274,7 +358,7 @@
   "step": 1,
   "unit": "px",
   "label": "二级标题标题文字大小",
-  "default": 22
+  "default": 4
   },
   {
     "type": "range",
@@ -286,6 +370,16 @@
     "label": "二级标题标题距离顶部距离",
     "default": 10
     },
+    {
+      "type": "range",
+      "id": "input_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "title和输入框的距离",
+      "default": 0
+      },
   {
     "type": "color",
     "id": "text_color",
