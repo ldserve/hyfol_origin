@@ -260,8 +260,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "tactical-club",
-        "sensorsName": "",
-        "title": "TACTICAL CLUB",
+        "sensorsName": "TACTICAL CLUB",
+        "title": "",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
