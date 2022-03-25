@@ -52,7 +52,7 @@
             <div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
               {%- if block.settings.display_mode == 'collapse' -%}
                 <div class="card__collapsible-button " data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                  <span class="card__title   "> {%- render:'icon',icon:'cjj_postage' -%}  Delivery</span>
+                  <span class="card__title   heading"> {%- render:'icon',icon:'cjj_postage' -%}  Delivery</span>
                   <span class="card-arrow">
                     {%- render 'icon', icon: 'arrow-bottom' -%}
                   </span>
@@ -101,7 +101,7 @@
                 </div>
               {%- else -%}
                 <div class="card__header">
-                  <h2 class="card__title   "> <span class="icon-color"> {%- render:'icon',icon:'cjj_postage' -%} </span>  Delivery</h2>
+                  <h2 class="card__title  heading "> <span class="icon-color"> {%- render:'icon',icon:'cjj_postage' -%} </span>  Delivery</h2>
                 </div>
   
                 <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
@@ -153,7 +153,7 @@
             <div class="product-form__item product-block-list__item--description " {{ block.shopify_attributes }}>
                 {%- if block.settings.display_mode == 'collapse' -%}
                   <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                    <span class="card__title  ">{%- render:'icon',icon:'ny_finish' -%} Return Policy</span>
+                    <span class="card__title  heading">{%- render:'icon',icon:'ny_finish' -%} Return Policy</span>
                     <span class="card-arrow">
                       {%- render 'icon', icon: 'arrow-bottom' -%}
                     </span>
@@ -170,7 +170,7 @@
                   </div>
                 {%- else -%}
                   <div class="card__header">
-                    <h2 class="card__title ">{%- render:'icon',icon:'ny_finish' -%}Return Policy</h2>
+                    <h2 class="card__title  heading">{%- render:'icon',icon:'ny_finish' -%}Return Policy</h2>
                   </div>
 
                   <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
@@ -194,7 +194,7 @@
             <div class="product-form__item product-block-list__item--description " {{ block.shopify_attributes }}>
                 {%- if block.settings.display_mode == 'collapse' -%}
                   <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                    <span class="card__title ">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</span>
+                    <span class="card__title  heading">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</span>
                     <span class="card-arrow">
                       {%- render 'icon', icon: 'arrow-bottom' -%}
                     </span>
@@ -209,7 +209,7 @@
                   </div>
                 {%- else -%}
                   <div class="card__header">
-                    <h2 class="card__title">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</h2>
+                    <h2 class="card__title heading">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</h2>
                   </div>
 
                   <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>

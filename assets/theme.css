@@ -5682,7 +5682,9 @@ select option {
   display: block;
   padding: 5px 0;
 }
-
+.container .font_16 {
+  font-size: 16px;
+}
 .footer__newsletter-form {
   margin-top: 20px;
 }
