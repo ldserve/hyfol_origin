@@ -502,7 +502,24 @@
 	"default": true
 	}
 	]
-	},
+	},{
+      "type": "product_sellpoint",
+      "name": "促销信息",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "label": "不参加促销的商品标签",
+          "info":"不参加促销的商品标签里的商品不会展示促销信息",
+          "id": "notsale_tag"
+        },
+        {
+          "type": "text",
+          "label": "促销文案",
+          "id": "sale_text"
+        }
+      ]
+    },
 	{
 	"type": "variant_selector",
 	"name": "Variant selector",
