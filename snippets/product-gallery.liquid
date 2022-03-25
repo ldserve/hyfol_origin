@@ -1,9 +1,9 @@
 {%- if product.media.size > 0 -%}
   {%- assign show_thumbnails_if_one_media = true -%}
   {%- if template.name == 'product' and template != 'product.quick-view' -%}
-      <h1 class=" hidden-lap-and-up tac">{{ product.title }}</h1>
+      <h1 class="heading hidden-lap-and-up tac">{{ product.title }}</h1>
     {%- else -%}
-      <h3 class=" h2 hidden-lap-and-up tac">
+      <h3 class="heading h2 hidden-lap-and-up tac">
         <a href="{{ product.url }}">{{ product.title }}</a>
       </h3>
     {%- endif -%}
