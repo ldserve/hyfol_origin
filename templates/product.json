@@ -103,11 +103,9 @@
     },
     "1648198863f0dd211e": {
       "type": "no_space_img",
-      "disabled": true,
       "settings": {
         "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/1920.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/1920_97be3866-706c-4c3d-bb53-aac3a15870d0.jpg",
+        "bg_image": "shopify:\/\/shop_images\/1920_15750561-368e-45d3-85b3-9eefa1b37c27.jpg",
         "link": "",
         "shadow": false
       }
