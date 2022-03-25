@@ -12,10 +12,10 @@
         "show_quick_buy": "list",
         "show_quick_view": "list_grid",
         "quick_links": "",
-        "quick_links_show_products_count": true,
+        "quick_links_show_products_count": false,
         "show_filters": true,
         "show_filter_color_swatch": true,
-        "open_group_filters_mode": "first_open"
+        "open_group_filters_mode": "all_closed"
       }
     },
     "recently-viewed-products": {

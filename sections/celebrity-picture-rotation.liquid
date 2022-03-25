@@ -98,12 +98,15 @@
     #shopify-section-{{ section.id }} .indexContainer{
         position: relative;
 	}
+    #shopify-section-{{ section.id }} .celebrity-picture-rotation-description p{
+        margin: 0;
+	}
     #shopify-section-{{ section.id }}  .celebrity-picture-rotation-title,
     #shopify-section-{{ section.id }}  .celebrity-picture-rotation-description{
         text-align:center;
     }
     #shopify-section-{{ section.id }} .powr-form__button {
-        margin: 3rem 0;
+        margin: 1.5rem 0;
         text-align: center;
     }
 
@@ -156,6 +159,7 @@
 		position: absolute;
 			transform: scale(1);
 			bottom: calc(42%);
+            top: 50%;
 	}
     #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl:hover {
 		background: var(--accent-color);
@@ -345,6 +349,10 @@
         #shopify-section-{{ section.id }} #form__box .iframe__box{
             width: 100%;
         }
+        #shopify-section-{{ section.id }} .powr-form__button {
+        margin: 0;
+        text-align: center;
+    }
     }
     @media screen and (min-width: 641px) and (max-width: 999px) {
         #shopify-section-{{ section.id }} .indexContainer .cpr_scroller__ctrl {
