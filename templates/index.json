@@ -48,7 +48,7 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "new-collection",
-        "sensorsName": "NEW IN",
+        "sensorsName": "",
         "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
@@ -212,8 +212,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "skull-madman",
-        "sensorsName": "SKULL MADMAN",
-        "title": "",
+        "sensorsName": "",
+        "title": "SKULL MADMAN",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -236,8 +236,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "patriot",
-        "sensorsName": "PATRIOT LEAGUE",
-        "title": "",
+        "sensorsName": "",
+        "title": "PATRIOT LEAGUE",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -260,8 +260,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "tactical-club",
-        "sensorsName": "TACTICAL CLUB",
-        "title": "",
+        "sensorsName": "",
+        "title": "TACTICAL CLUB",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -389,7 +389,7 @@
       ],
       "settings": {
         "title": "#Hyfol_official",
-        "description": "<p>Show us how you match.<br\/> Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
+        "description": "<p>Show us how you match. Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
       }
     },
     "newsletter": {
@@ -410,6 +410,36 @@
         "link": "",
         "shadow": false
       }
+    },
+    "1648191714c3e1b050": {
+      "type": "ld-imageText",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_ef5a0193-d838-44cc-97bb-33430f8f761a.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/e8f0372ec63aeaf0c9714bb279e135f9.jpg",
+        "link": "",
+        "title": "Text fvkjkjh vbhj",
+        "subtitle": "Text block edrew",
+        "button": "SHOP NOW",
+        "show": true,
+        "text_top": 32,
+        "text_left": 4,
+        "m_text_top": 0,
+        "m_text_left": 0,
+        "news_text_top": 0,
+        "news_text_left": 0,
+        "title_size": 80,
+        "sub_title_size": 30,
+        "sub_title_top": 27,
+        "input_top": 26,
+        "text_color": "#fff",
+        "text_style": "normal",
+        "text_align": "center",
+        "input_width": "300px",
+        "button_color": "#ed6123",
+        "button_text_color": "#fff",
+        "button_color_hover": "#fff",
+        "button_text_color_hover": "#000"
+      }
     }
   },
   "order": [
@@ -426,6 +456,7 @@
     "1647498064c408cfd6",
     "1640334828c8a975c8",
     "newsletter",
-    "1647854386e21e1092"
+    "1647854386e21e1092",
+    "1648191714c3e1b050"
   ]
 }
