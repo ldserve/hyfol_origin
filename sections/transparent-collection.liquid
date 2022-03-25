@@ -21,14 +21,16 @@
   #shopify-section-{{ section.id }} .point-item--active {
     background: #000;
   }
+ 
 </style>
 <section class="section" data-section-id="{{ section.id }}" data-section-type="featured-collection"
 				 data-section-settings='{{ section_settings }}'>
 	{%- assign collection = section.settings.collection -%}
-
+{%- if section.settings.title !=blank -%}
 	<div class="indexContainer">
-				<h2 class="section__title heading h3 section--text-centered">{{ section.settings.title | default: collection.title | escape }}</h2>
+	<h2 class="section__title heading h3 section--text-centered">{{ section.settings.title | default: collection.title | escape }}</h2>
 	</div>
+{%- endif -%}
 
 	<div class="indexContainer {% if section.settings.layout != 'vertical' or section.settings.stack_products %}container--flush{% endif %}">
 		{%- capture product_list -%}
@@ -56,13 +58,13 @@
 			{%- if use_placeholder -%}
 				{%- include 'product-item-placeholder', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy,only_show_transparent: true -%}
 			{%- else -%}
-				{%- include 'product-item', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.title }}' -%}
+				{%- include 'product-item', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
 			{%- endif -%}
 			{%- elsif section.settings.layout == 'horizontal' -%}
 			{%- if use_placeholder -%}
 				{%- include 'product-item-placeholder', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false,only_show_transparent: true -%}
 			{%- else -%}
-				{%- include 'product-item', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.title }}' -%}
+				{%- include 'product-item', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
 			{%- endif -%}
 		{%- else -%}
 		{%- assign mod = forloop.index0 | modulo: 3 -%}
@@ -235,6 +237,12 @@
 	"type": "collection",
 	"id": "collection",
 	"label": "Collection"
+	},
+	{
+		"type":"text",
+		"id":"sensorsName",
+		"label":"组件埋点名称",
+		"info":"用于神策分析的该组件命名（必填）"
 	},
 	{
 	"type": "text",
