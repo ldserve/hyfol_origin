@@ -48,7 +48,7 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "new-collection",
-        "sensorsName": "",
+        "sensorsName": "NEW IN",
         "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
@@ -212,8 +212,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "skull-madman",
-        "sensorsName": "",
-        "title": "SKULL MADMAN",
+        "sensorsName": "SKULL MADMAN",
+        "title": "",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
