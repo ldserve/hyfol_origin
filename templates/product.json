@@ -24,6 +24,13 @@
             "low_inventory_threshold": 5
           }
         },
+        "78a65596-bd80-4353-82c9-7ede27334ff0": {
+          "type": "product_sellpoint",
+          "settings": {
+            "notsale_tag": "Nopromotion",
+            "sale_text": "10% off 3 pieces | 20% off 4 pieces"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -71,26 +78,19 @@
             "shipping_estimator_default_country": "United States",
             "show_refunds_policy": true
           }
-        },
-        "78a65596-bd80-4353-82c9-7ede27334ff0": {
-          "type": "product_sellpoint",
-          "settings": {
-            "notsale_tag": "Nopromotion",
-            "sale_text": "10% off 3 pieces | 20% off 4 pieces"
-          }
         }
       },
       "block_order": [
         "product_meta",
         "variant_selector",
+        "78a65596-bd80-4353-82c9-7ede27334ff0",
         "buy_buttons",
         "40401d43-e40a-46bd-b84a-7563498f1427",
         "220a0d08-af6d-41fd-a53d-f77edb36997c",
         "description",
         "6040b192-8f10-4ee0-8454-dafbf292b96a",
         "c9a13b76-73f3-4161-aa0c-5edbf018722c",
-        "2387415b-9519-418e-8c17-7ce70355de1c",
-        "78a65596-bd80-4353-82c9-7ede27334ff0"
+        "2387415b-9519-418e-8c17-7ce70355de1c"
       ],
       "settings": {
         "cjj_pro_bg_top": "shopify:\/\/shop_images\/HYFOL__01_b3e71f0c-87eb-4b3e-83be-f1ba04de0b79.jpg",
