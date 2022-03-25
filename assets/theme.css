@@ -8944,8 +8944,14 @@ select option {
 .product-gallery__carousel-item {
   width: 100%;
   /* padding: 0 20px; */
+  position: revert;
 }
-
+.product-gallery__carousel-item .product-gallery-tag {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  z-index: 2;
+}
 .product-gallery__carousel-item--hidden {
   visibility: hidden;
 }
