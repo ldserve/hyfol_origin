@@ -260,8 +260,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "tactical-club",
-        "sensorsName": "",
-        "title": "TACTICAL CLUB",
+        "sensorsName": "TACTICAL CLUB",
+        "title": "",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -389,7 +389,7 @@
       ],
       "settings": {
         "title": "#Hyfol_official",
-        "description": "<p>Show us how you match. Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
+        "description": "<p>Show us how you match. <\/p><p>Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
       }
     },
     "newsletter": {
