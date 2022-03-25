@@ -93,6 +93,16 @@
         "carousel_effect": "fade"
       }
     },
+    "1648198863f0dd211e": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/1920.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/1920_97be3866-706c-4c3d-bb53-aac3a15870d0.jpg",
+        "link": "",
+        "shadow": false
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "blocks": {
@@ -161,6 +171,7 @@
   },
   "order": [
     "main",
+    "1648198863f0dd211e",
     "product-recommendations",
     "recently-viewed-products",
     "16476891022bcaf9d0",
