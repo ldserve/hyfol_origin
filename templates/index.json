@@ -48,6 +48,7 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "new-collection",
+        "sensorsName": "",
         "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
@@ -211,6 +212,7 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "skull-madman",
+        "sensorsName": "",
         "title": "SKULL MADMAN",
         "products_count": 12,
         "layout": "vertical",
@@ -234,6 +236,7 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "patriot",
+        "sensorsName": "",
         "title": "PATRIOT LEAGUE",
         "products_count": 12,
         "layout": "vertical",
@@ -257,6 +260,7 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "tactical-club",
+        "sensorsName": "",
         "title": "TACTICAL CLUB",
         "products_count": 12,
         "layout": "vertical",
@@ -385,7 +389,7 @@
       ],
       "settings": {
         "title": "#Hyfol_official",
-        "description": "<p>Show us how you match. Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
+        "description": "<p>Show us how you match.<br\/> Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
       }
     },
     "newsletter": {
