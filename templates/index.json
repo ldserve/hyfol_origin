@@ -48,7 +48,7 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "new-collection",
-        "sensorsName": "",
+        "sensorsName": "NEW IN",
         "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
