@@ -2,11 +2,6 @@
   <div class="ld-imageText">
     {% assign link = section.settings.link.url %}
     {%- capture supported_sizes -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000', image: section.settings.image -%}{%- endcapture -%}
-    <div class="PC">    
-        <img data-src="{{ section.settings.image | img_url: '1500x' }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto"
-						 alt="{{ section.settings.image.alt | escape }}" class="lazyload  img_item">
-        <a class="ins_item link" data-account-id="{{ forloop.index0 }}" href="{{link}}"></a>
-    </div>
     <div class="title">
       {% if section.settings.title %}
       <button class="title-item">{{section.settings.title}}</button>
@@ -42,6 +37,12 @@
       {% endif %}
       {% endif %}
     </div>
+    <div class="PC">    
+        <img data-src="{{ section.settings.image | img_url: '1500x' }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto"
+						 alt="{{ section.settings.image.alt | escape }}" class="lazyload  img_item">
+        <a class="ins_item link" data-account-id="{{ forloop.index0 }}" href="{{link}}"></a>
+    </div>
+   
     <div class="mobile">
         <img data-src="{{ section.settings.mobile_image | img_url: '1500x' }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto"
         alt="{{ section.settings.image.alt | escape }}" class="lazyload  img_item">
@@ -51,26 +52,27 @@
 </div>
 
 <style>
- .ld-imageText {
+   #shopify-section-{{ section.id }} .ld-imageText {
     width: 100%;
-    position: relative;
+    display: flex;
+    flex-direction:{{section.settings.title_align}}
+  }
+  .ld-imageText .title{
+    width: 30%;
+  }
+  .ld-imageText .PC{
+    width: 70%;
   }
   .ld-imageText  img {
       width: 100%;
     }
-
-    .ld-imageText .newsletter {
-margin-top: 0;
-width: 300px;
+ .ld-imageText .title {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    background: #1b1b1b;
+    align-items:{{section.settings.text_align}};
   }
-  .ld-imageText .button--full {
-    width: 80%;
-    margin: 0 auto;
-  }
-  .ld-imageText .form__submit {
-border: 1px #fff solid;
-  }
-
   .ld-imageText .title .btn {
     width: 200px;
     height: 50px;
@@ -79,17 +81,7 @@ border: 1px #fff solid;
     background-color: {{section.settings.button_color}};
     color:{{section.settings.button_text_color}};
   }
-  #shopify-section-{{ section.id }} .ld-imageText .title {
-    position: absolute;
-    top: {{section.settings.text_top}}%;
-    left: {{section.settings.text_left}}%;
-    display: flex;
-    flex-flow: column;
-    align-items:{{section.settings.text_align}};
-  }
-
-
-
+  
   #shopify-section-{{ section.id }} .ld-imageText .title .title-item {
     font-size: {{section.settings.title_size}}px;
     color: {{section.settings.text_color}};
@@ -117,7 +109,40 @@ border: 1px #fff solid;
       height: 100%;
       top: 0;
       left: 0;
-    }
+    } 
+    .ld-imageText .newsletter {
+margin-top: 0;
+width: 300px;
+  }
+  
+  .ld-imageText .button--full {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .ld-imageText .form__submit {
+border: 1px #fff solid;
+  }
+  .ld-imageText .title .btn {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: {{section.settings.button_color}};
+    color:{{section.settings.button_text_color}};
+  }
+/* 
+
+
+
+  #shopify-section-{{ section.id }} .ld-imageText .title {
+    position: absolute;
+    top: {{section.settings.text_top}}%;
+    left: {{section.settings.text_left}}%;
+    display: flex;
+    flex-flow: column;
+    align-items:{{section.settings.text_align}};
+  }
+*/
   /*移动样式*/
   @media (max-width: 767.98px) {
     #shopify-section-{{ section.id }} .ld-imageText .PC {
@@ -126,10 +151,6 @@ border: 1px #fff solid;
     #shopify-section-{{ section.id }} .ld-imageText .mobile {
       display: block;
     }
-    #shopify-section-{{ section.id }} .ld-imageText .title {
-    top: {{section.settings.m_text_top}}%;
-    left: {{section.settings.m_text_left}}%;
-  }
 
     #shopify-section-{{ section.id }} .ld-imageText .title .title-item {
     font-size: {{section.settings.m_title_size}}px;
@@ -139,12 +160,6 @@ border: 1px #fff solid;
     position: relative;
     bottom:{{section.settings.m_sub_title_top}}px;
   }
-    .ld-imageText .title .btn{
-      width: 110px;
-      height: 30px;
-      line-height: 30px;
-      font-size: 12px;
-    }
     .ld-imageText .newsletter{
       width: 200px;
     }
@@ -155,6 +170,23 @@ border: 1px #fff solid;
       line-height: 30px;
     }
     .ld-imageText .button{
+      line-height: 30px;
+      font-size: 12px;
+    }
+    #shopify-section-{{ section.id }} .ld-imageText {
+    width: 100%;
+    display: flex;
+    flex-direction:{{section.settings.title_tb}}
+  }
+  .ld-imageText .title{
+    width: 100%;
+  }
+  .ld-imageText .PC{
+    width: 100%;
+  }
+  .ld-imageText .title .btn{
+      width: 110px;
+      height: 30px;
       line-height: 30px;
       font-size: 12px;
     }
@@ -172,7 +204,7 @@ border: 1px #fff solid;
 </style>
 {% schema %}
 {
-"name": "带按钮的banner图",
+"name": "文字放置",
 "settings": [
 {
 "type": "header",
@@ -195,6 +227,38 @@ border: 1px #fff solid;
   "type": "url",
   "id": "link",
   "label":"链接"
+  },
+  {
+    "type": "select",
+    "id": "title_align",
+    "options": [
+      {
+        "value": "row",
+        "label": "居左"
+      },
+      {
+        "value": "row-reverse",
+        "label": "居右"
+      }
+    ],
+    "default": "row",
+    "label": "标题文字靠齐方式"
+  },
+  {
+    "type": "select",
+    "id": "title_tb",
+    "options": [
+      {
+        "value": "column",
+        "label": "上"
+      },
+      {
+        "value": "column-reverse",
+        "label": "下"
+      }
+    ],
+    "default": "column-reverse",
+    "label": "m端标题文字靠齐方式"
   },
 {
 "type": "text",
@@ -220,44 +284,6 @@ border: 1px #fff solid;
   "label": "是否显示邮箱",
   "default": false
 },
-{
-"type": "range",
-"id": "text_top",
-"min": 0,
-"max": 100,
-"step": 1,
-"unit": "%",
-"label": "文字布局top",
-"default": 0
-}, {
-"type": "range",
-"id": "text_left",
-"min": 0,
-"max": 100,
-"step": 1,
-"unit": "%",
-"label": "文字布局left",
-"default": 0
-},
-{
-  "type": "range",
-  "id": "m_text_top",
-  "min": 0,
-  "max": 100,
-  "step": 1,
-  "unit": "%",
-  "label": "m端文字布局top",
-  "default": 0
-  }, {
-  "type": "range",
-  "id": "m_text_left",
-  "min": 0,
-  "max": 100,
-  "step": 1,
-  "unit": "%",
-  "label": "m端文字布局left",
-  "default": 0
-  },
 {
   "type": "range",
   "id": "title_size",
@@ -306,6 +332,16 @@ border: 1px #fff solid;
     "label": "二级标题标题距离顶部距离",
     "default": 10
     },
+    {
+      "type": "range",
+      "id": "m_sub_title_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "m端二级标题标题距离顶部距离",
+      "default": 10
+      },
     {
       "type": "color",
       "id": "text_color",
@@ -356,60 +392,6 @@ border: 1px #fff solid;
       "default": "center",
       "label": "标题文字靠齐方式"
     },
-    {
-      "type": "range",
-      "id": "input_top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "label": "title和输入框的距离",
-      "default": 0
-      },
-      {
-        "type": "range",
-        "id": "m_sub_title_top",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "m端二级标题标题距离顶部距离",
-        "default": 10
-        },
-        {
-          "type": "range",
-          "id": "m_input_top",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "%",
-          "label": "m端title和输入框的距离",
-          "default": 0
-          },
-  {
-    "type": "select",
-    "id": "input_width",
-    "options": [
-    {
-      "value": "100px",
-      "label": "100px"
-    },
-      {
-        "value": "200px",
-        "label": "200px"
-      },
-      {
-        "value": "300px",
-        "label": "300px"
-      },
-      {
-        "value": "500px",
-        "label": "500px"
-      }
-    ],
-    "default": "300px",
-    "label": "邮箱输入框宽度"
-  },
 {
   "type": "color",
   "id": "button_color",
@@ -437,7 +419,7 @@ border: 1px #fff solid;
 ],
 "presets": [
 {
-"name": "带按钮的banner图"
+"name": "文字放置"
 }
 ]
 }
