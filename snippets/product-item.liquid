@@ -193,8 +193,9 @@
 				</div>
 
 		{%- endif -%}
-		<a href="{{ product.url }}" style="position: absolute;top: 70px;right: 0;left: 0;bottom: 0;"></a>
+
 		<div class="product-item__info-inner">
+			<a href="{{ filtered_variant.url | default: product.url }}" style="position: absolute;top: 70px;right: 0;left: 0;bottom: 0;"></a>
 			{%- capture price_list -%}
 				<div class="product-item__price-list price-list">
 					{%- if product.price < product.compare_at_price -%}

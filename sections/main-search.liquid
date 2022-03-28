@@ -32,25 +32,23 @@
   "gridClasses": {{ grid_classes | json }}
 }
 {%- endcapture -%}
+{%- if search.performed and search.results_count > 0 -%}
+	<div class="page__sub-header">
+		<nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
+			<ol class="breadcrumb__list" role="list">
+				<li class="breadcrumb__item">
+					<a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
+				</li>
 
+				<li class="breadcrumb__item">
+					<span class="breadcrumb__link" aria-current="page">{{ 'search.general.title_with_terms' | t: terms: filtered_terms }}</span>
+				</li>
+			</ol>
+		</nav>
+	</div>
+{%- endif -%}
 <section data-section-id="{{ section.id }}" data-section-type="collection" data-section-settings='{{ section_settings }}'>
-  <div class="container {% if search.performed and search.results_count > 0 %}container--flush{% endif %}">
-    {%- if search.performed and search.results_count > 0 -%}
-      <div class="page__sub-header">
-        <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
-          <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item">
-              <a class="breadcrumb__link link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> {%- render 'icon', icon: 'arrow-right' -%}
-            </li>
-
-            <li class="breadcrumb__item">
-              <span class="breadcrumb__link" aria-current="page">{{ 'search.general.title_with_terms' | t: terms: filtered_terms }}</span>
-            </li>
-          </ol>
-        </nav>
-      </div>
-    {%- endif -%}
-
+  <div class="container">
     {%- if search.performed -%}
       {%- if search.results_count == 0 -%}
         <div class="empty-state">
@@ -135,13 +133,11 @@
                         IMPLEMENTATION NOTE: unfortunately I was forced to add a lot of extra div (collection__meta, collection__meta-inner, collection__header-inner,...)
                         to be able to accommodate with the brand related layout which make things more complicated...
                         {%- endcomment -%}
-
                         <div class="collection__header">
                           <div class="collection__header-inner">
                             <div class="collection__meta">
                               <div class="collection__meta-inner">
                                 <h1 class="collection__title heading h1">{{ 'search.general.products_with_terms' | t: terms: filtered_terms }}</h1>
-
                                 <p class="collection__products-count text--small hidden-desk">{{ 'search.general.results_count' | t: count: search.results_count }}</p>
                               </div>
                             </div>

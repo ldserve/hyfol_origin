@@ -3,10 +3,10 @@
     "16476930731e3b7419": {
       "type": "no_space_img",
       "settings": {
-        "sensorsName": "",
+        "sensorsName": "banner",
         "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
         "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_banner_2713fcc5-4ae0-4fdb-a911-bcf314fa3f63.jpg",
-        "link": "https:\/\/www.hyfol.com\/collections\/new-in-1",
+        "link": "shopify:\/\/collections\/lets-go-out",
         "shadow": false
       }
     },
@@ -48,13 +48,14 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "new-collection",
+        "sensorsName": "NEW IN",
         "title": "NEW IN",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": false,
         "link_title": "View all",
-        "link_url": ""
+        "link_url": "shopify:\/\/collections\/new-collection"
       }
     },
     "16474250424edba623": {
@@ -211,7 +212,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "skull-madman",
-        "title": "SKULL MADMAN",
+        "sensorsName": "SKULL MADMAN",
+        "title": "",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -234,7 +236,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "patriot",
-        "title": "PATRIOT LEAGUE",
+        "sensorsName": "PATRIOT LEAGUE",
+        "title": "",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -257,7 +260,8 @@
       "type": "transparent-collection",
       "settings": {
         "collection": "tactical-club",
-        "title": "TACTICAL CLUB",
+        "sensorsName": "TACTICAL CLUB",
+        "title": "",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
@@ -385,7 +389,7 @@
       ],
       "settings": {
         "title": "#Hyfol_official",
-        "description": "<p>Show us how you match. Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
+        "description": "<p>Show us how you match. <\/p><p>Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
       }
     },
     "newsletter": {
@@ -393,8 +397,41 @@
       "settings": {
         "title": "NEWSLETTER",
         "content": "<p>Never miss any HYFOL new fashion!<\/p>",
-        "background": "#f0f0f0",
+        "background": "#efebe7",
         "text": "#1b1b1b"
+      }
+    },
+    "1648191714c3e1b050": {
+      "type": "ld-imageText",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/pc_98f942c2-f0c1-47e6-bd47-3d33ccf02223.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/94d53239037849179c79285840325f32_475e2675-cf5f-422d-b39e-a92f5e46bdfa.jpg",
+        "link": "",
+        "title": "NEWSLETTER",
+        "subtitle": "Never miss any HYFOL new fashion!",
+        "button": "Subscribe",
+        "show": true,
+        "text_top": 24,
+        "text_left": 7,
+        "m_text_top": 59,
+        "m_text_left": 24,
+        "title_size": 46,
+        "sub_title_size": 19,
+        "m_title_size": 18,
+        "m_sub_title_size": 3,
+        "sub_title_top": 10,
+        "text_color": "#ffffff",
+        "text_style": "normal",
+        "text_align": "center",
+        "input_top": 26,
+        "m_sub_title_top": 10,
+        "m_input_top": 0,
+        "input_width": "300px",
+        "button_color": "#ed6123",
+        "button_text_color": "#ffffff",
+        "button_color_hover": "#ffffff",
+        "button_text_color_hover": "#000000"
       }
     },
     "1647854386e21e1092": {
@@ -422,6 +459,7 @@
     "1647498064c408cfd6",
     "1640334828c8a975c8",
     "newsletter",
+    "1648191714c3e1b050",
     "1647854386e21e1092"
   ]
 }

@@ -25,7 +25,10 @@
         {%- case block.type -%}
           {%- when 'product_meta' -%}
             {%- render 'product-meta', product: product, block: block -%}
-
+		
+    		{%- when 'product_sellpoint' -%}
+            	{%- render 'product-sellpoint', product: product, block: block -%}
+    
           {%- when 'variant_selector' -%}
             {%- render 'product-variant-selector', product: product, form: form, block: block -%}
 
@@ -51,8 +54,8 @@
             {%- when 'delivery' -%}
             <div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
               {%- if block.settings.display_mode == 'collapse' -%}
-                <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                  <span class="card__title"> {%- render:'icon',icon:'cjj_postage' -%}  Delivery</span>
+                <div class="card__collapsible-button " data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
+                  <span class="card__title   heading"> {%- render:'icon',icon:'cjj_postage' -%}  Delivery</span>
                   <span class="card-arrow">
                     {%- render 'icon', icon: 'arrow-bottom' -%}
                   </span>
@@ -61,17 +64,16 @@
                 <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
                   <div class="card__collapsible-content">
                     <div class="rte text--pull">
-                      <div class="shipping-header"> Shipping Fee </div>
                       <div class="slider-box shipping-body">
                         <div class="slider-box-content ">
-                          <div class="slider-item d-flex ">
-                            <div class="slider-item-top">
-                              Purchase <strong>$0-$39.9</strong>
-                            </div>
-                            <div class="slider-item-bottom">
-                              Costs <strong>$8.9</strong>
-                            </div>
-                          </div>
+													<div class="slider-item d-flex ">
+														<div class="slider-item-top">
+															Purchase  <strong>Over $60</strong>
+														</div>
+														<div class="slider-item-bottom">
+															<strong>FREE</strong>
+														</div>
+													</div>
                           <div class="slider-item d-flex  ">
                             <div class="slider-item-top">
                               Purchase <strong>$40-$59.9</strong>
@@ -80,19 +82,18 @@
                               Costs <strong>$5.9</strong>
                             </div>
                           </div>
-                          <div class="slider-item d-flex ">
-                            <div class="slider-item-top">
-                              Purchase  <strong>over $60</strong>
-                            </div>
-                            <div class="slider-item-bottom">
-                             <strong>FREE</strong>
-                            </div>
-                          </div>
+													<div class="slider-item d-flex ">
+														<div class="slider-item-top">
+															Purchase <strong>$0-$39.9</strong>
+														</div>
+														<div class="slider-item-bottom">
+															Costs <strong>$8.9</strong>
+														</div>
+													</div>
                         </div>
                       </div>
                     </div>
                     <div class="rte text--pull">
-                      <div class="shipping-header">Time </div>
                       <div class="slider-box shipping-body">
                         <div>
                           Estimated delivery time to US/EU is <strong>7-14</strong> business days
@@ -103,22 +104,21 @@
                 </div>
               {%- else -%}
                 <div class="card__header">
-                  <h2 class="card__title"> <span class="icon-color"> {%- render:'icon',icon:'cjj_postage' -%} </span>  Delivery</h2>
+                  <h2 class="card__title  heading "> <span class="icon-color"> {%- render:'icon',icon:'cjj_postage' -%} </span>  Delivery</h2>
                 </div>
   
                 <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
                   <div class="rte text--pull">
-                    <div class="shipping-header">Shipping Fee</div>
                     <div class="slider-box shipping-body">
                       <div class="slider-box-content ">
-                        <div class="slider-item d-flex ">
-                          <div class="slider-item-top">
-                            Purchase <strong>$0-$39.9</strong>
-                          </div>
-                          <div class="slider-item-bottom">
-                            Costs <strong>$8.9</strong>
-                          </div>
-                        </div>
+												<div class="slider-item d-flex ">
+													<div class="slider-item-top">
+														Purchase <strong>Over $60</strong>
+													</div>
+													<div class="slider-item-bottom">
+														<strong>FREE</strong>
+													</div>
+												</div>
                         <div class="slider-item d-flex  ">
                           <div class="slider-item-top">
                             Purchase <strong>$40-$59.9</strong>
@@ -127,17 +127,16 @@
                             Costs <strong>$5.9</strong>
                           </div>
                         </div>
-                        <div class="slider-item d-flex ">
-                          <div class="slider-item-top">
-                            Purchase <strong>over $60</strong>
-                          </div>
-                          <div class="slider-item-bottom">
-                           <strong>FREE</strong>
-                          </div>
-                        </div>
+												<div class="slider-item d-flex ">
+													<div class="slider-item-top">
+														Purchase <strong>$0-$39.9</strong>
+													</div>
+													<div class="slider-item-bottom">
+														Costs <strong>$8.9</strong>
+													</div>
+												</div>
                       </div>
                     </div>
-                   <div class="shipping-header gift">Time </div>
                    <div class="slider-box">
                      <div>
                        Estimated delivery time to US/EU is <strong>7-14</strong> business days
@@ -154,10 +153,10 @@
               {%- endif -%} 
           </div>
         {%- when 'policy' -%}
-            <div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
+            <div class="product-form__item product-block-list__item--description " {{ block.shopify_attributes }}>
                 {%- if block.settings.display_mode == 'collapse' -%}
                   <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                    <span class="card__title">{%- render:'icon',icon:'ny_finish' -%} Return Policy</span>
+                    <span class="card__title  heading">{%- render:'icon',icon:'ny_finish' -%} Return Policy</span>
                     <span class="card-arrow">
                       {%- render 'icon', icon: 'arrow-bottom' -%}
                     </span>
@@ -174,7 +173,7 @@
                   </div>
                 {%- else -%}
                   <div class="card__header">
-                    <h2 class="card__title">{%- render:'icon',icon:'ny_finish' -%}Return Policy</h2>
+                    <h2 class="card__title  heading">{%- render:'icon',icon:'ny_finish' -%}Return Policy</h2>
                   </div>
 
                   <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
@@ -195,10 +194,10 @@
             </div>
           {%- when 'description' -%}
           {%- if product.description != blank -%}
-            <div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
+            <div class="product-form__item product-block-list__item--description " {{ block.shopify_attributes }}>
                 {%- if block.settings.display_mode == 'collapse' -%}
                   <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                    <span class="card__title">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</span>
+                    <span class="card__title  heading">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</span>
                     <span class="card-arrow">
                       {%- render 'icon', icon: 'arrow-bottom' -%}
                     </span>
@@ -213,7 +212,7 @@
                   </div>
                 {%- else -%}
                   <div class="card__header">
-                    <h2 class="card__title">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</h2>
+                    <h2 class="card__title heading">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</h2>
                   </div>
 
                   <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
