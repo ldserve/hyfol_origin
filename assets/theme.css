@@ -5682,9 +5682,7 @@ select option {
   display: block;
   padding: 5px 0;
 }
-.container .font_16 {
-  font-size: 16px;
-}
+
 .footer__newsletter-form {
   margin-top: 20px;
 }
@@ -5784,12 +5782,14 @@ select option {
 }
 @media screen and (max-width: 640px) {
 
+  .container .font_16 {
+    font-size: 16px;
+  }
   /* .footer__block-item {
     margin-right: calc(-1 * var(--mobile-container-gutter));
     padding-right: var(--mobile-container-gutter);
     border-bottom: 1px solid var(--border-color);
   }
-
   .footer__block-item--newsletter {
     border-bottom: none;
     order: 1;
@@ -15110,4 +15110,11 @@ shopify-payment-terms {
   } 
   span._ks_text {
     text-transform: uppercase;
+}
+.product-gallery__carousel-wrapper .sellpoint {
+  background: url('https://cdn.shopifycdn.net/s/files/1/0595/0691/7535/files/HYFOL__01_610c5772-2811-4b0c-b3e5-4e280233f51c.jpg?v=1648017960') center center;
+  background-size: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
 }

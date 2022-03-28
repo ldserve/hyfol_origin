@@ -24,6 +24,13 @@
             "low_inventory_threshold": 5
           }
         },
+        "78a65596-bd80-4353-82c9-7ede27334ff0": {
+          "type": "product_sellpoint",
+          "settings": {
+            "notsale_tag": "Nopromotion",
+            "sale_text": "10% off 3 pieces | 20% off 4 pieces"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -76,6 +83,7 @@
       "block_order": [
         "product_meta",
         "variant_selector",
+        "78a65596-bd80-4353-82c9-7ede27334ff0",
         "buy_buttons",
         "40401d43-e40a-46bd-b84a-7563498f1427",
         "220a0d08-af6d-41fd-a53d-f77edb36997c",
@@ -91,6 +99,17 @@
         "enable_image_zoom": true,
         "zoom_effect": "outside",
         "carousel_effect": "fade"
+      }
+    },
+    "1648198863f0dd211e": {
+      "type": "no_space_img",
+      "disabled": true,
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/1920_521383b7-2357-45e6-a93e-4f6fd17bef8e.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/T11861820NS_eda458a1-a10d-4879-b029-dca2b4c3fcde.jpg",
+        "link": "",
+        "shadow": false
       }
     },
     "product-recommendations": {
@@ -161,6 +180,7 @@
   },
   "order": [
     "main",
+    "1648198863f0dd211e",
     "product-recommendations",
     "recently-viewed-products",
     "16476891022bcaf9d0",

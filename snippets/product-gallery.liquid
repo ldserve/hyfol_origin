@@ -1,9 +1,9 @@
 {%- if product.media.size > 0 -%}
   {%- assign show_thumbnails_if_one_media = true -%}
   {%- if template.name == 'product' and template != 'product.quick-view' -%}
-      <h1 class=" hidden-lap-and-up tac">{{ product.title }}</h1>
+      <h1 class="heading hidden-lap-and-up tac">{{ product.title }}</h1>
     {%- else -%}
-      <h3 class=" h2 hidden-lap-and-up tac">
+      <h3 class="heading h2 hidden-lap-and-up tac">
         <a href="{{ product.url }}">{{ product.title }}</a>
       </h3>
     {%- endif -%}
@@ -105,13 +105,13 @@
                 {%- endcase -%}
               </div>
             {%- endfor -%}
-            {%- if section.settings.cjj_pro_bg_top!=blank -%}
+<!--             {%- if section.settings.cjj_pro_bg_top!=blank -%}
               <div class="poa w100 z-1 top-0 left-0">
                 {%- capture supported_sizes_top -%}{%- render 'image-size', sizes: '300,500,600,700,800', image: section.settings.cjj_pro_bg_top -%}{%- endcapture -%}
                 {%- assign image_url_top = section.settings.cjj_pro_bg_top | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                 <img class=" lazyload w100 " data-src="{{ image_url_top }}" data-widths="[{{ supported_sizes_top }}]" data-sizes="auto" alt="{{ section.settings.cjj_pro_bg_top_alt | escape }}">
               </div>
-            {%- endif -%}
+            {%- endif -%} -->
             {%- if section.settings.cjj_pro_bg_bottom!=blank -%}
               <div class="poa w100 z-1 bottom-0 left-0">
                 {%- capture supported_sizes_bottom -%}{%- render 'image-size', sizes: '300,500,600,700,800', image: section.settings.cjj_pro_bg_bottom -%}{%- endcapture -%}

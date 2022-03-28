@@ -180,7 +180,7 @@
           "ccab5dcb-d3a7-4a2e-9c0e-6699c88abf2e": {
             "type": "announcement",
             "settings": {
-              "text": "10% OFF 3 PIECES | 20% OFF 4 PIECES",
+              "text": "10% OFF 3 PIECES | 20% OFF 4 PIECES *",
               "link": ""
             }
           },
@@ -231,6 +231,7 @@
         "blocks": {
           "e8850df0-8b93-4fca-922e-69969957b277": {
             "type": "newsletter",
+            "disabled": true,
             "settings": {
               "show_only_on_index": true,
               "show_only_for_visitors": true,
