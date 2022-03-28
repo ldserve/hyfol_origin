@@ -1117,13 +1117,15 @@
             data.compare_at_price=''
           }
           data.primary_media_src=product.media[0].src.replace(/.jpg/,'_{width}x.jpg');
-          if(product.media[1]){
-            data.second_media_id=product.media[1].id;
-            data.second_media_src=product.media[1].src.replace(/.jpg/,'_{width}x.jpg');
-          }else{
-            data.second_media_id=product.media[0].id;
-            data.second_media_src=product.media[0].src.replace(/.jpg/,'_{width}x.jpg');
+          if (product.media[1]) {
+          if (product.media[1].media_type === 'image') {
+            data.second_media_id = product.media[1].id;
+            data.second_media_src = product.media[1].preview_image.src.replace(/.jpg/, '_{width}x.jpg');
           }
+        } else {
+          data.second_media_id = product.media[0].id;
+          data.second_media_src = product.media[0].src.replace(/.jpg/, '_{width}x.jpg');
+        }
 
           data.first_variants_id=product.variants[0].id;
           data.ratingColor=this.ratingColor;
