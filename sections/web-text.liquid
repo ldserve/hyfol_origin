@@ -1,6 +1,6 @@
 <style>
     @media screen and (max-width:750px) {
-     #main   #shopify-section-{{section.id}} {
+     #main   #shopify-section-{{section.id}} .indexContainer{
         padding: 10px 30px;
         display:block;
     }
@@ -12,11 +12,14 @@
         width: 100%;
     }
     }
-    #shopify-section-{{section.id}} {
-        background-color:#E0DAD1;
+    #shopify-section-{{section.id}} .section{
+                background-color:#E0DAD1;
+                margin-bottom: 0;
+    }
+    #shopify-section-{{section.id}} .indexContainer{
         display:flex;
         justify-content: center;
-        padding: 90px 30px;
+        padding: 50px 50px;
     } 
     {%- for block in section.blocks -%}
     {% assign indx = forloop.length %}
@@ -29,21 +32,28 @@
         margin: 0;
         width:calc(100%/{{indx}});
     }
-    #shopify-section-{{section.id}} p{
+    #shopify-section-{{section.id}} .indexContainer p{
         margin: 0;
+        word-break: break-word;
     }
    #main #shopify-section-{{section.id}} .text-container:nth-last-child(1){
         border: none;
     }
 </style>
 
-{%- for block in section.blocks-%}
-<div class="text-container">
-    <h3 class="heading  h3">{{block.settings.title}} </h3>
-    <div>{{block.settings.content}}</div>
-    
+<section class="section">
+<div class="indexContainer">
+    {%- for block in section.blocks-%}
+    <div class="text-container">
+        <h3 class="heading  h3">{{block.settings.title}} </h3>
+        <div>{{block.settings.content}}</div>
+        
+    </div>
+    {%- endfor -%}
 </div>
-{%- endfor -%}
+
+
+</section>
 
 {% schema %}
 {
