@@ -9361,7 +9361,6 @@ select option {
 .product-form__option-name {
   display: block;
   margin-bottom: 2px;
-  text-transform: uppercase;
 }
 
 .product-form__selected-value {
