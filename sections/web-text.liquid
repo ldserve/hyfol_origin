@@ -1,0 +1,76 @@
+<style>
+    @media screen and (max-width:750px) {
+     #main   #shopify-section-{{section.id}} {
+        padding: 10px 30px;
+        display:block;
+    }
+   #main #shopify-section-{{section.id}} .text-container{
+        padding: 22px 20px;
+        border-right: none;
+        border-bottom:1px solid #6C675D;
+        font-size: 14px;
+        width: 100%;
+    }
+    }
+    #shopify-section-{{section.id}} {
+        background-color:#E0DAD1;
+        display:flex;
+        justify-content: center;
+        padding: 90px 30px;
+    } 
+    {%- for block in section.blocks -%}
+    {% assign indx = forloop.length %}
+    {%- endfor -%}
+    #shopify-section-{{section.id}} .text-container{
+        padding: 0px 70px;
+        border-right: 2px solid #6C675D;
+        font-size: 20px;
+        text-align: center;
+        margin: 0;
+        width:calc(100%/{{indx}});
+    }
+    #shopify-section-{{section.id}} p{
+        margin: 0;
+    }
+   #main #shopify-section-{{section.id}} .text-container:nth-last-child(1){
+        border: none;
+    }
+</style>
+
+{%- for block in section.blocks-%}
+<div class="text-container">
+    <h3 class="heading  h3">{{block.settings.title}} </h3>
+    <div>{{block.settings.content}}</div>
+    
+</div>
+{%- endfor -%}
+
+{% schema %}
+{
+	"name": "Footer-text",
+    "blocks": [
+    {
+      "type": "text",
+      "name": "内容",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题",
+          "default": "About our store"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "文本内容",
+          "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>"
+        }
+      ]
+    }],
+	"presets": [
+		{
+			"name": "Footer-text"
+		}
+	]
+}
+{% endschema %}
