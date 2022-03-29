@@ -58,7 +58,7 @@
     flex-direction:{{section.settings.title_align}}
   }
   .ld-imageText .title{
-    width: 30%;
+    width: 45%;
   }
   .ld-imageText .PC{
     width: 70%;
@@ -83,16 +83,16 @@
   }
   
   #shopify-section-{{ section.id }} .ld-imageText .title .title-item {
-    font-size: {{section.settings.title_size}}px;
+    font-size: {{section.settings.title_size}}vw;
     color: {{section.settings.text_color}};
     font-weight: {{section.settings.text_style}};
   }
 
 
   #shopify-section-{{ section.id }} .ld-imageText .title .title-big-title {
-    font-size: {{section.settings.sub_title_size}}px;
+    font-size: {{section.settings.sub_title_size}}vw;
     color: {{section.settings.text_color}};
-    font-weight: {{section.settings.text_style}};
+    font-weight: {{section.settings.s_text_style}};
     position: relative;
     bottom:{{section.settings.sub_title_top}}px;
   }
@@ -289,20 +289,20 @@ border: 1px #fff solid;
   "type": "range",
   "id": "title_size",
   "min": 0,
-  "max": 100,
-  "step": 1,
-  "unit": "px",
+  "max": 16,
+  "step": 0.5,
+  "unit": "vw",
   "label": "一级标题标题文字大小",
-  "default": 6
+  "default": 4
   }, {
   "type": "range",
   "id": "sub_title_size",
   "min": 0,
-  "max": 100,
-  "step": 1,
-  "unit": "px",
+  "max": 16,
+  "step": 0.5,
+  "unit": "vw",
   "label": "二级标题标题文字大小",
-  "default": 4
+  "default": 1.5
   },
   {
     "type": "range",
@@ -371,7 +371,31 @@ border: 1px #fff solid;
         }
       ],
       "default": "normal",
-      "label": "标题文字粗细"
+      "label": "一级标题文字粗细"
+    },
+    {
+      "type": "select",
+      "id": "s_text_style",
+      "options": [
+        {
+          "value": "lighter",
+          "label": "细"
+        },
+        {
+          "value": "normal",
+          "label": "常规"
+        },
+        {
+          "value": "bold",
+          "label": "粗体"
+        },
+        {
+          "value": "bolder",
+          "label": "加粗"
+        }
+      ],
+      "default": "normal",
+      "label": "二级标题文字粗细"
     },
     {
       "type": "select",
