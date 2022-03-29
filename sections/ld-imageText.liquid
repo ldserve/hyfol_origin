@@ -58,7 +58,7 @@
     flex-direction:{{section.settings.title_align}}
   }
   .ld-imageText .title{
-    width: 30%;
+    width: 45%;
   }
   .ld-imageText .PC{
     width: 70%;
@@ -92,7 +92,7 @@
   #shopify-section-{{ section.id }} .ld-imageText .title .title-big-title {
     font-size: {{section.settings.sub_title_size}}px;
     color: {{section.settings.text_color}};
-    font-weight: {{section.settings.text_style}};
+    font-weight: {{section.settings.s_text_style}};
     position: relative;
     bottom:{{section.settings.sub_title_top}}px;
   }
@@ -371,7 +371,31 @@ border: 1px #fff solid;
         }
       ],
       "default": "normal",
-      "label": "标题文字粗细"
+      "label": "一级标题文字粗细"
+    },
+    {
+      "type": "select",
+      "id": "s_text_style",
+      "options": [
+        {
+          "value": "lighter",
+          "label": "细"
+        },
+        {
+          "value": "normal",
+          "label": "常规"
+        },
+        {
+          "value": "bold",
+          "label": "粗体"
+        },
+        {
+          "value": "bolder",
+          "label": "加粗"
+        }
+      ],
+      "default": "normal",
+      "label": "二级标题文字粗细"
     },
     {
       "type": "select",
