@@ -224,7 +224,6 @@
     },
     "164742408779389987": {
       "type": "no_space_img",
-      "disabled": true,
       "settings": {
         "sensorsName": "PATRIOT LEAGUE",
         "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_59d20867-9da8-423a-8cf1-2859ba329c41.jpg",
@@ -235,6 +234,7 @@
     },
     "1648191714c3e1b050": {
       "type": "ld-imageText",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/02_0d425458-8123-4a0d-9e23-6414dd915332.jpg",
         "mobile_image": "shopify:\/\/shop_images\/01_4182a480-96f6-4455-91d5-0bfc2d1d98c9.jpg",
