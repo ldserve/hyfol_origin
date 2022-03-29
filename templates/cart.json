@@ -17,6 +17,8 @@
         "88018ed7-27e5-4cee-8f78-ce82cd36e190"
       ],
       "settings": {
+        "show_car_bar": false,
+        "cart_show_count_down": true,
         "enable_order_notes": true,
         "show_payment_icons": true,
         "gift_wrap_product": "",
@@ -36,10 +38,44 @@
         "title": "Recently viewed",
         "show_quick_buy": false
       }
+    },
+    "164855003715c57e88": {
+      "type": "web-text",
+      "blocks": {
+        "89c2b7d5-c49f-4ad4-af07-48c122d6ae70": {
+          "type": "text",
+          "settings": {
+            "title": "DELIVERY TIME",
+            "content": "<p>For most situations, it takes around<br\/>5 business days to process.<\/p>"
+          }
+        },
+        "bec8e211-529e-4447-ad4a-86bbea536204": {
+          "type": "text",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "content": "<p>all orders of $60 or more are qualified for<br\/>free shipping.<\/p>"
+          }
+        },
+        "2560d647-032b-456b-9d37-57dfe3feab63": {
+          "type": "text",
+          "settings": {
+            "title": "REFUND POLICY",
+            "content": "<p>You have a maximum of 30 days to return your items.<br\/>You must send back your items to<br\/>an informed address by the customer service.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "89c2b7d5-c49f-4ad4-af07-48c122d6ae70",
+        "bec8e211-529e-4447-ad4a-86bbea536204",
+        "2560d647-032b-456b-9d37-57dfe3feab63"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
-    "recently-viewed-products"
+    "recently-viewed-products",
+    "164855003715c57e88"
   ]
 }
