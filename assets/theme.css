@@ -8952,9 +8952,19 @@ select option {
 }
 .product-gallery__carousel-item .product-gallery-tag {
   position: absolute;
-  top: 10%;
+  top: 13%;
   right: 0;
   z-index: 2;
+  font-size: 12px;
+  line-height: 24px;
+  padding: 0 5px;
+}
+.product-gallery__carousel-item .product-gallery-tag-arrow {
+  border-top:  12px solid transparent;
+  border-bottom:  12px solid transparent;
+  position: absolute;
+  top: 0;
+  left: -12px;
 }
 .product-gallery__carousel-item--hidden {
   visibility: hidden;
