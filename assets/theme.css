@@ -8958,10 +8958,12 @@ select option {
   font-size: 12px;
   line-height: 24px;
   padding: 0 5px;
+  background-color: #fc0;
 }
 .product-gallery__carousel-item .product-gallery-tag-arrow {
   border-top:  12px solid transparent;
   border-bottom:  12px solid transparent;
+  border-right: 12px solid #fc0;
   position: absolute;
   top: 0;
   left: -12px;
