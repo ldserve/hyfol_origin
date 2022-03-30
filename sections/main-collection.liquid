@@ -1035,7 +1035,7 @@
 		<span
 			class="product-label product-label--on-sale">#{save}</span>
 	</div>
-	<a href="#{url}" class="product-item__image-wrapper product-item__image-wrapper--with-secondary">
+	<a href="#{url}" class="product-item__image-wrapper product-item__image-wrapper--with-secondary" style="background-color:#fff">
 		<div class="aspect-ratio" style="padding-bottom: 100%">
 			<img class="product-item__primary-image lazyload image--fade-in" data-media-id="#{data.primary_media_id}"
 					 data-src="#{primary_media_src}" data-sizes="auto" data-widths="[200,300,400,500,600,700,800]"
@@ -1166,13 +1166,13 @@
             data.compare_at_price=''
           }
           data.primary_media_src=product.media[0].src.replace(/.jpg/,'_{width}x.jpg');
-          if(product.media[1]){
-            data.second_media_id=product.media[1].id;
-            data.second_media_src=product.media[1].src.replace(/.jpg/,'_{width}x.jpg');
-          }else{
-            data.second_media_id=product.media[0].id;
-            data.second_media_src=product.media[0].src.replace(/.jpg/,'_{width}x.jpg');
-          }
+          if (product.media[1]) {
+            data.second_media_id = product.media[1].id;
+            data.second_media_src = product.media[1].preview_image.src.replace(/.jpg/, '_{width}x.jpg');
+        } else {
+          data.second_media_id = product.media[0].id;
+          data.second_media_src = product.media[0].src.replace(/.jpg/, '_{width}x.jpg');
+        }
 
           data.first_variants_id=product.variants[0].id;
           data.ratingColor=this.ratingColor;
@@ -1201,7 +1201,6 @@
           }
           this.data=data;
           this.colors=colors;
-
           let newdom=this.render();
           if(!this.data.compare_at_price){
             newdom.querySelector('.price--highlight').classList.remove('price--highlight')

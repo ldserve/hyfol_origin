@@ -9043,9 +9043,21 @@ select option {
 }
 .product-gallery__carousel-item .product-gallery-tag {
   position: absolute;
-  top: 10%;
+  top: 13%;
   right: 0;
   z-index: 2;
+  font-size: 12px;
+  line-height: 24px;
+  padding: 0 5px;
+  background-color: #fc0;
+}
+.product-gallery__carousel-item .product-gallery-tag-arrow {
+  border-top:  12px solid transparent;
+  border-bottom:  12px solid transparent;
+  border-right: 12px solid #fc0;
+  position: absolute;
+  top: 0;
+  left: -12px;
 }
 .product-gallery__carousel-item--hidden {
   visibility: hidden;
@@ -9427,7 +9439,9 @@ select option {
 .product-form__variants {
   margin-bottom: 24px;
 }
-
+.procut-discount {
+  margin-bottom: 10px;
+}
 .product-form__option {
   margin-bottom: 23px;
   position: relative;
