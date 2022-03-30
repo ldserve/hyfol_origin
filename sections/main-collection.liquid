@@ -961,14 +961,14 @@
       if(event.target.id != "clean_all_button"){
           e = e || window.event || arguments.callee.caller.arguments[0]
           e.stopPropagation()
-          document.getElementById('filter_content').className= 'filter_content1 hidden-pocket'
+          document.getElementById('filter_content').className= 'filter_content_show hidden-pocket'
        }
     }
   }
   function filter(e){
     e = e || window.event || arguments.callee.caller.arguments[0]
      e.stopPropagation()
-     document.getElementById('filter_content').className == 'filter_content hidden-pocket' ? document.getElementById('filter_content').className= 'filter_content1 hidden-pocket': document.getElementById('filter_content').className= 'filter_content hidden-pocket'
+     document.getElementById('filter_content').className == 'filter_content hidden-pocket' ? document.getElementById('filter_content').className= 'filter_content_show hidden-pocket': document.getElementById('filter_content').className= 'filter_content hidden-pocket'
   }
  
 

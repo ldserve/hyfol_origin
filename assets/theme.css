@@ -3659,7 +3659,7 @@ img.lazyload[data-sizes=auto] {
  height: 0px;
 }
 
-.filter_content1{
+.filter_content_show{
   width: 101%;
   position: absolute;
   height: calc(100% - 100px);
@@ -3675,7 +3675,7 @@ img.lazyload[data-sizes=auto] {
 .filter_content .filter_content_layout{
    display: none;
 }
-.filter_content1 .filter_content_layout{
+.filter_content_show .filter_content_layout{
     width: 100%;
     min-width: 500px;
     height: 100%;
