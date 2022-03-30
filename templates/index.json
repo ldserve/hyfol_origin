@@ -412,8 +412,37 @@
         "description": "<p>Show us how you match. <\/p><p>Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
       }
     },
+    "16486080199c077c37": {
+      "type": "ld-imageText",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/02_57b62a62-927f-458c-9472-dec16c7f9aa3.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/01_817c555d-98ba-410c-8153-50c8b6babcd3.jpg",
+        "link": "",
+        "title_align": "row",
+        "title_tb": "column-reverse",
+        "title": "NEW SLETTER",
+        "subtitle": "Never miss any HYFOL new fashion",
+        "button": "",
+        "show": true,
+        "title_size": 4,
+        "sub_title_size": 1.5,
+        "m_title_size": 30,
+        "m_sub_title_size": 9,
+        "sub_title_top": 23,
+        "m_sub_title_top": 10,
+        "text_color": "#fff",
+        "text_style": "bolder",
+        "s_text_style": "normal",
+        "text_align": "center",
+        "button_color": "#ffffff",
+        "button_text_color": "#1b1b1b",
+        "button_color_hover": "#fff",
+        "button_text_color_hover": "#000"
+      }
+    },
     "newsletter": {
       "type": "newsletter",
+      "disabled": true,
       "settings": {
         "title": "NEWSLETTER",
         "content": "<p>Never miss any HYFOL new fashion!<\/p>",
@@ -467,6 +496,7 @@
     "16486063216ada3a56",
     "1647498064c408cfd6",
     "1640334828c8a975c8",
+    "16486080199c077c37",
     "newsletter",
     "164854339383efd708"
   ]
