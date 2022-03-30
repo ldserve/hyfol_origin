@@ -188,17 +188,6 @@
         "link_url": ""
       }
     },
-    "164742408779389987": {
-      "type": "no_space_img",
-      "disabled": true,
-      "settings": {
-        "sensorsName": "PATRIOT LEAGUE",
-        "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_59d20867-9da8-423a-8cf1-2859ba329c41.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/360f844e7bb810da95861fb65c5c8def_31505a07-18ad-4b41-a218-f76e78377dd1.jpg",
-        "link": "shopify:\/\/collections\/american-flag",
-        "shadow": false
-      }
-    },
     "1648191714c3e1b050": {
       "type": "ld-imageText",
       "settings": {
@@ -437,7 +426,6 @@
     "164742631051d4db44",
     "16474280605793ac57",
     "1647497707f35ea4d8",
-    "164742408779389987",
     "1648191714c3e1b050",
     "1647424215f34c4fad",
     "1647428400b9292564",
