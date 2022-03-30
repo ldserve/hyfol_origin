@@ -74,9 +74,9 @@
 		{%- endif -%}
 	{%- endif -%}
 {%- endunless -%}
-<section data-section-id="{{ section.id }}" data-section-type="collection" data-section-settings='{{ section_settings }}'>
+<section data-section-id="{{ section.id }}" onclick="closeFilter(event)" data-section-type="collection" data-section-settings='{{ section_settings }}'>
 
-	<div class="container" onclick="closeFilter()">
+	<div class="container"  id="container">
 
     <div {% if has_filters %}class=""{% endif %}>
       {%- comment -%}
@@ -189,7 +189,7 @@
                   </div>
                 </header>
 
-                <div class="mark-position">
+              
                   <div class="collection__toolbar {% if collection.description != blank or collection.template_suffix == 'brand' %}collection__toolbar--bordered{% endif %}">
                     {%- if has_filters -%}
                       <button class="collection__toolbar-item collection__toolbar-item--filter hidden-lap-and-up" data-action="open-drawer" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-collection-filters">
@@ -289,10 +289,9 @@
                     <!-- pc端展开过滤器 -->
                   <div class="filter_content hidden-pocket" id="filter_content">
                       <div class="filter_content_layout">
-                          <div class="filter_content_layout_mask">
+                        
                             {%- if has_filters -%}
-                            <div >
-                              <div>
+                    
                                 <!-- {%- if quick_links_menu.links.size > 0 -%}
                                   <div class="card__section card__section--tight">
                                     <p class="card__title--small heading">{{ quick_links_menu.title }}</p>
@@ -345,13 +344,14 @@
                     
                                 {%- if section.settings.show_filters and collection.filters != empty -%}
                                   <form id="desktop-filters-form" class="card__section card__section--tight filter_section_margin">
+                                     <div class="filter_white_content" id="filter_white_content" >
                                     <input type="hidden" name="sort_by" value="{{ sort_by }}">
                     
                                     {%- if collection.current_type != blank or collection.current_vendor != blank -%}
                                       <input type="hidden" name="q" value="{{ collection.current_vendor | default: collection.current_type | escape }}">
                                     {%- endif -%}
                     
-                                    <p class="card__title--small heading">{{ 'collection.filter.all' | t }}</p>
+                                    <p class="card__title--small heading">{{ 'collection.filter.all' | t }}  <span class="filter_white_content_close" onclick="filter()">{% render 'icon', icon:"close" %}</span> </p>
                                 
                                     
                                     <!-- 渲染集合中的过滤器列表 总指挥 -->
@@ -384,7 +384,7 @@
                                             {%- case filter.type -%}
                                               {%- when 'list' -%}
                                                 {%- if show_color_swatch -%}
-                                                  <div class="collection__filter-color-list">
+                                                  <div class="collection__filter-color-list filter_item_min_height">
                                                     <div class="color-swatch-list color-swatch-list--large">
                                                       {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
                     
@@ -455,7 +455,7 @@
                                       <!-- 控制筛选条件 -->
                                       <div class="collection__active-filters filter_item_group">
                                         {%- assign active_filter_values = 0 -%}
-                      
+                                          <div style="overflow: auto; height: 100%;">
                                         {%- for filter in collection.filters -%}
                                           {%- if filter.type == 'list' -%}
                                             {%- for filter_value in filter.active_values -%}
@@ -473,10 +473,11 @@
                                             </button>
                                           {%- endif -%}
                                         {%- endfor -%}
+                                      </div>
                       
                                          <!-- 如果存在过滤器则添加按钮用于清除所有过滤器 -->
                                         {%- if active_filter_values > 0 -%}
-                                          <button type="button" class="collection__clear-filter button button--small button--transparent button--full" data-action="clear-filters" data-url="{{ collection.url }}?sort_by={{ sort_by }}">{{ 'collection.filter.clear_all' | t }}</button>
+                                          <button type="button" id="clean_all_button" class="collection__clear-filter button button--small button--transparent button--full" data-action="clear-filters" data-url="{{ collection.url }}?sort_by={{ sort_by }}">{{ 'collection.filter.clear_all' | t }}</button>
                                         {%- endif -%}
                                       </div>
                                     </div>
@@ -484,15 +485,15 @@
                                     <noscript>
                                       <button type="submit" class="button button--secondary button--full" style="margin-top: 10px">{{ 'collection.filter.view_results' | t }}</button>
                                     </noscript>
+                                  </div>
                                   </form>
                                 {%- endif -%}
-                              </div>
-                            </div>
                           {%- endif -%}
                           </div>
-                          <div class="filter_size"></div>
-                          <div class="filter_color"></div>
-                      </div>
+
+                          <div class="filter_content_layout_mask">
+                          </div>
+                    
                   </div>
                   {%- comment -%}
                   --------------------------------------------------------------------------------------
@@ -557,7 +558,7 @@
 
                     {%- render 'pagination', paginate: paginate -%}
                   {%- endif -%}
-                </div>
+                
               </div>
             {%- endif -%}
           </div>
@@ -951,16 +952,27 @@
   }
 </style>
 <script>
-  function closeFilter(){
-    console.log(123);
-    document.getElementById('filter_content').className= 'filter_content'
- 
+
+  function closeFilter(e){
+    // console.log(e.target.closest('#filter_white_content'))
+    if(e.target.closest('#filter_white_content') == null){
+      document.getElementById('filter_content').className= 'filter_content hidden-pocket'
+    }else{
+      if(event.target.id != "clean_all_button"){
+          e = e || window.event || arguments.callee.caller.arguments[0]
+          e.stopPropagation()
+          document.getElementById('filter_content').className= 'filter_content1 hidden-pocket'
+       }
+    }
   }
   function filter(e){
     e = e || window.event || arguments.callee.caller.arguments[0]
      e.stopPropagation()
      document.getElementById('filter_content').className == 'filter_content hidden-pocket' ? document.getElementById('filter_content').className= 'filter_content1 hidden-pocket': document.getElementById('filter_content').className= 'filter_content hidden-pocket'
   }
+ 
+
+
   ~function () {
       // 处理布局
       let productList = document.querySelector('.product-list')
