@@ -9348,7 +9348,9 @@ select option {
 .product-form__variants {
   margin-bottom: 24px;
 }
-
+.procut-discount {
+  margin-bottom: 10px;
+}
 .product-form__option {
   margin-bottom: 23px;
   position: relative;

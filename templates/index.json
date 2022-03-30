@@ -4,44 +4,10 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "banner",
-        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_banner_2713fcc5-4ae0-4fdb-a911-bcf314fa3f63.jpg",
+        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_909ed55c-27f8-4ac2-ab47-7b0c5e5fe345.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/94d53239037849179c79285840325f32_7f6e915f-c01a-4c96-8cee-be7853dc75c4.jpg",
         "link": "shopify:\/\/collections\/lets-go-out",
         "shadow": false
-      }
-    },
-    "16474236687749dfbd": {
-      "type": "slideshow",
-      "disabled": true,
-      "blocks": {
-        "16474236686ae800c9-0": {
-          "type": "image",
-          "settings": {
-            "sensorsName": "",
-            "image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_banner_2713fcc5-4ae0-4fdb-a911-bcf314fa3f63.jpg",
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "",
-            "content": "",
-            "content_position": "middle_left",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "",
-            "link": "shopify:\/\/collections\/new-in-1"
-          }
-        }
-      },
-      "block_order": [
-        "16474236686ae800c9-0"
-      ],
-      "settings": {
-        "edge_to_edge": true,
-        "section_size": "preserve_ratio",
-        "carousel_effect": "slide",
-        "autoplay": true,
-        "cycle_speed": 5
       }
     },
     "16474248460d0593be": {
@@ -121,7 +87,7 @@
         "sensorsName": "pc分类导流区",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/pc_57c39fb4-b80e-4f4d-9266-7d426b04d527.jpg",
+        "image": "shopify:\/\/shop_images\/pc_c2f4e83d-c798-44e8-902b-a41aa9b8be02.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -191,21 +157,39 @@
         "sensorsName": "mobile分类导流区",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/94d53239037849179c79285840325f32_1cbbf02c-2d36-402f-8667-52594214d27f.jpg",
+        "image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_724518ea-58ba-4a51-8115-6133dd33b28b.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
         "lpadding": 0
       }
     },
-    "16474280605793ac57": {
-      "type": "no_space_img",
+    "1648607115d95fb2d3": {
+      "type": "ld-imageText",
       "settings": {
-        "sensorsName": "SKULL MADMAN",
-        "bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1_812a2537-398d-4a71-8f04-06d63e853cdd.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-banner.jpg",
+        "image": "shopify:\/\/shop_images\/01_187e42a7-e20d-482d-81bc-11f09fd1b4f0.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/01_ac30c9cd-a5d8-4757-9fc2-1fae4e95c81c.jpg",
         "link": "shopify:\/\/collections\/skull",
-        "shadow": false
+        "title_align": "row-reverse",
+        "title_tb": "column-reverse",
+        "title": "SKULL MADMAN",
+        "subtitle": "ROCK THE SKULL STYLE",
+        "button": "EXPLORE NOW",
+        "show": false,
+        "title_size": 4,
+        "sub_title_size": 1.5,
+        "m_title_size": 30,
+        "m_sub_title_size": 13,
+        "sub_title_top": 24,
+        "m_sub_title_top": 10,
+        "text_color": "#fff",
+        "text_style": "bolder",
+        "s_text_style": "normal",
+        "text_align": "center",
+        "button_color": "#ed6123",
+        "button_text_color": "#fff",
+        "button_color_hover": "#fff",
+        "button_text_color_hover": "#000"
       }
     },
     "1647497707f35ea4d8": {
@@ -222,19 +206,8 @@
         "link_url": ""
       }
     },
-    "164742408779389987": {
-      "type": "no_space_img",
-      "settings": {
-        "sensorsName": "PATRIOT LEAGUE",
-        "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_59d20867-9da8-423a-8cf1-2859ba329c41.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/360f844e7bb810da95861fb65c5c8def_31505a07-18ad-4b41-a218-f76e78377dd1.jpg",
-        "link": "shopify:\/\/collections\/american-flag",
-        "shadow": false
-      }
-    },
     "1648191714c3e1b050": {
       "type": "ld-imageText",
-      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/02_0d425458-8123-4a0d-9e23-6414dd915332.jpg",
         "mobile_image": "shopify:\/\/shop_images\/01_4182a480-96f6-4455-91d5-0bfc2d1d98c9.jpg",
@@ -249,7 +222,7 @@
         "sub_title_size": 1.5,
         "m_title_size": 30,
         "m_sub_title_size": 13,
-        "sub_title_top": 40,
+        "sub_title_top": 29,
         "m_sub_title_top": 10,
         "text_color": "#ffffff",
         "text_style": "bolder",
@@ -275,14 +248,32 @@
         "link_url": ""
       }
     },
-    "1647428400b9292564": {
-      "type": "no_space_img",
+    "16486063216ada3a56": {
+      "type": "ld-imageText",
       "settings": {
-        "sensorsName": "TACTICAL CLUB",
-        "bg_image": "shopify:\/\/shop_images\/abcf5cfc64a285e43a89f2bba8d414b3_868bc9e5-5d62-49b5-b476-b312bd443c2a.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/06fa5a8dfa2d76ec7a3d6e9c0b410b0f_5207367b-e24b-4ab6-a10c-9e30ccde165c.jpg",
-        "link": "shopify:\/\/collections\/camou",
-        "shadow": false
+        "image": "shopify:\/\/shop_images\/02_f2383d81-ba3b-4f81-bcd8-d755dbef24a6.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/01_2e4795b6-e17d-4abe-bf59-d49bf8eb3d20.jpg",
+        "link": "shopify:\/\/collections\/tactical-club",
+        "title_align": "row-reverse",
+        "title_tb": "column-reverse",
+        "title": "TACTICAL CLUB",
+        "subtitle": "INSPIRED BY MILITARY GARMNTS",
+        "button": "EXPLORE NOW",
+        "show": false,
+        "title_size": 4,
+        "sub_title_size": 1.5,
+        "m_title_size": 30,
+        "m_sub_title_size": 13,
+        "sub_title_top": 24,
+        "m_sub_title_top": 10,
+        "text_color": "#fff",
+        "text_style": "bolder",
+        "s_text_style": "normal",
+        "text_align": "center",
+        "button_color": "#ffffff",
+        "button_text_color": "#1b1b1b",
+        "button_color_hover": "#fff",
+        "button_text_color_hover": "#000"
       }
     },
     "1647498064c408cfd6": {
@@ -421,8 +412,37 @@
         "description": "<p>Show us how you match. <\/p><p>Label your  post.<strong>@Hyfol_official<\/strong><\/p>"
       }
     },
+    "16486080199c077c37": {
+      "type": "ld-imageText",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/02_57b62a62-927f-458c-9472-dec16c7f9aa3.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/01_817c555d-98ba-410c-8153-50c8b6babcd3.jpg",
+        "link": "",
+        "title_align": "row",
+        "title_tb": "column-reverse",
+        "title": "NEW SLETTER",
+        "subtitle": "Never miss any HYFOL new fashion",
+        "button": "",
+        "show": true,
+        "title_size": 4,
+        "sub_title_size": 1.5,
+        "m_title_size": 30,
+        "m_sub_title_size": 9,
+        "sub_title_top": 23,
+        "m_sub_title_top": 10,
+        "text_color": "#fff",
+        "text_style": "bolder",
+        "s_text_style": "normal",
+        "text_align": "center",
+        "button_color": "#ffffff",
+        "button_text_color": "#1b1b1b",
+        "button_color_hover": "#fff",
+        "button_text_color_hover": "#000"
+      }
+    },
     "newsletter": {
       "type": "newsletter",
+      "disabled": true,
       "settings": {
         "title": "NEWSLETTER",
         "content": "<p>Never miss any HYFOL new fashion!<\/p>",
@@ -430,32 +450,54 @@
         "text": "#1b1b1b"
       }
     },
-    "1647854386e21e1092": {
-      "type": "no_space_img",
+    "164854339383efd708": {
+      "type": "web-text",
+      "blocks": {
+        "a29054e9-b082-4803-9e46-a4cbeb6f0a6d": {
+          "type": "text",
+          "settings": {
+            "title": "DELIVERY TIME",
+            "content": "<p>For most situations, it takes around<\/p><p>5 business days to process.<\/p>"
+          }
+        },
+        "2bf97e99-e7f6-4e26-a22d-d15500d0229b": {
+          "type": "text",
+          "settings": {
+            "title": "FREE SHIPPING",
+            "content": "<p>all orders of $60 or more are qualified for<\/p><p> free shipping.<\/p>"
+          }
+        },
+        "17a02184-4051-4cb1-bf90-2427b00b17b0": {
+          "type": "text",
+          "settings": {
+            "title": "REFUND POLICY",
+            "content": "<p>You have a maximum of 30 days to return your items.<\/p><p>You must send back your items to<br\/>an informed address by the customer service.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "a29054e9-b082-4803-9e46-a4cbeb6f0a6d",
+        "2bf97e99-e7f6-4e26-a22d-d15500d0229b",
+        "17a02184-4051-4cb1-bf90-2427b00b17b0"
+      ],
       "settings": {
-        "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/2_9dec5331-2857-464e-b7cf-ac9eb44b6fdb.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_0c5988de-1ec7-4219-b316-85fb1756692e.jpg",
-        "link": "",
-        "shadow": false
       }
     }
   },
   "order": [
     "16476930731e3b7419",
-    "16474236687749dfbd",
     "16474248460d0593be",
     "16474250424edba623",
     "164742631051d4db44",
-    "16474280605793ac57",
+    "1648607115d95fb2d3",
     "1647497707f35ea4d8",
-    "164742408779389987",
     "1648191714c3e1b050",
     "1647424215f34c4fad",
-    "1647428400b9292564",
+    "16486063216ada3a56",
     "1647498064c408cfd6",
     "1640334828c8a975c8",
+    "16486080199c077c37",
     "newsletter",
-    "1647854386e21e1092"
+    "164854339383efd708"
   ]
 }
