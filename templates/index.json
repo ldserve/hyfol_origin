@@ -180,7 +180,7 @@
         "sub_title_size": 1.5,
         "m_title_size": 30,
         "m_sub_title_size": 13,
-        "sub_title_top": 23,
+        "sub_title_top": 24,
         "m_sub_title_top": 10,
         "text_color": "#fff",
         "text_style": "bolder",
@@ -190,17 +190,6 @@
         "button_text_color": "#fff",
         "button_color_hover": "#fff",
         "button_text_color_hover": "#000"
-      }
-    },
-    "16474280605793ac57": {
-      "type": "no_space_img",
-      "disabled": true,
-      "settings": {
-        "sensorsName": "SKULL MADMAN",
-        "bg_image": "shopify:\/\/shop_images\/decc87b0beadec514c3e6db255a058c1_812a2537-398d-4a71-8f04-06d63e853cdd.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-banner.jpg",
-        "link": "shopify:\/\/collections\/skull",
-        "shadow": false
       }
     },
     "1647497707f35ea4d8": {
@@ -472,7 +461,6 @@
     "16474250424edba623",
     "164742631051d4db44",
     "1648607115d95fb2d3",
-    "16474280605793ac57",
     "1647497707f35ea4d8",
     "1648191714c3e1b050",
     "1647424215f34c4fad",
