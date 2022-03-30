@@ -10,40 +10,6 @@
         "shadow": false
       }
     },
-    "16474236687749dfbd": {
-      "type": "slideshow",
-      "disabled": true,
-      "blocks": {
-        "16474236686ae800c9-0": {
-          "type": "image",
-          "settings": {
-            "sensorsName": "",
-            "image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_4ed883e6-93b9-405b-a319-886642d3f7f7.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_banner_2713fcc5-4ae0-4fdb-a911-bcf314fa3f63.jpg",
-            "show_overlay": false,
-            "overlay_opacity": 30,
-            "text_color": "#ffffff",
-            "title": "",
-            "content": "",
-            "content_position": "middle_left",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "button_text": "",
-            "link": "shopify:\/\/collections\/new-in-1"
-          }
-        }
-      },
-      "block_order": [
-        "16474236686ae800c9-0"
-      ],
-      "settings": {
-        "edge_to_edge": true,
-        "section_size": "preserve_ratio",
-        "carousel_effect": "slide",
-        "autoplay": true,
-        "cycle_speed": 5
-      }
-    },
     "16474248460d0593be": {
       "type": "transparent-collection",
       "settings": {
@@ -224,6 +190,7 @@
     },
     "164742408779389987": {
       "type": "no_space_img",
+      "disabled": true,
       "settings": {
         "sensorsName": "PATRIOT LEAGUE",
         "bg_image": "shopify:\/\/shop_images\/8454ae7085a3f8655536bef57d071a8c_59d20867-9da8-423a-8cf1-2859ba329c41.jpg",
@@ -429,17 +396,6 @@
         "text": "#1b1b1b"
       }
     },
-    "1647854386e21e1092": {
-      "type": "no_space_img",
-      "disabled": true,
-      "settings": {
-        "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/2_9dec5331-2857-464e-b7cf-ac9eb44b6fdb.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/c8577a1df210126991a8c79837c61c3f_0c5988de-1ec7-4219-b316-85fb1756692e.jpg",
-        "link": "",
-        "shadow": false
-      }
-    },
     "164854339383efd708": {
       "type": "web-text",
       "blocks": {
@@ -476,7 +432,6 @@
   },
   "order": [
     "16476930731e3b7419",
-    "16474236687749dfbd",
     "16474248460d0593be",
     "16474250424edba623",
     "164742631051d4db44",
@@ -489,7 +444,6 @@
     "1647498064c408cfd6",
     "1640334828c8a975c8",
     "newsletter",
-    "1647854386e21e1092",
     "164854339383efd708"
   ]
 }
