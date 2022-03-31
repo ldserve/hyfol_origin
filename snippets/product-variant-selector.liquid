@@ -144,7 +144,7 @@
 							      "commodity_skuid":"{{ selected_variant.sku }}",
 							      "commodity_image_quantity":"{{product.images.size}}",
                     "commodity_description_text":["{{product.description | handleize }}"],
-				            "commodity_description_image":"",
+				            "commodity_description_image":["{{ product.featured_image | image_url | split: "?" | first  }}"],
 							      "commodity_size":"",
 				            "commodity_color":"",
 							      "commodity_tag":"{{tags}}",

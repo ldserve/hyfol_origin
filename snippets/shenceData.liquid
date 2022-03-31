@@ -41,7 +41,7 @@ let addQuickView=new sadhus_shence({
       }
       newData.commodity_skuid=sku
       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
-      pintrk("track","addtocart",{value:data.current_price,order_quantity:+value,currency:"USD",line_items:[{product_id:id}]});
+      pintrk("track","addtocart",{value:data.current_price,order_quantity:1,currency:"USD",line_items:[{product_id:id}]});
      return newData  /*返回值必须为{}*/
    },
    callback:function(){
@@ -105,10 +105,6 @@ new sadhus_shence({
       const sizeChecked=document.querySelector('.block-swatch-list')
       newData.commodity_color=colorChecked?colorChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
       newData.commodity_size=sizeChecked?sizeChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
-      if(colorChecked){
-         newData.commodity_description_image = []
-         newData.commodity_description_image[0]=document.querySelector('.product-gallery__image.lazyloaded').getAttribute('data-zoom').split('?')[0]
-      }
       newData.commodity_skuid=id
       newData.commodity_tag=data.commodity_tag.split(',')
       return newData  /*返回值必须为{}*/
@@ -151,10 +147,6 @@ if ({{ request.page_type | json }} == 'product') {/*产品页*/
       const sizeChecked=document.querySelector('.block-swatch-list')
       newData.commodity_color=colorChecked?colorChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
       newData.commodity_size=sizeChecked?sizeChecked.previousElementSibling.querySelector('.product-form__selected-value').innerText : ""
-      if(colorChecked){
-         newData.commodity_description_image = []
-         newData.commodity_description_image[0]=el.querySelector('.aspect-ratio img').src
-      }
       newData.commodity_skuid=id
       newData.commodity_tag=data.commodity_tag.split(',')
       return newData  /*返回值必须为{}*/
@@ -241,7 +233,7 @@ let addCart=new sadhus_shence({
       newData.commodity_skuid=sku
       newData.site_category = getSiteCategory()
       gtag("event","conversion",{"send_to":"AW-319309832/2I9aCIf48eYCEIiQoZgB","transaction_id":""});
-      pintrk("track","addtocart",{value:data.current_price,order_quantity:+value,currency:"USD",line_items:[{product_id:id}]});
+      pintrk("track","addtocart",{value:data.current_price,order_quantity:1,currency:"USD",line_items:[{product_id:id}]});
      return newData  /*返回值必须为{}*/
    },
    callback:function(){
