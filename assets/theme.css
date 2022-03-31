@@ -9416,6 +9416,10 @@ select option {
    border-bottom:1px solid rgb(204, 204, 204);
    width: 100%;
 }
+.product-discount-detail{
+  display: flex;
+  align-items: center;
+}
 .product-discount-left{
   margin-left: 5px;
 }

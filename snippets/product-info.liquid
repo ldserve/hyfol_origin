@@ -3,114 +3,71 @@
 {% assign category = product.metafields.my_fields.category %}
 
 {%- if product.tags.size > 1 -%}
-{% for tag in product.tags %}
-{%- if forloop.index == 1 -%}
-   {%- assign commodity_tag = tag -%}
+	{% for tag in product.tags %}
+		{%- if forloop.index == 1 -%}
+			{%- assign commodity_tag = tag -%}
+		{%- else -%}
+			{%- assign commodity_tag = commodity_tag | append: "," | append: tag -%}
+		{%- endif -%}
+	{% endfor %}
+	{%- assign commodity_tag = commodity_tag | split: "," -%}
 {%- else -%}
-   {%- assign commodity_tag = commodity_tag | append: "," | append: tag -%}
+	{%- assign commodity_tag = product.tags -%}
 {%- endif -%}
-{% endfor %}
-   {%- assign commodity_tag = commodity_tag | split: "," -%}
-{%- else -%}
-   {%- assign commodity_tag = product.tags -%}
-{%- endif -%}
-<div class="card {% if product.media.size > 0 %}card--collapsed{% endif %} {% if template.name == 'product' %}card--sticky{% endif %}">
-  {%- if section.settings.enable_image_zoom -%}
-    <div id="product-zoom-{{ section.id }}" class="product__zoom-wrapper"></div>
-  {%- endif -%}
+<div
+	class="card {% if product.media.size > 0 %}card--collapsed{% endif %} {% if template.name == 'product' %}card--sticky{% endif %}">
+	{%- if section.settings.enable_image_zoom -%}
+		<div id="product-zoom-{{ section.id }}" class="product__zoom-wrapper"></div>
+	{%- endif -%}
 
-  <div class="card__section">
-    {%- form 'product', product, id: product_form_id, class: 'product-form' -%}
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'product_meta' -%}
-            {%- render 'product-meta', product: product, block: block -%}
-		
-    		{%- when 'product_sellpoint' -%}
-            	{%- render 'product-sellpoint', product: product, block: block -%}
-    
-          {%- when 'variant_selector' -%}
-            {%- render 'product-variant-selector', product: product, form: form, block: block -%}
+	<div class="card__section">
+		{%- form 'product', product, id: product_form_id, class: 'product-form' -%}
+			{%- for block in section.blocks -%}
+				{%- case block.type -%}
+				{%- when 'product_meta' -%}
+				{%- render 'product-meta', product: product, block: block -%}
 
-          {%- when 'buy_buttons' -%}
-            {%- render 'product-buy-buttons', product: product, form: form, block: block -%}
+				{%- when 'product_sellpoint' -%}
+				{%- render 'product-sellpoint', product: product, block: block -%}
 
-          {%- when 'store_pickup' -%}
-            {%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
-            <div class="product-meta__store-availability-container" {{ block.shopify_attributes }}>
-              {%- render 'store-availability', product_variant: product.selected_or_first_available_variant -%}
-            </div>
+				{%- when 'variant_selector' -%}
+				{%- render 'product-variant-selector', product: product, form: form, block: block -%}
 
-          {%- when 'featured_description' -%}
-            {%- comment -%}This is only shown on the featured product section{%- endcomment -%}
-            {%- if product.description != blank -%}
-              <div class="product-meta__description rte" {{ block.shopify_attributes }}>
-                {{ product.description | remove: 'data-section-type="product"' }}
-              </div>
-            {%- endif -%}
+				{%- when 'buy_buttons' -%}
+				{%- render 'product-buy-buttons', product: product, form: form, block: block -%}
 
-          {%- when '@app' -%}
-            {%- render block -%}
-            {%- when 'delivery' -%}
-            <div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
-              {%- if block.settings.display_mode == 'collapse' -%}
-                <div class="card__collapsible-button " data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                  <span class="card__title   heading"> {%- render:'icon',icon:'cjj_postage' -%}  Delivery</span>
-                  <span class="card-arrow">
+				{%- when 'store_pickup' -%}
+					{%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
+					<div class="product-meta__store-availability-container" {{ block.shopify_attributes }}>
+						{%- render 'store-availability', product_variant: product.selected_or_first_available_variant -%}
+					</div>
+
+				{%- when 'featured_description' -%}
+					{%- comment -%}This is only shown on the featured product section{%- endcomment -%}
+					{%- if product.description != blank -%}
+						<div class="product-meta__description rte" {{ block.shopify_attributes }}>
+							{{ product.description | remove: 'data-section-type="product"' }}
+						</div>
+					{%- endif -%}
+
+				{%- when '@app' -%}
+				{%- render block -%}
+				{%- when 'delivery' -%}
+					<div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
+						{%- if block.settings.display_mode == 'collapse' -%}
+							<div class="card__collapsible-button " data-action="toggle-collapsible" aria-expanded="false"
+									 aria-controls="block-{{ section.id }}-{{ block.id }}">
+								<span class="card__title   heading"> {%- render:'icon',icon:'cjj_postage' -%}  Delivery</span>
+								<span class="card-arrow">
                     {%- render 'icon', icon: 'arrow-bottom' -%}
                   </span>
-                </div>
-  
-                <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
-                  <div class="card__collapsible-content">
-                    <div class="rte text--pull">
-                      <div class="slider-box shipping-body">
-                        <div class="slider-box-content ">
-													<div class="slider-item d-flex ">
-														<div class="slider-item-top">
-															Purchase  <strong>Over $60</strong>
-														</div>
-														<div class="slider-item-bottom">
-															<strong>FREE</strong>
-														</div>
-													</div>
-                          <div class="slider-item d-flex  ">
-                            <div class="slider-item-top">
-                              Purchase <strong>$40-$59.9</strong>
-                            </div>
-                            <div class="slider-item-bottom">
-                              Costs <strong>$5.9</strong>
-                            </div>
-                          </div>
-													<div class="slider-item d-flex ">
-														<div class="slider-item-top">
-															Purchase <strong>$0-$39.9</strong>
-														</div>
-														<div class="slider-item-bottom">
-															Costs <strong>$8.9</strong>
-														</div>
-													</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="rte text--pull">
-                      <div class="slider-box shipping-body">
-                        <div>
-                          Estimated delivery time to US/EU is <strong>7-14</strong> business days
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {%- else -%}
-                <div class="card__header">
-                  <h2 class="card__title  heading "> <span class="icon-color"> {%- render:'icon',icon:'cjj_postage' -%} </span>  Delivery</h2>
-                </div>
-  
-                <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
-                  <div class="rte text--pull">
-                    <div class="slider-box shipping-body">
-                      <div class="slider-box-content ">
+							</div>
+
+							<div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
+								<div class="card__collapsible-content">
+									<div class="rte text--pull">
+										<div class="slider-box shipping-body">
+											<div class="slider-box-content ">
 												<div class="slider-item d-flex ">
 													<div class="slider-item-top">
 														Purchase <strong>Over $60</strong>
@@ -119,14 +76,14 @@
 														<strong>FREE</strong>
 													</div>
 												</div>
-                        <div class="slider-item d-flex  ">
-                          <div class="slider-item-top">
-                            Purchase <strong>$40-$59.9</strong>
-                          </div>
-                          <div class="slider-item-bottom">
-                            Costs <strong>$5.9</strong>
-                          </div>
-                        </div>
+												<div class="slider-item d-flex  ">
+													<div class="slider-item-top">
+														Purchase <strong>$40-$59.9</strong>
+													</div>
+													<div class="slider-item-bottom">
+														Costs <strong>$5.9</strong>
+													</div>
+												</div>
 												<div class="slider-item d-flex ">
 													<div class="slider-item-top">
 														Purchase <strong>$0-$39.9</strong>
@@ -135,180 +92,250 @@
 														Costs <strong>$8.9</strong>
 													</div>
 												</div>
-                      </div>
-                    </div>
-                   <div class="slider-box">
-                     <div>
-                       Estimated delivery time to US/EU is <strong>7-14</strong> business days
-                     </div>
-                   </div>
-                  </div>
-                  {%- if block.settings.display_mode == 'view_more' -%}
-                    <div class="expandable-content__toggle">
-                      <span class="expandable-content__toggle-icon"></span>
-                      <span class="expandable-content__toggle-text" data-view-more="{{ 'product.general.view_more' | t | escape }}" data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
-                    </div>
-                  {%- endif -%}
-                </div>
-              {%- endif -%} 
-          </div>
-        {%- when 'policy' -%}
-            <div class="product-form__item product-block-list__item--description " {{ block.shopify_attributes }}>
-                {%- if block.settings.display_mode == 'collapse' -%}
-                  <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                    <span class="card__title  heading">{%- render:'icon',icon:'ny_finish' -%} Return Policy</span>
-                    <span class="card-arrow">
+											</div>
+										</div>
+									</div>
+									<div class="rte text--pull">
+										<div class="slider-box shipping-body">
+											<div>
+												Estimated delivery time to US/EU is <strong>7-14</strong> business days
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						{%- else -%}
+							<div class="card__header">
+								<h2 class="card__title  heading "><span
+										class="icon-color"> {%- render:'icon',icon:'cjj_postage' -%} </span> Delivery</h2>
+							</div>
+
+							<div
+								class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}"
+								{% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
+								<div class="rte text--pull">
+									<div class="slider-box shipping-body">
+										<div class="slider-box-content ">
+											<div class="slider-item d-flex ">
+												<div class="slider-item-top">
+													Purchase <strong>Over $60</strong>
+												</div>
+												<div class="slider-item-bottom">
+													<strong>FREE</strong>
+												</div>
+											</div>
+											<div class="slider-item d-flex  ">
+												<div class="slider-item-top">
+													Purchase <strong>$40-$59.9</strong>
+												</div>
+												<div class="slider-item-bottom">
+													Costs <strong>$5.9</strong>
+												</div>
+											</div>
+											<div class="slider-item d-flex ">
+												<div class="slider-item-top">
+													Purchase <strong>$0-$39.9</strong>
+												</div>
+												<div class="slider-item-bottom">
+													Costs <strong>$8.9</strong>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="slider-box">
+										<div>
+											Estimated delivery time to US/EU is <strong>7-14</strong> business days
+										</div>
+									</div>
+								</div>
+								{%- if block.settings.display_mode == 'view_more' -%}
+									<div class="expandable-content__toggle">
+										<span class="expandable-content__toggle-icon"></span>
+										<span class="expandable-content__toggle-text"
+													data-view-more="{{ 'product.general.view_more' | t | escape }}"
+													data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
+									</div>
+								{%- endif -%}
+							</div>
+						{%- endif -%}
+					</div>
+				{%- when 'policy' -%}
+					<div class="product-form__item product-block-list__item--description " {{ block.shopify_attributes }}>
+						{%- if block.settings.display_mode == 'collapse' -%}
+							<div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false"
+									 aria-controls="block-{{ section.id }}-{{ block.id }}">
+								<span class="card__title  heading">{%- render:'icon',icon:'ny_finish' -%} Return Policy</span>
+								<span class="card-arrow">
                       {%- render 'icon', icon: 'arrow-bottom' -%}
                     </span>
-                  </div>
+							</div>
 
-                  <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
-                    <div class="card__collapsible-content">
-                      <div class="rte text--pull">
-                        <p>You have a max of 30 days to make returns. <br>
-                           You must send back your items to an informed address by customer service.<br>
-                           No returns made after 30 days from the purchase date will be accepted.</p>
-                      </div>
-                    </div>
-                  </div>
-                {%- else -%}
-                  <div class="card__header">
-                    <h2 class="card__title  heading">{%- render:'icon',icon:'ny_finish' -%}Return Policy</h2>
-                  </div>
+							<div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
+								<div class="card__collapsible-content">
+									<div class="rte text--pull">
+										<p>You have a max of 30 days to make returns. <br>
+											You must send back your items to an informed address by customer service.<br>
+											No returns made after 30 days from the purchase date will be accepted.</p>
+									</div>
+								</div>
+							</div>
+						{%- else -%}
+							<div class="card__header">
+								<h2 class="card__title  heading">{%- render:'icon',icon:'ny_finish' -%}Return Policy</h2>
+							</div>
 
-                  <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
-                    <div class="rte text--pull">
-                      <p>You have a max of 30 days to make returns. <br>
-                        You must send back your items to an informed address by customer service.<br>
-                        No returns made after 30 days from the purchase date will be accepted.</p>
-                    </div>
+							<div
+								class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}"
+								{% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
+								<div class="rte text--pull">
+									<p>You have a max of 30 days to make returns. <br>
+										You must send back your items to an informed address by customer service.<br>
+										No returns made after 30 days from the purchase date will be accepted.</p>
+								</div>
 
-                    {%- if block.settings.display_mode == 'view_more' -%}
-                      <div class="expandable-content__toggle">
-                        <span class="expandable-content__toggle-icon"></span>
-                        <span class="expandable-content__toggle-text" data-view-more="{{ 'product.general.view_more' | t | escape }}" data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
-                      </div>
-                    {%- endif -%}
-                  </div>
-                {%- endif -%} 
-            </div>
-          {%- when 'description' -%}
-          {%- if product.description != blank -%}
-            <div class="product-form__item product-block-list__item--description " {{ block.shopify_attributes }}>
-                {%- if block.settings.display_mode == 'collapse' -%}
-                  <div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ section.id }}-{{ block.id }}">
-                    <span class="card__title  heading">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</span>
-                    <span class="card-arrow">
+								{%- if block.settings.display_mode == 'view_more' -%}
+									<div class="expandable-content__toggle">
+										<span class="expandable-content__toggle-icon"></span>
+										<span class="expandable-content__toggle-text"
+													data-view-more="{{ 'product.general.view_more' | t | escape }}"
+													data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
+									</div>
+								{%- endif -%}
+							</div>
+						{%- endif -%}
+					</div>
+				{%- when 'description' -%}
+					{%- if product.description != blank -%}
+						<div class="product-form__item product-block-list__item--description " {{ block.shopify_attributes }}>
+							{%- if block.settings.display_mode == 'collapse' -%}
+								<div class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false"
+										 aria-controls="block-{{ section.id }}-{{ block.id }}">
+									<span
+										class="card__title  heading">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</span>
+									<span class="card-arrow">
                       {%- render 'icon', icon: 'arrow-bottom' -%}
                     </span>
-                  </div>
+								</div>
 
-                  <div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
-                    <div class="card__collapsible-content">
-                      <div class="rte text--pull">
-                        {{ product.description | remove: 'data-section-type="product"' }}
-                      </div>
-                    </div>
-                  </div>
-                {%- else -%}
-                  <div class="card__header">
-                    <h2 class="card__title heading">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</h2>
-                  </div>
+								<div id="block-{{ section.id }}-{{ block.id }}" class="card__collapsible">
+									<div class="card__collapsible-content">
+										<div class="rte text--pull">
+											{{ product.description | remove: 'data-section-type="product"' }}
+										</div>
+									</div>
+								</div>
+							{%- else -%}
+								<div class="card__header">
+									<h2
+										class="card__title heading">{%- render:'icon',icon:'ny_list' -%}{{ 'product.general.description' | t }}</h2>
+								</div>
 
-                  <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
-                    <div class="rte text--pull">
-                      {{ product.description | remove: 'data-section-type="product"' }}
-                    </div>
+								<div
+									class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}"
+									{% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
+									<div class="rte text--pull">
+										{{ product.description | remove: 'data-section-type="product"' }}
+									</div>
 
-                    {%- if block.settings.display_mode == 'view_more' -%}
-                      <div class="expandable-content__toggle">
-                        <span class="expandable-content__toggle-icon"></span>
-                        <span class="expandable-content__toggle-text" data-view-more="{{ 'product.general.view_more' | t | escape }}" data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
-                      </div>
-                    {%- endif -%}
-                  </div>
-                {%- endif -%} 
-            </div>
-          {%- endif -%}
-        {%- endcase -%}
-      {%- endfor -%}
+									{%- if block.settings.display_mode == 'view_more' -%}
+										<div class="expandable-content__toggle">
+											<span class="expandable-content__toggle-icon"></span>
+											<span class="expandable-content__toggle-text"
+														data-view-more="{{ 'product.general.view_more' | t | escape }}"
+														data-view-less="{{ 'product.general.view_less' | t | escape }}">{{- 'product.general.view_more' | t -}}</span>
+										</div>
+									{%- endif -%}
+								</div>
+							{%- endif -%}
+						</div>
+					{%- endif -%}
+				{%- endcase -%}
+			{%- endfor -%}
 
-      {%- assign product_meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
+		{%- assign product_meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
 
-      {%- if product_meta_block != blank and product_meta_block.settings.show_share_buttons -%}
-        <div class="product-meta__share-buttons hidden-tablet-and-up">
-          <span class="text--strong">{{ 'product.general.share' | t }}</span>
+			{%- if product_meta_block != blank and product_meta_block.settings.show_share_buttons -%}
+				<div class="product-meta__share-buttons hidden-tablet-and-up">
+					<span class="text--strong">{{ 'product.general.share' | t }}</span>
 
-          {%- assign share_url = shop.url | append: product.url | url_param_escape -%}
-          {%- assign twitter_text = product.title | url_param_escape -%}
-          {%- assign pinterest_description = product.description | strip_html | truncatewords: 15 | url_param_escape -%}
-          {%- assign pinterest_image = product.featured_media | img_url: '1024x' | prepend: 'https:' -%}
+					{%- assign share_url = shop.url | append: product.url | url_param_escape -%}
+					{%- assign twitter_text = product.title | url_param_escape -%}
+					{%- assign pinterest_description = product.description | strip_html | truncatewords: 15 | url_param_escape -%}
+					{%- assign pinterest_image = product.featured_media | img_url: '1024x' | prepend: 'https:' -%}
 
-          <ul class="social-media__item-list list--unstyled" role="list" 
-          data-scdata='{
-            "commodity_spuid": "{{product.handle}}",
+					<ul class="social-media__item-list list--unstyled" role="list"
+							data-scdata='{
+            "commodity_spuid": "{{ product.handle }}",
             "commodity_skuid":"{{ selected_variant.sku }}",
-            "commodity_name": "{{product.title | handleize }}",
-            "commodity_image_quantity":"{{product.images.size}}",
-            "first_commodity":"{{category.first_commodity}}",
-            "second_commodity":"{{category.second_commodity}}",
-            "third_commodity":"{{category.third_commodity}}",
-            "commodity_tag":"{{commodity_tag | handleize  }}",
-            "commodity_description_text":["{{product.description | handleize }}"],
-            "commodity_description_image":["{{ product.featured_image | image_url | split: "?" | first  }}"],
+            "commodity_name": "{{ product.title | handleize }}",
+            "commodity_image_quantity":"{{ product.images.size }}",
+            "first_commodity":"{{ category.first_commodity }}",
+            "second_commodity":"{{ category.second_commodity }}",
+            "third_commodity":"{{ category.third_commodity }}",
+            "commodity_tag":"{{ commodity_tag | handleize }}",
+            "commodity_description_text":["{{ product.description | handleize }}"],
+            "commodity_description_image":["{{ product.featured_image | image_url | split: "?" | first }}"],
             "original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}",
             "current_price":"{{ product.selected_or_first_available_variant.price }}",
-            "discount_price": "{{variant.compare_at_price}}",
+            "discount_price": "{{ variant.compare_at_price }}",
             "currency_unit": "USD"
           }'>
-            <li 
-              data-scenable="1"   
-              data-sctype="ShareCommodity"
-              data-scdata='{"share_medium": "Facebook"}'
-              class="social-media__item social-media__item--facebook">
-              <a data-href="{{ share_url }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.facebook_share' | t }}">{%- render 'icon', icon: 'facebook' -%}</a>
-            </li>
-      
-            <li 
-              data-scenable="1"   
-              data-sctype="ShareCommodity"
-              data-scdata='{"share_medium": "Pinterest"}'
-              class="social-media__item social-media__item--pinterest">
-              <a href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.pinterest_pin' | t }}">{%- render 'icon', icon: 'pinterest' -%}</a>
-            </li>
-      
-            <li 
-              data-scenable="1"   
-              data-sctype="ShareCommodity"
-              data-scdata='{"share_medium": "Twitter"}'
-              class="social-media__item social-media__item--twitter">
-              <a href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.twitter_tweet' | t }}">{%- render 'icon', icon: 'twitter' -%}</a>
-            </li>
-      
-            <li 
-              data-scenable="1"   
-              data-sctype="ShareCommodity"
-              data-scdata='{"share_medium": "Email"}'
-              class="social-media__item">
-              <a href="mailto:?&subject={{ product.title | escape }}&body={{ share_url }}" aria-label="{{ 'general.social.email_share' | t }}">{% render 'icon', icon: 'email' %}</a>
-            </li>
-          </ul>
-        </div>
-      {%- endif -%}
-    {%- endform -%}
-  </div>
-  {% comment %}
-  ------------------------------------------------------------------------------
-  Product Data. This must be outputted for all products (including home page).
+						<li
+							data-scenable="1"
+							data-sctype="ShareCommodity"
+							data-scdata='{"share_medium": "Facebook"}'
+							class="social-media__item social-media__item--facebook">
+							<a data-href="{{ share_url }}" target="_blank" rel="noopener"
+								 aria-label="{{ 'general.social.facebook_share' | t }}">{%- render 'icon', icon: 'facebook' -%}</a>
+						</li>
 
-  IMPORTANT: THIS CODE IS VITAL. DO NOT EDIT IT NOR REMOVE IT. MAKE SURE TO KEEP
-  THE EXACT SAME ATTRIBUTES.
-  ------------------------------------------------------------------------------
-  {% endcomment %}
+						<li
+							data-scenable="1"
+							data-sctype="ShareCommodity"
+							data-scdata='{"share_medium": "Pinterest"}'
+							class="social-media__item social-media__item--pinterest">
+							<a
+								href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}"
+								target="_blank" rel="noopener"
+								aria-label="{{ 'general.social.pinterest_pin' | t }}">{%- render 'icon', icon: 'pinterest' -%}</a>
+						</li>
 
-  {%- assign variant_selector_block = section.blocks | where: 'type', 'variant_selector' | first -%}
+						<li
+							data-scenable="1"
+							data-sctype="ShareCommodity"
+							data-scdata='{"share_medium": "Twitter"}'
+							class="social-media__item social-media__item--twitter">
+							<a
+								href="https://twitter.com/share?{% if twitter_text != blank %}text={{ twitter_text }}&{% endif %}url={{ share_url }}"
+								target="_blank" rel="noopener"
+								aria-label="{{ 'general.social.twitter_tweet' | t }}">{%- render 'icon', icon: 'twitter' -%}</a>
+						</li>
 
-  <script type="application/json" data-product-json>
+						<li
+							data-scenable="1"
+							data-sctype="ShareCommodity"
+							data-scdata='{"share_medium": "Email"}'
+							class="social-media__item">
+							<a href="mailto:?&subject={{ product.title | escape }}&body={{ share_url }}"
+								 aria-label="{{ 'general.social.email_share' | t }}">{% render 'icon', icon: 'email' %}</a>
+						</li>
+					</ul>
+				</div>
+			{%- endif -%}
+		{%- endform -%}
+	</div>
+	{% comment %}
+		------------------------------------------------------------------------------
+		Product Data. This must be outputted for all products (including home page).
+
+		IMPORTANT: THIS CODE IS VITAL. DO NOT EDIT IT NOR REMOVE IT. MAKE SURE TO KEEP
+		THE EXACT SAME ATTRIBUTES.
+		------------------------------------------------------------------------------
+	{% endcomment %}
+
+	{%- assign variant_selector_block = section.blocks | where: 'type', 'variant_selector' | first -%}
+
+	<script type="application/json" data-product-json>
     {
       "product": {{ product | json }},
       "options_with_values": {{ product.options_with_values | json }},
@@ -316,33 +343,34 @@
       {%- if variant_selector_block.settings.show_inventory_quantity -%}
         ,"inventories": {
           {%- for variant in product.variants -%}
-            {%- if variant.available -%}
-              {%- if variant.inventory_management and variant.inventory_policy == 'deny' and variant_selector_block.settings.low_inventory_threshold > 0 -%}
-                {%- if variant.inventory_quantity <= variant_selector_block.settings.low_inventory_threshold -%}
-                  {%- capture inventory_message -%}{{ 'product.form.low_stock_with_quantity_count' | t: count: variant.inventory_quantity }}{%- endcapture -%}
-                {%- else -%}
-                  {%- capture inventory_message -%}{{ 'product.form.in_stock_with_quantity_count' | t: count: variant.inventory_quantity }}{%- endcapture -%}
-                {%- endif -%}
-              {%- else -%}
-                {%- if variant.inventory_policy == 'continue' and variant.inventory_quantity <= 0 and selected_variant.requires_shipping -%}
-                  {%- capture inventory_message -%}{{ 'product.form.oversell_stock' | t }}{%- endcapture -%}
-                {%- else %}
-                  {%- capture inventory_message -%}{{ 'product.form.in_stock' | t }}{%- endcapture -%}
-                {%- endif -%}
-              {%- endif -%}
-            {%- else -%}
-              {%- capture inventory_message -%}{{ 'product.form.sold_out' | t }}{%- endcapture -%}
-            {%- endif -%}
+		{%- if variant.available -%}
+		{%- if variant.inventory_management and variant.inventory_policy == 'deny' and variant_selector_block.settings.low_inventory_threshold > 0 -%}
+		{%- if variant.inventory_quantity <= variant_selector_block.settings.low_inventory_threshold -%}
+		{%- capture inventory_message -%}{{ 'product.form.low_stock_with_quantity_count' | t: count: variant.inventory_quantity }}{%- endcapture -%}
+	{%- else -%}
+	{%- capture inventory_message -%}{{ 'product.form.in_stock_with_quantity_count' | t: count: variant.inventory_quantity }}{%- endcapture -%}
+		{%- endif -%}
+	{%- else -%}
+		{%- if variant.inventory_policy == 'continue' and variant.inventory_quantity <= 0 and selected_variant.requires_shipping -%}
+		{%- capture inventory_message -%}{{ 'product.form.oversell_stock' | t }}{%- endcapture -%}
+	{%- else %}
+	{%- capture inventory_message -%}{{ 'product.form.in_stock' | t }}{%- endcapture -%}
+		{%- endif -%}
+		{%- endif -%}
+	{%- else -%}
+	{%- capture inventory_message -%}{{ 'product.form.sold_out' | t }}{%- endcapture -%}
+		{%- endif -%}
 
             "{{ variant.id }}": {
               "inventory_management": {{ variant.inventory_management | json }},
               "inventory_policy": {{ variant.inventory_policy | json }},
               "inventory_quantity": {{ variant.inventory_quantity | json }},
               "inventory_message": {{ inventory_message | json }}
-            }{% unless forloop.last %},{% endunless %}
-          {%- endfor -%}
+            }{% unless forloop.last %}{% endunless %}
+		{%- endfor -%}
         }
       {%- endif -%}
     }
-  </script>
+
+	</script>
 </div>
