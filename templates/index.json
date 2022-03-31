@@ -136,9 +136,9 @@
         "e34c6701-d51d-4b6b-b3c3-dbdb091ce635": {
           "type": "link",
           "settings": {
-            "heading": "Sets",
-            "sensorsLinkName": "Sets",
-            "link": "shopify:\/\/collections\/special-sets",
+            "heading": "Long sleeve",
+            "sensorsLinkName": "long sleeve",
+            "link": "shopify:\/\/collections\/long-sleeve",
             "left": 52,
             "top": 51,
             "width": 50,
@@ -157,7 +157,7 @@
         "sensorsName": "mobile分类导流区",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/02_280d4060-9778-4eb2-b20d-2e5cd25fb9a5.jpg",
+        "image": "shopify:\/\/shop_images\/02_bd5dda25-2335-4f5a-bf5e-d5490bf6b51b.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
