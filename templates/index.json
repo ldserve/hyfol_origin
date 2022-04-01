@@ -195,10 +195,10 @@
     "1647497707f35ea4d8": {
       "type": "transparent-collection",
       "settings": {
-        "collection": "skull-madman",
+        "collection": "skull",
         "sensorsName": "SKULL MADMAN",
         "title": "",
-        "products_count": 12,
+        "products_count": 18,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": false,
