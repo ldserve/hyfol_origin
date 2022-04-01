@@ -58,7 +58,7 @@
             "sensorsLinkName": "tees",
             "link": "shopify:\/\/collections\/tees",
             "left": 0,
-            "top": 50,
+            "top": 51,
             "width": 49,
             "height": 48
           }
@@ -66,8 +66,8 @@
         "6defe89d-34bf-47d9-a1f2-91004d693ed8": {
           "type": "link",
           "settings": {
-            "heading": "Long sleeve",
-            "sensorsLinkName": "long sleeve",
+            "heading": "longsleeve",
+            "sensorsLinkName": "longsleeve",
             "link": "shopify:\/\/collections\/long-sleeve",
             "left": 50,
             "top": 51,
@@ -136,8 +136,8 @@
         "e34c6701-d51d-4b6b-b3c3-dbdb091ce635": {
           "type": "link",
           "settings": {
-            "heading": "Long sleeve",
-            "sensorsLinkName": "long sleeve",
+            "heading": "longsleeve",
+            "sensorsLinkName": "longsleeve",
             "link": "shopify:\/\/collections\/long-sleeve",
             "left": 52,
             "top": 51,
