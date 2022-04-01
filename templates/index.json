@@ -58,7 +58,7 @@
             "sensorsLinkName": "tees",
             "link": "shopify:\/\/collections\/tees",
             "left": 0,
-            "top": 50,
+            "top": 51,
             "width": 49,
             "height": 48
           }
@@ -66,8 +66,8 @@
         "6defe89d-34bf-47d9-a1f2-91004d693ed8": {
           "type": "link",
           "settings": {
-            "heading": "Long sleeve",
-            "sensorsLinkName": "long sleeve",
+            "heading": "longsleeve",
+            "sensorsLinkName": "longsleeve",
             "link": "shopify:\/\/collections\/long-sleeve",
             "left": 50,
             "top": 51,
@@ -86,7 +86,7 @@
         "hidDesk": false,
         "sensorsName": "pc分类导流区",
         "hidWeb": true,
-        "line": false,
+        "line": true,
         "image": "shopify:\/\/shop_images\/02_bb203985-a724-4532-8b2b-e89e9120edcf.jpg",
         "tpadding": 0,
         "rpadding": 0,
