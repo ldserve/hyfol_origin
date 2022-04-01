@@ -98,6 +98,7 @@
         "enable_video_looping": false,
         "enable_image_zoom": true,
         "zoom_effect": "outside",
+        "zoomFactor": 3,
         "carousel_effect": "fade"
       }
     },

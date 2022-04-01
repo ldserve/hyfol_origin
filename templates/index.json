@@ -66,9 +66,9 @@
         "6defe89d-34bf-47d9-a1f2-91004d693ed8": {
           "type": "link",
           "settings": {
-            "heading": "Sets",
-            "sensorsLinkName": "sets",
-            "link": "shopify:\/\/collections\/special-sets",
+            "heading": "Long sleeve",
+            "sensorsLinkName": "long sleeve",
+            "link": "shopify:\/\/collections\/long-sleeve",
             "left": 50,
             "top": 51,
             "width": 57,
@@ -87,7 +87,7 @@
         "sensorsName": "pc分类导流区",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/pc_f8b3a921-8a89-43c8-91e0-6e76218c8c86.jpg",
+        "image": "shopify:\/\/shop_images\/02_bb203985-a724-4532-8b2b-e89e9120edcf.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -136,9 +136,9 @@
         "e34c6701-d51d-4b6b-b3c3-dbdb091ce635": {
           "type": "link",
           "settings": {
-            "heading": "Sets",
-            "sensorsLinkName": "Sets",
-            "link": "shopify:\/\/collections\/special-sets",
+            "heading": "Long sleeve",
+            "sensorsLinkName": "long sleeve",
+            "link": "shopify:\/\/collections\/long-sleeve",
             "left": 52,
             "top": 51,
             "width": 50,
@@ -157,7 +157,7 @@
         "sensorsName": "mobile分类导流区",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/02_6e8156be-487e-4c19-ad4d-c7f27cc4a5a7.jpg",
+        "image": "shopify:\/\/shop_images\/02_bd5dda25-2335-4f5a-bf5e-d5490bf6b51b.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -167,8 +167,8 @@
     "1648607115d95fb2d3": {
       "type": "ld-imageText",
       "settings": {
-        "image": "shopify:\/\/shop_images\/01_187e42a7-e20d-482d-81bc-11f09fd1b4f0.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/01_ac30c9cd-a5d8-4757-9fc2-1fae4e95c81c.jpg",
+        "image": "shopify:\/\/shop_images\/banner_01.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/1_fa076686-dc5b-4fa2-92de-df55c7aa7324.jpg",
         "link": "shopify:\/\/collections\/skull",
         "title_align": "row-reverse",
         "title_tb": "column-reverse",
@@ -253,7 +253,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/02_f2383d81-ba3b-4f81-bcd8-d755dbef24a6.jpg",
         "mobile_image": "shopify:\/\/shop_images\/01_2e4795b6-e17d-4abe-bf59-d49bf8eb3d20.jpg",
-        "link": "shopify:\/\/collections\/tactical-club",
+        "link": "shopify:\/\/collections\/camou",
         "title_align": "row-reverse",
         "title_tb": "column-reverse",
         "title": "TACTICAL CLUB",
@@ -420,7 +420,7 @@
         "link": "",
         "title_align": "row",
         "title_tb": "column-reverse",
-        "title": "NEW SLETTER",
+        "title": "NEWSLETTER",
         "subtitle": "Never miss any HYFOL new fashion",
         "button": "",
         "show": true,
