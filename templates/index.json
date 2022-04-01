@@ -279,10 +279,10 @@
     "1647498064c408cfd6": {
       "type": "transparent-collection",
       "settings": {
-        "collection": "tactical-club",
+        "collection": "camou",
         "sensorsName": "TACTICAL CLUB",
         "title": "",
-        "products_count": 12,
+        "products_count": 18,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": false,
