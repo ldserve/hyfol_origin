@@ -86,7 +86,7 @@
         "hidDesk": false,
         "sensorsName": "pc分类导流区",
         "hidWeb": true,
-        "line": true,
+        "line": false,
         "image": "shopify:\/\/shop_images\/02_bb203985-a724-4532-8b2b-e89e9120edcf.jpg",
         "tpadding": 0,
         "rpadding": 0,
