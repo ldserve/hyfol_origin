@@ -4300,7 +4300,9 @@ img.lazyload[data-sizes=auto] {
     pointer-events: none;
     border-radius: 3px;
   }
-
+  .product-list--scrollable .product-item-mask .item-mask {
+    width: 100%;
+  }
 @media screen and (max-width: 640px) {
   /*.product-list--scrollable::before,*/
   /*.product-list--scrollable::after {*/
@@ -4311,9 +4313,7 @@ img.lazyload[data-sizes=auto] {
   .product-list--scrollable .product-item {
     width: 50%;
   }
-  .product-list--scrollable .product-item-mask .product-item {
-    width: 100%;
-  }
+
   .product-item-mask .product-item__info{
 height: 55px;
   }
