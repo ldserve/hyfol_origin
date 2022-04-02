@@ -56,26 +56,37 @@
 			{%- if section.settings.layout == 'vertical' -%}
 			{%- assign products_per_row = section.settings.products_count | at_most: 6 -%}
 
-			{%- if section.settings.stack_products -%}
-				{%- capture grid_classes -%}1/2 1/4--lap 1/{{ products_per_row | minus: 1 }}--desk 1/{{ products_per_row }}--wide{%- endcapture -%}
-			{%- else -%}
-				{%- capture grid_classes -%}1/4--lap 1/{{ products_per_row | minus: 1 }}--desk 1/{{ products_per_row }}--wide{%- endcapture -%}
-			{%- endif -%}
+			    {%- if section.settings.stack_products -%}
+			    	{%- capture grid_classes -%}1/2 1/4--lap 1/{{ products_per_row | minus: 1 }}--desk 1/{{ products_per_row }}--wide{%- endcapture -%}
+			    {%- else -%}
+			    	{%- capture grid_classes -%}1/4--lap 1/{{ products_per_row | minus: 1 }}--desk 1/{{ products_per_row }}--wide{%- endcapture -%}
+			    {%- endif -%}
 
-			{%- if use_placeholder -%}
-				{%- include 'product-item-placeholder', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy,only_show_transparent: true -%}
-			{%- else -%}
-				{%- include 'product-item', product: product, grid_classes: grid_classes, show_add_to_cart: section.settings.show_quick_buy,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
-			{%- endif -%}
+			    {%- if use_placeholder -%}
+			    	{%- include 'product-item-placeholder', product: product, grid_classes: grid_classes, show_mask:false,show_add_to_cart: section.settings.show_quick_buy,only_show_transparent: true -%}
+			    {%- else -%}
+				{% if forloop.last %}
+				  <div class="product-item-mask product-item {{grid_classes}}">
+				{%- include 'product-item', product: product, show_mask:true,show_add_to_cart: section.settings.show_quick_buy,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
+				  	<a href="{{ collection.url }}" class="item-mask">
+						  <div>
+							<svg t="1648720724329" class="icon-mask" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2698" width="32" height="32"><path d="M512 48c256.26 0 464 207.74 464 464S768.26 976 512 976 48 768.26 48 512 255.74 48 512 48z m0 64c-220.914 0-400 179.086-400 400s179.086 400 400 400 400-179.086 400-400-179.086-400-400-400z m64.87 203.641l0.378 0.36 0.377 0.372L750.29 489.038a31.921 31.921 0 0 1 6.656 9.703 31.826 31.826 0 0 1 2.62 10.422l0.04 0.568 0.037 0.8 0.02 0.633v0.501c0 0.425-0.009 0.848-0.025 1.27l-0.033 0.662-0.04 0.574a31.847 31.847 0 0 1-8.254 19.054l-0.25 0.27-0.4 0.42-0.37 0.378-172.666 172.665c-12.497 12.496-32.758 12.496-45.255 0-12.372-12.372-12.495-32.354-0.37-44.878l0.37-0.377 118.037-118.038H296c-17.673 0-32-14.327-32-32 0-17.496 14.042-31.713 31.47-31.996l0.53-0.004h354.408L532.37 361.627c-12.497-12.496-12.497-32.758 0-45.254 12.248-12.249 31.955-12.492 44.5-0.732z" p-id="2699" fill="#fff"></path></svg>
+						  </div>
+						  View All
+					  </a>
+				  </div>
+					{% else %}
+			    	{%- include 'product-item', product: product, grid_classes: grid_classes, show_mask:false,show_add_to_cart: section.settings.show_quick_buy,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
+				{% endif %}
+			    {%- endif -%}
 			{%- elsif section.settings.layout == 'horizontal' -%}
-			{%- if use_placeholder -%}
-				{%- include 'product-item-placeholder', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false,only_show_transparent: true -%}
-			{%- else -%}
-				{%- include 'product-item', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_add_to_cart: false,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
-			{%- endif -%}
+			    {%- if use_placeholder -%}
+			    	{%- include 'product-item-placeholder', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_mask:false,show_add_to_cart: false,only_show_transparent: true -%}
+			    {%- else -%}
+			    	{%- include 'product-item', product: product, horizontal: true, grid_classes: '1/2--tablet 1/3--lap-and-up', show_mask:false,show_add_to_cart: false,forloop:forloop,only_show_transparent: true,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
+			    {%- endif -%}
 		{%- else -%}
 		{%- assign mod = forloop.index0 | modulo: 3 -%}
-
 			{%- if mod == 0 -%}
 			<div class="product-list__column product-list__column--highlight">
 				{%- elsif mod == 1 -%}
@@ -84,15 +95,15 @@
 
 					{%- if mod == 0 -%}
 						{%- if use_placeholder -%}
-							{%- include 'product-item-placeholder', product: product, show_add_to_cart: false -%}
+							{%- include 'product-item-placeholder', product: product, show_mask:false,show_add_to_cart: false -%}
 						{%- else -%}
-							{%- include 'product-item', product: product, show_add_to_cart: false,forloop:forloop,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
+							{%- include 'product-item', product: product, show_mask:false,show_add_to_cart: false,forloop:forloop,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
 						{%- endif -%}
-					{%- else -%}
+					{%- else -%} 
 						{%- if use_placeholder -%}
-							{%- include 'product-item-placeholder', product: product, horizontal: true, show_add_to_cart: false -%}
+							{%- include 'product-item-placeholder', product: product, horizontal: true, show_mask:false,show_add_to_cart: false -%}
 						{%- else -%}
-							{%- include 'product-item', product: product, horizontal: true, show_add_to_cart: false,forloop:forloop,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
+							{%- include 'product-item', product: product, horizontal: true, show_mask:false,show_add_to_cart: false,forloop:forloop,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
 						{%- endif -%}
 					{%- endif -%}
 
@@ -101,15 +112,6 @@
 				{%- endif -%}
 				{%- endif -%}
 				{%- endfor -%}
-				{% if section.settings.show_at_last_image != blank %}
-					<div 	class="product-item {% if horizontal %}product-item--horizontal{% elsif list %}product-item--list{% else %}product-item--vertical{% endif %} {% if section.id == 'blog-sidebar' %}product-item--compact{% endif %} {{ grid_classes }} {% if only_show_transparent %}product-item--transparent{% endif %}">
-						{%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000, 1200, 1400, 1600', image: section.settings.show_at_last_image -%}{%- endcapture -%}
-						{%- assign image_url = section.settings.show_at_last_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-						<div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: section.settings.show_at_last_image.aspect_ratio }}%">
-							<img class="lazyload image--fade-in" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]">
-						</div>
-					</div>
-				{% endif %}
 			</div>
 			{%- endcapture -%}
 
@@ -149,91 +151,6 @@
 		</div>
 	</div>
 </section>
-<script>
-    function ready(fn) {
-        if (document.addEventListener) {
-            document.addEventListener('DOMContentLoaded', function () {
-                document.removeEventListener('DOMContentLoaded', arguments.callee, false);
-                fn();
-            }, false);
-        }
-        // 如果IE
-        else if (document.attachEvent) {
-            // 确保当页面是在iframe中加载时，事件依旧会被安全触发
-            document.attachEvent('onreadystatechange', function () {
-                if (document.readyState == 'complete') {
-                    document.detachEvent('onreadystatechange', arguments.callee);
-                    fn();
-                }
-            });
-
-            // 如果是IE且页面不在iframe中时，轮询调用doScroll 方法检测DOM是否加载完毕
-            if (document.documentElement.doScroll && typeof window.frameElement === "undefined") {
-                try {
-                    document.documentElement.doScroll('left');
-                } catch (error) {
-                    return setTimeout(arguments.callee, 20);
-                }
-                ;
-                fn();
-            }
-        }
-    }
-
-    ready(() => {
-        let box = document.getElementById('shopify-section-{{ section.id }}');
-        let scrollerInner = box.querySelector('.scroller__inner')
-        let itemList = box.querySelectorAll(".product-item");
-        let pagePoint = box.querySelector('.page-point')
-        let itemWidth = itemList[0].offsetWidth
-        let clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        let pointCount = Math.ceil(itemList.length * itemWidth / clientWidth)
-        let curStep = 0
-
-        function drawPoint() {
-            for (let i = 0; i < pointCount; i++) {
-                let pointItem = document.createElement('span')
-                pointItem.classList = i === 0 ? 'point-item point-item--active' : 'point-item'
-                pagePoint.appendChild(pointItem)
-            }
-        }
-
-        function activePoint() {
-            let pointItem = pagePoint.querySelectorAll('span')
-            let previousBtn = box.querySelector('.previous')
-            let nextBtn = box.querySelector('.next')
-            if (nextBtn) {
-                previousBtn.addEventListener('click', () => {
-                    curStep--
-                    for (let i = 0; i < pointItem.length; i++) {
-                        pointItem[i].className = "point-item"
-                    }
-                    pointItem[curStep].classList = 'point-item point-item--active'
-                })
-                nextBtn.addEventListener('click', () => {
-                    curStep++
-                    for (let i = 0; i < pointItem.length; i++) {
-                        pointItem[i].className = "point-item"
-                    }
-                    pointItem[curStep].classList = 'point-item point-item--active'
-                })
-                return
-            }
-            scrollerInner.onscroll = function () {
-                let scrollDistance = Math.ceil((scrollerInner.scrollLeft) / clientWidth)
-                for (var i = 0; i < pointItem.length; i++) {
-                    pointItem[i].className = "point-item"
-                }
-                pointItem[scrollDistance].classList = 'point-item point-item--active'
-            }
-
-        }
-
-        drawPoint()
-        activePoint()
-    })
-
-</script>
 {% schema %}
 	{
 	"name": "首页透明集合",
@@ -263,11 +180,6 @@
 	"max": 50,
 	"step": 1,
 	"default": 12
-	},
-	{
-	"type":"image_picker",
-	"id":"show_at_last_image",
-	"label":"最后一格展示的图片"
 	},
 	{
 	"type": "select",

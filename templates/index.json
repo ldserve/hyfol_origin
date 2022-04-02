@@ -4,8 +4,8 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "banner",
-        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_27e11083-f1fc-4b8e-8b5a-202deb0e0c9d.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_banner_731c0e3e-111e-4e73-bdbb-d23c336eccef.jpg",
+        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_87eafb12-47f9-421e-8ca0-0e90315ebb6d.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/banner1_d3f5fa7e-0e00-4402-82f4-2287c2522695.jpg",
         "link": "shopify:\/\/collections\/2022-fashion-trends",
         "shadow": false
       }
@@ -66,9 +66,9 @@
         "6defe89d-34bf-47d9-a1f2-91004d693ed8": {
           "type": "link",
           "settings": {
-            "heading": "longsleeve",
-            "sensorsLinkName": "longsleeve",
-            "link": "shopify:\/\/collections\/long-sleeve",
+            "heading": "topspacks",
+            "sensorsLinkName": "topspacks",
+            "link": "shopify:\/\/collections\/tops-packs",
             "left": 50,
             "top": 51,
             "width": 57,
@@ -87,7 +87,7 @@
         "sensorsName": "pc分类导流区",
         "hidWeb": true,
         "line": false,
-        "image": "shopify:\/\/shop_images\/02_bb203985-a724-4532-8b2b-e89e9120edcf.jpg",
+        "image": "shopify:\/\/shop_images\/02_2e5a59e6-d04e-4c67-86d6-bf6b19f4f5ea.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -136,9 +136,9 @@
         "e34c6701-d51d-4b6b-b3c3-dbdb091ce635": {
           "type": "link",
           "settings": {
-            "heading": "longsleeve",
-            "sensorsLinkName": "longsleeve",
-            "link": "shopify:\/\/collections\/long-sleeve",
+            "heading": "topspacks",
+            "sensorsLinkName": "topspacks",
+            "link": "shopify:\/\/collections\/tops-packs",
             "left": 52,
             "top": 51,
             "width": 50,
@@ -157,7 +157,7 @@
         "sensorsName": "mobile分类导流区",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/02_bd5dda25-2335-4f5a-bf5e-d5490bf6b51b.jpg",
+        "image": "shopify:\/\/shop_images\/02_9143ff5c-4eeb-4f4c-960f-d4f3c59db56a.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
@@ -168,7 +168,7 @@
       "type": "ld-imageText",
       "settings": {
         "image": "shopify:\/\/shop_images\/banner_01.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/1_fa076686-dc5b-4fa2-92de-df55c7aa7324.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/33dc2d9d38d4c6a787b8c8217fad8671.jpg",
         "link": "shopify:\/\/collections\/skull",
         "title_align": "row-reverse",
         "title_tb": "column-reverse",
@@ -210,7 +210,7 @@
       "type": "ld-imageText",
       "settings": {
         "image": "shopify:\/\/shop_images\/02_0d425458-8123-4a0d-9e23-6414dd915332.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/01_4182a480-96f6-4455-91d5-0bfc2d1d98c9.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/9573de5236b7167989a7e2067bac8ab2.jpg",
         "link": "shopify:\/\/collections\/american-flag",
         "title_align": "row",
         "title_tb": "column-reverse",
@@ -252,7 +252,7 @@
       "type": "ld-imageText",
       "settings": {
         "image": "shopify:\/\/shop_images\/02_f2383d81-ba3b-4f81-bcd8-d755dbef24a6.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/01_2e4795b6-e17d-4abe-bf59-d49bf8eb3d20.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/1e391a7f0c2577959f380afecee0bb81.jpg",
         "link": "shopify:\/\/collections\/camou",
         "title_align": "row-reverse",
         "title_tb": "column-reverse",
