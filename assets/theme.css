@@ -4224,7 +4224,7 @@ img.lazyload[data-sizes=auto] {
 .product-list--collection::before {
   display: none;
 }
-.product-item-mask .product-item{
+.product-item-mask .ny-item-mask{
   width: 100%;
 }
 .product-item-mask .item-mask{
@@ -4299,9 +4299,6 @@ img.lazyload[data-sizes=auto] {
     z-index: 1;
     pointer-events: none;
     border-radius: 3px;
-  }
-  .product-list--scrollable .product-item-mask .item-mask {
-    width: 100%;
   }
 @media screen and (max-width: 640px) {
   /*.product-list--scrollable::before,*/
