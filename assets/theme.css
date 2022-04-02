@@ -4311,7 +4311,9 @@ img.lazyload[data-sizes=auto] {
   .product-list--scrollable .product-item {
     width: 50%;
   }
-
+  .product-list--scrollable .product-item-mask .product-item {
+    width: 100%;
+  }
   /*.product-list--collage {*/
   /*  border-width: 1px 0;*/
   /*}*/
