@@ -4314,6 +4314,9 @@ img.lazyload[data-sizes=auto] {
   .product-list--scrollable .product-item-mask .product-item {
     width: 100%;
   }
+  .product-item-mask .product-item__info{
+height: 55px;
+  }
   /*.product-list--collage {*/
   /*  border-width: 1px 0;*/
   /*}*/
