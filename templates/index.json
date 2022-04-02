@@ -136,9 +136,9 @@
         "e34c6701-d51d-4b6b-b3c3-dbdb091ce635": {
           "type": "link",
           "settings": {
-            "heading": "longsleeve",
-            "sensorsLinkName": "longsleeve",
-            "link": "shopify:\/\/collections\/long-sleeve",
+            "heading": "topspacks",
+            "sensorsLinkName": "topspacks",
+            "link": "shopify:\/\/collections\/tops-packs",
             "left": 52,
             "top": 51,
             "width": 50,
@@ -157,7 +157,7 @@
         "sensorsName": "mobile分类导流区",
         "hidWeb": false,
         "line": false,
-        "image": "shopify:\/\/shop_images\/02_bd5dda25-2335-4f5a-bf5e-d5490bf6b51b.jpg",
+        "image": "shopify:\/\/shop_images\/02_9143ff5c-4eeb-4f4c-960f-d4f3c59db56a.jpg",
         "tpadding": 0,
         "rpadding": 0,
         "bpadding": 0,
