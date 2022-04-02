@@ -1,23 +1,4 @@
 <style>
-  @media screen and (max-width: 1000px) {
-    #main #shopify-section-{{section.id}} .container {
-      padding: 10px 30px;
-      display: block;
-    }
-
-    #main #shopify-section-{{section.id}} .text-container {
-      padding: 22px 20px;
-      border-bottom: 1px solid #6C675D;
-      font-size: 14px;
-      width: 100%;
-    }
-
-    #main #shopify-section-{{section.id}} .heading {
-      font-size: 16px;
-      font-weight: 600;
-    }
-  }
-
   #shopify-section-{{section.id}} .section {
     background-color: #E0DAD1;
     margin: 0;
@@ -47,6 +28,26 @@
   #main #shopify-section-{{section.id}} .text-container:nth-last-child(1) {
     border: none;
   }
+
+  @media screen and (max-width: 1000px) {
+     #shopify-section-{{section.id}} .container {
+      padding: 10px 30px;
+      display: block;
+    }
+
+     #shopify-section-{{section.id}} .text-container {
+      padding: 22px 20px;
+      border-bottom: 1px solid #6C675D;
+      font-size: 14px;
+      width: 100%;
+    }
+
+     #shopify-section-{{section.id}} .heading {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
 </style>
 
 <section class="section">
