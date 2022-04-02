@@ -329,36 +329,37 @@ th {
 .flickity-rtl .flickity-page-dots {
   direction: rtl;
 }
+.indexContainer .flickity-page-dots .dot {
+  border: 1px solid #000;
+}
 
+@media screen and (min-width: 641px){
+  .indexContainer .flickity-page-dots .dot {
+    bottom:-15px
+  }
+}
 .flickity-page-dots .dot {
   position: relative;
   left: 0;
+  cursor: pointer;
   display: inline-block;
   width: 6px;
   height: 6px;
-  margin: 0px 5px;
-  background: rgba(var(--text-color-rgb),.8);
-  border-radius: 100%;
-  cursor: pointer;
-  transform: scale(1);
-  will-change: transform;
-  transition: background .2s ease-in-out,transform .2s ease-in-out;
+  border-radius: 50%;
+  margin: 0 3px;
+  background: #FFFFFF;
   /* color: #000; */
 }
 
 .flickity-page-dots .dot::before {
   position: absolute;
   content: "";
-  top: -4px;
-  right: -4px;
-  left: -4px;
-  bottom: -4px;
+  background: #000;
 }
 .flickity-page-dots .dot span{
 display: none;
 }
 .flickity-page-dots .dot.is-selected {
-  transform: scale(1.35);
   background: var(--heading-color);
   /* color: #fff; */
 }

@@ -14100,7 +14100,7 @@
             if (!this.options['stackable']) {
                 this.flickityInstance = new js(this.element.querySelector('.product-list'), {
                     watchCSS: true,
-                    pageDots: false,
+                    pageDots: true,
                     prevNextButtons: true,
                     contain: true,
                     groupCells: true,

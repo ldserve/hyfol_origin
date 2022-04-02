@@ -112,15 +112,6 @@
 				{%- endif -%}
 				{%- endif -%}
 				{%- endfor -%}
-				{% if section.settings.show_at_last_image != blank %}
-					<div 	class="product-item {% if horizontal %}product-item--horizontal{% elsif list %}product-item--list{% else %}product-item--vertical{% endif %} {% if section.id == 'blog-sidebar' %}product-item--compact{% endif %} {{ grid_classes }} {% if only_show_transparent %}product-item--transparent{% endif %}">
-						{%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000, 1200, 1400, 1600', image: section.settings.show_at_last_image -%}{%- endcapture -%}
-						{%- assign image_url = section.settings.show_at_last_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-						<div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: section.settings.show_at_last_image.aspect_ratio }}%">
-							<img class="lazyload image--fade-in" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]">
-						</div>
-					</div>
-				{% endif %}
 			</div>
 			{%- endcapture -%}
 
@@ -160,91 +151,6 @@
 		</div>
 	</div>
 </section>
-<script>
-    function ready(fn) {
-        if (document.addEventListener) {
-            document.addEventListener('DOMContentLoaded', function () {
-                document.removeEventListener('DOMContentLoaded', arguments.callee, false);
-                fn();
-            }, false);
-        }
-        // 如果IE
-        else if (document.attachEvent) {
-            // 确保当页面是在iframe中加载时，事件依旧会被安全触发
-            document.attachEvent('onreadystatechange', function () {
-                if (document.readyState == 'complete') {
-                    document.detachEvent('onreadystatechange', arguments.callee);
-                    fn();
-                }
-            });
-
-            // 如果是IE且页面不在iframe中时，轮询调用doScroll 方法检测DOM是否加载完毕
-            if (document.documentElement.doScroll && typeof window.frameElement === "undefined") {
-                try {
-                    document.documentElement.doScroll('left');
-                } catch (error) {
-                    return setTimeout(arguments.callee, 20);
-                }
-                ;
-                fn();
-            }
-        }
-    }
-
-    ready(() => {
-        let box = document.getElementById('shopify-section-{{ section.id }}');
-        let scrollerInner = box.querySelector('.scroller__inner')
-        let itemList = box.querySelectorAll(".product-item");
-        let pagePoint = box.querySelector('.page-point')
-        let itemWidth = itemList[0].offsetWidth
-        let clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        let pointCount = Math.ceil(itemList.length * itemWidth / clientWidth)
-        let curStep = 0
-
-        function drawPoint() {
-            for (let i = 0; i < pointCount; i++) {
-                let pointItem = document.createElement('span')
-                pointItem.classList = i === 0 ? 'point-item point-item--active' : 'point-item'
-                pagePoint.appendChild(pointItem)
-            }
-        }
-
-        function activePoint() {
-            let pointItem = pagePoint.querySelectorAll('span')
-            let previousBtn = box.querySelector('.previous')
-            let nextBtn = box.querySelector('.next')
-            if (nextBtn) {
-                previousBtn.addEventListener('click', () => {
-                    curStep--
-                    for (let i = 0; i < pointItem.length; i++) {
-                        pointItem[i].className = "point-item"
-                    }
-                    pointItem[curStep].classList = 'point-item point-item--active'
-                })
-                nextBtn.addEventListener('click', () => {
-                    curStep++
-                    for (let i = 0; i < pointItem.length; i++) {
-                        pointItem[i].className = "point-item"
-                    }
-                    pointItem[curStep].classList = 'point-item point-item--active'
-                })
-                return
-            }
-            scrollerInner.onscroll = function () {
-                let scrollDistance = Math.ceil((scrollerInner.scrollLeft) / clientWidth)
-                for (var i = 0; i < pointItem.length; i++) {
-                    pointItem[i].className = "point-item"
-                }
-                pointItem[scrollDistance].classList = 'point-item point-item--active'
-            }
-
-        }
-
-        drawPoint()
-        activePoint()
-    })
-
-</script>
 {% schema %}
 	{
 	"name": "首页透明集合",
@@ -274,11 +180,6 @@
 	"max": 50,
 	"step": 1,
 	"default": 12
-	},
-	{
-	"type":"image_picker",
-	"id":"show_at_last_image",
-	"label":"最后一格展示的图片"
 	},
 	{
 	"type": "select",
