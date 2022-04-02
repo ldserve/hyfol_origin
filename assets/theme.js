@@ -11675,7 +11675,6 @@
     var Trigger = /*#__PURE__*/function () {
         function Trigger() {
             var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
             _classCallCheck$2(this, Trigger);
 
             this._show = this._show.bind(this);
@@ -12075,7 +12074,6 @@
                         top = maxTop;
                     }
                 }
-
                 this.imgEl.style.transform = "translate(".concat(left, "px, ").concat(top, "px)");
                 this.imgEl.style.webkitTransform = "translate(".concat(left, "px, ").concat(top, "px)");
             }
@@ -12212,7 +12210,6 @@
     var Drift = /*#__PURE__*/function () {
         function Drift(triggerEl) {
             var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
             _classCallCheck$4(this, Drift);
 
             this.VERSION = "1.4.0";
@@ -12622,7 +12619,8 @@
                             hoverBoundingBox: _this3.options['zoomEffect'] === 'outside',
                             handleTouch: false,
                             inlineOffsetY: window.innerWidth < 1024 ? -85 : 0,
-                            paneContainer: zoomWrapper
+                            paneContainer: zoomWrapper,
+                            zoomFactor:image.getAttribute('data-zoomFactor')
                         }));
                     });
                 }

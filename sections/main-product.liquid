@@ -124,7 +124,7 @@
 				<div class="product-block-list__wrapper">
 					{%- if product.media.size > 0 -%}
 						<div class="product-block-list__item product-block-list__item--gallery">
-							{% render 'product-gallery' %}
+							{% render 'product-gallery', zoomFactor:section.settings.zoomFactor %}
 						</div>
 					{%- endif -%}
 
@@ -218,7 +218,7 @@
 
 							{%- if title != blank and liquid != blank -%}
 								<div class="product-block-list__item product-block-list__item--content" {{ block.shopify_attributes }}>
-									<div class="card">
+									<div class="card" >
 										{%- if block.settings.display_mode == 'collapse' -%}
 											<button class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false"
 															aria-controls="block-{{ section.id }}-{{ block.id }}">
@@ -283,7 +283,7 @@
 
 							{%- if block.settings.custom_security_badge or show_payment_icons -%}
 								<div class="product-block-list__item product-block-list__item--trust">
-									<div class="card">
+									<div class="card" >
 										<div class="card__header card__header--flex">
 											<h2 class="card__title heading h3">{{ block.settings.trust_title | escape }}</h2>
 
@@ -437,7 +437,7 @@
 	{%- else -%}
 		{%- comment -%}We display the quick view within the product template so we can re-use the same settings{%- endcomment -%}
 		<div class="featured-product">
-			{%- render 'product-gallery' -%}
+			{%- render 'product-gallery', zoomFactor:section.settings.zoomFactor -%}
 			{%- render 'product-info' -%}
 		</div>
 	{%- endif -%}
@@ -515,7 +515,7 @@
           "id": "notsale_tag"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "label": "促销文案",
           "id": "sale_text"
         }
@@ -942,6 +942,16 @@
 	],
 	"default": "outside"
 	},
+    {
+      "type": "range",
+      "id": "zoomFactor",
+      "min": 1,
+      "max": 4,
+      "step": 0.1,
+      "unit": "倍",
+      "label": "放大镜倍率",
+      "default": 2
+      },
 	{
 	"type": "select",
 	"id": "carousel_effect",

@@ -59,7 +59,7 @@
 			 class="product-item__image-wrapper product-item_mktClick shence_commodityView {% if show_secondary_media %}product-item__image-wrapper--with-secondary{% endif %}"
 			 data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick"
 			 data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ mkt_material_name }}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize }}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>
-			{% if only_show_transparent %}
+			{% if only_show_transparent  and product.metafields.my_fields.transparentimg1  != blank or only_show_transparent and product.metafields.my_fields.transparencydrawing[0].path != blank %}
 				{%- comment -%}
 					{% for media in product.media %}
 						{% assign alt_parts = media.alt | split: '#' %}
@@ -470,6 +470,6 @@
 	</div>
 
 	<!-- **BEGIN** Hextom USB Integration // Collection Include - DO NOT MODIFY -->
-	{% render 'hextom_usb_coll', product: product %}
-	<!-- **END** Hextom USB Integration // Collection Include - DO NOT MODIFY -->
+    {% render 'hextom_usb_coll', product: product %}
+    <!-- **END** Hextom USB Integration // Collection Include - DO NOT MODIFY -->
 </div>

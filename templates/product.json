@@ -28,7 +28,7 @@
           "type": "product_sellpoint",
           "settings": {
             "notsale_tag": "Nopromotion",
-            "sale_text": "5% OFF 2 PIECES | 10% OFF 3 PIECES | 20% OFF 4 PIECES"
+            "sale_text": "<p><strong>5<\/strong>% OFF <strong>2<\/strong> PIECES | <strong>10<\/strong>% OFF<strong> 3<\/strong> PIECES | <strong>20<\/strong>% OFF <strong>4<\/strong> PIECES<\/p>"
           }
         },
         "buy_buttons": {
@@ -98,6 +98,7 @@
         "enable_video_looping": false,
         "enable_image_zoom": true,
         "zoom_effect": "outside",
+        "zoomFactor": 3,
         "carousel_effect": "fade"
       }
     },

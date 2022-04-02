@@ -19,7 +19,7 @@
     height: 6px;
     border: 1px solid #000;
     border-radius: 50%;
-    margin:0 3px;
+    margin: 0 3px;
     background: #FFFFFF;
   }
 
@@ -34,7 +34,7 @@
 	{%- if section.settings.title !=blank -%}
 		<div class="indexContainer">
 			<h2
-				class="section__title heading h3 section--text-centered">{{ section.settings.title | default: collection.title | escape }}</h2>
+				class="section__title heading h3 section--text-centered">{{ section.settings.title }}</h2>
 		</div>
 	{%- endif -%}
 
@@ -86,13 +86,13 @@
 						{%- if use_placeholder -%}
 							{%- include 'product-item-placeholder', product: product, show_add_to_cart: false -%}
 						{%- else -%}
-							{%- include 'product-item', product: product, show_add_to_cart: false,forloop:forloop,first_mkt_name:'Featured collection' -%}
+							{%- include 'product-item', product: product, show_add_to_cart: false,forloop:forloop,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
 						{%- endif -%}
 					{%- else -%}
 						{%- if use_placeholder -%}
 							{%- include 'product-item-placeholder', product: product, horizontal: true, show_add_to_cart: false -%}
 						{%- else -%}
-							{%- include 'product-item', product: product, horizontal: true, show_add_to_cart: false,forloop:forloop,first_mkt_name:'Featured collection' -%}
+							{%- include 'product-item', product: product, horizontal: true, show_add_to_cart: false,forloop:forloop,first_mkt_name:'{{ section.settings.sensorsName }}' -%}
 						{%- endif -%}
 					{%- endif -%}
 
@@ -101,6 +101,15 @@
 				{%- endif -%}
 				{%- endif -%}
 				{%- endfor -%}
+				{% if section.settings.show_at_last_image != blank %}
+					<div 	class="product-item {% if horizontal %}product-item--horizontal{% elsif list %}product-item--list{% else %}product-item--vertical{% endif %} {% if section.id == 'blog-sidebar' %}product-item--compact{% endif %} {{ grid_classes }} {% if only_show_transparent %}product-item--transparent{% endif %}">
+						{%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,500,600,700,800,900,1000, 1200, 1400, 1600', image: section.settings.show_at_last_image -%}{%- endcapture -%}
+						{%- assign image_url = section.settings.show_at_last_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+						<div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: section.settings.show_at_last_image.aspect_ratio }}%">
+							<img class="lazyload image--fade-in" data-src="{{ image_url }}" data-sizes="auto" data-widths="[{{ supported_sizes }}]">
+						</div>
+					</div>
+				{% endif %}
 			</div>
 			{%- endcapture -%}
 
@@ -164,7 +173,8 @@
                     document.documentElement.doScroll('left');
                 } catch (error) {
                     return setTimeout(arguments.callee, 20);
-                };
+                }
+                ;
                 fn();
             }
         }
@@ -218,6 +228,7 @@
             }
 
         }
+
         drawPoint()
         activePoint()
     })
@@ -252,6 +263,11 @@
 	"max": 50,
 	"step": 1,
 	"default": 12
+	},
+	{
+	"type":"image_picker",
+	"id":"show_at_last_image",
+	"label":"最后一格展示的图片"
 	},
 	{
 	"type": "select",

@@ -14,7 +14,7 @@
 	{%- comment -%}
 		<span class="product-form__info-title text--strong">{{ 'product.form.price' | t }}:</span>
 	{%- endcomment -%}
-	
+
   <div role="region" aria-live="polite">
     <div class="price-list">
       {%- if selected_variant.compare_at_price > selected_variant.price -%}
@@ -49,21 +49,13 @@
         </span>
       {%- endif -%}
     </div>
-    
-    {% if block.settings.show_promotion %}
-		<div class="product-discount-detail">
-      {% comment %} <div>
-        
-      {% render "icon" , icon: 'lable_icon1' %}
-      <span  class="product-discount-left"><strong>10% </strong>off <strong>3</strong> pieces</span> | <strong>20% </strong>off <strong>4</strong> pieces</span>
 
-      </div> {% endcomment %}
-     <div >
-       <span>
-      {% render "icon" , icon: 'cjj_postage' %} 
-      </span >
-         <span  class="product-discount-left">Free Shipping On Order <strong>Over $60</strong> </span>
-     </div>
+    {% if block.settings.show_promotion %}
+		<div class="product-discount">
+			<div class="product-discount-detail">
+				{% render "icon" , icon: 'cjj_postage' %}
+				<div  class="product-discount-left">Free Shipping On Order <strong>Over $60</strong> </div>
+			</div>
 		</div>
 	{% endif %}
 
@@ -144,7 +136,7 @@
                 {%- assign downcased_value = value | downcase -%}
                 {%- capture color_id -%}{{ option_name }}-{{ forloop.index }}{%- endcapture -%}
 
-                <div class="color-swatch {% if downcased_value == 'white' or downcased_value == 'blanc' %}color-swatch--white{% endif %} ld-variant"  
+                <div class="color-swatch {% if downcased_value == 'white' or downcased_value == 'blanc' %}color-swatch--white{% endif %} ld-variant"
                 data-scenable="1" data-sctype="valueChange" data-scdata='{"is_quick_view":1,
 							      "commodity_spuid": "{{product.handle}}",
 							      "currency_unit":"USD",
@@ -152,7 +144,7 @@
 							      "commodity_skuid":"{{ selected_variant.sku }}",
 							      "commodity_image_quantity":"{{product.images.size}}",
                     "commodity_description_text":["{{product.description | handleize }}"],
-				            "commodity_description_image":"",
+				            "commodity_description_image":["{{ product.featured_image | image_url | split: "?" | first  }}"],
 							      "commodity_size":"",
 				            "commodity_color":"",
 							      "commodity_tag":"{{tags}}",
@@ -179,7 +171,7 @@
 
                 {%- for variant in product.variants -%}
                   {%- if variant[option_name] == value and variant.image -%}
-                    <div class="variant-swatch ld-variant" 
+                    <div class="variant-swatch ld-variant"
                     data-scenable="1" data-sctype="valueChange" data-scdata='{"is_quick_view":0,
 							        "commodity_spuid": "{{product.handle}}",
 							        "currency_unit":"USD",
