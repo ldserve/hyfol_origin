@@ -3752,6 +3752,15 @@ img.lazyload[data-sizes=auto] {
    padding: 5px !important;
 }
 
+.collection__toolbar_left_item{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.collection__toolbar_left_item div{
+   padding-right: 15px;
+}
+
 .collection__toolbar-item {
   display: flex;
   align-items: center;

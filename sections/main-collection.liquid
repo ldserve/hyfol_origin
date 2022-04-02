@@ -82,7 +82,7 @@
 <section data-section-id="{{ section.id }}" onclick="closeFilter(event)" data-section-type="collection"
   data-section-settings='{{ section_settings }}'>
 
-  <div class="container" id="container">
+  <div class="indexContainer" id="container">
 
 
     {%- comment -%}
@@ -224,7 +224,8 @@
             {{ 'collection.filter.title' | t }}{% if active_filters_count > 0 %}&nbsp;({{ active_filters_count }}){% endif %}
           </button>
           {%- endif -%}
-     
+     <div class="collection__toolbar_left_item">
+
           {% if has_filters%}
           <div class="collection__toolbar-item collection__toolbar-item--count hidden-pocket">
             <span class="filter_icon" onclick="filter()">
@@ -322,7 +323,7 @@
               </div>
             </div>
           </div>
-
+    </div>
           <div class="collection__toolbar-item collection__toolbar-item--layout">
             <span class="collection__layout-label hidden-phone">{{ 'collection.layout.title' | t }}</span>
 
