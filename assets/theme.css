@@ -333,11 +333,6 @@ th {
   border: 1px solid #000;
 }
 
-@media screen and (min-width: 641px){
-  .indexContainer .flickity-page-dots .dot {
-    bottom:-15px
-  }
-}
 .flickity-page-dots .dot {
   position: relative;
   left: 0;

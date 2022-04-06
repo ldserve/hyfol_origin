@@ -4,8 +4,8 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "banner",
-        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_87eafb12-47f9-421e-8ca0-0e90315ebb6d.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/banner1_d3f5fa7e-0e00-4402-82f4-2287c2522695.jpg",
+        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_23c1dd20-bb52-432a-a3eb-26f8c5c2d9f2.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/banner_b9f88b38-11ed-47ec-9e4e-544c289dc31b.jpg",
         "link": "shopify:\/\/collections\/2022-fashion-trends",
         "shadow": false
       }
@@ -167,6 +167,7 @@
     "1648607115d95fb2d3": {
       "type": "ld-imageText",
       "settings": {
+        "noMargin": true,
         "image": "shopify:\/\/shop_images\/banner_01.jpg",
         "mobile_image": "shopify:\/\/shop_images\/33dc2d9d38d4c6a787b8c8217fad8671.jpg",
         "link": "shopify:\/\/collections\/skull",
@@ -176,9 +177,9 @@
         "subtitle": "ROCK THE SKULL STYLE",
         "button": "EXPLORE NOW",
         "show": false,
-        "title_size": 4,
+        "title_size": 4.5,
         "sub_title_size": 1.5,
-        "m_title_size": 30,
+        "m_title_size": 36,
         "m_sub_title_size": 13,
         "sub_title_top": 24,
         "m_sub_title_top": 10,
@@ -209,6 +210,7 @@
     "1648191714c3e1b050": {
       "type": "ld-imageText",
       "settings": {
+        "noMargin": true,
         "image": "shopify:\/\/shop_images\/02_0d425458-8123-4a0d-9e23-6414dd915332.jpg",
         "mobile_image": "shopify:\/\/shop_images\/9573de5236b7167989a7e2067bac8ab2.jpg",
         "link": "shopify:\/\/collections\/american-flag",
@@ -218,9 +220,9 @@
         "subtitle": "GOD，FAMILY，COUNTRY",
         "button": "EXPLORE NOW",
         "show": false,
-        "title_size": 4,
+        "title_size": 4.5,
         "sub_title_size": 1.5,
-        "m_title_size": 30,
+        "m_title_size": 36,
         "m_sub_title_size": 13,
         "sub_title_top": 29,
         "m_sub_title_top": 10,
@@ -251,6 +253,7 @@
     "16486063216ada3a56": {
       "type": "ld-imageText",
       "settings": {
+        "noMargin": true,
         "image": "shopify:\/\/shop_images\/02_f2383d81-ba3b-4f81-bcd8-d755dbef24a6.jpg",
         "mobile_image": "shopify:\/\/shop_images\/1e391a7f0c2577959f380afecee0bb81.jpg",
         "link": "shopify:\/\/collections\/camou",
@@ -260,9 +263,9 @@
         "subtitle": "INSPIRED BY MILITARY GARMNTS",
         "button": "EXPLORE NOW",
         "show": false,
-        "title_size": 4,
+        "title_size": 4.5,
         "sub_title_size": 1.5,
-        "m_title_size": 30,
+        "m_title_size": 36,
         "m_sub_title_size": 13,
         "sub_title_top": 24,
         "m_sub_title_top": 10,
@@ -415,6 +418,7 @@
     "16486080199c077c37": {
       "type": "ld-imageText",
       "settings": {
+        "noMargin": false,
         "image": "shopify:\/\/shop_images\/1_02.jpg",
         "mobile_image": "shopify:\/\/shop_images\/01_817c555d-98ba-410c-8153-50c8b6babcd3.jpg",
         "link": "",
@@ -426,7 +430,7 @@
         "show": true,
         "title_size": 4,
         "sub_title_size": 1.5,
-        "m_title_size": 30,
+        "m_title_size": 36,
         "m_sub_title_size": 9,
         "sub_title_top": 23,
         "m_sub_title_top": 10,
