@@ -46,14 +46,19 @@
 				<img data-src="{{ section.settings.image | img_url: '1500x' }}" data-widths="[{{ supported_sizes }}]"
 						 data-sizes="auto"
 						 alt="{{ section.settings.image.alt | escape }}" class="lazyload  img_item">
-				<a class="ins_item link" data-account-id="{{ forloop.index0 }}" href="{{ link }}"></a>
+				{% if link != blank %}
+					<a class="ins_item link" data-account-id="{{ forloop.index0 }}" href="{{ link }}"></a>
+
+				{% endif %}
 			</div>
 
 			<div class="mobile">
 				<img data-src="{{ section.settings.mobile_image | img_url: '1500x' }}" data-widths="[{{ supported_sizes }}]"
 						 data-sizes="auto"
 						 alt="{{ section.settings.image.alt | escape }}" class="lazyload  img_item">
-				<a class="ins_item link" data-account-id="{{ forloop.index0 }}" href="{{ link }}"> </a>
+				{% if link != blank %}
+					<a class="ins_item link" data-account-id="{{ forloop.index0 }}" href="{{ link }}"></a>
+				{% endif %}
 			</div>
 		</div>
 	</div>
