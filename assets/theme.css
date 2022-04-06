@@ -3664,7 +3664,8 @@ img.lazyload[data-sizes=auto] {
 }
 
 .filter_content_show{
-  width: 101%;
+  width: 102%;
+  left: -1%;
   position: absolute;
   height: calc(100% - 100px);
   z-index: 3;
@@ -3860,7 +3861,7 @@ img.lazyload[data-sizes=auto] {
   }
 
   .collection__toolbar-item {
-    height: 58px;
+    height: 38px;
   }
 
   .collection__toolbar-item .value-picker-button {
@@ -8656,6 +8657,9 @@ select option {
   margin-bottom: 40px;
   font-size: calc(var(--base-text-font-size) - (var(--default-text-font-size) - 13px));
   background-color: rgb(42,42,42);
+}
+.page__sub-header_bottom{
+  margin-bottom: 10px;
 }
 
 /* Page description must be contained within a page__header, and has less spacing than page__content */

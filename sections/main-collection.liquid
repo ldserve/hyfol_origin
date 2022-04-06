@@ -37,7 +37,7 @@
 "gridClasses": {{ grid_classes | json }}
 }
 {%- endcapture -%}
-<div class="indexContainer page__sub-header">
+<div class="indexContainer page__sub-header page__sub-header_bottom">
   <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb">
     <ol class="breadcrumb__list" role="list">
       <li class="breadcrumb__item">
@@ -140,7 +140,7 @@
       <div class="collection__dynamic-part card {% if collection.products_count == 0 %}clearfix{% endif %}">
         <header
           class="card__header {% unless collection.template_suffix == 'brand' %}card__header--tight{% endunless %}"
-          style="margin-top:0;padding-bottom: 0">
+          style="margin-top:0;padding-bottom: 0;padding-top:10px;">
           {%- comment -%}
           IMPLEMENTATION NOTE: unfortunately I was forced to add a lot of extra div (collection__meta,
           collection__meta-inner, collection__header-inner,...)
