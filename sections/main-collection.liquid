@@ -1146,7 +1146,9 @@
       //           productItem[i].style.paddingRight = '0'
       // 			}
       //   }
-      productList.style.width = '102%'
+      if(document.querySelector('.product-item').className.includes("product-item--vertical") == true){
+        productList.style.width = '102%'
+      }
     } else {
       productList.style.width = '101%'
     }
