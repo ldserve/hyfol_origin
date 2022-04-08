@@ -13,15 +13,15 @@
     "16474248460d0593be": {
       "type": "transparent-collection",
       "settings": {
-        "collection": "new-collection",
-        "sensorsName": "NEW IN",
-        "title": "NEW IN",
+        "collection": "best-sellers-1",
+        "sensorsName": "BEST SELLERS",
+        "title": "BEST SELLERS",
         "products_count": 12,
         "layout": "vertical",
         "stack_products": false,
         "show_quick_buy": false,
         "link_title": "View all",
-        "link_url": "shopify:\/\/collections\/new-collection"
+        "link_url": "shopify:\/\/collections\/best-sellers-1"
       }
     },
     "16474250424edba623": {
