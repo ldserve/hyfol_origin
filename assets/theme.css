@@ -1783,7 +1783,7 @@ img.lazyload[data-sizes=auto] {
 
 @media screen and (max-width: 999px) {
 
- 
+
 
   .hidden-pocket {
     display: none !important;
@@ -1813,7 +1813,7 @@ img.lazyload[data-sizes=auto] {
     width: 16.666667%;
   }
 
- 
+
 
 }
 
@@ -1856,7 +1856,7 @@ img.lazyload[data-sizes=auto] {
 }
 
 @media screen and (min-width: 1000px) {
-  
+
   .hidden-lap-and-up {
     display: none !important;
   }
@@ -2952,7 +2952,7 @@ img.lazyload[data-sizes=auto] {
   .shenceDetail .card__collapsible-button {
     padding: 20px 0px;
   }
- 
+
   .card__section+.card__section::before {
     width: 100%;
   }
@@ -3671,7 +3671,7 @@ img.lazyload[data-sizes=auto] {
   z-index: 3;
   visibility:visible;
   background-color: rgba(22, 22, 22, 0.6);
-  
+
   /* visibility: hidden */
 }
 .filter_content_layout_mask{
@@ -3704,7 +3704,7 @@ img.lazyload[data-sizes=auto] {
    margin: 0px !important;
    border-right: 1px solid #edece6;
    border-bottom: none !important;
-   
+
 }
 
 #filter_content .filter_item_min_height{
@@ -9545,7 +9545,7 @@ select option {
 
 .icon-color{
   color: #bfbfbf !important;
-  
+
 }
 
 .product-discount{
@@ -12584,7 +12584,7 @@ shopify-payment-terms {
   top: calc(50% - 5px);
   width: 10px;
   height: 10px;
-} 
+}
 [aria-expanded=true] span.card-arrow .icon {
   transform: rotate(180deg);
 }
@@ -15265,7 +15265,7 @@ shopify-payment-terms {
   }
   .ks-chart-modal-button>span.with-icon .kiwi-svg, .ks-chart-modal-link.with-icon .kiwi-svg{
     display: none !important;
-  } 
+  }
   span._ks_text {
     text-transform: uppercase;
 }
@@ -15282,3 +15282,144 @@ shopify-payment-terms {
     font-size: 13px;
   }
 }
+/*尺码表样式 start*/
+ #sizeGuideModal .modal__inner .modal__inner__top {
+   padding: 10px 30px;
+   background-color: #1b1b1b;
+   text-align: center;
+   color: #FFFFFF;
+ }
+
+#sizeGuideModal .modal__inner__top__title {
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+#sizeGuideModal .modal__close {
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 641px) {
+  #sizeGuideModal .modal__close {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+  }
+
+  #sizeGuideModal .card__section {
+    padding: 15px;
+  }
+}
+
+#sizeGuideModal .sizeGuideModal__checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: 500;
+  justify-content: center;
+}
+
+#sizeGuideModal .sizeGuideModal__checkbox__core {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #E0DCD6;
+  border-radius: 10px;
+  margin: 0 12px;
+}
+
+#sizeGuideModal .sizeGuideModal__checkbox__core:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(173, 16, 15);
+  border-radius: 50%;
+  transition: all ease-in-out 0.2s;
+}
+
+#sizeGuideModal .is-checked .sizeGuideModal__checkbox__core:after {
+  left: 100%;
+  margin-left: -20px;
+}
+
+#sizeGuideModal .sizeGuideModal__checkbox span:nth-child(1) {
+  color: rgb(173, 16, 15);
+}
+
+#sizeGuideModal .is-checked span:nth-child(1) {
+  color: var(--text-color);
+}
+
+#sizeGuideModal .is-checked span:nth-child(3) {
+  color: rgb(173, 16, 15);
+}
+
+#sizeGuideModal table {
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  border-spacing: 0;
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: auto;
+}
+
+#sizeGuideModal table td,
+#sizeGuideModal table th {
+  padding: 10px 20px;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
+  background: #E0DCD6;
+}
+
+#sizeGuideModal table td:first-child,
+#sizeGuideModal table th:first-child {
+  background: #FFFFFF;
+}
+
+#sizeGuideModal .sizeGuideModal__tips {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#sizeGuideModal .sizeGuideModal__tips__right {
+  width: 20%;
+  min-width: 150px;
+}
+
+#sizeGuideModal .sizeGuideModal__tips__title {
+  color: rgb(173, 16, 15);
+}
+
+#sizeGuideModal .sizeGuideModal__tips__item__num {
+  min-width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: #1b1b1b;
+  color: #FFFFFF;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+#sizeGuideModal .sizeGuideModal__tips__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#sizeGuideModal .sizeGuideModal__tips__item__text p {
+  margin: 0;
+}
+
+#sizeGuideModal .sizeGuideModal__tips__item__text {
+  display: inline-block;
+}
+/*尺码表样式 end*/

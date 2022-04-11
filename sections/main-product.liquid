@@ -218,7 +218,7 @@
 
 							{%- if title != blank and liquid != blank -%}
 								<div class="product-block-list__item product-block-list__item--content" {{ block.shopify_attributes }}>
-									<div class="card" >
+									<div class="card">
 										{%- if block.settings.display_mode == 'collapse' -%}
 											<button class="card__collapsible-button" data-action="toggle-collapsible" aria-expanded="false"
 															aria-controls="block-{{ section.id }}-{{ block.id }}">
@@ -283,7 +283,7 @@
 
 							{%- if block.settings.custom_security_badge or show_payment_icons -%}
 								<div class="product-block-list__item product-block-list__item--trust">
-									<div class="card" >
+									<div class="card">
 										<div class="card__header card__header--flex">
 											<h2 class="card__title heading h3">{{ block.settings.trust_title | escape }}</h2>
 
@@ -441,8 +441,145 @@
 			{%- render 'product-info' -%}
 		</div>
 	{%- endif -%}
+	{%- comment -%} 尺码表弹窗 {%- endcomment -%}
+	<div id="sizeGuideModal" class="modal" aria-hidden="true">
+		<div class="modal__dialog modal__dialog--stretch" role="dialog">
+			<button class="modal__close link" data-action="close-modal"
+							title="{{ 'general.accessibility.close' | t | escape }}">
+				{%- render 'icon', icon: 'close' -%}
+			</button>
+			<div class="modal__inner">
+				<div class="modal__inner__top">
+					<div class="heading modal__inner__top__title"> {{ product.title }}</div>
+					<div class="h5"> Size Chart</div>
+				</div>
+				<div class="card__section">
+					<div class="sizeGuideModal__checkbox">
+						<span>INCHES</span>
+						<span class="sizeGuideModal__checkbox__core"></span>
+						<span>CM</span>
+					</div>
+					<div class="sizeGuideModal__container">
+						<table>
+							<tbody></tbody>
+						</table>
+						{%- comment -%}上装{%- endcomment -%}
+						{% if product.metafields.my_fields.category.second_commodity contains '上装' %}
+							{% assign shouzi = true %}
+							{%- comment -%}
+								{% if 瘦子 %}
+									{% else %}
+								{% endif %}
+							{%- endcomment -%}
+							<script type="application/json" data-type="chart">
+								{
+									"inches": {
+										"size": "S/M/L/XL/XLL/XLLL/XLLL",
+										"US SIZE": "37-39/39-41/42-44/44-46/46-48/48-50/50-52",
+										"LOW HIPS": "37-39/39-41/42-44/44-46/46-48/48-50/50-52"
+									},
+									"cm": {
+										"size": "S/M/L/XL/XLL/XLLL/XLLL",
+										"CM SIZE": "37-39/39-41/42-44/44-46/46-48/48-50/50-52"
+									}
+								}
+							</script>
+							<div class="sizeGuideModal__tips">
+								<div class="sizeGuideModal__tips__left">
+									<h2 class="sizeGuideModal__tips__title heading">HOW TO MEASURE</h2>
+									<div class="sizeGuideModal__tips__item">
+										<span class="sizeGuideModal__tips__item__num">1</span>
+										<div class="sizeGuideModal__tips__item__text">
+											<p class="heading">Bust</p>
+											<p>Measure your chest over the fullest part.</p>
+										</div>
+									</div>
+									<div class="sizeGuideModal__tips__item">
+										<span class="sizeGuideModal__tips__item__num">2</span>
+										<div class="sizeGuideModal__tips__item__text">
+											<p class="heading">Waist</p>
+											<p>Measure your waist at the narrowest point.</p>
+										</div>
+									</div>
+									<div class="sizeGuideModal__tips__item">
+										<span class="sizeGuideModal__tips__item__num">3</span>
+										<div class="sizeGuideModal__tips__item__text">
+											<p class="heading">Arm length</p>
+											<p>Measure from your shoulder point to your wrist.</p>
+										</div>
+									</div>
+								</div>
+								{% if shouzi %}
+									{% assign imgUrl = 'https://cdn.shopify.com/s/files/1/0595/0691/7535/files/e46e2a4dcec575d2135d3a6937f17f7b.png?v=1649659735' %}
+								{% else %}
+									{% assign imgUrl = 'https://cdn.shopify.com/s/files/1/0595/0691/7535/files/10ac9a3d1bce43981b2acbb0e786b070.png?v=1649659790' %}
+								{% endif %}
+								<div class="sizeGuideModal__tips__right">
+									<img src="{{ imgUrl }}" alt="">
+								</div>
+							</div>
+						{% endif %}
+						{%- comment -%}下装{%- endcomment -%}
+						{% if product.metafields.my_fields.category.second_commodity contains '下装' %}
+							{% assign shouzi = false %}
+							{%- comment -%}
+								{% if 瘦子 %}
+								{% else %}
+								{% endif %}
+							{%- endcomment -%}
+							<script type="application/json" data-type="chart">
+								{
+									"inches": {
+										"size": "S/M/L/XL/XLL/XLLL/XLLL",
+										"US SIZE": "x37-39/x39-41/x42-44/x44-46/46-48/48-50/50-52"
+									},
+									"cm": {
+										"size": "S/M/L/XL/XLL/XLLL/XLLL",
+										"CM SIZE": "x37-39/x39-41/42-44/44-46/46-48/48-50/50-52"
+									}
+								}
+							</script>
+							<div class="sizeGuideModal__tips">
+								<div class="sizeGuideModal__tips__left">
+									<h2 class="sizeGuideModal__tips__title heading">HOW TO MEASURE</h2>
+									<div class="sizeGuideModal__tips__item">
+										<span class="sizeGuideModal__tips__item__num">1</span>
+										<div class="sizeGuideModal__tips__item__text">
+											<p class="heading">Waist</p>
+											<p>Measure your waist at the narrowest point.</p>
+										</div>
+									</div>
+									<div class="sizeGuideModal__tips__item">
+										<span class="sizeGuideModal__tips__item__num">2</span>
+										<div class="sizeGuideModal__tips__item__text">
+											<p class="heading">Low hip</p>
+											<p>Measure your low hip around the fullest part of your hip.</p>
+										</div>
+									</div>
+									<div class="sizeGuideModal__tips__item">
+										<span class="sizeGuideModal__tips__item__num">3</span>
+										<div class="sizeGuideModal__tips__item__text">
+											<p class="heading">Inside leg</p>
+											<p>Inside leg is measured from the crotch to the floor.</p>
+										</div>
+									</div>
+								</div>
+								{% if shouzi %}
+									{% assign imgUrl = 'https://cdn.shopify.com/s/files/1/0595/0691/7535/files/55e467b9627d61fbc3b4e8f389b291ad.png?v=1649663775' %}
+								{% else %}
+									{% assign imgUrl = 'https://cdn.shopify.com/s/files/1/0595/0691/7535/files/9fd6f349b4d02923ac34fde0d1d21879.png?v=1649663788' %}
+								{% endif %}
+								<div class="sizeGuideModal__tips__right">
+									<img src="{{ imgUrl }}" alt="">
+								</div>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
-
 <script>
     window.ShopifyXR = window.ShopifyXR || function () {
         (ShopifyXR.q = ShopifyXR.q || []).push(arguments)
@@ -464,6 +601,48 @@
         } catch (error) {
             // Do nothing, this may happen in Safari in incognito mode
         }
+        let sizeGuideModal = document.querySelector('#sizeGuideModal')
+        let sizeGuideModal__checkbox = sizeGuideModal.querySelector('.sizeGuideModal__checkbox')
+        function initSizeGuideTable() {
+            let tbody = sizeGuideModal.querySelector('tbody')
+            let className = sizeGuideModal__checkbox.className
+            let data = JSON.parse(sizeGuideModal.querySelector('[type="application/json"][data-type="chart"]').textContent)
+            let inchesTable = ''
+            let curData = null
+            className.indexOf('is-checked') > -1 ? curData = data.cm : curData = data.inches
+            if (curData) {
+                for (const inchesTableElement in curData) {
+                    inchesTable += `<tr>`
+                    if (inchesTableElement === 'size') {
+                        inchesTable += `<th>${inchesTableElement}</th>`
+                        let arr = curData[inchesTableElement].split('/')
+                        arr.map(i => {
+                            inchesTable += `<th>${i}</th>`
+                        })
+                    } else {
+                        inchesTable += `<td>${inchesTableElement}</td>`
+                        let arr = curData[inchesTableElement].split('/')
+                        arr.map(i => {
+                            inchesTable += `<td>${i}</td>`
+                        })
+                    }
+                    inchesTable += `</tr>`
+                }
+            }
+            tbody.innerHTML = inchesTable
+        }
+
+        sizeGuideModal__checkbox.addEventListener('click', (e) => {
+            let className = sizeGuideModal__checkbox.className
+            console.log(sizeGuideModal__checkbox.className)
+            if (className.indexOf('is-checked') > -1) {
+                sizeGuideModal__checkbox.classList.remove('is-checked')
+            } else {
+                sizeGuideModal__checkbox.classList.add('is-checked')
+            }
+            initSizeGuideTable()
+        })
+        initSizeGuideTable()
     })();
 </script>
 
@@ -504,23 +683,23 @@
 	]
 	},
 	{
-      "type": "product_sellpoint",
-      "name": "促销信息",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "label": "不参加促销的商品标签",
-          "info":"不参加促销的商品标签里的商品不会展示促销信息",
-          "id": "notsale_tag"
-        },
-        {
-          "type": "richtext",
-          "label": "促销文案",
-          "id": "sale_text"
-        }
-      ]
-    },
+	"type": "product_sellpoint",
+	"name": "促销信息",
+	"limit": 1,
+	"settings": [
+	{
+	"type": "text",
+	"label": "不参加促销的商品标签",
+	"info":"不参加促销的商品标签里的商品不会展示促销信息",
+	"id": "notsale_tag"
+	},
+	{
+	"type": "richtext",
+	"label": "促销文案",
+	"id": "sale_text"
+	}
+	]
+	},
 	{
 	"type": "variant_selector",
 	"name": "Variant selector",
@@ -942,16 +1121,16 @@
 	],
 	"default": "outside"
 	},
-    {
-      "type": "range",
-      "id": "zoomFactor",
-      "min": 1,
-      "max": 4,
-      "step": 0.1,
-      "unit": "倍",
-      "label": "放大镜倍率",
-      "default": 2
-      },
+	{
+	"type": "range",
+	"id": "zoomFactor",
+	"min": 1,
+	"max": 4,
+	"step": 0.1,
+	"unit": "倍",
+	"label": "放大镜倍率",
+	"default": 2
+	},
 	{
 	"type": "select",
 	"id": "carousel_effect",
