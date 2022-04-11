@@ -28,7 +28,7 @@
           "type": "product_sellpoint",
           "settings": {
             "notsale_tag": "Nopromotion",
-            "sale_text": "<p>5% OFF 2 PIECES | 10% OFF 3 PIECES | 15% OFF 4 PIECES20% OFF 5 PIECES | 25% OFF 6 PIECES | 30% OFF 7+ PIECES<\/p><p><\/p>"
+            "sale_text": "<p>5% OFF 2 PIECES | 10% OFF 3 PIECES | 15% OFF 4 PIECES<\/p>"
           }
         },
         "buy_buttons": {
