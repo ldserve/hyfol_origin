@@ -5,6 +5,155 @@
   #shopify-section-{{ section.id }} .color-swatch-list {
     text-align: unset;
   }
+  /*尺码表样式 start*/
+  #sizeGuideModal .modal__inner .modal__inner__top {
+    padding: 10px 30px;
+    background-color: #1b1b1b;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  #sizeGuideModal .modal__inner__top__title {
+    font-size: 20px;
+    color: #FFFFFF;
+  }
+
+  #sizeGuideModal .modal__close {
+    color: #FFFFFF;
+  }
+
+  #sizeGuideModal .sizeGuideModal__checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 500;
+    justify-content: center;
+  }
+
+  #sizeGuideModal .sizeGuideModal__checkbox__core {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #E0DCD6;
+    border-radius: 10px;
+    margin: 0 12px;
+  }
+
+  #sizeGuideModal .sizeGuideModal__checkbox__core:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(173, 16, 15);
+    border-radius: 50%;
+    transition: all ease-in-out 0.2s;
+  }
+
+  #sizeGuideModal .is-checked .sizeGuideModal__checkbox__core:after {
+    left: 100%;
+    margin-left: -20px;
+  }
+
+  #sizeGuideModal .sizeGuideModal__checkbox span:nth-child(1) {
+    color: rgb(173, 16, 15);
+  }
+
+  #sizeGuideModal .is-checked span:nth-child(1) {
+    color: var(--text-color);
+  }
+
+  #sizeGuideModal .is-checked span:nth-child(3) {
+    color: rgb(173, 16, 15);
+  }
+
+  #sizeGuideModal table {
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
+    border-spacing: 0;
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: auto;
+    text-align: center;
+  }
+
+  #sizeGuideModal table td,
+  #sizeGuideModal table th {
+    padding: 10px 20px;
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #999;
+    background: #E0DCD6;
+  }
+
+  #sizeGuideModal table td:first-child,
+  #sizeGuideModal table th:first-child {
+    background: #FFFFFF;
+  }
+
+  #sizeGuideModal .sizeGuideModal__tips {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  #sizeGuideModal .sizeGuideModal__tips__right {
+    width: 20%;
+    min-width: 150px;
+  }
+
+  #sizeGuideModal .sizeGuideModal__tips__title {
+    color: rgb(173, 16, 15);
+  }
+
+  #sizeGuideModal .sizeGuideModal__tips__item__num {
+    min-width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #1b1b1b;
+    color: #FFFFFF;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+
+  #sizeGuideModal .sizeGuideModal__tips__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  #sizeGuideModal .sizeGuideModal__tips__item__text p {
+    margin: 0;
+  }
+
+  #sizeGuideModal .sizeGuideModal__tips__item__text {
+    display: inline-block;
+  }
+  @media screen and (max-width: 641px) {
+    #sizeGuideModal .modal__close {
+      position: absolute;
+      right: 10px;
+      top: 20px;
+    }
+
+    #sizeGuideModal .card__section {
+      padding: 15px;
+    }
+    #sizeGuideModal table td,
+    #sizeGuideModal table th {
+      padding: 5px 10px;
+    }
+    #sizeGuideModal .sizeGuideModal__tips__item {
+      margin-bottom: 10px;
+    }
+  }
+  /*尺码表样式 end*/
+
 </style>
 {%- capture section_settings -%}
 	{
@@ -435,6 +584,8 @@
 
 		</div>
 	{%- else -%}
+		{% assign col = "sku1,sku2" %}
+
 		{%- comment -%}We display the quick view within the product template so we can re-use the same settings{%- endcomment -%}
 		<div class="featured-product">
 			{%- render 'product-gallery', zoomFactor:section.settings.zoomFactor -%}
@@ -466,24 +617,41 @@
 						{%- comment -%}上装{%- endcomment -%}
 						{% if product.metafields.my_fields.category.second_commodity contains '上装' %}
 							{% assign shouzi = true %}
-							{%- comment -%}
-								{% if 瘦子 %}
-									{% else %}
-								{% endif %}
-							{%- endcomment -%}
-							<script type="application/json" data-type="chart">
-								{
-									"inches": {
-										"size": "S/M/L/XL/XLL/XLLL/XLLL",
-										"US SIZE": "37-39/39-41/42-44/44-46/46-48/48-50/50-52",
-										"LOW HIPS": "37-39/39-41/42-44/44-46/46-48/48-50/50-52"
-									},
-									"cm": {
-										"size": "S/M/L/XL/XLL/XLLL/XLLL",
-										"CM SIZE": "37-39/39-41/42-44/44-46/46-48/48-50/50-52"
+							{% if shouzi %}
+								<script type="application/json" data-type="chart">
+									{
+										"inches": {
+											"size": "S/M/L/XL/XLL/XLLL/XLLL",
+											"US SIZE": "37-39/39-41/42-44/44-46/46-48/48-50/50-52",
+											"chest": "37.5-39.5/39.5-41.5/41.5-44.5/43.5-46.5/45.5-48.5/47.5-50.5/49.5-52.5",
+											"sleeve": "32.5-33.5/33.5-34.5/34-35/34.5-35.5/35.5-36.5/36.5-37.5/37-38",
+											"wasit": "29.5-31.5/32.5-33.5/33.5-35.5/35.5-37.5/37.5-39.5/39.5-41.5/41.5-43.5",
+											"hips": "37.5-39/39.5-41/41.5-43/43.5-45/45.5-47/47.5-49/49.5-51"
+										},
+										"cm": {
+											"size": "S/M/L/XL/XLL/XLLL/XLLL",
+											"CM SIZE": "37-39/39-41/42-44/44-46/46-48/48-50/50-52"
+										}
 									}
-								}
-							</script>
+								</script>
+							{% else %}
+								<script type="application/json" data-type="chart">
+									{
+										"inches": {
+											"size": "S/M/L/XL/XLL/XLLL/XLLL",
+											"US SIZE": "pangzi/39-41/42-44/44-46/46-48/48-50/50-52",
+											"chest": "37.5-39.5/39.5-41.5/41.5-44.5/43.5-46.5/45.5-48.5/47.5-50.5/49.5-52.5",
+											"sleeve": "32.5-33.5/33.5-34.5/34-35/34.5-35.5/35.5-36.5/36.5-37.5/37-38",
+											"wasit": "29.5-31.5/32.5-33.5/33.5-35.5/35.5-37.5/37.5-39.5/39.5-41.5/41.5-43.5",
+											"hips": "37.5-39/39.5-41/41.5-43/43.5-45/45.5-47/47.5-49/49.5-51"
+										},
+										"cm": {
+											"size": "S/M/L/XL/XLL/XLLL/XLLL",
+											"CM SIZE": "37-39/39-41/42-44/44-46/46-48/48-50/50-52"
+										}
+									}
+								</script>
+							{% endif %}
 							<div class="sizeGuideModal__tips">
 								<div class="sizeGuideModal__tips__left">
 									<h2 class="sizeGuideModal__tips__title heading">HOW TO MEASURE</h2>
@@ -521,9 +689,9 @@
 						{% endif %}
 						{%- comment -%}下装{%- endcomment -%}
 						{% if product.metafields.my_fields.category.second_commodity contains '下装' %}
-							{% assign shouzi = false %}
+							{% assign shouzi = true %}
 							{%- comment -%}
-								{% if 瘦子 %}
+								{% if shouzi %}
 								{% else %}
 								{% endif %}
 							{%- endcomment -%}
@@ -601,6 +769,7 @@
         } catch (error) {
             // Do nothing, this may happen in Safari in incognito mode
         }
+        /*尺码表 start*/
         let sizeGuideModal = document.querySelector('#sizeGuideModal')
         let sizeGuideModal__checkbox = sizeGuideModal.querySelector('.sizeGuideModal__checkbox')
         function initSizeGuideTable() {
@@ -634,7 +803,6 @@
 
         sizeGuideModal__checkbox.addEventListener('click', (e) => {
             let className = sizeGuideModal__checkbox.className
-            console.log(sizeGuideModal__checkbox.className)
             if (className.indexOf('is-checked') > -1) {
                 sizeGuideModal__checkbox.classList.remove('is-checked')
             } else {
@@ -643,6 +811,7 @@
             initSizeGuideTable()
         })
         initSizeGuideTable()
+        /*尺码表 end*/
     })();
 </script>
 
