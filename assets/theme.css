@@ -9557,6 +9557,9 @@ select option {
 .product-discount-left{
   margin-left: 5px;
 }
+.product-discount-left p{
+  margin: 0;
+}
 .product-discount-icon{
   font-size: 20px;
 }
