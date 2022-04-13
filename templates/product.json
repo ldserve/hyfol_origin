@@ -29,7 +29,7 @@
           "settings": {
             "notsale_tag": "Nopromotion",
             "sale_text_on_detail": "<p><strong>5% OFF 2 PIECES | 10% OFF 3 PIECES | 20% OFF 5 PIECES<\/strong><\/p>",
-            "sale_text_on_img": "<p>5% OFF 2 PIECES | 10% OFF 3 PIECES | 20% OFF 5 PIECES<\/p>"
+            "sale_text_on_img": "<p>5% OFF 2 PIECES | 10% OFF 3 <\/p>"
           }
         },
         "buy_buttons": {
