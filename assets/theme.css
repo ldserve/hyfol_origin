@@ -1150,6 +1150,83 @@ html {
   /* This can be applied to pull up the text and remove the effect of line-height to preserve better spacing */
 }
 
+.prevItem1{
+  animation-name:prevItem1;
+  animation-duration: 0.5s;
+}
+.prevItem2{
+  animation-name: prevItem2;
+  animation-duration: 0.5s;
+}
+
+.nextItem1{
+  animation-name: nextItem1;
+  animation-duration: 0.5s;
+}
+.nextItem2{
+  animation-name: nextItem2;
+  animation-duration: 0.5s;
+}
+@keyframes nextItem1{
+  0% { transform:  translate(100% ,0);  }
+  100% { transform:  translate(0% ,0);}
+}
+
+@keyframes nextItem2{
+  0% { transform:  translate(100% ,0);  }
+  100% { transform:  translate(0% ,0);}
+}
+.prevButton{
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translate(0,-50%);
+}
+
+.nextButton{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.collocation{
+   width: 100%;
+   height: 400px;
+   margin-bottom: 20px;
+   overflow: hidden;
+   position: relative;
+}
+
+.collocation-list{
+  transition : transform 0.5s;
+    height: 100%;
+ 
+}
+.switch-product .prevImg{
+    position:absolute;
+    left: 0%;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.switch-product .nextImg{
+  position:absolute;
+  right: 0%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+.collocation-list-item{
+  list-style: none;
+  width: 100%;
+  height: 100%;
+position: absolute;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
 /**
  * --------------------------------------------------------------------
  * LINKS
