@@ -9552,7 +9552,9 @@ select option {
 }
 .product-discount-detail{
   display: flex;
-  align-items: center;
+}
+.product-discount-detail .icon {
+  height: 1.8rem;
 }
 .product-discount-left{
   margin-left: 5px;
