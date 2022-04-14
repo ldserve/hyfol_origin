@@ -1167,6 +1167,23 @@ html {
   animation-name: nextItem2;
   animation-duration: 0.5s;
 }
+.scroll-dot{
+   position: absolute;
+   bottom: 2%;
+   left: 50%;
+   transform: translate(-50%,0);
+   display: flex;
+}
+.scroll-dot__active-li{
+  border: 8px solid rgb(0, 0, 0) !important;
+}
+.scroll-dot li{
+   list-style: none;
+   border: 8px solid rgb(131, 131, 131);
+   border-radius: 50%;
+   margin: 0 10px;
+   cursor: pointer;
+}
 @keyframes nextItem1{
   0% { transform:  translate(100% ,0);  }
   100% { transform:  translate(0% ,0);}

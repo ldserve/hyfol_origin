@@ -21,13 +21,19 @@
       <li class="collocation-list-item" style="left:{{- forloop.index0 |times:100 -}}%;">
             {{ forloop.index0 }}
       </li>
-     
+      
     {%- endfor -%}
 </ul>
     <div class="switch-product">
       <span class="prevButton" >{%- render :'icon', icon:'arrow-left' -%}</span>
       <span class="nextButton" >{%- render :'icon', icon:'arrow-right' -%}</span>
     </div>
+    {%- comment -%}点{%- endcomment -%}
+    <div class="scroll-dot">
+    {% for Num in handles %}
+       <li></li>
+    {% endfor %}
+  </div>
 </div>
 </div>
 <script>
@@ -38,15 +44,25 @@
      let activeIndex = 0 ;//当前活跃index
      let firstLi = collocationList.firstElementChild //首尾节点
      let lastLi = collocationList.lastElementChild
+     let scrollDot = document.querySelector(".scroll-dot")//小点
+     //给所有小点添加index
+     var lis = scrollDot.getElementsByTagName("li")
+     for( i=0 ; i<lis.length ;i++){
+      lis[i].index = i
+      lis[i].addEventListener("click",changeItem)
+     }
+     lis[activeIndex].className = "scroll-dot__active-li"
+
      var animationsflag = true //是否阻止动画
      document.querySelector('.prevButton').addEventListener("click",prevItem)
      document.querySelector('.nextButton').addEventListener("click",nextItem)
+    
      //监听动画开始和结束
      collocationList.addEventListener("animationstart",animationStart)
      collocationList.addEventListener("transitionstart",animationStart)
      collocationList.addEventListener("animationend",animationEnd)
      collocationList.addEventListener("transitionend",animationEnd)
-
+     
      function animationStart (){
          animationsflag = false
      }
@@ -68,7 +84,19 @@
     style.type = "text/css";
     style.innerHTML = prevkeyframes;
     document.getElementsByTagName('head')[0].appendChild(style)
-
+    
+    function changeItem(){
+        if(animationsflag){
+         activeIndex = this.index
+         for( i=0 ; i<lis.length ;i++){
+          lis[i].className= ""
+         }
+         lis[activeIndex].className = "scroll-dot__active-li"
+         firstLi.style.left = "0%"
+         lastLi.style.left = (scorllNum-1)*100+"%"
+         collocationList.style.transform = `translate( -${activeIndex*100}% , 0px )`;  
+        }
+    }
 
      function prevItem(){
         if(animationsflag){
