@@ -1,19 +1,64 @@
-{%- if block.settings.sale_text_on_detail != blank -%}
-  {%- assign showsellpoint = 'true' -%}
-  {%- if block.settings.notsale_tag != blank -%}
-    {%- assign notsale_tag = block.settings.notsale_tag -%}
-    {%- for tag in product.tags -%}
-      {%- if tag contains notsale_tag -%}
-        {%- assign showsellpoint = 'false' -%}
-       {%- endif -%}
-    {%- endfor -%}
-    {%- if showsellpoint == 'true' -%}
-      <script>
-         document.querySelector('.card__section .product-discount')
-						 .insertAdjacentHTML('afterBegin', '<div class="product-discount-detail"><svg t="1647929179989" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6153" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M887.168 205.312c-1.28-30.464-26.112-55.424-56.704-56.704l-270.72-11.392c-19.584-0.768-39.04 6.656-52.992 20.736l-377.6 377.6a75.1744 75.1744 0 0 0 0 106.24l264.832 264.832c14.208 14.208 33.024 22.016 53.12 22.016s38.912-7.808 53.12-22.016l377.6-377.6a71.2448 71.2448 0 0 0 20.736-52.992l-11.392-270.72zM742.272 427.392a96.8064 96.8064 0 0 1-68.992 28.544c-26.112 0-50.56-10.112-68.992-28.544-38.016-38.016-38.016-99.968 0-137.984a96.8064 96.8064 0 0 1 68.992-28.544c26.112 0 50.56 10.112 68.992 28.544 38.016 38.016 38.016 99.968 0 137.984z" p-id="6154" fill="#010202"></path></svg> <div class="product-discount-left">{{block.settings.sale_text_on_detail}}</div><div>');
-         document.querySelector('.product-gallery__carousel-wrapper .product-gallery__carousel')
-						 .insertAdjacentHTML('afterBegin', '<div class="poa w100 z-1 top-0 left-0 sellpoint">{{block.settings.sale_text_on_img}}</div>');
-      </script>
-    {%- endif -%}
-  {%- endif -%}
+{%- comment -%}
+{%- for tag in product.tags -%}
+		{%- assign showsellpoint = 'true' -%}
+		{%- if tag contains notsale_tag -%}
+			{%- assign showsellpoint = 'false' -%}
+			{%- break -%}
+		{% elsif tag contains '促销' %}
+			{%- assign text = tag | split: '-' -%}
+			{%- assign sale_text_on_detail =  text[1] -%}
+			{%- assign sale_text_on_img =  text[1] -%}
+		{% else %}
+			{%- assign sale_text_on_detail =  block.settings.sale_text_on_detail -%}
+			{%- assign sale_text_on_img =  block.settings.sale_text_on_img -%}
+		{%- endif -%}
+{%- endfor -%}
+{%- if showsellpoint == 'true' -%}
+	<script>
+    document.querySelector('.card__section .product-discount')
+    .insertAdjacentHTML('afterBegin', '<div aa  class="product-discount-detail"><svg t="1647929179989" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6153" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M887.168 205.312c-1.28-30.464-26.112-55.424-56.704-56.704l-270.72-11.392c-19.584-0.768-39.04 6.656-52.992 20.736l-377.6 377.6a75.1744 75.1744 0 0 0 0 106.24l264.832 264.832c14.208 14.208 33.024 22.016 53.12 22.016s38.912-7.808 53.12-22.016l377.6-377.6a71.2448 71.2448 0 0 0 20.736-52.992l-11.392-270.72zM742.272 427.392a96.8064 96.8064 0 0 1-68.992 28.544c-26.112 0-50.56-10.112-68.992-28.544-38.016-38.016-38.016-99.968 0-137.984a96.8064 96.8064 0 0 1 68.992-28.544c26.112 0 50.56 10.112 68.992 28.544 38.016 38.016 38.016 99.968 0 137.984z" p-id="6154" fill="#010202"></path></svg> <div class="product-discount-left">{{ sale_text_on_detail }}</div><div>');
+    document.querySelector('.product-gallery__carousel-wrapper .product-gallery__carousel')
+    .insertAdjacentHTML('afterBegin', '<div class="poa w100 z-1 top-0 left-0 sellpoint">{{ sale_text_on_img }}</div>');
+	</script>
 {%- endif -%}
+
+{%- endcomment -%}
+
+
+{% assign customer = 'false' %}
+{%- for tag in product.tags -%}
+	{%- if tag contains '促销' -%}
+		{%- assign customer = 'true' -%}
+		{%- assign text = tag | split: '-' -%}
+		{%- assign sale_text_on_detail =  text[1] -%}
+		{%- assign sale_text_on_img =  text[1] -%}
+	{%- endif -%}
+{%- endfor -%}
+
+{% if customer == 'true' %}
+	<script>
+    document.querySelector('.card__section .product-discount')
+    .insertAdjacentHTML('afterBegin', '<div 自定义活动 class="product-discount-detail"><svg t="1647929179989" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6153" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M887.168 205.312c-1.28-30.464-26.112-55.424-56.704-56.704l-270.72-11.392c-19.584-0.768-39.04 6.656-52.992 20.736l-377.6 377.6a75.1744 75.1744 0 0 0 0 106.24l264.832 264.832c14.208 14.208 33.024 22.016 53.12 22.016s38.912-7.808 53.12-22.016l377.6-377.6a71.2448 71.2448 0 0 0 20.736-52.992l-11.392-270.72zM742.272 427.392a96.8064 96.8064 0 0 1-68.992 28.544c-26.112 0-50.56-10.112-68.992-28.544-38.016-38.016-38.016-99.968 0-137.984a96.8064 96.8064 0 0 1 68.992-28.544c26.112 0 50.56 10.112 68.992 28.544 38.016 38.016 38.016 99.968 0 137.984z" p-id="6154" fill="#010202"></path></svg> <div class="product-discount-left">{{sale_text_on_detail}}</div><div>');
+    document.querySelector('.product-gallery__carousel-wrapper .product-gallery__carousel')
+    .insertAdjacentHTML('afterBegin', '<div class="poa w100 z-1 top-0 left-0 sellpoint">{{sale_text_on_img}}</div>');
+	</script>
+{% else %}
+	{%- assign showsellpoint = 'true' -%}
+	{%- if block.settings.notsale_tag != blank -%}
+		{%- assign notsale_tag = block.settings.notsale_tag -%}
+		{%- for tag in product.tags -%}
+			{%- if tag contains notsale_tag -%}
+				{%- assign showsellpoint = 'false' -%}
+			{%- endif -%}
+		{%- endfor -%}
+		{%- if showsellpoint == 'true' -%}
+			<script>
+        document.querySelector('.card__section .product-discount')
+        .insertAdjacentHTML('afterBegin', '<div 全场活动 class="product-discount-detail"><svg t="1647929179989" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6153" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M887.168 205.312c-1.28-30.464-26.112-55.424-56.704-56.704l-270.72-11.392c-19.584-0.768-39.04 6.656-52.992 20.736l-377.6 377.6a75.1744 75.1744 0 0 0 0 106.24l264.832 264.832c14.208 14.208 33.024 22.016 53.12 22.016s38.912-7.808 53.12-22.016l377.6-377.6a71.2448 71.2448 0 0 0 20.736-52.992l-11.392-270.72zM742.272 427.392a96.8064 96.8064 0 0 1-68.992 28.544c-26.112 0-50.56-10.112-68.992-28.544-38.016-38.016-38.016-99.968 0-137.984a96.8064 96.8064 0 0 1 68.992-28.544c26.112 0 50.56 10.112 68.992 28.544 38.016 38.016 38.016 99.968 0 137.984z" p-id="6154" fill="#010202"></path></svg> <div class="product-discount-left">{{block.settings.sale_text_on_detail}}</div><div>');
+        document.querySelector('.product-gallery__carousel-wrapper .product-gallery__carousel')
+        .insertAdjacentHTML('afterBegin', '<div class="poa w100 z-1 top-0 left-0 sellpoint">{{block.settings.sale_text_on_img}}</div>');
+			</script>
+		{%- endif -%}
+	{%- endif -%}
+{% endif %}
+
