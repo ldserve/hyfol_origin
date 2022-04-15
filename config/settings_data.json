@@ -223,7 +223,7 @@
         "settings": {
           "show_announcement": true,
           "background": "#bfb28b",
-          "one_round": 8,
+          "one_round": 7,
           "text_color": "#222021",
           "link": "",
           "show_newsletter": false,
