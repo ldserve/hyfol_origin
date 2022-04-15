@@ -349,7 +349,6 @@ th {
 .flickity-page-dots .dot::before {
   position: absolute;
   content: "";
-  background: #000;
 }
 .flickity-page-dots .dot span{
 display: none;
@@ -11661,27 +11660,6 @@ shopify-payment-terms {
 
 .slideshow .flickity-page-dots {
   bottom: -25px;
-}
-
-.slideshow .flickity-page-dots .dot {
-  width: 12px;
-  height: 12px;
-  margin: 0 8px;
-  background: transparent;
-  border: 1px solid #000;
-  transform: none !important;
-  transition: background 0.25s ease-in-out;
-}
-
-.slideshow .flickity-page-dots .dot::before {
-  top: -10px;
-  right: -10px;
-  left: -10px;
-  bottom: -10px;
-}
-
-.slideshow .flickity-page-dots .dot.is-selected {
-  background: #000;
 }
 
 /** Overlay variation **/
