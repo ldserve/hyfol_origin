@@ -9558,9 +9558,13 @@ select option {
 .product-discount-left{
   margin-left: 5px;
 }
+
 .product-discount-left p{
   margin: 0;
+  color: #b82928;
+  font-weight: 550;
 }
+
 .product-discount-icon{
   font-size: 20px;
 }
