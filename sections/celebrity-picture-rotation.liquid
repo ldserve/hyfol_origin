@@ -72,15 +72,11 @@
                 <div class="modal__loader">
                     {%- render 'icon', icon: 'search-loader' -%}
                 </div>
-                <div class="modal__inner d-flex">
-                    <div class="modal__inner__left d-flex-1"></div>
-                    <div class="modal__inner__right d-flex-1">
-                        <div class="modal__inner__right__top d-flex d-flex-1">
-                        
-                        </div>
-                        <div class="modal__inner__right__bottom">
-                        
-                        </div>
+                <div class="modal__inner customer-d-flex">
+                    <div class="modal__inner__left customer-d-flex-1"></div>
+                    <div class="modal__inner__right customer-d-flex-1">
+                        <div class="modal__inner__right__top customer-d-flex customer-d-flex-1"></div>
+                        <div class="modal__inner__right__bottom"></div>
                     </div>
                 </div>
                 <button class="btn btn__Prev" type="button" onclick="changeImage('prev')">{%render "icon",icon:'arrow-left'%}</button>
@@ -537,8 +533,8 @@
                 let twitter_url = 'https://twitter.com/share?' + (twitter_text ? 'text=' + twitter_text : '') + '&url=' + share_url
                 modal.querySelector('.modal__inner__left').innerHTML = `<img data-src="${image_url}" data-sizes="auto" style="height:100%" class="lazyload" data-widths="[300,400,500,600,700,800,900,1000,1100]">`
                 modal.querySelector('.modal__inner__right__top').innerHTML = `
-                    <div class="d-flex-1"><img data-src="${data.featured_image}" data-sizes="auto" class="lazyload" data-widths="[300,400,500,600,700]" ></div>
-                    <div class="d-flex-1 ">
+                    <div class="customer-d-flex-1"><img data-src="${data.featured_image}" data-sizes="auto" class="lazyload" data-widths="[300,400,500,600,700]" ></div>
+                    <div class="customer-d-flex-1 ">
                         <h5 class="product-meta__title h5">
                             <a href="${data.url}">${data.title}</a>
                         </h5>
