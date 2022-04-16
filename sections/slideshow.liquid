@@ -14,7 +14,7 @@
 		padding: 0;
 	}
 </style>
-<section data-section-id="{{ section.id }}" data-section-type="slideshow" data-section-settings='{{ section_settings }}'>
+<section style="display: none" data-section-id="{{ section.id }}" data-section-type="slideshow" data-section-settings='{{ section_settings }}'>
   <div {% unless section.settings.edge_to_edge %}class="indexContainer container--flush"{% endunless %}>
     <div class="slideshow slideshow--{{ section.settings.section_size | replace: '_', '-' }} {% if section.settings.edge_to_edge %}slideshow--edge2edge{% endif %}" style="color: {{ section.blocks.first.settings.text_color }}">
       {%- for block in section.blocks -%}
