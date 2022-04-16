@@ -2,6 +2,7 @@
   "sections": {
     "1650101273f11a55ef": {
       "type": "slideshow",
+      "disabled": true,
       "blocks": {
         "1650101273ef0886ca-0": {
           "type": "image",
@@ -13,7 +14,7 @@
             "overlay_opacity": 30,
             "text_color": "#ffffff",
             "title": "Slide title1",
-            "heading_text_font": "anonymous_pro_n4",
+            "heading_text_font": "abril_fatface_n4",
             "heading_text_font_size": 49,
             "heading_text_color": "#ffffff",
             "content": "Tell your story1",
