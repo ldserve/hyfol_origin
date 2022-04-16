@@ -330,6 +330,16 @@
         "button_text_color_hover": "#000000"
       }
     },
+    "16501153969d7dc597": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/8_a0491898-a613-4306-b94d-98d3f8514ee7.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/7_04eedabc-41fc-4f21-bccd-e474262dad46.jpg",
+        "link": "shopify:\/\/collections\/winter-clearance",
+        "shadow": false
+      }
+    },
     "1650021168ea57a101": {
       "type": "no_space_img",
       "settings": {
@@ -663,6 +673,7 @@
     "16474250424edba623",
     "164742631051d4db44",
     "16500210584c969cfe",
+    "16501153969d7dc597",
     "1650021168ea57a101",
     "1647498064c408cfd6",
     "1648607115d95fb2d3",
