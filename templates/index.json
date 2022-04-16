@@ -1,5 +1,70 @@
 {
   "sections": {
+    "1650101273f11a55ef": {
+      "type": "slideshow",
+      "disabled": true,
+      "blocks": {
+        "1650101273ef0886ca-0": {
+          "type": "image",
+          "settings": {
+            "sensorsName": "",
+            "image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_b956edc0-d2ec-450b-add5-25aa28b77cb7.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_-_banner_3de28c91-3a2e-4b71-99df-ff9c082465b2.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "Slide title1",
+            "heading_text_font": "anonymous_pro_n4",
+            "heading_text_font_size": 49,
+            "heading_text_color": "#ffffff",
+            "content": "Tell your story1",
+            "content_text_font": "helvetica_n4",
+            "content_text_font_size": 25,
+            "content_text_color": "#ffffff",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "123",
+            "link": "shopify:\/\/collections\/59-9"
+          }
+        },
+        "1650101273ef0886ca-1": {
+          "type": "image",
+          "settings": {
+            "sensorsName": "",
+            "image": "shopify:\/\/shop_images\/1_c06d4ad8-a37e-4694-a1d2-ea7295ddc82b.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_-_banner_3de28c91-3a2e-4b71-99df-ff9c082465b2.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "Slide title",
+            "heading_text_font": "helvetica_n4",
+            "heading_text_font_size": 20,
+            "heading_text_color": "#ffffff",
+            "content": "Tell your story",
+            "content_text_font": "helvetica_n4",
+            "content_text_font_size": 12,
+            "content_text_color": "#ffffff",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "Button",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1650101273ef0886ca-0",
+        "1650101273ef0886ca-1"
+      ],
+      "settings": {
+        "edge_to_edge": false,
+        "section_size": "preserve_ratio",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 5
+      }
+    },
     "16476930731e3b7419": {
       "type": "no_space_img",
       "settings": {
@@ -591,6 +656,7 @@
     }
   },
   "order": [
+    "1650101273f11a55ef",
     "16476930731e3b7419",
     "16474248460d0593be",
     "16500767332eb3ea11",
