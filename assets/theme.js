@@ -2064,7 +2064,9 @@
 
                                 _this2.element.dispatchEvent(new CustomEvent('cart:rerendered'));
 
-                                console.log(window.collocationAnimations());
+                                if(document.querySelector('.mini-cart__inner') != null){
+                                    window.collocationAnimations(".mini-cart__inner")
+                                  }
                             } else {
                                 // The replacement of the DOM here could be made better and more resilient (maybe exploring using a virtual DOM approach in future?)
                                 var _tempElement = document.createElement('div');

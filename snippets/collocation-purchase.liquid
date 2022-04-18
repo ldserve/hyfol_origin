@@ -22,7 +22,7 @@
     {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
       <li class="collocation-list-item" style="left:{{- forloop.index0 |times:100 -}}%;">
-        {%- render 'collocation-purchase-card' product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}
+       123123 {%- comment -%}{%- render 'collocation-purchase-card' product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}{%- endcomment -%} 
       </li>
       
     {%- endfor -%}
@@ -35,7 +35,6 @@
 <script>
   function collocationAnimations(tar){
     var target = document.querySelector(tar)
-    console.log(target,"target");
     var startx,movex,endx,nx;
     let scorllNum = {{ handles.size }}  //商品件数
      let collocationList = target.querySelector('.collocation-list')    //ul
@@ -51,13 +50,9 @@
       lis[i].addEventListener("click",changeItem)
      }
      lis[activeIndex].className = "scroll-dot__active-li"
-
      var animationsflag = true //是否阻止动画
-     console.log(firstLi,lastLi,"@@@");
-     console.log( target.querySelector('.prevButton'),"按钮");
      target.querySelector('.prevButton').addEventListener("click",prevItem)
      target.querySelector('.nextButton').addEventListener("click",nextItem)
-    
      //监听动画开始和结束
      collocationList.addEventListener("animationstart",animationStart)
      collocationList.addEventListener("transitionstart",animationStart)
@@ -181,9 +176,7 @@
     collocationAnimations(".product-collocation")
   }
 
-  if(document.querySelector('.mini-cart__inner') != null){
-    collocationAnimations(".mini-cart__inner")
-  }
+
 
 
 
