@@ -1,8 +1,9 @@
 {% assign str = 'sp211119ulk5,SP211220PIS2,SP220114SY9W' %}
+{% assign collocationLocation = collocationLocation %}
 {% assign handles = str | split:',' %}
 
-    <div class="collocation-container">
-
+    <div class="collocation-container {{collocationLocation}}">
+     
       <div class="switch-product">
         <span class="prevButton" >{%- render :'icon', icon:'arrow-left' -%}</span>
         <span class="nextButton" >{%- render :'icon', icon:'arrow-right' -%}</span>
