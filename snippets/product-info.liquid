@@ -267,7 +267,7 @@
 						</div>
 					{%- endif -%}
 				{%- endcase -%}
-				{%- endfor -%}
+		{%- endfor -%}
 				
 		{%- assign product_meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
 
@@ -339,9 +339,6 @@
 					</ul>
 				</div>
 			{%- endif -%}
-			
-		{%- endform -%}
-
 	</div>
 
 	{%- for block in section.blocks -%}
