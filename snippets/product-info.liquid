@@ -65,9 +65,10 @@
 
 		{%- for block in section.blocks -%}
 			{%- case block.type -%}
-				{%- comment -%}
-					插入搭配购
-				{%- endcomment -%}
+			{%- when  'collocation_purchase' -%}
+			<div class="product-collocation">
+			{%- render 'collocation-purchase', product: product, form: form, block: block -%}
+			</div>
 
 			{%- when 'delivery' -%}
 					<div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
@@ -341,14 +342,7 @@
 			{%- endif -%}
 	</div>
 
-	{%- for block in section.blocks -%}
-				{%- case block.type -%}
-				{%- when  'collocation_purchase' -%}
-				<div class="product-collocation">
-				{%- render 'collocation-purchase', product: product, form: form, block: block -%}
-				</div>
-				{%- endcase -%}
-	{%- endfor -%}
+
 
 	{% comment %}
 		------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 {%- assign selected_variant = product.selected_or_first_available_variant -%}
-{%- capture card_id %}{{}}-purchace-item-{{product.id}}-{{index}} {% endcapture %}
+{%- capture card_id %}{{section.id}}-purchace-item-{{product.id}}-{{index}} {% endcapture %}
 
 {% for tag in product.tags %}
 {%- if forloop.index == 1 -%}
