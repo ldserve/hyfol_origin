@@ -36,11 +36,12 @@
 				{%- when 'buy_buttons' -%}
 				{%- render 'product-buy-buttons', product: product, form: form, block: block -%}
 
-				
+				{%- comment -%}
 				{%- when 'collocation_purchase' -%}
 				 <div class="product-collocation">
 				{%- render 'collocation-purchase', product: product, form: form, block: block -%}
 	     		</div>
+				{%- endcomment -%}
 
 				{%- when 'store_pickup' -%}
 					{%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
@@ -335,9 +336,12 @@
 	{%- for block in section.blocks -%}
 				{%- case block.type -%}
 				{%- when  'collocation_purchase' -%}
+				<div class="product-collocation">
 				{%- render 'collocation-purchase', product: product, form: form, block: block -%}
+				</div>
 				{%- endcase -%}
 	{%- endfor -%}
+
 	{% comment %}
 		------------------------------------------------------------------------------
 		Product Data. This must be outputted for all products (including home page).
