@@ -37,8 +37,9 @@
 				{%- render 'product-buy-buttons', product: product, form: form, block: block -%}
 				
 				{%- when 'collocation_purchase' -%}
+				 <div class="product-collocation">
 				{%- render 'collocation-purchase', product: product, form: form, block: block -%}
-				
+	     		</div>
 				{%- when 'store_pickup' -%}
 					{%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
 					<div class="product-meta__store-availability-container" {{ block.shopify_attributes }}>

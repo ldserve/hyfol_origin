@@ -580,7 +580,7 @@
 						</a>
 
 						{%- if settings.cart_type != 'page' and template != 'cart' -%}
-							{%- render 'mini-cart' -%}
+							{%- render 'mini-cart' full_reduction:section.settings.full_reduction-%}
 						{%- endif -%}
 					</div>
 				</div>
@@ -675,6 +675,11 @@
 	"name": "Header",
 	"class": "shopify-section__header",
 	"settings": [
+	{
+		"type": "richtext",
+		"label": "满减折扣",
+		"id": "full_reduction"
+	  },
 	{
 	"type": "checkbox",
 	"id": "enable_sticky_header",

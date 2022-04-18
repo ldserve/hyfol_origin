@@ -2029,6 +2029,7 @@
                         // We extract the data-item-count from the returned element
                         var myDiv = document.createElement('div');
                         myDiv.innerHTML = html;
+                        console.log(html);
                         if (myDiv.firstElementChild && myDiv.firstElementChild.hasAttribute('data-item-count')) {
 
                             _this2.itemCount = parseInt(myDiv.firstElementChild.getAttribute('data-item-count'));
@@ -2044,7 +2045,7 @@
 
                                 var miniCartItemListElement = _this2.miniCartElement.querySelector('.mini-cart__line-item-list'),
                                     scrollPosition = null;
-
+                              
                                 if (miniCartItemListElement) {
                                     scrollPosition = miniCartItemListElement.scrollTop;
                                 }
@@ -2062,6 +2063,8 @@
                                 _this2._calculateMiniCartHeight();
 
                                 _this2.element.dispatchEvent(new CustomEvent('cart:rerendered'));
+
+                                console.log(window.collocationAnimations());
                             } else {
                                 // The replacement of the DOM here could be made better and more resilient (maybe exploring using a virtual DOM approach in future?)
                                 var _tempElement = document.createElement('div');
