@@ -1,4 +1,3 @@
-
 {% assign str = 'sp211119ulk5,SP211220PIS2,SP220114SY9W' %}
 {% assign handles = str | split:',' %}
 
@@ -109,32 +108,31 @@
      //添加上一个item的动画
      const prevkeyframes = `
     @keyframes prevItem1{
-            0% { transform:  translate(-${scorllNum * 100}% ,0);  }
-            100% { transform:  translate(-${(scorllNum - 1) * 100}%,0);}
+            0% { transform:  translate(-${scorllNum*100}% ,0);  }
+            100% { transform:  translate(-${(scorllNum-1)*100}%,0);}
         }
         @keyframes prevItem2{
-            0% { transform:  translate(-${scorllNum * 100}% ,0);  }
-            100% { transform:  translate(-${(scorllNum - 1) * 100}%,0);}
+            0% { transform:  translate(-${scorllNum*100}% ,0);  }
+            100% { transform:  translate(-${(scorllNum-1)*100}%,0);}
         }
     `
     const style = document.createElement("style");
     style.type = "text/css";
     style.innerHTML = prevkeyframes;
     document.getElementsByTagName('head')[0].appendChild(style)
-
-    function changeItem() {
-        if (animationsflag) {
-            activeIndex = this.index
-            for (i = 0; i < lis.length; i++) {
-                lis[i].className = ""
-            }
-            lis[activeIndex].className = "scroll-dot__active-li"
-            firstLi.style.left = "0%"
-            lastLi.style.left = (scorllNum - 1) * 100 + "%"
-            collocationList.style.transform = `translate( -${activeIndex * 100}% , 0px )`;
+    
+    function changeItem(){
+        if(animationsflag){
+         activeIndex = this.index
+         for( i=0 ; i<lis.length ;i++){
+          lis[i].className= ""
+         }
+         lis[activeIndex].className = "scroll-dot__active-li"
+         firstLi.style.left = "0%"
+         lastLi.style.left = (scorllNum-1)*100+"%"
+         collocationList.style.transform = `translate( -${activeIndex*100}% , 0px )`;  
         }
     }
-
 
      function prevItem(){
        console.log("上一张");
@@ -144,24 +142,10 @@
             lastLi.style.left = (scorllNum-1)*100+"%"
             firstLi.style.left = scorllNum*100+"%"
 
-    function prevItem() {
-        if (animationsflag) {
-            if (activeIndex == 0) {
-                activeIndex = scorllNum - 1
-                lastLi.style.left = (scorllNum - 1) * 100 + "%"
-                firstLi.style.left = scorllNum * 100 + "%"
-
-
-                if (collocationList.className == "collocation-list prevItem1") {
-                    collocationList.className = "collocation-list prevItem2"
-                } else {
-                    collocationList.className = "collocation-list prevItem1"
-                }
-
-            } else {
-                activeIndex -= 1
-                firstLi.style.left = "0%"
-                lastLi.style.left = (scorllNum - 1) * 100 + "%"
+            if(collocationList.className == "collocation-list prevItem1"){
+              collocationList.className = "collocation-list prevItem2"
+            }else{
+              collocationList.className = "collocation-list prevItem1"
             }
 
           }else{
@@ -174,21 +158,20 @@
           lis[i].className= ""
          }
          lis[activeIndex].className = "scroll-dot__active-li"
-            collocationList.style.transform = `translate( -${activeIndex * 100}% , 0px )`;
         }
     }
-    function nextItem() {
-        if (animationsflag) {
-            if (activeIndex == scorllNum - 1) {
-                activeIndex = 0
-                firstLi.style.left = "0%"
-                lastLi.style.left = "-100%"
+     function nextItem(){
+          if(animationsflag){
+          if(activeIndex == scorllNum-1){
+            activeIndex = 0
+            firstLi.style.left = "0%"
+            lastLi.style.left = "-100%"
 
-                if (collocationList.className == "collocation-list nextItem1") {
-                    collocationList.className = "collocation-list nextItem2"
-                } else {
-                    collocationList.className = "collocation-list nextItem1"
-                }
+          if(collocationList.className == "collocation-list nextItem1"){
+              collocationList.className = "collocation-list nextItem2"
+          }else{
+              collocationList.className = "collocation-list nextItem1"
+          }
 
           }else{
             activeIndex += 1
@@ -212,8 +195,8 @@
   }
 
 
-  }
-  }
+
+    
 </script>
 <style>
     .switch-product {
@@ -225,11 +208,4 @@
         cursor: pointer;
         font-size: 20px;
     }
-
-   
-    .product-form__payment-container {
-        border: none;
-    }
-
-
 </style>
