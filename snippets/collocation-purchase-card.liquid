@@ -32,7 +32,7 @@
             {%- assign primary_media = product.featured_media -%}
 
             <a href="{{ product.url }}"
-                class="product-item__image-wrapper product-item_mktClick shence_commodityView {% if show_secondary_media %}product-item__image-wrapper--with-secondary{% endif %}"
+                class="product-item__image-wrapper product-item_mktClick shence_commodityView {% if show_secondary_media %}product-item__image-wrapper--with-secondary{% endif %} "
                 data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick"
                 data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ mkt_material_name }}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize }}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>
 
@@ -179,7 +179,8 @@
                             {%- endfor -%}
                             {%- if variant_for_value.featured_media -%}
                             {%- capture supported_sizes -%}{%- render 'image-size', sizes:
-                            '200,300,400,500,600,700,800',  image: variant_for_value.featured_media.preview_image -%}{%- endcapture -%}
+                            '200,300,400,500,600,700,800', image: variant_for_value.featured_media.preview_image -%}{%-
+                            endcapture -%}
                             {%- assign image_url = variant_for_value.featured_media | img_url: '1x1' | replace: '_1x1.',
                             '_{width}x.' -%}
                             {%- endif -%}
@@ -254,12 +255,13 @@
                 {%- endif -%}
 
                 {%- endfor -%}
+
             </div>
 
 
-            
+
             <div class="product-form__payment-container margin-0" {{ block.shopify_attributes }}>
-                
+
                 {%- for line_item in cart.items -%}
                 {%- if forloop.index == 1 -%}
                 {%- assign id = line_item.sku -%}
@@ -272,11 +274,11 @@
                 {%- if product.template_suffix != 'contact' -%}
                 {%- if product.selected_or_first_available_variant.available -%}
                 {%- if product.template_suffix == 'pre-order' -%}
-                <button type="submit" class="product-form__add-button button button--primary" data-action="add-to-cart"
-                     >{{ 'product.form.pre_order' | t }}</button>
+                <button type="submit" class="product-form__add-button button button--primary"
+                    data-action="add-to-cart">{{ 'product.form.pre_order' | t }}</button>
                 {%- else -%}
-                <button type="submit" class="  button button--primary" data-scenable="1"
-                    data-sctype="addCart" data-scdata='{"is_quick_view":1,
+                <button type="submit" class="  button button--primary" data-scenable="1" data-sctype="addCart"
+                    data-scdata='{"is_quick_view":1,
                               "commodity_spuid": "{{product.handle}}",
                  "commodity_name": "{{product.title | handleize }}",
                               "currency_unit":"USD",
@@ -294,7 +296,7 @@
                 "compliment_commodities":"{{ id }}",
                 "bonus_name":"",
                 "bonus_amount":0,
-                "entrance":"CommodityDetailPage_AddToCart"}' data-action="add-to-cart">{{
+                "entrance":"CommodityDetailPage_AddToCart"}' data-action="add-to-cart" data-purchase>{{
                     'product.form.add_to_cart' | t }}</button>
                 {%- endif -%}
                 {%- else -%}
@@ -317,8 +319,8 @@
             {%- endcomment -%}
         </div>
     </div>
-
 </div>
+<script type="application/json">{{ product.variants | json }}</script>
 
 {%- endform -%}
 
@@ -326,18 +328,35 @@
     // 搭配购
     (function () {
         const options = document.getElementById('{{card_id}}').querySelectorAll('.product-wrapper_option')
+        const formElement = document.getElementById('{{card_id}}').closest('form[action*="/cart/add"]');
+
         options.forEach(option => {
             option.addEventListener('click', (ev) => {
                 if (ev.target.tagName === "INPUT") {
                     const target = ev.target
+                    const json = document.getElementById('{{card_id}}').nextElementSibling
+                    const jsonData = JSON.parse(json.innerHTML)
+                    var option1, option2
+                    for (var i = 0, len = formElement.elements.length; i < len; i++) {
+                        var form = formElement.elements[i];
+                        if (form.name === '' || form.disabled) {
+                            continue;
+                        }
+                        if (form.name && !form.disabled && form.checked) {
+                            if (form.classList.contains('color-swatch__radio')) option1 = form.value
+                            if (form.classList.contains('block-swatch__radio')) option2 = form.value
+                        }
+                    }
+
+                    const variantId = document.getElementById('{{card_id}}').querySelector('input[name="id"]')
+                    variantId.value = (jsonData.find(item => item.option1 === option1 && item.option2 === option2)).id
+
                     const selectedValueElement = option.querySelector('.product-form__selected-value')
                     selectedValueElement.innerHTML = target.value
 
                     if (target.classList.contains('color-swatch__radio')) {
-                        // get.attributes);
                         const productItem = target.closest('.exhibition')
                         var variantUrl = target.getAttribute('data-variant-url');
-                        console.log('variantUrl', variantUrl);
                         productItem.querySelector('.product-item__image-wrapper').setAttribute('href', variantUrl);
                         const originalImageElement = productItem.querySelector('.product-item__primary-image');
 
@@ -357,70 +376,72 @@
             })
         })
 
-        const button = document.getElementById('{{card_id}}').querySelector('.product-form__payment-container button')
-        button.addEventListener('click', (target) => {
-            return
-            target.preventDefault();
-            document.dispatchEvent(new CustomEvent('theme:loading:start'));
-            console.log('even', target);
-            target
-            var formElement = document.getElementById('{{card_id}}').closest('form[action*="/cart/add"]');
-            
-            var hash = {};
-            for (var i = 0, len = formElement.elements.length; i < len; i++) {
-                var form = formElement.elements[i];
-
-                if (form.name === '' || form.disabled) {
-                    continue;
-                }
-
-                if (form.name && !form.disabled && (form.checked || /select|textarea/i.test(form.nodeName) || /hidden|text|search|tel|url|email|password|datetime|date|month|week|time|datetime-local|number|range|color/i.test(form.type))) {
-                    Object.assign(hash,{[form.name]:form.value})
-                }
-            }
-            fetch("".concat(window.routes.cartAddUrl, ".js"), {
-                    body: JSON.stringify(hash),
-                    credentials: 'same-origin',
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest' // This is needed as currently there is a bug in Shopify that assumes this header
-
-                    }
-                }).then(function (response) {
-                    document.dispatchEvent(new CustomEvent('theme:loading:end'));
-                    if (response.ok) {
-                        target.removeAttribute('disabled'); // We simply trigger an event so the mini-cart can re-render
-
-                        _this4.element.dispatchEvent(new CustomEvent('product:added', {
-                            bubbles: true,
-                            detail: {
-                                variant: _this4.currentVariant,
-                                quantity: parseInt(formElement.querySelector('[name="quantity"]').value)
-                            }
-                        })); // If we are in the context of quick view, we also force closing the modal
+        // const button = document.getElementById('{{card_id}}').querySelector('.product-form__payment-container button')
+        // button.addEventListener('click', (target) => {
+        //     return false
+        //     target.preventDefault();
+        //     document.dispatchEvent(new CustomEvent('theme:loading:start'));
+        //     console.log('even', target);
 
 
-                        if (_this4.options['isQuickView'] && window.theme.cartType === 'drawer') {
-                            document.dispatchEvent(new CustomEvent('modal:close'));
-                        }
 
-                        if (window.theme.cartType === 'message') {
-                            _this4._showAlert(window.languages.productAdded, 'success', target);
-                        }
-                    } else {
-                        response.json().then(function (content) {
-                            _this4._showAlert(content['description'], 'error', target);
-                        });
-                    }
-                });
-              
-                
-                console.log('formData',hash );
+        //   var hash = {};
+        //     for (var i = 0, len = formElement.elements.length; i < len; i++) {
+        //         var form = formElement.elements[i];
 
-                event.preventDefault();
+        //         if (form.name === '' || form.disabled) {
+        //             continue;
+        //         }
 
-        })
+        //         if (form.name && !form.disabled && (form.checked || /select|textarea/i.test(form.nodeName) || /hidden|text|search|tel|url|email|password|datetime|date|month|week|time|datetime-local|number|range|color/i.test(form.type))) {
+        //             Object.assign(hash,{[form.name]:form.value})
+        //         }
+        //     }
+        //     fetch("".concat(window.routes.cartAddUrl, ".js"), {
+        //             body: JSON.stringify(hash),
+        //             credentials: 'same-origin',
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //                 'X-Requested-With': 'XMLHttpRequest' // This is needed as currently there is a bug in Shopify that assumes this header
+
+        //             }
+        //         }).then(function (response) {
+        //             document.dispatchEvent(new CustomEvent('theme:loading:end'));
+        //             if (response.ok) {
+        //                 target.removeAttribute('disabled'); // We simply trigger an event so the mini-cart can re-render
+
+        //                 _this4.element.dispatchEvent(new CustomEvent('product:added', {
+        //                     bubbles: true,
+        //                     detail: {
+        //                         variant: _this4.currentVariant,
+        //                         quantity: parseInt(formElement.querySelector('[name="quantity"]').value)
+        //                     }
+        //                 })); // If we are in the context of quick view, we also force closing the modal
+
+
+        //                 if (_this4.options['isQuickView'] && window.theme.cartType === 'drawer') {
+        //                     document.dispatchEvent(new CustomEvent('modal:close'));
+        //                 }
+
+        //                 if (window.theme.cartType === 'message') {
+        //                     _this4._showAlert(window.languages.productAdded, 'success', target);
+        //                 }
+        //             } else {
+        //                 response.json().then(function (content) {
+        //                     _this4._showAlert(content['description'], 'error', target);
+        //                 });
+        //             }
+        //         });
+
+
+        //         console.log('formData',hash );
+
+        //         event.preventDefault();
+
+        // })
+
+
         function swipe(root, elItem, options) {
             //设置开关，监听move事件
             var isMove = false;
@@ -503,12 +524,12 @@
 
     .exhibition-right {
         padding-left: 10px;
+        width: 60% !important;
 
     }
 
     .exhibition-left {
-        width: 300px;
-        height: 300px;
+        width: 40% !important
     }
 
     .product-block-wrapper {

@@ -3595,7 +3595,12 @@
                 target.setAttribute('disabled', 'disabled');
                 document.dispatchEvent(new CustomEvent('theme:loading:start')); // Then we add the product in Ajax
 
-                var formElement = this.element.querySelector('form[action*="/cart/add"]');
+                var formElement  
+                if(target.hasAttribute('data-purchase')){
+                    formElement=target.closest('form[action*="/cart/add"]')
+                }else{
+                    formElement = this.element.querySelector('form[action*="/cart/add"]');
+                }
                 fetch("".concat(window.routes.cartAddUrl, ".js"), {
                     body: JSON.stringify(Form.serialize(formElement)),
                     credentials: 'same-origin',
