@@ -69,8 +69,8 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "banner",
-        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_26827694-29e7-4587-b674-db60d859feab.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-_banner_3de28c91-3a2e-4b71-99df-ff9c082465b2.jpg",
+        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_83f07820-d681-4b0e-a034-ae13f036969f.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-_banner_21d8f73f-0bd2-4054-bca3-9685fca9ff02.jpg",
         "link": "shopify:\/\/collections\/spring-sale",
         "shadow": false
       }
@@ -334,14 +334,25 @@
       "type": "no_space_img",
       "settings": {
         "sensorsName": "",
-        "bg_image": "shopify:\/\/shop_images\/98874da468f857bd057140596b570989_b87c0b81-d428-4c3e-b15c-bc0f887cd2e9.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/ef25f4c651b92855092f6b4a7658b4bc.jpg",
+        "bg_image": "shopify:\/\/shop_images\/2_88db9f20-af1e-47a4-ba92-eb953d62d7d1.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/3_0d3f91ce-b51d-4735-9b84-69c702c1fd01.jpg",
         "link": "shopify:\/\/collections\/buy-1-get-2nd-50off-mens-shorts",
+        "shadow": false
+      }
+    },
+    "16501153969d7dc597": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/8_a0491898-a613-4306-b94d-98d3f8514ee7.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/7_04eedabc-41fc-4f21-bccd-e474262dad46.jpg",
+        "link": "shopify:\/\/collections\/winter-clearance",
         "shadow": false
       }
     },
     "1647498064c408cfd6": {
       "type": "transparent-collection",
+      "disabled": true,
       "settings": {
         "collection": "camou",
         "sensorsName": "FATIGUE COLLECTION",
@@ -664,6 +675,7 @@
     "164742631051d4db44",
     "16500210584c969cfe",
     "1650021168ea57a101",
+    "16501153969d7dc597",
     "1647498064c408cfd6",
     "1648607115d95fb2d3",
     "1647497707f35ea4d8",
