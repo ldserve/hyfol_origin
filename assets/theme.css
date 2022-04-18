@@ -458,7 +458,7 @@ display: none;
 }
 
 .flickity-prev-next-button.previous {
-  left: 13px;
+  left: 5px;
 }
 
 .flickity-prev-next-button.previous svg {
@@ -466,7 +466,7 @@ display: none;
 }
 
 .flickity-prev-next-button.next {
-  right: 13px;
+  right: 5px;
 }
 
 .flickity-prev-next-button.next svg {
@@ -4800,12 +4800,12 @@ height: 55px;
     /* 12px is the margin bottom below the image and 0.5em is half a line of text */
   }
 
-  .collection-list .flickity-prev-next-button.previous {
+  .collection-list .flickity-prev-next-button .previous {
     left: 5px;
   }
 
-  .collection-list .flickity-prev-next-button.next {
-    right: 15px;
+  .collection-list .flickity-prev-next-button .next {
+    right: 5px;
   }
 }
 
