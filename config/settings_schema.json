@@ -8,6 +8,16 @@
     "theme_support_url": "https:\/\/support.maestrooo.com\/article\/203-contact-us"
   },
   {
+   "name":"满减",
+    "settings":[
+      {
+        "type": "richtext",
+        "id": "full_reduction",
+        "label": "满减信息"
+      }
+    ]
+  },
+  {
     "name": "首页雪花",
     "settings": [
       {
