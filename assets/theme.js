@@ -2029,7 +2029,7 @@
                         // We extract the data-item-count from the returned element
                         var myDiv = document.createElement('div');
                         myDiv.innerHTML = html;
-                        console.log(html);
+                        // console.log(html);
                         if (myDiv.firstElementChild && myDiv.firstElementChild.hasAttribute('data-item-count')) {
 
                             _this2.itemCount = parseInt(myDiv.firstElementChild.getAttribute('data-item-count'));
