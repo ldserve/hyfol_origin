@@ -35,11 +35,13 @@
 
 				{%- when 'buy_buttons' -%}
 				{%- render 'product-buy-buttons', product: product, form: form, block: block -%}
+
 				
 				{%- when 'collocation_purchase' -%}
 				 <div class="product-collocation">
 				{%- render 'collocation-purchase', product: product, form: form, block: block -%}
 	     		</div>
+
 				{%- when 'store_pickup' -%}
 					{%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
 					<div class="product-meta__store-availability-container" {{ block.shopify_attributes }}>
@@ -254,8 +256,8 @@
 						</div>
 					{%- endif -%}
 				{%- endcase -%}
-			{%- endfor -%}
-
+				{%- endfor -%}
+				
 		{%- assign product_meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
 
 			{%- if product_meta_block != blank and product_meta_block.settings.show_share_buttons -%}
@@ -327,7 +329,15 @@
 				</div>
 			{%- endif -%}
 		{%- endform -%}
+
 	</div>
+
+	{%- for block in section.blocks -%}
+				{%- case block.type -%}
+				{%- when  'collocation_purchase' -%}
+				{%- render 'collocation-purchase', product: product, form: form, block: block -%}
+				{%- endcase -%}
+	{%- endfor -%}
 	{% comment %}
 		------------------------------------------------------------------------------
 		Product Data. This must be outputted for all products (including home page).

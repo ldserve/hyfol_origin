@@ -15475,3 +15475,10 @@ shopify-payment-terms {
     font-size: 13px;
   }
 }
+
+.margin-0{
+  margin: 0;
+}
+.justify-content-between{
+justify-content: space-between;
+}
