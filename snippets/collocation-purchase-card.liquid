@@ -162,7 +162,8 @@
                 <!-- color -->
                 <div class="product-wrapper_option" data-selector-type="color">
                     {%- comment -%}
-                    {%- capture option_name -%}color-{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%- endcapture -%}
+                    {%- capture option_name -%}color-{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%- endcapture
+                    -%}
                     {%- endcomment -%}
 
                     <div class="product-wrapper-scoll">
@@ -328,7 +329,7 @@
                 <input type="hidden" name="quantity" value="1">
             </div>
         </div>
-        
+
         <script type="application/json">{{ product.variants | json }}</script>
         {%- endform -%}
     </div>
@@ -346,7 +347,7 @@
             var purechaseList
             if (cartBox) {
                 purechaseList = cartBox.querySelectorAll('.product-block-wrapper')
-            }else{
+            } else {
                 purchaseBox = document.getElementById('{{card_id}}')
                 json = purchaseBox.querySelector('[type="application/json"]')
                 options = purchaseBox.querySelectorAll('.product-wrapper_option')
@@ -366,7 +367,7 @@
                         formBox.className = "product-form"
                         formBox.enctype = "multipart/form-data"
                         var childList = purchaseBox.children
-                        for (let i = childList.length-1; i >= 0; i--) {
+                        for (let i = childList.length - 1; i >= 0; i--) {
                             formBox.prepend(childList[i])
                         }
                         purchaseBox.append(formBox)
