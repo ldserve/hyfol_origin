@@ -25,7 +25,7 @@
     {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
       <li class="collocation-list-item" style="left:{{- forloop.index0 |times:100 -}}%;">
-          {%- render 'collocation-purchase-card' product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}
+          {%- render 'collocation-purchase-card' collocationLocation:collocationLocation product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}
       </li>
       
     {%- endfor -%}
@@ -63,7 +63,9 @@
      collocationList.addEventListener("transitionend",animationEnd)
      
      function touchs(event){
-             event.preventDefault();//阻止浏览器默认滚动事件
+             
+             if (event.target.closest('.block-swatch-box') == null){
+              event.preventDefault();//阻止浏览器默认滚动事件
                 if(event.type=="touchstart"){//通过if语句判断event.type执行了哪个触摸事件
                     var touch = event.touches[0];//获取开始的位置数组的第一个触摸位置
                     startx = Math.floor(touch.pageX);//获取第一个坐标的X轴
@@ -75,14 +77,16 @@
                     nx = endx-startx;//获取开始位置和离开位置的距离
                     //判断滑动方向
                     if(nx > 0){
+        
                       prevItem()
-                        return false;
+                      return false;
                     }else if(nx <0){
                        nextItem()
                         return false;
                     }
                 }
             }
+          }
             //添加触摸事件的监听，并直行自定义触摸函数
             collocationList.addEventListener('touchstart',touchs,false);
             collocationList.addEventListener('touchmove',touchs,false);
