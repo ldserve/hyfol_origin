@@ -160,3 +160,9 @@ ready(window.handleCartTimeReserved)
   const observer=new MutationObserver(callback)
   observer.observe(sections,{childList:true,subtree:true})
 }()
+ document.addEventListener('product:added', function(event) {
+   var variant = event.detail.variant; // Get the variant that was added
+   var quantity = event.detail.quantity; // Get the quantity that was added
+   console.log(12313123,event)
+   // collocationAnimations()
+ });
