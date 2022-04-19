@@ -167,7 +167,7 @@
                         -%}
                         <span class="product-form__option-name text--strong">{{ option.name }}: <span
                                 class="product-form__selected-value">{{ option.selected_value }}</span></span>
-                        <div class="overflow-auto">
+                        <div class="overflow-auto block-swatch-box">
                             <div class="color-swatch-list color-swatch-list--large ld-variant-list d-flex">
 
                                 {%- for value in option.values -%}
@@ -242,7 +242,7 @@
                     <div class="product-wrapper-scoll">
                         <span class="product-form__option-name text--strong">{{ option.name }}: <span
                                 class="product-form__selected-value">{{ option.selected_value }}</span></span>
-                        <div class="overflow-auto">
+                        <div class="overflow-auto block-swatch-box">
                             <div class="block-swatch-list d-flex">
                                 {%- for value in option.values -%}
                                 {%- capture block_swatch_id -%}{{ option_name }}-{{ forloop.index }}{%- endcapture -%}
@@ -523,17 +523,15 @@
 </script>
 
 <style>
-    .exhibition {
-        display: flex;
-    }
 
     .exhibition .overflow-auto {
         overflow-x: auto;
         overflow-y: hidden;
+    }
+    .block-swatch-box{
         margin-right: 8px;
         padding-bottom: 6px;
     }
-
     .exhibition .overflow-auto::-webkit-scrollbar {
         width: 2px;
         height: 4px;
@@ -541,7 +539,7 @@
 
     .exhibition .overflow-auto::-webkit-scrollbar-thumb {
         /*滚动条里面小方块*/
-        width: 30px;
+        width: 10px;
         border-radius: 5px;
         -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
         background: rgba(0, 0, 0, 0.2);
