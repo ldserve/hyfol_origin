@@ -1809,7 +1809,7 @@
 
             this.miniCartElement = this.element.querySelector('.mini-cart');
             this.isMiniCartOpen = false;
-
+            
             if (window.theme.pageType !== 'cart' && this.miniCartElement) {
                 var cartId=typeof this.miniCartElement.id =="string" ? this.miniCartElement.id:'mini-cart'
                 // this.miniCartToggleElement = this.element.querySelector("[aria-controls=\"".concat(this.miniCartElement.id, "\"]"));
@@ -1819,9 +1819,10 @@
                 // console.log('this.miniCartElementqweewq',this.miniCartElement.id);
                 // console.log('cartId',cartId);
                 this._checkMiniCartScrollability();
+                window.collocationAnimations(".mini-cart__inner")
+              
             }
-
-            this.itemCount = window.theme.cartCount;
+          this.itemCount = window.theme.cartCount;
 
             this._attachListeners();
         }
@@ -2070,9 +2071,7 @@
 
                                 _this2.element.dispatchEvent(new CustomEvent('cart:rerendered'));
 
-                                if(document.querySelector('.mini-cart__inner') != null){
-                                    window.collocationAnimations(".mini-cart__inner")
-                                  }
+                                
                             } else {
                                 // The replacement of the DOM here could be made better and more resilient (maybe exploring using a virtual DOM approach in future?)
                                 var _tempElement = document.createElement('div');
