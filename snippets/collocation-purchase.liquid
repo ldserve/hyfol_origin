@@ -1,4 +1,4 @@
-{% assign str = 'sp211119ulk5,SP211220PIS2,SP220114SY9W' %}
+{% assign str = 'sp211119ulk5,sp220107pl98,t11861820ng' %}
 {% assign collocationLocation = collocationLocation %}
 {% assign handles = str | split:',' %}
 
@@ -23,7 +23,7 @@
     {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
       <li class="collocation-list-item" style="left:{{- forloop.index0 |times:100 -}}%;">
-       123123 {%- comment -%}{%- render 'collocation-purchase-card' product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}{%- endcomment -%} 
+          {%- render 'collocation-purchase-card' product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}
       </li>
       
     {%- endfor -%}
@@ -75,7 +75,7 @@
                     if(nx > 0){
                       prevItem()
                         return false;
-                    }else{
+                    }else if(nx <0){
                        nextItem()
                         return false;
                     }
