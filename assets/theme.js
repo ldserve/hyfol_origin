@@ -14,7 +14,10 @@
           this.scrollDot = this.querySelector(".scroll-dot")//小点
           this.lis = this.scrollDot.getElementsByTagName("li")
           this.scorllNum = this.getAttribute("data-collocationNum") //商品数量
+          this.prevButton = this.querySelector('.prevButton')
+          this.nextButton = this.querySelector('.nextButton')
           this.animationsflag = true //是否阻止动画
+          this.that = this
           this.prevkeyframes = `
           @keyframes prevItem1{
                   0% { transform:  translate(-${this.scorllNum*100}% ,0);  }
@@ -28,33 +31,96 @@
           this.init()
         }
         init(){
+        var that = this
           var startx,movex,endx,nx;
           const style = document.createElement("style");
           style.type = "text/css";
           style.innerHTML = this.prevkeyframes;
           document.getElementsByTagName('head')[0].appendChild(style)
-          for(let i=0 ; i<this.lis.length ;i++){
-            this.lis[i].index = i
-            this.lis[i].addEventListener("click",this.changeItem())
-           }
-           this.lis[activeIndex].className = "scroll-dot__active-li"
-           this.querySelector('.prevButton').addEventListener("click", this.prevItem())
-           this.target.querySelector('.nextButton').addEventListener("click", this.nextItem())
+          this.bind()
+         
+           this.lis[this.activeIndex].className = "scroll-dot__active-li"
            //监听动画开始和结束
-           this.collocationList.addEventListener("animationstart", this.animationStart())
-           this.collocationList.addEventListener("transitionstart", this.animationStart())
-           this.collocationList.addEventListener("animationend", this.animationEnd())
-           this.collocationList.addEventListener("transitionend", this.animationEnd())
+           this.collocationList.addEventListener("animationstart", this.animationStart)
+           this.collocationList.addEventListener("transitionstart", this.animationStart)
+           this.collocationList.addEventListener("animationend", this.animationEnd)
+           this.collocationList.addEventListener("transitionend", this.animationEnd)
+
+           this.collocationList.addEventListener('touchstart',function(event){
+            if (event.target.closest('.block-swatch-box') == null){
+                event.preventDefault();//阻止浏览器默认滚动事件
+                var touch = event.touches[0]   
+                startx = Math.floor(touch.pageX)
+                return startx
+              }
+           },false);
+           this.collocationList.addEventListener('touchend',function(event){
+            if (event.target.closest('.block-swatch-box') == null){
+                console.log(startx,"!@#!@#");
+                event.preventDefault();//阻止浏览器默认滚动事件
+                      endx = Math.floor(event.changedTouches[0].pageX);//获取最后的坐标位置
+                      nx = endx-startx;//获取开始位置和离开位置的距离
+                      console.log(nx , endx);
+                      //判断滑动方向
+                      if(nx > 0){
+                          console.log("向前");
+                        that.prevItem()
+                        return false;
+                      }else if(nx <0){
+                          console.log("向后");
+                         that.nextItem()
+                          return false;
+                      }
+                  
+              }
+           },false);
         }
-        animationStart (){
+        bind(){
+            this.bindClick()
+        }
+
+       
+        bindClick(){
+             if(this.prevButton){
+                 this.prevButton.onclick = () =>{
+                    this.prevItem()
+                 }
+             }
+             if(this.nextButton){
+                this.nextButton.onclick = () =>{
+                   this.nextItem()
+                }
+            }
+            if(this.lis){
+                 const that = this
+                for(let i=0 ; i<this.lis.length ;i++){
+                    this.lis[i].index = i
+                    this.lis[i].onclick = function(){
+                        let index = this.index
+                        if(that.animationsflag){
+                            that.activeIndex = this.index
+                                   for( let i=0 ; i< that.lis.length ;i++){
+                                    that.lis[i].className= ""
+                                   }
+                                   that.lis[that.activeIndex].className = "scroll-dot__active-li"
+                                   that.firstLi.style.left = "0%"
+                                   that.lastLi.style.left = (that.scorllNum-1)*100+"%"
+                                   that.collocationList.style.transform = `translate( -${that.activeIndex*100}% , 0px )`;  
+                                  }
+                   }
+                   }
+              
+            }
+
+        }
+        animationStart = () =>{
             this.animationsflag = false
         }
 
-        animationEnd(){
+        animationEnd = () =>{
             this.animationsflag= true
         }
         prevItem(){
-            console.log("上一张");
              if(this.animationsflag){
                if(this.activeIndex == 0){
                 this.activeIndex = this.scorllNum -1
@@ -76,7 +142,7 @@
                for(let i=0 ; i<this.lis.length ;i++){
                 this.lis[i].className= ""
               }
-              this.lis[activeIndex].className = "scroll-dot__active-li"
+              this.lis[this.activeIndex].className = "scroll-dot__active-li"
              }
          }
 
@@ -102,22 +168,11 @@
             for( let i=0 ; i<this.lis.length ;i++){
                 this.lis[i].className= ""
            }
-           this.lis[activeIndex].className = "scroll-dot__active-li"
+           this.lis[this.activeIndex].className = "scroll-dot__active-li"
           }
       }
 
-        changeItem(){
-            if(this.animationsflag){
-             this.activeIndex = this.index
-             for( let i=0 ; i< this.lis.length ;i++){
-              this.lis[i].className= ""
-             }
-             this.lis[activeIndex].className = "scroll-dot__active-li"
-             this.firstLi.style.left = "0%"
-             this.lastLi.style.left = (scorllNum-1)*100+"%"
-             this.collocationList.style.transform = `translate( -${this.activeIndex*100}% , 0px )`;  
-            }
-        }
+      
     
       }
       customElements.define("slide-show", SliderShow);
