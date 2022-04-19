@@ -159,16 +159,15 @@
                 <!-- color -->
                 <div class="product-wrapper_option" data-selector-type="color">
                     {%- comment -%}
-                    {%- capture option_name -%}color-{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%- endcapture
-                    -%}
+                    {%- capture option_name -%}color-{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%- endcapture -%}
                     {%- endcomment -%}
                     <div class="product-wrapper-scoll">
                         {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />'
                         -%}
                         <span class="product-form__option-name text--strong">{{ option.name }}: <span
                                 class="product-form__selected-value">{{ option.selected_value }}</span></span>
-                        <div class="overflow-auto block-swatch-box">
-                            <div class="color-swatch-list color-swatch-list--large ld-variant-list d-flex">
+                        <div class="overflow-auto block-swatch-box ">
+                            <div class="color-swatch-list color-swatch-list--large ld-variant-list d-flex margin-0 padding-0">
 
                                 {%- for value in option.values -%}
                                 {%- assign downcased_value = value | downcase -%}
@@ -529,8 +528,8 @@
         overflow-y: hidden;
     }
     .block-swatch-box{
-        margin-right: 8px;
-        padding-bottom: 6px;
+        /* margin-right: 8px;
+        padding-bottom: 6px; */
     }
     .exhibition .overflow-auto::-webkit-scrollbar {
         width: 2px;
