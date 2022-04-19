@@ -2070,7 +2070,7 @@
                                 _this2._calculateMiniCartHeight();
 
                                 _this2.element.dispatchEvent(new CustomEvent('cart:rerendered'));
-
+                                
                                 
                             } else {
                                 // The replacement of the DOM here could be made better and more resilient (maybe exploring using a virtual DOM approach in future?)

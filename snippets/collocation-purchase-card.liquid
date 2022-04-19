@@ -14,10 +14,9 @@
 {%- assign product_form_classes = 'product-item__action-list button-stack margin-0' -%}
 {%- assign product_form_id = 'product_form_' | append: section.id | append: product.id -%}
 
-{%- form 'product', product, id: product_form_id, class: 'product-form' -%}
-
-
 <div class="product-block-wrapper" id="{{card_id}}">
+    {%- form 'product', product, id: product_form_id, class: 'product-form' -%}
+
 
 
     {%- comment -%}
@@ -172,8 +171,9 @@
                         -%}
                         <span class="product-form__option-name text--strong collocation-color-text">{{ option.name }}: <span
                                 class="product-form__selected-value">{{ option.selected_value }}</span></span>
-                        <div class="overflow-auto block-swatch-box">
-                            <div class="color-swatch-list color-swatch-list--large ld-variant-list d-flex">
+                        <div class="exhibition-item block-swatch-box ">
+                            <div
+                                class="color-swatch-list color-swatch-list--large ld-variant-list d-flex margin-0 padding-0">
 
                                 {%- for value in option.values -%}
                                 {%- assign downcased_value = value | downcase -%}
@@ -247,7 +247,7 @@
                     <div class="product-wrapper-scoll">
                         <span class="product-form__option-name text--strong  collocation-size-text">{{ option.name }}: <span
                                 class="product-form__selected-value">{{ option.selected_value }}</span></span>
-                        <div class="overflow-auto block-swatch-box">
+                        <div class="exhibition-item block-swatch-box">
                             <div class="block-swatch-list d-flex">
                                 {%- for value in option.values -%}
                                 {%- capture block_swatch_id -%}{{ option_name }}-{{ forloop.index }}{%- endcapture -%}
@@ -275,7 +275,9 @@
 
 
 
-            <div {{ block.shopify_attributes }}>
+            <div class="product-form__payment-container margin-0 border-0" {{ block.shopify_attributes }}>
+
+
 
                 {%- for line_item in cart.items -%}
                 {%- if forloop.index == 1 -%}
@@ -325,65 +327,100 @@
 
                 <input type="hidden" name="id" data-sku="{{ selected_variant.sku }}" value="{{ selected_variant.id }}">
                 <input type="hidden" name="quantity" value="1">
-            </div>
         </div>
     </div>
-</div>
-<script type="application/json">{{ product.variants | json }}</script>
+    <script type="application/json">{{ product.variants | json }}</script>
 
-{%- endform -%}
+    {%- endform -%}
+</div>
 
 <script>
     // 搭配购
-    (function () {
-        const options = document.getElementById('{{card_id}}').querySelectorAll('.product-wrapper_option')
-        const formElement = document.getElementById('{{card_id}}').closest('form[action*="/cart/add"]');
-         options.forEach(option => {
-            option.addEventListener('click', (ev) => {
-                if (ev.target.tagName === "INPUT") {
-                    const target = ev.target
-                    const json = document.getElementById('{{card_id}}').nextElementSibling
-                    const jsonData = JSON.parse(json.innerHTML)
-                    var option1, option2
-                    for (var i = 0, len = formElement.elements.length; i < len; i++) {
-                        var form = formElement.elements[i];
-                        if (form.name === '' || form.disabled) {
-                            continue;
-                        }
-                        if (form.name && !form.disabled && form.checked) {
-                            if (form.classList.contains('color-swatch__radio')) option1 = form.value
-                            if (form.classList.contains('block-swatch__radio')) option2 = form.value
-                        }
+    function purechaseInfo(cart) {
+        var cartBox = document.querySelector(cart)
+        var purchaseBox = document.getElementById('{{card_id}}')
+        var json = purchaseBox.querySelector('[type="application/json"]')
+        var options = purchaseBox.querySelectorAll('.product-wrapper_option')
+        var formElement = purchaseBox.querySelector('form[action*="/cart/add"]');
+
+
+        var purechaseList
+        if (cartBox) purechaseList = cartBox.querySelectorAll('.product-block-wrapper')
+        if (purechaseList) {
+            purechaseList.forEach(purchaseBox => {
+                json = purchaseBox.querySelector('[type="application/json"]')
+                options = purchaseBox.querySelectorAll('.product-wrapper_option')
+                formElement = purchaseBox.querySelector('form[action*="/cart/add"]');
+                if (!formElement) {
+                    var formBox = document.createElement('form')
+                    formBox.method = "post"
+                    formBox.action = "/cart/add"
+                    formBox.className = "product-form"
+                    formBox.enctype = "multipart/form-data"
+                    var childList = purchaseBox.children
+                    for (let i = childList.length; i >= 0; i--) {
+                        formBox.prepend(childList[i])
                     }
-
-                    const variantId = document.getElementById('{{card_id}}').querySelector('input[name="id"]')
-                    variantId.value = (jsonData.find(item => item.option1 === option1 && item.option2 === option2)).id
-
-                    const selectedValueElement = option.querySelector('.product-form__selected-value')
-                    selectedValueElement.innerHTML = target.value
-
-                    if (target.classList.contains('color-swatch__radio')) {
-                        const productItem = target.closest('.exhibition')
-                        var variantUrl = target.getAttribute('data-variant-url');
-                        productItem.querySelector('.product-item__image-wrapper').setAttribute('href', variantUrl);
-                        const originalImageElement = productItem.querySelector('.product-item__primary-image');
-
-                        if (target.hasAttribute('data-image-url') && target.getAttribute('data-media-id') !== originalImageElement.getAttribute('data-media-id')) {
-                            var newImageElement = document.createElement('img');
-                            newImageElement.className = 'product-item__primary-image lazyload image--fade-in';
-                            newImageElement.setAttribute('data-media-id', target.getAttribute('data-media-id'));
-                            newImageElement.setAttribute('data-src', target.getAttribute('data-image-url'));
-                            newImageElement.setAttribute('data-widths', target.getAttribute('data-image-widths'));
-                            newImageElement.setAttribute('data-sizes', 'auto'); // Replace the original node
-
-                            originalImageElement.parentNode.style.paddingBottom = "".concat(100.0 / newImageElement.getAttribute('data-image-aspect-ratio'), "%");
-                            originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
-                        }
-                    }
+                    purchaseBox.append(formBox)
+                    formElement = formBox
                 }
+
+                addEven(options, json, formElement,purchaseBox)
             })
-        })
- 
+        } else {
+            addEven(options, json, formElement,purchaseBox)
+        }
+
+        function addEven(options, json, formElement,purchaseBox) {
+
+            options.forEach(option => {
+                option.addEventListener('click', (ev) => {
+                    if (ev.target.tagName === "INPUT") {
+                        var target = ev.target
+                        var jsonData = JSON.parse(json.innerHTML)
+                        var option1, option2
+                        // var inputList=purchaseBox.querySelectorAll('input')
+                        for (var i = 0, len = formElement.elements.length; i < len; i++) {
+                            var form = formElement.elements[i];
+                            if (form.name === '' || form.disabled) {
+                                continue;
+                            }
+                            if (form.name && !form.disabled && form.checked) {
+                                if (form.classList.contains('color-swatch__radio')) option1 = form.value
+                                if (form.classList.contains('block-swatch__radio')) option2 = form.value
+                            }
+                        }
+
+                        var variantId = purchaseBox.querySelector('input[name="id"]')
+                        variantId.value = (jsonData.find(item => item.option1 === option1 && item.option2 === option2)).id
+
+                        var selectedValueElement = option.querySelector('.product-form__selected-value')
+                        selectedValueElement.innerHTML = target.value
+
+                        if (target.classList.contains('color-swatch__radio')) {
+                            const productItem = target.closest('.exhibition')
+                            var variantUrl = target.getAttribute('data-variant-url');
+                            productItem.querySelector('.product-item__image-wrapper').setAttribute('href', variantUrl);
+                            const originalImageElement = productItem.querySelector('.product-item__primary-image');
+
+                            if (target.hasAttribute('data-image-url') && target.getAttribute('data-media-id') !== originalImageElement.getAttribute('data-media-id')) {
+                                var newImageElement = document.createElement('img');
+                                newImageElement.className = 'product-item__primary-image lazyload image--fade-in';
+                                newImageElement.setAttribute('data-media-id', target.getAttribute('data-media-id'));
+                                newImageElement.setAttribute('data-src', target.getAttribute('data-image-url'));
+                                newImageElement.setAttribute('data-widths', target.getAttribute('data-image-widths'));
+                                newImageElement.setAttribute('data-sizes', 'auto'); // Replace the original node
+
+                                originalImageElement.parentNode.style.paddingBottom = "".concat(100.0 / newImageElement.getAttribute('data-image-aspect-ratio'), "%");
+                                originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
+                            }
+                        }
+                    }
+                })
+            })
+
+
+        }
 
 
         // const button = document.getElementById('{{card_id}}').querySelector('.product-form__payment-container button')
@@ -524,51 +561,6 @@
         // swipe(swipeBox, swipeTtem)
 
 
-    })();
+    };
+    if (document.querySelector('section[data-section-type="product"]')) purechaseInfo()
 </script>
-
-<style>
-
-    .exhibition .overflow-auto {
-        overflow-x: auto;
-        overflow-y: hidden;
-    }
-    .block-swatch-box{
-        margin-right: 8px;
-        padding-bottom: 6px;
-    }
-    .exhibition .overflow-auto::-webkit-scrollbar {
-        width: 2px;
-        height: 4px;
-    }
-
-    .exhibition .overflow-auto::-webkit-scrollbar-thumb {
-        /*滚动条里面小方块*/
-        width: 10px;
-        border-radius: 5px;
-        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-        background: rgba(0, 0, 0, 0.2);
-        scrollbar-arrow-color: red;
-    }
-
-    .exhibition .overflow-auto::-webkit-scrollbar-track {
-        /*滚动条里面轨道*/
-        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-        border-radius: 0;
-        background: rgba(0, 0, 0, 0.1);
-    }
-
-    .exhibition-right {
-        padding-left: 10px;
-        width: 60% !important;
-
-    }
-
-    .exhibition-left {
-        width: 40% !important
-    }
-
-    .product-block-wrapper {
-        user-select: none;
-    }
-</style>

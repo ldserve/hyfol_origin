@@ -15518,6 +15518,55 @@ shopify-payment-terms {
 .margin-0{
   margin: 0;
 }
+.padding-0{
+  padding: 0;
+}
+.border-0{
+  border: 0;
+}
 .justify-content-between{
 justify-content: space-between;
+}
+/*  */
+.exhibition .exhibition-item {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.block-swatch-box{
+  /* margin-right: 8px; */
+  padding-bottom: 6px;
+}
+.exhibition .exhibition-item::-webkit-scrollbar {
+  width: 2px;
+  height: 4px;
+}
+
+.exhibition .exhibition-item::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  width: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  scrollbar-arrow-color: red;
+}
+
+.exhibition .exhibition-item::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.exhibition-right {
+  padding-left: 10px;
+  width: 60% !important;
+
+}
+
+.exhibition-left {
+  width: 40% !important
+}
+
+.product-block-wrapper {
+  user-select: none;
 }
