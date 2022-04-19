@@ -3,7 +3,7 @@
 {% assign str = 'sp211119ulk5,t11861820qq,sp21112033g0' %}
 
 {% assign handles = str | split:',' %}
-
+   <slide-show data-collocationNum ="{{handles.size}}">
     <div class="collocation-container {{collocationLocation}}">
      
       <div class="switch-product">
@@ -35,6 +35,7 @@
 </div>
 
 </div>
+</slide-show>
 <script>
   function collocationAnimations(tar){
     var target = document.querySelector(tar)
@@ -54,6 +55,7 @@
      }
      lis[activeIndex].className = "scroll-dot__active-li"
      var animationsflag = true //是否阻止动画
+
      target.querySelector('.prevButton').addEventListener("click",prevItem)
      target.querySelector('.nextButton').addEventListener("click",nextItem)
      //监听动画开始和结束

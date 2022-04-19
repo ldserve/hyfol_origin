@@ -3,6 +3,125 @@
         factory();
 }((function () {
     'use strict';
+    class SliderShow extends HTMLElement {
+        constructor() {
+          super();
+          this.collocationList = this.querySelector('.collocation-list')    //ul
+          this.collocationListItem = this.querySelector('.collocation-list-item')  //li
+          this.activeIndex = 0 ;//当前活跃index
+          this.firstLi = this.collocationList.firstElementChild //首尾节点
+          this.lastLi = this.collocationList.lastElementChild
+          this.scrollDot = this.querySelector(".scroll-dot")//小点
+          this.lis = this.scrollDot.getElementsByTagName("li")
+          this.scorllNum = this.getAttribute("data-collocationNum") //商品数量
+          this.animationsflag = true //是否阻止动画
+          this.prevkeyframes = `
+          @keyframes prevItem1{
+                  0% { transform:  translate(-${this.scorllNum*100}% ,0);  }
+                  100% { transform:  translate(-${(this.scorllNum-1)*100}%,0);}
+              }
+              @keyframes prevItem2{
+                  0% { transform:  translate(-${this.scorllNum*100}% ,0);  }
+                  100% { transform:  translate(-${(this.scorllNum-1)*100}%,0);}
+              }
+          `
+          this.init()
+        }
+        init(){
+          var startx,movex,endx,nx;
+          const style = document.createElement("style");
+          style.type = "text/css";
+          style.innerHTML = this.prevkeyframes;
+          document.getElementsByTagName('head')[0].appendChild(style)
+          for(let i=0 ; i<this.lis.length ;i++){
+            this.lis[i].index = i
+            this.lis[i].addEventListener("click",this.changeItem())
+           }
+           this.lis[activeIndex].className = "scroll-dot__active-li"
+           this.querySelector('.prevButton').addEventListener("click", this.prevItem())
+           this.target.querySelector('.nextButton').addEventListener("click", this.nextItem())
+           //监听动画开始和结束
+           this.collocationList.addEventListener("animationstart", this.animationStart())
+           this.collocationList.addEventListener("transitionstart", this.animationStart())
+           this.collocationList.addEventListener("animationend", this.animationEnd())
+           this.collocationList.addEventListener("transitionend", this.animationEnd())
+        }
+        animationStart (){
+            this.animationsflag = false
+        }
+
+        animationEnd(){
+            this.animationsflag= true
+        }
+        prevItem(){
+            console.log("上一张");
+             if(this.animationsflag){
+               if(this.activeIndex == 0){
+                this.activeIndex = this.scorllNum -1
+                this.lastLi.style.left = (this.scorllNum-1)*100+"%"
+                this. firstLi.style.left = this.scorllNum*100+"%"
+     
+                 if(this.collocationList.className == "collocation-list prevItem1"){
+                    this.collocationList.className = "collocation-list prevItem2"
+                 }else{
+                    this.collocationList.className = "collocation-list prevItem1"
+                 }
+     
+               }else{
+                this.activeIndex -= 1
+                this.firstLi.style.left = "0%"
+                this.lastLi.style.left = (this.scorllNum-1)*100+"%"
+               }
+               this.collocationList.style.transform = `translate( -${this.activeIndex*100}% , 0px )`;
+               for(let i=0 ; i<this.lis.length ;i++){
+                this.lis[i].className= ""
+              }
+              this.lis[activeIndex].className = "scroll-dot__active-li"
+             }
+         }
+
+         nextItem(){
+            if(this.animationsflag){
+            if(this.activeIndex == this.scorllNum-1){
+                this.activeIndex = 0
+                this. firstLi.style.left = "0%"
+                this.lastLi.style.left = "-100%"
+  
+            if(this.collocationList.className == "collocation-list nextItem1"){
+                this.collocationList.className = "collocation-list nextItem2"
+            }else{
+                this.collocationList.className = "collocation-list nextItem1"
+            }
+  
+            }else{
+                this.activeIndex += 1
+                this.firstLi.style.left = "0%"
+                this.lastLi.style.left = (this.scorllNum-1)*100+"%"
+            }
+            this.collocationList.style.transform = `translate( -${this.activeIndex*100}% , 0px )`;
+            for( let i=0 ; i<this.lis.length ;i++){
+                this.lis[i].className= ""
+           }
+           this.lis[activeIndex].className = "scroll-dot__active-li"
+          }
+      }
+
+        changeItem(){
+            if(this.animationsflag){
+             this.activeIndex = this.index
+             for( let i=0 ; i< this.lis.length ;i++){
+              this.lis[i].className= ""
+             }
+             this.lis[activeIndex].className = "scroll-dot__active-li"
+             this.firstLi.style.left = "0%"
+             this.lastLi.style.left = (scorllNum-1)*100+"%"
+             this.collocationList.style.transform = `translate( -${this.activeIndex*100}% , 0px )`;  
+            }
+        }
+    
+      }
+      customElements.define("slide-show", SliderShow);
+
 
     function _typeof(obj) {
         "@babel/helpers - typeof";
