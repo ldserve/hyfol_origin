@@ -1,8 +1,11 @@
+{% assign collocationLocation = collocationLocation %}
+
 {% assign str = 'sp211119ulk5,t11861820qq,sp21112033g0' %}
+
 {% assign handles = str | split:',' %}
 
-    <div class="collocation-container">
-
+    <div class="collocation-container {{collocationLocation}}">
+     
       <div class="switch-product">
         <span class="prevButton" >{%- render :'icon', icon:'arrow-left' -%}</span>
         <span class="nextButton" >{%- render :'icon', icon:'arrow-right' -%}</span>
@@ -22,7 +25,7 @@
     {%- assign selected_variant = product.selected_or_first_available_variant -%}
 
       <li class="collocation-list-item" style="left:{{- forloop.index0 |times:100 -}}%;">
-       {%- render 'collocation-purchase-card' product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}
+          {%- render 'collocation-purchase-card' product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}
       </li>
       
     {%- endfor -%}
@@ -74,7 +77,7 @@
                     if(nx > 0){
                       prevItem()
                         return false;
-                    }else{
+                    }else if(nx <0){
                        nextItem()
                         return false;
                     }

@@ -143,17 +143,17 @@
               <div class="mini-cart__price-list">
                 {%- if line_item.final_line_price < line_item.original_line_price -%}
                 {%- if line_item.final_price == 0 -%}
-                <span class="price price--highlight mini-price-font">{{ 'cart.general.free' | t }}</span>
+                <span class="price price--highlight">{{ 'cart.general.free' | t }}</span>
                 {%- else -%}
-                <span class="price price--highlight mini-price-font">{{ line_item.final_line_price | money }}</span>
+                <span class="price price--highlight">{{ line_item.final_line_price | money }}</span>
                 {%- endif -%}
 
                 <span class="price price--compare "><span class='booster-cart-item-line-price'
                     data-key='{{line_item.key}}'>{{ line_item.original_line_price | money }}</span></span>
                 {%- elsif line_item.variant.compare_at_price > line_item.variant.price -%}
-                <span class="price price--highlight mini-price-font">{{ line_item.final_line_price | money }}</span>
+                <span class="price price--highlight">{{ line_item.final_line_price | money }}</span>
                 <span
-                  class="price price--compare mini-price-font">{{ line_item.variant.compare_at_price | times: line_item.quantity | money }}</span>
+                  class="price price--compare">{{ line_item.variant.compare_at_price | times: line_item.quantity | money }}</span>
                 {%- else -%}
                 <span class="price">{{ line_item.final_line_price | money }}</span>
                 {%- endif -%}

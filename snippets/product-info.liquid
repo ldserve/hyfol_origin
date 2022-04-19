@@ -344,7 +344,16 @@
 			{%- endif -%}
 	</div>
 
-
+{%- comment -%}
+	{%- for block in section.blocks -%}
+				{%- case block.type -%}
+				{%- when  'collocation_purchase' -%}
+				<div class="product-collocation">
+				{%- render 'collocation-purchase',collocationLocation:"main-product-collocation", product: product, form: form, block: block -%}
+				</div>
+				{%- endcase -%}
+	{%- endfor -%}
+{%- endcomment -%}
 
 	{% comment %}
 		------------------------------------------------------------------------------
