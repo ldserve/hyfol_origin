@@ -3277,11 +3277,16 @@ img.lazyload[data-sizes=auto] {
   height: 20px;
   margin: 2px 0;
 }
-.mini-cart-collcation .collocation-price ,.mini-cart-collcation  .collocation-color-text, .mini-cart-collcation  .collocation-size-text{
+.mini-cart-collcation .collocation-price ,.mini-cart-collcation  .collocation-color-text, 
+.mini-cart-collcation  .collocation-size-text,.mini-cart-collcation .price--highlight
+,.mini-cart-collcation .money{
   height: 15px;
   font-size: 8px;
   font-weight: 600;
   margin-bottom: 0px;
+}
+.mini-cart-collcation .ks-chart-container.sizing-chart-container.ks-container-with-modal{
+position: initial;
 }
 .mini-cart-collcation .block-swatch-list{
    padding-top: 6px;
