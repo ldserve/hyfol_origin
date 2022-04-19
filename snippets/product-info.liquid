@@ -59,7 +59,20 @@
 
 				{%- when '@app' -%}
 				{%- render block -%}
-				{%- when 'delivery' -%}
+				{%- endcase -%}
+			{%- endfor -%}
+		{%- endform -%}
+
+		{%- for block in section.blocks -%}
+			{%- case block.type -%}
+			{%- comment -%}
+			{%- endcomment -%}
+			{%- when  'collocation_purchase' -%}
+			<div class="product-collocation">
+			{%- render 'collocation-purchase', product: product, form: form, block: block -%}
+			</div>
+
+			{%- when 'delivery' -%}
 					<div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
 						{%- if block.settings.display_mode == 'collapse' -%}
 							<div class="card__collapsible-button " data-action="toggle-collapsible" aria-expanded="false"
@@ -257,7 +270,7 @@
 						</div>
 					{%- endif -%}
 				{%- endcase -%}
-				{%- endfor -%}
+		{%- endfor -%}
 				
 		{%- assign product_meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
 
@@ -329,10 +342,9 @@
 					</ul>
 				</div>
 			{%- endif -%}
-		{%- endform -%}
-
 	</div>
 
+{%- comment -%}
 	{%- for block in section.blocks -%}
 				{%- case block.type -%}
 				{%- when  'collocation_purchase' -%}
@@ -341,6 +353,7 @@
 				</div>
 				{%- endcase -%}
 	{%- endfor -%}
+{%- endcomment -%}
 
 	{% comment %}
 		------------------------------------------------------------------------------

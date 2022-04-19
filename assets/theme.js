@@ -1811,8 +1811,13 @@
             this.isMiniCartOpen = false;
 
             if (window.theme.pageType !== 'cart' && this.miniCartElement) {
-                this.miniCartToggleElement = this.element.querySelector("[aria-controls=\"".concat(this.miniCartElement.id, "\"]"));
-
+                var cartId=typeof this.miniCartElement.id =="string" ? this.miniCartElement.id:'mini-cart'
+                // this.miniCartToggleElement = this.element.querySelector("[aria-controls=\"".concat(this.miniCartElement.id, "\"]"));
+                this.miniCartToggleElement = this.element.querySelector("[aria-controls=\"".concat(cartId, "\"]"));
+                // console.log('this.element',this.element);
+                // console.log(' this.miniCartElement', this.miniCartElement);
+                // console.log('this.miniCartElementqweewq',this.miniCartElement.id);
+                // console.log('cartId',cartId);
                 this._checkMiniCartScrollability();
             }
 
@@ -1864,6 +1869,7 @@
         }, {
             key: "_openMiniCart",
             value: function _openMiniCart() {
+
                 this.miniCartToggleElement.setAttribute('aria-expanded', 'true'); // If we are on mobile phone we also set the aria-expanded attribute to true on the icon state holder
 
                 if (Responsive.getCurrentBreakpoint() === 'phone') {
@@ -2029,7 +2035,7 @@
                         // We extract the data-item-count from the returned element
                         var myDiv = document.createElement('div');
                         myDiv.innerHTML = html;
-                        console.log(html);
+                        // console.log(html);
                         if (myDiv.firstElementChild && myDiv.firstElementChild.hasAttribute('data-item-count')) {
 
                             _this2.itemCount = parseInt(myDiv.firstElementChild.getAttribute('data-item-count'));
