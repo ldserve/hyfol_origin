@@ -47,33 +47,32 @@
            this.collocationList.addEventListener("transitionend", this.animationEnd)
 
            this.collocationList.addEventListener('touchstart',function(event){
+            if (event.target.closest('.block-swatch-box') == null && event.target.closest('.mini-cart-add__button' ) == null && event.target.closest('.product-item__image-wrapper') == null){
             if (event.target.closest('.block-swatch-box') == null){
                 event.preventDefault();//阻止浏览器默认滚动事件
                 var touch = event.touches[0]   
                 startx = Math.floor(touch.pageX)
                 return startx
               }
-           },false);
+            }
+           });
            this.collocationList.addEventListener('touchend',function(event){
-            if (event.target.closest('.block-swatch-box') == null){
-                console.log(startx,"!@#!@#");
+            if (event.target.closest('.block-swatch-box') == null && event.target.closest('.mini-cart-add__button') == null && event.target.closest('.product-item__image-wrapper') == null){
                 event.preventDefault();//阻止浏览器默认滚动事件
                       endx = Math.floor(event.changedTouches[0].pageX);//获取最后的坐标位置
                       nx = endx-startx;//获取开始位置和离开位置的距离
                       console.log(nx , endx);
                       //判断滑动方向
                       if(nx > 0){
-                          console.log("向前");
                         that.prevItem()
                         return false;
                       }else if(nx <0){
-                          console.log("向后");
                          that.nextItem()
                           return false;
                       }
                   
               }
-           },false);
+           });
         }
         bind(){
             this.bindClick()
