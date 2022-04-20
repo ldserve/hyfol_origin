@@ -6,11 +6,14 @@
    <slide-show data-collocationNum ="{{handles.size}}">
     <div class="collocation-container {{collocationLocation}}">
      
+      {% if handles.size > 1 %}
+        
       <div class="switch-product">
         <span class="prevButton" >{%- render :'icon', icon:'arrow-left' -%}</span>
         <span class="nextButton" >{%- render :'icon', icon:'arrow-right' -%}</span>
       </div>
      
+      {% endif %}
        {%- comment -%}点{%- endcomment -%}
     <div class="scroll-dot">
       {% for Num in handles %}
@@ -37,153 +40,154 @@
 </div>
 </slide-show>
 <script>
-  function collocationAnimations(tar){
-    var target = document.querySelector(tar)
-    var startx,movex,endx,nx;
-    let scorllNum = {{ handles.size }}  //商品件数
-     let collocationList = target.querySelector('.collocation-list')    //ul
-     let collocationListItem = target.querySelector('.collocation-list-item')  //li
-     let activeIndex = 0 ;//当前活跃index
-     let firstLi = collocationList.firstElementChild //首尾节点
-     let lastLi = collocationList.lastElementChild
-     let scrollDot = target.querySelector(".scroll-dot")//小点
-     //给所有小点添加index
-     var lis = scrollDot.getElementsByTagName("li")
-     for( i=0 ; i<lis.length ;i++){
-      lis[i].index = i
-      lis[i].addEventListener("click",changeItem)
-     }
-     lis[activeIndex].className = "scroll-dot__active-li"
-     var animationsflag = true //是否阻止动画
+  function collocationAnimations(tar){}
+  // function collocationAnimations(tar){
+  //   var target = document.querySelector(tar)
+  //   var startx,movex,endx,nx;
+  //   let scorllNum = {{ handles.size }}  //商品件数
+  //    let collocationList = target.querySelector('.collocation-list')    //ul
+  //    let collocationListItem = target.querySelector('.collocation-list-item')  //li
+  //    let activeIndex = 0 ;//当前活跃index
+  //    let firstLi = collocationList.firstElementChild //首尾节点
+  //    let lastLi = collocationList.lastElementChild
+  //    let scrollDot = target.querySelector(".scroll-dot")//小点
+  //    //给所有小点添加index
+  //    var lis = scrollDot.getElementsByTagName("li")
+  //    for( i=0 ; i<lis.length ;i++){
+  //     lis[i].index = i
+  //     lis[i].addEventListener("click",changeItem)
+  //    }
+  //    lis[activeIndex].className = "scroll-dot__active-li"
+  //    var animationsflag = true //是否阻止动画
 
-     target.querySelector('.prevButton').addEventListener("click",prevItem)
-     target.querySelector('.nextButton').addEventListener("click",nextItem)
-     //监听动画开始和结束
-     collocationList.addEventListener("animationstart",animationStart)
-     collocationList.addEventListener("transitionstart",animationStart)
-     collocationList.addEventListener("animationend",animationEnd)
-     collocationList.addEventListener("transitionend",animationEnd)
+  //    target.querySelector('.prevButton').addEventListener("click",prevItem)
+  //    target.querySelector('.nextButton').addEventListener("click",nextItem)
+  //    //监听动画开始和结束
+  //    collocationList.addEventListener("animationstart",animationStart)
+  //    collocationList.addEventListener("transitionstart",animationStart)
+  //    collocationList.addEventListener("animationend",animationEnd)
+  //    collocationList.addEventListener("transitionend",animationEnd)
      
-     function touchs(event){
+  //    function touchs(event){
              
-             if (event.target.closest('.block-swatch-box') == null){
-              event.preventDefault();//阻止浏览器默认滚动事件
-                if(event.type=="touchstart"){//通过if语句判断event.type执行了哪个触摸事件
-                    var touch = event.touches[0];//获取开始的位置数组的第一个触摸位置
-                    startx = Math.floor(touch.pageX);//获取第一个坐标的X轴
-                }else if(event.type=="touchmove"){//触摸中的坐标获取
-                    var touch = event.touches[0];
-                    movex = Math.floor(touch.pageX);
-                }else if(event.type == "touchend" || event.type == "touchcancel"){//当手指离开屏幕或系统取消触摸事件的时候
-                    endx = Math.floor(event.changedTouches[0].pageX);//获取最后的坐标位置
-                    nx = endx-startx;//获取开始位置和离开位置的距离
-                    //判断滑动方向
-                    if(nx > 0){
+  //            if (event.target.closest('.block-swatch-box') == null){
+  //             event.preventDefault();//阻止浏览器默认滚动事件
+  //               if(event.type=="touchstart"){//通过if语句判断event.type执行了哪个触摸事件
+  //                   var touch = event.touches[0];//获取开始的位置数组的第一个触摸位置
+  //                   startx = Math.floor(touch.pageX);//获取第一个坐标的X轴
+  //               }else if(event.type=="touchmove"){//触摸中的坐标获取
+  //                   var touch = event.touches[0];
+  //                   movex = Math.floor(touch.pageX);
+  //               }else if(event.type == "touchend" || event.type == "touchcancel"){//当手指离开屏幕或系统取消触摸事件的时候
+  //                   endx = Math.floor(event.changedTouches[0].pageX);//获取最后的坐标位置
+  //                   nx = endx-startx;//获取开始位置和离开位置的距离
+  //                   //判断滑动方向
+  //                   if(nx > 0){
         
-                      prevItem()
-                      return false;
-                    }else if(nx <0){
-                       nextItem()
-                        return false;
-                    }
-                }
-            }
-          }
-            //添加触摸事件的监听，并直行自定义触摸函数
-            collocationList.addEventListener('touchstart',touchs,false);
-            collocationList.addEventListener('touchmove',touchs,false);
-            collocationList.addEventListener('touchend',touchs,false);
+  //                     prevItem()
+  //                     return false;
+  //                   }else if(nx <0){
+  //                      nextItem()
+  //                       return false;
+  //                   }
+  //               }
+  //           }
+  //         }
+  //           //添加触摸事件的监听，并直行自定义触摸函数
+  //           collocationList.addEventListener('touchstart',touchs,false);
+  //           collocationList.addEventListener('touchmove',touchs,false);
+  //           collocationList.addEventListener('touchend',touchs,false);
 
-     function animationStart (){
-         animationsflag = false
-     }
-     function animationEnd(){
-         animationsflag= true
-     }
-     //添加上一个item的动画
-     const prevkeyframes = `
-    @keyframes prevItem1{
-            0% { transform:  translate(-${scorllNum*100}% ,0);  }
-            100% { transform:  translate(-${(scorllNum-1)*100}%,0);}
-        }
-        @keyframes prevItem2{
-            0% { transform:  translate(-${scorllNum*100}% ,0);  }
-            100% { transform:  translate(-${(scorllNum-1)*100}%,0);}
-        }
-    `
-    const style = document.createElement("style");
-    style.type = "text/css";
-    style.innerHTML = prevkeyframes;
-    document.getElementsByTagName('head')[0].appendChild(style)
+  //    function animationStart (){
+  //        animationsflag = false
+  //    }
+  //    function animationEnd(){
+  //        animationsflag= true
+  //    }
+  //    //添加上一个item的动画
+  //    const prevkeyframes = `
+  //   @keyframes prevItem1{
+  //           0% { transform:  translate(-${scorllNum*100}% ,0);  }
+  //           100% { transform:  translate(-${(scorllNum-1)*100}%,0);}
+  //       }
+  //       @keyframes prevItem2{
+  //           0% { transform:  translate(-${scorllNum*100}% ,0);  }
+  //           100% { transform:  translate(-${(scorllNum-1)*100}%,0);}
+  //       }
+  //   `
+  //   const style = document.createElement("style");
+  //   style.type = "text/css";
+  //   style.innerHTML = prevkeyframes;
+  //   document.getElementsByTagName('head')[0].appendChild(style)
     
-    function changeItem(){
-        if(animationsflag){
-         activeIndex = this.index
-         for( i=0 ; i<lis.length ;i++){
-          lis[i].className= ""
-         }
-         lis[activeIndex].className = "scroll-dot__active-li"
-         firstLi.style.left = "0%"
-         lastLi.style.left = (scorllNum-1)*100+"%"
-         collocationList.style.transform = `translate( -${activeIndex*100}% , 0px )`;  
-        }
-    }
+  //   function changeItem(){
+  //       if(animationsflag){
+  //        activeIndex = this.index
+  //        for( i=0 ; i<lis.length ;i++){
+  //         lis[i].className= ""
+  //        }
+  //        lis[activeIndex].className = "scroll-dot__active-li"
+  //        firstLi.style.left = "0%"
+  //        lastLi.style.left = (scorllNum-1)*100+"%"
+  //        collocationList.style.transform = `translate( -${activeIndex*100}% , 0px )`;  
+  //       }
+  //   }
 
-     function prevItem(){
-       console.log("上一张");
-        if(animationsflag){
-          if(activeIndex == 0){
-            activeIndex = scorllNum -1
-            lastLi.style.left = (scorllNum-1)*100+"%"
-            firstLi.style.left = scorllNum*100+"%"
+  //    function prevItem(){
+  //      console.log("上一张");
+  //       if(animationsflag){
+  //         if(activeIndex == 0){
+  //           activeIndex = scorllNum -1
+  //           lastLi.style.left = (scorllNum-1)*100+"%"
+  //           firstLi.style.left = scorllNum*100+"%"
 
-            if(collocationList.className == "collocation-list prevItem1"){
-              collocationList.className = "collocation-list prevItem2"
-            }else{
-              collocationList.className = "collocation-list prevItem1"
-            }
+  //           if(collocationList.className == "collocation-list prevItem1"){
+  //             collocationList.className = "collocation-list prevItem2"
+  //           }else{
+  //             collocationList.className = "collocation-list prevItem1"
+  //           }
 
-          }else{
-            activeIndex -= 1
-            firstLi.style.left = "0%"
-            lastLi.style.left = (scorllNum-1)*100+"%"
-          }
-          collocationList.style.transform = `translate( -${activeIndex*100}% , 0px )`;
-          for( i=0 ; i<lis.length ;i++){
-          lis[i].className= ""
-         }
-         lis[activeIndex].className = "scroll-dot__active-li"
-        }
-    }
-     function nextItem(){
-          if(animationsflag){
-          if(activeIndex == scorllNum-1){
-            activeIndex = 0
-            firstLi.style.left = "0%"
-            lastLi.style.left = "-100%"
+  //         }else{
+  //           activeIndex -= 1
+  //           firstLi.style.left = "0%"
+  //           lastLi.style.left = (scorllNum-1)*100+"%"
+  //         }
+  //         collocationList.style.transform = `translate( -${activeIndex*100}% , 0px )`;
+  //         for( i=0 ; i<lis.length ;i++){
+  //         lis[i].className= ""
+  //        }
+  //        lis[activeIndex].className = "scroll-dot__active-li"
+  //       }
+  //   }
+  //    function nextItem(){
+  //         if(animationsflag){
+  //         if(activeIndex == scorllNum-1){
+  //           activeIndex = 0
+  //           firstLi.style.left = "0%"
+  //           lastLi.style.left = "-100%"
 
-          if(collocationList.className == "collocation-list nextItem1"){
-              collocationList.className = "collocation-list nextItem2"
-          }else{
-              collocationList.className = "collocation-list nextItem1"
-          }
+  //         if(collocationList.className == "collocation-list nextItem1"){
+  //             collocationList.className = "collocation-list nextItem2"
+  //         }else{
+  //             collocationList.className = "collocation-list nextItem1"
+  //         }
 
-          }else{
-            activeIndex += 1
-            firstLi.style.left = "0%"
-            lastLi.style.left = (scorllNum-1)*100+"%"
-          }
-          collocationList.style.transform = `translate( -${activeIndex*100}% , 0px )`;
-          for( i=0 ; i<lis.length ;i++){
-          lis[i].className= ""
-         }
-         lis[activeIndex].className = "scroll-dot__active-li"
-        }
-    }
-  }
-  if(document.querySelector('.product-collocation') != null){
-    collocationAnimations(".product-collocation")
-  }
+  //         }else{
+  //           activeIndex += 1
+  //           firstLi.style.left = "0%"
+  //           lastLi.style.left = (scorllNum-1)*100+"%"
+  //         }
+  //         collocationList.style.transform = `translate( -${activeIndex*100}% , 0px )`;
+  //         for( i=0 ; i<lis.length ;i++){
+  //         lis[i].className= ""
+  //        }
+  //        lis[activeIndex].className = "scroll-dot__active-li"
+  //       }
+  //   }
+  // }
+  // if(document.querySelector('.product-collocation') != null){
+  //   collocationAnimations(".product-collocation")
+  // }
 
 
 
