@@ -2999,6 +2999,11 @@ img.lazyload[data-sizes=auto] {
   text-align: left;
 }
 
+.block-layout{
+  position: relative;
+  height: 50px;
+}
+
 @media screen and (max-width: 640px) {
   .card {
     border-radius: 0;
