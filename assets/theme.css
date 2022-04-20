@@ -3286,7 +3286,7 @@ img.lazyload[data-sizes=auto] {
   margin-bottom: 0px;
 }
 .mini-cart-collcation .ks-chart-container.sizing-chart-container.ks-container-with-modal{
-position: initial;
+display: none;
 }
 .mini-cart-collcation .block-swatch-list{
    padding-top: 6px;

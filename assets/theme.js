@@ -177,6 +177,94 @@
       }
       customElements.define("slide-show", SliderShow);
 
+      class CollocationPurchase extends HTMLElement{
+        constructor() {
+           super()
+            this.init()
+        }
+        init(){
+            this.root = this.querySelector('.product-block-wrapper')
+            // purchaseBox = document.getElementById('{{card_id}}')
+             this.json = this.root.querySelector('[type="application/json"]')
+             this.options = this.root.querySelectorAll('.product-wrapper_option')
+             this.formElement = this.root.querySelector('form[action*="/cart/add"]');
+
+            if (!this.formElement) {
+                        var formBox = document.createElement('form')
+                        formBox.method = "post"
+                        formBox.action = "/cart/add"
+                        formBox.className = "product-form"
+                        formBox.enctype = "multipart/form-data"
+                        var childList = this.root.children
+                        for (let i = childList.length - 1; i >= 0; i--) {
+                            formBox.prepend(childList[i])
+                        }
+                        this.root.append(formBox)
+                        this.formElement = formBox
+
+                    this.addEven(this.options, this.json, this.formElement)
+           
+            } else {
+                this.addEven(this.options, this.json, this.formElement)
+            }
+
+        }
+
+        addEven(options, json, formElement) {
+
+            options.forEach(option => {
+                option.addEventListener('click', (ev) => {
+                    if (ev.target.tagName === "INPUT") {
+                        var target = ev.target
+                        var jsonData = JSON.parse(json.innerHTML)
+                        var option1, option2
+                        // var inputList=purchaseBox.querySelectorAll('input')
+                        for (var i = 0, len = formElement.elements.length; i < len; i++) {
+                            var form = formElement.elements[i];
+                            if (form.name === '' || form.disabled) {
+                                continue;
+                            }
+                            if (form.name && !form.disabled && form.checked) {
+                                if (form.classList.contains('color-swatch__radio')) option1 = form.value
+                                if (form.classList.contains('block-swatch__radio')) option2 = form.value
+                            }
+                        }
+
+                        var variantId = this.root.querySelector('input[name="id"]')
+                        variantId.value = (jsonData.find(item => item.option1 === option1 && item.option2 === option2)).id
+
+                        var selectedValueElement = option.querySelector('.product-form__selected-value')
+                        selectedValueElement.innerHTML = target.value
+
+                        if (target.classList.contains('color-swatch__radio')) {
+                            const productItem = target.closest('.exhibition')
+                            var variantUrl = target.getAttribute('data-variant-url');
+                            productItem.querySelector('.product-item__image-wrapper').setAttribute('href', variantUrl);
+                            const originalImageElement = productItem.querySelector('.product-item__primary-image');
+
+                            if (target.hasAttribute('data-image-url') && target.getAttribute('data-media-id') !== originalImageElement.getAttribute('data-media-id')) {
+                                var newImageElement = document.createElement('img');
+                                newImageElement.className = 'product-item__primary-image lazyload image--fade-in';
+                                newImageElement.setAttribute('data-media-id', target.getAttribute('data-media-id'));
+                                newImageElement.setAttribute('data-src', target.getAttribute('data-image-url'));
+                                newImageElement.setAttribute('data-widths', target.getAttribute('data-image-widths'));
+                                newImageElement.setAttribute('data-sizes', 'auto'); // Replace the original node
+
+                                originalImageElement.parentNode.style.paddingBottom = "".concat(100.0 / newImageElement.getAttribute('data-image-aspect-ratio'), "%");
+                                originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
+                            }
+                        }
+                    }
+                })
+            })
+
+
+        }
+
+
+
+      }
+      customElements.define("collocation-purchase", CollocationPurchase);
 
     function _typeof(obj) {
         "@babel/helpers - typeof";
