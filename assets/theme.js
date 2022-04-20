@@ -92,7 +92,7 @@
                          that.nextItem()
                           return false;
                       }
-                  
+
               }
            });
         }
@@ -203,6 +203,7 @@
             super()
             this.init()
         }
+
         init() {
             this.root = this.querySelector('.product-block-wrapper')
             this.json = this.root.querySelector('[type="application/json"]')
@@ -210,20 +211,20 @@
             this.formElement = this.root.querySelector('form[action*="/cart/add"]');
 
             if (!this.formElement) {
+                // 在小购物车没有form表单动态插入进去
                 var formBox = document.createElement('form')
                 formBox.method = "post"
                 formBox.action = "/cart/add"
                 formBox.className = "product-form"
                 formBox.enctype = "multipart/form-data"
                 var childList = this.root.children
+
                 for (let i = childList.length - 1; i >= 0; i--) {
                     formBox.prepend(childList[i])
                 }
                 this.root.append(formBox)
                 this.formElement = formBox
-
                 this.addEven(this.options, this.json, this.formElement)
-
             } else {
                 this.addEven(this.options, this.json, this.formElement)
             }
@@ -232,14 +233,16 @@
 
         }
         addEven(options, json, formElement) {
-
             var productData = JSON.parse(json.innerHTML)
+
             options.forEach(option => {
                 option.addEventListener('click', (ev) => {
                     if (ev.target.tagName === "INPUT") {
                         var target = ev.target
-                        var option1, option2
 
+                        var variantId = this.root.querySelector('input[name="id"]')
+                        var selectedValueElement = option.querySelector('.product-form__selected-value')
+                        var option1, option2
                         for (var i = 0, len = formElement.elements.length; i < len; i++) {
                             var form = formElement.elements[i];
                             if (form.name === '' || form.disabled) {
@@ -250,12 +253,9 @@
                                 if (form.classList.contains('block-swatch__radio')) option2 = form.value
                             }
                         }
-
-                        var variantId = this.root.querySelector('input[name="id"]')
                         this.currentVariant = productData.find(item => item.option1 === option1 && item.option2 === option2)
-                        variantId.value = this.currentVariant.id
 
-                        var selectedValueElement = option.querySelector('.product-form__selected-value')
+                        variantId.value = this.currentVariant.id
                         selectedValueElement.innerHTML = target.value
 
                         if (target.classList.contains('color-swatch__radio')) {
@@ -276,21 +276,49 @@
                                 originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
                             }
                         }
+
+
+
+                        
+
+                        var offsetWidth = option.offsetWidth
+                        var rightBox = this.querySelector('.exhibition-right')
+                            rightBox.style.overflow = 'hidden'
+                        var max_width = parseInt(rightBox.offsetWidth)
+
+                        var inputs = [...option.querySelectorAll("input")]
+                        var temp = option.querySelector('.exhibition-item')
+                        var average = parseInt(offsetWidth / inputs.length)
+                        var currentItem = inputs.indexOf(target)
+                        var currenQuantity = parseInt(max_width / average - 2)
+
+                        if(offsetWidth < max_width){
+                            if (currentItem < 4) temp.style.transform = `translateX(0px)`
+                            if (currentItem > 3) {
+                                if ( inputs.length - currenQuantity  <= 3){ 
+                                    temp.style.transform = `translateX(-${max_width - (currenQuantity) * average}px)`
+                                }else{
+                                    temp.style.transform = `translateX(-${(currentItem - 2) * average}px)`
+                                }
+                            }
+                        }
+                        console.log('每个元素大小:',average,"当前页显示数量:", currenQuantity);
+
                     }
+
                 })
             })
 
             if (this.root.closest(".mini-cart")) {
-
+                // 在小购物车手动提交表单
                 var button = this.root.querySelector('[data-action="add-to-cart"]')
-
                 button.addEventListener('click', (e) => {
                     var target = e.target
                     if(this.currentVariant)false
-                    e.preventDefault(); // Prevent form to be submitted
+                    e.preventDefault();  
 
                     target.setAttribute('disabled', 'disabled');
-                    document.dispatchEvent(new CustomEvent('theme:loading:start')); // Then we add the product in Ajax
+                    document.dispatchEvent(new CustomEvent('theme:loading:start')); 
 
                     var element = this.closest('section');
                     var currentVariant =this.currentVariant 
@@ -322,6 +350,8 @@
                     })
                 })
             }
+
+        
         }
 
 
