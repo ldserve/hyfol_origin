@@ -2131,16 +2131,14 @@
             this.isMiniCartOpen = false;
             
             if (window.theme.pageType !== 'cart' && this.miniCartElement) {
-                var cartId=typeof this.miniCartElement.id =="string" ? this.miniCartElement.id:'mini-cart'
-                // this.miniCartToggleElement = this.element.querySelector("[aria-controls=\"".concat(this.miniCartElement.id, "\"]"));
-                this.miniCartToggleElement = this.element.querySelector("[aria-controls=\"".concat(cartId, "\"]"));
+                // var cartId=typeof this.miniCartElement.id =="string" ? this.miniCartElement.id:'mini-cart'
+                this.miniCartToggleElement = this.element.querySelector("[aria-controls=\"".concat(this.miniCartElement.id, "\"]"));
+                // this.miniCartToggleElement = this.element.querySelector("[aria-controls=\"".concat(cartId, "\"]"));
                 // console.log('this.element',this.element);
                 // console.log(' this.miniCartElement', this.miniCartElement);
                 // console.log('this.miniCartElementqweewq',this.miniCartElement.id);
                 // console.log('cartId',cartId);
                 this._checkMiniCartScrollability();
-                window.collocationAnimations(".mini-cart__inner")
-              
             }
           this.itemCount = window.theme.cartCount;
 
@@ -2372,7 +2370,7 @@
 
                                 var miniCartItemListElement = _this2.miniCartElement.querySelector('.mini-cart__line-item-list'),
                                     scrollPosition = null;
-                              
+
                                 if (miniCartItemListElement) {
                                     scrollPosition = miniCartItemListElement.scrollTop;
                                 }
@@ -2390,8 +2388,6 @@
                                 _this2._calculateMiniCartHeight();
 
                                 _this2.element.dispatchEvent(new CustomEvent('cart:rerendered'));
-                                
-                                
                             } else {
                                 // The replacement of the DOM here could be made better and more resilient (maybe exploring using a virtual DOM approach in future?)
                                 var _tempElement = document.createElement('div');
