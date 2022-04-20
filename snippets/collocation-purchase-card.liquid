@@ -264,11 +264,13 @@
                                 }}:
                                 <span class="product-form__selected-value">{{ option.selected_value }}</span></span>
                             <div class="exhibition-item block-swatch-box">
-                                <div class="block-swatch-list d-flex">
+                                <div class="block-swatch-list d-flex block-layout">
                                     {%- for value in option.values -%}
                                     {%- capture block_swatch_id -%}{{ option_name }}-{{ forloop.index }}{%- endcapture
                                     -%}
-                                    <div class="block-swatch">
+
+                                 <size-block data-cart_id="{{card_id}}" data-totalSize="{{option.values.size}}">
+                                    <div class="block-swatch" style="position:absolute">
                                         <input class="block-swatch__radio " type="radio" name="{{ option_name }}"
                                             id="{{ block_swatch_id }}" value="{{ value | escape }}" {% if
                                             option.selected_value==value %}checked{% endif %}
@@ -278,7 +280,23 @@
                                             <span class="block-swatch__item-text">{{ value }}</span>
                                         </label>
                                     </div>
+                                </size-block>
                                     {%- endfor -%}
+
+                                    <script>
+                                        // var container = document.getElementById("{{card_id}}")
+                                        // var totalSize = {{option.values.size}}
+                                        // var sum = 0
+                                        // for(let i=0 ; i <totalSize ; i++){
+                                        //     // console.log(container.getElementsByClassName("block-swatch__item")[i]);
+                                        //     var offsetWidth = container.getElementsByClassName("block-swatch__item")[i].offsetWidth
+                                        //      offsetWidth += 2
+                                        //      container.getElementsByClassName("block-swatch")[i].style.left = sum +"px"
+                                        //     sum = sum + offsetWidth +5
+                                        //     // console.log(sum);
+                                        // }
+
+                                    </script>
                                 </div>
                             </div>
                         </div>
