@@ -177,45 +177,46 @@
       }
       customElements.define("slide-show", SliderShow);
 
-      class CollocationPurchase extends HTMLElement{
+    class CollocationPurchase extends HTMLElement {
         constructor() {
-           super()
+            super()
             this.init()
         }
-        init(){
+        init() {
             this.root = this.querySelector('.product-block-wrapper')
-             this.json = this.root.querySelector('[type="application/json"]')
-             this.options = this.root.querySelectorAll('.product-wrapper_option')
-             this.formElement = this.root.querySelector('form[action*="/cart/add"]');
+            this.json = this.root.querySelector('[type="application/json"]')
+            this.options = this.root.querySelectorAll('.product-wrapper_option')
+            this.formElement = this.root.querySelector('form[action*="/cart/add"]');
 
             if (!this.formElement) {
-                        var formBox = document.createElement('form')
-                        formBox.method = "post"
-                        formBox.action = "/cart/add"
-                        formBox.className = "product-form"
-                        formBox.enctype = "multipart/form-data"
-                        var childList = this.root.children
-                        for (let i = childList.length - 1; i >= 0; i--) {
-                            formBox.prepend(childList[i])
-                        }
-                        this.root.append(formBox)
-                        this.formElement = formBox
+                var formBox = document.createElement('form')
+                formBox.method = "post"
+                formBox.action = "/cart/add"
+                formBox.className = "product-form"
+                formBox.enctype = "multipart/form-data"
+                var childList = this.root.children
+                for (let i = childList.length - 1; i >= 0; i--) {
+                    formBox.prepend(childList[i])
+                }
+                this.root.append(formBox)
+                this.formElement = formBox
 
-                    this.addEven(this.options, this.json, this.formElement)
-           
+                this.addEven(this.options, this.json, this.formElement)
+
             } else {
                 this.addEven(this.options, this.json, this.formElement)
             }
 
-        }
 
+
+        }
         addEven(options, json, formElement) {
 
+            var productData = JSON.parse(json.innerHTML)
             options.forEach(option => {
                 option.addEventListener('click', (ev) => {
                     if (ev.target.tagName === "INPUT") {
                         var target = ev.target
-                        var jsonData = JSON.parse(json.innerHTML)
                         var option1, option2
 
                         for (var i = 0, len = formElement.elements.length; i < len; i++) {
@@ -230,7 +231,8 @@
                         }
 
                         var variantId = this.root.querySelector('input[name="id"]')
-                        variantId.value = (jsonData.find(item => item.option1 === option1 && item.option2 === option2)).id
+                        this.currentVariant = productData.find(item => item.option1 === option1 && item.option2 === option2)
+                        variantId.value = this.currentVariant.id
 
                         var selectedValueElement = option.querySelector('.product-form__selected-value')
                         selectedValueElement.innerHTML = target.value
@@ -247,7 +249,7 @@
                                 newImageElement.setAttribute('data-media-id', target.getAttribute('data-media-id'));
                                 newImageElement.setAttribute('data-src', target.getAttribute('data-image-url'));
                                 newImageElement.setAttribute('data-widths', target.getAttribute('data-image-widths'));
-                                newImageElement.setAttribute('data-sizes', 'auto'); 
+                                newImageElement.setAttribute('data-sizes', 'auto');
 
                                 originalImageElement.parentNode.style.paddingBottom = "".concat(100.0 / newImageElement.getAttribute('data-image-aspect-ratio'), "%");
                                 originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
@@ -257,12 +259,52 @@
                 })
             })
 
+            if (this.root.closest(".mini-cart")) {
 
+                var button = this.root.querySelector('[data-action="add-to-cart"]')
+
+                button.addEventListener('click', (e) => {
+                    var target = e.target
+                    if(this.currentVariant)false
+                    e.preventDefault(); // Prevent form to be submitted
+
+                    target.setAttribute('disabled', 'disabled');
+                    document.dispatchEvent(new CustomEvent('theme:loading:start')); // Then we add the product in Ajax
+
+                    var element = this.closest('section');
+                    var currentVariant =this.currentVariant 
+
+
+                    fetch("".concat(window.routes.cartAddUrl, ".js"), {
+                        body: JSON.stringify(Form.serialize(this.formElement)),
+                        credentials: 'same-origin',
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest' // This is needed as currently there is a bug in Shopify that assumes this header
+                        }
+                    }).then(function (response) {
+                        document.dispatchEvent(new CustomEvent('theme:loading:end'));
+
+                        if (response.ok) {
+                            target.removeAttribute('disabled'); // We simply trigger an event so the mini-cart can re-render
+                            element.dispatchEvent(new CustomEvent('product:added', {
+                                bubbles: true,
+                                detail: {
+                                    variant: currentVariant,
+                                    quantity: 1
+                                }
+                            }));
+                            element.dispatchEvent(new CustomEvent('theme:loading:start'));
+                            e.preventDefault()
+                        }
+                    })
+                })
+            }
         }
 
 
-
-      }
+    }
       customElements.define("collocation-purchase", CollocationPurchase);
 
     function _typeof(obj) {
@@ -3858,7 +3900,6 @@
                 event.preventDefault(); // Prevent form to be submitted
 
                 //event.stopPropagation(); // First, we switch the status of the button
-
                 target.setAttribute('disabled', 'disabled');
                 document.dispatchEvent(new CustomEvent('theme:loading:start')); // Then we add the product in Ajax
 
@@ -3868,6 +3909,7 @@
                 }else{
                     formElement = this.element.querySelector('form[action*="/cart/add"]');
                 }
+             
                 fetch("".concat(window.routes.cartAddUrl, ".js"), {
                     body: JSON.stringify(Form.serialize(formElement)),
                     credentials: 'same-origin',
@@ -3879,10 +3921,8 @@
                     }
                 }).then(function (response) {
                     document.dispatchEvent(new CustomEvent('theme:loading:end'));
-
                     if (response.ok) {
                         target.removeAttribute('disabled'); // We simply trigger an event so the mini-cart can re-render
-
                         _this4.element.dispatchEvent(new CustomEvent('product:added', {
                             bubbles: true,
                             detail: {

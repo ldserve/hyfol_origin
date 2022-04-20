@@ -288,7 +288,7 @@
 
 
 
-                <div class="product-form__payment-container margin-0 border-0" {{ block.shopify_attributes }}>
+                <div class="margin-0 border-0" {{ block.shopify_attributes }}>
 
 
 
@@ -350,11 +350,10 @@
         </div>
 </collocation-purchase>
 <script>
-
     // 搭配购
 
     function purechaseInfo(cart) {
-        var cartBox = document.querySelector(cart)
+      /*  var cartBox = document.querySelector(cart)
 
         var purchaseBox
         var json
@@ -447,7 +446,7 @@
 
 
         }
-
+*/
 
         // const button = document.getElementById('{{card_id}}').querySelector('.product-form__payment-container button')
 
@@ -589,7 +588,6 @@
 
 
     };
-        // if (document.querySelector('section[data-section-type="product"]')) purechaseInfo()
 
 
 

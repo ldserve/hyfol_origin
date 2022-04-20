@@ -15572,12 +15572,16 @@ justify-content: space-between;
 
 .exhibition-right {
   padding-left: 10px;
-  width: 50% !important;
-
+  width: 50% 
 }
-
+.mini-cart .exhibition-left {
+  width: 40% 
+}
+.mini-cart .exhibition-right {
+  width: 60% 
+}
 .exhibition-left {
-  width: 50% !important
+  width: 50% 
 }
 
 .product-block-wrapper {
