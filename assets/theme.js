@@ -129,7 +129,6 @@
         }
         init(){
             this.root = this.querySelector('.product-block-wrapper')
-            // purchaseBox = document.getElementById('{{card_id}}')
              this.json = this.root.querySelector('[type="application/json"]')
              this.options = this.root.querySelectorAll('.product-wrapper_option')
              this.formElement = this.root.querySelector('form[action*="/cart/add"]');
@@ -163,7 +162,7 @@
                         var target = ev.target
                         var jsonData = JSON.parse(json.innerHTML)
                         var option1, option2
-                        // var inputList=purchaseBox.querySelectorAll('input')
+
                         for (var i = 0, len = formElement.elements.length; i < len; i++) {
                             var form = formElement.elements[i];
                             if (form.name === '' || form.disabled) {
@@ -193,7 +192,7 @@
                                 newImageElement.setAttribute('data-media-id', target.getAttribute('data-media-id'));
                                 newImageElement.setAttribute('data-src', target.getAttribute('data-image-url'));
                                 newImageElement.setAttribute('data-widths', target.getAttribute('data-image-widths'));
-                                newImageElement.setAttribute('data-sizes', 'auto'); // Replace the original node
+                                newImageElement.setAttribute('data-sizes', 'auto'); 
 
                                 originalImageElement.parentNode.style.paddingBottom = "".concat(100.0 / newImageElement.getAttribute('data-image-aspect-ratio'), "%");
                                 originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
@@ -902,7 +901,6 @@
                 target = target.parentNode;
             } // Handle SVG <use> elements in IE
 
-
             if (target.correspondingUseElement) {
                 target = target.correspondingUseElement;
             }
@@ -948,7 +946,6 @@
                     // the length changed and
                     // no more listeners are
                     // defined between i and l.
-
                     if (!listener) {
                         break;
                     }
@@ -970,8 +967,6 @@
                 // was called. If so, break looping
                 // through the DOM. Stop if the
                 // delegation root has been reached
-
-
                 if (target === root) {
                     break;
                 }
