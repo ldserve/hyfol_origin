@@ -21,7 +21,6 @@
         {%- form 'product', product, id: product_form_id, class: 'product-form' -%}
 
 
-
         {%- comment -%}
         {%- render 'product-meta', product: product, block: block -%}
         {%- endcomment -%}
@@ -119,7 +118,7 @@
                 <h1 class="product-meta__title heading  collocation-product-meta__title">{{ product.title }}</h1>
                 {% endif %}
 
-                <div class="d-flex justify-content-between "
+                <div class=" "
                     style="border-bottom: 1px solid #bbb7b7 ; align-items: center;">
                     <div class="price-list">
                         {%- if selected_variant.compare_at_price > selected_variant.price -%}
@@ -152,9 +151,12 @@
                         {%- endif -%}
                     </div>
 
+                    {%- comment -%}
                     <div class="product-meta__reviews-badge link" data-offset="30">
                         {%- render 'product-rating', product: product -%}
                     </div>
+                    {%- endcomment -%}
+
                 </div>
 
 
@@ -175,11 +177,13 @@
 
                         <div class="product-wrapper-scoll">
                             {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split:
-                            '<br />'
-                            -%}
-                            <span class="product-form__option-name text--strong collocation-color-text">{{ option.name
-                                }}:
+                            '<br />' -%}
+
+
+                            <span class="product-form__option-name text--strong collocation-color-text">{{ option.name }}:
                                 <span class="product-form__selected-value">{{ option.selected_value }}</span></span>
+
+
                             <div class="exhibition-item block-swatch-box ">
                                 <div
                                     class="color-swatch-list color-swatch-list--large ld-variant-list d-flex margin-0 padding-0">
@@ -288,7 +292,7 @@
 
 
 
-                <div class="margin-0 border-0" {{ block.shopify_attributes }}>
+                <div class="margin-0 border-0 add-button"  >
 
 
 
@@ -307,7 +311,7 @@
                     <button type="submit" class="product-form__add-button button button--primary"
                         data-action="add-to-cart">{{ 'product.form.pre_order' | t }}</button>
                     {%- else -%}
-                    <button type="submit" class="  button button--primary mini-cart-add__button" data-scenable="1"
+                    <button type="submit" class="button button--primary mini-cart-add__button" data-scenable="1"
                         data-sctype="addCart" data-scdata='{"is_quick_view":1,
                               "commodity_spuid": "{{product.handle}}",
                  "commodity_name": "{{product.title | handleize }}",
@@ -448,9 +452,10 @@
         }
 */
 
-        // const button = document.getElementById('{{card_id}}').querySelector('.product-form__payment-container button')
 
-        /*   button.addEventListener('click', (target) => {
+/* 
+const button = document.getElementById('{{card_id}}').querySelector('.product-form__payment-container button')
+  button.addEventListener('click', (target) => {
             return false
             target.preventDefault();
             document.dispatchEvent(new CustomEvent('theme:loading:start'));
