@@ -3,6 +3,28 @@
         factory();
 }((function () {
     'use strict';
+
+    class SizeBlock extends HTMLElement {
+        constructor() {
+          super();
+        this.card_id = this.getAttribute("data-cart_id")
+        this.totalSize = this.getAttribute('data-totalSize')
+        this.container = document.getElementById(this.card_id)
+        this.sum = 0
+        this.init()
+        }
+        init(){
+            for(let i=0 ; i <this.totalSize ; i++){
+               // console.log(container.getElementsByClassName("block-swatch__item")[i]);
+               var offsetWidth = this.container.getElementsByClassName("block-swatch__item")[i].offsetWidth
+                offsetWidth += 2
+                this.container.getElementsByClassName("block-swatch")[i].style.left = this.sum +"px"
+               this.sum +=  offsetWidth +5
+               // console.log(sum);
+           }
+        }
+        }
+        customElements.define("size-block", SizeBlock);
     class SliderShow extends HTMLElement {
         constructor() {
           super();

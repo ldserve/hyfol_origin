@@ -3190,7 +3190,7 @@ img.lazyload[data-sizes=auto] {
 .mini-cart__line-item {
   display: flex;
   align-items: flex-start;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .mini-cart__line-item-flex-layout{
@@ -3400,7 +3400,7 @@ display: none;
 }
 
 .mini-cart__line-item-list{
-   max-height: 150px !important;
+   max-height: 350px !important;
 }
 
 .mini-cart__recap {
