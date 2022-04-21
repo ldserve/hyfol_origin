@@ -31,8 +31,7 @@
                     only_show_transparent and product.metafields.my_fields.transparencydrawing[0].path != blank %}
 
                     {% if product.metafields.my_fields.transparentimg1 != blank%}
-                    {%- assign image_url = product.metafields.my_fields.transparentimg1 | img_url: '1x1' | replace:
-                    '_1x1.', '_{width}x.' -%}
+                    {%- assign image_url = product.metafields.my_fields.transparentimg1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
                     {% elsif product.metafields.my_fields.transparencydrawing[0].path != blank %}
                     {%- assign image_url = product.metafields.my_fields.transparencydrawing[0].path | append:
                     product.metafields.my_fields.transparencydrawing[0].imageMd5 -%}
@@ -48,11 +47,9 @@
                         {%- if show_secondary_media -%}
                         {%- capture supported_sizes -%}
                         {%- render 'image-size', sizes: '200,300,400,500,600,700,800', image:
-                        primary_media.preview_image
-                        -%}{%- endcapture -%}
+                        primary_media.preview_image  -%}{%- endcapture -%}
                         {% if product.metafields.my_fields.transparentimg2 != blank%}
-                        {%- assign image_url = product.metafields.my_fields.transparentimg2 | img_url: '1x1' | replace:
-                        '_1x1.', '_{width}x.' -%}
+                        {%- assign image_url = product.metafields.my_fields.transparentimg2 | img_url: '1x1' | replace:  '_1x1.', '_{width}x.' -%}
                         {% elsif product.metafields.my_fields.transparencydrawing[1].path != blank %}
                         {%- assign image_url = product.metafields.my_fields.transparencydrawing[1].path | append:
                         product.metafields.my_fields.transparencydrawing[1].imageMd5 -%}
@@ -77,8 +74,7 @@
 
                         {%- if show_secondary_media -%}
                         {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,300,400,500,600,700,800',
-                        image:
-                        product.media[1].preview_image -%}{%- endcapture -%}
+                        image:  product.media[1].preview_image -%}{%- endcapture -%}
                         {%- assign image_url = product.media[1] | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
                         <img class="product-item__secondary-image lazyload image--fade-in  444"
@@ -186,9 +182,7 @@
                                             option.selected_value==value %}checked{% endif %}
                                             data-option-position="{{ option.position }}"
                                             data-variant-url="{{ variant_for_value.url }}"
-                                            data-sku="{{ variant_for_value.sku }}" {% if
-                                            variant_for_value.featured_media
-                                            %}data-media-id="{{ variant_for_value.featured_media.id }}"
+                                            data-sku="{{ variant_for_value.sku }}" {% if  variant_for_value.featured_media %}data-media-id="{{ variant_for_value.featured_media.id }}"
                                             data-image-url="{{ image_url }}" data-image-widths="[{{ supported_sizes }}]"
                                             data-image-aspect-ratio="{{ variant_for_value.featured_media.preview_image.aspect_ratio }}"
                                             {% endif %} aria-label="{{ value | escape }}">

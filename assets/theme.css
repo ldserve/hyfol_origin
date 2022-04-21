@@ -1207,8 +1207,8 @@ html {
 }
 .scroll-dot{
    position: absolute;
-   bottom: 0%;
-   left: 10px;
+   bottom: -6%;
+   left: 46%;
    display: flex;
    z-index: 10;
 }

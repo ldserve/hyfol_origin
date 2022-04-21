@@ -103,7 +103,7 @@
                 event.preventDefault();//阻止浏览器默认滚动事件
                       endx = Math.floor(event.changedTouches[0].pageX);//获取最后的坐标位置
                       nx = endx-startx;//获取开始位置和离开位置的距离
-                      console.log(nx , endx);
+                    //   console.log(nx , endx);
                       //判断滑动方向
                       if(nx > 0){
                          if (that.activeIndex != 0){
@@ -287,7 +287,6 @@
                 option.addEventListener('click', (ev) => {
                     if (ev.target.tagName === "INPUT") {
                         var target = ev.target
-
                         var variantId = this.root.querySelector('input[name="id"]')
                         var selectedValueElement = option.querySelector('.product-form__selected-value')
                         var option1, option2
@@ -323,12 +322,6 @@
                                 originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
                             }
                         }
-
-
-
-                        
-
-
                     }
 
                 })
@@ -339,7 +332,6 @@
                 var button = this.root.querySelector('[data-action="add-to-cart"]')
                 button.addEventListener('click', (e) => {
                     var target = e.target
-                    if(this.currentVariant)false
                     e.preventDefault();  
 
                     target.setAttribute('disabled', 'disabled');
@@ -347,8 +339,6 @@
 
                     var element = this.closest('section');
                     var currentVariant =this.currentVariant 
-
-
                     fetch("".concat(window.routes.cartAddUrl, ".js"), {
                         body: JSON.stringify(Form.serialize(this.formElement)),
                         credentials: 'same-origin',
@@ -359,7 +349,6 @@
                         }
                     }).then(function (response) {
                         document.dispatchEvent(new CustomEvent('theme:loading:end'));
-
                         if (response.ok) {
                             target.removeAttribute('disabled'); // We simply trigger an event so the mini-cart can re-render
                             element.dispatchEvent(new CustomEvent('product:added', {
@@ -375,11 +364,7 @@
                     })
                 })
             }
-
-        
         }
-
-
     }
       customElements.define("collocation-purchase", CollocationPurchase);
 

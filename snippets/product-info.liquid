@@ -36,13 +36,6 @@
 				{%- when 'buy_buttons' -%}
 				{%- render 'product-buy-buttons', product: product, form: form, block: block -%}
 
-				{%- comment -%}
-				{%- when 'collocation_purchase' -%}
-				 <div class="product-collocation">
-				{%- render 'collocation-purchase', product: product, form: form, block: block -%}
-	     		</div>
-				{%- endcomment -%}
-
 				{%- when 'store_pickup' -%}
 					{%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
 					<div class="product-meta__store-availability-container" {{ block.shopify_attributes }}>
@@ -68,9 +61,7 @@
 			{%- comment -%}
 			{%- endcomment -%}
 			{%- when  'collocation_purchase' -%}
-			<div class="product-collocation">
 			{%- render 'collocation-purchase', collocationLocation:"main-product-collocation", product: product, form: form, block: block -%}
-			</div>
 
 			{%- when 'delivery' -%}
 					<div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
@@ -343,17 +334,6 @@
 				</div>
 			{%- endif -%}
 	</div>
-
-{%- comment -%}
-	{%- for block in section.blocks -%}
-				{%- case block.type -%}
-				{%- when  'collocation_purchase' -%}
-				<div class="product-collocation">
-				{%- render 'collocation-purchase',collocationLocation:"main-product-collocation", product: product, form: form, block: block -%}
-				</div>
-				{%- endcase -%}
-	{%- endfor -%}
-{%- endcomment -%}
 
 	{% comment %}
 		------------------------------------------------------------------------------
