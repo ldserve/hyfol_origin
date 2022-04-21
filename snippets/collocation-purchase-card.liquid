@@ -9,48 +9,30 @@
 {%- assign tags = tags | append: "," | append: tagtitlie -%}
 {%- endif -%}
 {% endfor %}
-
-
 {%- assign product_form_classes = 'product-item__action-list button-stack margin-0' -%}
 {%- assign product_form_id = 'product_form_' | append: section.id | append: product.id -%}
-
 <collocation-purchase>
-
-
     <div class="product-block-wrapper" id="{{card_id}}">
         {%- form 'product', product, id: product_form_id, class: 'product-form' -%}
-
-
-        {%- comment -%}
-        {%- render 'product-meta', product: product, block: block -%}
-        {%- endcomment -%}
-
-
         {% if collocationLocation == "main-product-collocation"%}
         <h1 class="product-meta__title heading h1  collocation-product-meta__title">{{ product.title }}</h1>
         {% endif %}
-
         <div class="exhibition d-flex {{collocationLocation}}">
-
             <div class="exhibition-left">
-
                 {%- if product.media.size > 0 -%}
                 {%- assign show_secondary_media = true -%}
                 {%- assign primary_media = product.featured_media -%}
-
                 <a href="{{ product.url }}"
                     class="product-item__image-wrapper product-item_mktClick shence_commodityView {% if show_secondary_media %}product-item__image-wrapper--with-secondary{% endif %} "
                     data-scenable="1" data-expenable="1" data-bindexp="1" data-sctype="mktClick"
                     data-scdata='{"mkt_type":"product","first_mkt_name":"{{ first_mkt_name }}","first_mkt_id":"{{ section.id }}","second_mkt_rank":"{{ forloop.index }}","third_mkt_rank":"","mkt_material_url":"","mkt_material_name":"{{ mkt_material_name }}","commodity_spuid":"{{ product.handle }}","commodity_skuid":"{{ product.selected_or_first_available_variant.sku }}","commodity_name":"{{ product.title| handleize }}","original_price":"{{ product.selected_or_first_available_variant.compare_at_price }}","current_price":"{{ product.selected_or_first_available_variant.price }}","currency_unit":"USD","mkt_tag":[]}'>
-
 
                     {% if only_show_transparent and product.metafields.my_fields.transparentimg1 != blank or
                     only_show_transparent and product.metafields.my_fields.transparencydrawing[0].path != blank %}
 
                     {% if product.metafields.my_fields.transparentimg1 != blank%}
                     {%- assign image_url = product.metafields.my_fields.transparentimg1 | img_url: '1x1' | replace:
-                    '_1x1.',
-                    '_{width}x.' -%}
+                    '_1x1.', '_{width}x.' -%}
                     {% elsif product.metafields.my_fields.transparencydrawing[0].path != blank %}
                     {%- assign image_url = product.metafields.my_fields.transparencydrawing[0].path | append:
                     product.metafields.my_fields.transparencydrawing[0].imageMd5 -%}
@@ -118,8 +100,7 @@
                 <h1 class="product-meta__title heading  collocation-product-meta__title">{{ product.title }}</h1>
                 {% endif %}
 
-                <div class=" "
-                    style="border-bottom: 1px solid #bbb7b7 ; align-items: center;">
+                <div class=" " style="border-bottom: 1px solid #bbb7b7 ; align-items: center;">
                     <div class="price-list">
                         {%- if selected_variant.compare_at_price > selected_variant.price -%}
                         <span class="price price--highlight">
@@ -150,44 +131,22 @@
                         </span>
                         {%- endif -%}
                     </div>
-
-                    {%- comment -%}
-                    <div class="product-meta__reviews-badge link" data-offset="30">
-                        {%- render 'product-rating', product: product -%}
-                    </div>
-                    {%- endcomment -%}
-
                 </div>
 
-
                 <div class="product-form__variants ">
-
                     {%- for option in product.options_with_values -%}
                     {%- capture option_name -%}{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%- endcapture -%}
-
                     {%- if option.name== "COLOR" -%}
-
-                    <!-- color -->
                     <div class="product-wrapper_option" data-selector-type="color">
-                        {%- comment -%}
-                        {%- capture option_name -%}color-{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%-
-                        endcapture
-                        -%}
-                        {%- endcomment -%}
-
                         <div class="product-wrapper-scoll">
                             {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split:
                             '<br />' -%}
 
-
-                            <span class="product-form__option-name text--strong collocation-color-text">{{ option.name }}:
-                                <span class="product-form__selected-value">{{ option.selected_value }}</span></span>
-
-
+                            <span class="product-form__option-name text--strong collocation-color-text">{{ option.name
+                                }}:  <span class="product-form__selected-value">{{ option.selected_value }}</span></span>
                             <div class="exhibition-item block-swatch-box ">
                                 <div
                                     class="color-swatch-list color-swatch-list--large ld-variant-list d-flex margin-0 padding-0">
-
                                     {%- for value in option.values -%}
                                     {%- assign downcased_value = value | downcase -%}
                                     {%- capture color_id -%}{{ option_name }}-{{ forloop.index }}{%- endcapture -%}
@@ -202,11 +161,9 @@
                                     {%- if variant_for_value.featured_media -%}
                                     {%- capture supported_sizes -%}{%- render 'image-size', sizes:
                                     '200,300,400,500,600,700,800', image: variant_for_value.featured_media.preview_image
-                                    -%}{%-
-                                    endcapture -%}
+                                    -%}{%- endcapture -%}
                                     {%- assign image_url = variant_for_value.featured_media | img_url: '1x1' | replace:
-                                    '_1x1.',
-                                    '_{width}x.' -%}
+                                    '_1x1.', '_{width}x.' -%}
                                     {%- endif -%}
 
                                     <div class="color-swatch {% if downcased_value == 'white' or downcased_value == 'blanc' %}color-swatch--white{% endif %} ld-variant"
@@ -251,52 +208,28 @@
                     {%- endif -%}
 
                     {%- if option.name == "SIZE" -%}
-                    <!-- size -->
                     <div class="product-wrapper_option" data-selector-type="block">
-                        {%- comment -%}
-                        {%- capture option_name -%}block-{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%-
-                        endcapture
-                        -%}
-
-                        {%- endcomment -%}
                         <div class="product-wrapper-scoll">
                             <span class="product-form__option-name text--strong  collocation-size-text">{{ option.name
-                                }}:
-                                <span class="product-form__selected-value">{{ option.selected_value }}</span></span>
+                                }}:  <span class="product-form__selected-value">{{ option.selected_value }}</span></span>
                             <div class="exhibition-item block-swatch-box">
                                 <div class="block-swatch-list d-flex block-layout">
                                     {%- for value in option.values -%}
-                                    {%- capture block_swatch_id -%}{{ option_name }}-{{ forloop.index }}{%- endcapture
-                                    -%}
+                                    {%- capture block_swatch_id -%}{{ option_name }}-{{ forloop.index }}{%- endcapture -%}
 
-                                 <size-block data-cart_id="{{card_id}}" data-totalSize="{{option.values.size}}">
-                                    <div class="block-swatch" style="position:absolute">
-                                        <input class="block-swatch__radio " type="radio" name="{{ option_name }}"
-                                            id="{{ block_swatch_id }}" value="{{ value | escape }}" {% if
-                                            option.selected_value==value %}checked{% endif %}
-                                            data-option-position="{{ option.position }}">
-                                        <label class="block-swatch__item" for="{{ block_swatch_id }}"
-                                            title="{{ value | escape }}">
-                                            <span class="block-swatch__item-text">{{ value }}</span>
-                                        </label>
-                                    </div>
-                                </size-block>
+                                    <size-block data-cart_id="{{card_id}}" data-totalSize="{{option.values.size}}">
+                                        <div class="block-swatch" style="position:absolute">
+                                            <input class="block-swatch__radio " type="radio" name="{{ option_name }}"
+                                                id="{{ block_swatch_id }}" value="{{ value | escape }}" {% if
+                                                option.selected_value==value %}checked{% endif %}
+                                                data-option-position="{{ option.position }}">
+                                            <label class="block-swatch__item" for="{{ block_swatch_id }}"
+                                                title="{{ value | escape }}">
+                                                <span class="block-swatch__item-text">{{ value }}</span>
+                                            </label>
+                                        </div>
+                                    </size-block>
                                     {%- endfor -%}
-
-                                    <script>
-                                        // var container = document.getElementById("{{card_id}}")
-                                        // var totalSize = {{option.values.size}}
-                                        // var sum = 0
-                                        // for(let i=0 ; i <totalSize ; i++){
-                                        //     // console.log(container.getElementsByClassName("block-swatch__item")[i]);
-                                        //     var offsetWidth = container.getElementsByClassName("block-swatch__item")[i].offsetWidth
-                                        //      offsetWidth += 2
-                                        //      container.getElementsByClassName("block-swatch")[i].style.left = sum +"px"
-                                        //     sum = sum + offsetWidth +5
-                                        //     // console.log(sum);
-                                        // }
-
-                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -308,12 +241,7 @@
 
                 </div>
 
-
-
-                <div class="margin-0 border-0 add-button"  >
-
-
-
+                <div class="margin-0 border-0 add-button">
                     {%- for line_item in cart.items -%}
                     {%- if forloop.index == 1 -%}
                     {%- assign id = line_item.sku -%}
@@ -321,7 +249,6 @@
                     {%- assign id = id | append: "," | append: line_item.sku -%}
                     {%- endif -%}
                     {%- endfor -%}
-
 
                     {%- if product.template_suffix != 'contact' -%}
                     {%- if product.selected_or_first_available_variant.available -%}
@@ -352,13 +279,11 @@
                         'product.form.add_to_cart' | t }}</button>
                     {%- endif -%}
                     {%- else -%}
-                    <button type="submit" class="product-form__add-button button button--disabled" disabled>{{
-                        'product.form.sold_out' | t }}</button>
+                    <button type="submit" class="product-form__add-button button button--disabled" disabled>{{ 'product.form.sold_out' | t }}</button>
                     {%- endif -%}
 
                     {%- else -%}
-                    <a href="mailto:{{ shop.email }}" class="button button--primary">{{ 'product.form.contact_us' | t
-                        }}</a>
+                    <a href="mailto:{{ shop.email }}" class="button button--primary">{{ 'product.form.contact_us' | t }}</a>
                     {%- endif -%}
 
                     <input type="hidden" name="id" data-sku="{{ selected_variant.sku }}"
@@ -371,247 +296,3 @@
             {%- endform -%}
         </div>
 </collocation-purchase>
-<script>
-    // 搭配购
-
-    function purechaseInfo(cart) {
-      /*  var cartBox = document.querySelector(cart)
-
-        var purchaseBox
-        var json
-        var options
-        var formElement
-
-        var purechaseList
-        if (cartBox) {
-            purechaseList = cartBox.querySelectorAll('.product-block-wrapper')
-        } else {
-            purchaseBox = document.getElementById('{{card_id}}')
-            json = purchaseBox.querySelector('[type="application/json"]')
-            options = purchaseBox.querySelectorAll('.product-wrapper_option')
-            formElement = purchaseBox.querySelector('form[action*="/cart/add"]');
-
-        }
-
-        if (purechaseList) {
-            purechaseList.forEach(purchaseBox => {
-                json = purchaseBox.querySelector('[type="application/json"]')
-                options = purchaseBox.querySelectorAll('.product-wrapper_option')
-                formElement = purchaseBox.querySelector('form[action*="/cart/add"]');
-                if (!formElement) {
-                    var formBox = document.createElement('form')
-                    formBox.method = "post"
-                    formBox.action = "/cart/add"
-                    formBox.className = "product-form"
-                    formBox.enctype = "multipart/form-data"
-                    var childList = purchaseBox.children
-                    for (let i = childList.length - 1; i >= 0; i--) {
-                        formBox.prepend(childList[i])
-                    }
-                    purchaseBox.append(formBox)
-                    formElement = formBox
-                }
-
-                addEven(options, json, formElement, purchaseBox)
-            })
-        } else {
-            addEven(options, json, formElement, purchaseBox)
-        }
-
-        function addEven(options, json, formElement, purchaseBox) {
-
-            options.forEach(option => {
-                option.addEventListener('click', (ev) => {
-                    if (ev.target.tagName === "INPUT") {
-                        var target = ev.target
-                        var jsonData = JSON.parse(json.innerHTML)
-                        var option1, option2
-                        // var inputList=purchaseBox.querySelectorAll('input')
-                        for (var i = 0, len = formElement.elements.length; i < len; i++) {
-                            var form = formElement.elements[i];
-                            if (form.name === '' || form.disabled) {
-                                continue;
-                            }
-                            if (form.name && !form.disabled && form.checked) {
-                                if (form.classList.contains('color-swatch__radio')) option1 = form.value
-                                if (form.classList.contains('block-swatch__radio')) option2 = form.value
-                            }
-                        }
-
-                        var variantId = purchaseBox.querySelector('input[name="id"]')
-                        variantId.value = (jsonData.find(item => item.option1 === option1 && item.option2 === option2)).id
-
-                        var selectedValueElement = option.querySelector('.product-form__selected-value')
-                        selectedValueElement.innerHTML = target.value
-
-                        if (target.classList.contains('color-swatch__radio')) {
-                            const productItem = target.closest('.exhibition')
-                            var variantUrl = target.getAttribute('data-variant-url');
-                            productItem.querySelector('.product-item__image-wrapper').setAttribute('href', variantUrl);
-                            const originalImageElement = productItem.querySelector('.product-item__primary-image');
-
-                            if (target.hasAttribute('data-image-url') && target.getAttribute('data-media-id') !== originalImageElement.getAttribute('data-media-id')) {
-                                var newImageElement = document.createElement('img');
-                                newImageElement.className = 'product-item__primary-image lazyload image--fade-in';
-                                newImageElement.setAttribute('data-media-id', target.getAttribute('data-media-id'));
-                                newImageElement.setAttribute('data-src', target.getAttribute('data-image-url'));
-                                newImageElement.setAttribute('data-widths', target.getAttribute('data-image-widths'));
-                                newImageElement.setAttribute('data-sizes', 'auto'); // Replace the original node
-
-                                originalImageElement.parentNode.style.paddingBottom = "".concat(100.0 / newImageElement.getAttribute('data-image-aspect-ratio'), "%");
-                                originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
-                            }
-                        }
-                    }
-                })
-            })
-
-
-        }
-*/
-
-
-/* 
-const button = document.getElementById('{{card_id}}').querySelector('.product-form__payment-container button')
-  button.addEventListener('click', (target) => {
-            return false
-            target.preventDefault();
-            document.dispatchEvent(new CustomEvent('theme:loading:start'));
-            console.log('even', target);
- 
- 
- 
-          var hash = {};
-            for (var i = 0, len = formElement.elements.length; i < len; i++) {
-                var form = formElement.elements[i];
- 
-                if (form.name === '' || form.disabled) {
-                    continue;
-                }
- 
-                if (form.name && !form.disabled && (form.checked || /select|textarea/i.test(form.nodeName) || /hidden|text|search|tel|url|email|password|datetime|date|month|week|time|datetime-local|number|range|color/i.test(form.type))) {
-                    Object.assign(hash,{[form.name]:form.value})
-                }
-            }
-            fetch("".concat(window.routes.cartAddUrl, ".js"), {
-                    body: JSON.stringify(hash),
-                    credentials: 'same-origin',
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest' // This is needed as currently there is a bug in Shopify that assumes this header
- 
-                    }
-                }).then(function (response) {
-                    document.dispatchEvent(new CustomEvent('theme:loading:end'));
-                    if (response.ok) {
-                        target.removeAttribute('disabled'); // We simply trigger an event so the mini-cart can re-render
- 
-                        _this4.element.dispatchEvent(new CustomEvent('product:added', {
-                            bubbles: true,
-                            detail: {
-                                variant: _this4.currentVariant,
-                                quantity: parseInt(formElement.querySelector('[name="quantity"]').value)
-                            }
-                        })); // If we are in the context of quick view, we also force closing the modal
- 
- 
-                        if (_this4.options['isQuickView'] && window.theme.cartType === 'drawer') {
-                            document.dispatchEvent(new CustomEvent('modal:close'));
-                        }
- 
-                        if (window.theme.cartType === 'message') {
-                            _this4._showAlert(window.languages.productAdded, 'success', target);
-                        }
-                    } else {
-                        response.json().then(function (content) {
-                            _this4._showAlert(content['description'], 'error', target);
-                        });
-                    }
-                });
- 
- 
-                console.log('formData',hash );
- 
-                event.preventDefault();
- 
-        })
- */
-        function swipe(root, elItem, options) {
-            //设置开关，监听move事件
-            var isMove = false;
-            // 设置 开始的坐标
-            var startX = 0;
-            // 设置 移动的坐标
-            var moveX = 0;
-            // 首次down下位置
-            var lastMoveX = 0
-            //设置指针距离元素的边框的距离
-            var disX = 0;
-
-            var str = window.getComputedStyle(root).width
-            var width = parseInt(str.substring(0, str.length - 3))
-
-
-            // 给元素绑定三个事件
-
-            root.addEventListener('mousedown', function (e) {
-                isMove = true;
-                // e.preventDefault();
-                startX = e.pageX
-
-                lastMoveX = e.pageX
-                // //计算指针距离元素边框的位置
-                disX = startX - root.offsetLeft;
-                console.log('disX', disX);
-                return false
-            });
-
-            root.addEventListener('mouseover', function (e) {
-                //如果触发了move事件，打开开关
-
-                // // 获取移动时的坐标
-                // moveX = e.offsetX;
-                if (!isMove) {
-                    return false
-                }
-                // data.drag.call(el, e);
-                let offset = e.pageX - lastMoveX
-
-                console.log('offsetX', offset);
-                lastMoveX = e.pageX
-
-            });
-
-
-            document.addEventListener('mouseup', function (e) {
-                isMove = false;
-
-                moveX = e.pageX - startX;
-                if (moveX > width) {
-                    moveX = width
-                }
-
-                // console.log('startX', startX, 'moveX', moveX);
-                // if (isMove) {
-                //     // 计算水平边长
-                console.log('moveX', moveX);
-
-                // }
-
-            });
-
-
-        }
-
-
-        var swipeBox = document.querySelector('.exhibition-right');
-        var swipeTtem = swipeBox.querySelectorAll('.product-wrapper_option')
-        // swipe(swipeBox, swipeTtem)
-
-
-    };
-
-
-
-</script>

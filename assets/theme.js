@@ -271,7 +271,6 @@
                                 newImageElement.setAttribute('data-src', target.getAttribute('data-image-url'));
                                 newImageElement.setAttribute('data-widths', target.getAttribute('data-image-widths'));
                                 newImageElement.setAttribute('data-sizes', 'auto');
-
                                 originalImageElement.parentNode.style.paddingBottom = "".concat(100.0 / newImageElement.getAttribute('data-image-aspect-ratio'), "%");
                                 originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
                             }
@@ -281,28 +280,6 @@
 
                         
 
-                        var offsetWidth = option.offsetWidth
-                        var rightBox = this.querySelector('.exhibition-right')
-                            rightBox.style.overflow = 'hidden'
-                        var max_width = parseInt(rightBox.offsetWidth)
-
-                        var inputs = [...option.querySelectorAll("input")]
-                        var temp = option.querySelector('.exhibition-item')
-                        var average = parseInt(offsetWidth / inputs.length)
-                        var currentItem = inputs.indexOf(target)
-                        var currenQuantity = parseInt(max_width / average - 2)
-
-                        if(offsetWidth < max_width){
-                            if (currentItem < 4) temp.style.transform = `translateX(0px)`
-                            if (currentItem > 3) {
-                                if ( inputs.length - currenQuantity  <= 3){ 
-                                    temp.style.transform = `translateX(-${max_width - (currenQuantity) * average}px)`
-                                }else{
-                                    temp.style.transform = `translateX(-${(currentItem - 2) * average}px)`
-                                }
-                            }
-                        }
-                        console.log('每个元素大小:',average,"当前页显示数量:", currenQuantity);
 
                     }
 
