@@ -52,7 +52,16 @@
 
 				{%- when '@app' -%}
 				{%- render block -%}
-				{%- when 'delivery' -%}
+				{%- endcase -%}
+			{%- endfor -%}
+		{%- endform -%}
+		{%- for block in section.blocks -%}
+			{%- case block.type -%}
+				{%- comment -%}
+					插入搭配购
+				{%- endcomment -%}
+
+			{%- when 'delivery' -%}
 					<div class="product-form__item product-block-list__item--description" {{ block.shopify_attributes }}>
 						{%- if block.settings.display_mode == 'collapse' -%}
 							<div class="card__collapsible-button " data-action="toggle-collapsible" aria-expanded="false"
@@ -68,7 +77,7 @@
 									<div class="rte text--pull">
 										<div class="slider-box shipping-body">
 											<div class="slider-box-content ">
-												<div class="slider-item d-flex ">
+												<div class="slider-item customer-d-flex ">
 													<div class="slider-item-top">
 														Purchase <strong>Over $60</strong>
 													</div>
@@ -76,7 +85,7 @@
 														<strong>FREE</strong>
 													</div>
 												</div>
-												<div class="slider-item d-flex  ">
+												<div class="slider-item customer-d-flex  ">
 													<div class="slider-item-top">
 														Purchase <strong>$40-$59.9</strong>
 													</div>
@@ -84,7 +93,7 @@
 														Costs <strong>$5.9</strong>
 													</div>
 												</div>
-												<div class="slider-item d-flex ">
+												<div class="slider-item customer-d-flex ">
 													<div class="slider-item-top">
 														Purchase <strong>$0-$39.9</strong>
 													</div>
@@ -116,7 +125,7 @@
 								<div class="rte text--pull">
 									<div class="slider-box shipping-body">
 										<div class="slider-box-content ">
-											<div class="slider-item d-flex ">
+											<div class="slider-item customer-d-flex ">
 												<div class="slider-item-top">
 													Purchase <strong>Over $60</strong>
 												</div>
@@ -124,7 +133,7 @@
 													<strong>FREE</strong>
 												</div>
 											</div>
-											<div class="slider-item d-flex  ">
+											<div class="slider-item customer-d-flex  ">
 												<div class="slider-item-top">
 													Purchase <strong>$40-$59.9</strong>
 												</div>
@@ -132,7 +141,7 @@
 													Costs <strong>$5.9</strong>
 												</div>
 											</div>
-											<div class="slider-item d-flex ">
+											<div class="slider-item customer-d-flex ">
 												<div class="slider-item-top">
 													Purchase <strong>$0-$39.9</strong>
 												</div>
@@ -322,7 +331,7 @@
 					</ul>
 				</div>
 			{%- endif -%}
-		{%- endform -%}
+
 	</div>
 	{% comment %}
 		------------------------------------------------------------------------------

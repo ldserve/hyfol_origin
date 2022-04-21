@@ -1,21 +1,86 @@
 {
   "sections": {
+    "1650101273f11a55ef": {
+      "type": "slideshow",
+      "disabled": true,
+      "blocks": {
+        "1650101273ef0886ca-0": {
+          "type": "image",
+          "settings": {
+            "sensorsName": "轮播图",
+            "image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_b956edc0-d2ec-450b-add5-25aa28b77cb7.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_-_banner_3de28c91-3a2e-4b71-99df-ff9c082465b2.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#b82928",
+            "title": "3213123",
+            "heading_text_font": "abril_fatface_n4",
+            "heading_text_font_size": 49,
+            "heading_text_color": "#eb0e0e",
+            "content": "124214",
+            "content_text_font": "dosis_n4",
+            "content_text_font_size": 25,
+            "content_text_color": "#ffffff",
+            "content_position": "top_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "12321",
+            "link": "shopify:\/\/collections\/59-9"
+          }
+        },
+        "1650101273ef0886ca-1": {
+          "type": "image",
+          "settings": {
+            "sensorsName": "",
+            "image": "shopify:\/\/shop_images\/1_c06d4ad8-a37e-4694-a1d2-ea7295ddc82b.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/hyfol_-_-_banner_3de28c91-3a2e-4b71-99df-ff9c082465b2.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "Slide title",
+            "heading_text_font": "helvetica_n4",
+            "heading_text_font_size": 20,
+            "heading_text_color": "#ffffff",
+            "content": "Tell your story",
+            "content_text_font": "helvetica_n4",
+            "content_text_font_size": 12,
+            "content_text_color": "#ffffff",
+            "content_position": "middle_center",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_text": "",
+            "link": "shopify:\/\/products\/sp220415gsql"
+          }
+        }
+      },
+      "block_order": [
+        "1650101273ef0886ca-0",
+        "1650101273ef0886ca-1"
+      ],
+      "settings": {
+        "edge_to_edge": true,
+        "section_size": "preserve_ratio",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 5
+      }
+    },
     "16476930731e3b7419": {
       "type": "no_space_img",
       "settings": {
         "sensorsName": "banner",
-        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_23c1dd20-bb52-432a-a3eb-26f8c5c2d9f2.jpg",
-        "web_bg_image": "shopify:\/\/shop_images\/banner_b9f88b38-11ed-47ec-9e4e-544c289dc31b.jpg",
-        "link": "shopify:\/\/collections\/2022-fashion-trends",
+        "bg_image": "shopify:\/\/shop_images\/hyfol_-pc_-_banner_0e2e3871-a078-4ed4-b794-3604be11c9e5.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/hyfol_-_-_banner_21d8f73f-0bd2-4054-bca3-9685fca9ff02.jpg",
+        "link": "shopify:\/\/collections\/spring-sale",
         "shadow": false
       }
     },
     "16474248460d0593be": {
       "type": "transparent-collection",
       "settings": {
-        "collection": "best-sellers-1",
-        "sensorsName": "BEST SELLERS",
-        "title": "BEST SELLERS",
+        "collection": "new-in-1",
+        "sensorsName": "NEW IN",
+        "title": "NEW IN",
         "products_count": 18,
         "layout": "vertical",
         "stack_products": false,
@@ -24,8 +89,79 @@
         "link_url": "shopify:\/\/collections\/best-sellers-1"
       }
     },
+    "16500767332eb3ea11": {
+      "type": "linkImg",
+      "blocks": {
+        "dfe8b56d-ae26-4028-b754-ebc527247a99": {
+          "type": "link",
+          "settings": {
+            "heading": "tees",
+            "sensorsLinkName": "tees",
+            "link": "shopify:\/\/collections\/tees",
+            "left": 0,
+            "top": 5,
+            "width": 24,
+            "height": 91
+          }
+        },
+        "6c94ee37-e01c-4716-bc7e-67cc0981d68a": {
+          "type": "link",
+          "settings": {
+            "heading": "shirts",
+            "sensorsLinkName": "shirts",
+            "link": "shopify:\/\/collections\/shirts",
+            "left": 25,
+            "top": 5,
+            "width": 24,
+            "height": 89
+          }
+        },
+        "c9e8ee81-fa7f-4664-a2d9-be156e428c8d": {
+          "type": "link",
+          "settings": {
+            "heading": "toppacks",
+            "sensorsLinkName": "toppacks",
+            "link": "shopify:\/\/collections\/tops-packs-1",
+            "left": 50,
+            "top": 5,
+            "width": 24,
+            "height": 92
+          }
+        },
+        "1f197e6e-076a-4800-935a-1d35bc6020ce": {
+          "type": "link",
+          "settings": {
+            "heading": "bottoms",
+            "sensorsLinkName": "bottoms",
+            "link": "shopify:\/\/collections\/bottoms-12-13",
+            "left": 76,
+            "top": 6,
+            "width": 24,
+            "height": 94
+          }
+        }
+      },
+      "block_order": [
+        "dfe8b56d-ae26-4028-b754-ebc527247a99",
+        "6c94ee37-e01c-4716-bc7e-67cc0981d68a",
+        "c9e8ee81-fa7f-4664-a2d9-be156e428c8d",
+        "1f197e6e-076a-4800-935a-1d35bc6020ce"
+      ],
+      "settings": {
+        "hidDesk": false,
+        "sensorsName": "",
+        "hidWeb": true,
+        "line": false,
+        "image": "shopify:\/\/shop_images\/02_3a798e6c-12b2-451d-af34-6e9ffda9b0df.jpg",
+        "tpadding": 0,
+        "rpadding": 0,
+        "bpadding": 0,
+        "lpadding": 0
+      }
+    },
     "16474250424edba623": {
       "type": "linkImg",
+      "disabled": true,
       "blocks": {
         "ff6f97b8-1adb-4a65-93e8-533754b197fc": {
           "type": "link",
@@ -68,7 +204,7 @@
           "settings": {
             "heading": "topspacks",
             "sensorsLinkName": "topspacks",
-            "link": "shopify:\/\/collections\/tops-packs",
+            "link": "shopify:\/\/collections\/tops-packs-1",
             "left": 50,
             "top": 51,
             "width": 57,
@@ -164,6 +300,71 @@
         "lpadding": 0
       }
     },
+    "16500210584c969cfe": {
+      "type": "ld-imageText",
+      "disabled": true,
+      "settings": {
+        "noMargin": true,
+        "image": "shopify:\/\/shop_images\/98874da468f857bd057140596b570989.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/ef25f4c651b92855092f6b4a7658b4bc.jpg",
+        "link": "",
+        "title_align": "row",
+        "title_tb": "column-reverse",
+        "title": "Text",
+        "subtitle": "Text block",
+        "button": "SHOP NOW",
+        "show": false,
+        "title_size": 4,
+        "sub_title_size": 1.5,
+        "m_title_size": 6,
+        "m_sub_title_size": 4,
+        "sub_title_top": 10,
+        "m_sub_title_top": 10,
+        "text_color": "#ffffff",
+        "text_style": "normal",
+        "s_text_style": "normal",
+        "text_align": "center",
+        "button_color": "#ed6123",
+        "button_text_color": "#ffffff",
+        "button_color_hover": "#ffffff",
+        "button_text_color_hover": "#000000"
+      }
+    },
+    "1650021168ea57a101": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/2_88db9f20-af1e-47a4-ba92-eb953d62d7d1.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/3_0d3f91ce-b51d-4735-9b84-69c702c1fd01.jpg",
+        "link": "shopify:\/\/collections\/buy-1-get-2nd-50off-mens-shorts",
+        "shadow": false
+      }
+    },
+    "16501153969d7dc597": {
+      "type": "no_space_img",
+      "settings": {
+        "sensorsName": "",
+        "bg_image": "shopify:\/\/shop_images\/8_a0491898-a613-4306-b94d-98d3f8514ee7.jpg",
+        "web_bg_image": "shopify:\/\/shop_images\/7_04eedabc-41fc-4f21-bccd-e474262dad46.jpg",
+        "link": "shopify:\/\/collections\/winter-clearance",
+        "shadow": false
+      }
+    },
+    "1647498064c408cfd6": {
+      "type": "transparent-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "camou",
+        "sensorsName": "FATIGUE COLLECTION",
+        "title": "FATIGUE COLLECTION",
+        "products_count": 18,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
     "1648607115d95fb2d3": {
       "type": "ld-imageText",
       "settings": {
@@ -252,6 +453,7 @@
     },
     "16486063216ada3a56": {
       "type": "ld-imageText",
+      "disabled": true,
       "settings": {
         "noMargin": true,
         "image": "shopify:\/\/shop_images\/02_f2383d81-ba3b-4f81-bcd8-d755dbef24a6.jpg",
@@ -277,20 +479,6 @@
         "button_text_color": "#1b1b1b",
         "button_color_hover": "#ffffff",
         "button_text_color_hover": "#000000"
-      }
-    },
-    "1647498064c408cfd6": {
-      "type": "transparent-collection",
-      "settings": {
-        "collection": "camou",
-        "sensorsName": "FATIGUE COLLECTION",
-        "title": "",
-        "products_count": 18,
-        "layout": "vertical",
-        "stack_products": false,
-        "show_quick_buy": false,
-        "link_title": "View all",
-        "link_url": ""
       }
     },
     "1640334828c8a975c8": {
@@ -479,16 +667,21 @@
     }
   },
   "order": [
+    "1650101273f11a55ef",
     "16476930731e3b7419",
     "16474248460d0593be",
+    "16500767332eb3ea11",
     "16474250424edba623",
     "164742631051d4db44",
+    "16500210584c969cfe",
+    "1650021168ea57a101",
+    "16501153969d7dc597",
+    "1647498064c408cfd6",
     "1648607115d95fb2d3",
     "1647497707f35ea4d8",
     "1648191714c3e1b050",
     "1647424215f34c4fad",
     "16486063216ada3a56",
-    "1647498064c408cfd6",
     "1640334828c8a975c8",
     "16486080199c077c37",
     "164854339383efd708"
