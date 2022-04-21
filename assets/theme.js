@@ -322,6 +322,36 @@
                                 originalImageElement.parentNode.replaceChild(newImageElement, originalImageElement);
                             }
                         }
+
+                        if(false){
+                            var scoll = (option.querySelector('.color-swatch-list') || option.querySelector('.block-swatch-list'))
+                            var contentScrollW =option.querySelector('.exhibition-item').offsetWidth
+                            var currentItem =(option.querySelectorAll('.color-swatch')|| option.querySelectorAll('.block-swatch'))
+                            var inputItem= [...option.querySelectorAll('[type="radio"]')]
+                            var index = inputItem.indexOf(target)
+                            var middle = contentScrollW/2
+                            var offsetLeft=0
+                            for (let i = 0; i < index; i++) {
+                                offsetLeft+=currentItem[i].offsetWidth
+                                var style = window.getComputedStyle(currentItem[i])
+                                offsetLeft += (style.marginLeft.replace('px','')*1+style.marginRight.replace('px','')*1)
+                            }
+
+                            if(offsetLeft > middle){
+                                var style=window.getComputedStyle(currentItem[index])
+                                var width = (currentItem[index].offsetWidth)+(style.marginLeft.replace('px','')*1+style.marginRight.replace('px','')*1)
+                                var scrollLeft =Math.ceil(offsetLeft - middle + width / 2);
+                                scoll.style.transform=`translateX(-${scrollLeft}px)`
+
+                                // console.log('scrollLeft',scrollLeft,'length',inputItem.length,'index',index);
+                                // console.log('contentScrollW',contentScrollW,'offsetLeft',offsetLeft);
+                                // var TouchBottom = 
+
+                            }else{
+                                scoll.style.transform=`translateX(0px)`
+                            }
+                            console.log(scoll);
+                        }
                     }
 
                 })
