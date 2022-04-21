@@ -145,24 +145,3 @@ ready(window.handleCartTimeReserved)
   }
 }()
 
-/*购物车观察变化，更新是否显示赠送抽奖项链*/
-~function () {
-
-  function callback(){
-    let show=sessionStorage.getItem('luckyDog');
-    if(show==1){
-      document.querySelectorAll('.car_lucky').forEach(item=>{item.style.display='block';})
-    }
-  }
-  callback()
-  let sections= document.querySelector("#mini-cart");
-  let sections2= document.querySelector(".cart-wrapper__inner-inner");
-  const observer=new MutationObserver(callback)
-  observer.observe(sections,{childList:true,subtree:true})
-}()
- document.addEventListener('product:added', function(event) {
-   var variant = event.detail.variant; // Get the variant that was added
-   var quantity = event.detail.quantity; // Get the quantity that was added
-   console.log(12313123,event)
-   // collocationAnimations()
- });
