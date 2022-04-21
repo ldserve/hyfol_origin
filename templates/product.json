@@ -40,6 +40,7 @@
         },
         "a64f893f-d76a-4d12-8e28-09587bb38b2b": {
           "type": "collocation_purchase",
+          "disabled": true,
           "settings": {
           }
         },
