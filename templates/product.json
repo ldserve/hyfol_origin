@@ -38,6 +38,10 @@
             "show_payment_button": false
           }
         },
+        "collocation_purchase": {
+          "type": "collocation_purchase",
+          "settings": {}
+        },
         "40401d43-e40a-46bd-b84a-7563498f1427": {
           "type": "delivery",
           "settings": {
