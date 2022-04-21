@@ -204,8 +204,22 @@
             </div>
 
           {%- when 'block' -%}
-            <span class="product-form__option-name text--strong">{{ option.name }}: <span class="product-form__selected-value">{{ option.selected_value }}</span></span>
-
+						<div class="product-form__option-name text--strong d-flex space-between">
+							<span>{{ option.name }}:<span class="product-form__selected-value">{{ option.selected_value }}</span> </span>
+							{%- comment -%}
+								开放尺码表
+								{% if product.metafields.my_fields.category != blank%}
+									<button
+										type="button"
+										class="product-form__selected-value size-chart"
+										data-action="open-modal"
+										aria-controls="sizeGuideModal"
+									>
+										Size Chart
+									</button>
+								{% endif %}
+							{%- endcomment -%}
+						</div>
             <div class="block-swatch-list">
               {%- for value in option.values -%}
                 {%- capture block_swatch_id -%}{{ option_name }}-{{ forloop.index }}{%- endcapture -%}
