@@ -15273,7 +15273,7 @@ shopify-payment-terms {
   opacity: .7;
 }
 
-.d-flex {
+.customer-d-flex  {
   display: flex;
 }
 
@@ -15281,7 +15281,7 @@ shopify-payment-terms {
   justify-content: space-between;
 }
 
-.d-flex-1 {
+.customer-d-flex-1 {
   flex: 0 0 50%;
 }
 
