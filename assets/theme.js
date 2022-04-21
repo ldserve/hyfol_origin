@@ -42,17 +42,37 @@
           this.that = this
           this.prevkeyframes = `
           @keyframes prevItem1{
-                  0% { transform:  translate(-${this.scorllNum*100}% ,0);  }
-                  100% { transform:  translate(-${(this.scorllNum-1)*100}%,0);}
+                  0% { 
+                    -webkit-transform: translate(-${this.scorllNum*100}% ,0%);
+                      transform:  translate(-${this.scorllNum*100}% ,0%); 
+                    }
+                  100% { 
+                    -webkit-transform: translate(-${(this.scorllNum-1)*100}%,0%);
+                      transform:  translate(-${(this.scorllNum-1)*100}%,0%);
+                    }
               }
-              @keyframes prevItem2{
-                  0% { transform:  translate(-${this.scorllNum*100}% ,0);  }
-                  100% { transform:  translate(-${(this.scorllNum-1)*100}%,0);}
+
+         @keyframes prevItem2{
+                  0% {
+                    -webkit-translate(-${this.scorllNum*100}% ,0%);  
+                       transform:  translate(-${this.scorllNum*100}% ,0%);  
+                    }
+                    
+                  100% {
+                    -webkit-translate(-${(this.scorllNum-1)*100}%,0%); 
+                      transform:  translate(-${(this.scorllNum-1)*100}%,0%);
+                }
               }
           `
           this.init()
         }
         init(){
+            if(this.activeIndex == 0 ){
+                this.prevButton.style.display= "none"
+            }else{
+                this.prevButton.style.display= "block"
+            }
+
         var that = this
           var startx,movex,endx,nx;
           const style = document.createElement("style");
@@ -86,13 +106,16 @@
                       console.log(nx , endx);
                       //判断滑动方向
                       if(nx > 0){
-                        that.prevItem()
+                         if (that.activeIndex != 0){
+                            that.prevItem()
+                         }
                         return false;
                       }else if(nx <0){
+                        if (that.activeIndex != that.scorllNum-1){
                          that.nextItem()
-                          return false;
+                        }
                       }
-
+                      return false;
               }
            });
         }
@@ -120,6 +143,18 @@
                         let index = this.index
                         if(that.animationsflag){
                             that.activeIndex = this.index
+                            if( that.activeIndex == 0 ){
+                                that.prevButton.style.display = "none"
+                            }else{
+                                that.prevButton.style.display = "block"
+                            }
+
+                            if( that.activeIndex == that.scorllNum-1 ){
+                                that.nextButton.style.display = "none"
+                            }else{
+                                that.nextButton.style.display = "block"
+                            }
+                          
                                    for( let i=0 ; i< that.lis.length ;i++){
                                     that.lis[i].className= ""
                                    }
@@ -142,20 +177,26 @@
             this.animationsflag= true
         }
         prevItem(){
+            this.nextButton.style.display = "block"
              if(this.animationsflag){
                if(this.activeIndex == 0){
                 this.activeIndex = this.scorllNum -1
-                this.lastLi.style.left = (this.scorllNum-1)*100+"%"
-                this. firstLi.style.left = this.scorllNum*100+"%"
+                // this.lastLi.style.left = (this.scorllNum-1)*100+"%"
+                // this. firstLi.style.left = this.scorllNum*100+"%"
      
-                 if(this.collocationList.className == "collocation-list prevItem1"){
-                    this.collocationList.className = "collocation-list prevItem2"
-                 }else{
-                    this.collocationList.className = "collocation-list prevItem1"
-                 }
+                //  if(this.collocationList.className == "collocation-list prevItem1"){
+                //     this.collocationList.className = "collocation-list prevItem2"
+                //  }else{
+                //     this.collocationList.className = "collocation-list prevItem1"
+                //  }
      
                }else{
                 this.activeIndex -= 1
+                if( this.activeIndex == 0 ){
+                    this.prevButton.style.display = "none"
+                }else{
+                    this.prevButton.style.display = "block"
+                }
                 this.firstLi.style.left = "0%"
                 this.lastLi.style.left = (this.scorllNum-1)*100+"%"
                }
@@ -168,20 +209,27 @@
          }
 
          nextItem(){
+             this.prevButton.style.display = "block"
             if(this.animationsflag){
             if(this.activeIndex == this.scorllNum-1){
                 this.activeIndex = 0
-                this. firstLi.style.left = "0%"
-                this.lastLi.style.left = "-100%"
+            //     this. firstLi.style.left = "0%"
+            //     this.lastLi.style.left = "-100%"
   
-            if(this.collocationList.className == "collocation-list nextItem1"){
-                this.collocationList.className = "collocation-list nextItem2"
-            }else{
-                this.collocationList.className = "collocation-list nextItem1"
-            }
+            // if(this.collocationList.className == "collocation-list nextItem1"){
+            //     this.collocationList.className = "collocation-list nextItem2"
+            // }else{
+            //     this.collocationList.className = "collocation-list nextItem1"
+            // }
   
             }else{
                 this.activeIndex += 1
+                if( this.activeIndex == this.scorllNum-1 ){
+                    this.nextButton.style.display = "none"
+                }else{
+                    this.nextButton.style.display = "block"
+
+                }
                 this.firstLi.style.left = "0%"
                 this.lastLi.style.left = (this.scorllNum-1)*100+"%"
             }

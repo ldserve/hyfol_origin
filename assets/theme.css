@@ -1148,6 +1148,10 @@ html {
   /* This can be applied to pull up the text and remove the effect of line-height to preserve better spacing */
 }
 
+.collocation{
+  perspective: 1000;
+}
+
 .collocation-container{
     height: 100%;
     width: 100%;
@@ -1157,30 +1161,56 @@ html {
 
 
 .prevItem1{
+  
   animation-name:prevItem1;
   animation-duration: 0.5s;
+ -webkit-animation-name: prevItem1;
+ -webkit-animation-direction:0.5s ;
+
+  /* -webkit-animation: prevItem1 0.3s linear;
+    -ms-animation: prevItem1 0.3s linear;
+    -o-animation: prevItem1 0.3s linear;
+    animation: prevItem1 0.3s linear; */
 }
 .prevItem2{
-  animation-name: prevItem2;
+ 
+  animation-name:prevItem2;
   animation-duration: 0.5s;
+ -webkit-animation-name: prevItem2;
+ -webkit-animation-direction:0.5s ;
 }
 
 .nextItem1{
-  animation-name: nextItem1;
+  animation-name:nextItem1;
   animation-duration: 0.5s;
+  -webkit-animation-name: nextItem1;
+  -webkit-animation-duration: 0.5s;
+  -ms-animation-name: nextItem1;
+  -ms-animation-duration: 0.5s;
+  -o-animation-name: nextItem1;
+  -o-animation-duration:0.5s ;
+ 
 }
 .nextItem2{
-  animation-name: nextItem2;
+  animation-name:nextItem2;
   animation-duration: 0.5s;
+  -webkit-animation-name: nextItem2;
+  -webkit-animation-duration: 0.5s;
+  -ms-animation-name: nextItem2;
+  -ms-animation-duration: 0.5s;
+  -o-animation-name: nextItem2;
+  -o-animation-duration:0.5s ;
+
 }
 .product-collocation{
-  height:412px;
+  height:336px;
 }
 .scroll-dot{
    position: absolute;
    bottom: 0%;
    left: 10px;
    display: flex;
+   z-index: 10;
 }
 .scroll-dot__active-li{
   border: 4px solid black !important;
@@ -3261,9 +3291,9 @@ img.lazyload[data-sizes=auto] {
    height: 23px !important;
 }
 
-.main-product-collocation .scroll-dot{
+/* .main-product-collocation .scroll-dot{
   display: none;
-}
+} */
 .mini-cart-add__button{
   /* width: 100%; */
   height: 35px;
