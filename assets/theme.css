@@ -3357,6 +3357,22 @@ display: none;
 .main-product-collocation .nextButton{
   transform: translate(100%,-50%);
 }
+.main-product-collocation .block-swatch__item{
+  padding: 0 10px;
+}
+.main-product-collocation .color-swatch-list--large .color-swatch {
+  margin: 4px;
+}
+.main-product-collocation .color-swatch-list--large .color-swatch__item {
+  width: 24px;
+  height: 24px;
+}
+.main-product-collocation .product-form__option-name {
+  margin-bottom: 0
+}
+.main-product-collocation .product-wrapper_option {
+  margin-bottom: 8px;
+}
 .collocation-product-meta__title {
   overflow: hidden;
   text-overflow: ellipsis;
