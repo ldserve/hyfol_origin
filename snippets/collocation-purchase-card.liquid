@@ -132,7 +132,8 @@
                 <div class="product-form__variants ">
                     {%- for option in product.options_with_values -%}
                     {%- capture option_name -%}{{ section.id }}-{{ product.id }}-{{ forloop.index }}{%- endcapture -%}
-                    {%- if option.name== "COLOR" -%}
+											{% assign downcase_option = option.name  | downcase  %}
+                    {%- if downcase_option   == "color" %}
                     <div class="product-wrapper_option" data-selector-type="color">
                         <div class="product-wrapper-scoll">
                             {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split:
@@ -201,7 +202,7 @@
                     </div>
                     {%- endif -%}
 
-                    {%- if option.name == "SIZE" -%}
+                    {%- if downcase_option == "size" -%}
                     <div class="product-wrapper_option" data-selector-type="block">
                         <div class="product-wrapper-scoll">
                             <span class="product-form__option-name text--strong  collocation-size-text">{{ option.name
@@ -251,7 +252,7 @@
                         data-action="add-to-cart">{{ 'product.form.pre_order' | t }}</button>
                     {%- else -%}
                     <button type="submit" class="button button--primary mini-cart-add__button" data-scenable="1"
-                        data-sctype="addCart" data-scdata='{"is_quick_view":1,
+                        data-sctype="addCart" data-scdata='{"is_quick_view":0,
                               "commodity_spuid": "{{product.handle}}",
                  "commodity_name": "{{product.title | handleize }}",
                               "currency_unit":"USD",

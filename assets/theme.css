@@ -3357,7 +3357,11 @@ display: none;
 .main-product-collocation .nextButton{
   transform: translate(100%,-50%);
 }
-
+.collocation-product-meta__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .shipping-bar{
   width: 100%;
   padding: 0 10px;

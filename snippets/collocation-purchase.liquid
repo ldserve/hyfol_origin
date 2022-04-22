@@ -1,57 +1,44 @@
 {%- assign collocationLocation = collocationLocation -%}
-
 {%- assign variable = product.metafields.my_fields.collocation -%}
 {%- if variable !=blank -%}
-{%- assign handles = variable | split:',' -%}
-
-<div class="product-collocation">
-<slide-show data-collocationNum ="{{handles.size}}">
- <div class="collocation-container {{collocationLocation}}">
-   {% if handles.size > 1 %}
-     
-   <div class="switch-product">
-     <span class="prevButton" >{%- render :'icon', icon:'arrow-left' -%}</span>
-     <span class="nextButton" >{%- render :'icon', icon:'arrow-right' -%}</span>
-   </div>
-  
-   {% endif %}
-    {%- comment -%}点{%- endcomment -%}
- <div class="scroll-dot">
-   {% for Num in handles %}
-      <li></li>
-   {% endfor %}
- </div>
- <div class="collocation">
- <ul class="collocation-list">
-   
- {% for handle in handles %}
- {%- assign product = all_products[handle] -%}
- {%- assign selected_variant = product.selected_or_first_available_variant -%}
-
-   <li class="collocation-list-item" style="left:{{- forloop.index0 |times:100 -}}%;">
-       {%- render 'collocation-purchase-card' collocationLocation:collocationLocation product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}
-   </li>
-   
- {%- endfor -%}
-</ul>
- 
-
-</div>
-
-</div>
-</slide-show>
-
-<style>
+	{%- assign handles = variable | split:',' -%}
+	<div class="product-collocation">
+		<slide-show data-collocationNum="{{ handles.size }}">
+			<div class="collocation-container {{ collocationLocation }}">
+				{% if handles.size > 1 %}
+					<div class="switch-product">
+						<span class="prevButton">{%- render :'icon', icon:'arrow-left' -%}</span>
+						<span class="nextButton">{%- render :'icon', icon:'arrow-right' -%}</span>
+					</div>
+				{% endif %}
+				{%- comment -%}点{%- endcomment -%}
+				<div class="scroll-dot">
+					{% for Num in handles %}
+						<li></li>
+					{% endfor %}
+				</div>
+				<div class="collocation">
+					<ul class="collocation-list">
+						{% for handle in handles %}
+							{%- assign product = all_products[handle] -%}
+							{%- assign selected_variant = product.selected_or_first_available_variant -%}
+							<li class="collocation-list-item" style="left:{{- forloop.index0 |times:100 -}}%;">
+								{%- render 'collocation-purchase-card' collocationLocation:collocationLocation product:product , selected_variant:selected_variant,handle:handle index:forloop.index -%}
+							</li>
+						{%- endfor -%}
+					</ul>
+				</div>
+			</div>
+		</slide-show>
+	</div>
+	<style>
     .switch-product {
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
     }
-
     .switch-product span {
-        cursor: pointer;
-        font-size: 20px;
+      cursor: pointer;
+      font-size: 20px;
     }
-</style>
-
-</div>
+	</style>
 {%- endif -%}
