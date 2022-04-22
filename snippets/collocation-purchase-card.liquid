@@ -15,7 +15,7 @@
     <div class="product-block-wrapper" id="{{card_id}}">
         {%- form 'product', product, id: product_form_id, class: 'product-form' -%}
         {% if collocationLocation == "main-product-collocation"%}
-        <h1 class="product-meta__title heading h1  collocation-product-meta__title">{{ product.title }}</h1>
+        <h4 class="product-meta__title heading h4 collocation-product-meta__title ">{{ product.title }}</h4>
         {% endif %}
         <div class="exhibition d-flex {{collocationLocation}}">
             <div class="exhibition-left">
