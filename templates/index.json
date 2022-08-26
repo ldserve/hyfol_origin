@@ -377,7 +377,7 @@
       "type": "transparent-collection",
       "disabled": true,
       "settings": {
-        "collection": "camou",
+        "collection": "camo",
         "sensorsName": "FATIGUE COLLECTION",
         "title": "FATIGUE COLLECTION",
         "products_count": 18,
@@ -481,7 +481,7 @@
         "noMargin": true,
         "image": "shopify:\/\/shop_images\/02_f2383d81-ba3b-4f81-bcd8-d755dbef24a6.jpg",
         "mobile_image": "shopify:\/\/shop_images\/1e391a7f0c2577959f380afecee0bb81.jpg",
-        "link": "shopify:\/\/collections\/camou",
+        "link": "shopify:\/\/collections\/camo",
         "title_align": "row-reverse",
         "title_tb": "column-reverse",
         "title": "TACTICAL CLUB",
